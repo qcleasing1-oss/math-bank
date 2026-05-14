@@ -1,0 +1,586 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>คลังข้อสอบ — Admin Viewer (v1)</title>
+
+<!-- KaTeX สำหรับ render LaTeX -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+
+<!-- Thai font: Sarabun -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: #f6f1e6;          /* parchment cream */
+    --panel: #fbf7ee;       /* lighter cream */
+    --ink: #2b2419;         /* warm dark */
+    --ink-soft: #5a4f3d;
+    --rule: #d9cfb8;
+    --accent: #8b3a1f;      /* burnt sienna */
+    --accent-soft: #e8d5c0;
+    --ok: #4a6b3a;
+    --warn: #b58200;
+    --placeholder-bg: #fff4dc;
+    --placeholder-border: #d9b86a;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Sarabun', sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    height: 100%;
+  }
+
+  /* ===== Password gate ===== */
+  #gate {
+    position: fixed; inset: 0;
+    background: var(--bg);
+    display: flex; align-items: center; justify-content: center;
+    z-index: 100;
+  }
+  #gate .card {
+    background: var(--panel);
+    border: 1px solid var(--rule);
+    padding: 36px 40px;
+    max-width: 360px;
+    width: 90%;
+    box-shadow: 0 8px 24px rgba(43, 36, 25, 0.08);
+  }
+  #gate h1 {
+    font-weight: 500;
+    font-size: 20px;
+    margin: 0 0 4px;
+    color: var(--ink);
+    letter-spacing: 0.02em;
+  }
+  #gate .sub {
+    color: var(--ink-soft);
+    font-size: 13px;
+    margin-bottom: 22px;
+  }
+  #gate input[type=password] {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--rule);
+    background: #fff;
+    font-family: inherit;
+    font-size: 15px;
+    color: var(--ink);
+    outline: none;
+  }
+  #gate input[type=password]:focus { border-color: var(--accent); }
+  #gate button {
+    margin-top: 12px;
+    width: 100%;
+    padding: 10px;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    font-family: inherit;
+    font-size: 14px;
+    cursor: pointer;
+    letter-spacing: 0.05em;
+  }
+  #gate button:hover { background: #6f2d18; }
+  #gate .err { color: var(--accent); font-size: 13px; margin-top: 8px; min-height: 18px; }
+
+  /* ===== Main layout (เปิดหลัง unlock) ===== */
+  #app { display: none; height: 100vh; }
+  #app.active { display: grid; grid-template-columns: 320px 1fr; }
+
+  /* ===== Sidebar ===== */
+  aside {
+    background: var(--panel);
+    border-right: 1px solid var(--rule);
+    overflow-y: auto;
+    padding: 22px 18px;
+  }
+  aside header {
+    border-bottom: 1px dashed var(--rule);
+    padding-bottom: 14px;
+    margin-bottom: 14px;
+  }
+  aside header h2 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+  aside header .meta {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--ink-soft);
+    margin-top: 4px;
+  }
+
+  .set-item {
+    padding: 8px 10px;
+    margin-bottom: 2px;
+    cursor: pointer;
+    border-left: 3px solid transparent;
+    font-size: 14px;
+    transition: background .15s ease;
+  }
+  .set-item:hover { background: var(--accent-soft); }
+  .set-item.active {
+    background: var(--accent-soft);
+    border-left-color: var(--accent);
+    font-weight: 500;
+  }
+  .set-item .set-id {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: var(--ink-soft);
+  }
+  .set-item .set-count {
+    float: right;
+    font-size: 11px;
+    color: var(--ink-soft);
+    background: var(--bg);
+    padding: 1px 6px;
+    border-radius: 8px;
+  }
+
+  /* ===== Main content ===== */
+  main {
+    overflow-y: auto;
+    padding: 28px 36px 60px;
+  }
+  main.empty {
+    display: flex; align-items: center; justify-content: center;
+    color: var(--ink-soft);
+    font-style: italic;
+  }
+
+  .set-header {
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 12px;
+    margin-bottom: 18px;
+  }
+  .set-header h1 {
+    margin: 0 0 4px;
+    font-size: 22px;
+    font-weight: 700;
+  }
+  .set-header .set-meta {
+    font-size: 13px;
+    color: var(--ink-soft);
+    font-family: 'IBM Plex Mono', monospace;
+  }
+
+  /* Question list (accordion) */
+  .q-list { margin-top: 8px; }
+  .q-card {
+    border: 1px solid var(--rule);
+    background: var(--panel);
+    margin-bottom: 10px;
+  }
+  .q-card > summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    user-select: none;
+  }
+  .q-card > summary::-webkit-details-marker { display: none; }
+  .q-card > summary::before {
+    content: '▸';
+    color: var(--ink-soft);
+    font-size: 11px;
+    transition: transform .15s ease;
+    display: inline-block;
+  }
+  .q-card[open] > summary::before { transform: rotate(90deg); }
+  .q-card > summary:hover { background: var(--accent-soft); }
+
+  .q-num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 500;
+    font-size: 13px;
+    color: var(--accent);
+    min-width: 36px;
+  }
+  .q-preview {
+    flex: 1;
+    color: var(--ink);
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .q-badges { display: flex; gap: 4px; flex-shrink: 0; }
+  .badge {
+    font-size: 10px;
+    padding: 1px 7px;
+    background: var(--bg);
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    color: var(--ink-soft);
+    font-family: 'IBM Plex Mono', monospace;
+  }
+  .badge.img { background: var(--placeholder-bg); border-color: var(--placeholder-border); color: var(--warn); }
+  .badge.type { color: var(--accent); border-color: var(--accent-soft); }
+
+  .q-body {
+    padding: 4px 24px 20px;
+    border-top: 1px dashed var(--rule);
+  }
+  .q-section {
+    margin-top: 16px;
+  }
+  .q-section h4 {
+    margin: 0 0 6px;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-soft);
+    font-weight: 700;
+  }
+  .q-question { font-size: 15px; line-height: 1.7; }
+  .choices { margin: 0; padding-left: 22px; }
+  .choices li { margin-bottom: 4px; }
+  .choices li.correct {
+    color: var(--ok);
+    font-weight: 500;
+  }
+  .choices li.correct::after {
+    content: ' ✓';
+    color: var(--ok);
+  }
+  .correct-fill {
+    font-family: 'IBM Plex Mono', monospace;
+    background: #e6efdc;
+    padding: 2px 8px;
+    border-left: 3px solid var(--ok);
+    display: inline-block;
+  }
+  .explanation { background: #fff; padding: 10px 14px; border: 1px solid var(--rule); }
+  .explanation > div { margin: 4px 0; }
+
+  /* imageSpec placeholder card */
+  .imgspec-placeholder {
+    background: var(--placeholder-bg);
+    border: 1px dashed var(--placeholder-border);
+    padding: 12px 14px;
+  }
+  .imgspec-placeholder .label {
+    font-size: 12px;
+    color: var(--warn);
+    font-family: 'IBM Plex Mono', monospace;
+    letter-spacing: 0.05em;
+  }
+  .imgspec-placeholder .type-pill {
+    display: inline-block;
+    background: #fff;
+    border: 1px solid var(--placeholder-border);
+    padding: 2px 10px;
+    margin-top: 6px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    color: var(--accent);
+  }
+  .imgspec-placeholder details { margin-top: 8px; }
+  .imgspec-placeholder summary {
+    cursor: pointer;
+    font-size: 12px;
+    color: var(--ink-soft);
+  }
+  .imgspec-placeholder pre {
+    background: #fff;
+    border: 1px solid var(--rule);
+    padding: 8px 10px;
+    margin-top: 6px;
+    font-size: 11px;
+    overflow-x: auto;
+    font-family: 'IBM Plex Mono', monospace;
+  }
+  .imgnote {
+    font-size: 13px;
+    color: var(--ink-soft);
+    font-style: italic;
+    margin-top: 6px;
+  }
+
+  /* Error / status */
+  .status {
+    padding: 14px 18px;
+    border-left: 4px solid var(--accent);
+    background: var(--accent-soft);
+    margin-bottom: 16px;
+    font-size: 14px;
+  }
+  .status code {
+    font-family: 'IBM Plex Mono', monospace;
+    background: #fff;
+    padding: 1px 5px;
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ Password gate ============ -->
+<div id="gate">
+  <div class="card">
+    <h1>คลังข้อสอบ · Admin Viewer</h1>
+    <div class="sub">ใส่รหัสเพื่อเข้าใช้งาน</div>
+    <input type="password" id="pw" placeholder="password" autofocus>
+    <button id="unlock">เข้าสู่ระบบ</button>
+    <div class="err" id="err"></div>
+  </div>
+</div>
+
+<!-- ============ Main app ============ -->
+<div id="app">
+  <aside>
+    <header>
+      <h2>คลังข้อสอบคณิต ม.ปลาย</h2>
+      <div class="meta" id="bankMeta">กำลังโหลด…</div>
+    </header>
+    <div id="setList"></div>
+  </aside>
+  <main class="empty" id="content">
+    เลือกชุดข้อสอบจากด้านซ้าย
+  </main>
+</div>
+
+<script>
+  // ============ Password gate ============
+  const PASSWORD = 'teacher2026';
+  const gate = document.getElementById('gate');
+  const app = document.getElementById('app');
+  const pwInput = document.getElementById('pw');
+  const errEl = document.getElementById('err');
+
+  function tryUnlock() {
+    if (pwInput.value === PASSWORD) {
+      gate.style.display = 'none';
+      app.classList.add('active');
+      loadBank();
+    } else {
+      errEl.textContent = 'รหัสไม่ถูกต้อง';
+      pwInput.value = '';
+      pwInput.focus();
+    }
+  }
+  document.getElementById('unlock').addEventListener('click', tryUnlock);
+  pwInput.addEventListener('keydown', e => { if (e.key === 'Enter') tryUnlock(); });
+
+  // ============ Load bank ============
+  let BANK = null;
+  let CURRENT_SET = null;
+
+  async function loadBank() {
+    const meta = document.getElementById('bankMeta');
+    try {
+      // path สัมพัทธ์: viewer/admin.html → ../data/bank.json
+      const res = await fetch('../data/bank.json', { cache: 'no-cache' });
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      BANK = await res.json();
+      meta.textContent = `schema v${BANK.schemaVersion} · exported ${BANK.exported}`;
+      renderSetList();
+    } catch (e) {
+      meta.textContent = 'โหลดไม่สำเร็จ';
+      document.getElementById('content').innerHTML = `
+        <div style="max-width:600px">
+          <div class="status">
+            <strong>โหลด bank ไม่สำเร็จ</strong><br>
+            <code>${e.message}</code><br><br>
+            ตรวจสอบ:
+            <ul>
+              <li>ไฟล์ <code>data/bank.json</code> อยู่ที่ root ของ project</li>
+              <li>เปิดด้วย local server (เช่น <code>python -m http.server</code>) ไม่ใช่ <code>file://</code></li>
+              <li>เปิดผ่าน URL เช่น <code>http://localhost:8000/viewer/admin.html</code></li>
+            </ul>
+          </div>
+        </div>`;
+      document.getElementById('content').classList.remove('empty');
+    }
+  }
+
+  // ============ Sidebar: set list ============
+  function renderSetList() {
+    const sets = BANK.sets || {};
+    const questions = BANK.questions || [];
+
+    // นับ q ต่อ set
+    const countBySet = {};
+    questions.forEach(q => {
+      countBySet[q.setId] = (countBySet[q.setId] || 0) + 1;
+    });
+
+    // เรียง setId ตามตัวอักษร (ไม่ sort ก็ได้ — เก็บลำดับใน JSON)
+    const setIds = Object.keys(sets);
+
+    const html = setIds.map(sid => {
+      const s = sets[sid];
+      const n = countBySet[sid] || 0;
+      const label = s.examDate || `${s.source || ''} ${s.year || ''}/${s.month || ''}`;
+      return `
+        <div class="set-item" data-setid="${sid}">
+          <span class="set-count">${n}</span>
+          <div>${label}</div>
+          <div class="set-id">${sid}</div>
+        </div>`;
+    }).join('');
+
+    document.getElementById('setList').innerHTML = html;
+
+    document.querySelectorAll('.set-item').forEach(el => {
+      el.addEventListener('click', () => selectSet(el.dataset.setid));
+    });
+  }
+
+  // ============ Main: render set ============
+  function selectSet(sid) {
+    CURRENT_SET = sid;
+    document.querySelectorAll('.set-item').forEach(el => {
+      el.classList.toggle('active', el.dataset.setid === sid);
+    });
+
+    const s = BANK.sets[sid];
+    const qs = (BANK.questions || []).filter(q => q.setId === sid);
+
+    const html = `
+      <div class="set-header">
+        <h1>${s.source || ''} ${s.year || ''}${s.month ? ' · เดือน ' + s.month : ''}</h1>
+        <div class="set-meta">
+          <code>${sid}</code> · ${qs.length} ข้อ
+          ${s.totalScore ? ` · ${s.totalScore} คะแนน` : ''}
+          ${s.examDate ? ' · สอบ ' + s.examDate : ''}
+        </div>
+      </div>
+      <div class="q-list">
+        ${qs.map(renderQCard).join('')}
+      </div>
+    `;
+    const main = document.getElementById('content');
+    main.classList.remove('empty');
+    main.innerHTML = html;
+    typeset(main);
+  }
+
+  // ============ Question card ============
+  function renderQCard(q) {
+    const preview = (q.question || '').replace(/\$[^$]+\$/g, '◇').slice(0, 90);
+    const hasImg = q.imageSpec || q.hasImage;
+    const imgBadge = q.imageSpec
+      ? `<span class="badge img">imageSpec</span>`
+      : (q.hasImage ? `<span class="badge img">hasImage</span>` : '');
+
+    return `
+      <details class="q-card">
+        <summary>
+          <span class="q-num">Q${String(q.questionNumber).padStart(2,'0')}</span>
+          <span class="q-preview">${escapeHtml(preview)}</span>
+          <span class="q-badges">
+            <span class="badge type">${q.type}</span>
+            ${imgBadge}
+          </span>
+        </summary>
+        <div class="q-body">
+          ${renderQBody(q)}
+        </div>
+      </details>
+    `;
+  }
+
+  function renderQBody(q) {
+    let out = '';
+
+    // คำถาม
+    out += `<div class="q-section">
+      <h4>โจทย์</h4>
+      <div class="q-question">${q.question || ''}</div>
+    </div>`;
+
+    // imageSpec placeholder (Phase B จะใส่ renderer จริง)
+    if (q.imageSpec) {
+      out += `<div class="q-section">
+        <h4>รูปประกอบ</h4>
+        <div class="imgspec-placeholder">
+          <div class="label">imageSpec (placeholder — renderer ยังไม่ติดตั้ง)</div>
+          <div class="type-pill">type: ${q.imageSpec.type || '(none)'}</div>
+          ${q.imageNote ? `<div class="imgnote">📝 ${escapeHtml(q.imageNote)}</div>` : ''}
+          <details>
+            <summary>ดู JSON ทั้งหมด</summary>
+            <pre>${escapeHtml(JSON.stringify(q.imageSpec, null, 2))}</pre>
+          </details>
+        </div>
+      </div>`;
+    } else if (q.imageNote) {
+      out += `<div class="q-section">
+        <h4>รูปประกอบ (เป็น note)</h4>
+        <div class="imgnote">${escapeHtml(q.imageNote)}</div>
+      </div>`;
+    }
+
+    // ตัวเลือก
+    if (q.type === 'mc' && Array.isArray(q.choices)) {
+      out += `<div class="q-section">
+        <h4>ตัวเลือก</h4>
+        <ol class="choices">
+          ${q.choices.map((c, i) =>
+            `<li class="${i === q.correct ? 'correct' : ''}">${c}</li>`
+          ).join('')}
+        </ol>
+      </div>`;
+    } else if (q.type === 'fill') {
+      out += `<div class="q-section">
+        <h4>คำตอบ</h4>
+        <span class="correct-fill">${q.correct}</span>
+        ${Array.isArray(q.accept) && q.accept.length > 1
+          ? ` <span style="font-size:12px;color:var(--ink-soft)">(รับ: ${q.accept.join(', ')})</span>` : ''}
+      </div>`;
+    }
+
+    // เฉลย
+    if (Array.isArray(q.explanation) && q.explanation.length) {
+      out += `<div class="q-section">
+        <h4>เฉลย</h4>
+        <div class="explanation">
+          ${q.explanation.map(line => `<div>${line}</div>`).join('')}
+        </div>
+      </div>`;
+    }
+
+    return out;
+  }
+
+  // ============ Helpers ============
+  function escapeHtml(s) {
+    return String(s)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;');
+  }
+
+  function typeset(root) {
+    if (window.renderMathInElement) {
+      renderMathInElement(root, {
+        delimiters: [
+          { left: '$$', right: '$$', display: true },
+          { left: '$',  right: '$',  display: false },
+          { left: '\\(', right: '\\)', display: false },
+          { left: '\\[', right: '\\]', display: true }
+        ],
+        throwOnError: false
+      });
+    }
+  }
+</script>
+</body>
+</html>
