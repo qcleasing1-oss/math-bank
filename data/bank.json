@@ -7176,7 +7176,93 @@
         "พื้นที่แรเงา (เส้นบน $g$ − เส้นล่าง $f$ จาก $0$ ถึง $1$):",
         "$= \\displaystyle\\int_0^1 (g(x) - f(x))\\,dx = \\int_0^1 (-4x^2 + 8x - 4x^2)\\,dx = \\int_0^1 (-8x^2 + 8x)\\,dx$",
         "$= \\left[-\\dfrac{8}{3}x^3 + 4x^2\\right]_0^1 = -\\dfrac{8}{3} + 4 = \\dfrac{4}{3}$ ตารางหน่วย"
-      ]
+      ],
+      "imageSpec": {
+        "type": "function-plot",
+        "width": 450,
+        "height": 280,
+        "xRange": [
+          -1.6,
+          2.3
+        ],
+        "yRange": [
+          -1,
+          5.5
+        ],
+        "axes": {
+          "arrows": true,
+          "xLabel": "X",
+          "yLabel": "Y",
+          "originLabel": "0"
+        },
+        "functions": [
+          {
+            "id": "f",
+            "kind": "parabola",
+            "vertex": [
+              0,
+              0
+            ],
+            "throughPoint": [
+              1,
+              4
+            ],
+            "domain": [
+              -1.2,
+              1.3
+            ],
+            "label": {
+              "text": "y = f(x)",
+              "at": [
+                -0.9,
+                4.4
+              ]
+            }
+          },
+          {
+            "id": "g",
+            "kind": "parabola",
+            "vertex": [
+              1,
+              4
+            ],
+            "throughPoint": [
+              0,
+              0
+            ],
+            "domain": [
+              -0.2,
+              2.3
+            ],
+            "label": {
+              "text": "y = g(x)",
+              "at": [
+                1.5,
+                -0.6
+              ]
+            }
+          }
+        ],
+        "shadeBetween": [
+          {
+            "funcA": "f",
+            "funcB": "g",
+            "xRange": [
+              0,
+              1
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "text": "(1, 4)",
+            "at": [
+              1.1,
+              4.2
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "samn-2562-03-q23",
