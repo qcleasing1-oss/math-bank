@@ -10,6 +10,9 @@
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
 
+<!-- Image spec renderers (Phase B — port จาก portal) -->
+<script defer src="renderers.js"></script>
+
 <!-- Thai font: Sarabun -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -271,6 +274,17 @@
   .explanation { background: #fff; padding: 10px 14px; border: 1px solid var(--rule); }
   .explanation > div { margin: 4px 0; }
 
+  /* imageSpec — rendered SVG (Phase B) */
+  .img-rendered {
+    background: #fff;
+    border: 1px solid var(--rule);
+    padding: 12px 14px;
+    display: inline-block;
+    max-width: 100%;
+    overflow-x: auto;
+  }
+  .img-rendered svg { display: block; max-width: 100%; height: auto; }
+
   /* imageSpec placeholder card */
   .imgspec-placeholder {
     background: var(--placeholder-bg);
@@ -507,20 +521,31 @@
       <div class="q-question">${q.question || ''}</div>
     </div>`;
 
-    // imageSpec placeholder (Phase B จะใส่ renderer จริง)
+    // imageSpec → render SVG ผ่าน renderers.js (Phase B)
     if (q.imageSpec) {
-      out += `<div class="q-section">
-        <h4>รูปประกอบ</h4>
-        <div class="imgspec-placeholder">
-          <div class="label">imageSpec (placeholder — renderer ยังไม่ติดตั้ง)</div>
-          <div class="type-pill">type: ${q.imageSpec.type || '(none)'}</div>
+      const svg = (typeof renderImage === 'function') ? renderImage(q.imageSpec) : null;
+      if (svg) {
+        // renderer คืน SVG → แสดงในกรอบขาว
+        out += `<div class="q-section">
+          <h4>รูปประกอบ</h4>
+          <div class="img-rendered">${svg}</div>
           ${q.imageNote ? `<div class="imgnote">📝 ${escapeHtml(q.imageNote)}</div>` : ''}
-          <details>
-            <summary>ดู JSON ทั้งหมด</summary>
-            <pre>${escapeHtml(JSON.stringify(q.imageSpec, null, 2))}</pre>
-          </details>
-        </div>
-      </div>`;
+        </div>`;
+      } else {
+        // type ยังไม่รองรับ → fallback เป็น placeholder card เดิม
+        out += `<div class="q-section">
+          <h4>รูปประกอบ</h4>
+          <div class="imgspec-placeholder">
+            <div class="label">imageSpec (renderer ยังไม่รองรับ type นี้)</div>
+            <div class="type-pill">type: ${q.imageSpec.type || '(none)'}</div>
+            ${q.imageNote ? `<div class="imgnote">📝 ${escapeHtml(q.imageNote)}</div>` : ''}
+            <details>
+              <summary>ดู JSON ทั้งหมด</summary>
+              <pre>${escapeHtml(JSON.stringify(q.imageSpec, null, 2))}</pre>
+            </details>
+          </div>
+        </div>`;
+      }
     } else if (q.imageNote) {
       out += `<div class="q-section">
         <h4>รูปประกอบ (เป็น note)</h4>
