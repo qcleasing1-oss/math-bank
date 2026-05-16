@@ -1,0 +1,854 @@
+{
+  "setId": "samn-2555-01",
+  "questions": [
+    {
+      "id": "samn-2555-01-q01",
+      "setId": "samn-2555-01",
+      "questionNumber": 1,
+      "topics": [
+        "3"
+      ],
+      "type": "fill",
+      "level": "medium",
+      "score": 2,
+      "question": "ถ้าเซตคำตอบของอสมการ $|3 - 2x| - |3x - 7| \\ge 0$ คือช่วง $[a, b]$ แล้ว $a + b$ มีค่าเท่ากับเท่าใด",
+      "hasImage": false,
+      "correct": "6",
+      "accept": [
+        "6"
+      ],
+      "explanation": [
+        "ย้ายข้างแล้วยกกำลังสองทั้งสองข้าง: $|3 - 2x|^2 \\ge |3x - 7|^2$",
+        "$(3 - 2x)^2 \\ge (3x - 7)^2$",
+        "$9 - 12x + 4x^2 \\ge 9x^2 - 42x + 49$",
+        "$0 \\ge 5x^2 - 30x + 40$",
+        "$0 \\ge x^2 - 6x + 8 = (x - 2)(x - 4)$",
+        "$\\therefore\\ 2 \\le x \\le 4$",
+        "ดังนั้น $a = 2,\\ b = 4 \\Rightarrow a + b = 6$"
+      ]
+    },
+    {
+      "id": "samn-2555-01-q02",
+      "setId": "samn-2555-01",
+      "questionNumber": 2,
+      "topics": [
+        "3"
+      ],
+      "type": "fill",
+      "level": "medium",
+      "score": 2,
+      "question": "ถ้า $S$ เป็นเซตของจำนวนนับ $n$ ซึ่ง ค.ร.น. ของ $720$ และ $n$ มีค่าเท่ากับ $10800$ แล้วสมาชิกของ $S$ ที่มีค่าน้อยที่สุดมีค่าเท่ากับเท่าใด",
+      "hasImage": false,
+      "correct": "675",
+      "accept": [
+        "675"
+      ],
+      "explanation": [
+        "แยกตัวประกอบ: $720 = 2^4 \\cdot 3^2 \\cdot 5$",
+        "$10800 = 2^4 \\cdot 3^3 \\cdot 5^2$",
+        "เพื่อให้ ค.ร.น. $= 10800$ และ $n$ น้อยสุด → $n$ ต้องเติมส่วนที่ $720$ ขาด ($3^3$ และ $5^2$) แต่ไม่มีตัวประกอบส่วนเกิน",
+        "$\\therefore\\ n = 3^3 \\cdot 5^2 = 27 \\cdot 25 = 675$"
+      ]
+    },
+    {
+      "id": "samn-2555-01-q03",
+      "setId": "samn-2555-01",
+      "questionNumber": 3,
+      "topics": [
+        "7"
+      ],
+      "type": "fill",
+      "level": "medium",
+      "score": 2,
+      "question": "$\\sec^2\\!\\left(2\\tan^{-1}\\sqrt{2}\\right)$ มีค่าเท่ากับเท่าใด",
+      "hasImage": false,
+      "correct": "9",
+      "accept": [
+        "9"
+      ],
+      "explanation": [
+        "ให้ $\\theta = \\tan^{-1}\\sqrt{2} \\Rightarrow \\tan\\theta = \\sqrt{2}$",
+        "$\\tan 2\\theta = \\dfrac{2\\tan\\theta}{1 - \\tan^2\\theta} = \\dfrac{2\\sqrt{2}}{1 - 2} = -2\\sqrt{2}$",
+        "$\\sec^2(2\\theta) = 1 + \\tan^2(2\\theta) = 1 + 8 = 9$"
+      ]
+    },
+    {
+      "id": "samn-2555-01-q04",
+      "setId": "samn-2555-01",
+      "questionNumber": 4,
+      "topics": [
+        "9"
+      ],
+      "type": "fill",
+      "level": "easy",
+      "score": 2,
+      "question": "กำหนดให้ $O$ เป็นจุดกำเนิด $A = (1, -4, -3)$ และ $B = (3, -6, 2)$ ถ้า $C$ เป็นจุดบน $\\overline{OB}$ ซึ่งทำให้ $\\overrightarrow{AC} \\perp \\overrightarrow{OB}$ แล้ว $OC$ ยาวเท่าใด",
+      "hasImage": false,
+      "correct": "3",
+      "accept": [
+        "3"
+      ],
+      "explanation": [
+        "$OC$ คือการฉาย $\\overrightarrow{OA}$ บนทิศทาง $\\overrightarrow{OB}$",
+        "$OC = \\dfrac{\\overrightarrow{OA} \\cdot \\overrightarrow{OB}}{|\\overrightarrow{OB}|}$",
+        "$\\overrightarrow{OA} \\cdot \\overrightarrow{OB} = (1)(3) + (-4)(-6) + (-3)(2) = 3 + 24 - 6 = 21$",
+        "$|\\overrightarrow{OB}| = \\sqrt{9 + 36 + 4} = \\sqrt{49} = 7$",
+        "$OC = \\dfrac{21}{7} = 3$"
+      ]
+    },
+    {
+      "id": "samn-2555-01-q05",
+      "setId": "samn-2555-01",
+      "questionNumber": 5,
+      "topics": [
+        "8"
+      ],
+      "type": "fill",
+      "level": "medium",
+      "score": 2,
+      "question": "ผลบวกของคำตอบทั้งหมดของสมการ $3^x + 3^{2-x} = 4\\sqrt{3}$ มีค่าเท่ากับเท่าใด",
+      "hasImage": false,
+      "correct": "2",
+      "accept": [
+        "2"
+      ],
+      "explanation": [
+        "ให้ $u = 3^x \\Rightarrow 3^{2-x} = \\dfrac{9}{u}$",
+        "$u + \\dfrac{9}{u} = 4\\sqrt{3} \\Rightarrow u^2 - 4\\sqrt{3}\\,u + 9 = 0$",
+        "$u = \\dfrac{4\\sqrt{3} \\pm \\sqrt{48 - 36}}{2} = \\dfrac{4\\sqrt{3} \\pm 2\\sqrt{3}}{2} = 3\\sqrt{3}$ หรือ $\\sqrt{3}$",
+        "$\\therefore\\ 3^x = 3^{3/2}$ หรือ $3^{1/2} \\Rightarrow x = \\dfrac{3}{2}$ หรือ $\\dfrac{1}{2}$",
+        "ผลบวก $= \\dfrac{3}{2} + \\dfrac{1}{2} = 2$"
+      ]
+    },
+    {
+      "id": "samn-2555-01-q06",
+      "setId": "samn-2555-01",
+      "questionNumber": 6,
+      "topics": [
+        "8"
+      ],
+      "type": "fill",
+      "level": "easy",
+      "score": 2,
+      "question": "ถ้า $\\log\\!\\left[x + 27^{\\log_3 2}\\right] = 1$ แล้ว $x$ มีค่าเท่ากับเท่าใด",
+      "hasImage": false,
+      "correct": "2",
+      "accept": [
+        "2"
+      ],
+      "explanation": [
+        "$27^{\\log_3 2} = (3^3)^{\\log_3 2} = 3^{3\\log_3 2} = 3^{\\log_3 8} = 8$",
+        "$\\log[x + 8] = 1 \\Rightarrow x + 8 = 10$",
+        "$\\therefore\\ x = 2$"
+      ]
+    },
+    {
+      "id": "samn-2555-01-q07",
+      "setId": "samn-2555-01",
+      "questionNumber": 7,
+      "topics": [
+        "12"
+      ],
+      "type": "fill",
+      "level": "easy",
+      "score": 2,
+      "question": "ในการกระจาย $\\left(x^2 + \\dfrac{2}{x^3}\\right)^{\\!10}$ โดยใช้ทฤษฎีบททวินาม จะได้ว่าพจน์ค่าคงตัวมีค่าเท่ากับเท่าใด",
+      "hasImage": false,
+      "correct": "3360",
+      "accept": [
+        "3360"
+      ],
+      "explanation": [
+        "พจน์ทั่วไป: $\\dbinom{10}{r}(x^2)^{10-r}\\!\\left(\\dfrac{2}{x^3}\\right)^{\\!r} = \\dbinom{10}{r}\\,2^r\\,x^{20 - 5r}$",
+        "พจน์ค่าคงตัว ⇔ $20 - 5r = 0 \\Rightarrow r = 4$",
+        "ค่าคงตัว $= \\dbinom{10}{4} \\cdot 2^4 = 210 \\cdot 16 = 3360$"
+      ]
+    },
+    {
+      "id": "samn-2555-01-q08",
+      "setId": "samn-2555-01",
+      "questionNumber": 8,
+      "topics": [
+        "15"
+      ],
+      "type": "fill",
+      "level": "easy",
+      "score": 2,
+      "question": "ในการสอบวิชาประวัติศาสตร์ มีการสอบ $5$ ครั้ง โดยอาจารย์ให้น้ำหนักของผลการสอบครั้งสุดท้ายเป็นสองเท่าของผลการสอบครั้งอื่น ในการสอบสี่ครั้งแรก เด็กชายพลูสอบได้คะแนนเฉลี่ย $86\\%$ ถ้าเขาต้องการผลการสอบวิชานี้เป็น $90\\%$ แล้วเขาจะต้องได้คะแนนในการสอบครั้งที่ $5$ เท่ากับกี่เปอร์เซ็นต์",
+      "hasImage": false,
+      "correct": "98",
+      "accept": [
+        "98"
+      ],
+      "explanation": [
+        "ผลรวม $4$ ครั้งแรก $= 4 \\times 86 = 344$",
+        "ค่าเฉลี่ยถ่วงน้ำหนัก: $\\dfrac{x_1 + x_2 + x_3 + x_4 + 2x_5}{1+1+1+1+2} = \\dfrac{344 + 2x_5}{6} = 90$",
+        "$344 + 2x_5 = 540 \\Rightarrow x_5 = 98$"
+      ]
+    },
+    {
+      "id": "samn-2555-01-q09",
+      "setId": "samn-2555-01",
+      "questionNumber": 9,
+      "topics": [
+        "13"
+      ],
+      "type": "fill",
+      "level": "medium",
+      "score": 2,
+      "question": "กำหนดให้ $L_1$ เป็นเส้นตรงซึ่งมีสมการเป็น $4x - 3y + 10 = 0$ และ $L_2$ เป็นเส้นสัมผัสของเส้นโค้ง $y = x^2 - \\dfrac{8}{3}x + \\dfrac{7}{3}$ ถ้า $L_2$ ขนานกับ $L_1$ แล้วระยะห่างระหว่างเส้นตรง $L_1$ และ $L_2$ เท่ากับเท่าใด",
+      "hasImage": false,
+      "correct": "3",
+      "accept": [
+        "3"
+      ],
+      "explanation": [
+        "ความชัน $L_1 = \\dfrac{4}{3}$",
+        "$y' = 2x - \\dfrac{8}{3} = \\dfrac{4}{3} \\Rightarrow x = 2$",
+        "$y(2) = 4 - \\dfrac{16}{3} + \\dfrac{7}{3} = 1$ → จุดสัมผัส $(2, 1)$",
+        "$L_2$: $y - 1 = \\dfrac{4}{3}(x - 2) \\Rightarrow 4x - 3y - 5 = 0$",
+        "ระยะห่างเส้นขนาน: $\\dfrac{|10 - (-5)|}{\\sqrt{16 + 9}} = \\dfrac{15}{5} = 3$"
+      ]
+    },
+    {
+      "id": "samn-2555-01-q10",
+      "setId": "samn-2555-01",
+      "questionNumber": 10,
+      "topics": [
+        "13"
+      ],
+      "type": "fill",
+      "level": "easy",
+      "score": 2,
+      "question": "$\\displaystyle\\int_0^2 6x|x - 2|\\,dx$ มีค่าเท่ากับเท่าใด",
+      "hasImage": false,
+      "correct": "8",
+      "accept": [
+        "8"
+      ],
+      "explanation": [
+        "ในช่วง $[0, 2]$: $x - 2 \\le 0 \\Rightarrow |x - 2| = 2 - x$",
+        "$\\displaystyle\\int_0^2 6x(2 - x)\\,dx = \\int_0^2 (12x - 6x^2)\\,dx$",
+        "$= \\Big[6x^2 - 2x^3\\Big]_0^2 = 24 - 16 = 8$"
+      ]
+    },
+    {
+      "id": "samn-2555-01-q11",
+      "setId": "samn-2555-01",
+      "questionNumber": 11,
+      "topics": [
+        "3"
+      ],
+      "type": "mc",
+      "level": "medium",
+      "score": 4,
+      "question": "กำหนดให้ $P(x)$ เป็นพหุนามดีกรี $3$ ถ้า $x - 1,\\ x - 2$ และ $x - 3$ ต่างก็หาร $P(x)$ แล้วเหลือเศษ $1$ และ $x - 4$ หาร $P(x)$ ลงตัว แล้ว $P(5)$ มีค่าเท่ากับข้อใดต่อไปนี้",
+      "hasImage": false,
+      "choices": [
+        "$-3$",
+        "$-1$",
+        "$0$",
+        "$1$",
+        "$3$"
+      ],
+      "correct": 0,
+      "explanation": [
+        "$P(1) = P(2) = P(3) = 1 \\Rightarrow P(x) - 1$ มีราก $1, 2, 3$",
+        "$P(x)$ ดีกรี $3 \\Rightarrow P(x) = k(x-1)(x-2)(x-3) + 1$",
+        "$P(4) = 0 \\Rightarrow 6k + 1 = 0 \\Rightarrow k = -\\dfrac{1}{6}$",
+        "$P(5) = -\\dfrac{1}{6}(4)(3)(2) + 1 = -4 + 1 = -3$"
+      ]
+    },
+    {
+      "id": "samn-2555-01-q12",
+      "setId": "samn-2555-01",
+      "questionNumber": 12,
+      "topics": [
+        "10"
+      ],
+      "type": "mc",
+      "level": "medium",
+      "score": 4,
+      "question": "ถ้า $z$ เป็นจำนวนเชิงซ้อนซึ่งมี $\\operatorname{Im}(z) > 0$ และสอดคล้องกับสมการ $\\left(z + \\dfrac{\\sqrt{3}}{2}\\right)^{\\!2} = -\\dfrac{1}{4}$ แล้ว $z^8$ เท่ากับข้อใดต่อไปนี้",
+      "hasImage": false,
+      "choices": [
+        "$-\\dfrac{\\sqrt{3}}{2} - \\dfrac{1}{2}i$",
+        "$-\\dfrac{\\sqrt{3}}{2} + \\dfrac{1}{2}i$",
+        "$\\dfrac{1}{2}$",
+        "$-\\dfrac{1}{2} - \\dfrac{\\sqrt{3}}{2}i$",
+        "$-\\dfrac{1}{2} + \\dfrac{\\sqrt{3}}{2}i$"
+      ],
+      "correct": 4,
+      "explanation": [
+        "$z + \\dfrac{\\sqrt{3}}{2} = \\pm\\dfrac{i}{2}$",
+        "$\\operatorname{Im}(z) > 0 \\Rightarrow z = -\\dfrac{\\sqrt{3}}{2} + \\dfrac{1}{2}i$",
+        "$|z| = \\sqrt{\\dfrac{3}{4} + \\dfrac{1}{4}} = 1,\\quad \\arg(z) = 180^\\circ - 30^\\circ = 150^\\circ$",
+        "$z^8 = \\operatorname{cis}(8 \\times 150^\\circ) = \\operatorname{cis}(1200^\\circ) = \\operatorname{cis}(120^\\circ)$",
+        "$= -\\dfrac{1}{2} + \\dfrac{\\sqrt{3}}{2}i$"
+      ]
+    },
+    {
+      "id": "samn-2555-01-q13",
+      "setId": "samn-2555-01",
+      "questionNumber": 13,
+      "topics": [
+        "3"
+      ],
+      "type": "mc",
+      "level": "hard",
+      "score": 4,
+      "question": "กำหนดให้ $a, b$ เป็นจำนวนเต็มบวกซึ่ง $ab - 25a - 25b = 1575$ ถ้า $\\gcd(a, b) = 5$ แล้ว $|a - b|$ มีค่าเท่ากับข้อใดต่อไปนี้",
+      "hasImage": false,
+      "choices": [
+        "$15$",
+        "$45$",
+        "$90$",
+        "$210$",
+        "$435$"
+      ],
+      "correct": 0,
+      "explanation": [
+        "บวก $625$ ทั้งสองข้าง (Simon's Favorite Factoring Trick):",
+        "$ab - 25a - 25b + 625 = 2200 \\Rightarrow (a - 25)(b - 25) = 2200$",
+        "ให้ $a = 5m,\\ b = 5n$ โดย $\\gcd(m, n) = 1$",
+        "$25(m - 5)(n - 5) = 2200 \\Rightarrow (m - 5)(n - 5) = 88$",
+        "คู่ตัวประกอบของ $88$ ที่ทำให้ $\\gcd(m, n) = 1$: $(m-5, n-5) = (8, 11) \\Rightarrow (m, n) = (13, 16)$",
+        "$\\Rightarrow (a, b) = (65, 80)$",
+        "$|a - b| = 15$"
+      ]
+    },
+    {
+      "id": "samn-2555-01-q14",
+      "setId": "samn-2555-01",
+      "questionNumber": 14,
+      "topics": [
+        "9"
+      ],
+      "type": "mc",
+      "level": "medium",
+      "score": 4,
+      "question": "กำหนดให้ $\\vec{u}$ และ $\\vec{v}$ เป็นเวกเตอร์สามมิติซึ่งทำมุมป้านต่อกัน และพื้นที่ของรูปสี่เหลี่ยมด้านขนานที่มีด้านประกอบมุมเป็น $\\vec{u}$ และ $\\vec{v}$ มีค่าเท่ากับ $3$ ตารางหน่วย ถ้า $\\vec{u}$ และ $\\vec{v}$ มีขนาด $1$ และ $5$ หน่วย ตามลำดับ แล้ว $(2\\vec{u} + \\vec{v}) \\cdot (\\vec{u} - \\vec{v})$ มีค่าเท่ากับข้อใดต่อไปนี้",
+      "hasImage": false,
+      "choices": [
+        "$-27$",
+        "$-19$",
+        "$0$",
+        "$19$",
+        "$27$"
+      ],
+      "correct": 1,
+      "explanation": [
+        "$|\\vec{u} \\times \\vec{v}| = 3 = |\\vec{u}||\\vec{v}|\\sin\\theta = 5\\sin\\theta \\Rightarrow \\sin\\theta = \\dfrac{3}{5}$",
+        "มุมป้าน $\\Rightarrow \\cos\\theta = -\\dfrac{4}{5}$",
+        "$\\vec{u} \\cdot \\vec{v} = (1)(5)\\!\\left(-\\dfrac{4}{5}\\right) = -4$",
+        "$(2\\vec{u} + \\vec{v}) \\cdot (\\vec{u} - \\vec{v}) = 2|\\vec{u}|^2 - \\vec{u}\\cdot\\vec{v} - |\\vec{v}|^2$",
+        "$= 2(1) - (-4) - 25 = 2 + 4 - 25 = -19$"
+      ]
+    },
+    {
+      "id": "samn-2555-01-q15",
+      "setId": "samn-2555-01",
+      "questionNumber": 15,
+      "topics": [
+        "4"
+      ],
+      "type": "mc",
+      "level": "hard",
+      "score": 4,
+      "question": "กำหนดให้ $H$ เป็นไฮเพอร์โบลาซึ่งมีสมการเป็น $9x^2 - 72x - 16y^2 - 32y = 16$ ถ้า $E$ เป็นวงรีซึ่งมีจุดยอดอยู่ที่จุดโฟกัสของ $H$ และมีความเยื้องศูนย์กลางเท่ากับ $\\dfrac{1}{\\sqrt{5}}$ แล้ว $E$ คือสมการในข้อใดต่อไปนี้",
+      "hasImage": false,
+      "choices": [
+        "$\\dfrac{(x-4)^2}{25} + \\dfrac{(y+1)^2}{16} = 1$",
+        "$\\dfrac{(x+4)^2}{25} + \\dfrac{(y-1)^2}{16} = 1$",
+        "$\\dfrac{(x-4)^2}{25} + \\dfrac{(y+1)^2}{20} = 1$",
+        "$\\dfrac{(x+4)^2}{25} + \\dfrac{(y-1)^2}{20} = 1$",
+        "$\\dfrac{(x-4)^2}{16} + \\dfrac{(y+1)^2}{9} = 1$"
+      ],
+      "correct": 2,
+      "explanation": [
+        "จัดรูป $H$: $9(x - 4)^2 - 16(y + 1)^2 = 144$",
+        "$\\dfrac{(x-4)^2}{16} - \\dfrac{(y+1)^2}{9} = 1$",
+        "ศูนย์กลาง $(4, -1),\\ a^2 = 16,\\ b^2 = 9,\\ c^2 = 25 \\Rightarrow c = 5$",
+        "โฟกัส $H$: $(4 \\pm 5, -1) = (-1, -1)$ และ $(9, -1)$",
+        "วงรี $E$: ศูนย์กลาง $(4, -1)$, $a_E = 5$, $e = \\dfrac{1}{\\sqrt{5}} \\Rightarrow c_E = \\sqrt{5}$",
+        "$b_E^2 = a_E^2 - c_E^2 = 25 - 5 = 20$",
+        "$E:\\ \\dfrac{(x-4)^2}{25} + \\dfrac{(y+1)^2}{20} = 1$"
+      ]
+    },
+    {
+      "id": "samn-2555-01-q16",
+      "setId": "samn-2555-01",
+      "questionNumber": 16,
+      "topics": [
+        "7"
+      ],
+      "type": "mc",
+      "level": "hard",
+      "score": 4,
+      "question": "กำหนดให้รูปสามเหลี่ยม $ABC$ มีมุม $A$ และมุม $B$ เป็นมุมแหลม ถ้า $\\cos 2A + 3\\cos 2B = -2$ และ $\\cos A - \\sqrt{2}\\cos B = 0$ แล้ว $\\cos C$ มีค่าเท่ากับข้อใดต่อไปนี้",
+      "hasImage": false,
+      "choices": [
+        "$\\dfrac{1}{5}\\!\\left(\\sqrt{3} - \\sqrt{2}\\right)$",
+        "$\\dfrac{1}{5}\\!\\left(\\sqrt{3} + \\sqrt{2}\\right)$",
+        "$\\dfrac{1}{5}\\!\\left(2\\sqrt{3} - \\sqrt{2}\\right)$",
+        "$\\dfrac{1}{5}\\!\\left(\\sqrt{2} + 2\\sqrt{3}\\right)$",
+        "$\\dfrac{1}{5}\\!\\left(2\\sqrt{2} - \\sqrt{3}\\right)$"
+      ],
+      "correct": 2,
+      "explanation": [
+        "ใช้สูตร $\\cos 2\\theta = 2\\cos^2\\theta - 1$:",
+        "$2\\cos^2 A + 6\\cos^2 B - 4 = -2 \\Rightarrow \\cos^2 A + 3\\cos^2 B = 1$",
+        "จาก $\\cos A = \\sqrt{2}\\cos B \\Rightarrow \\cos^2 A = 2\\cos^2 B$",
+        "$5\\cos^2 B = 1 \\Rightarrow \\cos B = \\dfrac{1}{\\sqrt{5}},\\ \\cos A = \\dfrac{\\sqrt{2}}{\\sqrt{5}}$",
+        "$\\sin A = \\dfrac{\\sqrt{3}}{\\sqrt{5}},\\ \\sin B = \\dfrac{2}{\\sqrt{5}}$",
+        "$\\cos C = -\\cos(A + B) = -(\\cos A\\cos B - \\sin A\\sin B)$",
+        "$= -\\!\\left(\\dfrac{\\sqrt{2}}{5} - \\dfrac{2\\sqrt{3}}{5}\\right) = \\dfrac{2\\sqrt{3} - \\sqrt{2}}{5}$"
+      ]
+    },
+    {
+      "id": "samn-2555-01-q17",
+      "setId": "samn-2555-01",
+      "questionNumber": 17,
+      "topics": [
+        "6"
+      ],
+      "type": "mc",
+      "level": "hard",
+      "score": 4,
+      "question": "ถ้า $x, y, z$ สอดคล้องกับระบบสมการ $\\begin{cases}2x + y + 2z = a\\\\ x + y - z = b\\\\ 3x + 2y - 2z = c\\end{cases}$ โดยที่ดีเทอร์มิแนนท์ $\\begin{vmatrix}2 & -1 & -2\\\\ 2 & 2 & 4\\\\ a & b & c\\end{vmatrix} = 24$ แล้ว $x$ มีค่าเท่ากับข้อใดต่อไปนี้",
+      "hasImage": false,
+      "choices": [
+        "$-4$",
+        "$-\\dfrac{4}{5}$",
+        "$0$",
+        "$\\dfrac{4}{5}$",
+        "$4$"
+      ],
+      "correct": 4,
+      "explanation": [
+        "เมทริกซ์สัมประสิทธิ์: $D = \\begin{vmatrix}2 & 1 & 2\\\\ 1 & 1 & -1\\\\ 3 & 2 & -2\\end{vmatrix} = -3$",
+        "กระจายดีเทอร์มิแนนท์ที่โจทย์ให้ตามแถว $3$: $-12b + 6c = 24 \\Rightarrow c - 2b = 4$",
+        "ใช้กฎ Cramer: $D_x = \\begin{vmatrix}a & 1 & 2\\\\ b & 1 & -1\\\\ c & 2 & -2\\end{vmatrix}$",
+        "กระจายตามคอลัมน์ $1$: $D_x = 0 + 6b - 3c = -3(c - 2b) = -12$",
+        "$x = \\dfrac{D_x}{D} = \\dfrac{-12}{-3} = 4$"
+      ]
+    },
+    {
+      "id": "samn-2555-01-q18",
+      "setId": "samn-2555-01",
+      "questionNumber": 18,
+      "topics": [
+        "6"
+      ],
+      "type": "mc",
+      "level": "medium",
+      "score": 4,
+      "question": "กำหนดให้ $A$ เป็นเมทริกซ์มิติ $3 \\times 3$ และ $AX_i = B_i$ เมื่อ $i = 1, 2, 3$\n\nถ้า $X_1 = \\begin{pmatrix}1\\\\ 0\\\\ 5\\end{pmatrix},\\ X_2 = \\begin{pmatrix}1\\\\ 2\\\\ 5\\end{pmatrix},\\ X_3 = \\begin{pmatrix}1\\\\ 3\\\\ 1\\end{pmatrix},\\ B_1 = \\begin{pmatrix}1\\\\ 0\\\\ 0\\end{pmatrix},\\ B_2 = \\begin{pmatrix}0\\\\ 1\\\\ 0\\end{pmatrix},\\ B_3 = \\begin{pmatrix}0\\\\ 0\\\\ 1\\end{pmatrix}$\n\nแล้ว $\\det(A)$ มีค่าเท่ากับข้อใดต่อไปนี้",
+      "hasImage": false,
+      "choices": [
+        "$-8$",
+        "$-\\dfrac{1}{8}$",
+        "$\\dfrac{1}{8}$",
+        "$1$",
+        "$8$"
+      ],
+      "correct": 1,
+      "explanation": [
+        "วาง $X_i$ เป็นคอลัมน์ของ $X$ และ $B_i$ เป็นคอลัมน์ของ $I$ (เมทริกซ์เอกลักษณ์):",
+        "$AX = I \\Rightarrow A = X^{-1}$",
+        "$\\det(X) = \\begin{vmatrix}1 & 1 & 1\\\\ 0 & 2 & 3\\\\ 5 & 5 & 1\\end{vmatrix} = 1(2-15) - 1(0-15) + 1(0-10) = -8$",
+        "$\\det(A) = \\dfrac{1}{\\det(X)} = -\\dfrac{1}{8}$"
+      ]
+    },
+    {
+      "id": "samn-2555-01-q19",
+      "setId": "samn-2555-01",
+      "questionNumber": 19,
+      "topics": [
+        "8"
+      ],
+      "type": "mc",
+      "level": "hard",
+      "score": 4,
+      "question": "ถ้า $S_1 = \\left\\{\\,x \\;\\middle|\\; \\log_{1/2}(x+1) + 2\\log_{1/4}(x+2) - \\log_{1/2}(9x - 3) \\le 0\\,\\right\\}$ และ $S_2 = \\{\\,x \\mid x \\in \\mathbb{Z},\\ -10 \\le x \\le 10\\,\\}$ แล้ว $S_1 \\cap S_2$ มีจำนวนสมาชิกเท่ากับข้อใดต่อไปนี้",
+      "hasImage": false,
+      "choices": [
+        "$5$",
+        "$6$",
+        "$7$",
+        "$8$",
+        "$9$"
+      ],
+      "correct": 2,
+      "explanation": [
+        "$2\\log_{1/4}(x+2) = \\log_{1/2}(x+2)$ (เพราะฐาน $1/4 = (1/2)^2$)",
+        "$\\log_{1/2}\\!\\left[\\dfrac{(x+1)(x+2)}{9x - 3}\\right] \\le 0 \\iff \\dfrac{(x+1)(x+2)}{9x - 3} \\ge 1$ (ฐาน $< 1$ พลิกอสมการ)",
+        "โดเมน: $x > \\dfrac{1}{3}$",
+        "$(x+1)(x+2) \\ge 9x - 3 \\Rightarrow x^2 - 6x + 5 \\ge 0$",
+        "$(x - 1)(x - 5) \\ge 0 \\Rightarrow x \\le 1$ หรือ $x \\ge 5$",
+        "รวมโดเมน: $\\dfrac{1}{3} < x \\le 1$ หรือ $x \\ge 5$",
+        "จำนวนเต็มใน $[-10, 10]$: $\\{1\\} \\cup \\{5, 6, 7, 8, 9, 10\\} = 7$ ตัว"
+      ]
+    },
+    {
+      "id": "samn-2555-01-q20",
+      "setId": "samn-2555-01",
+      "questionNumber": 20,
+      "topics": [
+        "12"
+      ],
+      "type": "mc",
+      "level": "hard",
+      "score": 4,
+      "question": "ในการจัดเด็ก $7$ คนซึ่งมีอายุ $1, 2, 3, 4, 5, 6, 7$ ขวบ นั่งเก้าอี้ $7$ ตัวซึ่งติดหมายเลข $1, 2, 3, 4, 5, 6, 7$ โดยกำหนดให้เด็กที่จะนั่งเก้าอี้หมายเลข $k$ ต้องมีอายุมากกว่าหรือเท่ากับ $k - 1$ ขวบ จะมีจำนวนวิธีในการจัดเท่ากับข้อใดต่อไปนี้",
+      "hasImage": false,
+      "choices": [
+        "$32$",
+        "$60$",
+        "$64$",
+        "$120$",
+        "$128$"
+      ],
+      "correct": 2,
+      "explanation": [
+        "เริ่มจากเก้าอี้ที่จำกัดสุด:",
+        "เก้าอี้ $k = 7$ (ต้อง $\\ge 6$): $\\{6, 7\\}$ = $2$ แบบ",
+        "เก้าอี้ $k = 6$ (ต้อง $\\ge 5$): $\\{5, 6, 7\\}$ ลบ $1$ ที่ใช้แล้ว = $2$ แบบ",
+        "เก้าอี้ $k = 5, 4, 3, 2$: ทุกตัวเหลือ $2$ แบบ ในทำนองเดียวกัน",
+        "เก้าอี้ $k = 1$: เหลือคนสุดท้าย $1$ คน → $1$ แบบ",
+        "รวม: $2^6 \\times 1 = 64$"
+      ]
+    },
+    {
+      "id": "samn-2555-01-q21",
+      "setId": "samn-2555-01",
+      "questionNumber": 21,
+      "topics": [
+        "15"
+      ],
+      "type": "mc",
+      "level": "easy",
+      "score": 4,
+      "question": "ข้อมูลชุดหนึ่งเป็นคะแนนจากการสอบวิชาคณิตศาสตร์ของนักเรียนกลุ่มหนึ่ง ถ้าเพิ่มคะแนนให้นักเรียนทุกคน ๆ ละ $3$ คะแนน แล้วจะทำให้ค่าสถิติในข้อใดต่อไปนี้มีค่าลดลง",
+      "hasImage": false,
+      "choices": [
+        "ส่วนเบี่ยงเบนเฉลี่ยของคะแนน",
+        "สัมประสิทธิ์ของพิสัยของคะแนน",
+        "ค่าเฉลี่ยเลขคณิตของคะแนน",
+        "ค่ามัธยฐานของคะแนน",
+        "ส่วนเบี่ยงเบนมาตรฐานของคะแนน"
+      ],
+      "correct": 1,
+      "explanation": [
+        "บวกค่าคงที่: ส่วนกระจาย (MAD, SD) ไม่เปลี่ยน",
+        "ค่ากลาง (mean, median) เพิ่มขึ้น $3$",
+        "สัมประสิทธิ์ของพิสัย $= \\dfrac{x_{\\max} - x_{\\min}}{x_{\\max} + x_{\\min}}$",
+        "หลังบวก $3$: ตัวเศษคงที่ ($x_{\\max} - x_{\\min}$ ไม่เปลี่ยน) แต่ตัวส่วนเพิ่มขึ้น $6$",
+        "$\\therefore$ อัตราส่วนลดลง"
+      ]
+    },
+    {
+      "id": "samn-2555-01-q22",
+      "setId": "samn-2555-01",
+      "questionNumber": 22,
+      "topics": [
+        "15"
+      ],
+      "type": "mc",
+      "level": "medium",
+      "score": 4,
+      "question": "น้ำหนักของถุงซึ่งบรรจุอาหารขายส่งของบริษัทแห่งหนึ่งมีการแจกแจงปกติ ถ้าถุงที่มีน้ำหนักเกิน $117.8$ กรัม มีอยู่ $67\\%$ และถุงที่มีน้ำหนักเกิน $126.7$ กรัม มีอยู่ $9\\%$ แล้วจำนวนเปอร์เซ็นต์ของถุงที่มีน้ำหนักน้อยกว่า $125$ กรัม เท่ากับข้อใดต่อไปนี้",
+      "hasImage": false,
+      "choices": [
+        "$84.13$",
+        "$86.43$",
+        "$88.49$",
+        "$89.25$",
+        "$90$"
+      ],
+      "correct": 0,
+      "tables": [
+        {
+          "caption": "ตารางพื้นที่ใต้เส้นโค้งปกติมาตรฐาน $P(0 \\le Z \\le z)$",
+          "headers": [
+            "$z$",
+            "พื้นที่"
+          ],
+          "rows": [
+            [
+              "$0.44$",
+              "$0.1700$"
+            ],
+            [
+              "$1.0$",
+              "$0.3413$"
+            ],
+            [
+              "$1.1$",
+              "$0.3643$"
+            ],
+            [
+              "$1.2$",
+              "$0.3849$"
+            ],
+            [
+              "$1.34$",
+              "$0.4100$"
+            ],
+            [
+              "$1.7$",
+              "$0.4554$"
+            ]
+          ]
+        }
+      ],
+      "explanation": [
+        "$P(X > 117.8) = 0.67 \\Rightarrow P(X \\le 117.8) = 0.33 \\Rightarrow z = -0.44$",
+        "$\\dfrac{117.8 - \\mu}{\\sigma} = -0.44 \\Rightarrow 117.8 = \\mu - 0.44\\sigma$ ...(1)",
+        "$P(X > 126.7) = 0.09 \\Rightarrow z = 1.34$",
+        "$\\dfrac{126.7 - \\mu}{\\sigma} = 1.34 \\Rightarrow 126.7 = \\mu + 1.34\\sigma$ ...(2)",
+        "(2) − (1): $8.9 = 1.78\\sigma \\Rightarrow \\sigma = 5,\\ \\mu = 120$",
+        "$P(X < 125)$: $z = \\dfrac{125 - 120}{5} = 1$",
+        "$P(Z < 1) = 0.5 + 0.3413 = 0.8413 = 84.13\\%$"
+      ],
+      "notes": "ในต้นฉบับ PDF ตารางมี $z = 0.17$ คู่กับ $0.4554$ ซึ่งน่าจะ OCR/พิมพ์ผิด (ค่า $0.4554$ ตรงกับ $z = 1.7$) — แก้แล้วในตาราง"
+    },
+    {
+      "id": "samn-2555-01-q23",
+      "setId": "samn-2555-01",
+      "questionNumber": 23,
+      "topics": [
+        "13"
+      ],
+      "type": "mc",
+      "level": "medium",
+      "score": 4,
+      "question": "พาราโบลารูปหนึ่งมีแกนสมมาตรขนานกับแกน $Y$ มีจุดยอดอยู่ที่จุด $(3, 9)$ และผ่านจุด $(1, 5)$ บริเวณที่ปิดล้อมด้วยพาราโบลารูปนี้และแกน $X$ มีพื้นที่เท่ากับข้อใดต่อไปนี้",
+      "hasImage": false,
+      "choices": [
+        "$9$ ตารางหน่วย",
+        "$18$ ตารางหน่วย",
+        "$27$ ตารางหน่วย",
+        "$36$ ตารางหน่วย",
+        "$54$ ตารางหน่วย"
+      ],
+      "correct": 3,
+      "explanation": [
+        "$y = a(x - 3)^2 + 9$ ผ่าน $(1, 5)$: $5 = 4a + 9 \\Rightarrow a = -1$",
+        "$y = -(x - 3)^2 + 9 = -x^2 + 6x$",
+        "ตัดแกน $X$: $-x^2 + 6x = 0 \\Rightarrow x = 0$ หรือ $6$",
+        "พื้นที่ $= \\displaystyle\\int_0^6 (-x^2 + 6x)\\,dx = \\left[-\\dfrac{x^3}{3} + 3x^2\\right]_0^6$",
+        "$= -72 + 108 = 36$"
+      ]
+    },
+    {
+      "id": "samn-2555-01-q24",
+      "setId": "samn-2555-01",
+      "questionNumber": 24,
+      "topics": [
+        "13"
+      ],
+      "type": "mc",
+      "level": "medium",
+      "score": 4,
+      "question": "กำหนดให้ $g$ เป็นฟังก์ชันพหุนามซึ่งมีจุด $(2, -1)$ เป็นจุดต่ำสุดสัมพัทธ์ และกราฟของ $g$ ผ่านจุด $(1, 4)$ ถ้า $c$ เป็นค่าคงตัวที่ทำให้ฟังก์ชัน $f$ นิยามโดย\n\n$$f(x) = \\begin{cases}(cx^2 + 1)\\,g(x) & \\text{เมื่อ } x \\ge 1\\\\ 2x + 10 & \\text{เมื่อ } x < 1\\end{cases}$$\n\nต่อเนื่องที่จุด $x = 1$ แล้ว $f'(2)$ มีค่าเท่ากับข้อใดต่อไปนี้",
+      "hasImage": false,
+      "choices": [
+        "$-8$",
+        "$-4$",
+        "$0$",
+        "$4$",
+        "$8$"
+      ],
+      "correct": 0,
+      "explanation": [
+        "ต่อเนื่องที่ $x = 1$: $\\lim\\limits_{x \\to 1^-} f = 12 = (c + 1)\\,g(1) = 4(c + 1)$",
+        "$\\Rightarrow c = 2$",
+        "$f(x) = (2x^2 + 1)\\,g(x)$ สำหรับ $x \\ge 1$",
+        "$f'(x) = 4x\\,g(x) + (2x^2 + 1)\\,g'(x)$",
+        "$f'(2) = 8\\,g(2) + 9\\,g'(2)$",
+        "$(2, -1)$ เป็นจุดต่ำสุดสัมพัทธ์ $\\Rightarrow g'(2) = 0$ และ $g(2) = -1$",
+        "$f'(2) = 8(-1) + 9(0) = -8$"
+      ]
+    },
+    {
+      "id": "samn-2555-01-q25",
+      "setId": "samn-2555-01",
+      "questionNumber": 25,
+      "topics": [
+        "11"
+      ],
+      "type": "mc",
+      "level": "medium",
+      "score": 4,
+      "question": "ถ้า $a_n = \\begin{cases}n & \\text{เมื่อ } n \\text{ เป็นจำนวนคี่}\\\\ 2n & \\text{เมื่อ } n \\text{ เป็นจำนวนคู่}\\end{cases}$ แล้ว $\\displaystyle\\sum_{k=1}^{40} a_k$ มีค่าเท่ากับข้อใดต่อไปนี้",
+      "hasImage": false,
+      "choices": [
+        "$860$",
+        "$1060$",
+        "$1080$",
+        "$1240$",
+        "$1440$"
+      ],
+      "correct": 3,
+      "explanation": [
+        "แยกผลรวมเป็นพจน์คี่ + พจน์คู่",
+        "พจน์คี่ ($n = 1, 3, 5, \\dots, 39$ มี $20$ พจน์): $1 + 3 + 5 + \\dots + 39 = 20^2 = 400$",
+        "พจน์คู่ ($n = 2, 4, 6, \\dots, 40$ มี $20$ พจน์) แต่ละพจน์ $= 2n$:",
+        "$2(2 + 4 + 6 + \\dots + 40) = 2 \\cdot 420 = 840$",
+        "รวม: $400 + 840 = 1240$"
+      ]
+    },
+    {
+      "id": "samn-2555-01-q26",
+      "setId": "samn-2555-01",
+      "questionNumber": 26,
+      "topics": [
+        "6"
+      ],
+      "type": "mc",
+      "level": "hard",
+      "score": 4,
+      "question": "ถ้า $A = \\begin{pmatrix}a & 1 - a\\\\ 1 + a & -a\\end{pmatrix}$ เมื่อ $a$ เป็นจำนวนจริง และ $I = \\begin{pmatrix}1 & 0\\\\ 0 & 1\\end{pmatrix}$ แล้ว $\\det\\!\\left[(A - \\sqrt{2}\\,I)(A - \\sqrt{3}\\,I)(A - \\sqrt{5}\\,I)(A - \\sqrt{7}\\,I)\\right]$ มีค่าเท่ากับข้อใดต่อไปนี้",
+      "hasImage": false,
+      "choices": [
+        "$48 - 13a$",
+        "$(a - \\sqrt{2})(a - \\sqrt{3})(a - \\sqrt{5})(a - \\sqrt{7})$",
+        "$17a$",
+        "$17$",
+        "$48$"
+      ],
+      "correct": 4,
+      "explanation": [
+        "$\\det(A - kI) = \\det\\begin{pmatrix}a - k & 1 - a\\\\ 1 + a & -a - k\\end{pmatrix}$",
+        "$= (a - k)(-a - k) - (1 - a)(1 + a)$",
+        "$= -(a^2 - k^2) - (1 - a^2) = k^2 - 1$",
+        "$\\det(A - \\sqrt{2}I) = 1,\\quad \\det(A - \\sqrt{3}I) = 2$",
+        "$\\det(A - \\sqrt{5}I) = 4,\\quad \\det(A - \\sqrt{7}I) = 6$",
+        "$\\det$ ของผลคูณ $= 1 \\cdot 2 \\cdot 4 \\cdot 6 = 48$"
+      ]
+    },
+    {
+      "id": "samn-2555-01-q27",
+      "setId": "samn-2555-01",
+      "questionNumber": 27,
+      "topics": [
+        "14"
+      ],
+      "type": "mc",
+      "level": "hard",
+      "score": 4,
+      "question": "กำหนดให้ $E_n$ เป็นวงรีที่มีสมการเป็น $\\dfrac{x^2}{a_n^2} + \\dfrac{y^2}{b_n^2} = 1$ โดยที่ $a_n = 2b_n \\ge 0$ ถ้า $a_1 = 2$ และจุดยอดของวงรี $E_n$ เป็นจุดโฟกัสของวงรี $E_{n-1}$ ทุก $n \\ge 2$ แล้ว $\\displaystyle\\sum_{n=1}^{\\infty} a_n$ มีค่าเท่ากับข้อใดต่อไปนี้",
+      "hasImage": false,
+      "choices": [
+        "$6 + 4\\sqrt{3}$",
+        "$8 + 4\\sqrt{3}$",
+        "$10 + 4\\sqrt{3}$",
+        "$15$",
+        "$17$"
+      ],
+      "correct": 1,
+      "explanation": [
+        "$b_n = \\dfrac{a_n}{2} \\Rightarrow c_n^2 = a_n^2 - \\dfrac{a_n^2}{4} = \\dfrac{3a_n^2}{4}$",
+        "$c_n = \\dfrac{a_n\\sqrt{3}}{2}$",
+        "จุดยอด $E_n =$ โฟกัส $E_{n-1} \\Rightarrow a_n = c_{n-1} = \\dfrac{a_{n-1}\\sqrt{3}}{2}$",
+        "เป็นเรขาคณิต อัตราส่วน $r = \\dfrac{\\sqrt{3}}{2} < 1$",
+        "$\\displaystyle\\sum_{n=1}^{\\infty} a_n = \\dfrac{a_1}{1 - r} = \\dfrac{2}{1 - \\frac{\\sqrt{3}}{2}} = \\dfrac{4}{2 - \\sqrt{3}}$",
+        "$= \\dfrac{4(2 + \\sqrt{3})}{(2-\\sqrt{3})(2+\\sqrt{3})} = 4(2 + \\sqrt{3}) = 8 + 4\\sqrt{3}$"
+      ]
+    },
+    {
+      "id": "samn-2555-01-q28",
+      "setId": "samn-2555-01",
+      "questionNumber": 28,
+      "topics": [
+        "13"
+      ],
+      "type": "mc",
+      "level": "medium",
+      "score": 4,
+      "question": "ข้อใดต่อไปนี้ผิด",
+      "hasImage": false,
+      "choices": [
+        "$f(x) = x|x + 1|$ มีอนุพันธ์ที่จุด $x = 0$",
+        "$f(x) = \\dfrac{x}{|x + 1|}$ มีอนุพันธ์ที่จุด $x = 0$",
+        "$f(x) = |x|(x + 1)$ มีอนุพันธ์ที่จุด $x = 0$",
+        "$f(x) = x^2|x + 1|$ มีอนุพันธ์ที่จุด $x = 0$",
+        "$f(x) = x|x|$ มีอนุพันธ์ที่จุด $x = 0$"
+      ],
+      "correct": 2,
+      "explanation": [
+        "ใกล้ $x = 0$ ค่า $x + 1 > 0 \\Rightarrow |x + 1| = x + 1$ (เรียบ)",
+        "$\\therefore$ ข้อ 1, 2, 4 มี derivative ที่ $x = 0$",
+        "ข้อ 5: $f(x) = x|x|$ — $x > 0$ ได้ $f = x^2$; $x < 0$ ได้ $f = -x^2$. ที่ $x = 0$: $f'(0^+) = f'(0^-) = 0$ → มี derivative",
+        "ข้อ 3: $f(x) = |x|(x + 1)$",
+        "$x \\to 0^+$: $f = x(x + 1) \\Rightarrow f'(0^+) = 1$",
+        "$x \\to 0^-$: $f = -x(x + 1) \\Rightarrow f'(0^-) = -1$",
+        "$f'(0^+) \\ne f'(0^-) \\Rightarrow$ ไม่มี derivative"
+      ]
+    },
+    {
+      "id": "samn-2555-01-q29",
+      "setId": "samn-2555-01",
+      "questionNumber": 29,
+      "topics": [
+        "15"
+      ],
+      "type": "mc",
+      "level": "hard",
+      "score": 4,
+      "question": "กำหนดให้ข้อมูลชุดหนึ่งประกอบด้วย $a_1, a_2, a_3, \\dots, a_{91}$ โดยที่ $a_n = \\begin{cases}n & \\text{เมื่อ } n \\text{ เป็นจำนวนเต็มบวกคู่}\\\\ 3 + 4n & \\text{เมื่อ } n \\text{ เป็นจำนวนเต็มบวกคี่}\\end{cases}$ มัธยฐานของข้อมูลชุดนี้มีค่าเท่ากับข้อใดต่อไปนี้",
+      "hasImage": false,
+      "choices": [
+        "$63$",
+        "$68$",
+        "$71$",
+        "$74$",
+        "$76$"
+      ],
+      "correct": 3,
+      "explanation": [
+        "พจน์คู่: $2, 4, 6, \\dots, 90$ ($45$ ตัว)",
+        "พจน์คี่: $7, 15, 23, \\dots, 367$ ($46$ ตัว)",
+        "เรียงรวมจากน้อยไปมาก: ทุก $5$ ตำแหน่ง = $4$ ตัวคู่ + $1$ ตัวคี่ (คี่แทรกระหว่างคู่ที่ $3$ และ $4$ ของแต่ละกลุ่ม)",
+        "ตำแหน่งมัธยฐาน $= \\dfrac{91 + 1}{2} = 46$",
+        "$46 = 5 \\times 9 + 1 \\Rightarrow$ ตัวแรกของกลุ่มที่ $10$",
+        "ตัวแรกของแต่ละกลุ่ม: $2, 10, 18, \\dots$ (เพิ่มทีละ $8$)",
+        "กลุ่มที่ $10$: $2 + 9 \\cdot 8 = 74$"
+      ]
+    },
+    {
+      "id": "samn-2555-01-q30",
+      "setId": "samn-2555-01",
+      "questionNumber": 30,
+      "topics": [
+        "12"
+      ],
+      "type": "mc",
+      "level": "medium",
+      "score": 4,
+      "question": "กำหนดให้ $M = \\left\\{\\begin{pmatrix}a & b\\\\ c & d\\end{pmatrix} \\;\\middle|\\; a, b, c, d \\in \\{-1, 0, 1\\}\\right\\}$ ถ้าสุ่มเลือกเมทริกซ์หนึ่งเมทริกซ์จากเซต $M$ แล้วความน่าจะเป็นที่จะได้เมทริกซ์ที่มีอินเวอร์สการคูณมีค่าเท่ากับข้อใดต่อไปนี้",
+      "hasImage": false,
+      "choices": [
+        "$\\dfrac{24}{81}$",
+        "$\\dfrac{31}{81}$",
+        "$\\dfrac{33}{81}$",
+        "$\\dfrac{48}{81}$",
+        "$\\dfrac{50}{81}$"
+      ],
+      "correct": 3,
+      "explanation": [
+        "ทั้งหมด $3^4 = 81$ เมทริกซ์",
+        "มี inverse $\\iff \\det = ad - bc \\ne 0$",
+        "นับ $(a, d)$ ตามค่า $ad$:",
+        "    $ad = -1$: $\\{(1,-1), (-1,1)\\}$ = $2$ แบบ",
+        "    $ad = 0$: $a = 0$ หรือ $d = 0$ = $5$ แบบ",
+        "    $ad = 1$: $\\{(1,1), (-1,-1)\\}$ = $2$ แบบ",
+        "(b, c) เหมือนกัน",
+        "เมทริกซ์ที่ $\\det = 0$ ($ad = bc$): $2 \\cdot 2 + 5 \\cdot 5 + 2 \\cdot 2 = 33$",
+        "เมทริกซ์ที่มี inverse $= 81 - 33 = 48$",
+        "ความน่าจะเป็น $= \\dfrac{48}{81}$"
+      ]
+    }
+  ]
+}

@@ -5459,7 +5459,115 @@
         "$\\displaystyle\\int_0^3 (|f|-f)\\,dx = \\int_0^1 -2f(x)\\,dx + \\int_1^3 0\\,dx = -2\\int_0^1 f(x)\\,dx$",
         "$\\int_0^1 f(x)\\,dx = -6$ (พื้นที่ใต้แกนเป็นลบ)",
         "ผล $= -2 \\cdot (-6) = 12$"
-      ]
+      ],
+      "imageSpec": {
+        "type": "function-plot",
+        "width": 480,
+        "height": 280,
+        "xRange": [
+          -1.2,
+          4.0
+        ],
+        "yRange": [
+          -2.6,
+          5.5
+        ],
+        "axes": {
+          "arrows": true,
+          "xLabel": "X",
+          "yLabel": "Y",
+          "originLabel": "0"
+        },
+        "functions": [
+          {
+            "id": "f",
+            "kind": "roots-polynomial",
+            "roots": [
+              0,
+              1,
+              3
+            ],
+            "leadingCoef": -1.5,
+            "domain": [
+              -0.25,
+              3.25
+            ],
+            "label": {
+              "text": "y = f(x)",
+              "at": [
+                2.7,
+                -1.6
+              ]
+            }
+          },
+          {
+            "id": "xAxis",
+            "kind": "polynomial",
+            "coefs": [
+              0
+            ]
+          }
+        ],
+        "shadeBetween": [
+          {
+            "funcA": "f",
+            "funcB": "xAxis",
+            "xRange": [
+              0,
+              1
+            ]
+          },
+          {
+            "funcA": "xAxis",
+            "funcB": "f",
+            "xRange": [
+              1,
+              3
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "text": "1",
+            "at": [
+              1.0,
+              -0.5
+            ],
+            "anchor": "middle"
+          },
+          {
+            "text": "3",
+            "at": [
+              3.0,
+              -0.5
+            ],
+            "anchor": "middle"
+          },
+          {
+            "text": "พื้นที่ 6 ตารางหน่วย",
+            "at": [
+              -0.3,
+              3.0
+            ],
+            "anchor": "end",
+            "arrowTo": [
+              0.4,
+              -0.5
+            ]
+          },
+          {
+            "text": "พื้นที่ 16 ตารางหน่วย",
+            "at": [
+              1.3,
+              4.8
+            ],
+            "arrowTo": [
+              2.0,
+              1.5
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "samn-2559-12-q24",

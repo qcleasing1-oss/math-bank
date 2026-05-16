@@ -394,28 +394,29 @@
   pwInput.addEventListener('keydown', e => { if (e.key === 'Enter') tryUnlock(); });
 
   // ============ Load bank ============
-  let BANK = null;
+  let MANIFEST = null;
+  const LOADED_SETS = {};   // cache: sid → {setId, questions}
   let CURRENT_SET = null;
 
   async function loadBank() {
     const meta = document.getElementById('bankMeta');
     try {
-      // path สัมพัทธ์: viewer/admin.html → ../data/bank.json
-      const res = await fetch('../data/bank.json', { cache: 'no-cache' });
+      // path สัมพัทธ์: viewer/admin.html → ../data/manifest.json
+      const res = await fetch('../data/manifest.json', { cache: 'no-cache' });
       if (!res.ok) throw new Error('HTTP ' + res.status);
-      BANK = await res.json();
-      meta.textContent = `schema v${BANK.schemaVersion} · exported ${BANK.exported}`;
+      MANIFEST = await res.json();
+      meta.textContent = `schema v${MANIFEST.schemaVersion} · exported ${MANIFEST.exported}`;
       renderSetList();
     } catch (e) {
       meta.textContent = 'โหลดไม่สำเร็จ';
       document.getElementById('content').innerHTML = `
         <div style="max-width:600px">
           <div class="status">
-            <strong>โหลด bank ไม่สำเร็จ</strong><br>
+            <strong>โหลด manifest ไม่สำเร็จ</strong><br>
             <code>${e.message}</code><br><br>
             ตรวจสอบ:
             <ul>
-              <li>ไฟล์ <code>data/bank.json</code> อยู่ที่ root ของ project</li>
+              <li>ไฟล์ <code>data/manifest.json</code> อยู่ที่ root ของ project</li>
               <li>เปิดด้วย local server (เช่น <code>python -m http.server</code>) ไม่ใช่ <code>file://</code></li>
               <li>เปิดผ่าน URL เช่น <code>http://localhost:8000/viewer/admin.html</code></li>
             </ul>
@@ -427,21 +428,14 @@
 
   // ============ Sidebar: set list ============
   function renderSetList() {
-    const sets = BANK.sets || {};
-    const questions = BANK.questions || [];
+    const sets = MANIFEST.sets || {};
 
-    // นับ q ต่อ set
-    const countBySet = {};
-    questions.forEach(q => {
-      countBySet[q.setId] = (countBySet[q.setId] || 0) + 1;
-    });
-
-    // เรียง setId ตามตัวอักษร (ไม่ sort ก็ได้ — เก็บลำดับใน JSON)
+    // เรียง setId ตามลำดับใน manifest (Object.keys preserve insertion order)
     const setIds = Object.keys(sets);
 
     const html = setIds.map(sid => {
       const s = sets[sid];
-      const n = countBySet[sid] || 0;
+      const n = s.totalQuestions || 0;
       const label = s.examDate || `${s.source || ''} ${s.year || ''}/${s.month || ''}`;
       return `
         <div class="set-item" data-setid="${sid}">
@@ -459,14 +453,46 @@
   }
 
   // ============ Main: render set ============
-  function selectSet(sid) {
+  async function selectSet(sid) {
     CURRENT_SET = sid;
     document.querySelectorAll('.set-item').forEach(el => {
       el.classList.toggle('active', el.dataset.setid === sid);
     });
 
-    const s = BANK.sets[sid];
-    const qs = (BANK.questions || []).filter(q => q.setId === sid);
+    const s = MANIFEST.sets[sid];
+    const main = document.getElementById('content');
+
+    // Show loading indicator (เฉพาะถ้ายังไม่เคยโหลด)
+    if (!LOADED_SETS[sid]) {
+      main.classList.remove('empty');
+      main.innerHTML = `
+        <div class="set-header">
+          <h1>${s.source || ''} ${s.year || ''}${s.month ? ' · เดือน ' + s.month : ''}</h1>
+          <div class="set-meta"><code>${sid}</code> · กำลังโหลด…</div>
+        </div>`;
+      try {
+        const res = await fetch(`../data/sets/${sid}.json`, { cache: 'no-cache' });
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        LOADED_SETS[sid] = await res.json();
+      } catch (e) {
+        main.innerHTML = `
+          <div class="set-header">
+            <h1>${s.source || ''} ${s.year || ''}${s.month ? ' · เดือน ' + s.month : ''}</h1>
+            <div class="set-meta"><code>${sid}</code></div>
+          </div>
+          <div class="status">
+            <strong>โหลด set ไม่สำเร็จ</strong><br>
+            <code>${e.message}</code><br><br>
+            ตรวจสอบว่าไฟล์ <code>data/sets/${sid}.json</code> มีอยู่จริง
+          </div>`;
+        return;
+      }
+    }
+
+    // Guard: ถ้า user click set อื่นระหว่างที่ยังโหลด set นี้อยู่ → abort render
+    if (CURRENT_SET !== sid) return;
+
+    const qs = LOADED_SETS[sid].questions || [];
 
     const html = `
       <div class="set-header">
@@ -481,7 +507,6 @@
         ${qs.map(renderQCard).join('')}
       </div>
     `;
-    const main = document.getElementById('content');
     main.classList.remove('empty');
     main.innerHTML = html;
     typeset(main);

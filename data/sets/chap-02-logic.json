@@ -1,0 +1,3598 @@
+{
+  "setId": "chap-02-logic",
+  "questions": [
+    {
+      "id": "chap-02-logic-q01",
+      "setId": "chap-02-logic",
+      "questionNumber": 1,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "easy",
+      "score": 1,
+      "question": "จำนวนจริง $a, b, c$ ในข้อใดต่อไปนี้ที่แสดงว่าข้อความ \"ถ้า $a < bc$ แล้ว จะได้ $a < b$ หรือ $a < c$\" มีค่าความจริงเป็นเท็จ",
+      "hasImage": false,
+      "sourceTag": "Entrance 2532",
+      "explanation": [
+        "หากว่า $p \\rightarrow (q \\vee r)$ เป็นเท็จ แสดงว่า $p$ ต้องเป็นจริง และ $q$ กับ $r$ ต้องเป็นเท็จทั้งคู่",
+        "นั่นคือ ต้องหาตัวเลือกซึ่ง $a < bc$ และ $a \\geq b$ และ $a \\geq c$",
+        "ตอบ ข้อ 4. ($a = -1, b = -1, c = -2$ จะได้ $bc = 2$, $a = -1 < 2$ ✓; $a = -1 \\geq b = -1$ ✓; $a = -1 \\geq c = -2$ ✓)"
+      ],
+      "choices": [
+        "$a = 1, \\; b = 4, \\; c = 1$",
+        "$a = -1, \\; b = -2, \\; c = 0$",
+        "$a = 1, \\; b = -1, \\; c = -1$",
+        "$a = -1, \\; b = -1, \\; c = -2$"
+      ],
+      "correct": 3
+    },
+    {
+      "id": "chap-02-logic-q02",
+      "setId": "chap-02-logic",
+      "questionNumber": 2,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "medium",
+      "score": 1,
+      "question": "ตัวอย่างของเซต $A, B$ และ $C$ ในข้อใดที่แสดงว่าข้อความ \"ถ้า $A \\in B$ และ $B \\in C$ แล้ว $A \\in C$\" มีค่าความจริงเป็นเท็จ",
+      "hasImage": false,
+      "sourceTag": "Entrance 2531",
+      "explanation": [
+        "หากว่า $(p \\wedge q) \\rightarrow r$ เป็นเท็จ แสดงว่า $p$ กับ $q$ ต้องเป็นจริงทั้งคู่, $r$ ต้องเป็นเท็จ",
+        "นั่นคือ ต้องหาตัวเลือกที่ $A \\in B$ และ $B \\in C$ แต่ $A \\notin C$",
+        "ข้อ 1. $B \\notin C$ จึงไม่ใช่ข้อที่ถูก",
+        "ข้อ 2. $A \\notin B$ จึงไม่ใช่ข้อที่ถูก",
+        "ข้อ 3. ถูก ($A \\in B$, $B \\in C$, แต่ $A \\notin C$)",
+        "ข้อ 4. $A \\in C$ จึงไม่ใช่ข้อที่ถูก"
+      ],
+      "choices": [
+        "$A = \\emptyset, \\; B = \\{\\emptyset\\}, \\; C = \\emptyset$",
+        "$A = \\emptyset, \\; B = \\emptyset, \\; C = \\{\\emptyset\\}$",
+        "$A = \\emptyset, \\; B = \\{\\emptyset\\}, \\; C = \\{\\{\\emptyset\\}\\}$",
+        "$A = \\emptyset, \\; B = \\{\\emptyset\\}, \\; C = \\{\\emptyset, \\{\\emptyset\\}\\}$"
+      ],
+      "correct": 2
+    },
+    {
+      "id": "chap-02-logic-q03",
+      "setId": "chap-02-logic",
+      "questionNumber": 3,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "medium",
+      "score": 1,
+      "question": "กำหนดให้ $p$ คือประพจน์ \"ถ้า $a, b, c$ เป็นจำนวนจริง และ $ab < ac$ แล้ว $b < c$\" และ $q$ คือประพจน์ \"ถ้า $x$ และ $y$ เป็นจำนวนอตรรกยะ แล้ว $x + y$ เป็นจำนวนอตรรกยะ\" ประพจน์ใดต่อไปนี้มีค่าความจริงเป็นจริง",
+      "hasImage": false,
+      "sourceTag": "Entrance 2534",
+      "explanation": [
+        "ประพจน์ $p$ ที่ให้มาเป็นเท็จ — เช่น $a = -2, b = 2, c = 1$ จะได้ $ab = -4 < ac = -2$ แต่ $b > c$",
+        "และประพจน์ $q$ ที่ให้มา ก็เป็นเท็จ — เช่น $x = \\sqrt{2}, y = -\\sqrt{2}$ จะได้ $x + y = 0$ (ซึ่ง 0 ไม่ใช่จำนวนอตรรกยะ)",
+        "$\\therefore$ ข้อที่เป็นจริงคือ ข้อ 3. (เพราะ $\\sim p \\wedge \\sim q \\equiv T \\wedge T \\equiv T$)"
+      ],
+      "choices": [
+        "$p \\wedge \\sim q$",
+        "$p \\wedge q$",
+        "$\\sim p \\wedge \\sim q$",
+        "$\\sim p \\wedge q$"
+      ],
+      "correct": 2
+    },
+    {
+      "id": "chap-02-logic-q04",
+      "setId": "chap-02-logic",
+      "questionNumber": 4,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "medium",
+      "score": 1,
+      "question": "กำหนดให้ $p$ คือประพจน์ \"ถ้า $a + c > b + c$ แล้ว $a > b$ เมื่อ $a, b, c$ คือจำนวนจริงใดๆ\" และ $q$ คือประพจน์ \"สำหรับจำนวนจริง $x$ ใดๆ $|x| \\geq 2$ ก็ต่อเมื่อ $x \\geq 2$\" ดังนั้นประพจน์ $\\sim p \\vee q$ จะมีค่าความจริงไม่เหมือนกับค่าความจริงของประพจน์ในข้อใดต่อไปนี้",
+      "hasImage": false,
+      "sourceTag": "Entrance 2536",
+      "explanation": [
+        "ประพจน์ $p$ ที่ให้มาเป็นจริง (ตามกฎการตัดออกของการบวก)",
+        "ประพจน์ $q$ ที่ให้มาเป็นเท็จ (เพราะ $x \\leq -2$ ก็ใช้ได้ด้วย)",
+        "$\\therefore \\sim p \\vee q$ มีค่าความจริงเป็น $F \\vee F \\equiv F$",
+        "ข้อ 1. $F \\wedge F \\equiv F$; ข้อ 2. $T \\wedge F \\equiv F$; ข้อ 3. $\\sim(T \\vee F) \\equiv \\sim T \\equiv F$",
+        "ข้อ 4. $T \\vee T \\equiv T$ ← มีเพียงข้อ 4 ที่เป็นจริง ตอบ ข้อ 4."
+      ],
+      "choices": [
+        "$\\sim p \\wedge q$",
+        "$p \\wedge q$",
+        "$\\sim (p \\vee q)$",
+        "$p \\vee \\sim q$"
+      ],
+      "correct": 3
+    },
+    {
+      "id": "chap-02-logic-q05",
+      "setId": "chap-02-logic",
+      "questionNumber": 5,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "medium",
+      "score": 1,
+      "question": "กำหนดให้ $p, q, r$ เป็นประพจน์ที่มีค่าความจริงเป็น \"จริง เท็จ และเท็จ\" ตามลำดับ ประพจน์ในข้อใดต่อไปนี้มีค่าความจริงเหมือนกับประพจน์ $(p \\to \\sim q) \\vee (r \\wedge \\sim p)$",
+      "hasImage": false,
+      "sourceTag": "Entrance ต.ค. 2544",
+      "explanation": [
+        "จาก $p, q, r$ มีค่า T, F, F ตามลำดับ — โจทย์ $(p \\wedge \\sim q) \\vee (r \\wedge p)$ มีค่าเป็น $(T \\wedge T) \\vee (F \\wedge T) \\equiv T \\vee F \\equiv T$",
+        "แทนค่าใน 4 ตัวเลือก แล้วหาข้อที่เป็นจริง — ตอบ ข้อ 3."
+      ],
+      "choices": [
+        "$(\\sim r \\to p) \\wedge (q \\vee r)$",
+        "$(q \\wedge \\sim r) \\leftrightarrow (\\sim p \\to \\sim q)$",
+        "$(\\sim p \\vee r) \\to (q \\wedge \\sim r)$",
+        "$(p \\to q) \\vee (\\sim r \\leftrightarrow q)$"
+      ],
+      "correct": 2
+    },
+    {
+      "id": "chap-02-logic-q06",
+      "setId": "chap-02-logic",
+      "questionNumber": 6,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "medium",
+      "score": 1,
+      "question": "ให้ $p, q$ และ $r$ เป็นประพจน์ ถ้า $(p \\wedge \\sim q) \\to (q \\vee r)$ มีค่าความจริงเป็นเท็จ แล้ว ประพจน์ในข้อใดต่อไปนี้มีค่าความจริงเป็นจริง",
+      "hasImage": false,
+      "sourceTag": "Entrance 2538",
+      "explanation": [
+        "$p \\wedge \\sim q$ ต้องเป็นจริง และ $q \\vee r$ ต้องเป็นเท็จ ..นั่นคือ $p$ เป็นจริง, $q$ เป็นเท็จ, $r$ เป็นเท็จ (เป็นไปได้แบบเดียวเท่านั้น)",
+        "แทนค่า $p = T, q = F, r = F$ ในตัวเลือกทั้ง 4:",
+        "ข้อ 1. $\\sim p \\vee q \\equiv F \\vee F \\equiv F$",
+        "ข้อ 2. $p \\rightarrow \\sim r \\equiv T \\rightarrow T \\equiv T$ ✓",
+        "ข้อ 3. $p \\wedge q \\equiv T \\wedge F \\equiv F$",
+        "ข้อ 4. $q \\leftrightarrow \\sim r \\equiv F \\leftrightarrow T \\equiv F$",
+        "ตอบ ข้อ 2."
+      ],
+      "choices": [
+        "$\\sim p \\vee q$",
+        "$p \\to \\sim r$",
+        "$p \\wedge q$",
+        "$q \\leftrightarrow \\sim r$"
+      ],
+      "correct": 1
+    },
+    {
+      "id": "chap-02-logic-q07",
+      "setId": "chap-02-logic",
+      "questionNumber": 7,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "medium",
+      "score": 1,
+      "question": "ให้ $p, q, r, s$ และ $t$ เป็นประพจน์ ถ้าประพจน์ $(p \\wedge q) \\to (r \\vee s)$ มีค่าความจริงเป็นเท็จ แล้ว ประพจน์ในข้อใดต่อไปนี้มีค่าความจริงเป็นเท็จ",
+      "hasImage": false,
+      "sourceTag": "Entrance ต.ค. 2543",
+      "explanation": [
+        "$(p \\wedge q) \\rightarrow (r \\vee s)$ เป็นเท็จ แสดงว่า $p$ กับ $q$ เป็นจริง, $r$ กับ $s$ เป็นเท็จ",
+        "แทนค่าในตัวเลือกที่มี $t$ ติดอยู่ — พิจารณาทุกค่าของ $t$:",
+        "ข้อ 1. $(T \\wedge F) \\leftrightarrow (F \\wedge t) \\equiv F \\leftrightarrow F \\equiv T$",
+        "ข้อ 2. $F \\rightarrow (q \\vee t) \\equiv T$",
+        "ข้อ 3. $F \\vee (F \\wedge t) \\equiv F \\vee F \\equiv F$ ✓",
+        "ข้อ 4. $(F \\rightarrow T) \\wedge (F \\rightarrow t) \\equiv T \\wedge T \\equiv T$",
+        "ตอบ ข้อ 3."
+      ],
+      "choices": [
+        "$(p \\wedge r) \\leftrightarrow (s \\wedge t)$",
+        "$(p \\wedge s) \\to (q \\vee t)$",
+        "$(p \\wedge s) \\vee (r \\wedge t)$",
+        "$(r \\to p) \\wedge (s \\to t)$"
+      ],
+      "correct": 2
+    },
+    {
+      "id": "chap-02-logic-q08",
+      "setId": "chap-02-logic",
+      "questionNumber": 8,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "hard",
+      "score": 1,
+      "question": "ให้ $p, q$ และ $r$ เป็นประพจน์ พิจารณาข้อความต่อไปนี้\n\nก. ถ้า $[(p \\wedge \\sim r) \\wedge q] \\to \\sim (p \\wedge q)$ เป็นเท็จ แล้ว $(p \\vee q) \\to r$ เป็นจริง\n\nข. ถ้า $q \\vee \\sim r$ เป็นเท็จ แล้ว $[p \\vee (q \\to r)] \\to \\sim q$ เป็นเท็จ\n\nข้อใดต่อไปนี้ถูก",
+      "hasImage": false,
+      "sourceTag": "Entrance มี.ค. 2546",
+      "explanation": [
+        "ข้อ ก. $(p \\wedge \\sim r) \\wedge q$ ต้องเป็นจริง และ $(p \\wedge q)$ ต้องเป็นจริง ดังนั้น $p$ จริง, $r$ เท็จ, $q$ จริง เท่านั้น ..จะได้ $(p \\vee q) \\rightarrow r \\equiv T \\rightarrow F \\equiv F$  $\\therefore$ ก. ผิด",
+        "ข้อ ข. $q \\vee \\sim r$ เป็นเท็จ แสดงว่า $q$ เท็จ, $r$ จริง ..จะได้ $[\\cdots] \\rightarrow T \\equiv T$ เสมอ $\\therefore$ ข. ผิด",
+        "ตอบ ทั้ง ก. และ ข. ผิด → ข้อ 4."
+      ],
+      "choices": [
+        "ก. ถูก และ ข. ถูก",
+        "ก. ถูก และ ข. ผิด",
+        "ก. ผิด และ ข. ถูก",
+        "ก. ผิด และ ข. ผิด"
+      ],
+      "correct": 3
+    },
+    {
+      "id": "chap-02-logic-q09",
+      "setId": "chap-02-logic",
+      "questionNumber": 9,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "medium",
+      "score": 1,
+      "question": "ถ้า $\\sim (p \\vee q)$ และ $r \\to p$ มีค่าความจริงเป็นจริงแล้ว ข้อต่อไปนี้มีค่าความจริงเป็นเท็จ",
+      "hasImage": false,
+      "sourceTag": "Entrance 2531",
+      "explanation": [
+        "จาก $\\sim(p \\vee q)$ เป็นจริง ..แสดงว่า $p$ กับ $q$ เป็นเท็จทั้งคู่",
+        "และจาก $r \\rightarrow p$ เป็นจริง และ $p$ เท็จ ..แสดงว่า $r$ เป็นเท็จด้วย",
+        "แทนค่า $p, q, r$ ที่เป็นเท็จลงในตัวเลือก: ข้อ 1, 2, 3 ได้ค่าเป็นจริง (อยู่ในรูป $F \\rightarrow ?$ หรือ $... \\vee T$); ข้อ 4 ได้ค่าเป็นเท็จ",
+        "ตอบ ข้อ 4."
+      ],
+      "choices": [
+        "$((\\sim p) \\vee q) \\to \\sim (r \\wedge q)$",
+        "$(p \\wedge (\\sim q)) \\to (r \\wedge q)$",
+        "$(p \\to q) \\wedge (r \\to q) \\vee (\\sim p)$",
+        "$(\\sim p \\to r) \\vee (q \\to \\sim p) \\wedge q$"
+      ],
+      "correct": 3
+    },
+    {
+      "id": "chap-02-logic-q10",
+      "setId": "chap-02-logic",
+      "questionNumber": 10,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "medium",
+      "score": 1,
+      "question": "กำหนด $p, q, r, s$ เป็นประพจน์ โดยที่ $(p \\vee r) \\to (q \\vee s)$ เป็นเท็จ และ $p \\to q$ เป็นจริง ประพจน์ในข้อใดต่อไปนี้เป็นเท็จ",
+      "hasImage": false,
+      "sourceTag": "Entrance 2525",
+      "explanation": [
+        "จาก $(p \\vee r) \\rightarrow (q \\vee s)$ เป็นเท็จ ..แสดงว่า $p \\vee r$ เป็นจริง และ $q \\vee s$ เป็นเท็จ นั่นคือ $q$ เป็นเท็จ, $s$ เป็นเท็จ",
+        "จาก $p \\rightarrow q$ เป็นจริง แต่เราทราบว่า $q$ เป็นเท็จ ดังนั้น $p$ เป็นเท็จด้วย",
+        "และย้อนกลับไปสรุปค่า $r$ ได้ว่า $r$ ต้องเป็นจริง (เพื่อให้ $p \\vee r$ จริง)",
+        "ประพจน์ที่เป็นเท็จคือ ข้อ 3. $r \\rightarrow s = T \\rightarrow F = F$",
+        "หมายเหตุ ข้ออื่นๆ เป็นจริง เพราะขึ้นต้นด้วย $p, q, s$ ซึ่งล้วนเป็นเท็จ และ $F \\rightarrow ... \\equiv T$ เสมอ"
+      ],
+      "choices": [
+        "$p \\to s$",
+        "$q \\to s$",
+        "$r \\to s$",
+        "$q \\to r$",
+        "$s \\to r$"
+      ],
+      "correct": 2
+    },
+    {
+      "id": "chap-02-logic-q11",
+      "setId": "chap-02-logic",
+      "questionNumber": 11,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "medium",
+      "score": 1,
+      "question": "ถ้า $(\\sim x \\vee x) \\to (y \\vee z)$ มีค่าเป็นเท็จ แล้ว $x \\wedge \\sim x$ มีค่าความจริงเหมือนข้อใด",
+      "hasImage": false,
+      "sourceTag": "Entrance 2527",
+      "explanation": [
+        "เนื่องจาก $\\sim x \\vee x$ จะเป็นจริงเสมอ ดังนั้น $y \\vee z$ ต้องเป็นเท็จ นั่นคือ $y$ กับ $z$ เท็จทั้งคู่",
+        "ส่วนที่โจทย์ถาม $x \\wedge \\sim x$ นั้น จะเป็นเท็จเสมอ ไม่ว่า $x$ มีค่าอะไร",
+        "ข้อ 1, 2, 3 — สรุปค่าความจริงไม่ได้แน่นอน เพราะติด $x$",
+        "ข้อ 4. $\\sim(x \\wedge F) \\rightarrow F \\equiv T \\rightarrow F \\equiv F$ (สรุปได้แน่นอน เป็นเท็จ)",
+        "ตอบ ข้อ 4."
+      ],
+      "choices": [
+        "$(x \\vee z) \\to y$",
+        "$[(x \\to z) \\wedge (\\sim y)] \\to x$",
+        "$[\\sim (x \\vee y)] \\to (x \\wedge \\sim y)$",
+        "$[\\sim (x \\wedge y)] \\to z$"
+      ],
+      "correct": 3
+    },
+    {
+      "id": "chap-02-logic-q12",
+      "setId": "chap-02-logic",
+      "questionNumber": 12,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "medium",
+      "score": 1,
+      "question": "ให้ $p, q, r, s$ เป็นประพจน์ ถ้า $[(p \\to \\sim q) \\vee r] \\wedge (q \\vee s)$ มีค่าความจริงเป็นจริง และ $(p \\wedge s) \\to r$ มีค่าความจริงเป็นเท็จ แล้ว ประพจน์ในข้อใดต่อไปนี้มีค่าความจริงเป็นเท็จ",
+      "hasImage": false,
+      "sourceTag": "Entrance มี.ค. 2548",
+      "explanation": [
+        "จาก $(p \\wedge s) \\rightarrow r$ เป็นเท็จ แสดงว่า $p, s$ เป็นจริง, $r$ เป็นเท็จ",
+        "จาก $(p \\rightarrow \\sim q) \\vee r$ เป็นจริง แต่ $r$ เท็จ ดังนั้น $p \\rightarrow \\sim q$ ต้องเป็นจริง ซึ่ง $p$ จริง จึง $\\sim q$ จริง คือ $q$ เป็นเท็จ",
+        "ตอบ ข้อ 1. $p \\rightarrow q \\equiv T \\rightarrow F \\equiv F$"
+      ],
+      "choices": [
+        "$q$",
+        "$r$",
+        "$s$",
+        "$p$"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "chap-02-logic-q13",
+      "setId": "chap-02-logic",
+      "questionNumber": 13,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "medium",
+      "score": 1,
+      "question": "ให้ $p, q, r, s$ เป็นประพจน์ ถ้า $[p \\to (q \\to r)] \\leftrightarrow (s \\wedge r)$ มีค่าความจริงเป็นจริง และ $\\sim p \\vee s$ มีค่าความจริงเป็นเท็จ แล้ว ข้อต่อไปนี้ถูก",
+      "hasImage": false,
+      "sourceTag": "Entrance มี.ค. 2545",
+      "explanation": [
+        "จาก $\\sim p \\vee s \\equiv p \\rightarrow s$ เป็นเท็จ ..แสดงว่า $p$ เป็นจริง, $s$ เป็นเท็จ",
+        "และจะได้ $[T \\rightarrow (q \\rightarrow r)] \\leftrightarrow (F \\wedge r)$ เป็นจริง ..ฝั่งขวาเป็น $F$ ดังนั้นฝั่งซ้ายต้องเป็น $F$ คือ $q \\rightarrow r$ เป็นเท็จ → $q$ จริง, $r$ เท็จ",
+        "ตอบ ข้อ 1. $p \\rightarrow q \\equiv T \\rightarrow T \\equiv T$"
+      ],
+      "choices": [
+        "$p \\to q$ มีค่าความจริงเป็นจริง",
+        "$q \\to r$ มีค่าความจริงเป็นจริง",
+        "$r \\to s$ มีค่าความจริงเป็นเท็จ",
+        "$s \\to p$ มีค่าความจริงเป็นเท็จ"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "chap-02-logic-q14",
+      "setId": "chap-02-logic",
+      "questionNumber": 14,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "medium",
+      "score": 1,
+      "question": "กำหนดให้ ประพจน์ $(\\sim p \\leftrightarrow \\sim r) \\vee (p \\leftrightarrow q)$ มีค่าความจริงเป็นเท็จ ประพจน์ใดต่อไปนี้มีค่าความจริงเป็นเท็จ",
+      "hasImage": false,
+      "sourceTag": "Entrance มี.ค. 2547",
+      "explanation": [
+        "$(\\sim p \\leftrightarrow \\sim r) \\vee (p \\leftrightarrow q)$ เป็นเท็จ แสดงว่าทั้งสองวงเล็บเป็นเท็จ",
+        "$\\sim p \\leftrightarrow \\sim r$ เท็จ → ค่า $p, r$ ตรงข้ามกัน",
+        "$p \\leftrightarrow q$ เท็จ → ค่า $p, q$ ตรงข้ามกัน",
+        "นั่นคือ $p$ ตรงข้ามกับทั้ง $q$ และ $r$ — ดังนั้น $q$ กับ $r$ มีค่าเท่ากัน",
+        "ข้อที่เป็นเท็จคือ ข้อ 4. $p \\wedge q \\wedge \\sim r$ (เพราะ $p$ ตรงข้ามกับ $q$ จึงไม่มีทาง $p \\wedge q$ เป็นจริงได้แน่นอน)"
+      ],
+      "choices": [
+        "$\\sim p \\to (q \\vee r)$",
+        "$\\sim p \\to (q \\wedge r)$",
+        "$p \\vee q \\vee \\sim r$",
+        "$p \\wedge q \\wedge \\sim r$"
+      ],
+      "correct": 3
+    },
+    {
+      "id": "chap-02-logic-q15",
+      "setId": "chap-02-logic",
+      "questionNumber": 15,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "hard",
+      "score": 1,
+      "question": "กำหนดให้ $p, q, r$ เป็นประพจน์ ถ้าประพจน์ $p \\to (q \\wedge r)$ มีค่าความจริงเป็นเท็จ และ $(p \\vee q) \\leftrightarrow r$ มีค่าความจริงเป็นจริง แล้ว พิจารณาค่าความจริงของประพจน์ต่อไปนี้\n\nก. $(p \\leftrightarrow q) \\leftrightarrow \\sim r$\n\nข. $p \\leftrightarrow (q \\vee \\sim r)$\n\nข้อใดต่อไปนี้ถูก",
+      "hasImage": false,
+      "sourceTag": "Entrance มี.ค. 2544",
+      "explanation": [
+        "$p \\rightarrow (q \\wedge r)$ เป็นเท็จ แสดงว่า $p$ เป็นจริง, ส่วน $q \\wedge r$ เป็นเท็จ (อย่างน้อย $q$ หรือ $r$ ต้องเท็จ)",
+        "$(p \\vee q) \\leftrightarrow r \\equiv T \\leftrightarrow r$ เป็นจริง แสดงว่า $r$ เป็นจริง",
+        "ดังนั้น $q$ ต้องเป็นเท็จเท่านั้น",
+        "ข้อ ก. $(p \\leftrightarrow q) \\leftrightarrow \\sim r \\equiv (T \\leftrightarrow F) \\leftrightarrow F \\equiv F \\leftrightarrow F \\equiv T$ — จริง",
+        "ข้อ ข. $p \\leftrightarrow (q \\vee \\sim r) \\equiv T \\leftrightarrow (F \\vee F) \\equiv T \\leftrightarrow F \\equiv F$ — เท็จ",
+        "ตอบ ข้อ 2. ก. จริง และ ข. เท็จ"
+      ],
+      "choices": [
+        "ก. จริง และ ข. จริง",
+        "ก. จริง และ ข. เท็จ",
+        "ก. เท็จ และ ข. จริง",
+        "ก. เท็จ และ ข. เท็จ"
+      ],
+      "correct": 1
+    },
+    {
+      "id": "chap-02-logic-q16",
+      "setId": "chap-02-logic",
+      "questionNumber": 16,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "medium",
+      "score": 1,
+      "question": "ถ้า $p, q, r$ เป็นประพจน์ โดยที่ $\\sim p \\vee q$ และ $(p \\to q) \\to r$ มีค่าความจริงเป็นจริงทั้งคู่ พิจารณาข้อความต่อไปนี้\n\nก. $p \\to (\\sim r \\to q)$ มีค่าความจริงเป็นจริง\n\nข. $(q \\wedge \\sim r) \\to p$ มีค่าความจริงเป็นจริง\n\nข้อใดต่อไปนี้ถูกต้อง",
+      "hasImage": false,
+      "sourceTag": "Entrance 2541",
+      "explanation": [
+        "จาก $\\sim p \\vee q \\equiv p \\rightarrow q$ เป็นจริง",
+        "และ $(p \\rightarrow q) \\rightarrow r$ เป็นจริง ..แสดงว่า $r$ เป็นจริง (เพราะ $T \\rightarrow r$ จริง → $r$ จริง)",
+        "ข้อ ก. $p \\rightarrow (\\sim r \\rightarrow q) \\equiv p \\rightarrow (F \\rightarrow q) \\equiv p \\rightarrow T \\equiv T$ — ถูก",
+        "ข้อ ข. $(q \\wedge \\sim r) \\rightarrow p \\equiv (q \\wedge F) \\rightarrow p \\equiv F \\rightarrow p \\equiv T$ — ถูก",
+        "ตอบ ข้อ 1. ทั้ง ก. และ ข. เป็นจริง"
+      ],
+      "choices": [
+        "ทั้ง ก. และ ข. ถูก",
+        "ก. ถูก และ ข. ผิด",
+        "ก. ผิด และ ข. ถูก",
+        "ทั้ง ก. และ ข. ผิด"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "chap-02-logic-q17",
+      "setId": "chap-02-logic",
+      "questionNumber": 17,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "medium",
+      "score": 1,
+      "question": "กำหนดข้อความต่อไปนี้ ให้มีความจริงเป็นเท็จ \"ผู้ที่ใส่รองเท้าแตะและใส่กางเกงขาสั้น เป็นผู้ที่ไม่ได้รับอนุญาตให้เข้ามาในโรงงาน\"\n\nถ้า $p$ แทน ผู้ที่ใส่รองเท้าแตะ\n\n$\\;\\;\\;\\;q$ แทน ผู้ใส่กางเกงขาสั้น\n\n$\\;\\;\\;\\;r$ แทน ผู้ไม่ได้รับอนุญาตให้เข้ามาในโรงงาน\n\nแล้วข้อความใดต่อไปนี้ มีค่าความจริงเป็นเท็จ",
+      "hasImage": false,
+      "sourceTag": "Entrance 2533",
+      "explanation": [
+        "$(p \\wedge q) \\rightarrow r$ เป็นเท็จ แสดงว่า $p$ กับ $q$ เป็นจริงทั้งคู่ แต่ $r$ เป็นเท็จ",
+        "ข้อ 1. $(F \\vee T) \\rightarrow F \\equiv T \\rightarrow F \\equiv F$ (เป็นเท็จ) ← ✓",
+        "ข้อ 2. $(T \\wedge F) \\rightarrow T \\equiv F \\rightarrow T \\equiv T$",
+        "ข้อ 3. $(F \\wedge T) \\rightarrow F \\equiv F \\rightarrow F \\equiv T$",
+        "ข้อ 4. $(T \\vee F) \\rightarrow T \\equiv T \\rightarrow T \\equiv T$",
+        "ตอบ ข้อ 1."
+      ],
+      "choices": [
+        "$(\\sim p \\vee q) \\to r$",
+        "$(p \\wedge \\sim q) \\to \\sim r$",
+        "$(\\sim p \\wedge q) \\to r$",
+        "$(p \\vee \\sim q) \\to \\sim r$"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "chap-02-logic-q18",
+      "setId": "chap-02-logic",
+      "questionNumber": 18,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "medium",
+      "score": 1,
+      "question": "ให้ $S$ เป็นเซตของประพจน์ และ $f : S \\to \\{0, 1\\}$ กำหนดโดย $f(p) = 0$ ถ้า $p$ มีค่าความจริงเป็นเท็จ; $f(p) = 1$ ถ้า $p$ มีค่าความจริงเป็นจริง พิจารณาข้อความต่อไปนี้สำหรับประพจน์ $p, q$ ใดๆ\n\nก. $f(p \\vee q) = |f(p) - f(q)| + f(p) f(q)$\n\nข. $f(p \\wedge q) = f(p) f(q)$\n\nข้อใดต่อไปนี้ถูก",
+      "hasImage": false,
+      "sourceTag": "Entrance 2535",
+      "explanation": [
+        "ใช้ $T = 1, F = 0$ แล้วคำนวณ $f$:",
+        "ข้อ ก. $f(T \\vee T) = |1-1| + (1)(1) = 1$ ถูก; $f(T \\vee F) = f(F \\vee T) = |1-0| + (1)(0) = 1$ ถูก; $f(F \\vee F) = |0-0| + (0)(0) = 0$ ถูก ..ดังนั้น ข้อ ก. จริง",
+        "ข้อ ข. $f(T \\wedge T) = (1)(1) = 1$ ถูก; $f(T \\wedge F) = f(F \\wedge T) = (1)(0) = 0$ ถูก; $f(F \\wedge F) = (0)(0) = 0$ ถูก ..ดังนั้น ข้อ ข. จริง",
+        "ตอบ ข้อ 1. ทั้ง ก. และ ข. จริง"
+      ],
+      "choices": [
+        "ก. จริง ข. จริง",
+        "ก. จริง ข. เท็จ",
+        "ก. เท็จ ข. จริง",
+        "ก. เท็จ ข. เท็จ"
+      ],
+      "correct": 0,
+      "imageNote": "ข้อนี้อาศัยเนื้อหา \"ฟังก์ชัน\" ด้วย"
+    },
+    {
+      "id": "chap-02-logic-q19",
+      "setId": "chap-02-logic",
+      "questionNumber": 19,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "medium",
+      "score": 1,
+      "question": "ประพจน์ที่สมมูลกับประพจน์ $p \\leftrightarrow q$ คือประพจน์ในข้อใดต่อไปนี้",
+      "hasImage": false,
+      "sourceTag": "Entrance 2535",
+      "explanation": [
+        "$p \\leftrightarrow q \\equiv (p \\rightarrow q) \\wedge (q \\rightarrow p)$",
+        "ข้อ 2. สมมูล เพราะ $\\sim q \\rightarrow \\sim p \\equiv p \\rightarrow q$ (contrapositive) และ $\\sim q \\vee p \\equiv q \\rightarrow p$",
+        "ข้อ 1. ผิดตรงที่ $q \\wedge \\sim p$",
+        "ข้อ 3. และ 4. ผิดตรงที่ $p \\wedge \\sim q$",
+        "ตอบ ข้อ 2."
+      ],
+      "choices": [
+        "$(p \\to q) \\wedge (q \\wedge \\sim p)$",
+        "$(\\sim q \\to \\sim p) \\wedge (\\sim q \\vee p)$",
+        "$(p \\wedge \\sim q) \\wedge (q \\to p)$",
+        "$(p \\wedge \\sim q) \\wedge (\\sim p \\to \\sim q)$"
+      ],
+      "correct": 1
+    },
+    {
+      "id": "chap-02-logic-q20",
+      "setId": "chap-02-logic",
+      "questionNumber": 20,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "medium",
+      "score": 1,
+      "question": "ข้อความคู่ใดไม่สมมูลกัน",
+      "hasImage": false,
+      "sourceTag": "Entrance 2532",
+      "explanation": [
+        "ข้อ 1. สมมูลกัน ตามหลักการแจกแจงนิเสธ",
+        "ข้อ 2. สมมูลกัน เพราะ $\\sim(p \\wedge \\sim q) \\equiv \\sim p \\vee q \\equiv p \\rightarrow q \\equiv \\sim q \\rightarrow \\sim p$",
+        "ข้อ 3. ไม่สมมูล — ซ้ายมือ $= p \\vee (\\sim q \\vee p) \\equiv \\sim q \\vee p \\equiv q \\rightarrow p$ (ไม่เหมือนกับขวามือ)",
+        "ข้อ 4. สมมูลกัน เพราะ $\\Box \\leftrightarrow \\triangle \\equiv (\\Box \\rightarrow \\triangle) \\wedge (\\triangle \\rightarrow \\Box)$",
+        "ตอบ ข้อ 3. (ข้อที่ไม่สมมูล)"
+      ],
+      "choices": [
+        "$p \\vee q$ และ $\\sim (\\sim p \\wedge \\sim q)$",
+        "$\\sim (p \\wedge \\sim q)$ และ $\\sim q \\to \\sim p$",
+        "$\\sim p \\to (q \\to p)$ และ $\\sim q \\to p$",
+        "$\\sim p \\leftrightarrow q$ และ $(\\sim p \\to q) \\wedge (q \\to \\sim p)$"
+      ],
+      "correct": 2
+    },
+    {
+      "id": "chap-02-logic-q21",
+      "setId": "chap-02-logic",
+      "questionNumber": 21,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "medium",
+      "score": 1,
+      "question": "กำหนดให้ $p, q$ และ $r$ เป็นประพจน์ใดๆ ข้อใดต่อไปนี้ถูกต้อง",
+      "hasImage": false,
+      "sourceTag": "Entrance 2524",
+      "explanation": [
+        "โจทย์ถามข้อที่ถูกต้อง — ตรวจสอบความสมมูลของแต่ละข้อ",
+        "ข้อ 1. ผิด — $\\sim(p \\rightarrow q) \\vee r \\equiv (p \\wedge \\sim q) \\vee r$ สมมูลกับ $r \\vee (p \\wedge \\sim q)$ ที่โจทย์ระบุ (โจทย์บอก 'ไม่สมมูล' จึงผิด)",
+        "ข้อ 2. ผิด — $(\\sim p \\vee q) \\vee r \\equiv (p \\rightarrow q) \\vee r$ ทั้งสองสมมูลกัน (โจทย์บอก 'ไม่สมมูล' จึงผิด)",
+        "ข้อ 3. ถูก — $[q \\wedge (r \\vee \\sim r)] \\vee [q \\wedge (q \\wedge \\sim q)] \\equiv [q \\wedge T] \\vee [q \\wedge F] \\equiv q \\vee F \\equiv q$ ✓",
+        "ข้อ 4. ผิด — $(p \\wedge q) \\rightarrow r \\equiv \\sim p \\vee \\sim q \\vee r$ แต่ $\\sim r \\rightarrow (\\sim p \\wedge \\sim q) \\equiv r \\vee (\\sim p \\wedge \\sim q)$ ไม่สมมูล",
+        "ข้อ 5. ผิด — $(p \\wedge q) \\rightarrow r$ ไม่สมมูลกับ $\\sim r \\vee (p \\wedge q)$ (= $r \\rightarrow (p \\wedge q)$)",
+        "ตอบ ข้อ 3."
+      ],
+      "choices": [
+        "$r \\vee (p \\wedge \\sim q)$ ไม่สมมูลกับ $\\sim (p \\to q) \\vee r$",
+        "$(\\sim p \\vee q) \\vee r$ ไม่สมมูลกับ $(p \\to q) \\vee r$",
+        "$[q \\wedge (r \\vee \\sim r)] \\vee [q \\wedge (q \\wedge \\sim q)]$ สมมูลกับ $q$",
+        "$(p \\wedge q) \\to r$ สมมูลกับ $\\sim r \\to (\\sim p \\wedge \\sim q)$",
+        "$(p \\wedge q) \\to r$ สมมูลกับ $\\sim r \\vee (p \\wedge q)$"
+      ],
+      "correct": 2
+    },
+    {
+      "id": "chap-02-logic-q22",
+      "setId": "chap-02-logic",
+      "questionNumber": 22,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "medium",
+      "score": 1,
+      "question": "ประพจน์ใดต่อไปนี้สมมูลกับประพจน์ $(p \\to r) \\wedge (q \\to r)$",
+      "hasImage": false,
+      "sourceTag": "Entrance 2537",
+      "explanation": [
+        "$(p \\rightarrow r) \\wedge (q \\rightarrow r) \\equiv (\\sim p \\vee r) \\wedge (\\sim q \\vee r)$",
+        "$\\equiv r \\vee (\\sim p \\wedge \\sim q) \\equiv r \\vee \\sim(p \\vee q) \\equiv \\sim(p \\vee q) \\vee r$",
+        "ตอบ ข้อ 3."
+      ],
+      "choices": [
+        "$(p \\wedge q) \\vee \\sim r$",
+        "$(p \\wedge q) \\to r$",
+        "$\\sim (p \\vee q) \\vee r$",
+        "$\\sim (p \\vee q) \\to r$"
+      ],
+      "correct": 2
+    },
+    {
+      "id": "chap-02-logic-q23",
+      "setId": "chap-02-logic",
+      "questionNumber": 23,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "medium",
+      "score": 1,
+      "question": "ประพจน์ $x \\to (y \\to z)$ สมมูลกับประพจน์ในข้อใดต่อไปนี้",
+      "hasImage": false,
+      "sourceTag": "Entrance 2521",
+      "explanation": [
+        "$x \\rightarrow (y \\rightarrow z) \\equiv \\sim x \\vee (\\sim y \\vee z) \\equiv \\sim y \\vee (\\sim x \\vee z) \\equiv y \\rightarrow (x \\rightarrow z)$",
+        "ตอบ ข้อ 2."
+      ],
+      "choices": [
+        "$x \\to (z \\to y)$",
+        "$y \\to (x \\to z)$",
+        "$y \\to (z \\to x)$",
+        "$z \\to (x \\to y)$",
+        "$(x \\to z) \\to y$"
+      ],
+      "correct": 1
+    },
+    {
+      "id": "chap-02-logic-q24",
+      "setId": "chap-02-logic",
+      "questionNumber": 24,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "medium",
+      "score": 1,
+      "question": "ถ้า $p$ และ $q$ เป็นประพจน์ใดๆแล้ว ประพจน์ $p \\to \\sim (q \\to p)$ สมมูลกับประพจน์ในข้อใดต่อไปนี้",
+      "hasImage": false,
+      "sourceTag": "Entrance 2540",
+      "explanation": [
+        "$p \\rightarrow \\sim(q \\rightarrow p) \\equiv p \\rightarrow (q \\wedge \\sim p)$ (เพราะ $\\sim(q \\rightarrow p) \\equiv q \\wedge \\sim p$)",
+        "$\\equiv \\sim p \\vee (q \\wedge \\sim p)$",
+        "ตรงกับข้อ 1. $\\sim p \\vee (\\sim p \\wedge q)$ (สลับลำดับ AND)",
+        "ตอบ ข้อ 1."
+      ],
+      "choices": [
+        "$\\sim p \\vee (\\sim p \\wedge q)$",
+        "$\\sim p \\vee (p \\vee q)$",
+        "$p \\to (\\sim p \\vee q)$",
+        "$p \\to \\sim (p \\wedge q)$"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "chap-02-logic-q25",
+      "setId": "chap-02-logic",
+      "questionNumber": 25,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "medium",
+      "score": 1,
+      "question": "ประพจน์ $\\sim p \\to (q \\to (r \\vee p))$ สมมูลกับประพจน์ในข้อใดต่อไปนี้",
+      "hasImage": false,
+      "sourceTag": "Entrance ต.ค. 2541",
+      "explanation": [
+        "$\\sim p \\rightarrow (q \\rightarrow (r \\vee p)) \\equiv p \\vee (q \\rightarrow (r \\vee p))$",
+        "$\\equiv p \\vee (\\sim q \\vee (r \\vee p)) \\equiv p \\vee \\sim q \\vee r$",
+        "ตอบ ข้อ 2."
+      ],
+      "choices": [
+        "$(\\sim p) \\vee q \\vee r$",
+        "$p \\vee (\\sim q) \\vee r$",
+        "$p \\vee q \\vee (\\sim r)$",
+        "$p \\vee (\\sim q) \\vee (\\sim r)$"
+      ],
+      "correct": 1
+    },
+    {
+      "id": "chap-02-logic-q26",
+      "setId": "chap-02-logic",
+      "questionNumber": 26,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "medium",
+      "score": 1,
+      "question": "กำหนดให้ $p, q$ และ $r$ เป็นประพจน์ ประพจน์ $\\sim [(p \\wedge q) \\to (\\sim q \\vee r)]$ สมมูลกับประพจน์ในข้อใดต่อไปนี้",
+      "hasImage": false,
+      "sourceTag": "Entrance มี.ค. 2542",
+      "explanation": [
+        "$\\sim[(p \\wedge q) \\rightarrow (\\sim q \\vee r)] \\equiv \\sim[\\sim(p \\wedge q) \\vee \\sim q \\vee r]$",
+        "$\\equiv (p \\wedge q) \\wedge q \\wedge \\sim r \\equiv p \\wedge q \\wedge \\sim r$",
+        "ข้อ 1. $p \\wedge \\sim(q \\rightarrow r) \\equiv p \\wedge (q \\wedge \\sim r)$ ตรงกัน ✓",
+        "ตอบ ข้อ 1."
+      ],
+      "choices": [
+        "$p \\wedge \\sim (q \\to r)$",
+        "$\\sim q \\vee (\\sim p \\wedge r)$",
+        "$\\sim (p \\wedge q) \\wedge (q \\wedge r)$",
+        "$\\sim (p \\wedge q) \\to (q \\wedge \\sim r)$"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "chap-02-logic-q27",
+      "setId": "chap-02-logic",
+      "questionNumber": 27,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "medium",
+      "score": 1,
+      "question": "ให้ $p$ และ $q$ เป็นประพจน์ ถ้า $p * q$ เป็นประพจน์ที่มีค่าความจริงตามตารางข้างล่างนี้\n\n$\\begin{array}{|c|c|c|}\\hline p & q & p*q \\\\\\hline T & T & F \\\\ T & F & F \\\\ F & T & F \\\\ F & F & T \\\\\\hline\\end{array}$\n\nแล้วประพจน์ $p * q$ สมมูลกับประพจน์ในข้อใดต่อไปนี้",
+      "hasImage": false,
+      "sourceTag": "Entrance 2534",
+      "explanation": [
+        "จากตารางค่าความจริง $p * q$: ให้ T เมื่อ $p$ และ $q$ ทั้งคู่เป็น F เท่านั้น (กรณีอื่นเป็น F)",
+        "นั่นคือ $p * q \\equiv \\sim(p \\vee q)$ (ค่าตรงข้ามกับ OR)",
+        "ข้อ 1. $\\sim(\\sim p \\rightarrow q) \\equiv \\sim(p \\vee q)$ ตรงกัน ✓",
+        "ตอบ ข้อ 1."
+      ],
+      "choices": [
+        "$\\sim (\\sim p \\to q)$",
+        "$\\sim p \\to q$",
+        "$\\sim (q \\to \\sim p)$",
+        "$q \\to \\sim p$"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "chap-02-logic-q28",
+      "setId": "chap-02-logic",
+      "questionNumber": 28,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "medium",
+      "score": 1,
+      "question": "ประพจน์ในข้อใดต่อไปนี้เป็นจริงเสมอ",
+      "hasImage": false,
+      "sourceTag": "Entrance 2522",
+      "explanation": [
+        "'เป็นจริงเสมอ' คือ สัจนิรันดร์",
+        "ข้อ 1. เป็นเท็จได้ หาก $p$ เป็นเท็จ, $q$ เป็นจริง",
+        "ข้อ 2. ถูก เพราะ $p \\rightarrow q \\equiv \\sim p \\vee q$ (นิยาม)",
+        "ข้อ 3. ไม่จริง — $\\sim((p \\vee q) \\vee r) \\equiv \\sim(p \\vee q) \\wedge \\sim r$ ไม่สมมูลกับ $\\sim(p \\wedge q) \\wedge \\sim r$",
+        "ข้อ 4. ไม่จริง — $(p \\rightarrow r) \\wedge (q \\rightarrow r) \\equiv (p \\vee q) \\rightarrow r$ ไม่สมมูลกับ $(p \\wedge q) \\rightarrow r$",
+        "ข้อ 5. เป็นเท็จได้ หาก $p$ จริง, $q$ กับ $r$ ค่าตรงข้ามกัน",
+        "ตอบ ข้อ 2."
+      ],
+      "choices": [
+        "$(p \\to q) \\to (\\sim p \\wedge \\sim q)$",
+        "$(p \\to q) \\leftrightarrow (\\sim p \\vee q)$",
+        "$\\sim ((p \\vee q) \\vee r) \\leftrightarrow (\\sim (p \\wedge q) \\wedge \\sim r)$",
+        "$((p \\to r) \\wedge (q \\to r)) \\leftrightarrow ((p \\wedge q) \\to r)$",
+        "$((p \\to q) \\vee (p \\to r)) \\to (p \\to (q \\wedge r))$"
+      ],
+      "correct": 1
+    },
+    {
+      "id": "chap-02-logic-q29",
+      "setId": "chap-02-logic",
+      "questionNumber": 29,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "medium",
+      "score": 1,
+      "question": "ข้อใดต่อไปนี้มีค่าความจริงเป็นจริงเสมอ",
+      "hasImage": false,
+      "sourceTag": "Entrance 2521",
+      "explanation": [
+        "ทุกข้ออยู่ในรูป $\\Box \\rightarrow (x \\rightarrow y)$ ซึ่งจะเป็นเท็จได้กรณีเดียวเท่านั้น คือ $\\Box$ เป็นจริง และ $x \\rightarrow y$ เป็นเท็จ (คือ $x = T, y = F$)",
+        "แทน $x = T, y = F$ ใน $\\Box$ ของแต่ละข้อ:",
+        "ข้อ 1. $[T \\vee T] = T$ → เท็จได้ → ไม่สัจนิรันดร์",
+        "ข้อ 2. $[F \\rightarrow T] = T$ → เท็จได้",
+        "ข้อ 3. $[F \\vee T] = T$ → เท็จได้",
+        "ข้อ 4. $[(T \\wedge T) \\rightarrow F] = T \\rightarrow F = F$ → ไม่มีกรณีที่เท็จ → สัจนิรันดร์ ✓",
+        "ข้อ 5. $[(T \\wedge T) \\rightarrow T] = T$ → เท็จได้",
+        "ตอบ ข้อ 4."
+      ],
+      "choices": [
+        "$[x \\vee (\\sim y)] \\to (x \\to y)$",
+        "$[(\\sim x) \\to (\\sim y)] \\to (x \\to y)$",
+        "$[(\\sim x) \\vee (\\sim y)] \\to (x \\to y)$",
+        "$[\\{x \\wedge (\\sim y)\\} \\to (\\sim x)] \\to (x \\to y)$",
+        "$[\\{x \\wedge (\\sim y)\\} \\to (\\sim y)] \\to (x \\to y)$"
+      ],
+      "correct": 3
+    },
+    {
+      "id": "chap-02-logic-q30",
+      "setId": "chap-02-logic",
+      "questionNumber": 30,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "medium",
+      "score": 1,
+      "question": "ประพจน์ต่อไปนี้ ข้อใดสามารถเป็นเท็จได้",
+      "hasImage": false,
+      "sourceTag": "Entrance 2523",
+      "explanation": [
+        "'สามารถเป็นเท็จได้' คือ ไม่เป็นสัจนิรันดร์",
+        "ข้อ 1. $(p \\vee q) \\wedge \\sim p \\equiv (p \\wedge \\sim p) \\vee (q \\wedge \\sim p) \\equiv F \\vee (q \\wedge \\sim p) \\equiv q \\wedge \\sim p$ — สมมูลกับซ้ายมือ → เป็นสัจนิรันดร์",
+        "ข้อ 2. $\\sim \\Box \\rightarrow \\triangle \\equiv \\sim \\triangle \\rightarrow \\Box$ (contrapositive) → เป็นสัจนิรันดร์",
+        "ข้อ 3. $\\sim p \\leftrightarrow \\sim q \\equiv p \\leftrightarrow q$ ดังนั้น expr เป็น $\\sim(p \\leftrightarrow q) \\leftrightarrow (p \\leftrightarrow q)$ ซึ่งเป็นเท็จเสมอ → ไม่สัจนิรันดร์ ✓",
+        "ข้อ 4. ถ้า $p, q$ จริงทั้งคู่ (ซ้ายมือจริง) ขวามือ $p \\leftrightarrow q$ จริงเสมอ → เป็นสัจนิรันดร์",
+        "ข้อ 5. $\\sim(p \\rightarrow q) \\equiv p \\wedge \\sim q$ (นิยามนิเสธของ implication) → เป็นสัจนิรันดร์",
+        "ตอบ ข้อ 3."
+      ],
+      "choices": [
+        "$(p \\vee q) \\wedge \\sim p \\;\\leftrightarrow\\; \\sim p \\wedge q$",
+        "$(\\sim (p \\vee q) \\to (p \\wedge q)) \\;\\leftrightarrow\\; (\\sim (p \\wedge q) \\to (p \\vee q))$",
+        "$\\sim (p \\leftrightarrow q) \\;\\leftrightarrow\\; (\\sim p \\leftrightarrow \\sim q)$",
+        "$(p \\wedge q) \\to (p \\leftrightarrow q)$",
+        "$\\sim (p \\to q) \\;\\leftrightarrow\\; p \\wedge \\sim q$"
+      ],
+      "correct": 2
+    },
+    {
+      "id": "chap-02-logic-q31",
+      "setId": "chap-02-logic",
+      "questionNumber": 31,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "hard",
+      "score": 1,
+      "question": "กำหนด $p, q, r, s$ เป็นประพจน์ ประพจน์ในข้อใดต่อไปนี้ไม่เป็นสัจนิรันดร์",
+      "hasImage": false,
+      "sourceTag": "Entrance 2541",
+      "explanation": [
+        "ข้อ 1. ซ้ายมือ ≡ ขวามือ (กระจาย $\\vee$ บน $\\wedge$) → เป็นสัจนิรันดร์",
+        "ข้อ 2. อยู่ในรูป $\\Box \\vee \\sim \\Box$ → ต้องมีจริงเสมอ → เป็นสัจนิรันดร์",
+        "ข้อ 3. ซ้ายมือ $\\equiv \\sim r \\rightarrow \\sim(p \\vee q) \\equiv \\sim r \\rightarrow (\\sim p \\wedge \\sim q)$ = ขวามือ → เป็นสัจนิรันดร์",
+        "ข้อ 4. ถ้า $p$ จริง, $q$ เท็จ — ค่าซ้ายและขวาของ $\\leftrightarrow$ จะไม่เท่ากัน → ไม่เป็นสัจนิรันดร์ ✓",
+        "ตอบ ข้อ 4."
+      ],
+      "choices": [
+        "$[p \\vee (q \\wedge r)] \\;\\leftrightarrow\\; [(p \\vee q) \\wedge (p \\vee r)]$",
+        "$[p \\vee (q \\wedge r)] \\vee \\sim [p \\vee (q \\wedge r)]$",
+        "$[(p \\vee q) \\to r] \\;\\leftrightarrow\\; [\\sim r \\to (\\sim p \\wedge \\sim q)]$",
+        "$[(p \\to q) \\wedge (q \\to r) \\wedge (s \\vee \\sim r) \\wedge \\sim s] \\;\\leftrightarrow\\; p$"
+      ],
+      "correct": 3
+    },
+    {
+      "id": "chap-02-logic-q32",
+      "setId": "chap-02-logic",
+      "questionNumber": 32,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "medium",
+      "score": 1,
+      "question": "ประพจน์ใดต่อไปนี้ไม่เป็นสัจนิรันดร์",
+      "hasImage": false,
+      "sourceTag": "Entrance 2529",
+      "explanation": [
+        "ข้อ 1. ลองทำผลเป็นเท็จ ($p$ จริง, $r$ เท็จ): $p \\rightarrow q$ จริง → $q$ จริง; $(p \\wedge q) \\rightarrow r \\equiv T \\rightarrow F \\equiv F$ ขัดแย้ง → สัจนิรันดร์",
+        "ข้อ 2. $[(p \\rightarrow q) \\wedge (q \\rightarrow r)] \\rightarrow (p \\rightarrow r)$ — กฎสกรรมกริยา → สัจนิรันดร์",
+        "ข้อ 3. ซ้ายมือ $\\equiv \\sim p \\vee \\sim q \\vee r$ แต่ขวามือ $\\equiv \\sim(\\sim p \\vee q) \\vee r \\equiv (p \\wedge \\sim q) \\vee r$ — ไม่สมมูล → ไม่สัจนิรันดร์ ✓",
+        "ข้อ 4. $\\leftrightarrow$ มีสมบัติเปลี่ยนหมู่ (associative) → สัจนิรันดร์",
+        "ตอบ ข้อ 3."
+      ],
+      "choices": [
+        "$[((p \\wedge q) \\to r) \\wedge (p \\to q)] \\to (p \\to r)$",
+        "$[(p \\to q) \\wedge (q \\to r)] \\to (p \\to r)$",
+        "$[p \\to (q \\to r)] \\;\\leftrightarrow\\; [(p \\to q) \\to r]$",
+        "$[p \\leftrightarrow (q \\leftrightarrow r)] \\;\\leftrightarrow\\; [(p \\leftrightarrow q) \\leftrightarrow r]$"
+      ],
+      "correct": 2
+    },
+    {
+      "id": "chap-02-logic-q33",
+      "setId": "chap-02-logic",
+      "questionNumber": 33,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "medium",
+      "score": 1,
+      "question": "พิจารณาการอ้างเหตุผลต่อไปนี้\n\nก. เหตุ $(1)\\;p \\to q$, $\\;\\;(2)\\;q \\to s$, $\\;\\;(3)\\;\\sim s$; $\\;\\;$ผล $\\sim p \\vee s$\n\nข. เหตุ $p \\to (r \\vee s)$; $\\;\\;$ผล $\\sim p \\vee (r \\vee s)$\n\nข้อความใดต่อไปนี้ถูก",
+      "hasImage": false,
+      "sourceTag": "Entrance 2539",
+      "explanation": [
+        "ข้อ ก. เหตุ (1) กับ (2) รวมกันได้ $p \\rightarrow s$ ซึ่งเขียนได้ว่า $\\sim s \\rightarrow \\sim p$",
+        "นำไปรวมกับเหตุ (3) จะได้ผลเป็น $\\sim p$ และผลที่ให้มาคือ $\\sim p \\vee s$ — สมเหตุสมผล (เพราะ $\\sim p$ จริง → $\\sim p \\vee s$ จริง)",
+        "ข้อ ข. สมเหตุสมผล เพราะเหตุกับผลเป็นรูปแบบประพจน์ที่สมมูลกัน",
+        "ตอบ ข้อ 1. ก. และ ข. สมเหตุสมผลทั้งคู่"
+      ],
+      "choices": [
+        "ก. และ ข. สมเหตุสมผลทั้งคู่",
+        "ก. และ ข. ไม่สมเหตุสมผลทั้งคู่",
+        "ก. สมเหตุสมผล แต่ ข. ไม่สมเหตุสมผล",
+        "ก. ไม่สมเหตุสมผล แต่ ข. สมเหตุสมผล"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "chap-02-logic-q34",
+      "setId": "chap-02-logic",
+      "questionNumber": 34,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "medium",
+      "score": 1,
+      "question": "พิจารณาการอ้างเหตุผลต่อไปนี้\n\nก. เหตุ $(1)\\;p \\to \\sim q$, $\\;\\;(2)\\;q \\vee r$, $\\;\\;(3)\\;\\sim r$; $\\;\\;$ผล $p$\n\nข. เหตุ $(1)\\;p \\wedge q$, $\\;\\;(2)\\;r$, $\\;\\;(3)\\;\\sim r \\vee s$; $\\;\\;$ผล $s$\n\nข้อใดถูก",
+      "hasImage": false,
+      "sourceTag": "Entrance 2540",
+      "explanation": [
+        "ข้อ ก. เหตุ (2) เขียนได้เป็น $\\sim q \\rightarrow r$ นำไปรวมกับเหตุ (1) ได้ผลเป็น $p \\rightarrow r$ คือ $\\sim r \\rightarrow \\sim p$",
+        "นำไปรวมกับเหตุ (3) ก็จะได้ผลเป็น $\\sim p$ แต่ผลโจทย์คือ $p$ → ตรงข้ามกัน → ไม่สมเหตุสมผล",
+        "ข้อ ข. เหตุ (3) เขียนได้เป็น $r \\rightarrow s$ นำไปรวมกับเหตุ (2) ได้ผลเป็น $q \\rightarrow s$",
+        "เหตุ (1) มี $q$ จริง — รวมกับ $q \\rightarrow s$ ได้ผลเป็น $s$ — ตรงกับผลโจทย์ → สมเหตุสมผล",
+        "ตอบ ข้อ 3. ก. ไม่สมเหตุสมผล แต่ ข. สมเหตุสมผล"
+      ],
+      "choices": [
+        "ก. และ ข. สมเหตุสมผล",
+        "ก. สมเหตุสมผล แต่ ข. ไม่สมเหตุสมผล",
+        "ก. ไม่สมเหตุสมผล แต่ ข. สมเหตุสมผล",
+        "ก. และ ข. ไม่สมเหตุสมผล"
+      ],
+      "correct": 2
+    },
+    {
+      "id": "chap-02-logic-q35",
+      "setId": "chap-02-logic",
+      "questionNumber": 35,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "medium",
+      "score": 1,
+      "question": "พิจารณาการอ้างเหตุผลต่อไปนี้ เมื่อ $p, q$ และ $r$ เป็นประพจน์\n\nก. เหตุ $(1)\\;p \\vee (p \\wedge \\sim q)$, $\\;\\;(2)\\;q$; $\\;\\;$ผล $q$\n\nข. เหตุ $(1)\\;\\sim p \\to r$, $\\;\\;(2)\\;\\sim r \\vee s$, $\\;\\;(3)\\;\\sim s$; $\\;\\;$ผล $p$\n\nข้อใดถูก",
+      "hasImage": false,
+      "sourceTag": "Entrance ต.ค. 2541",
+      "explanation": [
+        "ข้อ ก. ลองทำเหตุทุกข้อจริงและผลเป็นเท็จ — จากผล $q$ บังคับเท็จ คิดที่เหตุ (2) บังคับจริง จะได้ $p$ เท็จด้วย",
+        "แต่นำ $p, q$ (เท็จทั้งคู่) ไปคิดที่เหตุ (1) พบว่าเป็นเท็จเสมอ → ไม่สามารถทำได้ → สมเหตุสมผล",
+        "ข้อ ข. จากเหตุ (1) รวมกับเหตุ (2) เขียนใหม่ได้ว่า $r \\rightarrow s$ จะได้ผล $\\sim p \\rightarrow s \\equiv \\sim s \\rightarrow p$",
+        "นำไปรวมกับเหตุ (3) คือ $\\sim s$ ได้ผลสรุป $p$ — ตรงกับโจทย์ → สมเหตุสมผล",
+        "ตอบ ข้อ 1. ก. และ ข. สมเหตุสมผลทั้งคู่"
+      ],
+      "choices": [
+        "ก. สมเหตุสมผล ข. สมเหตุสมผล",
+        "ก. สมเหตุสมผล ข. ไม่สมเหตุสมผล",
+        "ก. ไม่สมเหตุสมผล ข. สมเหตุสมผล",
+        "ก. ไม่สมเหตุสมผล ข. ไม่สมเหตุสมผล"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "chap-02-logic-q36",
+      "setId": "chap-02-logic",
+      "questionNumber": 36,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "hard",
+      "score": 1,
+      "question": "พิจารณาการให้เหตุผลต่อไปนี้\n\nก. เหตุ $(1)\\;p \\to (q \\to r)$, $\\;\\;(2)\\;p$, $\\;\\;(3)\\;\\sim r \\to q$; $\\;\\;$ผล $r \\to t$\n\nข. เหตุ $(1)\\;p \\to (q \\to \\sim s)$, $\\;\\;(2)\\;p \\wedge s$; $\\;\\;$ผล $q$\n\nข้อใดต่อไปนี้ถูก",
+      "hasImage": false,
+      "sourceTag": "Entrance มี.ค. 2542",
+      "explanation": [
+        "ข้อ ก. เหตุ (1) กับ (2) รวมกันได้ $q \\rightarrow r$ นำไปรวมกับเหตุ (3) ได้ $\\sim q \\rightarrow r$",
+        "หาก $\\sim q \\rightarrow r$ จริง ก็แปลว่า $r$ จริง — แต่ผลโจทย์คือ $r \\rightarrow t$ ทำให้เท็จได้โดยให้ $t$ เท็จ → ไม่สมเหตุสมผล",
+        "ข้อ ข. เหตุ (2) แยกได้เป็น $p$ และ $s$ (ทั้งคู่จริง)",
+        "เหตุ (1) + $p$ → $q \\rightarrow \\sim s$ คือ $s \\rightarrow \\sim q$ + $s$ ได้ $\\sim q$ ซึ่งตรงข้ามกับผลโจทย์ $q$ → ไม่สมเหตุสมผล",
+        "ตอบ ข้อ 4. ทั้ง ก. และ ข. ไม่สมเหตุสมผล"
+      ],
+      "choices": [
+        "ก. และ ข. สมเหตุสมผล",
+        "ก. สมเหตุสมผล แต่ ข. ไม่สมเหตุสมผล",
+        "ก. ไม่สมเหตุสมผล แต่ ข. สมเหตุสมผล",
+        "ก. และ ข. ไม่สมเหตุสมผล"
+      ],
+      "correct": 3
+    },
+    {
+      "id": "chap-02-logic-q37",
+      "setId": "chap-02-logic",
+      "questionNumber": 37,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "medium",
+      "score": 1,
+      "question": "พิจารณาการอ้างเหตุผลต่อไปนี้\n\nก. เหตุ $(1)\\;(q \\to \\sim r)$, $\\;\\;(2)\\;q$, $\\;\\;(3)\\;r$; $\\;\\;$ผล $p$\n\nข. เหตุ $(1)\\;(p \\wedge q) \\to r$, $\\;\\;(2)\\;\\sim (r \\vee s)$, $\\;\\;(3)\\;p$; $\\;\\;$ผล $\\sim q$\n\nข้อใดต่อไปนี้ถูก",
+      "hasImage": false,
+      "sourceTag": "Entrance ต.ค. 2542",
+      "explanation": [
+        "ข้อ ก. เหตุ (1) เขียนเป็น $q \\rightarrow (p \\rightarrow \\sim r)$ + เหตุ (2) ได้ $p \\rightarrow \\sim r$ คือ $r \\rightarrow \\sim p$",
+        "+ เหตุ (3) ได้ $\\sim p$ — แต่ผลโจทย์คือ $p$ → ตรงข้ามกัน → ไม่สมเหตุสมผล",
+        "ข้อ ข. เหตุ (2) $\\sim r \\wedge \\sim s$ แยกเป็น $\\sim r$ และ $\\sim s$ (ทั้งคู่จริง)",
+        "นำ $\\sim r$ ไปรวมกับเหตุ (1) ได้ $\\sim(p \\wedge q) \\equiv p \\rightarrow \\sim q$",
+        "รวมกับเหตุ (3) จะได้ผลสรุป $\\sim q$ — ตรงกับผล → สมเหตุสมผล",
+        "ตอบ ข้อ 3. ก. ไม่สมเหตุสมผล แต่ ข. สมเหตุสมผล"
+      ],
+      "choices": [
+        "ก. และ ข. สมเหตุสมผล",
+        "ก. สมเหตุสมผล แต่ ข. ไม่สมเหตุสมผล",
+        "ก. ไม่สมเหตุสมผล แต่ ข. สมเหตุสมผล",
+        "ก. และ ข. ไม่สมเหตุสมผล"
+      ],
+      "correct": 2
+    },
+    {
+      "id": "chap-02-logic-q38",
+      "setId": "chap-02-logic",
+      "questionNumber": 38,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "hard",
+      "score": 1,
+      "question": "พิจารณาการอ้างเหตุผลต่อไปนี้\n\nก. เหตุ $(1)\\;p \\wedge q$, $\\;\\;(2)\\;(q \\vee r) \\to (s \\wedge p)$, $\\;\\;(3)\\;p \\to \\sim r$; $\\;\\;$ผล $s \\wedge \\sim r$\n\nข. เหตุ $(1)\\;P(x) \\to \\sim Q(x)$, $\\;\\;(2)\\;Q(x) \\vee R(x)$; $\\;\\;$ผล $P(x) \\to R(x)$\n\nข้อความใดต่อไปนี้ถูก",
+      "hasImage": false,
+      "sourceTag": "Entrance ต.ค. 2546",
+      "explanation": [
+        "ข้อ ก. ลองทำเหตุจริงทุกข้อ จะได้ $p$ จริง, $q$ จริง, $r$ เท็จ, $s$ จริง เท่านั้น — ผลโจทย์เป็นจริงตามไปด้วยเสมอ → สมเหตุสมผล",
+        "ข้อ ข. เหตุ (2) เปลี่ยนรูปเป็น $\\sim Q(x) \\rightarrow R(x)$ + เหตุ (1) ได้ผลเป็น $P(x) \\rightarrow R(x)$ ตรงกับผลโจทย์ → สมเหตุสมผล",
+        "ตอบ ข้อ 1. ก. และ ข. สมเหตุสมผลทั้งคู่"
+      ],
+      "choices": [
+        "ก. และ ข. สมเหตุสมผลทั้งคู่",
+        "ก. สมเหตุสมผล แต่ ข. ไม่สมเหตุสมผล",
+        "ก. ไม่สมเหตุสมผล แต่ ข. สมเหตุสมผล",
+        "ก. และ ข. ไม่สมเหตุสมผลทั้งคู่"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "chap-02-logic-q39",
+      "setId": "chap-02-logic",
+      "questionNumber": 39,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "easy",
+      "score": 1,
+      "question": "พิจารณาข้อความต่อไปนี้\n\nก. เหตุ (1) นายสมหมายเป็นคนขยันหรือนายสมหมายสอบได้ที่หนึ่งของห้อง\n\n$\\;\\;\\;\\;\\;\\;\\;\\;$(2) นายสมหมายเป็นคนไม่ขยัน\n\n$\\;\\;\\;$ผล นายสมหมายสอบได้ที่หนึ่งของห้อง\n\nข. เหตุ (1) ถ้าสมศรีไปเที่ยวชายทะเลแล้วสมศรีไม่สบาย\n\n$\\;\\;\\;\\;\\;\\;\\;\\;$(2) สมศรีไม่สบาย\n\n$\\;\\;\\;$ผล สมศรีไปเที่ยวชายทะเล\n\nการอ้างเหตุผลใน ก. และ ข. ข้างต้น สมเหตุสมผลหรือไม่",
+      "hasImage": false,
+      "sourceTag": "Entrance 2537",
+      "explanation": [
+        "ข้อ ก. เหตุ (1) $p \\vee q$, เหตุ (2) $\\sim p$, ผล $q$ — สมเหตุสมผล เพราะ $p \\vee q \\equiv \\sim p \\rightarrow q$",
+        "ข้อ ข. เหตุ (1) $p \\rightarrow q$, เหตุ (2) $q$, ผล $p$ — ไม่สมเหตุสมผล เพราะ $p \\rightarrow q$ ไม่สมมูลกับ $q \\rightarrow p$",
+        "ตอบ ข้อ 2. ก. สมเหตุสมผล แต่ ข. ไม่สมเหตุสมผล"
+      ],
+      "choices": [
+        "ก. สมเหตุสมผล ข. สมเหตุสมผล",
+        "ก. สมเหตุสมผล ข. ไม่สมเหตุสมผล",
+        "ก. ไม่สมเหตุสมผล ข. สมเหตุสมผล",
+        "ก. ไม่สมเหตุสมผล ข. ไม่สมเหตุสมผล"
+      ],
+      "correct": 1
+    },
+    {
+      "id": "chap-02-logic-q40",
+      "setId": "chap-02-logic",
+      "questionNumber": 40,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "medium",
+      "score": 1,
+      "question": "กำหนดให้ เหตุ $(1)\\;\\sim p \\to \\sim q$, $\\;\\;(2)\\;p \\to (r \\vee s)$, $\\;\\;(3)\\;q \\vee t$, $\\;\\;(4)\\;\\sim t$\n\nผลในข้อใดต่อไปนี้ทำให้การอ้างเหตุผลนี้สมเหตุสมผล",
+      "hasImage": false,
+      "sourceTag": "Entrance มี.ค. 2543",
+      "explanation": [
+        "จากเหตุ (3) เขียนเป็น $\\sim t \\rightarrow q$ รวมกับเหตุ (4) $\\sim t$ สรุปได้ $q$",
+        "นำ $q$ ไปรวมกับเหตุ (1) ซึ่งเขียนได้เป็น $q \\rightarrow p$ จะได้ผลเป็น $p$",
+        "สุดท้ายไปรวมกับเหตุ (2) ได้ผลเป็น $r \\vee s$ (สมมูลกับ $\\sim r \\rightarrow s$)",
+        "ตอบ ข้อ 4."
+      ],
+      "choices": [
+        "$s \\to r$",
+        "$s \\to \\sim r$",
+        "$r \\to \\sim s$",
+        "$\\sim r \\to s$"
+      ],
+      "correct": 3
+    },
+    {
+      "id": "chap-02-logic-q41",
+      "setId": "chap-02-logic",
+      "questionNumber": 41,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "medium",
+      "score": 1,
+      "question": "กำหนดให้ $p, q, r$ และ $s$ เป็นประพจน์ ในการอ้างเหตุผล ถ้า \"เหตุ\" คือ\n\n$\\;\\;\\;\\;(1)\\;(p \\vee q) \\to (r \\wedge s)$\n\n$\\;\\;\\;\\;(2)\\;r \\to \\sim s$\n\nแล้ว ประพจน์ในข้อต่อไปนี้เป็น \"ผล\" ที่ทำให้การอ้างเหตุผลมีความสมเหตุสมผล",
+      "hasImage": false,
+      "sourceTag": "Entrance มี.ค. 2546",
+      "explanation": [
+        "เหตุ (2) จัดรูปใหม่ได้เป็น $\\sim(r \\wedge s)$",
+        "เหตุ (1) จัดรูปได้เป็น $\\sim(r \\wedge s) \\rightarrow (\\sim p \\wedge \\sim q)$",
+        "นำเหตุมารวมกัน จะได้ผลเป็น $\\sim p \\wedge \\sim q$",
+        "ตอบ ข้อ 3."
+      ],
+      "choices": [
+        "$p$",
+        "$q$",
+        "$\\sim p \\wedge \\sim q$",
+        "$\\sim p \\vee \\sim q$"
+      ],
+      "correct": 2
+    },
+    {
+      "id": "chap-02-logic-q42",
+      "setId": "chap-02-logic",
+      "questionNumber": 42,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "medium",
+      "score": 1,
+      "question": "พิจารณาการอ้างเหตุผลดังนี้\n\nเหตุ (1) ถ้าสมชายไปว่ายน้ำแล้วสมหญิงไปดูภาพยนตร์\n\n$\\;\\;\\;\\;\\;\\;\\;$(2) สมทรงไม่ดูโทรทัศน์\n\n$\\;\\;\\;\\;\\;\\;\\;$(3) ถ้าสมชายไม่ไปว่ายน้ำแล้วสมพรไม่นอนพักผ่อน\n\n$\\;\\;\\;\\;\\;\\;\\;$(4) สมพรนอนพักผ่อนหรือสมทรงดูโทรทัศน์\n\nผล $p$\n\n$p$ แทนประพจน์ในข้อใดต่อไปนี้ จึงจะทำให้การอ้างเหตุผลข้างต้นสมเหตุสมผล",
+      "hasImage": false,
+      "sourceTag": "Entrance 2538",
+      "explanation": [
+        "เหตุ (1) $p \\rightarrow q$, (2) $\\sim r$, (3) $\\sim p \\rightarrow \\sim s$, (4) $s \\vee r$",
+        "จาก (4) คือ $\\sim r \\rightarrow s$ รวมกับ (2) $\\sim r$ ได้เป็น $s$",
+        "นำ $s$ ไปรวมกับ (3) ซึ่งเขียนอีกแบบคือ $s \\rightarrow p$ จะได้ผลเป็น $p$",
+        "นำ $p$ ไปรวมกับ (1) ได้สรุปผล $q$",
+        "ตัวเลือกที่สมเหตุสมผล คือ ข้อ 4. ($s \\wedge q$ — เพราะมี $s$ จริงและ $q$ จริง)"
+      ],
+      "choices": [
+        "สมพรไม่นอนพักผ่อน",
+        "สมชายไม่ไปว่ายน้ำ",
+        "สมชายไปว่ายน้ำ และสมหญิงไม่ไปดูภาพยนตร์",
+        "สมพรนอนพักผ่อน และสมหญิงไปดูภาพยนตร์"
+      ],
+      "correct": 3
+    },
+    {
+      "id": "chap-02-logic-q43",
+      "setId": "chap-02-logic",
+      "questionNumber": 43,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "medium",
+      "score": 1,
+      "question": "กำหนดให้ $\\mathbb{R}$ เป็นเซตของจำนวนจริง, $\\mathbb{N}$ เป็นเซตของจำนวนนับ, และเอกภพสัมพัทธ์เป็น $\\mathbb{R}$ ข้อต่อไปนี้ถูก",
+      "hasImage": false,
+      "sourceTag": "Entrance 2528",
+      "explanation": [
+        "ข้อ 1. ผิด — ตัวบ่งปริมาณคือ '$\\exists$' จึงต้องใช้ 'และ' ที่ถูกคือ $\\exists x[x > 0 \\wedge x^2 + 1 \\leq 7]$",
+        "ข้อ 2. ผิด — ต้องสลับเป็น $\\forall x \\exists y$ (ทุกๆ $x$ มี $y$ บางตัว)",
+        "ข้อ 3. ผิด — 'แต่ละ $x$ และ $y$' ต้องเป็น $\\forall x \\forall y$",
+        "ข้อ 4. ถูก — ใช้ $\\forall x$ กับ '$\\rightarrow$' และ $\\exists y$ — ตรงตามรูปประโยค",
+        "ตอบ ข้อ 4."
+      ],
+      "choices": [
+        "รูปสัญลักษณ์ของข้อความ \"มีจำนวนจริงบวก $x$ ซึ่ง $x^2 + 1 \\leq 7$\" คือ $\\exists x [\\, x > 0 \\to x^2 + 1 \\leq 7 \\,]$",
+        "รูปสัญลักษณ์ของข้อความ \"สำหรับจำนวนจริง $x$ ใดๆ มีจำนวนจริง $y$ ซึ่ง $x + y > 10$ หรือ $x^2 + y^2 = 3$\" คือ $\\exists y \\forall x [\\, x + y > 10 \\vee x^2 + y^2 = 3 \\,]$",
+        "รูปสัญลักษณ์ของข้อความ \"แต่ละจำนวนจริง $x$ และ $y$ จะได้ $x^3 + y^3 > 9$\" คือ $\\exists x \\exists y [\\, x^3 + y^3 > 9 \\,]$",
+        "รูปสัญลักษณ์ของข้อความ \"ถ้าทุกจำนวนจริง $x$ มากกว่า 5 แล้ว จะมีจำนวนนับ $y$ ซึ่ง $1 - y^2 > 0$\" คือ $\\forall x [\\, x > 5 \\,] \\to \\exists y [\\, y \\in \\mathbb{N} \\wedge 1 - y^2 > 0 \\,]$"
+      ],
+      "correct": 3
+    },
+    {
+      "id": "chap-02-logic-q44",
+      "setId": "chap-02-logic",
+      "questionNumber": 44,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "medium",
+      "score": 1,
+      "question": "กำหนดให้ เอกภพสัมพัทธ์เป็นเซตของจำนวนจริง และ $p$ แทนประพจน์ \"สำหรับจำนวนจริงบวก $x$ ใดๆ ผลบวกของ $x$ กับ $\\dfrac{1}{x}$ มีค่ามากกว่า $1$\" พิจารณาข้อความต่อไปนี้\n\nก. $p$ สมมูลกับ $\\;\\forall x [\\, x \\leq 0 \\vee (x + \\dfrac{1}{x} > 1) \\,]$\n\nข. $p$ มีค่าความจริงเป็นจริง\n\nข้อใดต่อไปนี้ถูก",
+      "hasImage": false,
+      "sourceTag": "Entrance 2537",
+      "explanation": [
+        "ข้อ ก. $p$ คือ $\\forall x[(x > 0) \\rightarrow (x + 1/x > 1)]$ ซึ่งสมมูลกับ $\\forall x[(x \\leq 0) \\vee (x + 1/x > 1)]$ (เพราะ $A \\rightarrow B \\equiv \\sim A \\vee B$) → ก. ถูก",
+        "ข้อ ข. พิสูจน์ได้: จาก $x + 1/x > 1$ ก็คือ $x^2 + 1 > x$ คือ $x^2 - 2x + 1 > -x$ คือ $(x - 1)^2 > -x$",
+        "ซึ่งเป็นจริงเสมอเมื่อ $x > 0$ เพราะฝั่งซ้าย $\\geq 0$ แต่ฝั่งขวา $< 0$ → ข. ถูก",
+        "ตอบ ข้อ 1. ทั้ง ก. และ ข. ถูก"
+      ],
+      "choices": [
+        "ทั้ง ก. และ ข. ถูก",
+        "ก. ถูก ข. ผิด",
+        "ก. ผิด ข. ถูก",
+        "ทั้ง ก. และ ข. ผิด"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "chap-02-logic-q45",
+      "setId": "chap-02-logic",
+      "questionNumber": 45,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "medium",
+      "score": 1,
+      "question": "ถ้าเอกภพสัมพัทธ์เป็นจำนวนจริง ข้อความถูกต้องคือข้อใด",
+      "hasImage": false,
+      "sourceTag": "Entrance 2520",
+      "explanation": [
+        "ประโยค $\\forall x[x + x = x^2]$ เป็นเท็จแน่นอน เพราะมี $x$ บางค่าที่ทำให้ $x + x \\neq x^2$ (เช่น $x = 1$: $2 \\neq 1$)",
+        "นิเสธของ $\\forall x[\\Box]$ คือ $\\exists x[\\sim \\Box]$",
+        "ดังนั้น $\\sim \\forall x[x + x = x^2] \\equiv \\exists x[x + x \\neq x^2]$",
+        "ตอบ ข้อ 4."
+      ],
+      "choices": [
+        "$\\forall x [\\, x + x = x^2 \\,]$ เป็นจริง เพราะ $2 + 2 = 2^2$",
+        "$\\forall x [\\, x + x = x^2 \\,]$ เป็นเท็จ เพราะ $1 + 1 $ ≠ $ 1^2$",
+        "$\\forall x [\\, x + x = x^2 \\,]$ เป็นจริง เพราะ $\\exists x [\\, x + x = x^2 \\,]$ เป็นจริง",
+        "$\\forall x [\\, x + x = x^2 \\,]$ เป็นเท็จ เพราะ $\\exists x [\\, x + x $ ≠ $ x^2 \\,]$ เป็นจริง",
+        "ตัดสินใจไม่ได้ เพราะมีบางค่าของ $x$ ที่ทำให้ $x + x = x^2$ และมีบางค่าของ $x$ ที่ทำให้ $x + x $ ≠ $ x^2$"
+      ],
+      "correct": 3
+    },
+    {
+      "id": "chap-02-logic-q46",
+      "setId": "chap-02-logic",
+      "questionNumber": 46,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "medium",
+      "score": 1,
+      "question": "ประพจน์ต่อไปนี้เป็นสัจนิรันดร์หรือไม่\n\nก. $[(p \\to q) \\wedge (q \\to r)] \\;\\leftrightarrow\\; (p \\to r)$ เมื่อ $p, q, r$ เป็นประพจน์ใดๆ\n\nข. $\\forall x [\\, x \\geq 0 \\to -x < 0 \\,]$ เมื่อเอกภพสัมพัทธ์คือเซตของจำนวนจริง",
+      "hasImage": false,
+      "sourceTag": "Entrance 2539",
+      "explanation": [
+        "ข้อ ก. ซ้ายมือ $\\equiv (\\sim p \\vee q) \\wedge (\\sim q \\vee r)$ ไม่สมมูลกับ $(p \\rightarrow r)$",
+        "ตัวอย่างเช่น $p$ จริง, $q$ เท็จ, $r$ จริง — ซ้ายมือ $= F$ แต่ขวามือ $= T$ → ก. ไม่สัจนิรันดร์",
+        "ข้อ ข. หาก $x = 0$: $x \\geq 0$ จริง แต่ $-0 = 0 \\not< 0$ — ทำให้ implication $T \\rightarrow F = F$ → ข. ไม่สัจนิรันดร์",
+        "ตอบ ข้อ 4. ก. และ ข. ไม่เป็นสัจนิรันดร์ทั้งคู่"
+      ],
+      "choices": [
+        "ก. เป็น ข. เป็น",
+        "ก. เป็น ข. ไม่เป็น",
+        "ก. ไม่เป็น ข. เป็น",
+        "ก. ไม่เป็น ข. ไม่เป็น"
+      ],
+      "correct": 3
+    },
+    {
+      "id": "chap-02-logic-q47",
+      "setId": "chap-02-logic",
+      "questionNumber": 47,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "medium",
+      "score": 1,
+      "question": "ข้อความต่อไปนี้ข้อใดถูกต้อง",
+      "hasImage": false,
+      "sourceTag": "Entrance 2526",
+      "explanation": [
+        "ข้อ 1. ถูก — $\\exists x[x^2 + 1 > 0]$ เป็นประพจน์ (มีตัวบ่งปริมาณ + มีค่าความจริง = T)",
+        "ข้อ 2. ผิด — $(P \\vee Q) \\rightarrow R \\equiv (\\sim P \\wedge \\sim Q) \\vee R$ แต่ $(P \\rightarrow R) \\vee (Q \\rightarrow R) \\equiv \\sim P \\vee \\sim Q \\vee R$ — ไม่สมมูล",
+        "ข้อ 3. ผิด — $\\forall x[x + 3 = 2]$ เป็นประพจน์เท็จ (เช่น $x = 0$ ไม่สอดคล้อง) ไม่ใช่จริง",
+        "ข้อ 4. ผิด — $\\forall x[P(x)] \\rightarrow \\exists x[P(x)]$ เป็นสัจนิรันดร์ (จริงเสมอ)",
+        "ตอบ ข้อ 1."
+      ],
+      "choices": [
+        "\"$x^2 + 1 > 0$ สำหรับจำนวนจริง $x$ บางจำนวน\" เป็นประพจน์",
+        "$(P \\vee Q) \\to R$ สมมูลกับ $(P \\to R) \\vee (Q \\to R)$",
+        "ถ้าเอกภพสัมพัทธ์เป็นเซตของจำนวนจริงแล้ว $\\forall x [\\, x + 3 = 2 \\,]$ เป็นประพจน์จริง",
+        "ถ้า $P(x)$ แทนประโยคเปิดเกี่ยวกับตัวแปร $x$ แล้ว $\\forall x [\\, P(x) \\,] \\to \\exists x [\\, P(x) \\,]$ เป็นประพจน์เท็จ"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "chap-02-logic-q48",
+      "setId": "chap-02-logic",
+      "questionNumber": 48,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "easy",
+      "score": 1,
+      "question": "นิเสธของข้อความ $\\exists x [\\, P(x) \\wedge \\sim Q(x) \\,]$ คือข้อความในข้อใดต่อไปนี้",
+      "hasImage": false,
+      "sourceTag": "Entrance มี.ค. 2543",
+      "explanation": [
+        "$\\sim \\exists x[P(x) \\wedge \\sim Q(x)] \\equiv \\forall x[\\sim(P(x) \\wedge \\sim Q(x))] \\equiv \\forall x[\\sim P(x) \\vee Q(x)]$",
+        "$\\equiv \\forall x[P(x) \\rightarrow Q(x)]$",
+        "ตอบ ข้อ 3."
+      ],
+      "choices": [
+        "$\\forall x [\\, P(x) \\to \\sim Q(x) \\,]$",
+        "$\\exists x [\\, \\sim P(x) \\to Q(x) \\,]$",
+        "$\\forall x [\\, P(x) \\to Q(x) \\,]$",
+        "$\\exists x [\\, Q(x) \\to P(x) \\,]$"
+      ],
+      "correct": 2
+    },
+    {
+      "id": "chap-02-logic-q49",
+      "setId": "chap-02-logic",
+      "questionNumber": 49,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "easy",
+      "score": 1,
+      "question": "ข้อความข้างล่างนี้ ข้อใดไม่ใช่นิเสธของข้อความ $\\exists x [\\, P(x) \\wedge \\sim Q(x) \\,]$",
+      "hasImage": false,
+      "sourceTag": "Entrance 2541",
+      "explanation": [
+        "$\\sim \\exists x[P(x) \\wedge \\sim Q(x)] \\equiv \\forall x[\\sim P(x) \\vee Q(x)]$ → สมมูลกับ ข้อ 1.",
+        "$\\equiv \\forall x[P(x) \\rightarrow Q(x)]$ → สมมูลกับ ข้อ 2.",
+        "$\\equiv \\forall x[\\sim Q(x) \\rightarrow \\sim P(x)]$ (contrapositive) → สมมูลกับ ข้อ 3.",
+        "ข้อ 4. ผิด เพราะ $P(x) \\wedge \\sim Q(x)$ ในโจทย์ ไม่ใช่นิเสธของ $P(x) \\vee \\sim Q(x)$ ในตัวเลือก",
+        "ตอบ ข้อ 4."
+      ],
+      "choices": [
+        "$\\forall x [\\, \\sim P(x) \\vee Q(x) \\,]$",
+        "$\\forall x [\\, P(x) \\to Q(x) \\,]$",
+        "$\\forall x [\\, \\sim Q(x) \\to \\sim P(x) \\,]$",
+        "$\\forall x [\\, P(x) \\vee \\sim Q(x) \\,]$"
+      ],
+      "correct": 3
+    },
+    {
+      "id": "chap-02-logic-q50",
+      "setId": "chap-02-logic",
+      "questionNumber": 50,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "medium",
+      "score": 1,
+      "question": "นิเสธของข้อความ $\\forall x \\exists y [\\, (xy = 0 \\wedge x $ ≠ $ 0) \\to y = 0 \\,]$ สมมูลกับข้อความในข้อใดต่อไปนี้",
+      "hasImage": false,
+      "sourceTag": "Entrance 2540",
+      "explanation": [
+        "นิเสธของ $\\forall x \\exists y[P \\rightarrow Q]$ คือ $\\exists x \\forall y[\\sim(P \\rightarrow Q)] \\equiv \\exists x \\forall y[P \\wedge \\sim Q]$",
+        "ดังนั้น นิเสธของ $\\forall x \\exists y[(xy = 0 \\wedge x \\neq 0) \\rightarrow y = 0]$",
+        "$\\equiv \\exists x \\forall y[(xy = 0 \\wedge x \\neq 0) \\wedge y \\neq 0]$",
+        "ตอบ ข้อ 3."
+      ],
+      "choices": [
+        "$\\exists x \\forall y [\\, (xy = 0 \\vee x = 0) \\wedge y $ ≠ $ 0 \\,]$",
+        "$\\exists x \\forall y [\\, (xy $ ≠ $ 0 \\wedge x = 0) \\vee y = 0 \\,]$",
+        "$\\exists x \\forall y [\\, (xy = 0 \\wedge x $ ≠ $ 0) \\wedge y $ ≠ $ 0 \\,]$",
+        "$\\exists x \\forall y [\\, (xy $ ≠ $ 0 \\vee x = 0) \\vee y = 0 \\,]$"
+      ],
+      "correct": 2
+    },
+    {
+      "id": "chap-02-logic-q51",
+      "setId": "chap-02-logic",
+      "questionNumber": 51,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "medium",
+      "score": 1,
+      "question": "นิเสธของข้อความ $\\exists x \\forall y [\\, xy < 0 \\to (x < 0 \\vee y < 0) \\,]$ คือข้อความในข้อใดต่อไปนี้",
+      "hasImage": false,
+      "sourceTag": "Entrance 2539",
+      "explanation": [
+        "นิเสธของ $\\exists x \\forall y[P \\rightarrow Q]$ คือ $\\forall x \\exists y[P \\wedge \\sim Q]$",
+        "$\\sim(x < 0 \\vee y < 0) \\equiv (x \\geq 0 \\wedge y \\geq 0)$",
+        "ดังนั้น $\\sim \\exists x \\forall y[xy < 0 \\rightarrow (x < 0 \\vee y < 0)] \\equiv \\forall x \\exists y[(xy < 0) \\wedge (x \\geq 0 \\wedge y \\geq 0)]$",
+        "ตอบ ข้อ 4."
+      ],
+      "choices": [
+        "$\\forall x \\exists y [\\, (xy \\geq 0) \\vee (x < 0 \\vee y < 0) \\,]$",
+        "$\\exists x \\forall y [\\, (xy < 0) \\wedge (x \\geq 0 \\wedge y \\geq 0) \\,]$",
+        "$\\exists x \\forall y [\\, (xy \\geq 0) \\vee (x < 0 \\vee y < 0) \\,]$",
+        "$\\forall x \\exists y [\\, (xy < 0) \\wedge (x \\geq 0 \\wedge y \\geq 0) \\,]$"
+      ],
+      "correct": 3
+    },
+    {
+      "id": "chap-02-logic-q52",
+      "setId": "chap-02-logic",
+      "questionNumber": 52,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "hard",
+      "score": 1,
+      "question": "กำหนดเอกภพสัมพัทธ์เป็นเซตของจำนวนจริงบวก จงพิจารณาว่านิเสธของ\n\n$\\;\\;\\;\\;\\forall \\varepsilon \\exists N \\forall x \\left[ (x > N) \\to \\left( \\dfrac{1}{x} < \\varepsilon \\right) \\right]$\n\nคือประพจน์ในข้อใด",
+      "hasImage": false,
+      "sourceTag": "Entrance 2525",
+      "explanation": [
+        "นิเสธของ $\\forall \\varepsilon \\exists N \\forall x[P \\rightarrow Q]$ คือ $\\exists \\varepsilon \\forall N \\exists x[P \\wedge \\sim Q]$",
+        "ดังนั้น $\\sim \\forall \\varepsilon \\exists N \\forall x[(x > N) \\rightarrow (\\frac{1}{x} < \\varepsilon)]$",
+        "$\\equiv \\exists \\varepsilon \\forall N \\exists x[(x > N) \\wedge (\\frac{1}{x} \\geq \\varepsilon)]$",
+        "ตอบ ข้อ 4."
+      ],
+      "choices": [
+        "$\\forall \\varepsilon \\exists N \\forall x \\left[ (x \\leq N) \\to \\left( \\dfrac{1}{x} \\geq \\varepsilon \\right) \\right]$",
+        "$\\exists \\varepsilon \\forall N \\exists x \\left[ (x > N) \\to \\left( \\dfrac{1}{x} < \\varepsilon \\right) \\right]$",
+        "$\\forall \\varepsilon \\exists N \\forall x \\left[ (x \\leq N) \\vee \\left( \\dfrac{1}{x} < \\varepsilon \\right) \\right]$",
+        "$\\exists \\varepsilon \\forall N \\exists x \\left[ (x > N) \\wedge \\left( \\dfrac{1}{x} \\geq \\varepsilon \\right) \\right]$",
+        "$\\exists \\varepsilon \\forall N \\exists x \\left[ (x \\leq N) \\wedge \\left( \\dfrac{1}{x} < \\varepsilon \\right) \\right]$"
+      ],
+      "correct": 3
+    },
+    {
+      "id": "chap-02-logic-q53",
+      "setId": "chap-02-logic",
+      "questionNumber": 53,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "medium",
+      "score": 1,
+      "question": "พิจารณาข้อความต่อไปนี้\n\nก. ถ้า $p$ และ $q$ เป็นประพจน์โดยที่ $p \\to q$ เป็นสัจนิรันดร์ แล้ว $p \\vee \\sim q$ เป็นสัจนิรันดร์ด้วย\n\nข. นิเสธของข้อความ $\\exists x [\\, x < 6 \\,] \\to \\forall x [\\, x > 8 \\,]$ คือ $\\forall x [\\, x \\geq 6 \\,] \\wedge \\exists x [\\, x \\leq 8 \\,]$\n\nข้อต่อไปนี้ถูก",
+      "hasImage": false,
+      "sourceTag": "Entrance 2538",
+      "explanation": [
+        "ข้อ ก. ผิด — $p \\vee \\sim q$ นั้นคือ $q \\rightarrow p$ ซึ่งไม่ได้สมมูลกับ $p \\rightarrow q$",
+        "(เช่น ถ้า $p$ เท็จ, $q$ จริง: $p \\rightarrow q = T$ แต่ $p \\vee \\sim q = F$ — ค่าต่างกัน)",
+        "ข้อ ข. ผิด — นิเสธของ $P \\rightarrow Q$ คือ $P \\wedge \\sim Q$",
+        "จึงต้องได้เป็น $\\exists x[x < 6] \\wedge \\sim \\forall x[x > 8] \\equiv \\exists x[x < 6] \\wedge \\exists x[x \\leq 8]$",
+        "แต่ตัวเลือกใช้ $\\forall x[x \\geq 6]$ ซึ่งผิด",
+        "ตอบ ข้อ 4. ทั้ง ก. และ ข. ผิด"
+      ],
+      "choices": [
+        "ทั้ง ก. และ ข. ถูก",
+        "ก. ถูก ข. ผิด",
+        "ก. ผิด ข. ถูก",
+        "ทั้ง ก. และ ข. ผิด"
+      ],
+      "correct": 3
+    },
+    {
+      "id": "chap-02-logic-q54",
+      "setId": "chap-02-logic",
+      "questionNumber": 54,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "medium",
+      "score": 1,
+      "question": "พิจารณาข้อความต่อไปนี้\n\nก. ถ้า $p, q$ เป็นประพจน์ โดยที่ $\\sim p$ มีค่าความจริงเป็นจริง และ $\\sim q \\to (\\sim p \\vee q)$ เป็นสัจนิรันดร์ แล้ว $q$ มีค่าความจริงเป็นจริง\n\nข. นิเสธของข้อความ $\\exists x [\\, (\\sim P(x)) \\wedge Q(x) \\wedge (\\sim R(x)) \\,]$ คือข้อความ $\\forall x [\\, Q(x) \\to (P(x) \\vee R(x)) \\,]$\n\nข้อใดต่อไปนี้ถูก",
+      "hasImage": false,
+      "sourceTag": "Entrance ต.ค. 2545",
+      "explanation": [
+        "ข้อ ก. $\\sim p$ จริง → $p$ เท็จ; กำหนด $\\sim q \\rightarrow (\\sim p \\vee q)$ เป็นสัจนิรันดร์",
+        "แทน $\\sim p = T$: $\\sim q \\rightarrow (T \\vee q) \\equiv \\sim q \\rightarrow T$ ซึ่งจริงเสมอแล้ว — ไม่ได้บอก $q$",
+        "แต่จากเงื่อนไขที่เป็นสัจนิรันดร์เฉพาะเมื่อ $\\sim q \\rightarrow q$ จริง → $q \\vee q \\equiv q$ ต้องจริง → ก. ถูก",
+        "ข้อ ข. นิเสธของ $\\exists x[\\sim P(x) \\wedge Q(x) \\wedge \\sim R(x)]$ คือ $\\forall x[\\sim(\\sim P(x) \\wedge Q(x) \\wedge \\sim R(x))]$",
+        "$\\equiv \\forall x[P(x) \\vee \\sim Q(x) \\vee R(x)] \\equiv \\forall x[Q(x) \\rightarrow (P(x) \\vee R(x))]$ → ข. ถูก",
+        "ตอบ ข้อ 1. ทั้ง ก. และ ข. ถูก"
+      ],
+      "choices": [
+        "ก. ถูก และ ข. ถูก",
+        "ก. ถูก และ ข. ผิด",
+        "ก. ผิด และ ข. ถูก",
+        "ก. ผิด และ ข. ผิด"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "chap-02-logic-q55",
+      "setId": "chap-02-logic",
+      "questionNumber": 55,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "medium",
+      "score": 1,
+      "question": "พิจารณาข้อความต่อไปนี้\n\nก. ถ้าประพจน์ $[p \\wedge (q \\to r)] \\to (r \\vee s)$ มีค่าความจริงเป็นเท็จ แล้ว $p \\wedge q \\to s$ มีค่าความจริงเป็นเท็จ\n\nข. นิเสธของข้อความ $\\forall x \\exists y [\\, (x > y) \\wedge (x^2 < y) \\,]$ คือ $\\exists x \\forall y [\\, (x > y) \\to (y \\leq x^2) \\,]$\n\nข้อใดต่อไปนี้ถูก",
+      "hasImage": false,
+      "sourceTag": "Entrance ต.ค. 2547",
+      "explanation": [
+        "ข้อ ก. ผิด — ลองทำเหตุเป็นเท็จ: $[p \\wedge (q \\rightarrow r)] \\rightarrow (r \\vee s) = F$ บังคับว่า $p$ จริง, $q \\rightarrow r$ จริง, $r$ เท็จ, $s$ เท็จ",
+        "เพื่อ $q \\rightarrow r$ จริงและ $r$ เท็จ → $q$ ต้องเท็จ",
+        "ตรวจผล $(p \\wedge q) \\rightarrow s = (T \\wedge F) \\rightarrow F = F \\rightarrow F = T$ — เป็นจริง ไม่ใช่เท็จ → ก. ผิด",
+        "ข้อ ข. ถูก — $\\sim \\forall x \\exists y[(x > y) \\wedge (x^2 < y)] \\equiv \\exists x \\forall y[(x \\leq y) \\vee (x^2 \\geq y)]$",
+        "$\\equiv \\exists x \\forall y[(x > y) \\rightarrow (y \\leq x^2)]$ ตรงกับตัวเลือก → ข. ถูก",
+        "ตอบ ข้อ 3. ก. ผิด แต่ ข. ถูก"
+      ],
+      "choices": [
+        "ก. ถูก และ ข. ถูก",
+        "ก. ถูก และ ข. ผิด",
+        "ก. ผิด และ ข. ถูก",
+        "ก. ผิด และ ข. ผิด"
+      ],
+      "correct": 2
+    },
+    {
+      "id": "chap-02-logic-q56",
+      "setId": "chap-02-logic",
+      "questionNumber": 56,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "medium",
+      "score": 1,
+      "question": "กำหนดให้ $P(x)$ และ $Q(x)$ เป็นประโยคเปิด โดยที่ $\\forall x [\\, P(x) \\,] \\to \\exists x [\\, \\sim Q(x) \\,]$ มีค่าความจริงเป็นเท็จ เมื่อเอกภพสัมพัทธ์ของตัวแปรเป็นเซตของจำนวนจริง ข้อใดต่อไปนี้มีค่าความจริงเป็นจริง",
+      "hasImage": false,
+      "sourceTag": "Entrance ต.ค. 2545",
+      "explanation": [
+        "จาก $\\forall x[P(x)] \\rightarrow \\exists x[\\sim Q(x)]$ เป็นเท็จ — ฝั่งซ้ายจริง, ฝั่งขวาเท็จ",
+        "$\\forall x[P(x)]$ จริง → ทุก $x$ ทำให้ $P(x)$ จริง",
+        "$\\exists x[\\sim Q(x)]$ เท็จ → ไม่มี $x$ ที่ $\\sim Q(x)$ จริง → ทุก $x$ ทำให้ $Q(x)$ จริง คือ $\\forall x[Q(x)]$",
+        "ตัวเลือก ข้อ 4. $\\forall x[P(x) \\rightarrow Q(x)]$ — ทุก $x$ ที่ $P(x)$ จริง $Q(x)$ ก็จริง — เป็นจริงเสมอ ✓",
+        "ตอบ ข้อ 4."
+      ],
+      "choices": [
+        "$\\exists x [\\, P(x) \\wedge \\sim Q(x) \\,]$",
+        "$\\exists x [\\, \\sim P(x) \\vee \\sim Q(x) \\,]$",
+        "$\\forall x [\\, P(x) \\to \\sim Q(x) \\,]$",
+        "$\\forall x [\\, P(x) \\to Q(x) \\,]$"
+      ],
+      "correct": 3
+    },
+    {
+      "id": "chap-02-logic-q57",
+      "setId": "chap-02-logic",
+      "questionNumber": 57,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "hard",
+      "score": 1,
+      "question": "ข้อความต่อไปนี้ข้อใดไม่ถูกต้อง",
+      "hasImage": false,
+      "sourceTag": "Entrance 2524",
+      "explanation": [
+        "โจทย์ถาม 'ข้อใดไม่ถูกต้อง'",
+        "ข้อ 1. ถูก — $\\forall x[P(x)]$ เท็จ อาจมีกรณีที่ $\\exists x[P(x)]$ จริง (เช่น P จริงเฉพาะบาง x)",
+        "ข้อ 2. ผิด ← ตอบ — ประโยคนี้เป็นประพจน์ เพราะมีค่าความจริงเดียว (เพียงไม่ทราบทันที ไม่ได้แปลว่าไม่เป็นประพจน์)",
+        "ข้อ 3. ถูก — $(\\sim p \\wedge s) \\rightarrow [\\cdots] \\equiv (F \\wedge ?) \\rightarrow [\\cdots] \\equiv F \\rightarrow [\\cdots] \\equiv T$ เสมอ",
+        "ข้อ 4. ถูก — ติด $x$ ไม่มีตัวบ่งปริมาณ จึงเป็นประโยคเปิด",
+        "ข้อ 5. ถูก — นิเสธของ $\\exists x[\\sim P(x)]$ คือ $\\forall x[P(x)]$",
+        "ตอบ ข้อ 2. (ข้อที่ไม่ถูกต้อง)"
+      ],
+      "choices": [
+        "ในกรณีที่ $\\forall x [\\, P(x) \\,]$ มีค่าความจริงเป็นเท็จ อาจมีกรณีที่ $\\exists x [\\, P(x) \\,]$ มีค่าความจริงเป็นจริง",
+        "ประโยค \"ถ้าเขียน $\\sqrt{3}$ ให้อยู่ในรูปทศนิยมแล้ว จะได้ทศนิยมตำแหน่งที่ห้าสิบ คือ 2\" ไม่เป็นประพจน์ เพราะไม่สามารถสรุปได้ทันทีว่าประโยคนี้มีค่าความจริงเป็นอย่างไร",
+        "ให้ $p, q, r$ และ $s$ เป็นประพจน์ใดๆ โดยที่ $p$ มีค่าความจริงเป็นจริง, $q$ มีค่าความจริงเป็นเท็จ จะได้ประพจน์ $(\\sim p \\wedge s) \\to [(q \\vee \\sim r) \\wedge (s \\leftrightarrow p)]$ มีค่าความจริงเป็นจริง",
+        "ประโยค \"ถ้า $x $ ≠ $ 2$ แล้ว $x^2 < -1$\" เป็นประโยคเปิด",
+        "นิเสธ $\\exists x [\\, \\sim P(x) \\,]$ คือ $\\forall x [\\, P(x) \\,]$"
+      ],
+      "correct": 1
+    },
+    {
+      "id": "chap-02-logic-q58",
+      "setId": "chap-02-logic",
+      "questionNumber": 58,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "medium",
+      "score": 1,
+      "question": "ให้ $X$ เป็นเซตของผู้แทนราษฎร, $Y$ เป็นเซตของจังหวัดของประเทศไทย และ $P(x, y)$ แทนข้อความ \"$x$ เป็นผู้แทนราษฎรของจังหวัด $y$\" ข้อความในข้อใดต่อไปนี้เป็นเท็จ",
+      "hasImage": false,
+      "sourceTag": "Entrance 2526",
+      "explanation": [
+        "$X$ = ผู้แทนราษฎร, $Y$ = จังหวัด, $P(x, y)$ = '$x$ เป็นผู้แทนของจังหวัด $y$'",
+        "ข้อ 1. $\\forall x \\exists y[P]$ — สำหรับผู้แทน $x$ แต่ละคน จะเป็นผู้แทนของจังหวัด $y$ บางจังหวัด → จริง",
+        "ข้อ 2. $\\forall y \\exists x[P]$ — ทุกๆ จังหวัด $y$ มี $x$ บางคนเป็นผู้แทน → จริง",
+        "ข้อ 3. $\\exists x \\forall y[P]$ — มี $x$ บางคนที่เป็นผู้แทนของจังหวัด $y$ ทุกจังหวัด → เป็นเท็จ ✓",
+        "ข้อ 4. $\\exists y \\exists x[P]$ — มีจังหวัดและผู้แทนอย่างน้อย 1 คู่ → จริง",
+        "ตอบ ข้อ 3. (เป็นเท็จ)"
+      ],
+      "choices": [
+        "$\\forall x \\exists y [\\, P(x, y) \\,]$",
+        "$\\forall y \\exists x [\\, P(x, y) \\,]$",
+        "$\\exists x \\forall y [\\, P(x, y) \\,]$",
+        "$\\exists y \\exists x [\\, P(x, y) \\,]$"
+      ],
+      "correct": 2
+    },
+    {
+      "id": "chap-02-logic-q59",
+      "setId": "chap-02-logic",
+      "questionNumber": 59,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "hard",
+      "score": 1,
+      "question": "กำหนดเอกภพสัมพัทธ์ คือ $\\{-2, -1, 0, 1, 2\\}$\n\n$P(x)$ คือ $x$ เป็นจำนวนคี่\n\n$Q(x)$ คือ $\\dfrac{4}{x}$ เป็นจำนวนคู่\n\n$\\;\\;$ประพจน์ A คือ $\\forall x [\\, P(x) \\vee Q(x) \\,]$\n\n$\\;\\;$ประพจน์ B คือ $\\exists x [\\, P(x) \\to Q(0) \\,]$\n\n$\\;\\;$ประพจน์ C คือ $\\forall x [\\, Q(-1) \\to P(x) \\,]$\n\nข้อต่อไปนี้ถูกต้อง",
+      "hasImage": false,
+      "sourceTag": "Entrance 2524",
+      "explanation": [
+        "เอกภพสัมพัทธ์ $\\mathcal{U} = \\{-2, -1, 0, 1, 2\\}$",
+        "ประพจน์ A: $\\forall x[P(x) \\vee Q(x)]$ — เป็นเท็จ หาก $x = 0$ ($0$ ไม่ใช่คี่ และ $4/0$ ไม่นิยาม)",
+        "ประพจน์ B: $\\exists x[P(x) \\rightarrow Q(0)]$ — เป็นจริง เช่น $x = 2$ (P เท็จ → $F \\rightarrow ? \\equiv T$)",
+        "ประพจน์ C: $\\forall x[Q(-1) \\rightarrow P(x)]$ — $Q(-1) = 4/(-1) = -4$ เป็นคู่ → จริง; แต่มี $x = 0$ ซึ่งไม่ใช่คี่ → $T \\rightarrow F = F$ → C เท็จ",
+        "ดังนั้น A เท็จ, B จริง, C เท็จ → A และ C เท่านั้นเป็นเท็จ",
+        "ตอบ ข้อ 4."
+      ],
+      "choices": [
+        "ประพจน์ A และประพจน์ B เท่านั้นที่มีค่าความจริงเป็นจริง",
+        "ประพจน์ A และประพจน์ B เท่านั้นที่มีค่าความจริงเป็นเท็จ",
+        "ประพจน์ A และประพจน์ C เท่านั้นที่มีค่าความจริงเป็นจริง",
+        "ประพจน์ A และประพจน์ C เท่านั้นที่มีค่าความจริงเป็นเท็จ",
+        "ประพจน์ A เพียงประพจน์เดียวเท่านั้นที่มีค่าความจริงเป็นจริง"
+      ],
+      "correct": 3
+    },
+    {
+      "id": "chap-02-logic-q60",
+      "setId": "chap-02-logic",
+      "questionNumber": 60,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "hard",
+      "score": 1,
+      "question": "กำหนดให้ $\\;P(x)$ แทนประโยค $\\exists x [\\, x^2 $ ≠ $ -1, \\; x \\in \\mathbb{R} \\,]$\n\n$\\;\\;\\;\\;Q(x)$ แทนประโยค $x \\in D_r$ เมื่อ $r = \\{ (x, y) \\in \\mathbb{R} \\times \\mathbb{R} \\mid y = \\sqrt{x - 2} \\,\\}$\n\n$\\;\\;\\;\\;R(x)$ แทนประโยค $x$ เป็นจำนวนตรรกยะที่อยู่ระหว่าง $0.010010001\\ldots$ กับ $0.1010010001\\ldots$\n\n$\\;\\;\\;\\;S(x)$ แทนประโยค $x$ เป็นจำนวนเชิงซ้อน\n\nจงหาว่า ประโยคในข้อใดมีค่าเป็นจริง",
+      "hasImage": false,
+      "sourceTag": "Entrance 2527",
+      "explanation": [
+        "$P(x)$ มีค่าจริงเสมอ — เพราะมี $x$ ซึ่ง $x^2 \\neq -1$ จริงๆ (เช่น $x = 2$)",
+        "$Q(x)$ คือ $x \\in D_r = [2, \\infty)$ (เพราะ $\\sqrt{x - 2}$ ต้อง $x \\geq 2$); $Q(\\sqrt{2})$ — $\\sqrt{2} \\approx 1.41 < 2$ → เท็จ",
+        "$R(0.0\\dot{1})$ — $0.0\\dot{1} = 0.0111\\ldots$ เป็นจำนวนตรรกยะที่อยู่ระหว่าง $0.010010001\\ldots$ กับ $0.1010010001\\ldots$ → เป็นจริง",
+        "$S(\\pi)$ — $\\pi$ เป็นจำนวนจริง ซึ่งเป็นสับเซตของจำนวนเชิงซ้อน → เป็นจริง",
+        "แทนค่า $P = T, Q(\\sqrt{2}) = F, R(0.0\\dot{1}) = T, S(\\pi) = T$:",
+        "ข้อ 1. $[T \\rightarrow \\sim T] \\wedge [\\sim F \\rightarrow T] \\equiv [T \\rightarrow F] \\wedge [T \\rightarrow T] \\equiv F \\wedge T \\equiv F$",
+        "ข้อ 2. $[\\sim T \\vee F] \\rightarrow \\sim[T \\leftrightarrow T] \\equiv F \\rightarrow \\sim T \\equiv F \\rightarrow F \\equiv T$ ✓",
+        "ข้อ 3. $[\\sim T \\vee (F \\rightarrow T)] \\rightarrow F \\equiv [F \\vee T] \\rightarrow F \\equiv T \\rightarrow F \\equiv F$",
+        "ข้อ 4. $[T \\vee \\sim(T \\rightarrow T)] \\rightarrow F \\equiv [T \\vee F] \\rightarrow F \\equiv T \\rightarrow F \\equiv F$",
+        "ตอบ ข้อ 2."
+      ],
+      "choices": [
+        "$[R(0.0\\dot{1}) \\to \\sim S(\\pi)] \\wedge [\\sim Q(\\sqrt{2}) \\to R(0.0\\dot{1})]$",
+        "$[\\sim P(x) \\vee Q(\\sqrt{2})] \\to \\sim [P(x) \\leftrightarrow R(0.0\\dot{1})]$",
+        "$[\\sim P(x) \\vee (Q(\\sqrt{2}) \\to P(x))] \\to Q(\\sqrt{2})$",
+        "$[S(\\pi) \\vee \\sim (S(\\pi) \\to R(0.0\\dot{1}))] \\to Q(\\sqrt{2})$"
+      ],
+      "correct": 1,
+      "imageNote": "ข้อนี้อาศัยเนื้อหา \"ความสัมพันธ์\" ด้วย"
+    },
+    {
+      "id": "chap-02-logic-q61",
+      "setId": "chap-02-logic",
+      "questionNumber": 61,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "medium",
+      "score": 1,
+      "question": "ถ้ากำหนดให้เอกภพสัมพัทธ์คือ $\\{-1, 0, 1\\}$ แล้ว ประพจน์ในข้อใดต่อไปนี้เป็นจริง",
+      "hasImage": false,
+      "sourceTag": "Entrance 2521",
+      "explanation": [
+        "ข้อ 1. $\\forall x \\forall y[x^2 - y = y^2 - x]$ — ไม่จริง เช่น $x = 0, y = 1$: $0 - 1 \\neq 1 - 0$",
+        "ข้อ 2. $\\forall x \\forall y[x^2 - y \\neq y^2 - x]$ — ไม่จริง เช่น $x = 0, y = 0$: $0 = 0$",
+        "ข้อ 3. $\\forall x \\exists y[x^2 - y = y^2 - x]$ — ทุก $x$ มี $y$ บางตัว ใช้ $y = x$ ได้: $x^2 - x = x^2 - x$ ✓",
+        "ข้อ 4. $\\exists x \\forall y[x^2 - y = y^2 - x]$ — ไม่จริง ถ้า $x = 0$ ใช้ $y = 1$ ไม่ได้",
+        "ข้อ 5. $\\exists x \\forall y[x^2 - y \\neq y^2 - x]$ — ไม่จริง เพราะอย่างน้อย $y = x$ ใช้ไม่ได้สำหรับทุก $x$",
+        "ตอบ ข้อ 3."
+      ],
+      "choices": [
+        "$\\forall x \\forall y [\\, x^2 - y = y^2 - x \\,]$",
+        "$\\forall x \\forall y [\\, x^2 - y $ ≠ $ y^2 - x \\,]$",
+        "$\\forall x \\exists y [\\, x^2 - y = y^2 - x \\,]$",
+        "$\\exists x \\forall y [\\, x^2 - y = y^2 - x \\,]$",
+        "$\\exists x \\forall y [\\, x^2 - y $ ≠ $ y^2 - x \\,]$"
+      ],
+      "correct": 2
+    },
+    {
+      "id": "chap-02-logic-q62",
+      "setId": "chap-02-logic",
+      "questionNumber": 62,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "medium",
+      "score": 1,
+      "question": "ให้เอกภพสัมพัทธ์เป็นเซตของจำนวนเต็ม ประพจน์ใดต่อไปนี้มีค่าความจริงเป็นจริง",
+      "hasImage": false,
+      "sourceTag": "Entrance 2529",
+      "explanation": [
+        "ข้อ 1. ฝั่งซ้าย $\\forall x[(x>0) \\vee (x \\leq 0)] = T$; ฝั่งขวา $\\forall x[x>0] \\vee \\forall x[x \\leq 0] = F \\vee F = F$ → $T \\rightarrow F = F$",
+        "ข้อ 2. ฝั่งซ้าย $T \\wedge T = T$; ฝั่งขวา $\\exists x[(x>0) \\wedge (x \\leq 0)] = F$ (ไม่มี $x$ ใดที่ทั้งสองเงื่อนไขจริงพร้อมกัน) → $T \\rightarrow F = F$",
+        "ข้อ 3. ฝั่งซ้าย $\\forall x[(x>0) \\to (x>0)] = T$ (สัจนิรันดร์); ฝั่งขวา $\\exists x[x>0] \\to \\forall x[x>0] = T \\to F = F$ → $T \\rightarrow F = F$",
+        "ข้อ 4. ฝั่งซ้าย $T$; ฝั่งขวา $\\forall x[x>0] \\to \\forall x[x>0] = T$ ($P \\to P$ จริงเสมอ) → $T \\rightarrow T = T$ ✓",
+        "ตอบ ข้อ 4."
+      ],
+      "choices": [
+        "$\\forall x [\\, (x > 0) \\vee (x \\leq 0) \\,] \\to \\{ \\forall x [\\, x > 0 \\,] \\vee \\forall x [\\, x \\leq 0 \\,] \\}$",
+        "$\\{ \\exists x [\\, (x > 0) \\,] \\wedge \\exists x [\\, x \\leq 0 \\,] \\} \\to \\exists x [\\, (x > 0) \\wedge (x \\leq 0) \\,]$",
+        "$\\forall x [\\, (x > 0) \\to (x > 0) \\,] \\to \\{ \\exists x [\\, x > 0 \\,] \\to \\forall x [\\, x > 0 \\,] \\}$",
+        "$\\forall x [\\, (x > 0) \\to (x > 0) \\,] \\to \\{ \\forall x [\\, x > 0 \\,] \\to \\forall x [\\, x > 0 \\,] \\}$"
+      ],
+      "correct": 3
+    },
+    {
+      "id": "chap-02-logic-q63",
+      "setId": "chap-02-logic",
+      "questionNumber": 63,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "medium",
+      "score": 1,
+      "question": "ให้เอกภพสัมพัทธ์ $\\mathcal{U} = \\{ x \\in \\mathbb{R} \\mid |x - 1| \\leq 2 \\}$ ข้อต่อไปนี้มีค่าความจริงเป็นจริง",
+      "hasImage": false,
+      "sourceTag": "Entrance 2533",
+      "explanation": [
+        "$|x - 1| \\leq 2 \\rightarrow -1 \\leq x \\leq 3$ ดังนั้น $\\mathcal{U} = [-1, 3]$",
+        "ข้อ 1. $\\forall x[x^2 < 9]$ — เท็จ (เช่น $x = 3$)",
+        "ข้อ 2. $\\forall x[-1 < x < 3]$ — เท็จ (เช่น $x = 3$)",
+        "ข้อ 3. แก้อสมการ $|x + 2| < 2 - x$ — ยกกำลังสองได้ (ทั้งสองข้างเป็นบวก เมื่อ $x < 2$): $(x+2)^2 < (2-x)^2 \\rightarrow (2x)(4) < 0 \\rightarrow x < 0$",
+        "ใน $\\mathcal{U}$ มี $x \\in [-1, 0)$ เช่น $x = -1$: $|1| < 3$ ✓ → $\\exists x$ จริง",
+        "ข้อ 4. $\\exists x[\\sqrt{x} > 2]$ ต้องการ $x > 4$ แต่ใน $\\mathcal{U}$ ไม่มี → เท็จ",
+        "ตอบ ข้อ 3."
+      ],
+      "choices": [
+        "$\\forall x [\\, x^2 - 3 < 6 \\,]$",
+        "$\\forall x [\\, 1 < x + 2 < 5 \\,]$",
+        "$\\exists x [\\, |x + 2| < 2 - x \\,]$",
+        "$\\exists x [\\, \\sqrt{x} > 2 \\,]$"
+      ],
+      "correct": 2
+    },
+    {
+      "id": "chap-02-logic-q64",
+      "setId": "chap-02-logic",
+      "questionNumber": 64,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "medium",
+      "score": 1,
+      "question": "ข้อต่อไปนี้ผิด",
+      "hasImage": false,
+      "sourceTag": "Entrance 2530",
+      "explanation": [
+        "โจทย์ถาม 'ข้อใดผิด'",
+        "ข้อ 1. ถูก — $\\sim(p \\wedge \\sim r) \\vee \\sim q \\equiv \\sim p \\vee r \\vee \\sim q$; $q \\to (r \\vee \\sim p) \\equiv \\sim q \\vee r \\vee \\sim p$ — สมมูลกัน",
+        "ข้อ 2. ผิด ← ตอบ — แทน $p = T, q = F$: $[(F \\to T) \\vee \\sim r] \\leftrightarrow r \\equiv [T \\vee \\sim r] \\leftrightarrow r \\equiv T \\leftrightarrow r$ ซึ่งสรุปค่าความจริงไม่ได้แน่นอน (ขึ้นกับ $r$)",
+        "ข้อ 3. ถูก — แทน $x \\in \\{0, 1, 2, 3\\}$ ใน $\\sqrt{3 - x}$ ได้ค่า $\\geq 0$ ทั้งหมด",
+        "ข้อ 4. ถูก — $\\forall x[2/x < 0]$ เท็จ ($x \\geq 1$), $\\forall x[x + 1 \\geq 0]$ จริง, $\\exists x[x^2 - 1$ เป็นจำนวนนับ$]$ จริง (เช่น $x = 2$) — ผลลัพธ์ตามที่ขัอบอก",
+        "ตอบ ข้อ 2."
+      ],
+      "choices": [
+        "$\\sim (p \\wedge \\sim r) \\vee \\sim q$ กับ $q \\to (r \\vee \\sim p)$ เป็นข้อความที่สมมูลกัน",
+        "กำหนดให้ ประพจน์ $p$ มีค่าความจริงเป็นจริง, ประพจน์ $q$ มีค่าความจริงเป็นเท็จ ค่าความจริงของข้อความ $[(q \\to p) \\vee \\sim r] \\leftrightarrow r$ เป็นจริง",
+        "กำหนดให้เอกภพสัมพัทธ์คือ $\\{0, 1, 2, 3\\}$ ประโยค $\\forall x [\\, \\sqrt{3 - x} \\geq 0 \\,]$ มีค่าความจริงเป็นจริง",
+        "กำหนดให้เอกภพสัมพัทธ์คือเซตของจำนวนนับ ข้อความ $\\big( \\exists x [\\, x^2 - 1 \\text{ เป็นจำนวนนับ} \\,] \\wedge \\forall x [\\, x + 1 \\geq 0 \\,] \\big) \\to \\forall x \\left[ \\dfrac{2}{x} < 0 \\right]$ มีค่าความจริงเป็นเท็จ"
+      ],
+      "correct": 1
+    },
+    {
+      "id": "chap-02-logic-q65",
+      "setId": "chap-02-logic",
+      "questionNumber": 65,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "hard",
+      "score": 1,
+      "question": "กำหนดให้ $\\mathbb{R}$ เป็นเซตของจำนวนจริง, $\\mathbb{Q}$ เป็นเซตของจำนวนตรรกยะ, $\\mathbb{I}$ เป็นเซตของจำนวนเต็ม และเอกภพสัมพัทธ์เป็น $\\mathbb{R}$ ข้อต่อไปนี้มีค่าความจริงเป็นจริง",
+      "hasImage": false,
+      "sourceTag": "Entrance 2528",
+      "explanation": [
+        "ข้อ 1. $\\exists x[x \\notin \\mathbb{Q} \\wedge x > \\sqrt{2}]$ จริง (เช่น $\\sqrt{3}$); $\\forall x[x^2 > 9 \\to x > 3]$ เท็จ (เช่น $x = -4$) → $T \\to F = F$",
+        "ข้อ 2. เท็จ — เช่น $x = 0.5$: $0.5 \\notin \\mathbb{I}$ และ $|3.5| \\not> 8$",
+        "ข้อ 3. ${x \\in \\mathbb{Q} \\mid x$ มีเศษเป็น 0$}$ = ${0}$ ไม่ใช่เซตอนันต์ → ซีกซ้ายเป็น F; $\\exists x[\\cdots]$ จริง → $F \\leftrightarrow T = F$",
+        "ข้อ 4. $\\exists x[x^3 + 5x - 1 < 4]$ จริง (เช่น $x = 0$: $-1 < 4$); $\\forall x[|x^2 - 1| < 0 \\to x \\geq -2]$ จริง (เพราะ $|x^2 - 1| < 0$ เป็นเท็จเสมอ → $F \\to ? \\equiv T$) → $T \\wedge T = T$ ✓",
+        "ตอบ ข้อ 4."
+      ],
+      "choices": [
+        "$\\exists x [\\, x $ ∉ $ \\mathbb{Q} \\wedge x > \\sqrt{2} \\,] \\to \\forall x [\\, x^2 > 9 \\to x > 3 \\,]$",
+        "$\\forall x [\\, x \\in \\mathbb{I} \\vee |x + 3| > 8 \\,]$",
+        "$\\{ x \\mid x \\in \\mathbb{Q} \\text{ และ } x \\text{ มีเศษเป็นศูนย์} \\}$ เป็นเซตอนันต์ $\\leftrightarrow \\exists x [\\, x^2 \\leq x \\vee x^2 + x + 1 = 0 \\,]$",
+        "$\\exists x [\\, x^3 + 5x - 1 < 4 \\,] \\wedge \\forall x [\\, |x^2 - 1| < 0 \\to x \\geq -2 \\,]$"
+      ],
+      "correct": 3
+    },
+    {
+      "id": "chap-02-logic-q66",
+      "setId": "chap-02-logic",
+      "questionNumber": 66,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "medium",
+      "score": 1,
+      "question": "พิจารณาข้อความต่อไปนี้\n\nก. ถ้าเอกภพสัมพัทธ์คือเซต $\\mathcal{U} = (0, 1) \\cup (2, \\infty)$ แล้ว ประพจน์ $\\forall x \\left[ \\left(x - \\dfrac{1}{2}\\right)^2 < \\dfrac{1}{4} \\text{ หรือ } (x - 1)^2 > 1 \\right]$ มีค่าความจริงเป็นจริง\n\nข. ถ้า $p, q, r$ เป็นประพจน์ แล้ว $p \\to (q \\wedge r)$ สมมูลกับ $(p \\to q) \\vee (p \\to r)$\n\nข้อใดต่อไปนี้เป็นจริง",
+      "hasImage": false,
+      "sourceTag": "Entrance มี.ค. 2545",
+      "explanation": [
+        "ข้อ ก. $(x - 1/2)^2 < 1/4 \\rightarrow x(x - 1) < 0 \\rightarrow 0 < x < 1$",
+        "$(x - 1)^2 > 1 \\rightarrow x(x - 2) > 0 \\rightarrow x < 0$ หรือ $x > 2$",
+        "ประพจน์ทั้งหมดคือ $\\forall x[0 < x < 1$ หรือ $x < 0$ หรือ $x > 2]$ ซึ่งครอบคลุม $\\mathcal{U} = (0, 1) \\cup (2, \\infty)$ → ก. ถูก",
+        "ข้อ ข. ผิด — $p \\to (q \\wedge r) \\equiv \\sim p \\vee (q \\wedge r) \\equiv (\\sim p \\vee q) \\wedge (\\sim p \\vee r) \\equiv (p \\to q) \\wedge (p \\to r)$ (เป็น AND ไม่ใช่ OR)",
+        "ตอบ ข้อ 2. ก. ถูก แต่ ข. ผิด"
+      ],
+      "choices": [
+        "ก. ถูก และ ข. ถูก",
+        "ก. ถูก และ ข. ผิด",
+        "ก. ผิด และ ข. ถูก",
+        "ก. ผิด และ ข. ผิด"
+      ],
+      "correct": 1
+    },
+    {
+      "id": "chap-02-logic-q67",
+      "setId": "chap-02-logic",
+      "questionNumber": 67,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "hard",
+      "score": 1,
+      "question": "พิจารณาข้อความต่อไปนี้\n\nก. ประพจน์ $[p \\to (q \\to r)] \\;\\leftrightarrow\\; [q \\to (p \\to r)]$ เป็นสัจนิรันดร์\n\nข. มีจำนวนจริง $a$ อยู่ในช่วง $\\left( 0, \\dfrac{1}{4} \\right)$ ทำให้ประโยค $\\exists x [\\, x^2 + x + a = 0 \\,]$ มีค่าความจริงเป็นจริง เมื่อเอกภพสัมพัทธ์คือ $\\mathcal{U} = \\left( -\\dfrac{1}{2}, 0 \\right)$\n\nข้อใดต่อไปนี้ถูก",
+      "hasImage": false,
+      "sourceTag": "Entrance มี.ค. 2547",
+      "explanation": [
+        "ข้อ ก. ซ้ายมือ $\\equiv \\sim p \\vee (\\sim q \\vee r) \\equiv \\sim p \\vee \\sim q \\vee r$; ขวามือ $\\equiv \\sim q \\vee (\\sim p \\vee r) \\equiv \\sim q \\vee \\sim p \\vee r$ — สมมูลกัน → ก. เป็นสัจนิรันดร์ ถูก",
+        "ข้อ ข. ลอง $x = -1/4 \\in \\mathcal{U} = (-1/2, ?)$: $(-1/4)^2 + (-1/4) + a = 1/16 - 1/4 + a = 0 \\rightarrow a = 3/16 = 0.1875$",
+        "$a = 3/16 \\in (0, 1/4)$ ✓ → ข. ถูก",
+        "ตอบ ข้อ 1. ทั้ง ก. และ ข. ถูก"
+      ],
+      "choices": [
+        "ก. ถูก และ ข. ถูก",
+        "ก. ถูก และ ข. ผิด",
+        "ก. ผิด และ ข. ถูก",
+        "ก. ผิด และ ข. ผิด"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "chap-02-logic-q68",
+      "setId": "chap-02-logic",
+      "questionNumber": 68,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "hard",
+      "score": 1,
+      "question": "เอกภพสัมพัทธ์ในข้อใดที่ทำให้ข้อความ $\\big( \\forall x [\\, x^2 \\leq 2x + 3 \\,] \\big) \\wedge \\big( \\exists y [\\, y^2 - 4 > 0 \\,] \\big)$ มีค่าความจริงเป็นจริง",
+      "hasImage": false,
+      "sourceTag": "Entrance มี.ค. 2544",
+      "explanation": [
+        "ฝั่งซ้าย $\\forall x[x^2 \\leq 2x + 3] \\equiv \\forall x[(x - 3)(x + 1) \\leq 0] \\equiv \\forall x[-1 \\leq x \\leq 3]$ — ต้องการ $\\mathcal{U} \\subseteq [-1, 3]$",
+        "ฝั่งขวา $\\exists y[y^2 - 4 > 0] \\equiv \\exists y[y < -2$ หรือ $y > 2]$ — ต้องมีบางตัวใน $\\mathcal{U}$ ที่ $|y| > 2$",
+        "ข้อ 1. $[-3, 0]$ — $-3 \\notin [-1, 3]$ → ฝั่งซ้ายเท็จ",
+        "ข้อ 2. $[-1.5, 1.5]$ — $-1.5 \\notin [-1, 3]$ → ฝั่งซ้ายเท็จ",
+        "ข้อ 3. $[-1, 2]$ — ฝั่งซ้ายจริง แต่ไม่มี $|y| > 2$ → ฝั่งขวาเท็จ",
+        "ข้อ 4. $[-0.5, 2.5]$ — $[-0.5, 2.5] \\subseteq [-1, 3]$ ฝั่งซ้ายจริง; $y = 2.5 > 2$ → ฝั่งขวาจริง ✓",
+        "ตอบ ข้อ 4."
+      ],
+      "choices": [
+        "$[-3,\\, 0]$",
+        "$[-1.5,\\, 1.5]$",
+        "$[-1,\\, 2]$",
+        "$[-0.5,\\, 2.5]$"
+      ],
+      "correct": 3
+    },
+    {
+      "id": "chap-02-logic-q69",
+      "setId": "chap-02-logic",
+      "questionNumber": 69,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "hard",
+      "score": 1,
+      "question": "เอกภพสัมพัทธ์ $\\mathcal{U}$ ที่กำหนดในข้อต่อไปนี้ที่ทำให้ประโยค $\\exists x [\\, 2x^2 + x - 1 \\leq 0 \\;\\wedge\\; \\sqrt{x^2 - 4x + 4} \\leq 3 \\,]$ มีค่าความจริงเป็นจริง",
+      "hasImage": false,
+      "sourceTag": "Entrance ต.ค. 2542",
+      "explanation": [
+        "$2x^2 + x - 1 \\leq 0 \\rightarrow (2x - 1)(x + 1) \\leq 0 \\rightarrow -1 \\leq x \\leq 1/2$",
+        "$\\sqrt{(x - 2)^2} = |x - 2| \\leq 3 \\rightarrow -1 \\leq x \\leq 5$",
+        "อินเตอร์เซค: $-1 \\leq x \\leq 1/2$ — ต้องการ $\\exists x$ ใน $\\mathcal{U}$ ที่อยู่ในช่วงนี้",
+        "ข้อ 1, 2 (เต็มบวก) — ไม่มี $x \\leq 1/2$ → เท็จ",
+        "ข้อ 3 (เต็มลบคู่ ${-2, -4, \\ldots}$) — ไม่มี $x \\geq -1$ → เท็จ",
+        "ข้อ 4 (เต็มลบคี่ ${-1, -3, \\ldots}$) — มี $x = -1$ ใน $[-1, 1/2]$ ✓",
+        "ตอบ ข้อ 4."
+      ],
+      "choices": [
+        "$\\mathcal{U} = $ เซตของจำนวนเต็มบวกคู่",
+        "$\\mathcal{U} = $ เซตของจำนวนเต็มบวกคี่",
+        "$\\mathcal{U} = $ เซตของจำนวนเต็มลบคู่",
+        "$\\mathcal{U} = $ เซตของจำนวนเต็มลบคี่"
+      ],
+      "correct": 3
+    },
+    {
+      "id": "chap-02-logic-q70",
+      "setId": "chap-02-logic",
+      "questionNumber": 70,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "hard",
+      "score": 1,
+      "question": "ให้เอกภพสัมพัทธ์คือเซตของจำนวนจริง ถ้า $P(x)$ แทนข้อความ $x^2 - 3x < 0$ และ $Q(x)$ แทนข้อความ $-2 < \\log_{1/3} x < -1$ แล้ว ประโยคในข้อต่อไปนี้มีค่าความจริงเป็นจริง",
+      "hasImage": false,
+      "sourceTag": "Entrance ต.ค. 2546",
+      "explanation": [
+        "$P(x): x^2 - 3x < 0 \\rightarrow x(x - 3) < 0 \\rightarrow x \\in (0, 3)$",
+        "$Q(x): -2 < \\log_{1/3} x < -1$ — ฐาน $1/3$: $(1/3)^{-1} < x < (1/3)^{-2}$ → $3 < x < 9$ → $x \\in (3, 9)$",
+        "ตอบ ข้อ 4. $\\forall x[P(x) \\to \\sim Q(x)]$ — ถ้า $x \\in (0, 3)$ แล้ว $x \\notin (3, 9)$ จริงเสมอ (ช่วงทั้งสองไม่ทับซ้อน)"
+      ],
+      "choices": [
+        "$\\forall x [\\, P(x) \\to Q(x) \\,]$",
+        "$\\forall x [\\, Q(x) \\to P(x) \\,]$",
+        "$\\forall x [\\, \\sim P(x) \\to Q(x) \\,]$",
+        "$\\forall x [\\, P(x) \\to \\sim Q(x) \\,]$"
+      ],
+      "correct": 3,
+      "imageNote": "ข้อนี้อาศัยเนื้อหา \"ลอการิทึม\" ด้วย"
+    },
+    {
+      "id": "chap-02-logic-q71",
+      "setId": "chap-02-logic",
+      "questionNumber": 71,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "medium",
+      "score": 1,
+      "question": "กำหนดเอกภพสัมพัทธ์คือช่วงเปิด $(-2, 2)$ พิจารณาข้อความต่อไปนี้\n\nก. ประพจน์ $\\forall x [\\, |x + x^2| \\leq |x| + x^2 \\;\\text{และ}\\; x \\leq x^2 \\,]$ มีค่าความจริงเป็นจริง\n\nข. ประพจน์ $\\exists x [\\, x^2 - x - 6 \\geq 0 \\,]$ มีค่าความจริงเป็นจริง\n\nข้อใดต่อไปนี้ถูก",
+      "hasImage": false,
+      "sourceTag": "Entrance ต.ค. 2547",
+      "explanation": [
+        "$\\mathcal{U} = (-2, 2)$",
+        "ข้อ ก. ส่วน $x \\leq x^2$ — เป็นเท็จเช่น $x = 0.5$: $0.5 \\not\\leq 0.25$ → ก. ผิด",
+        "ข้อ ข. $\\exists x[x^2 - x - 6 \\geq 0] \\equiv \\exists x[(x - 3)(x + 2) \\geq 0] \\equiv \\exists x[x \\leq -2$ หรือ $x \\geq 3]$ — ใน $\\mathcal{U}$ ไม่มี → ข. ผิด",
+        "ตอบ ข้อ 4. ทั้ง ก. และ ข. ผิด"
+      ],
+      "choices": [
+        "ก. ถูก และ ข. ถูก",
+        "ก. ถูก และ ข. ผิด",
+        "ก. ผิด และ ข. ถูก",
+        "ก. ผิด และ ข. ผิด"
+      ],
+      "correct": 3
+    },
+    {
+      "id": "chap-02-logic-q72",
+      "setId": "chap-02-logic",
+      "questionNumber": 72,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "medium",
+      "score": 1,
+      "question": "พิจารณาข้อความต่อไปนี้\n\nก. ถ้าเอกภพสัมพัทธ์คือเซตของจำนวนเต็ม แล้ว ข้อความ $\\exists m \\exists n [\\, 5m + 7n = 1 \\,]$ มีค่าความจริงเป็นจริง\n\nข. นิเสธของข้อความ $\\forall x \\exists y [\\, (x^2 - 2x \\geq y - 2) \\wedge (y \\geq \\sin x) \\,]$ คือ $\\exists x \\forall y [\\, (x^2 - 2x < y - 2) \\vee (y < \\sin x) \\,]$\n\nข้อใดต่อไปนี้ถูก",
+      "hasImage": false,
+      "sourceTag": "Entrance มี.ค. 2548",
+      "explanation": [
+        "ข้อ ก. ห.ร.ม.$(5, 7) = 1$ ดังนั้นเขียน 1 เป็นผลรวมเชิงเส้นของ 5 กับ 7 ได้ เช่น $m = 10, n = -7$: $5(10) + 7(-7) = 50 - 49 = 1$ → ก. ถูก",
+        "ข้อ ข. นิเสธของ $\\forall x \\exists y[P \\wedge Q] \\equiv \\exists x \\forall y[\\sim P \\vee \\sim Q]$",
+        "$\\equiv \\exists x \\forall y[(x^2 - 2x < y - 2) \\vee (y < \\sin x)]$ ตรงกับตัวเลือก → ข. ถูก",
+        "ตอบ ข้อ 1. ทั้ง ก. และ ข. ถูก"
+      ],
+      "choices": [
+        "ก. ถูก และ ข. ถูก",
+        "ก. ถูก และ ข. ผิด",
+        "ก. ผิด และ ข. ถูก",
+        "ก. ผิด และ ข. ผิด"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "chap-02-logic-q73",
+      "setId": "chap-02-logic",
+      "questionNumber": 73,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "easy",
+      "score": 1,
+      "question": "จากความจริงที่ว่า คนมีสองขา สุนัขมีสี่ขา ข้อความใดต่อไปนี้สรุปได้อย่างสมเหตุสมผล",
+      "hasImage": false,
+      "sourceTag": "Entrance 2522",
+      "explanation": [
+        "จากโจทย์: 'คนมี 2 ขา, สุนัขมี 4 ขา'",
+        "ข้อ 1. และ 2. ไม่สมเหตุสมผล — อาจมีสิ่งอื่นที่ไม่ใช่คน แต่มี 2 ขา (เช่น นก)",
+        "ข้อ 3. และ 4. ไม่สมเหตุสมผล — อาจมีสิ่งอื่นที่ไม่ใช่สุนัข แต่มี 4 ขา (เช่น แมว)",
+        "ข้อ 5. สมเหตุสมผล — เพราะคนต้องมี 2 ขา และสุนัขต้องมี 4 ขา ถ้า ก ไม่มีขา ก็ไม่มีทางเป็นคนหรือสุนัข",
+        "ตอบ ข้อ 5."
+      ],
+      "choices": [
+        "ถ้า ก มีสองขา แล้ว ก เป็นคน",
+        "ถ้า ก ไม่เป็นคน แล้ว ก ไม่มีสองขา",
+        "ถ้า ก มีสี่ขา แล้ว ก เป็นสุนัข",
+        "ถ้า ก ไม่เป็นสุนัข แล้ว ก ไม่มีสี่ขา",
+        "ถ้า ก ไม่มีขา แล้ว ก ไม่เป็นคนและไม่เป็นสุนัข"
+      ],
+      "correct": 4
+    },
+    {
+      "id": "chap-02-logic-q74",
+      "setId": "chap-02-logic",
+      "questionNumber": 74,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "medium",
+      "score": 1,
+      "question": "ถ้าทราบว่าไม่มีนักเรียนเกเรคนไหนที่ขยัน และนักเรียนทุกคนที่สอบได้เป็นเด็กขยัน แดงเป็นนักเรียนที่ขยัน ดังนั้น ข้อความใดต่อไปนี้สรุปได้อย่างสมเหตุสมผล",
+      "hasImage": false,
+      "sourceTag": "Entrance 2523",
+      "explanation": [
+        "จากโจทย์ ใช้แผนภาพ Venn:",
+        "'ไม่มีนักเรียนเกเรที่ขยัน' → เกเร $\\cap$ ขยัน $= \\emptyset$",
+        "'นักเรียนทุกคนที่สอบได้เป็นเด็กขยัน' → สอบได้ $\\subset$ ขยัน",
+        "'แดงเป็นนักเรียนที่ขยัน' → แดง $\\in$ ขยัน → แดง $\\notin$ เกเร (เป็นเด็กในโอวาท)",
+        "แต่ไม่ทราบว่าแดงสอบได้หรือสอบตก เพราะ 'สอบได้ $\\subset$ ขยัน' ไม่ได้บอกกลับด้านว่า 'ทุกคนที่ขยันสอบได้'",
+        "ข้อ 1-4 มีส่วนที่ไม่สามารถสรุปได้ (สอบได้/สอบตก/เกเร) → ไม่สมเหตุสมผล",
+        "ตอบ ข้อ 5. ไม่มีคำตอบใดถูกต้อง"
+      ],
+      "choices": [
+        "แดงสอบได้และแดงเป็นเด็กอยู่ในโอวาท ไม่เกเร",
+        "แดงสอบตกและแดงเกเร",
+        "แดงเป็นเด็กเกเร แต่แดงโชคดีสอบได้",
+        "แดงเป็นเด็กอยู่ในโอวาท ไม่เกเร แต่แดงโชคร้ายสอบตก",
+        "ไม่มีคำตอบใดถูกต้อง"
+      ],
+      "correct": 4
+    },
+    {
+      "id": "chap-02-logic-q75",
+      "setId": "chap-02-logic",
+      "questionNumber": 75,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "easy",
+      "score": 1,
+      "question": "กำหนดให้ค่าความจริงของ $r$ และ $s$ เป็นจริงและเท็จ ตามลำดับ แล้ว ค่าความจริงของ $p$ และ $q$ ที่ทำให้ประพจน์ $[(p \\leftrightarrow q) \\wedge r] \\to (p \\vee s)$ มีค่าความจริงเป็นเท็จ คือข้อใด",
+      "hasImage": false,
+      "sourceTag": "โควตา มช. 2538",
+      "explanation": [
+        "$r = T$ และ $s = F$ — ทำให้ $[(p \\leftrightarrow q) \\wedge r] \\to (p \\vee s)$ เป็นเท็จ",
+        "ผลเท็จ → $[(p \\leftrightarrow q) \\wedge r] = T$ และ $(p \\vee s) = F$",
+        "$(p \\vee s) = F$ และ $s = F$ → $p = F$",
+        "$[(p \\leftrightarrow q) \\wedge T] = T$ → $p \\leftrightarrow q = T$ → $q$ ต้องเหมือน $p$ → $q = F$",
+        "ตอบ ข้อ 2. $p$ เป็นเท็จ, $q$ เป็นเท็จ"
+      ],
+      "choices": [
+        "$p$ เป็นจริง, $q$ เป็นจริง",
+        "$p$ เป็นเท็จ, $q$ เป็นเท็จ",
+        "$p$ เป็นเท็จ, $q$ เป็นจริง",
+        "$p$ เป็นจริง, $q$ เป็นเท็จ"
+      ],
+      "correct": 1
+    },
+    {
+      "id": "chap-02-logic-q76",
+      "setId": "chap-02-logic",
+      "questionNumber": 76,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "medium",
+      "score": 1,
+      "question": "เมื่อ $p, q, r$ เป็นประพจน์ ถ้าพบว่า $(p \\wedge \\sim q) \\to (r \\wedge \\sim r)$ เป็นจริง ประพจน์ใดต่อไปนี้มีค่าความจริงเป็นจริง",
+      "hasImage": false,
+      "sourceTag": "คัดโอลิมปิก 2542",
+      "explanation": [
+        "$(p \\wedge \\sim q) \\to (r \\wedge \\sim r) \\equiv (p \\wedge \\sim q) \\to F$ เป็นจริง",
+        "$(p \\wedge \\sim q) \\to F$ จะเป็นจริงได้ก็ต่อเมื่อ $(p \\wedge \\sim q) = F$",
+        "นั่นคือ $\\sim(p \\wedge \\sim q) = T \\equiv \\sim p \\vee q \\equiv p \\to q$",
+        "ตอบ ข้อ 3. $p \\to q$ เป็นจริง"
+      ],
+      "choices": [
+        "$p$",
+        "$\\sim p$",
+        "$p \\to q$",
+        "$\\sim p \\wedge q$"
+      ],
+      "correct": 2
+    },
+    {
+      "id": "chap-02-logic-q77",
+      "setId": "chap-02-logic",
+      "questionNumber": 77,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "medium",
+      "score": 1,
+      "question": "กำหนดให้ $p, q, r$ เป็นประพจน์ซึ่ง $(p \\leftrightarrow q) \\to (r \\leftrightarrow \\sim p)$ มีค่าความจริงเป็นเท็จ รูปแบบประพจน์ในข้อใดต่อไปนี้มีค่าความจริงเป็นจริง",
+      "hasImage": false,
+      "sourceTag": "คัดโอลิมปิก 2546",
+      "explanation": [
+        "$(p \\leftrightarrow q) \\to (r \\leftrightarrow \\sim p) = F$ → $(p \\leftrightarrow q) = T$ และ $(r \\leftrightarrow \\sim p) = F$",
+        "$p \\leftrightarrow q = T$ → $p$ เหมือน $q$",
+        "$r \\leftrightarrow \\sim p = F$ → $r$ ต่างกับ $\\sim p$ → $r$ เหมือนกับ $p$",
+        "ดังนั้น $p, q, r$ มีค่าเหมือนกันทั้งหมด (TTT หรือ FFF)",
+        "ในทั้งสองกรณี $q \\leftrightarrow r$ จริงเสมอ (เพราะ $q$ และ $r$ เหมือนกัน)",
+        "ตอบ ข้อ 4."
+      ],
+      "choices": [
+        "$q \\wedge r$",
+        "$q \\vee r$",
+        "$q \\to \\sim r$",
+        "$q \\leftrightarrow r$"
+      ],
+      "correct": 3
+    },
+    {
+      "id": "chap-02-logic-q78",
+      "setId": "chap-02-logic",
+      "questionNumber": 78,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "hard",
+      "score": 1,
+      "question": "ถ้า $[\\sim (r \\leftrightarrow q) \\to s] \\wedge \\sim s \\to (x \\vee y)$ มีค่าความจริงเป็นเท็จ แล้ว $x \\wedge y$ มีค่าความจริงตรงกับข้อต่อไปนี้",
+      "hasImage": false,
+      "sourceTag": "คัดโอลิมปิก 2548",
+      "explanation": [
+        "จาก $[\\cdots] \\to (x \\vee y)$ เป็นเท็จ → ส่วนหน้าจริง และ $(x \\vee y) = F$",
+        "$(x \\vee y) = F$ → $x = F$ และ $y = F$",
+        "$[\\sim(r \\leftrightarrow q) \\to s] \\wedge \\sim s = T$ → $\\sim s = T$ ($s = F$)",
+        "$\\sim(r \\leftrightarrow q) \\to s = T$ และ $s = F$ → $\\sim(r \\leftrightarrow q) = F$ → $r \\leftrightarrow q = T$",
+        "$x \\wedge y = F \\wedge F = F$ — ค่าเป็นเท็จ",
+        "ตรวจตัวเลือก: ข้อ 1, 2, 3 ให้ค่า T (เพราะมีรูป $F \\to ?$ หรือ $T \\to T$); ข้อ 4 ให้ค่า F (รูป $T \\to F$) → ตรงกับ $x \\wedge y = F$",
+        "ตอบ ข้อ 4."
+      ],
+      "choices": [
+        "$[\\sim (x \\wedge y) \\to y] \\to [(r \\leftrightarrow q) \\vee y]$",
+        "$[(x \\wedge y) \\to \\sim y] \\to [q \\vee (y \\leftrightarrow s)]$",
+        "$[(\\sim x \\to y) \\wedge (r \\leftrightarrow q)] \\to [(s \\leftrightarrow q) \\wedge r]$",
+        "$(\\sim y \\to \\sim x) \\to [(\\sim y \\vee r) \\leftrightarrow (\\sim x \\wedge y)]$"
+      ],
+      "correct": 3
+    },
+    {
+      "id": "chap-02-logic-q79",
+      "setId": "chap-02-logic",
+      "questionNumber": 79,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "medium",
+      "score": 1,
+      "question": "ให้ $p, q, r, x$ และ $y$ เป็นประพจน์ ซึ่ง $p \\to (q \\wedge r)$ มีค่าความจริงเป็นเท็จ และ $(x \\vee y) \\leftrightarrow (\\sim q \\vee \\sim r)$ มีค่าความจริงเป็นจริง ประพจน์ในข้อต่อไปนี้มีค่าความจริงเป็นจริง",
+      "hasImage": false,
+      "sourceTag": "สมาคมคณิตฯ 2545",
+      "explanation": [
+        "$p \\to (q \\wedge r) = F$ → $p = T$ และ $q \\wedge r = F$",
+        "$\\sim q \\vee \\sim r = \\sim(q \\wedge r) = T$",
+        "$(x \\vee y) \\leftrightarrow (\\sim q \\vee \\sim r) = T$ → $(x \\vee y) \\leftrightarrow T = T$ → $x \\vee y = T$",
+        "ข้อ 4. $(q \\vee r) \\to ((x \\wedge y) \\to p)$ — $p = T$ → $(x \\wedge y) \\to T = T$ เสมอ → $? \\to T = T$ ✓",
+        "ตอบ ข้อ 4."
+      ],
+      "choices": [
+        "$(p \\wedge r) \\leftrightarrow (y \\vee q)$",
+        "$(x \\wedge y) \\to (p \\wedge q)$",
+        "$x \\leftrightarrow (q \\wedge r)$",
+        "$(q \\vee r) \\to ((x \\wedge y) \\to p)$"
+      ],
+      "correct": 3
+    },
+    {
+      "id": "chap-02-logic-q80",
+      "setId": "chap-02-logic",
+      "questionNumber": 80,
+      "topics": [
+        "2"
+      ],
+      "type": "fill",
+      "level": "medium",
+      "score": 1,
+      "question": "รูปแบบของประพจน์ $(p \\leftrightarrow q) \\vee \\sim r$ และ $p \\rightarrow (q \\wedge r)$ มีค่าความจริงที่เหมือนกันทั้งหมดกี่กรณี",
+      "hasImage": false,
+      "accept": [
+        "5"
+      ],
+      "correct": "5",
+      "explanation": [
+        "ทั้งสองรูปแบบมีค่าความจริงได้ $2^3 = 8$ กรณี",
+        "พิจารณา $(p \\leftrightarrow q) \\vee \\sim r$ มีตัวเชื่อมหลักเป็น \"หรือ\" ดังนั้นจะเป็นเท็จเมื่อ $p \\leftrightarrow q \\equiv F$ และ $\\sim r \\equiv F$ นั่นคือ $(p, q, r) \\equiv (T, F, T)$ และ $(F, T, T)$ เท่านั้น นอกนั้นกรณีอื่นๆ ให้ค่าเป็นจริงอีก 6 กรณี",
+        "พิจารณา $p \\rightarrow (q \\wedge r)$ มีตัวเชื่อมหลักเป็น \"ถ้า ... แล้ว ...\" ดังนั้นจะเป็นเท็จเมื่อ $p \\equiv T$ และ $q \\wedge r \\equiv F$ นั่นคือ $(p, q, r) \\equiv (T, F, T),\\ (T, T, F),\\ (T, F, F)$ เท่านั้น นอกนั้นกรณีอื่นๆ ให้ค่าเป็นจริงอีก 5 กรณี",
+        "ดังนั้น มีค่าความจริงเป็นเท็จตรงกัน 1 กรณี และเป็นจริงตรงกัน 4 กรณี รวมคำตอบคือ $5$ กรณี",
+        "หมายเหตุ จะใช้วิธีเขียนตารางค่าความจริงให้ครบทั้ง 8 กรณี เพื่อนับเอาก็ได้"
+      ],
+      "source": "สมาคมคณิตศาสตร์ฯ 2543"
+    },
+    {
+      "id": "chap-02-logic-q81",
+      "setId": "chap-02-logic",
+      "questionNumber": 81,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "hard",
+      "score": 1,
+      "question": "จากการเขียนตารางค่าความจริงของประพจน์ $(p \\wedge q) \\vee (r \\vee s) \\vee (t \\rightarrow u) \\vee (x \\leftrightarrow y) \\vee (\\sim z)$ มีบรรทัดที่ได้ค่าความจริงโดยรวมเป็นเท็จ กี่บรรทัด",
+      "hasImage": false,
+      "choices": [
+        "6",
+        "8",
+        "12",
+        "216"
+      ],
+      "correct": 0,
+      "explanation": [
+        "ทุกวงเล็บเชื่อมกันด้วยตัวเชื่อม \"หรือ\" ซึ่งจะให้ผลสรุปเป็นเท็จ เมื่อทุกๆ วงเล็บเป็นเท็จพร้อมๆ กันเท่านั้น",
+        "$(p \\wedge q)$ เป็นเท็จ 3 ใน 4 กรณี",
+        "$(r \\vee s)$ เป็นเท็จ 1 ใน 4 กรณี",
+        "$(t \\rightarrow u)$ เป็นเท็จ 1 ใน 4 กรณี",
+        "$(x \\leftrightarrow y)$ เป็นเท็จ 2 ใน 4 กรณี",
+        "$(\\sim z)$ เป็นเท็จ 1 ใน 2 กรณี",
+        "ดังนั้นจำนวนแบบที่ประกอบกันได้เท็จพร้อมๆ กัน คือ $3 \\times 1 \\times 1 \\times 2 \\times 1 = 6$ แบบ"
+      ],
+      "notes": "ข้อนี้อาศัยเนื้อหา ความน่าจะเป็น (การนับเบื้องต้น) ด้วย",
+      "source": "คัดโอลิมปิก 2542"
+    },
+    {
+      "id": "chap-02-logic-q82",
+      "setId": "chap-02-logic",
+      "questionNumber": 82,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "medium",
+      "score": 1,
+      "question": "กำหนดประพจน์ต่อไปนี้\n\n$p$ แทนประพจน์ \"ถ้า $a > b$ และ $ab < 0$ แล้ว $\\dfrac{1}{a} < \\dfrac{1}{b}$\"\n\n$q$ แทนประพจน์ \"เซตของจำนวนเต็มกับการบวกมีเอกลักษณ์ แต่สมาชิกบางตัวไม่มีอินเวอร์ส\"\n\nประพจน์ในข้อใดต่อไปนี้มีค่าความจริงเป็นจริง",
+      "hasImage": false,
+      "choices": [
+        "$p \\vee q$",
+        "$\\sim p \\wedge \\sim q$",
+        "$\\sim q \\rightarrow p$",
+        "$\\sim p \\leftrightarrow q$"
+      ],
+      "correct": 1,
+      "explanation": [
+        "$ab < 0$ แสดงว่ามีตัวหนึ่งเป็นบวก และตัวหนึ่งติดลบ แต่ $a > b$ จึงสรุปได้ว่า $a$ เป็นบวก และ $b$ ติดลบ ดังนั้น $\\dfrac{1}{a} > \\dfrac{1}{b}$ (เพราะ $\\dfrac{1}{a}$ ย่อมเป็นบวกด้วย และ $\\dfrac{1}{b}$ ย่อมติดลบด้วย) ..ประพจน์ $p$ เป็นเท็จ",
+        "ส่วนประพจน์ $q$ ก็เป็นเท็จเช่นกัน เนื่องจาก จำนวนเต็มทุกตัวมีอินเวอร์สการบวกเสมอ",
+        "ตอบ ข้อที่เป็นจริงคือ ข้อ 2."
+      ],
+      "source": "โควตา มช. 2540"
+    },
+    {
+      "id": "chap-02-logic-q83",
+      "setId": "chap-02-logic",
+      "questionNumber": 83,
+      "topics": [
+        "2"
+      ],
+      "type": "fill",
+      "level": "hard",
+      "score": 1,
+      "question": "กำหนดให้ $p$ แทนข้อความ \"สมาชิกของ $A$ ทุกตัวเป็นสมาชิกของ $B$\"\n\n$q$ แทนข้อความ \"สมาชิกบางตัวของ $A$ เป็นสมาชิกของ $B$\"\n\n$r$ แทนข้อความ \"ไม่มีสมาชิกของ $A$ ตัวใดเป็นสมาชิกของ $B$\"\n\n$s$ แทนข้อความ \"มีสมาชิกบางตัวของ $A$ ไม่ใช่สมาชิกของ $B$\"\n\n$A$ เป็นเซตคำตอบของอสมการ $|x^2 - 2x - 3| < 0$\n\n$B$ เป็นเซตคำตอบของอสมการ $|x^2 + 4x + 3| > 0$\n\nจงหาค่าความจริงของประพจน์ $[(r \\rightarrow p) \\wedge (\\sim p \\rightarrow \\sim q)] \\vee s$",
+      "hasImage": false,
+      "accept": [
+        "จริง"
+      ],
+      "correct": "จริง",
+      "explanation": [
+        "อสมการ $|x^2 - 2x - 3| < 0$ เป็นไปไม่ได้ เพราะค่าสัมบูรณ์ไม่มีทางน้อยกว่า 0 ..ดังนั้น $A = \\emptyset$",
+        "และอสมการ $|x^2 + 4x + 3| > 0$ เป็นจริงเสมอเมื่อ $x^2 + 4x + 3 \\neq 0$ นั่นคือ $x \\neq -3, -1$ ..ดังนั้น $B = \\mathbb{R} - \\{-3, -1\\}$",
+        "จะได้ $p$ เป็นจริง เพราะไม่สามารถหาสมาชิกของ $A$ ที่ไม่อยู่ใน $B$ ได้เลย ($A \\subset B$)",
+        "$q$ เป็นเท็จ และ $r$ เป็นจริง เพราะไม่สามารถหาสมาชิกที่อยู่ทั้ง $A$ และ $B$ ได้ ($A \\cap B = \\emptyset$)",
+        "และ $s$ เป็นเท็จ เพราะไม่สามารถหาสมาชิกของ $A$ ที่ไม่อยู่ใน $B$ ได้เลย ($A - B = \\emptyset$)",
+        "ดังนั้น $[(r \\rightarrow p) \\wedge (\\sim p \\rightarrow \\sim q)] \\vee s \\equiv [(T \\rightarrow T) \\wedge (F \\rightarrow T)] \\vee F \\equiv [T \\wedge T] \\vee F \\equiv T$  ตอบ จริง"
+      ],
+      "source": "ทุนเล่าเรียนหลวง (กพ.) 2546"
+    },
+    {
+      "id": "chap-02-logic-q84",
+      "setId": "chap-02-logic",
+      "questionNumber": 84,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "easy",
+      "score": 1,
+      "question": "ข้อใดไม่สมมูลกับประพจน์ $p \\rightarrow (q \\vee r)$",
+      "hasImage": false,
+      "choices": [
+        "$(\\sim q \\wedge \\sim r) \\rightarrow \\sim p$",
+        "$(p \\wedge \\sim q) \\rightarrow r$",
+        "$(p \\wedge \\sim r) \\rightarrow q$",
+        "$\\sim p \\rightarrow (\\sim q \\wedge \\sim r)$"
+      ],
+      "correct": 3,
+      "explanation": [
+        "ทั้งรูปแบบในโจทย์ และข้อ 1, 2, 3 สามารถจัดรูปได้เป็น $\\sim p \\vee q \\vee r$",
+        "แต่ข้อ 4. จะได้เป็น $p \\vee \\sim(q \\vee r)$ ซึ่งไม่สมมูลกับโจทย์และข้ออื่นๆ",
+        "ตอบ ข้อ 4."
+      ],
+      "source": "โควตา มช. 2545"
+    },
+    {
+      "id": "chap-02-logic-q85",
+      "setId": "chap-02-logic",
+      "questionNumber": 85,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "easy",
+      "score": 1,
+      "question": "ถ้าประพจน์ \"ถ้าพ่อค้ากักตุนน้ำตาล แล้วราคาน้ำตาลจะสูงขึ้น\" เป็นความจริง ข้อใดเป็นการให้เหตุผลที่ถูกต้อง",
+      "hasImage": false,
+      "choices": [
+        "เนื่องจากราคาน้ำตาลสูงขึ้น จึงสรุปได้ว่าพ่อค้ากักตุนน้ำตาล",
+        "เนื่องจากพ่อค้าไม่ได้กักตุนน้ำตาล จึงสรุปได้ว่าราคาน้ำตาลไม่ได้สูงขึ้น",
+        "เนื่องจากราคาน้ำตาลไม่สูงขึ้น จึงสรุปได้ว่าพ่อค้าไม่ได้กักตุนน้ำตาล",
+        "มีข้อถูกมากกว่า 1 ข้อ"
+      ],
+      "correct": 2,
+      "explanation": [
+        "สมมติว่าโจทย์คือ $p \\rightarrow q$ จะได้..",
+        "ข้อ 1. คือ $q \\rightarrow p$ ..ผิด",
+        "ข้อ 2. คือ $\\sim p \\rightarrow \\sim q$ ..ผิด",
+        "ข้อ 3. ถูก คือ $\\sim q \\rightarrow \\sim p$ (contrapositive ของ $p \\rightarrow q$)"
+      ],
+      "source": "พื้นฐานวิศวะฯ 2541"
+    },
+    {
+      "id": "chap-02-logic-q86",
+      "setId": "chap-02-logic",
+      "questionNumber": 86,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "medium",
+      "score": 1,
+      "question": "ประโยคที่สมมูลกับ \"ถ้า $ab = 0$ จะได้ $a = 0$ หรือ $b = 0$\" คือข้อใด",
+      "hasImage": false,
+      "choices": [
+        "ถ้า $ab = 0$ และ $a \\neq 0$ จะได้ $b = 0$",
+        "ถ้า $a \\neq 0$ หรือ $b \\neq 0$ จะได้ $ab \\neq 0$",
+        "ถ้า $ab \\neq 0$ จะได้ $a \\neq 0$ หรือ $b \\neq 0$",
+        "ถ้า $a = 0$ หรือ $b = 0$ จะได้ $ab = 0$"
+      ],
+      "correct": 0,
+      "explanation": [
+        "จาก $p \\rightarrow (q \\vee r) \\equiv \\sim p \\vee q \\vee r \\equiv (p \\wedge \\sim q) \\rightarrow r$ ดังนั้น ข้อที่ถูกคือ ข้อ 1.",
+        "ข้อ 2. ไม่สมมูล เพราะ $p \\rightarrow (q \\vee r) \\equiv \\sim(q \\vee r) \\rightarrow \\sim p \\equiv (\\sim q \\wedge \\sim r) \\rightarrow \\sim p$ (ในตัวเลือก ต้องเปลี่ยนคำว่า \"หรือ\" เป็น \"และ\" จึงจะสมมูล)",
+        "ข้อ 3. ไม่สมมูล เพราะ $p \\rightarrow (q \\vee r) \\neq \\sim p \\rightarrow (\\sim q \\vee \\sim r)$",
+        "ข้อ 4. ไม่สมมูล เพราะ $p \\rightarrow (q \\vee r) \\neq (q \\vee r) \\rightarrow p$"
+      ],
+      "source": "คัดโอลิมปิก 2542"
+    },
+    {
+      "id": "chap-02-logic-q87",
+      "setId": "chap-02-logic",
+      "questionNumber": 87,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "medium",
+      "score": 1,
+      "question": "ข้อความ \"ถ้า $(a, b) = (x, y)$ แล้ว $a = x$ และ $b = y$\" สมมูลกับข้อความใดบ้าง\n\nก. ถ้า $a \\neq x$ หรือ $b \\neq y$ แล้ว $(a, b) \\neq (x, y)$\n\nข. $(a, b) \\neq (x, y)$ หรือ ($a = x$ และ $b = y$)",
+      "hasImage": false,
+      "choices": [
+        "ข้อ ก. แต่ไม่ใช่ข้อ ข.",
+        "ข้อ ข. แต่ไม่ใช่ข้อ ก.",
+        "ทั้งข้อ ก. และข้อ ข.",
+        "ไม่ใช่ทั้งข้อ ก. และข้อ ข."
+      ],
+      "correct": 2,
+      "explanation": [
+        "เนื่องจาก $\\Box \\rightarrow \\triangle \\equiv \\sim \\Box \\vee \\triangle \\equiv \\sim \\triangle \\rightarrow \\sim \\Box$",
+        "จากโจทย์เขียนเป็นสัญลักษณ์ได้ $p \\rightarrow (q \\wedge r)$ จึงสมมูลกับ $\\sim p \\vee (q \\wedge r)$ (ข้อ ข. ถูก) และสมมูลกับ $(\\sim q \\vee \\sim r) \\rightarrow \\sim p$ (ข้อ ก. ถูก)",
+        "ตอบ ข้อ 3."
+      ],
+      "source": "คัดโอลิมปิก 2535"
+    },
+    {
+      "id": "chap-02-logic-q88",
+      "setId": "chap-02-logic",
+      "questionNumber": 88,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "medium",
+      "score": 1,
+      "question": "ข้อความ \"ถ้า $x$ เป็นค่าวิกฤตของฟังก์ชัน $f$ แล้ว $f'(x) = 0$ หรือ $f'(x)$ หาค่าไม่ได้\" ไม่สมมูลกับข้อใด",
+      "hasImage": false,
+      "choices": [
+        "ถ้า $f'(x)$ หาค่าได้ และ $f'(x) \\neq 0$ แล้ว $x$ ไม่เป็นค่าวิกฤตของฟังก์ชัน $f$",
+        "ถ้า $f'(x)$ หาค่าได้ หรือ $f'(x) \\neq 0$ แล้ว $x$ ไม่เป็นค่าวิกฤตของฟังก์ชัน $f$",
+        "ถ้า $x$ เป็นค่าวิกฤตของฟังก์ชัน $f$ และ $f'(x)$ หาค่าได้ แล้ว $f'(x) = 0$",
+        "ถ้า $x$ เป็นค่าวิกฤตของฟังก์ชัน $f$ และ $f'(x) \\neq 0$ แล้ว $f'(x)$ หาค่าไม่ได้"
+      ],
+      "correct": 1,
+      "explanation": [
+        "ถ้าให้ $p$ แทน \"$x$ เป็นค่าวิกฤตของฟังก์ชัน $f$\", $q$ แทน \"$f'(x) = 0$\", และ $r$ แทน \"$f'(x)$ หาค่าไม่ได้\" ข้อความในโจทย์จะเขียนได้เป็น $p \\rightarrow (q \\vee r) \\equiv \\sim p \\vee q \\vee r$",
+        "ข้อ 1. คือ $(\\sim r \\wedge \\sim q) \\rightarrow \\sim p \\equiv \\sim p \\vee q \\vee r$",
+        "ข้อ 2. คือ $(\\sim r \\vee \\sim q) \\rightarrow \\sim p \\neq \\sim p \\vee q \\vee r$",
+        "ข้อ 3. คือ $(p \\wedge \\sim r) \\rightarrow q \\equiv \\sim p \\vee q \\vee r$",
+        "ข้อ 4. คือ $(p \\wedge \\sim q) \\rightarrow r \\equiv \\sim p \\vee q \\vee r$",
+        "ตอบ ข้อที่ไม่สมมูลคือข้อ 2."
+      ],
+      "notes": "ข้อนี้อาศัยเนื้อหา แคลคูลัส ด้วย",
+      "source": "โควตา มช. 2537"
+    },
+    {
+      "id": "chap-02-logic-q89",
+      "setId": "chap-02-logic",
+      "questionNumber": 89,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "hard",
+      "score": 1,
+      "question": "ข้อความ $[(p \\wedge q) \\vee (\\sim p \\wedge q)] \\wedge [(p \\rightarrow t) \\leftrightarrow (\\sim t \\rightarrow \\sim p)] \\rightarrow [t \\rightarrow (s \\wedge \\sim s)]$ สมมูลกับข้อความใด",
+      "hasImage": false,
+      "choices": [
+        "$\\sim q \\vee t$",
+        "$\\sim (q \\wedge t)$",
+        "$(p \\wedge q) \\vee t$",
+        "$\\sim (p \\wedge q) \\vee s$"
+      ],
+      "correct": 1,
+      "explanation": [
+        "เนื่องจาก $(p \\wedge q) \\vee (\\sim p \\wedge q) \\equiv (p \\vee \\sim p) \\wedge q \\equiv T \\wedge q \\equiv q$",
+        "พิจารณา $(p \\rightarrow t) \\leftrightarrow (\\sim t \\rightarrow \\sim p)$ พบว่าฝั่งซ้ายและขวาสมมูลกัน (contrapositive) ดังนั้นมีค่าเป็น $T$ เสมอ",
+        "และเนื่องจาก $t \\rightarrow (s \\wedge \\sim s) \\equiv t \\rightarrow F \\equiv \\sim t$",
+        "ดังนั้นข้อความในโจทย์สมมูลกับ $q \\wedge T \\rightarrow \\sim t \\equiv q \\rightarrow \\sim t \\equiv \\sim q \\vee \\sim t \\equiv \\sim(q \\wedge t)$  ตอบ ข้อ 2."
+      ],
+      "source": "คัดโอลิมปิก 2535"
+    },
+    {
+      "id": "chap-02-logic-q90",
+      "setId": "chap-02-logic",
+      "questionNumber": 90,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "hard",
+      "score": 1,
+      "question": "นิเสธของประพจน์ $(p \\rightarrow \\sim q) \\wedge (\\sim r \\rightarrow s)$ คือประพจน์ในข้อใด",
+      "hasImage": false,
+      "choices": [
+        "$[p \\leftrightarrow \\sim (r \\vee s)] \\wedge [q \\leftrightarrow \\sim (r \\vee s)]$",
+        "$[\\sim p \\leftrightarrow (r \\vee s)] \\wedge [\\sim q \\leftrightarrow (r \\vee s)]$",
+        "$[(p \\wedge q) \\rightarrow r] \\wedge [(p \\wedge q) \\rightarrow s]$",
+        "$[\\sim (p \\wedge q) \\rightarrow \\sim r] \\wedge [\\sim (p \\wedge q) \\rightarrow \\sim s]$"
+      ],
+      "correct": 3,
+      "explanation": [
+        "จาก $\\sim[(p \\rightarrow \\sim q) \\wedge (\\sim r \\rightarrow s)] \\equiv \\sim(p \\rightarrow \\sim q) \\vee \\sim(\\sim r \\rightarrow s) \\equiv (p \\wedge q) \\vee (\\sim r \\wedge \\sim s)$",
+        "$\\equiv [(p \\wedge q) \\vee \\sim r] \\wedge [(p \\wedge q) \\vee \\sim s] \\equiv [\\sim(p \\wedge q) \\rightarrow \\sim r] \\wedge [\\sim(p \\wedge q) \\rightarrow \\sim s]$",
+        "ตอบ ข้อ 4."
+      ],
+      "source": "คัดโอลิมปิก 2545"
+    },
+    {
+      "id": "chap-02-logic-q91",
+      "setId": "chap-02-logic",
+      "questionNumber": 91,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "medium",
+      "score": 1,
+      "question": "ประพจน์ในข้อใดมีค่าความจริงตรงข้ามกับค่าความจริงของประพจน์ $(p \\vee q) \\rightarrow (r \\wedge s)$",
+      "hasImage": false,
+      "choices": [
+        "$\\sim (p \\vee q) \\rightarrow (r \\wedge s)$",
+        "$\\sim (p \\vee q) \\rightarrow (\\sim r \\vee \\sim s)$",
+        "$(p \\vee q) \\rightarrow (\\sim r \\vee \\sim s)$",
+        "$(p \\vee q) \\wedge (\\sim r \\vee \\sim s)$",
+        "$(p \\vee q) \\vee (\\sim r \\vee \\sim s)$"
+      ],
+      "correct": 3,
+      "explanation": [
+        "จาก $\\sim[(p \\vee q) \\rightarrow (r \\wedge s)] \\equiv (p \\vee q) \\wedge \\sim(r \\wedge s) \\equiv (p \\vee q) \\wedge (\\sim r \\vee \\sim s)$",
+        "ตอบ ข้อ 4."
+      ],
+      "source": "ทุนเล่าเรียนหลวง (กพ.) 2542"
+    },
+    {
+      "id": "chap-02-logic-q92",
+      "setId": "chap-02-logic",
+      "questionNumber": 92,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "medium",
+      "score": 1,
+      "question": "ข้อใดถูก",
+      "hasImage": false,
+      "choices": [
+        "$p \\rightarrow q$ สมมูลกับ $\\sim p \\rightarrow \\sim q$",
+        "นิเสธของ $(p \\wedge q) \\rightarrow r$ คือ $(\\sim p \\vee \\sim q) \\wedge \\sim r$",
+        "$[(p \\vee q) \\wedge \\sim p] \\leftrightarrow (\\sim p \\wedge q)$ เป็นสัจนิรันดร์",
+        "ถ้า $p \\vee q$ มีค่าความจริงเป็นจริง และ $(s \\wedge r) \\rightarrow q$ มีค่าความจริงเป็นเท็จ แล้วประพจน์ $p$, $q$, $s$ และ $r$ มีค่าความจริงเป็น จริง, จริง, เท็จ และจริง ตามลำดับ"
+      ],
+      "correct": 2,
+      "explanation": [
+        "ข้อ 1. ผิด เพราะสองรูปแบบนี้ไม่สมมูลกัน รูปแบบแรกคือ $\\sim p \\vee q$ แต่รูปแบบหลังคือ $p \\vee \\sim q$",
+        "ข้อ 2. ผิด นิเสธของ $(p \\wedge q) \\rightarrow r$ ต้องเป็น $p \\wedge q \\wedge \\sim r$",
+        "ข้อ 3. ถูก ซ้ายมือ $\\equiv [(p \\wedge \\sim p) \\vee (q \\wedge \\sim p)] \\equiv (q \\wedge \\sim p)$ สมมูลกับขวามือ และเชื่อมด้วย \"ก็ต่อเมื่อ\" จึงเป็นสัจนิรันดร์",
+        "ข้อ 4. ผิด ..จาก $(s \\wedge r) \\rightarrow q$ เป็นเท็จ จะได้ว่า $s, r$ เป็นจริง, $q$ เป็นเท็จ ..จาก $p \\vee q$ เป็นจริง จะได้ $p$ เป็นจริง",
+        "ตอบ ข้อ 3."
+      ],
+      "source": "โควตา มช. 2543"
+    },
+    {
+      "id": "chap-02-logic-q93",
+      "setId": "chap-02-logic",
+      "questionNumber": 93,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "medium",
+      "score": 1,
+      "question": "จงพิจารณาข้อความต่อไปนี้\n\nก. ประพจน์ $(p \\leftrightarrow q) \\leftrightarrow (\\sim p \\vee q)$ เป็นสัจนิรันดร์\n\nข. ประพจน์ $p \\rightarrow (q \\rightarrow p)$ สมมูลกับ $(p \\wedge q) \\rightarrow q$\n\nข้อใดต่อไปนี้ถูกต้อง",
+      "hasImage": false,
+      "choices": [
+        "ข้อ ก. และ ข. เป็นจริง",
+        "ข้อ ก. เท่านั้นเป็นจริง",
+        "ข้อ ข. เท่านั้นเป็นจริง",
+        "ข้อ ก. และ ข. เป็นเท็จ"
+      ],
+      "correct": 2,
+      "explanation": [
+        "ข้อ ก. เนื่องจากตัวเชื่อมหลักคือ \"ก็ต่อเมื่อ\" และพบว่าฝั่งซ้ายกับขวาไม่สมมูลกัน ดังนั้นรูปแบบนี้ไม่เป็นสัจนิรันดร์ ..ข้อ ก. เท็จ",
+        "ข้อ ข. เนื่องจาก $p \\rightarrow (q \\rightarrow p) \\equiv \\sim p \\vee \\sim q \\vee p$ จะเป็นจริงเสมอ (เพราะ $\\sim p$ กับ $p$ ต้องมีตัวใดตัวหนึ่งเป็นจริงแน่นอน) และ $(p \\wedge q) \\rightarrow q \\equiv \\sim p \\vee \\sim q \\vee q$ ก็จะเป็นจริงเสมอ ดังนั้นสองรูปแบบนี้สมมูลกัน ..ข้อ ข. จริง",
+        "ตอบ ข้อ 3."
+      ],
+      "source": "สมาคมคณิตศาสตร์ฯ 2547"
+    },
+    {
+      "id": "chap-02-logic-q94",
+      "setId": "chap-02-logic",
+      "questionNumber": 94,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "medium",
+      "score": 1,
+      "question": "พิจารณาข้อความต่อไปนี้\n\nก. ถ้า $(\\sim p \\rightarrow q) \\rightarrow r$ มีค่าความจริงเป็นจริง แล้ว $(p \\rightarrow r) \\vee (q \\rightarrow r)$ มีค่าความจริงเป็นจริงด้วย\n\nข. ถ้า $p, q, r$ เป็นประพจน์ใดๆ แล้ว $(p \\wedge r) \\rightarrow (q \\rightarrow p)$ เป็นสัจนิรันดร์\n\nข้อใดต่อไปนี้ถูกต้อง",
+      "hasImage": false,
+      "choices": [
+        "ข้อ ก. เป็นจริง แต่ข้อ ข. เป็นเท็จ",
+        "ข้อ ก. เป็นเท็จ แต่ข้อ ข. เป็นจริง",
+        "ทั้งข้อ ก. และข้อ ข. เป็นจริง",
+        "ทั้งข้อ ก. และข้อ ข. เป็นเท็จ"
+      ],
+      "correct": 2,
+      "explanation": [
+        "ข้อ ก. จาก $(\\sim p \\rightarrow q) \\rightarrow r \\equiv \\sim(p \\vee q) \\vee r \\equiv (\\sim p \\wedge \\sim q) \\vee r \\equiv (\\sim p \\vee r) \\wedge (\\sim q \\vee r) \\equiv (p \\rightarrow r) \\wedge (q \\rightarrow r)$",
+        "ถ้ารูปแบบนี้มีค่าความจริงเป็นจริง ก็แสดงว่า $(p \\rightarrow r)$ กับ $(q \\rightarrow r)$ เป็นจริงทั้งคู่ จึงทำให้ $(p \\rightarrow r) \\vee (q \\rightarrow r)$ มีค่าความจริงเป็นจริงด้วย ..ข้อ ก. จริง",
+        "ข้อ ข. ตัวเชื่อมหลักเป็น \"ถ้า..แล้ว..\" จะเป็นเท็จได้กรณีเดียว คือด้านหน้าเป็นจริง และด้านหลังเป็นเท็จ ..ด้านหลังเป็นเท็จแสดงว่า $p$ เป็นเท็จ, $q$ เป็นจริง แต่ถ้า $p$ เป็นเท็จ ด้านหน้าก็ไม่สามารถเป็นจริงได้.. สรุปว่าทำเป็นเท็จไม่สำเร็จ แสดงว่ารูปแบบในข้อนี้เป็นสัจนิรันดร์ ..ข้อ ข. จริง",
+        "ตอบ ทั้ง ก. และ ข. เป็นจริง"
+      ],
+      "source": "คัดโอลิมปิก 2547"
+    },
+    {
+      "id": "chap-02-logic-q95",
+      "setId": "chap-02-logic",
+      "questionNumber": 95,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "medium",
+      "score": 1,
+      "question": "ให้ $p, q$ และ $r$ เป็นประพจน์\n\nพิจารณาข้อความต่อไปนี้\n\nก. $(p \\rightarrow q) \\rightarrow [(p \\vee r) \\rightarrow (q \\vee r)]$ เป็นสัจนิรันดร์\n\nข. ถ้า $(p \\rightarrow q) \\rightarrow \\sim (r \\vee q)$ มีค่าความจริงเป็นจริง แล้ว $q$ จะมีค่าความจริงเป็นเท็จเสมอ\n\nข้อใดต่อไปนี้ถูกต้อง",
+      "hasImage": false,
+      "choices": [
+        "ข้อ ก. และ ข. เป็นจริง",
+        "ข้อ ก. เท่านั้นเป็นจริง",
+        "ข้อ ข. เท่านั้นเป็นจริง",
+        "ข้อ ก. และ ข. เป็นเท็จ"
+      ],
+      "correct": 0,
+      "explanation": [
+        "ข้อ ก. $(p \\rightarrow q) \\rightarrow [(p \\vee r) \\rightarrow (q \\vee r)]$ ทำเป็นเท็จไม่ได้ เพราะค่า $p$ ขัดแย้งกัน แสดงว่า เป็นสัจนิรันดร์ ..ข้อ ก. เป็นจริง",
+        "ข้อ ข. เราทราบว่า $\\Box \\rightarrow \\triangle \\equiv \\sim \\triangle \\rightarrow \\sim \\Box$ จึงเปลี่ยนข้อความให้สมมูลในรูปที่ตรวจสอบสะดวกกว่า คือ \"ถ้า $q$ มีค่าความจริงเป็นจริง แล้ว $(p \\rightarrow q) \\rightarrow \\sim(r \\vee q)$ มีค่าความจริงเป็นเท็จ\" เพราะข้อความนี้สามารถตรวจสอบได้สะดวกกว่า",
+        "ถ้าหาก $q$ เป็นจริง จะได้ $(p \\rightarrow q) \\rightarrow \\sim(r \\vee q) \\equiv (p \\rightarrow T) \\rightarrow \\sim(r \\vee T) \\equiv T \\rightarrow F \\equiv F$ ..ดังนั้น ข้อความใน ข. เป็นจริง",
+        "ตอบ ทั้ง ก. และ ข. เป็นจริง"
+      ],
+      "source": "สมาคมคณิตศาสตร์ฯ 2544"
+    },
+    {
+      "id": "chap-02-logic-q96",
+      "setId": "chap-02-logic",
+      "questionNumber": 96,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "medium",
+      "score": 1,
+      "question": "จงพิจารณาข้อความต่อไปนี้\n\nก. ประพจน์ $[(p \\rightarrow q) \\vee (q \\wedge \\sim q)] \\rightarrow [(\\sim p \\vee q) \\wedge (r \\vee \\sim r)]$ เป็นสัจนิรันดร์\n\nข. ประพจน์ $(p \\vee \\sim q) \\rightarrow (r \\wedge q)$ สมมูลกับ $(\\sim p \\vee r) \\wedge q$\n\nข้อใดต่อไปนี้ถูกต้อง",
+      "hasImage": false,
+      "choices": [
+        "ข้อ ก. และ ข. เป็นจริง",
+        "ข้อ ก. เท่านั้นเป็นจริง",
+        "ข้อ ข. เท่านั้นเป็นจริง",
+        "ข้อ ก. และ ข. เป็นเท็จ"
+      ],
+      "correct": 0,
+      "explanation": [
+        "ข้อ ก. $[(p \\rightarrow q) \\vee F] \\rightarrow [(\\sim p \\vee q) \\wedge T] \\equiv (p \\rightarrow q) \\rightarrow (\\sim p \\vee q) \\equiv (p \\rightarrow q) \\rightarrow (p \\rightarrow q) \\equiv \\triangle \\rightarrow \\triangle$ รูปแบบนี้เป็นสัจนิรันดร์เสมอ ..ข้อ ก. ถูก",
+        "ข้อ ข. ซ้ายมือ $\\equiv \\sim(p \\vee \\sim q) \\vee (r \\wedge q) \\equiv (\\sim p \\wedge q) \\vee (r \\wedge q) \\equiv (\\sim p \\vee r) \\wedge q$ ดังนั้น ข้อ ข. ถูก",
+        "ตอบ ทั้ง ก. และ ข. เป็นจริง"
+      ],
+      "source": "สมาคมคณิตศาสตร์ฯ 2546"
+    },
+    {
+      "id": "chap-02-logic-q97",
+      "setId": "chap-02-logic",
+      "questionNumber": 97,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "medium",
+      "score": 1,
+      "question": "ประพจน์ใดต่อไปนี้ไม่เป็นสัจนิรันดร์",
+      "hasImage": false,
+      "choices": [
+        "$[p \\leftrightarrow (q \\leftrightarrow r)] \\leftrightarrow [(p \\leftrightarrow q) \\leftrightarrow r]$",
+        "$[p \\rightarrow (q \\rightarrow r)] \\leftrightarrow [(p \\rightarrow q) \\rightarrow r]$",
+        "$[(p \\vee q) \\rightarrow r] \\leftrightarrow [(p \\rightarrow r) \\wedge (q \\rightarrow r)]$",
+        "$[(p \\vee q) \\wedge r] \\leftrightarrow [(p \\wedge r) \\vee (q \\wedge r)]$"
+      ],
+      "correct": 1,
+      "explanation": [
+        "ทุกข้อมีตัวเชื่อมหลักเป็น \"ก็ต่อเมื่อ\" ดังนั้นจะเป็นสัจนิรันดร์หากซ้ายกับขวาสมมูลกัน และไม่เป็นสัจนิรันดร์หากซ้ายและขวาไม่สมมูลกัน",
+        "ข้อที่ไม่เป็นคือข้อ 2. เพราะฝั่งซ้าย $p \\rightarrow (q \\rightarrow r) \\equiv \\sim p \\vee \\sim q \\vee r$ แต่ฝั่งขวา $(p \\rightarrow q) \\rightarrow r \\equiv (p \\wedge \\sim q) \\vee r$ ซึ่งไม่มีทางจัดรูปให้สมมูลกันได้เลย",
+        "ส่วนข้อ 3. กับ 4. นั้นสามารถแจกแจงให้เห็นว่าสมมูลกันได้โดยง่าย",
+        "และข้อ 1. แจกแจงยาก ควรใช้วิธีเขียนตารางค่าความจริง เพื่อตรวจสอบ (ซ้ายขวาได้ค่าตรงกันทุกกรณี แสดงว่าสมมูลกัน และเป็นสัจนิรันดร์)"
+      ],
+      "source": "โควตา มช. 2540"
+    },
+    {
+      "id": "chap-02-logic-q98",
+      "setId": "chap-02-logic",
+      "questionNumber": 98,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "medium",
+      "score": 1,
+      "question": "ประพจน์ใดต่อไปนี้ มีค่าความจริงเป็นจริงทุกกรณี",
+      "hasImage": false,
+      "choices": [
+        "$(p \\wedge \\sim q) \\rightarrow (p \\rightarrow q)$",
+        "$[[(p \\wedge q) \\rightarrow r] \\wedge q] \\rightarrow (p \\rightarrow r)$",
+        "$[p \\wedge (q \\vee \\sim p)] \\wedge [(\\sim p) \\vee (\\sim q)]$",
+        "$[p \\rightarrow (q \\wedge r)] \\rightarrow [p \\wedge (q \\vee r)]$"
+      ],
+      "correct": 1,
+      "explanation": [
+        "ตรวจสอบสัจนิรันดร์โดยพยายามทำให้เป็นเท็จ",
+        "ข้อ 1. เป็นเท็จได้ ถ้าหาก $p$ เป็นจริงและ $q$ เป็นเท็จ",
+        "ข้อ 2. ทำให้เป็นเท็จไม่ได้เลย (เริ่มจากบังคับวงเล็บหลังให้ $p$ เป็นจริง, $r$ เป็นเท็จ นำไปใส่ในวงเล็บหน้า และจะพบว่าค่า $q$ ทั้งสองตัวที่ถูกบังคับนั้นขัดแย้งกัน) ดังนั้น ข้อ 2. เป็นสัจนิรันดร์",
+        "ข้อ 3. จัดรูปได้ดังนี้ $[p \\wedge (q \\vee \\sim p)] \\wedge [(\\sim p) \\vee (\\sim q)] \\equiv [(p \\wedge q) \\vee (p \\wedge \\sim p)] \\wedge \\sim[p \\wedge q] \\equiv [(p \\wedge q) \\vee F] \\wedge \\sim[p \\wedge q] \\equiv [p \\wedge q] \\wedge \\sim[p \\wedge q]$ จะมีค่าเป็นเท็จเสมอ เพราะอยู่ในรูปแบบ $\\triangle \\wedge \\sim \\triangle$",
+        "ข้อ 4. เป็นเท็จได้ ถ้าหาก $p$ เป็นเท็จ ($q, r$ เป็นอะไรก็ได้)"
+      ],
+      "source": "โควตา มช. 2541"
+    },
+    {
+      "id": "chap-02-logic-q99",
+      "setId": "chap-02-logic",
+      "questionNumber": 99,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "hard",
+      "score": 1,
+      "question": "กำหนดโอเปอเรชัน $*$ และ $\\Delta$ ดังตารางต่อไปนี้\n\nประพจน์ในข้อใดเป็นสัจนิรันดร์",
+      "hasImage": false,
+      "choices": [
+        "$(p * q) \\, \\Delta \\, p$",
+        "$[(q * p) * q] \\, \\Delta \\, p$",
+        "$\\sim (p \\, \\Delta \\, q) * (q \\, \\Delta \\, p)$",
+        "$(p * q) \\, \\Delta \\, (q * p)$"
+      ],
+      "correct": 2,
+      "explanation": [
+        "พยายามทำให้แต่ละข้อมีค่าเป็นเท็จ ถ้าทำได้แสดงว่าไม่ใช่สัจนิรันดร์",
+        "ข้อ 1. และข้อ 2. เนื่องจาก $\\Delta$ เป็นเท็จได้กรณีเดียวคือ $T \\, \\Delta \\, T = F$ ดังนั้นจึงให้ $p$ เป็นจริง, พบว่า ถ้า $q$ เป็นเท็จ จะเกิด $T \\, \\Delta \\, T = F$ ได้ แสดงว่า ข้อ 1. และข้อ 2. ไม่ใช่สัจนิรันดร์",
+        "ข้อ 4. $(p * q) \\, \\Delta \\, (q * p)$ ก็อาจเกิด $T \\, \\Delta \\, T = F$ ได้เช่นกัน เมื่อ $p$ กับ $q$ มีประพจน์หนึ่งเป็นจริง และอีกประพจน์เป็นเท็จ แสดงว่า ข้อ 4. ไม่ใช่สัจนิรันดร์",
+        "ข้อ 3. เนื่องจาก $*$ จะเป็นเท็จเมื่อทั้งสองข้างมีค่าความจริงตรงกันเท่านั้น แสดงว่า $(p \\, \\Delta \\, q)$ กับ $(q \\, \\Delta \\, p)$ ต้องมีค่าความจริงตรงกันข้าม ..แต่เป็นไปไม่ได้ เนื่องจาก $p \\, \\Delta \\, q \\equiv q \\, \\Delta \\, p$ เสมอ ดังนั้น ข้อ 3. เป็นสัจนิรันดร์"
+      ],
+      "tables": [
+        {
+          "headers": [
+            "$p$",
+            "$q$",
+            "$p * q$",
+            "$p \\, \\Delta \\, q$"
+          ],
+          "rows": [
+            [
+              "T",
+              "T",
+              "F",
+              "F"
+            ],
+            [
+              "T",
+              "F",
+              "T",
+              "T"
+            ],
+            [
+              "F",
+              "T",
+              "T",
+              "T"
+            ],
+            [
+              "F",
+              "F",
+              "F",
+              "T"
+            ]
+          ]
+        }
+      ],
+      "source": "คัดโอลิมปิก 2545"
+    },
+    {
+      "id": "chap-02-logic-q100",
+      "setId": "chap-02-logic",
+      "questionNumber": 100,
+      "topics": [
+        "2"
+      ],
+      "type": "fill",
+      "level": "medium",
+      "score": 1,
+      "question": "จงตรวจสอบว่าการอ้างเหตุผลต่อไปนี้สมเหตุสมผลหรือไม่\n\nเหตุ:\n(1) $(p \\vee q) \\rightarrow (r \\vee s)$\n(2) $p \\rightarrow r$\n\nผล: $q \\rightarrow s$",
+      "hasImage": false,
+      "accept": [
+        "ไม่สมเหตุสมผล"
+      ],
+      "correct": "ไม่สมเหตุสมผล",
+      "explanation": [
+        "ตรวจสอบโดยพยายามทำให้เหตุทุกข้อเป็นจริง และผลเป็นเท็จ ถ้าทำได้สำเร็จแสดงว่าการอ้างนี้ไม่สมเหตุสมผล",
+        "ถ้าให้ $p$ เป็นเท็จ และ $r$ เป็นจริง จะได้เหตุ (2) เป็นจริง",
+        "ถ้าให้ $q$ เป็นจริง และ $s$ เป็นเท็จ จะได้เหตุ (1) เป็นจริงด้วย (เพราะ $p \\vee q \\equiv T$ และ $r \\vee s \\equiv T$) แต่ผล $q \\rightarrow s$ กลับเป็นเท็จ",
+        "ดังนั้นการอ้างนี้ ไม่สมเหตุสมผล"
+      ],
+      "source": "ทุนเล่าเรียนหลวง (กพ.) 2543"
+    },
+    {
+      "id": "chap-02-logic-q101",
+      "setId": "chap-02-logic",
+      "questionNumber": 101,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "hard",
+      "score": 1,
+      "question": "พิจารณาการอ้างเหตุผลต่อไปนี้\n\nก. เหตุ:\n(1) $(\\sim p \\wedge t) \\rightarrow \\sim s$\n(2) $q \\vee r$\n(3) $\\sim r \\wedge s$\n(4) $p \\rightarrow \\sim q$\n\nผล: $\\sim t$\n\nข. เหตุ:\n(1) $\\sim q \\vee r$\n(2) $(m \\leftrightarrow p) \\wedge q$\n(3) $r \\rightarrow s$\n\nผล: $\\sim (m \\rightarrow p) \\vee s$\n\nข้อใดต่อไปนี้ถูก",
+      "hasImage": false,
+      "choices": [
+        "ทั้ง ก. และ ข. สมเหตุสมผล",
+        "ก. สมเหตุสมผล แต่ ข. ไม่สมเหตุสมผล",
+        "ก. ไม่สมเหตุสมผล แต่ ข. สมเหตุสมผล",
+        "ทั้ง ก. และ ข. ไม่สมเหตุสมผล"
+      ],
+      "correct": 0,
+      "explanation": [
+        "ข้อ ก. ถ้าเหตุ (3) $\\sim r \\wedge s$ เป็นจริง จะได้ $r$ เป็นเท็จ, $s$ เป็นจริง",
+        "จากเหตุ (2) $q \\vee r$ เป็นจริง และ $r$ เป็นเท็จ → $q$ เป็นจริง",
+        "จากเหตุ (4) $p \\rightarrow \\sim q$ เป็นจริง และ $\\sim q$ เป็นเท็จ → $p$ เป็นเท็จ",
+        "จากเหตุ (1) $(\\sim p \\wedge t) \\rightarrow \\sim s$ เป็นจริง และ $\\sim s$ เป็นเท็จ → $\\sim p \\wedge t$ เป็นเท็จ ซึ่ง $\\sim p$ จริงอยู่แล้ว → $t$ ต้องเป็นเท็จ",
+        "นำค่า $t = F$ ไปพิจารณาผล $\\sim t \\equiv T$ เสมอ ..ดังนั้น ข้อ ก. สมเหตุสมผล",
+        "ข้อ ข. ถ้าเหตุ (2) $(m \\leftrightarrow p) \\wedge q$ เป็นจริง → $q$ เป็นจริง และ $m \\leftrightarrow p$ เป็นจริง (m สมมูลกับ p)",
+        "จากเหตุ (1) $\\sim q \\vee r$ เป็นจริง และ $\\sim q$ เป็นเท็จ → $r$ เป็นจริง",
+        "จากเหตุ (3) $r \\rightarrow s$ เป็นจริง และ $r$ จริง → $s$ เป็นจริง",
+        "นำค่า $s = T$ ไปพิจารณาผล $\\sim(m \\rightarrow p) \\vee s \\equiv \\text{(อะไรก็ตาม)} \\vee T \\equiv T$ เสมอ ..ดังนั้น ข้อ ข. สมเหตุสมผล"
+      ],
+      "source": "คัดโอลิมปิก 2548"
+    },
+    {
+      "id": "chap-02-logic-q102",
+      "setId": "chap-02-logic",
+      "questionNumber": 102,
+      "topics": [
+        "2"
+      ],
+      "type": "fill",
+      "level": "hard",
+      "score": 1,
+      "question": "พิจารณาการอ้างเหตุผลต่อไปนี้\n\nเหตุ:\n(1) $a \\rightarrow (\\sim b \\vee c)$\n(2) $\\sim a \\rightarrow \\sim d$\n(3) $d \\vee f$\n(4) ............\n(5) ............\n\nผล: $c$\n\nจงเติมเหตุที่ 4, 5 เพื่อให้การอ้างเหตุผลนี้สมเหตุสมผล (ตอบในรูป เหตุที่ 4, เหตุที่ 5)",
+      "hasImage": false,
+      "accept": [
+        "~f, b",
+        "b, ~f",
+        "~f และ b",
+        "b และ ~f"
+      ],
+      "correct": "~f, b",
+      "explanation": [
+        "จากเหตุ (2) คือ $\\sim a \\rightarrow \\sim d$ ซึ่งเขียนอีกแบบได้ว่า $d \\rightarrow a$",
+        "นำไปรวมกับเหตุ (1) จะได้ผลเป็น $d \\rightarrow (\\sim b \\vee c)$ นั่นคือ $d \\rightarrow (b \\rightarrow c)$",
+        "ดังนั้นจากเหตุ (3) $d \\vee f$ ถ้าจะให้สรุปผลเป็น $c$ ได้ จะต้องมีเหตุ $\\sim f$ อันหนึ่ง เพื่อรวมกับเหตุ (3) ให้ได้ $d$",
+        "และเมื่อรวม $d$ กับ $d \\rightarrow (b \\rightarrow c)$ จะได้ $b \\rightarrow c$ จึงต้องมีเหตุ $b$ อีกอันหนึ่ง ผลก็จะเป็น $c$ ตามที่โจทย์ต้องการ",
+        "ตอบ เหตุที่ (4) กับ (5) ควรเป็น $\\sim f$ กับ $b$"
+      ],
+      "source": "ทุนเล่าเรียนหลวง (กพ.) 2540"
+    },
+    {
+      "id": "chap-02-logic-q103",
+      "setId": "chap-02-logic",
+      "questionNumber": 103,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "medium",
+      "score": 1,
+      "question": "จงพิจารณาข้อความต่อไปนี้\n\nก. ถ้าเอกภพสัมพัทธ์ $\\mathcal{U} = \\{1, 2, -1\\}$ แล้วประพจน์ $\\exists x[x^3 - x + 6 = 0]$ มีค่าความจริงเป็นจริง\n\nข. ถ้า $p, q$ และ $r$ เป็นประพจน์ซึ่ง $r$ มีค่าความจริงเป็นเท็จ แล้ว $p \\rightarrow (r \\rightarrow q)$ มีค่าความจริงเป็นจริง\n\nข้อใดต่อไปนี้ถูกต้อง",
+      "hasImage": false,
+      "choices": [
+        "ข้อ ก. และ ข. เป็นจริง",
+        "ข้อ ก. เท่านั้นเป็นจริง",
+        "ข้อ ข. เท่านั้นเป็นจริง",
+        "ข้อ ก. และ ข. เป็นเท็จ"
+      ],
+      "correct": 2,
+      "explanation": [
+        "ข้อ ก. เป็นเท็จ เพราะไม่มีสมาชิกใดใน $\\mathcal{U}$ ที่ทำให้ $x^3 - x + 6 = 0$ เลย (ลองแทน $x = 1, 2, -1$ ได้ค่า $6, 12, 6$ ตามลำดับ)",
+        "ข้อ ข. เป็นจริง เพราะ $p \\rightarrow (F \\rightarrow q) \\equiv p \\rightarrow T \\equiv T$ เสมอ",
+        "ตอบ ข้อ ข. เท่านั้นเป็นจริง"
+      ],
+      "source": "สมาคมคณิตศาสตร์ฯ 2543"
+    },
+    {
+      "id": "chap-02-logic-q104",
+      "setId": "chap-02-logic",
+      "questionNumber": 104,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "hard",
+      "score": 1,
+      "question": "จงพิจารณาข้อความต่อไปนี้\n\nก. ถ้าเอกภพสัมพัทธ์ $\\mathcal{U}$ คือ $(2, 3)$ แล้วประพจน์ $\\forall x[20 - x^2 < x^4 < x + 78]$ มีค่าความจริงเป็นจริง\n\nข. การอ้างเหตุผลต่อไปนี้สมเหตุสมผล\n\nเหตุ:\n(1) $p \\leftrightarrow q$\n(2) $r \\rightarrow (\\sim q \\wedge p)$\n\nผล: $\\sim r \\vee q$\n\nข้อใดต่อไปนี้ถูกต้อง",
+      "hasImage": false,
+      "choices": [
+        "ข้อ ก. และ ข. เป็นจริง",
+        "ข้อ ก. เท่านั้นเป็นจริง",
+        "ข้อ ข. เท่านั้นเป็นจริง",
+        "ข้อ ก. และ ข. เป็นเท็จ"
+      ],
+      "correct": 0,
+      "explanation": [
+        "ข้อ ก. จาก $\\forall x[20 - x^2 < x^4 < x + 78]$ แปลว่า $\\forall x[20 - x^2 < x^4$ และ $x^4 < x + 78]$ นั่นคือ $\\forall x[20 < x^4 + x^2$ และ $x^4 < x + 78]$",
+        "พิจารณา $20 < x^4 + x^2$ เมื่อ $x \\in (2, 3)$ พบว่าจริงตลอดทั้งช่วง (เนื่องจาก $2^4 + 2^2 = 20$ และพหุนาม $x^4 + x^2$ มีค่าเพิ่มขึ้นเสมอถ้า $x$ เพิ่มขึ้น)",
+        "พิจารณา $x^4 < x + 78$ เมื่อ $x \\in (2, 3)$ พบว่าจริงตลอดทั้งช่วง (เนื่องจาก $3^4 = 3 + 78$ และฝั่งซ้ายย่อมมีค่าลดลงเร็วกว่าฝั่งขวาเสมอถ้า $x$ ลดลง) ..ดังนั้น ข้อ ก. เป็นจริง",
+        "ข้อ ข. ลองทำให้เหตุทั้งหมดเป็นจริง และผลเป็นเท็จ ..ถ้าผลเป็นเท็จ จะต้องว่า $r$ เป็นจริง, $q$ เป็นเท็จ",
+        "นำค่าความจริงของ $r$ กับ $q$ ไปพิจารณาเหตุ (1) และ (2) พบว่า ถ้าเหตุ (1) เป็นจริง ค่า $p$ ต้องเป็นเท็จเท่านั้น (เพราะ $p \\leftrightarrow q$ และ $q$ เท็จ) แต่ถ้าเหตุ (2) เป็นจริง ค่า $p$ ต้องเป็นจริงเท่านั้น (เพราะ $r \\rightarrow (\\sim q \\wedge p) \\equiv T \\rightarrow (T \\wedge p)$)",
+        "เกิดการขัดแย้งกัน แสดงว่าไม่สามารถทำให้เหตุเป็นจริงแต่ผลเป็นเท็จได้เลย การอ้างนี้สมเหตุสมผล ..ดังนั้น ข้อ ข. เป็นจริง"
+      ],
+      "source": "สมาคมคณิตศาสตร์ฯ 2547"
+    },
+    {
+      "id": "chap-02-logic-q105",
+      "setId": "chap-02-logic",
+      "questionNumber": 105,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "easy",
+      "score": 1,
+      "question": "ถ้าเอกภพสัมพัทธ์คือเซตของจำนวนเต็มบวก แล้วข้อต่อไปนี้มีค่าความจริงเป็นจริง",
+      "hasImage": false,
+      "choices": [
+        "$\\forall t[\\sqrt{t}$ เป็นจำนวนอตรรกยะ$]$",
+        "$\\exists t[\\sqrt{t}$ ไม่เป็นจำนวนจริง$]$",
+        "$\\forall t[t^2$ เป็นจำนวนคู่$]$",
+        "$\\forall t[2t + 1$ เป็นจำนวนคี่$]$"
+      ],
+      "correct": 3,
+      "explanation": [
+        "ข้อ 1. เท็จ เช่น $\\sqrt{4} = 2$ ไม่ได้เป็นจำนวนอตรรกยะ",
+        "ข้อ 2. เท็จ เพราะเมื่อ $t$ เป็นจำนวนเต็มบวกแล้ว $\\sqrt{t}$ ย่อมเป็นจำนวนจริงเสมอ",
+        "ข้อ 3. เท็จ เช่น $3^2 = 9$ ไม่ได้เป็นจำนวนคู่",
+        "ข้อ 4. จริง เพราะเมื่อ $t$ เป็นจำนวนเต็มบวกแล้ว $2t$ ย่อมเป็นจำนวนคู่เสมอ ..จึงทำให้ $2t + 1$ เป็นจำนวนคี่เสมอ"
+      ],
+      "source": "คัดโอลิมปิก 2534"
+    },
+    {
+      "id": "chap-02-logic-q106",
+      "setId": "chap-02-logic",
+      "questionNumber": 106,
+      "topics": [
+        "2"
+      ],
+      "type": "fill",
+      "level": "hard",
+      "score": 1,
+      "question": "กำหนดเอกภพสัมพัทธ์ $\\mathcal{U} = \\{-2, -1, 0, 1, 2\\}$\n\nให้ $P(x)$ แทน $|x - 1| < 4$ และ $Q(x)$ แทน $x^2 < 4$\n\nจงหาค่าความจริงของข้อความ $(\\sim \\exists x[P(x) \\wedge \\sim Q(x)]) \\vee (\\forall x[P(x)] \\rightarrow \\forall x[Q(x)])$",
+      "hasImage": false,
+      "accept": [
+        "เท็จ"
+      ],
+      "correct": "เท็จ",
+      "explanation": [
+        "$P(x)$ คือ $-3 < x < 5$ และ $Q(x)$ คือ $-2 < x < 2$",
+        "ดังนั้น $\\exists x[P(x) \\wedge \\sim Q(x)]$ เป็นจริง เช่น $x = 2$ (เพราะ $P(2)$ จริง แต่ $Q(2)$ เท็จ)",
+        "$\\forall x[P(x)]$ เป็นจริง เพราะ $x$ ทุกค่าใน $\\mathcal{U}$ สอดคล้องกับ $P(x)$",
+        "และ $\\forall x[Q(x)]$ เป็นเท็จ เช่น $x = 2$ (เพราะ $2^2 = 4 \\not< 4$)",
+        "จึงได้ค่าตอบเป็น $\\sim T \\vee (T \\rightarrow F) \\equiv F \\vee F \\equiv F$  ตอบ ค่าความจริงเป็น เท็จ"
+      ],
+      "source": "ทุนเล่าเรียนหลวง (กพ.) 2540"
+    },
+    {
+      "id": "chap-02-logic-q107",
+      "setId": "chap-02-logic",
+      "questionNumber": 107,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "hard",
+      "score": 1,
+      "question": "ให้ $p(x)$ แทนข้อความ \"$\\sin x < 0$\"\n\n$q(x)$ แทนข้อความ \"$x$ หารด้วย 5 ลงตัว\"\n\n$r(x)$ แทนข้อความ \"$(x^2 - 5x + 4)(x^2 + 1) = 0$\"\n\nและเอกภพสัมพัทธ์คือ $\\mathcal{U} = \\{0, 1, 4, 5\\}$\n\nประพจน์ในข้อใดมีค่าความจริงเป็นจริง",
+      "hasImage": false,
+      "choices": [
+        "$\\forall x[r(x) \\rightarrow (p(x) \\wedge q(x))]$",
+        "$\\forall x[(p(x) \\wedge q(x)) \\rightarrow r(x)]$",
+        "$\\exists x[(p(x) \\vee r(x)) \\rightarrow \\sim q(x)]$",
+        "$\\exists x[q(x) \\leftrightarrow r(x)]$"
+      ],
+      "correct": 2,
+      "explanation": [
+        "$p(4), p(5)$ เป็นจริง / $p(0), p(1)$ เป็นเท็จ (เพราะ $\\sin 4, \\sin 5$ ติดลบ; $\\sin 0 = 0$ ไม่ติดลบ)",
+        "$q(0), q(5)$ เป็นจริง / $q(1), q(4)$ เป็นเท็จ",
+        "และ $r(1), r(4)$ เป็นจริง / $r(0), r(5)$ เป็นเท็จ (เพราะ $r(x)$ จริงเมื่อ $x = 1$ หรือ $x = 4$)",
+        "ข้อ 1. เป็นเท็จ เช่นเมื่อ $x = 1$ จะได้ $T \\rightarrow (F \\wedge F) \\equiv F$",
+        "ข้อ 2. เป็นเท็จ เช่นเมื่อ $x = 5$ จะได้ $(T \\wedge T) \\rightarrow F \\equiv F$",
+        "ข้อ 3. เป็นจริง เช่นเมื่อ $x = 0$ จะได้ $(F \\vee F) \\rightarrow T \\equiv T$",
+        "ข้อ 4. เป็นเท็จ เพราะไม่มีค่า $x$ ใด ที่ $q(x)$ มีค่าเหมือน $r(x)$ เลย"
+      ],
+      "notes": "ข้อนี้อาศัยเนื้อหา ตรีโกณมิติ ด้วย",
+      "source": "สมาคมคณิตศาสตร์ฯ 2542"
+    },
+    {
+      "id": "chap-02-logic-q108",
+      "setId": "chap-02-logic",
+      "questionNumber": 108,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "medium",
+      "score": 1,
+      "question": "กำหนดให้เอกภพสัมพัทธ์เป็นเซตของจำนวนจริง ข้อใดเป็นเท็จ",
+      "hasImage": false,
+      "choices": [
+        "$\\forall x[(|x| > 2) \\vee (|x| < 3)]$",
+        "$\\exists x[(x^2 - x - 2 = 0) \\wedge (x^2 + x - 6 = 0)]$",
+        "$\\exists x[x^2 - x - 1 = 0] \\rightarrow \\forall x[x^2 - 4x + 4 > 0]$",
+        "$\\exists x[x^2 - x + 1 = 0] \\rightarrow \\forall x[x^2 - 2x + 1 > 0]$"
+      ],
+      "correct": 2,
+      "explanation": [
+        "ข้อ 1. สำหรับ $x$ ใดก็ตาม ถ้า $|x|$ ไม่มากกว่า 2 ก็ย่อมน้อยกว่า 3 เสมอ ดังนั้นข้อนี้เป็นจริง",
+        "ข้อ 2. จากการแยกตัวประกอบจะทราบว่ามีคำตอบที่เหมือนกันอยู่หนึ่งค่า คือ 2 ดังนั้นข้อนี้เป็นจริง",
+        "ข้อ 3. $\\exists x[x^2 - x - 1 = 0]$ เป็นจริง (นั่นคือ $x = \\dfrac{1 \\pm \\sqrt{5}}{2}$) และ $\\forall x[x^2 - 4x + 4 > 0]$ เป็นเท็จ (เมื่อ $x = 2$) ดังนั้นข้อนี้ได้ผลเป็น $T \\rightarrow F \\equiv F$  ตอบ ข้อ 3.",
+        "ข้อ 4. $\\exists x[x^2 - x + 1 = 0]$ เป็นเท็จ เพราะสมการนี้ไม่มีคำตอบที่เป็นจำนวนจริง ดังนั้นข้อนี้ได้ผลเป็น $F \\rightarrow ? \\equiv T$ เสมอ"
+      ],
+      "source": "คัดโอลิมปิก 2545"
+    },
+    {
+      "id": "chap-02-logic-q109",
+      "setId": "chap-02-logic",
+      "questionNumber": 109,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "medium",
+      "score": 1,
+      "question": "ให้ $P(x)$ คือประโยคเปิด \"ถ้า $|x| \\leq 1$ แล้ว $|2x + 1| \\leq 3$\"\n\nจงพิจารณาข้อความต่อไปนี้\n\nก. ประพจน์ $\\forall x[P(x)]$ สมมูลกับ $\\forall x[$ ถ้า $|2x + 1| > 3$ แล้ว $|x| > 1 ]$\n\nข. ประพจน์ $\\forall x[P(x)]$ มีค่าความจริงเป็นจริง เมื่อเอกภพสัมพัทธ์ $\\mathcal{U} = \\mathbb{R}$\n\nข้อใดต่อไปนี้ถูก",
+      "hasImage": false,
+      "choices": [
+        "ก. และ ข. ถูก",
+        "ก. ถูก และ ข. ผิด",
+        "ก. ผิด และ ข. ถูก",
+        "ก. และ ข. ผิด"
+      ],
+      "correct": 0,
+      "explanation": [
+        "ข้อ ก. ถูก เพราะ $q \\rightarrow r$ สมมูลกับ $\\sim r \\rightarrow \\sim q$ (contrapositive)",
+        "ข้อ ข. ถูก แสดงวิธีคิดได้ดังนี้: ถ้า $|x| \\leq 1$ จะได้ $-1 \\leq x \\leq 1$",
+        "$\\rightarrow -2 \\leq 2x \\leq 2 \\rightarrow -1 \\leq 2x + 1 \\leq 3$ ดังนั้น $|2x + 1| \\leq 3$ จริงๆ",
+        "ตอบ ข้อ 1."
+      ],
+      "source": "โควตา มช. 2547"
+    },
+    {
+      "id": "chap-02-logic-q110",
+      "setId": "chap-02-logic",
+      "questionNumber": 110,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "hard",
+      "score": 1,
+      "question": "ให้ $A$ เป็นเซตคำตอบของอสมการ $|x + 1| > x + |x - 1|$\n\nข้อความใดต่อไปนี้มีค่าความจริงเป็นจริง ถ้ากำหนดให้เอกภพสัมพัทธ์คือเซต $A$",
+      "hasImage": false,
+      "choices": [
+        "$\\forall x[|x + 3| < 1]$",
+        "$\\forall x[x^2 - 4 > 0]$",
+        "$\\forall x\\left[\\dfrac{x(x + 3)^2}{x - 1} < 0\\right]$",
+        "$\\forall x[(x - 5)|x| < 0]$"
+      ],
+      "correct": 3,
+      "explanation": [
+        "จากอสมการในโจทย์ พิจารณาเป็นกรณีๆ",
+        "กรณี $x \\geq 1$: จะได้ $x + 1 > x + x - 1 \\rightarrow x < 2$ ..ช่วงคำตอบในกรณีนี้คือ $[1, 2)$",
+        "กรณี $-1 \\leq x < 1$: จะได้ $x + 1 > x - x + 1 \\rightarrow x > 0$ ..ช่วงคำตอบในกรณีนี้คือ $(0, 1)$",
+        "กรณี $x < -1$: จะได้ $-x - 1 > x - x + 1 \\rightarrow x < -2$ ..ช่วงคำตอบในกรณีนี้คือ $(-\\infty, -2)$",
+        "เซตคำตอบรวมทุกกรณี คือ $A = (-\\infty, -2) \\cup (0, 2)$",
+        "ข้อ 1. เท็จ เช่น $x = 1$; ข้อ 2. เท็จ เช่น $x = -3$; ข้อ 3. เท็จ เช่น $x = -3$",
+        "ข้อ 4. จริง (เพราะสมาชิกในเซต $A$ ทำให้ $x - 5$ ติดลบเสมอ และทำให้ $|x|$ เป็นบวกเสมอ เมื่อคูณกันแล้วจึงต้องมีค่าติดลบ)"
+      ],
+      "source": "คัดโอลิมปิก 2535"
+    },
+    {
+      "id": "chap-02-logic-q111",
+      "setId": "chap-02-logic",
+      "questionNumber": 111,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "hard",
+      "score": 1,
+      "question": "กำหนดให้ $\\mathcal{U} = \\left\\{ x \\in \\mathbb{R} \\mid \\dfrac{(x - 1)^2}{x + 5} < 1 \\right\\}$\n\nให้ $P(x)$ แทนประโยคเปิด $|x| < 5$\n\nและ $Q(x)$ แทนประโยคเปิด $1 < x^2 < 16$\n\nถ้า $\\mathcal{U}$ เป็นเอกภพสัมพัทธ์ แล้วข้อความใดต่อไปนี้เป็นเท็จ",
+      "hasImage": false,
+      "choices": [
+        "$\\forall x[P(x)] \\rightarrow \\forall x[Q(x)]$",
+        "$\\exists x[P(x)] \\wedge \\exists x[Q(x)]$",
+        "$\\forall x[P(x)] \\vee \\exists x[Q(x)]$",
+        "$\\exists x[Q(x)] \\rightarrow \\forall x[P(x)]$"
+      ],
+      "correct": 3,
+      "explanation": [
+        "จากอสมการ $\\dfrac{(x - 1)^2}{x + 5} < 1$ จะได้ $\\dfrac{x^2 - 3x - 4}{x + 5} < 0 \\rightarrow \\dfrac{(x - 4)(x + 1)}{x + 5} < 0$",
+        "เขียนเส้นจำนวนได้ช่วงคำตอบ $(-\\infty, -5) \\cup (-1, 4)$ แสดงว่าเอกภพสัมพัทธ์คือ $\\mathcal{U} = (-\\infty, -5) \\cup (-1, 4)$",
+        "$\\forall x[P(x)]$ เป็นเท็จ เพราะมี $x$ บางค่าซึ่ง $|x| \\not< 5$ เช่น $x = -6$",
+        "$\\exists x[P(x)]$ เป็นจริง เพราะมี $x$ บางค่าซึ่ง $|x| < 5$ เช่น $x = 2$",
+        "$\\forall x[Q(x)]$ เป็นเท็จ เพราะมี $x$ บางค่าซึ่ง $1 \\not< x^2$ เช่น $x = -6$ (ทำให้ $x^2 = 36$ ซึ่ง $\\not< 16$)",
+        "$\\exists x[Q(x)]$ เป็นจริง เพราะมี $x$ บางค่าซึ่ง $1 < x^2 < 16$ เช่น $x = 2$",
+        "ดังนั้น ข้อ 4. $\\exists x[Q(x)] \\rightarrow \\forall x[P(x)] \\equiv T \\rightarrow F \\equiv F$ ..ตอบ ข้อที่เป็นเท็จคือ ข้อ 4."
+      ],
+      "source": "สมาคมคณิตศาสตร์ฯ 2549"
+    },
+    {
+      "id": "chap-02-logic-q112",
+      "setId": "chap-02-logic",
+      "questionNumber": 112,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "medium",
+      "score": 1,
+      "question": "ให้ $\\mathcal{U}$ เป็นเอกภพสัมพัทธ์\n\nประพจน์ $\\forall x\\left[\\left|x^2 - 3x + 2\\right| \\leq 2x - x^2\\right]$ มีค่าความจริงเป็นจริง เมื่อ $\\mathcal{U}$ คือเซตในข้อใดต่อไปนี้",
+      "hasImage": false,
+      "choices": [
+        "$[-1, 1]$",
+        "$\\left(-\\infty, \\dfrac{3}{2}\\right]$",
+        "$[1, 2]$",
+        "$\\left[1, \\dfrac{5}{2}\\right]$"
+      ],
+      "correct": 2,
+      "explanation": [
+        "จากอสมการ $|x^2 - 3x + 2| \\leq 2x - x^2$ มากกว่าหรือเท่ากับ 0 ทั้งสองข้าง (เพราะฝั่งขวามากกว่าหรือเท่ากับฝั่งซ้าย) จึงยกกำลังสองได้",
+        "$(x^2 - 3x + 2)^2 \\leq (2x - x^2)^2 \\rightarrow (x^2 - 3x + 2)^2 - (2x - x^2)^2 \\leq 0 \\rightarrow (2x^2 - 5x + 2)(-x + 2) \\leq 0 \\rightarrow (2x - 1)(x - 2)(x - 2) \\geq 0$",
+        "เขียนเส้นจำนวนได้ช่วงคำตอบเป็น $x \\geq 1/2$",
+        "แต่ในอสมการโจทย์ มีเงื่อนไข $2x - x^2 \\geq 0$ นั่นคือ $x(x - 2) \\leq 0$ เขียนเส้นจำนวนได้ $0 \\leq x \\leq 2$",
+        "อินเตอร์เซคกับช่วงคำตอบ ได้เป็น $1/2 \\leq x \\leq 2$ ดังนั้นประพจน์ในโจทย์จะจริงเมื่อ $\\mathcal{U} \\subseteq [1/2, 2]$ จึงได้ข้อที่สอดคล้องคือ ข้อ 3. $[1, 2]$"
+      ],
+      "source": "สมาคมคณิตศาสตร์ฯ 2545"
+    },
+    {
+      "id": "chap-02-logic-q113",
+      "setId": "chap-02-logic",
+      "questionNumber": 113,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "hard",
+      "score": 1,
+      "question": "เอกภพสัมพัทธ์ในข้อใดที่ทำให้ประพจน์ต่อไปนี้มีค่าความจริงเป็นเท็จ\n\n$\\forall x\\left[\\left|x^2 + 2x + 3\\right| \\geq 5x + 7\\right] \\rightarrow \\exists x\\left[3 + \\log_{1/2} x < 0\\right]$",
+      "hasImage": false,
+      "choices": [
+        "$(0, 3)$",
+        "$(-5, 3)$",
+        "$[4, 7)$",
+        "$[5, 9)$"
+      ],
+      "correct": 2,
+      "explanation": [
+        "จากอสมการ $|x^2 + 2x + 3| \\geq 5x + 7$ เนื่องจาก $x^2 + 2x + 3 = (x + 1)^2 + 2$ ซึ่งเป็นบวกเสมอ จึงถอดค่าสัมบูรณ์ได้เป็น $x^2 + 2x + 3 \\geq 5x + 7 \\rightarrow x^2 - 3x - 4 \\geq 0 \\rightarrow (x - 4)(x + 1) \\geq 0$ แสดงว่าอสมการนี้คือ $x \\in (-\\infty, -1] \\cup [4, \\infty)$",
+        "จากอสมการ $3 + \\log_{1/2} x < 0$ จะได้ $\\log_{1/2} x < -3 \\rightarrow -\\log_2 x < -3 \\rightarrow \\log_2 x > 3 \\rightarrow x > 8$ แสดงว่าอสมการนี้คือ $x \\in (8, \\infty)$",
+        "ดังนั้นประพจน์ที่ให้มาในโจทย์ จะกลายเป็น $\\forall x[x \\in (-\\infty, -1] \\cup [4, \\infty)] \\rightarrow \\exists x[x \\in (8, \\infty)]$",
+        "ซึ่งจะเป็นเท็จเมื่อด้านหน้าเป็นจริง และด้านหลังเป็นเท็จ ตอบ ข้อ 3. $[4, 7)$ เพราะ $[4, 7) \\subseteq [4, \\infty)$ ทำให้ด้านหน้าเป็นจริง และไม่มีสมาชิกของ $[4, 7)$ ที่ $> 8$ ทำให้ด้านหลังเป็นเท็จ"
+      ],
+      "notes": "ข้อนี้อาศัยเนื้อหา ลอการิทึม ด้วย",
+      "source": "สมาคมคณิตศาสตร์ฯ 2546"
+    },
+    {
+      "id": "chap-02-logic-q114",
+      "setId": "chap-02-logic",
+      "questionNumber": 114,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "medium",
+      "score": 1,
+      "question": "ข้อใดต่อไปนี้มีค่าความจริงเป็นจริง",
+      "hasImage": false,
+      "choices": [
+        "$\\exists x \\forall y[x - y = y - x]\\;;\\;\\mathcal{U} = \\mathbb{R}$",
+        "$\\forall x \\forall y[|x + y| = |x| + |y|]\\;;\\;\\mathcal{U} = \\mathbb{R}$",
+        "$\\forall x \\exists y[(x - y)^3 = x^3 - y^3]\\;;\\;\\mathcal{U} = \\mathbb{R}$",
+        "$\\exists y \\forall x[xy = 1]\\;;\\;\\mathcal{U} = \\mathbb{R}^{+}$"
+      ],
+      "correct": 2,
+      "explanation": [
+        "ข้อ 1. สมการ $x - y = y - x$ ย้ายข้างได้ $2x = 2y \\rightarrow x = y$ ..ดังนั้นข้อนี้เท็จ เพราะไม่มี $x$ ใดเลย ที่คู่กับ $y$ เท่าไรก็ได้",
+        "ข้อ 2. เท็จ เช่น $x = 2, y = -1$ จะได้ว่า $|2 + (-1)| = 1$ แต่ $|2| + |-1| = 3$",
+        "ข้อ 3. จริง ไม่ว่า $x$ จะเป็นเท่าใด ถ้าหาก $y = 0$ แล้วข้อความจะจริงเสมอ (เพราะ $(x - 0)^3 = x^3 - 0^3$)",
+        "ข้อ 4. เท็จ สมการ $xy = 1$ ย้ายข้างได้ $x = 1/y$ ดังนั้นข้อนี้เท็จ เพราะไม่มี $y$ ใดเลย ที่คู่กับค่า $x$ เท่าไรก็ได้"
+      ],
+      "source": "คัดโอลิมปิก 2545"
+    },
+    {
+      "id": "chap-02-logic-q115",
+      "setId": "chap-02-logic",
+      "questionNumber": 115,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "medium",
+      "score": 1,
+      "question": "กำหนดเอกภพสัมพัทธ์ $\\mathcal{U} = \\mathbb{R}$ ข้อใดถูก",
+      "hasImage": false,
+      "choices": [
+        "ประพจน์ $\\forall x \\exists y[xy = 1]$ มีค่าความจริงเป็นจริง",
+        "ประพจน์ $\\exists x \\exists y[xy = x + y]$ มีค่าความจริงเป็นเท็จ",
+        "นิเสธของ $\\forall x(x \\notin B \\rightarrow x \\notin A)$ คือ $\\forall x(x \\in A$ และ $x \\notin B)$",
+        "นิเสธของ $\\forall x(x < 0 \\rightarrow x^3 < 0)$ คือ $\\exists x(x < 0$ และ $x^3 \\geq 0)$"
+      ],
+      "correct": 3,
+      "explanation": [
+        "ข้อ 1. ผิด เพราะถ้า $x = 0$ จะไม่มี $y$ ใดที่สอดคล้องเลย",
+        "ข้อ 2. ผิด เพราะ $\\exists x \\exists y[xy = x + y]$ เป็นจริง เช่น $x = 0, y = 0$",
+        "ข้อ 3. ผิด เพราะตัวบ่งปริมาณจะต้องเป็น $\\exists x$ (ส่วนข้อความในวงเล็บถูกแล้ว)",
+        "ข้อ 4. ถูก (หลักการเดียวกับข้อ 3.)"
+      ],
+      "source": "โควตา มช. 2544"
+    },
+    {
+      "id": "chap-02-logic-q116",
+      "setId": "chap-02-logic",
+      "questionNumber": 116,
+      "topics": [
+        "2"
+      ],
+      "type": "fill",
+      "level": "medium",
+      "score": 1,
+      "question": "จงตรวจสอบว่า ประโยค $\\exists x[P(x) \\wedge Q(x)]$ กับประโยค $\\exists x[P(x)] \\wedge \\exists x[Q(x)]$ สมมูลกันหรือไม่",
+      "hasImage": false,
+      "accept": [
+        "ไม่สมมูล",
+        "ไม่"
+      ],
+      "correct": "ไม่สมมูล",
+      "explanation": [
+        "ตอบ ไม่สมมูลกัน",
+        "เพราะอาจเป็นไปได้ที่ $\\exists x[P(x) \\wedge Q(x)]$ เป็นเท็จ แต่ $\\exists x[P(x)] \\wedge \\exists x[Q(x)]$ เป็นจริง",
+        "เช่น $\\mathcal{U} = \\{0, 1, 2, 4\\}$, $P(x)$ แทน \"$x$ เป็นจำนวนเฉพาะ\" และ $Q(x)$ แทน \"$x$ เป็นจำนวนคี่\" ",
+        "จะได้ว่า $\\exists x[P(x) \\wedge Q(x)]$ เป็นเท็จ (เพราะไม่มีจำนวนใดเลยที่เป็นทั้งจำนวนเฉพาะและจำนวนคี่ในเซตนี้)",
+        "แต่ $\\exists x[P(x)] \\wedge \\exists x[Q(x)]$ เป็นจริง (เพราะมีบางจำนวนเป็นจำนวนเฉพาะจริงๆ และมีบางจำนวนเป็นจำนวนคี่จริงๆ)"
+      ],
+      "source": "ทุนเล่าเรียนหลวง (กพ.) 2543"
+    },
+    {
+      "id": "chap-02-logic-q117",
+      "setId": "chap-02-logic",
+      "questionNumber": 117,
+      "topics": [
+        "2"
+      ],
+      "type": "fill",
+      "level": "medium",
+      "score": 1,
+      "question": "ข้อความต่อไปนี้มีค่าความจริงเป็นจริงหรือไม่\n\n$\\sim \\exists x[P(x)] \\rightarrow \\left( \\exists x[\\sim P(x)] \\vee \\forall x[P(x)] \\right)$",
+      "hasImage": false,
+      "accept": [
+        "จริง"
+      ],
+      "correct": "จริง",
+      "explanation": [
+        "จากโจทย์คือ $\\forall x[\\sim P(x)] \\rightarrow (\\exists x[\\sim P(x)] \\vee \\forall x[P(x)])$ แปลเป็นข้อความได้ว่า \"ถ้า $x$ ทุกๆ ตัวขัดแย้งกับ $P(x)$ แล้ว จะมี $x$ บางตัวขัดแย้งกับ $P(x)$ ..หรือไม่ก็.. $x$ ทุกตัวจะสอดคล้องกับ $P(x)$\" ",
+        "วิธีที่ 1 — เราพบว่าข้อความส่วนแรกคือ \"ถ้า $x$ ทุกๆ ตัวขัดแย้งกับ $P(x)$ แล้ว จะมี $x$ บางตัวขัดแย้งกับ $P(x)$\" นั้น เป็นจริงเสมอ จึงไม่จำเป็นต้องพิจารณาข้อความในส่วนหลังเลย เพราะตัวเชื่อมเป็น \"หรือ\" สามารถสรุปได้เลยทันทีว่า ข้อความนี้เป็น จริง",
+        "วิธีที่ 2 — พิจารณาข้อความในวงเล็บ คือ \"มี $x$ บางตัวขัดแย้งกับ $P(x)$ หรือ $x$ ทุกตัวสอดคล้อง $P(x)$\" ข้อความนี้เป็นสัจนิรันดร์ (เป็นจริงเสมอ) เพราะเป็นนิเสธของกันและเชื่อมด้วย \"หรือ\" ดังนั้นในโจทย์จะได้ $\\Box \\rightarrow T$ ซึ่งย่อมให้ค่าความจริงเป็น จริง"
+      ],
+      "source": "ทุนเล่าเรียนหลวง (กพ.) 2547"
+    },
+    {
+      "id": "chap-02-logic-q118",
+      "setId": "chap-02-logic",
+      "questionNumber": 118,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "medium",
+      "score": 1,
+      "question": "ประพจน์ในข้อใดต่อไปนี้ที่มีค่าความจริงตรงกันข้าม กรณีต่อกรณี กับประพจน์ $\\exists x[P(x)] \\rightarrow \\forall x[Q(x)]$",
+      "hasImage": false,
+      "choices": [
+        "$\\exists x[\\sim Q(x)] \\wedge \\exists x[P(x)]$",
+        "$\\forall x[Q(x)] \\wedge \\exists x[\\sim P(x)]$",
+        "$\\forall x[\\sim P(x)] \\rightarrow \\exists x[\\sim Q(x)]$",
+        "$\\forall x[P(x)] \\rightarrow \\forall x[\\sim Q(x)]$"
+      ],
+      "correct": 0,
+      "explanation": [
+        "ค่าความจริงตรงกันข้าม คือ นิเสธ",
+        "นิเสธของ $\\exists x[P(x)] \\rightarrow \\forall x[Q(x)]$ คือ $\\exists x[P(x)] \\wedge \\sim \\forall x[Q(x)] \\equiv \\exists x[P(x)] \\wedge \\exists x[\\sim Q(x)]$",
+        "ตอบ ข้อ 1."
+      ],
+      "source": "สมาคมคณิตศาสตร์ฯ 2548"
+    },
+    {
+      "id": "chap-02-logic-q119",
+      "setId": "chap-02-logic",
+      "questionNumber": 119,
+      "topics": [
+        "2"
+      ],
+      "type": "fill",
+      "level": "hard",
+      "score": 1,
+      "question": "จงหานิเสธของประพจน์ต่อไปนี้\n\nก. $\\forall x \\forall y[P(x, y) \\wedge Q(x, y)]$\n\nข. $\\forall x \\exists y[P(x, y) \\vee Q(x, y)]$\n\nค. $\\forall x \\exists y[P(x, y) \\rightarrow Q(x, y)]$\n\nง. $\\exists x \\forall y[(y - x)^3 = y^3 - x^3]$\n\nจ. $\\exists x \\exists y[x^2 + y^2 = (x + y)(x - y)]$",
+      "hasImage": false,
+      "accept": [
+        "essay"
+      ],
+      "correct": "essay",
+      "explanation": [
+        "ก. $\\exists x \\exists y[\\sim P(x, y) \\vee \\sim Q(x, y)]$",
+        "ข. $\\exists x \\forall y[\\sim P(x, y) \\wedge \\sim Q(x, y)]$",
+        "ค. $\\exists x \\forall y[P(x, y) \\wedge \\sim Q(x, y)]$",
+        "ง. $\\forall x \\exists y[(y - x)^3 \\neq y^3 - x^3]$",
+        "จ. $\\forall x \\forall y[x^2 + y^2 \\neq (x + y)(x - y)]$"
+      ],
+      "notes": "ข้อแสดงงาน 5 ส่วน — คำตอบ logic อยู่ใน explanation",
+      "source": "ทุนเล่าเรียนหลวง (กพ.) 2548"
+    },
+    {
+      "id": "chap-02-logic-q120",
+      "setId": "chap-02-logic",
+      "questionNumber": 120,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "medium",
+      "score": 1,
+      "question": "นิเสธของ $\\exists x \\exists y \\forall z[P(x, y) \\rightarrow Q(x, z)]$ คือข้อใด",
+      "hasImage": false,
+      "choices": [
+        "$\\forall x \\forall y \\exists z[\\sim P(x, y) \\vee \\sim Q(x, z)]$",
+        "$\\forall x \\forall y \\exists z[P(x, y) \\wedge \\sim Q(x, z)]$",
+        "$\\forall x \\forall y \\forall z[\\sim P(x, y) \\wedge \\sim Q(x, z)]$",
+        "$\\forall x \\forall y \\forall z[P(x, y) \\wedge \\sim Q(x, z)]$",
+        "$\\forall x \\forall y \\exists z[P(x, y) \\vee \\sim Q(x, z)]$"
+      ],
+      "correct": 1,
+      "explanation": [
+        "ใช้กฎนิเสธของตัวบ่งปริมาณ: $\\sim \\exists \\equiv \\forall \\sim$ และ $\\sim \\forall \\equiv \\exists \\sim$",
+        "$\\sim \\exists x \\exists y \\forall z[P(x,y) \\rightarrow Q(x,z)] \\equiv \\forall x \\forall y \\exists z[\\sim(P(x,y) \\rightarrow Q(x,z))]$",
+        "และเนื่องจาก $\\sim(P \\rightarrow Q) \\equiv P \\wedge \\sim Q$ จึงได้ $\\equiv \\forall x \\forall y \\exists z[P(x,y) \\wedge \\sim Q(x,z)]$",
+        "ตอบ ข้อ 2."
+      ],
+      "source": "ทุนเล่าเรียนหลวง (กพ.) 2542"
+    },
+    {
+      "id": "chap-02-logic-q121",
+      "setId": "chap-02-logic",
+      "questionNumber": 121,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "medium",
+      "score": 1,
+      "question": "พิจารณาข้อความต่อไปนี้\n\nก. ถ้าให้ประพจน์ $p$ เป็นจริง, $q$ เป็นเท็จ แล้ว $[(p \\rightarrow q) \\wedge q] \\rightarrow \\sim p$ มีค่าความจริงเป็นจริง\n\nข. นิเสธของประพจน์ $\\forall x[P(x) \\rightarrow Q(x)] \\wedge \\exists x[R(x)]$ คือ $\\exists x[\\sim P(x) \\rightarrow \\sim Q(x)] \\vee \\forall x[\\sim R(x)]$\n\nข้อใดต่อไปนี้ถูก",
+      "hasImage": false,
+      "choices": [
+        "ก. และ ข. ถูก",
+        "ก. ถูก และ ข. ผิด",
+        "ก. ผิด และ ข. ถูก",
+        "ก. และ ข. ผิด"
+      ],
+      "correct": 1,
+      "explanation": [
+        "ข้อ ก. ถูก จาก $[(p \\rightarrow q) \\wedge q] \\rightarrow \\sim p \\equiv [(T \\rightarrow F) \\wedge F] \\rightarrow \\sim T \\equiv [F \\wedge F] \\rightarrow F \\equiv F \\rightarrow F \\equiv T$",
+        "ข้อ ข. ผิด เพราะรูปแบบ $P(x) \\rightarrow Q(x)$ กับ $\\sim P(x) \\rightarrow \\sim Q(x)$ ไม่ใช่นิเสธกัน",
+        "ถ้าจะให้สมมูล อาจเปลี่ยนเป็น $\\exists x[P(x) \\wedge \\sim Q(x)] \\vee \\forall x[\\sim R(x)]$ (หรือใช้นิเสธรูปแบบอื่นของ $P(x) \\rightarrow Q(x)$ ก็ได้)",
+        "ตอบ ข้อ 2."
+      ],
+      "source": "โควตา มช. 2547"
+    },
+    {
+      "id": "chap-02-logic-q122",
+      "setId": "chap-02-logic",
+      "questionNumber": 122,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "hard",
+      "score": 1,
+      "question": "นิเสธของประพจน์สัญลักษณ์ $\\exists x \\forall y[|x| < |y| \\rightarrow x + y > 0]$ คือข้อใด",
+      "hasImage": false,
+      "choices": [
+        "$\\forall x \\exists y[x + y \\leq 0 \\rightarrow |x| \\geq |y|]$",
+        "$\\forall x \\exists y[|x| \\geq |y| \\rightarrow x + y \\leq 0]$",
+        "$\\forall x \\exists y[|x| < |y| \\wedge x + y \\leq 0]$",
+        "$\\forall x \\exists y[|x| \\geq |y| \\wedge x + y > 0]$"
+      ],
+      "correct": 2,
+      "explanation": [
+        "ใช้กฎ $\\sim \\exists \\equiv \\forall \\sim$ และ $\\sim \\forall \\equiv \\exists \\sim$ และ $\\sim(\\Box \\rightarrow \\triangle) \\equiv \\Box \\wedge \\sim \\triangle$",
+        "$\\sim \\exists x \\forall y[|x|<|y| \\rightarrow x+y>0] \\equiv \\forall x \\exists y[\\sim(|x|<|y| \\rightarrow x+y>0)]$",
+        "$\\equiv \\forall x \\exists y[|x|<|y| \\wedge \\sim(x+y>0)] \\equiv \\forall x \\exists y[|x|<|y| \\wedge x+y \\leq 0]$",
+        "ตอบ ข้อ 3."
+      ],
+      "source": "โควตา มช. 2548"
+    },
+    {
+      "id": "chap-02-logic-q123",
+      "setId": "chap-02-logic",
+      "questionNumber": 123,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "medium",
+      "score": 1,
+      "question": "ข้อความต่อไปนี้ข้อใดถูก",
+      "hasImage": false,
+      "choices": [
+        "$[\\sim p \\rightarrow (q \\wedge \\sim q)] \\rightarrow (p \\wedge q)$ เป็นสัจนิรันดร์",
+        "$\\sim[(p \\leftrightarrow \\sim q) \\vee \\sim r]$ สมมูลกับ $r \\wedge (\\sim p \\wedge q)$",
+        "นิเสธของ $\\forall x \\exists y[x + y < 0 \\rightarrow x^2 + y^2 \\geq 0]$ คือ $\\exists x \\forall y[x + y > 0 \\wedge x^2 + y^2 < 0]$",
+        "การอ้างเหตุผลข้างล่างนี้สมเหตุสมผล\n\nเหตุ:\n(1) $p \\rightarrow (q \\rightarrow r)$\n(2) $s \\rightarrow (t \\rightarrow u)$\n(3) $p \\wedge q$\n(4) $s \\wedge t$\n\nผล: $r \\wedge u$"
+      ],
+      "correct": 3,
+      "explanation": [
+        "ข้อ 1. ผิด — $[\\sim p \\rightarrow (q \\wedge \\sim q)] \\rightarrow (p \\wedge q) \\equiv [\\sim p \\rightarrow F] \\rightarrow (p \\wedge q) \\equiv \\sim \\sim p \\rightarrow (p \\wedge q) \\equiv p \\rightarrow (p \\wedge q)$",
+        "พบว่า รูปแบบนี้จะเป็นเท็จได้เมื่อ $p$ เป็นจริงและ $q$ เป็นเท็จ ..ดังนั้น ไม่เป็นสัจนิรันดร์",
+        "ข้อ 2. ผิด — รูปแบบซ้ายมือ $\\equiv \\sim(p \\leftrightarrow \\sim q) \\wedge r$ ซึ่งสามารถจัดรูปได้ แต่จะไม่สมมูลกับ $r \\wedge (\\sim p \\wedge q)$ ตามที่โจทย์อ้าง",
+        "ข้อ 3. ผิด — นิเสธของ $\\forall x \\exists y[x+y<0 \\rightarrow x^2+y^2 \\geq 0]$ คือ $\\exists x \\forall y[x+y<0 \\wedge x^2+y^2<0]$ (ใช้ $\\sim(\\Box \\rightarrow \\triangle) \\equiv \\Box \\wedge \\sim \\triangle$ จะต้องเป็น $x+y<0$ ไม่ใช่ $x+y>0$)",
+        "ข้อ 4. ถูก — จากเหตุ (3) คือ $p \\wedge q$ ทำให้ได้ $p$ นำไปรวมกับเหตุ (1) จะได้ $q \\rightarrow r$ ..ซึ่งเหตุ (3) ก็มี $q$ ด้วย จึงได้ผลเป็น $r$",
+        "เหตุ (4) คือ $s \\wedge t$ ทำให้ได้ $s$ นำไปรวมกับเหตุ (2) จะได้ $t \\rightarrow u$ ..ซึ่งเหตุ (4) ก็มี $t$ ด้วย จึงได้ผลเป็น $u$",
+        "ผลสรุปที่ได้ก็คือ $r \\wedge u$ — สมเหตุสมผล ตอบ ข้อ 4."
+      ],
+      "source": "ทุนเล่าเรียนหลวง (กพ.) 2549"
+    },
+    {
+      "id": "chap-02-logic-q124",
+      "setId": "chap-02-logic",
+      "questionNumber": 124,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "medium",
+      "score": 1,
+      "question": "นิเสธของข้อความ \"สำหรับจำนวนคี่ $x$ ใดๆ $x^3 - x$ เป็นจำนวนคู่\" คือข้อความใดต่อไปนี้",
+      "hasImage": false,
+      "choices": [
+        "สำหรับจำนวนคี่ $x$ ใดๆ $x^3 - x$ เป็นจำนวนคู่",
+        "มีจำนวนคี่ $x$ บางตัว ซึ่ง $x^3 - x$ เป็นจำนวนคู่",
+        "มีจำนวนคี่ $x$ บางตัว ซึ่ง $x^3 - x$ เป็นจำนวนคี่",
+        "สำหรับจำนวนคู่ $x$ ใดๆ $x^3 - x$ เป็นจำนวนคู่"
+      ],
+      "correct": 2,
+      "explanation": [
+        "ข้อความในโจทย์เขียนเป็นสัญลักษณ์ได้ว่า $\\forall x[x \\text{ เป็นจำนวนคี่} \\rightarrow x^3 - x \\text{ เป็นจำนวนคู่}]$",
+        "นิเสธของรูปแบบ $\\forall x[P(x) \\rightarrow Q(x)]$ คือ $\\exists x[P(x) \\wedge \\sim Q(x)]$",
+        "ดังนั้นนิเสธของข้อความในโจทย์ คือ $\\exists x[x \\text{ เป็นจำนวนคี่} \\wedge x^3 - x \\text{ เป็นจำนวนคี่}]$",
+        "ในภาษาไทย: \"มีจำนวนคี่ $x$ บางตัว ซึ่ง $x^3 - x$ เป็นจำนวนคี่\" — ตอบ ข้อ 3."
+      ],
+      "source": "คัดโอลิมปิก 2543"
+    },
+    {
+      "id": "chap-02-logic-q125",
+      "setId": "chap-02-logic",
+      "questionNumber": 125,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "hard",
+      "score": 1,
+      "question": "นิเสธของข้อความ \"สำหรับจำนวนจริง $x$ ที่มากกว่าศูนย์ทุกตัว จะมีจำนวนเต็มบวก $n$ บางตัว ซึ่ง $\\dfrac{1}{n} < x$\" คือข้อใด",
+      "hasImage": false,
+      "choices": [
+        "มีจำนวนจริง $x$ ที่มากกว่าศูนย์บางตัว สำหรับจำนวนเต็มบวก $n$ ทุกตัว $\\dfrac{1}{n} < x$",
+        "มีจำนวนจริง $x$ ที่มากกว่าศูนย์บางตัว สำหรับจำนวนเต็มบวก $n$ ทุกตัว $\\dfrac{1}{n} \\geq x$",
+        "มีจำนวนจริง $x$ ที่ไม่มากกว่าศูนย์บางตัว สำหรับจำนวนเต็มบวก $n$ ทุกตัว $\\dfrac{1}{n} < x$",
+        "มีจำนวนจริง $x$ ที่ไม่มากกว่าศูนย์บางตัว สำหรับจำนวนเต็มบวก $n$ ทุกตัว $\\dfrac{1}{n} \\geq x$"
+      ],
+      "correct": 1,
+      "explanation": [
+        "ข้อความในโจทย์เขียนได้ว่า $\\forall x[x > 0 \\rightarrow \\exists n[\\frac{1}{n} < x]]$ (โดย $n$ เป็นจำนวนเต็มบวก)",
+        "ใช้กฎนิเสธ: $\\sim \\forall x[\\Box \\rightarrow \\triangle] \\equiv \\exists x[\\Box \\wedge \\sim \\triangle]$ และ $\\sim \\exists n[\\cdots] \\equiv \\forall n[\\sim \\cdots]$",
+        "ดังนั้นนิเสธคือ $\\exists x[x > 0 \\wedge \\forall n[\\frac{1}{n} \\geq x]]$",
+        "ในภาษาไทย: \"มีจำนวนจริง $x$ ที่มากกว่าศูนย์บางตัว สำหรับจำนวนเต็มบวก $n$ ทุกตัว $\\frac{1}{n} \\geq x$\" — ตอบ ข้อ 2."
+      ],
+      "source": "โควตา มช. 2537"
+    },
+    {
+      "id": "chap-02-logic-q126",
+      "setId": "chap-02-logic",
+      "questionNumber": 126,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "easy",
+      "score": 1,
+      "question": "พิจารณาการอ้างเหตุผลในข้อ ก. และ ข. ต่อไปนี้\n\nก. คนเรียนหนังสือเก่งทุกคนเป็นคนฉลาด นายรัฐภูมิเป็นคนฉลาด เขาจึงเป็นคนที่เรียนหนังสือเก่ง\n\nข. พ่อค้าทุกคนเป็นคนโลภ และคนโลภทุกคนเป็นคนเลว ดังนั้น พ่อค้าทุกคนเป็นคนเลว\n\nข้อใดต่อไปนี้ถูกต้อง",
+      "hasImage": false,
+      "choices": [
+        "ข้อ ก. และ ข. ไม่สมเหตุสมผล",
+        "ข้อ ก. และ ข. สมเหตุสมผล",
+        "ข้อ ก. สมเหตุสมผล แต่ข้อ ข. ไม่สมเหตุสมผล",
+        "ข้อ ก. ไม่สมเหตุสมผล แต่ข้อ ข. สมเหตุสมผล"
+      ],
+      "correct": 3,
+      "explanation": [
+        "ข้อ ก. ไม่สมเหตุสมผล — เพราะอาจมีคนฉลาดที่เรียนหนังสือไม่เก่งก็ได้ (วาดแผนภาพ: \"คนเรียนเก่ง\" $\\subset$ \"คนฉลาด\"; นายรัฐภูมิอยู่ใน \"คนฉลาด\" แต่ไม่จำเป็นต้องอยู่ใน \"คนเรียนเก่ง\")",
+        "ข้อ ข. สมเหตุสมผล — ดังแผนภาพ \"พ่อค้า\" $\\subset$ \"คนโลภ\" $\\subset$ \"คนเลว\" (วาดได้แบบเดียว และได้ผลเป็นจริงเสมอ)",
+        "ตอบ ข้อ 4. ก. ไม่สมเหตุสมผล แต่ ข. สมเหตุสมผล"
+      ],
+      "source": "สมาคมคณิตศาสตร์ฯ 2548"
+    },
+    {
+      "id": "chap-02-logic-q127",
+      "setId": "chap-02-logic",
+      "questionNumber": 127,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "medium",
+      "score": 1,
+      "question": "บนเกาะแห่งหนึ่งมีคนอยู่ 2 ประเภท ประเภทแรกเป็นคนที่พูดความจริงเสมอ ส่วนประเภทสองเป็นคนที่พูดโกหกเสมอ เมื่อท่านขึ้นไปบนเกาะได้ยินคนบนเกาะ 2 คน คือ $A$ และ $B$ พูด ดังนี้\n\n$A$ พูดว่า \"$B$ เป็นคนที่พูดความจริงเสมอ\"\n\n$B$ พูดว่า \"ฉันและ $A$ เป็นคนคนละประเภทกัน\"\n\nท่านคิดว่า $A$ และ $B$ เป็นคนประเภทไหน",
+      "hasImage": false,
+      "choices": [
+        "$A$ และ $B$ เป็นคนที่พูดความจริงเสมอ",
+        "$A$ และ $B$ เป็นคนที่พูดโกหกเสมอ",
+        "$A$ เป็นคนที่พูดความจริงเสมอ ส่วน $B$ เป็นคนที่พูดโกหกเสมอ",
+        "$A$ เป็นคนที่พูดโกหกเสมอ ส่วน $B$ เป็นคนที่พูดความจริงเสมอ"
+      ],
+      "correct": 1,
+      "explanation": [
+        "พิจารณาสิ่งที่ $A$ พูด: \"$B$ เป็นคนพูดความจริงเสมอ\" ",
+        "ถ้า $A$ พูดจริง — แสดงว่า $B$ พูดจริงด้วย แต่ $B$ พูดว่า \"ฉันและ $A$ เป็นคนคนละประเภทกัน\" จะต้องเป็นจริง ซึ่งขัดแย้ง (เพราะทั้งสองพูดจริง = ประเภทเดียวกัน) ดังนั้นกรณีนี้จึงไม่ใช่",
+        "แต่ถ้า $A$ พูดโกหก — แสดงว่าจริงๆ $B$ เป็นคนพูดโกหก (ไม่ใช่พูดจริง) และ $B$ พูดว่า \"ฉันและ $A$ เป็นคนคนละประเภทกัน\" ก็คือ $B$ โกหกอยู่แล้ว (เพราะจริงๆ ทั้งสองคนพูดโกหก ประเภทเดียวกัน) ..ลงตัวพอดี",
+        "ตอบ ข้อ 2. ทั้ง $A$ และ $B$ เป็นคนที่พูดโกหกเสมอ"
+      ],
+      "source": "พื้นฐานวิศวะฯ ต.ค. 2544"
+    },
+    {
+      "id": "chap-02-logic-q128",
+      "setId": "chap-02-logic",
+      "questionNumber": 128,
+      "topics": [
+        "2"
+      ],
+      "type": "mc",
+      "level": "hard",
+      "score": 1,
+      "question": "ประเทศ 3 ประเทศ ได้แก่ประเทศ $X$, ประเทศ $Y$, และประเทศ $Z$ เป็นประเทศเพื่อนบ้านมีชายแดนติดกัน\n\nนาย $x$ เป็นพลเมืองประเทศ $X$ ทำงานที่ด่านตรวจคนเข้าเมืองของประเทศ $X$ มีนิสัย \"พูดจริง\" เสมอ\n\nนาย $y$ เป็นพลเมืองประเทศ $Y$ ทำงานที่ด่านตรวจคนเข้าเมืองของประเทศ $Y$ มีนิสัย \"พูดเท็จ\" เสมอ\n\nเนื่องจากงานค่อนข้างน่าเบื่อ นาย $x$ และนาย $y$ จึงชอบเปลี่ยนด่านที่ทำงาน บางวันนาย $x$ จะย้ายไปทำงานที่ด่านของประเทศ $Y$ ส่วนนาย $y$ จะย้ายไปทำงานแทนนาย $x$ ที่ประเทศ $X$ แต่ในวันทั้งคู่ก็อยู่ประจำด่านของประเทศตนเอง ขึ้นอยู่กับอารมณ์และสถานการณ์ในแต่ละวัน\n\nหากนาย $z$ ซึ่งเป็นพลเมืองประเทศ $Z$ ต้องการเดินทางเข้าประเทศ $X$ และได้ศึกษาจากคู่มือท่องเที่ยวซึ่งได้กล่าวถึงพฤติกรรมของนาย $x$ และนาย $y$ ไว้อย่างชัดเจน ดังนั้นเมื่อนาย $z$ ไปถึงด่านตรวจคนเข้าเมือง คำถามใดที่นาย $z$ ควรใช้ เพื่อตัดสินใจว่าด่านคือด่านเข้าประเทศ $X$ ที่แท้จริง (โดยนาย $z$ มีโอกาสถามได้เพียง 1 ครั้งเท่านั้น)",
+      "hasImage": false,
+      "choices": [
+        "\"ท่านเป็นเพศชาย ใช่ไหม\"",
+        "\"ท่านเป็นพลเมืองของประเทศนี้ ใช่ไหม\"",
+        "\"ท่านพูดความจริงเสมอ ใช่ไหม\"",
+        "การถามเพียง 1 คำถาม ไม่เพียงพอต่อการหาข้อสรุป"
+      ],
+      "correct": 1,
+      "explanation": [
+        "ข้อ 3. ไม่ทำให้ได้ข้อมูลใด เพราะหากถามว่า \"ท่านพูดความจริงเสมอใช่ไหม\" ไม่ว่านาย $x$ หรือนาย $y$ ก็จะต้องตอบว่า \"ใช่\" เหมือนกันทั้งสองคน (นาย $x$ พูดจริง = ตอบ \"ใช่\"; นาย $y$ พูดเท็จ = ตอบ \"ใช่\" เพราะที่จริงเขาพูดเท็จเสมอ จึงต้องโกหก)",
+        "ข้อ 1. การถามว่า \"ท่านเป็นเพศชายใช่ไหม\" จะทำให้ทราบว่านายคนนี้ชื่อนาย $x$ (พูดจริงเสมอ → ตอบ \"ใช่\") หรือนาย $y$ (พูดเท็จเสมอ → ตอบ \"ไม่ใช่\") ..แต่ก็จะไม่ได้ข้อมูลเพิ่มเติมเกี่ยวกับด่านเข้าประเทศเลย",
+        "ข้อ 2. เป็นข้อที่ถูก: ถ้าไปถูกด่านแล้ว (คือด่าน $X$) ไม่ว่าจะเจอนาย $x$ หรือนาย $y$ ก็จะได้รับคำตอบว่า \"ใช่\" เสมอ (นาย $x$ ที่ด่าน $X$ เป็นพลเมือง $X$ ตอบจริง = \"ใช่\"; นาย $y$ ที่ด่าน $X$ ไม่ใช่พลเมือง $X$ ตอบเท็จ = \"ใช่\")",
+        "แต่ถ้าไปผิดด่าน (คือไปด่าน $Y$) นาย $x$ กับนาย $y$ จะตอบว่า \"ไม่ใช่\" ทั้งคู่ (นาย $x$ ที่ด่าน $Y$ ไม่ใช่พลเมือง $Y$ ตอบจริง = \"ไม่ใช่\"; นาย $y$ ที่ด่าน $Y$ เป็นพลเมือง $Y$ ตอบเท็จ = \"ไม่ใช่\")",
+        "วิธีนี้จะทำให้ทราบว่าด่านนี้ถูกหรือผิด — ตอบ ข้อ 2."
+      ],
+      "source": "พื้นฐานวิศวะฯ ต.ค. 2544"
+    }
+  ]
+}

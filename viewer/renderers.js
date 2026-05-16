@@ -73,7 +73,7 @@ function renderNormalCurve(spec){const W=spec.width||450,H=spec.height||220,pX=3
 //       'polynomial'       + coefs:[aN,...,a1,a0]    (highest degree first; Horner's)
 //       'roots-polynomial' + roots:[r1,r2,...], leadingCoef?:1
 //   shadeBetween          - [{funcA, funcB, xRange:[a,b], color?}, ...]   funcA = lower, funcB = upper
-//   annotations           - [{text, at:[x,y], anchor?}, ...] floating labels (no marker dot)
+//   annotations           - [{text, at:[x,y], anchor?, arrowTo?:[x,y]}, ...] floating labels (optional arrow pointing to a target)
 function renderFunctionPlot(spec){const W=spec.width||450,H=spec.height||280,pX=30,pB=24,pT=20;
   const pW=W-2*pX,pH=H-pT-pB;
   const xR=spec.xRange||[-3,3],yR=spec.yRange||[-1,5];
@@ -106,7 +106,9 @@ function renderFunctionPlot(spec){const W=spec.width||450,H=spec.height||280,pX=
     if(fn.label){const[lx,ly]=fn.label.at,anc=fn.label.anchor||'start';
       svg+=`<text x="${x2(lx)}" y="${y2(ly)}" font-size="14" font-style="italic" fill="#222" text-anchor="${anc}">${fn.label.text}</text>`;}});
   (spec.annotations||[]).forEach(a=>{const[lx,ly]=a.at,anc=a.anchor||'start';
-    svg+=`<text x="${x2(lx)}" y="${y2(ly)}" font-size="13" fill="#222" text-anchor="${anc}">${a.text}</text>`;});
+    svg+=`<text x="${x2(lx)}" y="${y2(ly)}" font-size="13" fill="#222" text-anchor="${anc}">${a.text}</text>`;
+    if(a.arrowTo){const[ax,ay]=a.arrowTo;
+      svg+=`<line x1="${x2(lx)}" y1="${y2(ly)+5}" x2="${x2(ax)}" y2="${y2(ay)}" stroke="#222" stroke-width="1" marker-end="url(#fpArr)"/>`;}});
   return svg+'</svg>';}
 
 
