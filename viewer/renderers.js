@@ -6,16 +6,22 @@
 // อนาคต: portal สื่อการสอนจะ fetch ไฟล์เดียวกันนี้ → สอดคล้องกัน
 //
 // Coverage ปัจจุบัน:
-//   ✅ normal-curve        (Q24 ของ samn-2563-03)
-//   ✅ function-plot       (Q22 ของ samn-2562-03 — generic: parabola, piecewise-linear, polynomial)
-//   ✅ ztable-with-curves  (Q4 ของ samn-2564-04 — normal curves + reference table)
+//   ✅ normal-curve         (Q24 ของ samn-2563-03)
+//   ✅ function-plot        (Q22 ของ samn-2562-03 — generic: parabola, piecewise-linear, polynomial)
+//   ✅ ztable-with-curves   (Q4 ของ samn-2564-04 — normal curves + reference table)
+//   ✅ unit-circle-figure   (Q9 samn-2565-03 + Q23 samn-2564-04 — 12 features incl. spiral + LaTeX)
 //   ⏳ polygon-labeled
-//   ⏳ unit-circle-figure
 //   ⏳ stacked-bar-100
 //   ⏳ 3set-c-in-a-shade-ab-minus-c
 //
 // renderImage() จะคืน null ถ้า type ยังไม่รองรับ
 // → admin.html จะ fallback ไปแสดง placeholder card เดิม
+//
+// CRITICAL NOTE — square root rendering:
+//   ห้ามใช้ Unicode U+221A (√) เดี่ยว ๆ เพราะไม่มี vinculum (ขีดบน radicand)
+//   inside unit-circle SVG: ใช้ _ucMathToSvg() — native SVG <text>√</text> + <line> วาด vinculum
+//   (foreignObject + KaTeX ใน SVG context จะหาย/เพี้ยน — ใช้ native SVG จะปลอดภัยกว่า)
+//   regular HTML (question/explanation): KaTeX ใน admin.html ใช้ได้ปกติ ไม่ต้องแก้
 // ============================================================
 
 
@@ -289,11 +295,280 @@ function _ztTableRows(table, x0, y0, w, h) {
 }
 
 
+// ----- helper: mini SVG-LaTeX renderer (no foreignObject, no KaTeX dependency) -----
+// Supports: \sqrt{X} with vinculum, italic letters, minus sign (-), \ space, \, thin space
+// Used inside SVG context where foreignObject+KaTeX has CSS quirks (Q23 samn-2564-04 case).
+// For complex LaTeX (e.g. \dfrac) — extend this function if needed in future.
+function _ucMathToSvg(latex, x, y, fontSize) {
+  const expr = latex.replace(/^\$|\$$/g, '');
+  const ff = "'Cambria Math','Times New Roman',serif";
+  let cur = x;
+  let out = '';
+  function chW(ch) {
+    if (ch === ',' || ch === ' ') return fontSize * 0.3;
+    if (ch === '(' || ch === ')') return fontSize * 0.4;
+    if (ch === '−' || ch === '-') return fontSize * 0.55;
+    if (ch === '√') return fontSize * 0.7;
+    return fontSize * 0.55;
+  }
+  function emit(text, italic) {
+    const it = italic ? ' font-style="italic"' : '';
+    out += `<text x="${cur.toFixed(2)}" y="${y.toFixed(2)}" `
+         + `font-family="${ff}" font-size="${fontSize}" fill="#222"${it}>${text}</text>`;
+    for (const ch of text) cur += chW(ch);
+  }
+  let i = 0;
+  while (i < expr.length) {
+    const m = /^\\sqrt\s*\{([^}]*)\}/.exec(expr.substring(i));
+    if (m) {
+      const rad = m[1];
+      emit('√', false);
+      let radW = 0;
+      for (const ch of rad) radW += chW(ch);
+      const barY = y - fontSize * 0.78;
+      out += `<line x1="${(cur - 1).toFixed(2)}" y1="${barY.toFixed(2)}" `
+           + `x2="${(cur + radW + 1).toFixed(2)}" y2="${barY.toFixed(2)}" `
+           + `stroke="#222" stroke-width="1"/>`;
+      emit(rad, false);
+      i += m[0].length;
+      continue;
+    }
+    if (expr.substr(i, 2) === '\\ ') { cur += fontSize * 0.3; i += 2; continue; }
+    if (expr.substr(i, 2) === '\\,') { cur += fontSize * 0.2; i += 2; continue; }
+    if (expr[i] === '-') { emit('−', false); i += 1; continue; }
+    const isLetter = /[a-zA-Z]/.test(expr[i]);
+    let end = i;
+    while (end < expr.length 
+           && expr[end] !== '\\' 
+           && expr[end] !== '-'
+           && (/[a-zA-Z]/.test(expr[end]) === isLetter)) end++;
+    const seg = expr.substring(i, end);
+    emit(seg, isLetter);
+    i = end;
+  }
+  return out;
+}
+
+
+// ----- renderer: unit-circle-figure -----
+// Layout: square SVG (default 320x320) with circle centered, radius in px (default 100).
+// Math convention: (x, y) in unit coords (-1..1) maps to SVG with Y-axis flipped.
+//
+// Spec fields (12 features):
+//   size, radius                  - canvas size, circle radius (px)
+//   showAxes                      - bool (default true)
+//   axisLabels                    - {x: 'X', y: 'Y'}
+//   mainCircleDashed              - bool (Q23 fig 1)
+//   dots[]                        - {id, x, y, label?, labelDx?, labelDy?,
+//                                    showCoord? (supports LaTeX via $..$),
+//                                    coordPos?:{dx,dy}}
+//   radii[]                       - [{toDot}]
+//   chords[]                      - [{fromDot, toDot}]
+//   rightAngles[]                 - [{at, refs:[ref1, ref2]}]  small square at vertex
+//   perimeterArcs[]               - [{fromDot, toDot, emphasized?}] short arc on circle
+//   arcs[]                        - [{fromAngle, toAngle, label?, radius, labelOffset?}]
+//                                   internal angle indicators (math angle convention, Y-up)
+//   internalSpiralArrow           - {innerRadius, outerRadius, numTurns, startAngle, direction}
+//   annotations[]                 - [{x, y, text, fontSize?, anchor?}]  floating text in SVG px
+//
+// LaTeX in showCoord ($...$): rendered via _ucMathToSvg() — pure SVG, no foreignObject
+//   (foreignObject + KaTeX has CSS rendering issues for nested math; native SVG is reliable)
+// Greek letters (α, β, etc.): forced serif font (Sarabun lacks Greek glyphs).
+function renderUnitCircle(spec){
+  const size = spec.size || 320;
+  const radius = spec.radius || 100;
+  const cx = size / 2, cy = size / 2;
+  const toSvg = (x, y) => [cx + radius * x, cy - radius * y];
+
+  const dots = {};
+  (spec.dots || []).forEach(d => {
+    const [px, py] = toSvg(d.x, d.y);
+    dots[d.id] = Object.assign({}, d, {px, py});
+  });
+
+  let svg = `<svg viewBox="0 0 ${size} ${size}" width="${size}" height="${size}" `
+          + `xmlns="http://www.w3.org/2000/svg" `
+          + `style="background:#fff;font-family:'Sarabun',sans-serif;">`;
+  svg += `<defs><marker id="ucArr" viewBox="0 0 10 10" refX="9" refY="5" `
+       + `markerWidth="7" markerHeight="7" orient="auto-start-reverse">`
+       + `<path d="M 0 0 L 10 5 L 0 10 z" fill="#222"/></marker></defs>`;
+
+  // Axes
+  if (spec.showAxes !== false) {
+    const ax = spec.axisLabels || {};
+    const pad = 10;
+    svg += `<line x1="${pad}" y1="${cy}" x2="${size-pad}" y2="${cy}" stroke="#222" stroke-width="1" marker-end="url(#ucArr)"/>`;
+    svg += `<line x1="${cx}" y1="${size-pad}" x2="${cx}" y2="${pad}" stroke="#222" stroke-width="1" marker-end="url(#ucArr)"/>`;
+    if (ax.x) svg += `<text x="${size-pad-4}" y="${cy-6}" font-size="14" font-style="italic" fill="#222" text-anchor="end">${ax.x}</text>`;
+    if (ax.y) svg += `<text x="${cx+8}" y="${pad+10}" font-size="14" font-style="italic" fill="#222">${ax.y}</text>`;
+  }
+
+  // Main circle (solid or dashed)
+  const dashed = spec.mainCircleDashed ? ' stroke-dasharray="4 3"' : '';
+  svg += `<circle cx="${cx}" cy="${cy}" r="${radius}" fill="none" stroke="#222" stroke-width="1.4"${dashed}/>`;
+
+  // radii (origin → dot)
+  (spec.radii || []).forEach(r => {
+    const d = dots[r.toDot]; if (!d) return;
+    svg += `<line x1="${cx}" y1="${cy}" x2="${d.px}" y2="${d.py}" stroke="#222" stroke-width="1.2"/>`;
+  });
+
+  // chords (dot → dot)
+  (spec.chords || []).forEach(c => {
+    const a = dots[c.fromDot], b = dots[c.toDot]; if (!a || !b) return;
+    svg += `<line x1="${a.px}" y1="${a.py}" x2="${b.px}" y2="${b.py}" stroke="#222" stroke-width="1.2"/>`;
+  });
+
+  // perimeterArcs (along main circle, short arc, emphasized = thicker)
+  (spec.perimeterArcs || []).forEach(arc => {
+    const a = dots[arc.fromDot], b = dots[arc.toDot]; if (!a || !b) return;
+    const t1 = Math.atan2(a.py - cy, a.px - cx);
+    const t2 = Math.atan2(b.py - cy, b.px - cx);
+    let dt = t2 - t1;
+    while (dt > Math.PI) dt -= 2 * Math.PI;
+    while (dt <= -Math.PI) dt += 2 * Math.PI;
+    const sweep = dt > 0 ? 1 : 0;
+    const w = arc.emphasized ? 2.8 : 1.4;
+    svg += `<path d="M ${a.px.toFixed(2)} ${a.py.toFixed(2)} A ${radius} ${radius} 0 0 ${sweep} ${b.px.toFixed(2)} ${b.py.toFixed(2)}" fill="none" stroke="#222" stroke-width="${w}"/>`;
+  });
+
+  // rightAngles (small square at vertex, aligned with arms toward refs)
+  (spec.rightAngles || []).forEach(ra => {
+    const v = dots[ra.at]; if (!v) return;
+    const refs = (ra.refs || []).map(rid => dots[rid]).filter(Boolean);
+    if (refs.length < 2) return;
+    const dirs = refs.map(r => {
+      const dx = r.px - v.px, dy = r.py - v.py;
+      const L = Math.sqrt(dx*dx + dy*dy) || 1;
+      return [dx/L, dy/L];
+    });
+    const sz = 9;
+    const p0x = v.px + sz*dirs[0][0], p0y = v.py + sz*dirs[0][1];
+    const p2x = v.px + sz*dirs[1][0], p2y = v.py + sz*dirs[1][1];
+    const p1x = p0x + sz*dirs[1][0], p1y = p0y + sz*dirs[1][1];
+    svg += `<path d="M ${p0x.toFixed(2)} ${p0y.toFixed(2)} L ${p1x.toFixed(2)} ${p1y.toFixed(2)} L ${p2x.toFixed(2)} ${p2y.toFixed(2)}" fill="none" stroke="#222" stroke-width="1"/>`;
+  });
+
+  // arcs (internal angle indicators α/β with optional labels — math CCW convention)
+  // Greek labels use SERIF font (Sarabun lacks Greek glyphs).
+  (spec.arcs || []).forEach(a => {
+    const r = a.radius || 20;
+    const t1 = a.fromAngle, t2 = a.toAngle;
+    const x1 = cx + r * Math.cos(t1), y1 = cy - r * Math.sin(t1);
+    const x2 = cx + r * Math.cos(t2), y2 = cy - r * Math.sin(t2);
+    const dt = t2 - t1;
+    const sweep = dt > 0 ? 0 : 1;
+    const largeArc = Math.abs(dt) > Math.PI ? 1 : 0;
+    svg += `<path d="M ${x1.toFixed(2)} ${y1.toFixed(2)} A ${r} ${r} 0 ${largeArc} ${sweep} ${x2.toFixed(2)} ${y2.toFixed(2)}" fill="none" stroke="#222" stroke-width="1"/>`;
+    if (a.label) {
+      const tMid = (t1 + t2) / 2;
+      const rLabel = r + 10;
+      const offX = (a.labelOffset && a.labelOffset[0]) || 0;
+      const offY = (a.labelOffset && a.labelOffset[1]) || 0;
+      const lx = cx + rLabel * Math.cos(tMid) + offX;
+      const ly = cy - rLabel * Math.sin(tMid) + offY;
+      svg += `<text x="${lx.toFixed(2)}" y="${ly.toFixed(2)}" `
+           + `font-family="'Cambria Math','Times New Roman',serif" `
+           + `font-size="17" font-style="italic" fill="#222" text-anchor="middle">${a.label}</text>`;
+    }
+  });
+
+  // internalSpiralArrow (multi-turn spiral with arrowhead at endpoint)
+  if (spec.internalSpiralArrow) {
+    const sp = spec.internalSpiralArrow;
+    const rIn = (sp.innerRadius || 0.2) * radius;
+    const rOut = (sp.outerRadius || 0.6) * radius;
+    const turns = sp.numTurns || 1;
+    const dirSign = sp.direction === 'cw' ? -1 : 1;
+    const a0 = sp.startAngle || 0;
+    const sweep = dirSign * turns * 2 * Math.PI;
+    const N = 120;
+    const pts = [];
+    let endX = 0, endY = 0, tangent = [1, 0];
+    for (let i = 0; i <= N; i++) {
+      const t = i / N;
+      const a = a0 + sweep * t;
+      const r = rIn + (rOut - rIn) * t;
+      const px = cx + r * Math.cos(a);
+      const py = cy - r * Math.sin(a);
+      pts.push(`${px.toFixed(2)},${py.toFixed(2)}`);
+      if (i === N) {
+        endX = px; endY = py;
+        const dr_dt = rOut - rIn, da_dt = sweep;
+        tangent = [
+          dr_dt * Math.cos(a) - r * Math.sin(a) * da_dt,
+          -(dr_dt * Math.sin(a) + r * Math.cos(a) * da_dt)
+        ];
+      }
+    }
+    svg += `<polyline points="${pts.join(' ')}" fill="none" stroke="#222" stroke-width="1.2"/>`;
+    const [tx, ty] = tangent;
+    const tL = Math.sqrt(tx*tx + ty*ty) || 1;
+    const ux = tx / tL, uy = ty / tL;
+    const nx = -uy, ny = ux;
+    const ah = 8;
+    const baseX = endX - ah * ux, baseY = endY - ah * uy;
+    const blX = baseX + ah * 0.45 * nx, blY = baseY + ah * 0.45 * ny;
+    const brX = baseX - ah * 0.45 * nx, brY = baseY - ah * 0.45 * ny;
+    svg += `<polygon points="${endX.toFixed(2)},${endY.toFixed(2)} ${blX.toFixed(2)},${blY.toFixed(2)} ${brX.toFixed(2)},${brY.toFixed(2)}" fill="#222"/>`;
+  }
+
+  // annotations (floating text at absolute SVG coords — serif if Greek or single letter)
+  (spec.annotations || []).forEach(a => {
+    const fs = a.fontSize || 14;
+    const anchor = a.anchor || 'start';
+    const useSerif = /[\u0370-\u03FF]/.test(a.text) || a.text.length === 1;
+    const fontAttr = useSerif ? ` font-family="'Cambria Math','Times New Roman',serif"` : '';
+    svg += `<text x="${a.x}" y="${a.y}" font-size="${fs}"${fontAttr} `
+         + `fill="#222" text-anchor="${anchor}" font-style="italic">${a.text}</text>`;
+  });
+
+  // dots (drawn last so they're on top of all lines/arcs)
+  (spec.dots || []).forEach(d => {
+    const dt = dots[d.id];
+    svg += `<circle cx="${dt.px}" cy="${dt.py}" r="3" fill="#222"/>`;
+    if (d.label) {
+      const dx = d.labelDx != null ? d.labelDx : 8;
+      const dy = d.labelDy != null ? d.labelDy : -4;
+      svg += `<text x="${(dt.px+dx).toFixed(2)}" y="${(dt.py+dy).toFixed(2)}" `
+           + `font-family="'Cambria Math','Times New Roman',serif" `
+           + `font-size="16" font-style="italic" fill="#222">${d.label}</text>`;
+    }
+    if (d.showCoord) {
+      const cdx = (d.coordPos && d.coordPos.dx != null) ? d.coordPos.dx : 6;
+      const cdy = (d.coordPos && d.coordPos.dy != null) ? d.coordPos.dy : 16;
+      const cxPos = dt.px + cdx, cyPos = dt.py + cdy;
+      const raw = d.showCoord;
+      if (raw.indexOf('$') !== -1) {
+        // LaTeX in SVG — use native SVG renderer (NOT foreignObject + KaTeX)
+        // because foreignObject + KaTeX has CSS layout issues (√ disappears, etc.)
+        // _ucMathToSvg supports \sqrt{} with proper vinculum natively.
+        svg += _ucMathToSvg(raw, cxPos, cyPos, 14);
+      } else {
+        svg += `<text x="${cxPos.toFixed(2)}" y="${cyPos.toFixed(2)}" font-size="12" fill="#222">${raw}</text>`;
+      }
+    }
+  });
+
+  return svg + '</svg>';
+}
+
+
 // ----- main entry -----
 // Returns: SVG string ที่ใช้ insert ผ่าน innerHTML ได้เลย,
 //          หรือ null ถ้า type ไม่รองรับ (caller จะ fallback)
+// Accepts a single spec OR an array of specs (Q23 has imageSpec = [fig1, fig2]).
 function renderImage(spec){
-  if(!spec || !spec.type) return null;
+  if(!spec) return null;
+  // Array of specs → render each, wrap in horizontal flex container
+  if(Array.isArray(spec)){
+    const parts = spec.map(s => renderImage(s)).filter(Boolean);
+    if(parts.length === 0) return null;
+    return `<div style="display:flex;gap:24px;flex-wrap:wrap;align-items:flex-start;">`
+         + parts.map(p => `<div>${p}</div>`).join('')
+         + `</div>`;
+  }
+  if(!spec.type) return null;
   switch(spec.type){
     case 'normal-curve':
       return renderNormalCurve(spec);
@@ -301,8 +576,9 @@ function renderImage(spec){
       return renderFunctionPlot(spec);
     case 'ztable-with-curves':
       return renderZTable(spec);
+    case 'unit-circle-figure':
+      return renderUnitCircle(spec);
     // TODO: case 'polygon-labeled':              return renderPolygonLabeled(spec);
-    // TODO: case 'unit-circle-figure':           return renderUnitCircleFigure(spec);
     // TODO: case 'stacked-bar-100':              return renderStackedBar100(spec);
     // TODO: case '3set-c-in-a-shade-ab-minus-c': return venn3CinA_shadeABminusC_13();
     default:
