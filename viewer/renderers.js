@@ -6,9 +6,9 @@
 // อนาคต: portal สื่อการสอนจะ fetch ไฟล์เดียวกันนี้ → สอดคล้องกัน
 //
 // Coverage ปัจจุบัน:
-//   ✅ normal-curve     (Q24 ของ samn-2563-03)
-//   ✅ function-plot    (Q22 ของ samn-2562-03 — generic: parabola, piecewise-linear, polynomial)
-//   ⏳ ztable-with-curves
+//   ✅ normal-curve        (Q24 ของ samn-2563-03)
+//   ✅ function-plot       (Q22 ของ samn-2562-03 — generic: parabola, piecewise-linear, polynomial)
+//   ✅ ztable-with-curves  (Q4 ของ samn-2564-04 — normal curves + reference table)
 //   ⏳ polygon-labeled
 //   ⏳ unit-circle-figure
 //   ⏳ stacked-bar-100
@@ -112,6 +112,183 @@ function renderFunctionPlot(spec){const W=spec.width||450,H=spec.height||280,pX=
   return svg+'</svg>';}
 
 
+// ----- renderer: ztable-with-curves -----
+// Layout: table on the left (~64%), curves stacked on the right (~36%, each 1 row).
+// Each curve illustrates the shaded area in the table row directly to its left.
+//
+// Spec fields:
+//   width, height                  - SVG canvas (default 480 x 280)
+//   curves[]                       - array of curve specs
+//     .zPosition                   - z value to mark/shade to
+//     .shadeFromLeft               - bool: shade area from -∞ to z
+//     .shadeFromRight              - bool: shade area from z to +∞
+//     .labels[]                    - [{x, text}, ...] labels on x-axis
+//     .side                        - "right" | "left" (reserved; currently stacks on right)
+//   table.headerLeft, .headerRight - column header strings
+//   table.columns[]                - [{z, area}, ...]
+function renderZTable(spec) {
+  const W = spec.width || 480;
+  const H = spec.height || 280;
+  const curves = spec.curves || [];
+  const table = spec.table || {};
+
+  // Layout: table left (64%), curves right (36%) stacked
+  const tableW = Math.round(W * 0.64);
+  const curveAreaW = W - tableW;
+
+  let svg = `<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" `
+          + `xmlns="http://www.w3.org/2000/svg" `
+          + `style="background:#fff;font-family:'Sarabun',sans-serif;">`;
+
+  // Curves on the right (stacked vertically)
+  if (curves.length > 0) {
+    const slotH = H / curves.length;
+    curves.forEach((c, i) => {
+      svg += _ztMiniCurve(c, tableW, i * slotH, curveAreaW, slotH);
+    });
+  }
+
+  // Table on the left
+  if (table.columns && table.columns.length > 0) {
+    svg += _ztTableRows(table, 0, 0, tableW, H);
+  }
+
+  return svg + '</svg>';
+}
+
+// internal: mini normal curve for one z-value (drawn inside a slot rect)
+function _ztMiniCurve(c, x0, y0, w, h) {
+  const padX = 14, padTop = 14, padBot = 24;
+  const plotW = w - 2 * padX;
+  const plotH = h - padTop - padBot;
+  const xMin = -3, xMax = 3, yMax = 0.45;
+
+  const xToPx = z => x0 + padX + plotW * (z - xMin) / (xMax - xMin);
+  const yToPx = v => y0 + padTop + plotH * (1 - v / yMax);
+  const baseY = yToPx(0);
+
+  const zp = c.zPosition;
+  let s = '';
+
+  // Shading from -∞ to z
+  if (c.shadeFromLeft) {
+    const N = 80;
+    const pts = [`${xToPx(xMin)},${baseY}`];
+    for (let i = 0; i <= N; i++) {
+      const z = xMin + (zp - xMin) * i / N;
+      pts.push(`${xToPx(z).toFixed(2)},${yToPx(normalPdf(z)).toFixed(2)}`);
+    }
+    pts.push(`${xToPx(zp)},${baseY}`);
+    s += `<polygon points="${pts.join(' ')}" fill="#b8b8b8" opacity="0.7"/>`;
+  }
+
+  // Shading from z to +∞
+  if (c.shadeFromRight) {
+    const N = 80;
+    const pts = [`${xToPx(zp)},${baseY}`];
+    for (let i = 0; i <= N; i++) {
+      const z = zp + (xMax - zp) * i / N;
+      pts.push(`${xToPx(z).toFixed(2)},${yToPx(normalPdf(z)).toFixed(2)}`);
+    }
+    pts.push(`${xToPx(xMax)},${baseY}`);
+    s += `<polygon points="${pts.join(' ')}" fill="#b8b8b8" opacity="0.7"/>`;
+  }
+
+  // Baseline (x-axis)
+  s += `<line x1="${x0 + padX - 4}" y1="${baseY}" `
+     + `x2="${x0 + w - padX + 4}" y2="${baseY}" `
+     + `stroke="#444" stroke-width="1"/>`;
+
+  // The curve itself
+  const N = 120;
+  const cPts = [];
+  for (let i = 0; i <= N; i++) {
+    const z = xMin + (xMax - xMin) * i / N;
+    cPts.push(`${xToPx(z).toFixed(2)},${yToPx(normalPdf(z)).toFixed(2)}`);
+  }
+  s += `<polyline points="${cPts.join(' ')}" fill="none" stroke="#222" stroke-width="1.4"/>`;
+
+  // Vertical line from baseline up to curve at z
+  const xpZ = xToPx(zp);
+  const ypZ = yToPx(normalPdf(zp));
+  s += `<line x1="${xpZ}" y1="${baseY}" x2="${xpZ}" y2="${ypZ}" `
+     + `stroke="#222" stroke-width="1"/>`;
+
+  // X-axis labels (ticks + text)
+  (c.labels || []).forEach(l => {
+    const xp = xToPx(l.x);
+    s += `<line x1="${xp}" y1="${baseY - 2}" x2="${xp}" y2="${baseY + 3}" `
+       + `stroke="#444" stroke-width="0.8"/>`;
+    s += `<text x="${xp}" y="${baseY + 16}" text-anchor="middle" `
+       + `font-size="13" fill="#222" font-style="italic">${l.text}</text>`;
+  });
+
+  return s;
+}
+
+// internal: 2-column reference table (z, area)
+function _ztTableRows(table, x0, y0, w, h) {
+  const cols = table.columns || [];
+  const nRows = cols.length + 1;  // +1 for header
+
+  const padX = 10, padY = 12;
+  const innerX = x0 + padX;
+  const innerY = y0 + padY;
+  const innerW = w - 2 * padX;
+  const innerH = h - 2 * padY;
+
+  const rowH = innerH / nRows;
+  const headerH = rowH;
+
+  // 2-column split: z = 26%, area = 74%
+  const col1W = innerW * 0.26;
+  const col2W = innerW - col1W;
+
+  let s = '';
+
+  // Outer border
+  s += `<rect x="${innerX}" y="${innerY}" width="${innerW}" height="${rowH * nRows}" `
+     + `fill="#fff" stroke="#222" stroke-width="1.4"/>`;
+
+  // Header background
+  s += `<rect x="${innerX}" y="${innerY}" width="${innerW}" height="${headerH}" `
+     + `fill="#f0e9d6"/>`;
+
+  // Header text
+  s += `<text x="${innerX + col1W / 2}" y="${innerY + headerH * 0.62}" `
+     + `text-anchor="middle" font-size="15" fill="#222" `
+     + `font-style="italic" font-weight="500">${table.headerLeft || ''}</text>`;
+  s += `<text x="${innerX + col1W + col2W / 2}" y="${innerY + headerH * 0.62}" `
+     + `text-anchor="middle" font-size="13" fill="#222">${table.headerRight || ''}</text>`;
+
+  // Vertical separator
+  s += `<line x1="${innerX + col1W}" y1="${innerY}" `
+     + `x2="${innerX + col1W}" y2="${innerY + rowH * nRows}" `
+     + `stroke="#222" stroke-width="1"/>`;
+
+  // Line under header
+  s += `<line x1="${innerX}" y1="${innerY + headerH}" `
+     + `x2="${innerX + innerW}" y2="${innerY + headerH}" `
+     + `stroke="#222" stroke-width="1"/>`;
+
+  // Data rows
+  cols.forEach((c, i) => {
+    const ry = innerY + headerH + i * rowH;
+    if (i > 0) {
+      s += `<line x1="${innerX}" y1="${ry}" `
+         + `x2="${innerX + innerW}" y2="${ry}" `
+         + `stroke="#222" stroke-width="0.7"/>`;
+    }
+    s += `<text x="${innerX + col1W / 2}" y="${ry + rowH * 0.62}" `
+       + `text-anchor="middle" font-size="14" fill="#222">${c.z}</text>`;
+    s += `<text x="${innerX + col1W + col2W / 2}" y="${ry + rowH * 0.62}" `
+       + `text-anchor="middle" font-size="14" fill="#222">${c.area}</text>`;
+  });
+
+  return s;
+}
+
+
 // ----- main entry -----
 // Returns: SVG string ที่ใช้ insert ผ่าน innerHTML ได้เลย,
 //          หรือ null ถ้า type ไม่รองรับ (caller จะ fallback)
@@ -122,7 +299,8 @@ function renderImage(spec){
       return renderNormalCurve(spec);
     case 'function-plot':
       return renderFunctionPlot(spec);
-    // TODO: case 'ztable-with-curves':           return renderZTable(spec);
+    case 'ztable-with-curves':
+      return renderZTable(spec);
     // TODO: case 'polygon-labeled':              return renderPolygonLabeled(spec);
     // TODO: case 'unit-circle-figure':           return renderUnitCircleFigure(spec);
     // TODO: case 'stacked-bar-100':              return renderStackedBar100(spec);
