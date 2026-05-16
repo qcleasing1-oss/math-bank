@@ -1,0 +1,103 @@
+name: Build bank.json
+
+# ───────────────────────────────────────────────────────────────
+# Workflow นี้ทำหน้าที่ rebuild data/bank.json อัตโนมัติบน cloud
+# เมื่อคุณครู push เปลี่ยน manifest.json หรือ sets/*.json
+#
+# Trigger paths — สำคัญมาก:
+#   จงใจไม่รวม data/bank.json เพราะ workflow นี้จะเขียน bank.json
+#   กลับเข้า repo เอง → ถ้ารวมก็จะเกิด infinite loop
+# ───────────────────────────────────────────────────────────────
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'data/manifest.json'
+      - 'data/sets/**'
+      - 'scripts/build_bank.py'
+  workflow_dispatch:  # ปุ่ม manual trigger ในแท็บ Actions
+
+permissions:
+  contents: write  # ต้องการสิทธิ์ commit + push กลับเข้า repo
+
+# กัน concurrent runs — ถ้ามี push หลาย ๆ ครั้งติด ๆ กัน
+# จะรอตัวก่อนจบก่อนแล้วค่อยรันตัวใหม่
+concurrency:
+  group: build-bank
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # ──────────────────────────────────────────────────────
+      # 1. Clone repo ลงมาให้ workflow ทำงานได้
+      # ──────────────────────────────────────────────────────
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      # ──────────────────────────────────────────────────────
+      # 2. ติดตั้ง Python 3.11 (script ใช้แค่ standard library)
+      # ──────────────────────────────────────────────────────
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      # ──────────────────────────────────────────────────────
+      # 3. รัน build script — จะเขียน data/bank.json ทับของเดิม
+      #    ถ้าผลลัพธ์ใหม่ != ของเดิม
+      # ──────────────────────────────────────────────────────
+      - name: Build bank.json
+        run: python scripts/build_bank.py
+
+      # ──────────────────────────────────────────────────────
+      # 4. เช็คว่า bank.json เปลี่ยนจริงไหม — กัน no-op commit
+      # ──────────────────────────────────────────────────────
+      - name: Check if bank.json changed
+        id: check
+        run: |
+          if git diff --quiet data/bank.json; then
+            echo "changed=false" >> $GITHUB_OUTPUT
+            echo "✅ bank.json ไม่เปลี่ยน — ข้ามขั้นตอน commit"
+          else
+            echo "changed=true" >> $GITHUB_OUTPUT
+            echo "📝 bank.json เปลี่ยน — เตรียม commit:"
+            git diff --stat data/bank.json
+          fi
+
+      # ──────────────────────────────────────────────────────
+      # 5. Commit + push bank.json กลับเข้า main (เฉพาะตอนเปลี่ยน)
+      #    Bot ที่ใช้ commit: github-actions[bot]
+      # ──────────────────────────────────────────────────────
+      - name: Commit and push bank.json
+        if: steps.check.outputs.changed == 'true'
+        env:
+          TRIGGER_MSG: ${{ github.event.head_commit.message }}
+          TRIGGER_SHA: ${{ github.sha }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/bank.json
+          git commit \
+            -m "🤖 Auto-rebuild bank.json from manifest + sets/" \
+            -m "Triggered by: ${TRIGGER_MSG}" \
+            -m "Source SHA: ${TRIGGER_SHA}"
+          git push
+
+      # ──────────────────────────────────────────────────────
+      # 6. สรุปผลใน Actions log (ให้คุณครูดูง่ายตอนเปิด Actions tab)
+      # ──────────────────────────────────────────────────────
+      - name: Summary
+        if: always()
+        run: |
+          echo "### 📊 Build Summary" >> $GITHUB_STEP_SUMMARY
+          if [ "${{ steps.check.outputs.changed }}" = "true" ]; then
+            echo "✅ **bank.json updated and pushed**" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "✅ **bank.json already up-to-date** (no commit)" >> $GITHUB_STEP_SUMMARY
+          fi
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Triggered by: \`${{ github.event_name }}\`" >> $GITHUB_STEP_SUMMARY
