@@ -5377,7 +5377,103 @@
         "ลากแนวตั้งฉาก $CF$ ลงบน $AD$ → ระยะตามแนวดิ่งของ $C$ จากเส้น $AD = AB + BC\\sin(120°-90°)$",
         "$= 3 + 5\\sin 30° = 3 + 2.5 = 5.5$",
         "พื้นที่ $\\triangle ACD = \\dfrac{1}{2} \\cdot AD \\cdot CF = \\dfrac{1}{2} \\cdot 8 \\cdot 5.5 = 22$"
-      ]
+      ],
+      "imageSpec": {
+        "type": "polygon-labeled",
+        "width": 380,
+        "height": 300,
+        "vertices": {
+          "A": [
+            80,
+            235
+          ],
+          "B": [
+            80,
+            145
+          ],
+          "C": [
+            210,
+            70
+          ],
+          "D": [
+            320,
+            235
+          ]
+        },
+        "vertexLabels": {
+          "A": {
+            "dx": -17,
+            "dy": 17
+          },
+          "B": {
+            "dx": -17,
+            "dy": 5
+          },
+          "C": {
+            "dx": 6,
+            "dy": -8
+          },
+          "D": {
+            "dx": 8,
+            "dy": 17
+          }
+        },
+        "sides": [
+          {
+            "from": "A",
+            "to": "B"
+          },
+          {
+            "from": "B",
+            "to": "C",
+            "label": "5",
+            "labelOffset": {
+              "dx": -13,
+              "dy": -3
+            }
+          },
+          {
+            "from": "C",
+            "to": "D"
+          },
+          {
+            "from": "A",
+            "to": "D",
+            "label": "8",
+            "labelOffset": {
+              "dx": 0,
+              "dy": 21
+            }
+          },
+          {
+            "from": "A",
+            "to": "C",
+            "label": "7",
+            "labelOffset": {
+              "dx": 15,
+              "dy": 5
+            }
+          }
+        ],
+        "angleMarks": [
+          {
+            "at": "A",
+            "from": "B",
+            "to": "D",
+            "type": "right",
+            "size": 12
+          },
+          {
+            "at": "B",
+            "from": "A",
+            "to": "C",
+            "type": "arc",
+            "label": "120°",
+            "radius": 18,
+            "labelDistance": 32
+          }
+        ]
+      }
     },
     {
       "id": "samn-2559-12-q16",
