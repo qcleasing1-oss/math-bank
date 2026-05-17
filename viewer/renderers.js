@@ -10,8 +10,8 @@
 //   ✅ function-plot        (Q22 ของ samn-2562-03 — generic: parabola, piecewise-linear, polynomial)
 //   ✅ ztable-with-curves   (Q4 ของ samn-2564-04 — normal curves + reference table)
 //   ✅ unit-circle-figure   (Q9 samn-2565-03 + Q23 samn-2564-04 — 12 features incl. spiral + LaTeX)
+//   ✅ stacked-bar-100      (Q30 samn-2565-03 — 100% composition bar chart)
 //   ⏳ polygon-labeled
-//   ⏳ stacked-bar-100
 //   ⏳ 3set-c-in-a-shade-ab-minus-c
 //
 // renderImage() จะคืน null ถ้า type ยังไม่รองรับ
@@ -554,6 +554,128 @@ function renderUnitCircle(spec){
 }
 
 
+// ----- renderer: 100% stacked bar chart -----
+// Spec fields:
+//   width, height          - SVG canvas (default 400 x 380)
+//   yLabel                 - vertical y-axis label (Thai text, rotated -90°)
+//   categories             - [{name, segments: [{label, value}, ...]}, ...]
+//                            segments stack bottom→top; values are percentages (0..100)
+//   legend                 - [{label}, ...] aligned with segment indices (optional)
+//   yAxis                  - {min, max, step} (default {min:0, max:100, step:10})
+//   colors                 - [color, ...] per segment index (optional; defaults to parchment palette)
+//   textColors             - [color, ...] per segment index (optional; auto-chosen if absent)
+function renderStackedBar100(spec){
+  const W = spec.width || 400;
+  const H = spec.height || 380;
+  const yLabel = spec.yLabel || '';
+  const cats = spec.categories || [];
+  const legend = spec.legend || [];
+  const yAxis = spec.yAxis || {min: 0, max: 100, step: 10};
+
+  // Default 4-segment palette (warm parchment: light cream → dark brown)
+  const defaultColors = ['#e6dfd0', '#b8aa88', '#7a6e54', '#3a3424'];
+  const defaultTextColors = ['#222', '#222', '#fff', '#fff'];
+  const colors = spec.colors || defaultColors;
+  const textColors = spec.textColors || defaultTextColors;
+
+  // Layout: leave room for y-label (left), legend (right), category labels (bottom)
+  const padL = 60;
+  const padR = legend.length > 0 ? 60 : 25;
+  const padT = 25;
+  const padB = 60;
+  const plotW = W - padL - padR;
+  const plotH = H - padT - padB;
+  const baseY = padT + plotH;
+  const topY = padT;
+
+  // Bar layout: equal-width bars with equal gaps (n+1 gaps for n bars)
+  const nBars = cats.length;
+  const barW = Math.min(80, plotW * 0.35);
+  const gapW = (plotW - nBars * barW) / (nBars + 1);
+
+  // Y scale: pixels per unit
+  const yRange = yAxis.max - yAxis.min;
+  const yScale = plotH / yRange;
+
+  let svg = `<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" `
+          + `xmlns="http://www.w3.org/2000/svg" `
+          + `style="background:#fff;font-family:'Sarabun',sans-serif;">`;
+
+  // Y-axis label (rotated -90°), centered vertically on plot area
+  if(yLabel){
+    const lx = 14, ly = padT + plotH/2;
+    svg += `<text x="${lx}" y="${ly}" transform="rotate(-90 ${lx} ${ly})" `
+         + `text-anchor="middle" font-size="12" fill="#222">${yLabel}</text>`;
+  }
+
+  // Y-axis vertical line
+  svg += `<line x1="${padL}" y1="${topY}" x2="${padL}" y2="${baseY}" `
+       + `stroke="#222" stroke-width="1"/>`;
+
+  // Y-axis ticks + numeric labels (from min to max, stepping by step)
+  for(let v = yAxis.min; v <= yAxis.max + 1e-9; v += yAxis.step){
+    const y = baseY - (v - yAxis.min) * yScale;
+    svg += `<line x1="${padL-3}" y1="${y.toFixed(2)}" x2="${padL}" y2="${y.toFixed(2)}" `
+         + `stroke="#222" stroke-width="1"/>`;
+    svg += `<text x="${padL-6}" y="${(y+4).toFixed(2)}" text-anchor="end" `
+         + `font-size="11" fill="#222">${v}</text>`;
+  }
+
+  // X-axis horizontal line (baseline)
+  svg += `<line x1="${padL}" y1="${baseY}" x2="${padL + plotW}" y2="${baseY}" `
+       + `stroke="#222" stroke-width="1"/>`;
+
+  // Bars + stacked segments
+  cats.forEach((cat, ci) => {
+    const barX = padL + gapW + ci * (barW + gapW);
+    const barCx = barX + barW/2;
+
+    let cumValue = 0;
+    (cat.segments || []).forEach((seg, si) => {
+      const segBottomY = baseY - cumValue * yScale;
+      const segTopY = baseY - (cumValue + seg.value) * yScale;
+      const segH = segBottomY - segTopY;
+
+      // Segment rectangle (thin border for separation)
+      svg += `<rect x="${barX.toFixed(2)}" y="${segTopY.toFixed(2)}" `
+           + `width="${barW.toFixed(2)}" height="${segH.toFixed(2)}" `
+           + `fill="${colors[si % colors.length]}" `
+           + `stroke="#222" stroke-width="0.8"/>`;
+
+      // Segment label (centered; smaller font if segment is short)
+      const labelY = (segBottomY + segTopY) / 2 + 4;
+      const labelColor = textColors[si % textColors.length];
+      const fontSize = segH < 22 ? 11 : 13;
+      svg += `<text x="${barCx.toFixed(2)}" y="${labelY.toFixed(2)}" `
+           + `text-anchor="middle" font-size="${fontSize}" `
+           + `fill="${labelColor}">${seg.label}</text>`;
+
+      cumValue += seg.value;
+    });
+
+    // Category label below bar
+    svg += `<text x="${barCx.toFixed(2)}" y="${(baseY + 25).toFixed(2)}" `
+         + `text-anchor="middle" font-size="14" fill="#222">${cat.name || ''}</text>`;
+  });
+
+  // Legend (right side, vertically stacked)
+  if(legend.length > 0){
+    const legX = padL + plotW + 20;
+    const legStartY = padT + 50;
+    legend.forEach((leg, li) => {
+      const ly = legStartY + li * 25;
+      svg += `<rect x="${legX}" y="${ly}" width="14" height="14" `
+           + `fill="${colors[li % colors.length]}" `
+           + `stroke="#222" stroke-width="0.8"/>`;
+      svg += `<text x="${legX + 20}" y="${ly + 12}" `
+           + `font-size="13" fill="#222">${leg.label}</text>`;
+    });
+  }
+
+  return svg + '</svg>';
+}
+
+
 // ----- main entry -----
 // Returns: SVG string ที่ใช้ insert ผ่าน innerHTML ได้เลย,
 //          หรือ null ถ้า type ไม่รองรับ (caller จะ fallback)
@@ -578,8 +700,9 @@ function renderImage(spec){
       return renderZTable(spec);
     case 'unit-circle-figure':
       return renderUnitCircle(spec);
+    case 'stacked-bar-100':
+      return renderStackedBar100(spec);
     // TODO: case 'polygon-labeled':              return renderPolygonLabeled(spec);
-    // TODO: case 'stacked-bar-100':              return renderStackedBar100(spec);
     // TODO: case '3set-c-in-a-shade-ab-minus-c': return venn3CinA_shadeABminusC_13();
     default:
       return null; // unknown type → admin.html จะ fallback ไปแสดง placeholder
