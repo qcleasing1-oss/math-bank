@@ -255,6 +255,240 @@
     flex-shrink: 0;
   }
 
+  /* ===== Phase 3: Tag editor ===== */
+  /* Modified Q-card indicator */
+  .q-card.modified {
+    border-left: 3px solid var(--accent);
+  }
+  .q-card.modified > summary::after {
+    content: " · แก้แล้ว";
+    color: var(--accent);
+    font-size: 11px;
+    font-weight: 500;
+  }
+
+  /* Edit-tags button inside Q-body */
+  .edit-tags-section {
+    margin: 12px 0;
+    padding: 10px 14px;
+    background: var(--bg);
+    border: 1px dashed var(--rule);
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+  }
+  .edit-tags-section .current-tags {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    align-items: center;
+    font-size: 13px;
+  }
+  .edit-tags-section .current-tags .label {
+    color: var(--ink-soft);
+    margin-right: 4px;
+  }
+  .edit-tags-btn {
+    font-family: 'Sarabun', sans-serif;
+    font-size: 13px;
+    padding: 5px 12px;
+    background: var(--accent-soft);
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    border-radius: 6px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background .15s ease;
+  }
+  .edit-tags-btn:hover {
+    background: var(--accent);
+    color: white;
+  }
+
+  /* Export bar (top of sidebar, only when pending changes exist) */
+  .export-bar {
+    margin-bottom: 14px;
+    padding: 10px;
+    background: var(--accent-soft);
+    border: 1px solid var(--accent);
+    border-radius: 6px;
+    display: flex;
+    gap: 6px;
+    align-items: center;
+  }
+  .export-bar .export-btn {
+    flex: 1;
+    font-family: 'Sarabun', sans-serif;
+    font-size: 13px;
+    padding: 6px 10px;
+    background: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+  }
+  .export-bar .export-btn:hover { opacity: 0.9; }
+  .export-bar .discard-btn {
+    font-family: 'Sarabun', sans-serif;
+    font-size: 13px;
+    padding: 6px 9px;
+    background: transparent;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  .export-bar .discard-btn:hover {
+    background: var(--accent);
+    color: white;
+  }
+
+  /* Modal overlay */
+  .modal {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  .modal[hidden] { display: none; }
+  .modal-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(40, 30, 20, 0.55);
+    backdrop-filter: blur(2px);
+  }
+  .modal-content {
+    position: relative;
+    background: var(--panel);
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.25);
+    max-width: 700px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 20px 24px;
+  }
+  .modal-content h3 {
+    margin: 0 0 4px;
+    font-size: 18px;
+    color: var(--ink);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+  }
+  .modal-content h3 .close-btn {
+    background: none;
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+    color: var(--ink-soft);
+    padding: 0 8px;
+  }
+  .modal-content h3 .close-btn:hover { color: var(--accent); }
+  .modal-content .qid-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    color: var(--ink-soft);
+    margin-bottom: 14px;
+  }
+  .modal-content .question-preview {
+    padding: 12px 14px;
+    background: var(--bg);
+    border-radius: 6px;
+    font-size: 14px;
+    margin-bottom: 18px;
+    max-height: 140px;
+    overflow-y: auto;
+  }
+  .modal-content section { margin-bottom: 18px; }
+  .modal-content section h4 {
+    font-size: 13px;
+    margin: 0 0 8px;
+    color: var(--ink-soft);
+    font-weight: 600;
+  }
+  .modal-content section h4 .hint {
+    color: var(--ink-soft);
+    font-weight: 400;
+    font-size: 11px;
+    margin-left: 6px;
+  }
+  .tag-selector {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .tag-toggle {
+    font-family: 'Sarabun', sans-serif;
+    font-size: 13px;
+    padding: 5px 11px;
+    border-radius: 14px;
+    background: transparent;
+    border: 1px solid var(--rule);
+    color: var(--ink);
+    cursor: pointer;
+    transition: all .15s ease;
+  }
+  .tag-toggle:hover:not(:disabled) {
+    border-color: var(--accent);
+    background: var(--accent-soft);
+  }
+  .tag-toggle.primary.selected {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: white;
+    font-weight: 500;
+  }
+  .tag-toggle.sub.selected {
+    background: var(--accent-soft);
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .tag-toggle:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+  }
+  .modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    padding-top: 12px;
+    border-top: 1px solid var(--rule);
+  }
+  .modal-footer button {
+    font-family: 'Sarabun', sans-serif;
+    font-size: 14px;
+    padding: 7px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  .modal-footer .btn-cancel {
+    background: transparent;
+    color: var(--ink);
+    border: 1px solid var(--rule);
+  }
+  .modal-footer .btn-save {
+    background: var(--accent);
+    color: white;
+    border: 1px solid var(--accent);
+    font-weight: 500;
+  }
+  .modal-footer .btn-save:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+  .modal-footer .btn-cancel:hover { background: var(--bg); }
+  .modal-footer .btn-save:not(:disabled):hover { opacity: 0.9; }
+
   /* ===== Main content ===== */
   main {
     overflow-y: auto;
@@ -463,6 +697,12 @@
       <h2>คลังข้อสอบคณิต ม.ปลาย</h2>
       <div class="meta" id="bankMeta">กำลังโหลด…</div>
     </header>
+    <div id="exportBar" class="export-bar" hidden>
+      <button class="export-btn" onclick="exportChanges()">
+        📥 Export Changes (<span id="changeCount">0</span>)
+      </button>
+      <button class="discard-btn" onclick="discardAllChanges()" title="ยกเลิกการแก้ทั้งหมด">↺</button>
+    </div>
     <div class="sidebar-section">
       <h3 class="sidebar-section-title">ดูตาม Set</h3>
       <div id="setList"></div>
@@ -475,6 +715,34 @@
   <main class="empty" id="content">
     เลือกชุดข้อสอบจากด้านซ้าย
   </main>
+</div>
+
+<!-- Phase 3: Tag editor modal -->
+<div id="tagEditModal" class="modal" hidden>
+  <div class="modal-overlay" onclick="closeTagEditor()"></div>
+  <div class="modal-content">
+    <h3>
+      <span>แก้ Tag</span>
+      <button class="close-btn" onclick="closeTagEditor()" title="ปิด (Esc)">✕</button>
+    </h3>
+    <div class="qid-label" id="tagEditQid"></div>
+    <div class="question-preview" id="tagEditQuestion"></div>
+
+    <section>
+      <h4>Primary tag <span class="hint">(1-2 บท — ใช้ filter ตามบท)</span></h4>
+      <div class="tag-selector" id="primarySelector"></div>
+    </section>
+
+    <section>
+      <h4>Secondary tags <span class="hint">(0+ บท — แสดงเป็น chip รอง)</span></h4>
+      <div class="tag-selector" id="secondarySelector"></div>
+    </section>
+
+    <div class="modal-footer">
+      <button class="btn-cancel" onclick="closeTagEditor()">ยกเลิก</button>
+      <button class="btn-save" id="tagEditSaveBtn" onclick="saveTagEditor()">บันทึก</button>
+    </div>
+  </div>
 </div>
 
 <script>
@@ -507,6 +775,57 @@
   let ALL_LOADED = false;       // true once every set file has been fetched
   let LOAD_ALL_PROMISE = null;  // memoize the background eager-load promise
 
+  // ============ Phase 3: Tag editor state ============
+  // qId → {topics: [...], subTopics: [...]}  (only differences from original)
+  const PENDING_CHANGES = new Map();
+  const LS_KEY = 'math-bank:pending-tag-changes';
+  let EDITING_QID = null;
+  let EDITING_PRIMARY = new Set();   // selected primary chapter IDs (1-2)
+  let EDITING_SUB = new Set();       // selected secondary chapter IDs
+
+  function loadPendingFromStorage() {
+    try {
+      const raw = localStorage.getItem(LS_KEY);
+      if (!raw) return;
+      const obj = JSON.parse(raw);
+      Object.entries(obj).forEach(([qid, tags]) => {
+        PENDING_CHANGES.set(qid, tags);
+      });
+    } catch (e) {
+      console.warn('Failed to load pending changes from localStorage', e);
+    }
+  }
+
+  function savePendingToStorage() {
+    try {
+      const obj = {};
+      PENDING_CHANGES.forEach((tags, qid) => { obj[qid] = tags; });
+      if (Object.keys(obj).length === 0) {
+        localStorage.removeItem(LS_KEY);
+      } else {
+        localStorage.setItem(LS_KEY, JSON.stringify(obj));
+      }
+    } catch (e) {
+      console.warn('Failed to save pending changes to localStorage', e);
+    }
+  }
+
+  // Return effective tags for a question (pending change if any, else original)
+  function getEffectiveTags(q) {
+    if (PENDING_CHANGES.has(q.id)) {
+      return PENDING_CHANGES.get(q.id);
+    }
+    return { topics: q.topics || [], subTopics: q.subTopics || [] };
+  }
+
+  function findQuestionById(qid) {
+    for (const set of Object.values(LOADED_SETS)) {
+      const found = (set.questions || []).find(q => q.id === qid);
+      if (found) return found;
+    }
+    return null;
+  }
+
   async function loadBank() {
     const meta = document.getElementById('bankMeta');
     try {
@@ -515,6 +834,9 @@
       if (!res.ok) throw new Error('HTTP ' + res.status);
       MANIFEST = await res.json();
       meta.textContent = `schema v${MANIFEST.schemaVersion} · exported ${MANIFEST.exported}`;
+      // Phase 3: restore pending changes from localStorage + update bar
+      loadPendingFromStorage();
+      updateExportBar();
       renderSetList();
       renderChapterList();
       // Background eager-load all sets so chapter counts populate
@@ -617,7 +939,8 @@
     const countByChapter = {};
     Object.values(LOADED_SETS).forEach(set => {
       (set.questions || []).forEach(q => {
-        (q.topics || []).forEach(t => {
+        // Phase 3: count effective primary tags (apply pending changes)
+        getEffectiveTags(q).topics.forEach(t => {
           countByChapter[t] = (countByChapter[t] || 0) + 1;
         });
       });
@@ -681,8 +1004,9 @@
     });
 
     // Filter PRIMARY only, then sort by setId → questionNumber
+    // Phase 3: use effective tags (apply pending changes)
     const qs = allQuestions
-      .filter(q => (q.topics || []).includes(chId))
+      .filter(q => getEffectiveTags(q).topics.includes(chId))
       .sort((a, b) => {
         if (a.setId !== b.setId) return a.setId.localeCompare(b.setId);
         return (a.questionNumber || 0) - (b.questionNumber || 0);
@@ -777,9 +1101,11 @@
       : (q.hasImage ? `<span class="badge img">hasImage</span>` : '');
 
     // Tag chips: primary (topics) + secondary (subTopics)
-    // Defensive — ข้อเก่าที่ไม่ผ่าน migration จะไม่มี subTopics → default []
-    const primaryTopics = q.topics || [];
-    const subTopics = q.subTopics || [];
+    // Phase 3: use effective tags (apply pending changes)
+    const tags = getEffectiveTags(q);
+    const primaryTopics = tags.topics;
+    const subTopics = tags.subTopics;
+    const isModified = PENDING_CHANGES.has(q.id);
     const primaryChips = primaryTopics.map(t =>
       `<span class="tag-chip primary" title="${escapeHtml(topicLabel(t))}">บท ${t}</span>`
     ).join('');
@@ -796,7 +1122,7 @@
       : '';
 
     return `
-      <details class="q-card">
+      <details class="q-card${isModified ? ' modified' : ''}">
         <summary>
           ${setPrefix}
           <span class="q-num">Q${String(q.questionNumber).padStart(2,'0')}</span>
@@ -816,6 +1142,24 @@
 
   function renderQBody(q) {
     let out = '';
+
+    // Phase 3: Edit-tags section at the top of body
+    const tags = getEffectiveTags(q);
+    const isModified = PENDING_CHANGES.has(q.id);
+    const primaryHtml = tags.topics.map(t =>
+      `<span class="tag-chip primary" title="${escapeHtml(topicLabel(t))}">บท ${t}: ${escapeHtml(topicLabel(t))}</span>`
+    ).join('');
+    const subHtml = tags.subTopics.map(t =>
+      `<span class="tag-chip sub" title="${escapeHtml(topicLabel(t))}">+บท ${t}: ${escapeHtml(topicLabel(t))}</span>`
+    ).join('');
+    out += `<div class="edit-tags-section">
+      <div class="current-tags">
+        <span class="label">Tag${isModified ? ' (แก้แล้ว)' : ''}:</span>
+        ${primaryHtml || '<em style="color:var(--ink-soft)">(ไม่มี primary)</em>'}
+        ${subHtml}
+      </div>
+      <button class="edit-tags-btn" onclick="openTagEditor('${escapeHtml(q.id)}')">✏️ แก้ Tag</button>
+    </div>`;
 
     // คำถาม
     out += `<div class="q-section">
@@ -886,6 +1230,205 @@
 
     return out;
   }
+
+  // ============ Phase 3: Tag editor functions ============
+
+  function openTagEditor(qid) {
+    const q = findQuestionById(qid);
+    if (!q) {
+      alert('ไม่พบข้อ ' + qid);
+      return;
+    }
+
+    EDITING_QID = qid;
+    const tags = getEffectiveTags(q);
+    EDITING_PRIMARY = new Set(tags.topics);
+    EDITING_SUB = new Set(tags.subTopics);
+
+    document.getElementById('tagEditQid').textContent = qid;
+    document.getElementById('tagEditQuestion').innerHTML = q.question || '<em>(no question text)</em>';
+
+    renderTagSelectors();
+    document.getElementById('tagEditModal').hidden = false;
+
+    // KaTeX render preview
+    typeset(document.getElementById('tagEditQuestion'));
+  }
+
+  function closeTagEditor() {
+    document.getElementById('tagEditModal').hidden = true;
+    EDITING_QID = null;
+  }
+
+  // Keyboard: Esc to close, Enter to save
+  document.addEventListener('keydown', (e) => {
+    if (document.getElementById('tagEditModal').hidden) return;
+    if (e.key === 'Escape') closeTagEditor();
+    else if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) saveTagEditor();
+  });
+
+  function renderTagSelectors() {
+    const topicNames = (MANIFEST && MANIFEST.topicNames) || {};
+    const chapterIds = Object.keys(topicNames).sort((a, b) => Number(a) - Number(b));
+
+    const primaryHtml = chapterIds.map(chId => {
+      const selected = EDITING_PRIMARY.has(chId);
+      const isSecondary = EDITING_SUB.has(chId);
+      const reachedLimit = !selected && EDITING_PRIMARY.size >= 2;
+      const disabled = (!selected && (isSecondary || reachedLimit));
+      const cls = 'tag-toggle primary' + (selected ? ' selected' : '');
+      return `<button class="${cls}" ${disabled ? 'disabled' : ''}
+        onclick="togglePrimary('${chId}')"
+        title="${escapeHtml(topicNames[chId])}">บท ${chId}: ${escapeHtml(topicNames[chId])}</button>`;
+    }).join('');
+
+    const secondaryHtml = chapterIds.map(chId => {
+      const selected = EDITING_SUB.has(chId);
+      const isPrimary = EDITING_PRIMARY.has(chId);
+      const disabled = !selected && isPrimary;
+      const cls = 'tag-toggle sub' + (selected ? ' selected' : '');
+      return `<button class="${cls}" ${disabled ? 'disabled' : ''}
+        onclick="toggleSecondary('${chId}')"
+        title="${escapeHtml(topicNames[chId])}">บท ${chId}: ${escapeHtml(topicNames[chId])}</button>`;
+    }).join('');
+
+    document.getElementById('primarySelector').innerHTML = primaryHtml;
+    document.getElementById('secondarySelector').innerHTML = secondaryHtml;
+
+    // Disable save if primary is empty
+    document.getElementById('tagEditSaveBtn').disabled = EDITING_PRIMARY.size === 0;
+  }
+
+  function togglePrimary(chId) {
+    if (EDITING_PRIMARY.has(chId)) {
+      EDITING_PRIMARY.delete(chId);
+    } else {
+      if (EDITING_PRIMARY.size >= 2) return;
+      EDITING_PRIMARY.add(chId);
+      EDITING_SUB.delete(chId);  // mutual exclusion
+    }
+    renderTagSelectors();
+  }
+
+  function toggleSecondary(chId) {
+    if (EDITING_SUB.has(chId)) {
+      EDITING_SUB.delete(chId);
+    } else {
+      if (EDITING_PRIMARY.has(chId)) return;  // can't be both
+      EDITING_SUB.add(chId);
+    }
+    renderTagSelectors();
+  }
+
+  function saveTagEditor() {
+    if (!EDITING_QID) return;
+    if (EDITING_PRIMARY.size === 0) {
+      alert('ต้องมี primary tag อย่างน้อย 1 บท');
+      return;
+    }
+
+    const q = findQuestionById(EDITING_QID);
+    if (!q) return;
+
+    const newTopics = Array.from(EDITING_PRIMARY).sort((a, b) => Number(a) - Number(b));
+    const newSubTopics = Array.from(EDITING_SUB).sort((a, b) => Number(a) - Number(b));
+    const origTopics = q.topics || [];
+    const origSubTopics = q.subTopics || [];
+
+    const topicsSame = JSON.stringify(newTopics) === JSON.stringify(origTopics);
+    const subSame = JSON.stringify(newSubTopics) === JSON.stringify(origSubTopics);
+
+    if (topicsSame && subSame) {
+      // No real change → ensure not in pending
+      PENDING_CHANGES.delete(EDITING_QID);
+    } else {
+      PENDING_CHANGES.set(EDITING_QID, { topics: newTopics, subTopics: newSubTopics });
+    }
+
+    savePendingToStorage();
+    closeTagEditor();
+    updateExportBar();
+    refreshCurrentView();
+  }
+
+  function refreshCurrentView() {
+    // Re-render current view + sidebar counts
+    if (CURRENT_CHAPTER) {
+      selectChapter(CURRENT_CHAPTER);
+    } else if (CURRENT_SET) {
+      selectSet(CURRENT_SET);
+    }
+    if (ALL_LOADED) updateChapterCounts();
+  }
+
+  function updateExportBar() {
+    const bar = document.getElementById('exportBar');
+    const count = PENDING_CHANGES.size;
+    if (count === 0) {
+      bar.hidden = true;
+    } else {
+      bar.hidden = false;
+      document.getElementById('changeCount').textContent = count;
+    }
+  }
+
+  function discardAllChanges() {
+    if (PENDING_CHANGES.size === 0) return;
+    if (!confirm(`ยกเลิกการแก้ทั้งหมด ${PENDING_CHANGES.size} ข้อ?`)) return;
+    PENDING_CHANGES.clear();
+    savePendingToStorage();
+    updateExportBar();
+    refreshCurrentView();
+  }
+
+  function exportChanges() {
+    if (PENDING_CHANGES.size === 0) return;
+
+    const changes = [];
+    PENDING_CHANGES.forEach((tags, qid) => {
+      const origQ = findQuestionById(qid);
+      changes.push({
+        id: qid,
+        previousTopics: origQ ? (origQ.topics || []) : [],
+        previousSubTopics: origQ ? (origQ.subTopics || []) : [],
+        newTopics: tags.topics,
+        newSubTopics: tags.subTopics,
+      });
+    });
+    changes.sort((a, b) => a.id.localeCompare(b.id));
+
+    const payload = {
+      exported: new Date().toISOString(),
+      schemaVersion: (MANIFEST && MANIFEST.schemaVersion) || '3.0',
+      changeCount: changes.length,
+      changes,
+    };
+
+    const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    const now = new Date();
+    const yyyy = now.getFullYear();
+    const mm = String(now.getMonth() + 1).padStart(2, '0');
+    const dd = String(now.getDate()).padStart(2, '0');
+    const hh = String(now.getHours()).padStart(2, '0');
+    const mi = String(now.getMinutes()).padStart(2, '0');
+    a.download = `tag-changes-${yyyy}-${mm}-${dd}-${hh}${mi}.json`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }
+
+  // Warn before tab close if there are pending changes that haven't been exported
+  window.addEventListener('beforeunload', (e) => {
+    if (PENDING_CHANGES.size > 0) {
+      // Note: localStorage จะเก็บไว้ — แต่ warning ช่วยกัน user ลืม export
+      e.preventDefault();
+      e.returnValue = '';
+    }
+  });
 
   // ============ Helpers ============
   function escapeHtml(s) {
