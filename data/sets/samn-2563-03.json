@@ -8,6 +8,7 @@
       "topics": [
         "3"
       ],
+      "subTopics": [],
       "type": "mc",
       "level": "easy",
       "score": 2,
@@ -35,6 +36,7 @@
       "topics": [
         "3"
       ],
+      "subTopics": [],
       "type": "mc",
       "level": "medium",
       "score": 2,
@@ -63,6 +65,7 @@
       "topics": [
         "4"
       ],
+      "subTopics": [],
       "type": "mc",
       "level": "easy",
       "score": 2,
@@ -92,6 +95,7 @@
       "topics": [
         "9"
       ],
+      "subTopics": [],
       "type": "mc",
       "level": "easy",
       "score": 2,
@@ -117,6 +121,7 @@
       "topics": [
         "8"
       ],
+      "subTopics": [],
       "type": "mc",
       "level": "easy",
       "score": 2,
@@ -142,6 +147,7 @@
       "topics": [
         "6"
       ],
+      "subTopics": [],
       "type": "mc",
       "level": "easy",
       "score": 2,
@@ -168,6 +174,7 @@
       "topics": [
         "13"
       ],
+      "subTopics": [],
       "type": "mc",
       "level": "medium",
       "score": 2,
@@ -194,6 +201,7 @@
       "topics": [
         "14"
       ],
+      "subTopics": [],
       "type": "mc",
       "level": "medium",
       "score": 2,
@@ -221,6 +229,7 @@
       "topics": [
         "15"
       ],
+      "subTopics": [],
       "type": "mc",
       "level": "medium",
       "score": 2,
@@ -288,6 +297,7 @@
       "topics": [
         "12"
       ],
+      "subTopics": [],
       "type": "mc",
       "level": "easy",
       "score": 2,
@@ -317,6 +327,7 @@
       "topics": [
         "3"
       ],
+      "subTopics": [],
       "type": "mc",
       "level": "medium",
       "score": 4,
@@ -345,6 +356,7 @@
       "topics": [
         "10"
       ],
+      "subTopics": [],
       "type": "mc",
       "level": "hard",
       "score": 4,
@@ -375,6 +387,7 @@
       "topics": [
         "3"
       ],
+      "subTopics": [],
       "type": "mc",
       "level": "hard",
       "score": 4,
@@ -403,6 +416,7 @@
       "topics": [
         "7"
       ],
+      "subTopics": [],
       "type": "mc",
       "level": "hard",
       "score": 4,
@@ -434,6 +448,7 @@
       "topics": [
         "4"
       ],
+      "subTopics": [],
       "type": "mc",
       "level": "medium",
       "score": 4,
@@ -462,6 +477,7 @@
       "topics": [
         "9"
       ],
+      "subTopics": [],
       "type": "mc",
       "level": "medium",
       "score": 4,
@@ -491,6 +507,7 @@
       "topics": [
         "8"
       ],
+      "subTopics": [],
       "type": "mc",
       "level": "medium",
       "score": 4,
@@ -519,6 +536,7 @@
       "topics": [
         "8"
       ],
+      "subTopics": [],
       "type": "mc",
       "level": "medium",
       "score": 4,
@@ -548,6 +566,7 @@
       "topics": [
         "6"
       ],
+      "subTopics": [],
       "type": "mc",
       "level": "medium",
       "score": 4,
@@ -578,6 +597,7 @@
       "topics": [
         "11"
       ],
+      "subTopics": [],
       "type": "mc",
       "level": "medium",
       "score": 4,
@@ -605,6 +625,7 @@
       "topics": [
         "13"
       ],
+      "subTopics": [],
       "type": "mc",
       "level": "medium",
       "score": 4,
@@ -636,6 +657,7 @@
       "topics": [
         "13"
       ],
+      "subTopics": [],
       "type": "mc",
       "level": "medium",
       "score": 4,
@@ -663,6 +685,7 @@
       "topics": [
         "12"
       ],
+      "subTopics": [],
       "type": "mc",
       "level": "medium",
       "score": 4,
@@ -692,6 +715,7 @@
       "topics": [
         "15"
       ],
+      "subTopics": [],
       "type": "mc",
       "level": "medium",
       "score": 4,
@@ -772,6 +796,7 @@
       "topics": [
         "15"
       ],
+      "subTopics": [],
       "type": "mc",
       "level": "medium",
       "score": 4,
@@ -801,6 +826,7 @@
       "topics": [
         "10"
       ],
+      "subTopics": [],
       "type": "mc",
       "level": "hard",
       "score": 4,
@@ -833,6 +859,7 @@
       "topics": [
         "15"
       ],
+      "subTopics": [],
       "type": "mc",
       "level": "hard",
       "score": 4,
@@ -865,6 +892,7 @@
       "topics": [
         "11"
       ],
+      "subTopics": [],
       "type": "mc",
       "level": "hard",
       "score": 4,
@@ -895,6 +923,7 @@
       "topics": [
         "14"
       ],
+      "subTopics": [],
       "type": "mc",
       "level": "hard",
       "score": 4,
@@ -924,6 +953,7 @@
       "topics": [
         "6"
       ],
+      "subTopics": [],
       "type": "mc",
       "level": "medium",
       "score": 4,
