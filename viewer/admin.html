@@ -156,6 +156,105 @@
     border-radius: 8px;
   }
 
+  /* ===== Sidebar sections (Phase 2: Set view + Chapter view) ===== */
+  .sidebar-section {
+    margin-bottom: 18px;
+  }
+  .sidebar-section-title {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--ink-soft);
+    margin: 0 0 8px;
+    padding-bottom: 4px;
+    border-bottom: 1px dashed var(--rule);
+  }
+
+  /* Chapter list item (mirror of .set-item but for primary-topic browsing) */
+  .chapter-item {
+    padding: 7px 10px;
+    margin-bottom: 1px;
+    cursor: pointer;
+    border-left: 3px solid transparent;
+    font-size: 13px;
+    transition: background .15s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .chapter-item:hover { background: var(--accent-soft); }
+  .chapter-item.active {
+    background: var(--accent-soft);
+    border-left-color: var(--accent);
+    font-weight: 500;
+  }
+  .chapter-item .chapter-num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--ink-soft);
+    min-width: 22px;
+    text-align: right;
+  }
+  .chapter-item .chapter-name {
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .chapter-item .chapter-count {
+    font-size: 11px;
+    color: var(--ink-soft);
+    background: var(--bg);
+    padding: 1px 6px;
+    border-radius: 8px;
+  }
+  .chapter-item .chapter-count.zero {
+    opacity: 0.4;
+  }
+  .chapter-item .chapter-count.loading {
+    opacity: 0.5;
+    font-style: italic;
+  }
+
+  /* ===== Tag chips (in Q-card summary) ===== */
+  .tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    flex-shrink: 0;
+  }
+  .tag-chip {
+    font-size: 11px;
+    padding: 1px 7px;
+    border-radius: 8px;
+    font-family: 'Sarabun', sans-serif;
+    white-space: nowrap;
+  }
+  .tag-chip.primary {
+    background: var(--accent-soft);
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    font-weight: 500;
+  }
+  .tag-chip.sub {
+    background: var(--bg);
+    border: 1px solid var(--rule);
+    color: var(--ink-soft);
+  }
+
+  /* Set-prefix badge (shown only in chapter view to disambiguate source) */
+  .set-prefix {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: var(--ink-soft);
+    background: var(--bg);
+    padding: 1px 6px;
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    flex-shrink: 0;
+  }
+
   /* ===== Main content ===== */
   main {
     overflow-y: auto;
@@ -364,7 +463,14 @@
       <h2>คลังข้อสอบคณิต ม.ปลาย</h2>
       <div class="meta" id="bankMeta">กำลังโหลด…</div>
     </header>
-    <div id="setList"></div>
+    <div class="sidebar-section">
+      <h3 class="sidebar-section-title">ดูตาม Set</h3>
+      <div id="setList"></div>
+    </div>
+    <div class="sidebar-section">
+      <h3 class="sidebar-section-title">ดูตามบท</h3>
+      <div id="chapterList"></div>
+    </div>
   </aside>
   <main class="empty" id="content">
     เลือกชุดข้อสอบจากด้านซ้าย
@@ -397,6 +503,9 @@
   let MANIFEST = null;
   const LOADED_SETS = {};   // cache: sid → {setId, questions}
   let CURRENT_SET = null;
+  let CURRENT_CHAPTER = null;   // Phase 2: state for chapter view
+  let ALL_LOADED = false;       // true once every set file has been fetched
+  let LOAD_ALL_PROMISE = null;  // memoize the background eager-load promise
 
   async function loadBank() {
     const meta = document.getElementById('bankMeta');
@@ -407,6 +516,10 @@
       MANIFEST = await res.json();
       meta.textContent = `schema v${MANIFEST.schemaVersion} · exported ${MANIFEST.exported}`;
       renderSetList();
+      renderChapterList();
+      // Background eager-load all sets so chapter counts populate
+      // (lazy-load benefit สำหรับ set view ยังคงอยู่ — เพราะ set view ไม่ต้องรอ)
+      ensureAllSetsLoaded();
     } catch (e) {
       meta.textContent = 'โหลดไม่สำเร็จ';
       document.getElementById('content').innerHTML = `
@@ -452,9 +565,150 @@
     });
   }
 
+  // ============ Sidebar: chapter list (Phase 2) ============
+  // แสดงรายการ 15 บท พร้อม count ของข้อที่มี chapter เป็น PRIMARY tag (q.topics)
+  // ข้อที่มีบทเป็น SECONDARY (q.subTopics) จะไม่ถูกนับ — ป้องกัน spam
+  function renderChapterList() {
+    const topicNames = (MANIFEST && MANIFEST.topicNames) || {};
+    const chapterIds = Object.keys(topicNames).sort((a, b) => Number(a) - Number(b));
+
+    const html = chapterIds.map(chId => {
+      const name = topicNames[chId];
+      const placeholder = ALL_LOADED ? '0' : '…';
+      const cls = ALL_LOADED ? '' : ' loading';
+      return `
+        <div class="chapter-item" data-chid="${chId}">
+          <span class="chapter-num">${chId}.</span>
+          <div class="chapter-name">${name}</div>
+          <span class="chapter-count${cls}">${placeholder}</span>
+        </div>`;
+    }).join('');
+
+    document.getElementById('chapterList').innerHTML = html;
+    document.querySelectorAll('.chapter-item').forEach(el => {
+      el.addEventListener('click', () => selectChapter(el.dataset.chid));
+    });
+
+    if (ALL_LOADED) updateChapterCounts();
+  }
+
+  // Background-load ทุก set ที่ยังไม่ได้โหลด — memoized + idempotent
+  async function ensureAllSetsLoaded() {
+    if (ALL_LOADED) return;
+    if (LOAD_ALL_PROMISE) return LOAD_ALL_PROMISE;
+    LOAD_ALL_PROMISE = (async () => {
+      const setIds = Object.keys((MANIFEST && MANIFEST.sets) || {});
+      await Promise.all(setIds.map(async sid => {
+        if (LOADED_SETS[sid]) return;
+        try {
+          const res = await fetch(`../data/sets/${sid}.json`, { cache: 'no-cache' });
+          if (res.ok) LOADED_SETS[sid] = await res.json();
+        } catch (e) {
+          console.error('Failed to load set', sid, e);
+        }
+      }));
+      ALL_LOADED = true;
+      updateChapterCounts();
+    })();
+    return LOAD_ALL_PROMISE;
+  }
+
+  function updateChapterCounts() {
+    const countByChapter = {};
+    Object.values(LOADED_SETS).forEach(set => {
+      (set.questions || []).forEach(q => {
+        (q.topics || []).forEach(t => {
+          countByChapter[t] = (countByChapter[t] || 0) + 1;
+        });
+      });
+    });
+    document.querySelectorAll('.chapter-item').forEach(el => {
+      const chId = el.dataset.chid;
+      const n = countByChapter[chId] || 0;
+      const countEl = el.querySelector('.chapter-count');
+      if (countEl) {
+        countEl.textContent = n;
+        countEl.classList.remove('loading');
+        countEl.classList.toggle('zero', n === 0);
+      }
+    });
+  }
+
+  // ============ Helpers (Phase 2) ============
+  function topicLabel(chId) {
+    return (MANIFEST && MANIFEST.topicNames && MANIFEST.topicNames[chId]) || `บทที่ ${chId}`;
+  }
+
+  function clearActiveSet() {
+    CURRENT_SET = null;
+    document.querySelectorAll('.set-item').forEach(el => el.classList.remove('active'));
+  }
+  function clearActiveChapter() {
+    CURRENT_CHAPTER = null;
+    document.querySelectorAll('.chapter-item').forEach(el => el.classList.remove('active'));
+  }
+
+  // ============ Main: render chapter view (Phase 2) ============
+  // Filter ทุกข้อจากทุก set ที่มี chapter เป็น PRIMARY (q.topics.includes(chId))
+  // ข้อที่ chapter เป็น secondary (subTopics) จะไม่ถูกแสดง
+  async function selectChapter(chId) {
+    CURRENT_CHAPTER = chId;
+    clearActiveSet();
+    document.querySelectorAll('.chapter-item').forEach(el => {
+      el.classList.toggle('active', el.dataset.chid === chId);
+    });
+
+    const main = document.getElementById('content');
+    const name = topicLabel(chId);
+
+    // Show loading if not all sets loaded yet
+    if (!ALL_LOADED) {
+      main.classList.remove('empty');
+      main.innerHTML = `
+        <div class="set-header">
+          <h1>บท ${chId}: ${name}</h1>
+          <div class="set-meta">กำลังโหลดข้อสอบทุก set…</div>
+        </div>`;
+      await ensureAllSetsLoaded();
+      // Guard: ถ้า user เปลี่ยน selection ระหว่างที่ยังโหลด → abort
+      if (CURRENT_CHAPTER !== chId) return;
+    }
+
+    // Collect all questions from all loaded sets
+    const allQuestions = [];
+    Object.values(LOADED_SETS).forEach(set => {
+      (set.questions || []).forEach(q => allQuestions.push(q));
+    });
+
+    // Filter PRIMARY only, then sort by setId → questionNumber
+    const qs = allQuestions
+      .filter(q => (q.topics || []).includes(chId))
+      .sort((a, b) => {
+        if (a.setId !== b.setId) return a.setId.localeCompare(b.setId);
+        return (a.questionNumber || 0) - (b.questionNumber || 0);
+      });
+
+    const html = `
+      <div class="set-header">
+        <h1>บท ${chId}: ${name}</h1>
+        <div class="set-meta">
+          <code>chapter:${chId}</code> · ${qs.length} ข้อ
+          · primary tag · เรียงตาม set แล้ว Q#
+        </div>
+      </div>
+      <div class="q-list">
+        ${qs.map(q => renderQCard(q, { showSetPrefix: true })).join('')}
+      </div>
+    `;
+    main.classList.remove('empty');
+    main.innerHTML = html;
+    typeset(main);
+  }
+
   // ============ Main: render set ============
   async function selectSet(sid) {
     CURRENT_SET = sid;
+    clearActiveChapter();  // mutual exclusion กับ chapter view
     document.querySelectorAll('.set-item').forEach(el => {
       el.classList.toggle('active', el.dataset.setid === sid);
     });
@@ -513,18 +767,41 @@
   }
 
   // ============ Question card ============
-  function renderQCard(q) {
+  function renderQCard(q, opts) {
+    opts = opts || {};
+    const showSetPrefix = !!opts.showSetPrefix;
     const preview = (q.question || '').replace(/\$[^$]+\$/g, '◇').slice(0, 90);
     const hasImg = q.imageSpec || q.hasImage;
     const imgBadge = q.imageSpec
       ? `<span class="badge img">imageSpec</span>`
       : (q.hasImage ? `<span class="badge img">hasImage</span>` : '');
 
+    // Tag chips: primary (topics) + secondary (subTopics)
+    // Defensive — ข้อเก่าที่ไม่ผ่าน migration จะไม่มี subTopics → default []
+    const primaryTopics = q.topics || [];
+    const subTopics = q.subTopics || [];
+    const primaryChips = primaryTopics.map(t =>
+      `<span class="tag-chip primary" title="${escapeHtml(topicLabel(t))}">บท ${t}</span>`
+    ).join('');
+    const subChips = subTopics.map(t =>
+      `<span class="tag-chip sub" title="${escapeHtml(topicLabel(t))}">+บท ${t}</span>`
+    ).join('');
+    const tagRow = (primaryChips || subChips)
+      ? `<span class="tag-row">${primaryChips}${subChips}</span>`
+      : '';
+
+    // Set prefix — แสดงเฉพาะใน chapter view (เพราะ Q มาจากหลาย set)
+    const setPrefix = showSetPrefix
+      ? `<span class="set-prefix">${escapeHtml(q.setId)}</span>`
+      : '';
+
     return `
       <details class="q-card">
         <summary>
+          ${setPrefix}
           <span class="q-num">Q${String(q.questionNumber).padStart(2,'0')}</span>
           <span class="q-preview">${escapeHtml(preview)}</span>
+          ${tagRow}
           <span class="q-badges">
             <span class="badge type">${q.type}</span>
             ${imgBadge}
