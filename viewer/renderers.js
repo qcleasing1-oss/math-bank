@@ -11,7 +11,7 @@
 //   ✅ ztable-with-curves   (Q4 ของ samn-2564-04 — normal curves + reference table)
 //   ✅ unit-circle-figure   (Q9 samn-2565-03 + Q23 samn-2564-04 — 12 features incl. spiral + LaTeX)
 //   ✅ stacked-bar-100      (Q30 samn-2565-03 — 100% composition bar chart)
-//   ⏳ polygon-labeled
+//   ✅ polygon-labeled      (Q15 samn-2559-12 — labeled polygons with vertices/sides/angle marks)
 //   ⏳ 3set-c-in-a-shade-ab-minus-c
 //
 // renderImage() จะคืน null ถ้า type ยังไม่รองรับ
@@ -676,6 +676,157 @@ function renderStackedBar100(spec){
 }
 
 
+// ----- renderer: labeled polygon (vertices + sides + angle marks) -----
+// Spec fields:
+//   width, height          - SVG canvas (default 380 x 300)
+//   vertices               - {<name>: [x, y], ...}  — vertex positions
+//   vertexLabels           - {<name>: {dx, dy}, ...}  — label offsets from each vertex
+//   sides                  - [{from, to, label?, labelOffset?, style?, arrows?}, ...]
+//                            style:  "solid" (default) or "dashed"
+//                            arrows: "end", "start", or "both" (for vector-style sides)
+//                            label:  length text (e.g. "5", "x", "AB") — optional
+//                            labelOffset: {dx, dy} fine-tune from midpoint
+//   angleMarks             - [{at, from, to, type, ...}, ...]
+//                            type "right": square marker; optional `size` (default 10)
+//                            type "arc":   arc + optional `label`; optional `radius` (18),
+//                                          `labelDistance` (radius+14)
+//   annotations            - [{x, y, text, fontSize?, anchor?}, ...]  — free-form text
+function renderPolygonLabeled(spec){
+  const W = spec.width || 380;
+  const H = spec.height || 300;
+  const verts = spec.vertices || {};
+  const vLabels = spec.vertexLabels || {};
+  const sides = spec.sides || [];
+  const angleMarks = spec.angleMarks || [];
+  const annotations = spec.annotations || [];
+
+  let svg = `<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" `
+          + `xmlns="http://www.w3.org/2000/svg" style="background:#fff;">`;
+
+  // --- defs: arrow marker for vector-style sides ---
+  svg += `<defs>`
+       + `<marker id="pl-arrow" viewBox="0 0 10 10" refX="9" refY="5" `
+       + `markerWidth="7" markerHeight="7" orient="auto-start-reverse">`
+       + `<path d="M0 0 L10 5 L0 10 z" fill="#222"/></marker>`
+       + `</defs>`;
+
+  // Helpers
+  const V = name => {
+    const p = verts[name];
+    return (p && p.length >= 2) ? p : [0, 0];
+  };
+  const unitVec = (p1, p2) => {
+    const dx = p2[0] - p1[0], dy = p2[1] - p1[1];
+    const len = Math.sqrt(dx*dx + dy*dy);
+    if(len < 1e-9) return [1, 0];
+    return [dx/len, dy/len];
+  };
+
+  // --- 1. Sides (drawn first, bottom layer) ---
+  sides.forEach(s => {
+    const p1 = V(s.from), p2 = V(s.to);
+    const dashAttr = (s.style === 'dashed') ? ' stroke-dasharray="4 3"' : '';
+    let arrowAttr = '';
+    if(s.arrows === 'end' || s.arrows === 'both'){
+      arrowAttr += ' marker-end="url(#pl-arrow)"';
+    }
+    if(s.arrows === 'start' || s.arrows === 'both'){
+      arrowAttr += ' marker-start="url(#pl-arrow)"';
+    }
+    svg += `<line x1="${p1[0]}" y1="${p1[1]}" x2="${p2[0]}" y2="${p2[1]}" `
+         + `stroke="#222" stroke-width="1.5"${dashAttr}${arrowAttr}/>`;
+  });
+
+  // --- 2. Angle marks (over sides) ---
+  angleMarks.forEach(am => {
+    const center = V(am.at);
+    const uFrom = unitVec(center, V(am.from));
+    const uTo   = unitVec(center, V(am.to));
+
+    if(am.type === 'right'){
+      // Square marker: two outer sides of a small square at the corner
+      const size = am.size || 10;
+      const c1 = [center[0] + size*uFrom[0], center[1] + size*uFrom[1]];
+      const corner = [center[0] + size*(uFrom[0]+uTo[0]), center[1] + size*(uFrom[1]+uTo[1])];
+      const c2 = [center[0] + size*uTo[0], center[1] + size*uTo[1]];
+      svg += `<path d="M ${c1[0].toFixed(2)} ${c1[1].toFixed(2)} `
+           + `L ${corner[0].toFixed(2)} ${corner[1].toFixed(2)} `
+           + `L ${c2[0].toFixed(2)} ${c2[1].toFixed(2)}" `
+           + `fill="none" stroke="#222" stroke-width="1"/>`;
+    }
+    else if(am.type === 'arc'){
+      const r = am.radius || 18;
+      const start = [center[0] + r*uFrom[0], center[1] + r*uFrom[1]];
+      const end   = [center[0] + r*uTo[0],   center[1] + r*uTo[1]];
+
+      // Sweep flag: SVG y is down, so cross > 0 ⇒ uTo is CW from uFrom on screen
+      //   ⇒ sweep along positive-angle (CW on screen) ⇒ sweep-flag = 1
+      // Always use small arc (large-arc-flag = 0) — interior angles of polygons are ≤ 180°
+      const cross = uFrom[0]*uTo[1] - uFrom[1]*uTo[0];
+      const sweepFlag = (cross > 0) ? 1 : 0;
+
+      svg += `<path d="M ${start[0].toFixed(2)} ${start[1].toFixed(2)} `
+           + `A ${r} ${r} 0 0 ${sweepFlag} `
+           + `${end[0].toFixed(2)} ${end[1].toFixed(2)}" `
+           + `fill="none" stroke="#222" stroke-width="1"/>`;
+
+      // Label on bisector of the two rays
+      if(am.label){
+        const dist = (am.labelDistance != null) ? am.labelDistance : (r + 14);
+        const bx = uFrom[0] + uTo[0];
+        const by = uFrom[1] + uTo[1];
+        const blen = Math.sqrt(bx*bx + by*by);
+        if(blen > 1e-9){
+          const lx = center[0] + dist*(bx/blen);
+          const ly = center[1] + dist*(by/blen);
+          svg += `<text x="${lx.toFixed(2)}" y="${ly.toFixed(2)}" `
+               + `font-family="'Cambria Math','Times New Roman',serif" `
+               + `font-size="13" fill="#222" text-anchor="middle" `
+               + `dominant-baseline="central">${am.label}</text>`;
+        }
+      }
+    }
+  });
+
+  // --- 3. Side length labels (after angle marks) ---
+  sides.forEach(s => {
+    if(!s.label) return;
+    const p1 = V(s.from), p2 = V(s.to);
+    const mx = (p1[0] + p2[0]) / 2;
+    const my = (p1[1] + p2[1]) / 2;
+    const off = s.labelOffset || {};
+    const lx = mx + (off.dx || 0);
+    const ly = my + (off.dy || 0);
+    svg += `<text x="${lx.toFixed(2)}" y="${ly.toFixed(2)}" `
+         + `font-family="'Cambria Math','Times New Roman',serif" `
+         + `font-size="15" fill="#222" text-anchor="middle" `
+         + `dominant-baseline="central">${s.label}</text>`;
+  });
+
+  // --- 4. Vertex labels (top layer) ---
+  Object.keys(verts).forEach(name => {
+    const p = V(name);
+    const off = vLabels[name] || {};
+    const lx = p[0] + (off.dx || 0);
+    const ly = p[1] + (off.dy || 0);
+    svg += `<text x="${lx.toFixed(2)}" y="${ly.toFixed(2)}" `
+         + `font-family="'Cambria Math','Times New Roman',serif" `
+         + `font-size="18" fill="#222">${name}</text>`;
+  });
+
+  // --- 5. Free-form annotations (top, optional) ---
+  annotations.forEach(a => {
+    const fs = a.fontSize || 14;
+    const anchor = a.anchor || 'start';
+    svg += `<text x="${a.x}" y="${a.y}" `
+         + `font-family="'Cambria Math','Times New Roman',serif" `
+         + `font-size="${fs}" fill="#222" text-anchor="${anchor}">${a.text||''}</text>`;
+  });
+
+  return svg + '</svg>';
+}
+
+
 // ----- main entry -----
 // Returns: SVG string ที่ใช้ insert ผ่าน innerHTML ได้เลย,
 //          หรือ null ถ้า type ไม่รองรับ (caller จะ fallback)
@@ -702,7 +853,8 @@ function renderImage(spec){
       return renderUnitCircle(spec);
     case 'stacked-bar-100':
       return renderStackedBar100(spec);
-    // TODO: case 'polygon-labeled':              return renderPolygonLabeled(spec);
+    case 'polygon-labeled':
+      return renderPolygonLabeled(spec);
     // TODO: case '3set-c-in-a-shade-ab-minus-c': return venn3CinA_shadeABminusC_13();
     default:
       return null; // unknown type → admin.html จะ fallback ไปแสดง placeholder
