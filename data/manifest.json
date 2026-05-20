@@ -1,6 +1,6 @@
 {
   "schemaVersion": 3,
-  "exported": "2026-05-18",
+  "exported": "2026-05-20",
   "topicNames": {
     "1": "เซต",
     "2": "ตรรกศาสตร์",
@@ -397,11 +397,11 @@
       },
       "snapshot": {
         "round": 2,
-        "stage": "complete (with explanations)",
+        "stage": "complete (Phase 4 done — full chapter with rewritten explanations)",
         "questionsCompleted": 128,
         "questionsRemaining": 0,
-        "exportedAt": "2026-05-11",
-        "note": "All 128 questions have Round 2 explanation paragraphs from PDF answer key."
+        "exportedAt": "2026-05-20",
+        "note": "All 128 questions complete. Phase 4 (Q97-Q128) rewritten with detailed explanations. Q124 fixed (question + correct)."
       }
     }
   }

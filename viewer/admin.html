@@ -871,7 +871,7 @@
     const html = setIds.map(sid => {
       const s = sets[sid];
       const n = s.totalQuestions || 0;
-      const label = s.examDate || `${s.source || ''} ${s.year || ''}/${s.month || ''}`;
+      const label = setLabel(s);
       return `
         <div class="set-item" data-setid="${sid}">
           <span class="set-count">${n}</span>
@@ -1045,7 +1045,7 @@
       main.classList.remove('empty');
       main.innerHTML = `
         <div class="set-header">
-          <h1>${s.source || ''} ${s.year || ''}${s.month ? ' · เดือน ' + s.month : ''}</h1>
+          <h1>${setLabel(s)}</h1>
           <div class="set-meta"><code>${sid}</code> · กำลังโหลด…</div>
         </div>`;
       try {
@@ -1055,7 +1055,7 @@
       } catch (e) {
         main.innerHTML = `
           <div class="set-header">
-            <h1>${s.source || ''} ${s.year || ''}${s.month ? ' · เดือน ' + s.month : ''}</h1>
+            <h1>${setLabel(s)}</h1>
             <div class="set-meta"><code>${sid}</code></div>
           </div>
           <div class="status">
@@ -1074,11 +1074,11 @@
 
     const html = `
       <div class="set-header">
-        <h1>${s.source || ''} ${s.year || ''}${s.month ? ' · เดือน ' + s.month : ''}</h1>
+        <h1>${setLabel(s)}</h1>
         <div class="set-meta">
           <code>${sid}</code> · ${qs.length} ข้อ
           ${s.totalScore ? ` · ${s.totalScore} คะแนน` : ''}
-          ${s.examDate ? ' · สอบ ' + s.examDate : ''}
+          ${s.examDate && looksLikeDate(s.examDate) ? ' · สอบ ' + s.examDate : ''}
         </div>
       </div>
       <div class="q-list">
@@ -1431,6 +1431,28 @@
   });
 
   // ============ Helpers ============
+  // Build display label for a set.
+  // - Exam sets (have year): use examDate if real date, else source+year+month
+  // - Chapter sets (no year, has subject): source + subject (e.g. 'ข้อสอบรายบทตรรกศาสตร์')
+  function setLabel(s) {
+    if (!s) return '(no set)';
+    // Chapter set: no year, but has subject → 'source + subject'
+    if (!s.year && s.subject && s.source) {
+      return `${s.source}${s.subject}`;
+    }
+    // Exam set with real-date examDate
+    if (s.examDate && looksLikeDate(s.examDate)) {
+      return s.examDate;
+    }
+    // Exam set fallback
+    return `${s.source || ''} ${s.year || ''}${s.month ? ' · เดือน ' + s.month : ''}`.trim();
+  }
+
+  // Heuristic: examDate is a real date if it contains digits (year/day)
+  function looksLikeDate(str) {
+    return typeof str === 'string' && /\d{2,4}/.test(str);
+  }
+
   function escapeHtml(s) {
     return String(s)
       .replace(/&/g, '&amp;')
