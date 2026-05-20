@@ -1,6 +1,6 @@
 {
   "schemaVersion": 3,
-  "exported": "2026-05-20",
+  "exported": "2026-05-20T16:13:35Z",
   "topicNames": {
     "1": "เซต",
     "2": "ตรรกศาสตร์",
@@ -396,12 +396,12 @@
         "1": 82
       },
       "snapshot": {
-        "round": 1,
-        "stage": "Phase 4 done (Q01-64)",
-        "questionsCompleted": 64,
-        "questionsRemaining": 18,
+        "round": 2,
+        "stage": "complete (Phase 6 done — full chapter)",
+        "questionsCompleted": 82,
+        "questionsRemaining": 0,
         "exportedAt": "2026-05-20",
-        "note": "Phase 4 (Q49-64) added. Q49-54 จบ Entrance section, Q55-64 เริ่ม 'ข้อสอบเสริมประสบการณ์' (พื้นฐานวิศวะ, โควตา มช./มข., ทุน กพ., คัดโอลิมปิก). Q60, Q61 เป็น fill ที่ตอบเป็นเซต. Next: Phase 5 (Q65-80)."
+        "note": "Phase 5+6 (Q65-82) เพิ่มแล้ว: Q65-72 = สมาคมคณิตฯ/ทุน กพ./โอลิมปิก เรื่อง P(A), P(P(A)), Cartesian; Q73-75 = เรื่อง symmetric difference ($A \\triangle B$); Q76-82 = โจทย์ Venn 3 เซต (inclusion-exclusion + word problems). Bug fixes รอบ verify: Q67 (correct 0→1 + tag-along explanation), Q71 (mc→fill ตรง PDF), Q72 (note ⚠️ option 3 typo), Q77 (fill→mc ตรง PDF). Sweep flag: 24 ข้อมี needsExplanationImage=true + imageNote บรรยายรูป Venn — รอ Venn 3-set renderer (3set-c-in-a-shade-ab-minus-c) ก่อนค่อยใส่ explanationImage จริง. Flagged Q#s: 24, 32, 35, 38, 40-52, 54, 55, 71, 73, 74, 75, 79."
       }
     },
     "chap-02-logic": {
