@@ -397,11 +397,11 @@
       },
       "snapshot": {
         "round": 1,
-        "stage": "Phase 2 done (Q01-32)",
-        "questionsCompleted": 32,
-        "questionsRemaining": 50,
+        "stage": "Phase 3 done (Q01-48)",
+        "questionsCompleted": 48,
+        "questionsRemaining": 34,
         "exportedAt": "2026-05-20",
-        "note": "Phase 2 (Q17-32) added. Bugs fixed: Q21 (B was {∅,{1},{0,1}}, should be {0,{1},{0,1}} per PDF; correct answer choice 3 not 2 — PDF answer list has typo), Q26 (question is 'which is true', not 'which is false'). Next: Phase 3 (Q33-48 — Venn diagrams area)."
+        "note": "Phase 3 (Q33-48) added. Q33, Q36, Q48 มีรูป Venn ใช้ imageNote (รอ renderer). All answers verified with Python. Next: Phase 4 (Q49-64 — เริ่ม 'ข้อสอบเสริมประสบการณ์')."
       }
     },
     "chap-02-logic": {
