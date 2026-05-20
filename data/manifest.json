@@ -384,6 +384,26 @@
         "15": 3
       }
     },
+    "chap-01-set": {
+      "source": "ข้อสอบรายบท",
+      "subject": "เซต",
+      "totalQuestions": 82,
+      "totalScore": 82,
+      "structure": {
+        "part1": "ข้อสอบเข้ามหาวิทยาลัย (Q1-Q54), เสริมประสบการณ์ (Q55-Q82) — ทุกข้อจัดอยู่ในบทเซต"
+      },
+      "topicDistribution": {
+        "1": 82
+      },
+      "snapshot": {
+        "round": 1,
+        "stage": "Phase 2 done (Q01-32)",
+        "questionsCompleted": 32,
+        "questionsRemaining": 50,
+        "exportedAt": "2026-05-20",
+        "note": "Phase 2 (Q17-32) added. Bugs fixed: Q21 (B was {∅,{1},{0,1}}, should be {0,{1},{0,1}} per PDF; correct answer choice 3 not 2 — PDF answer list has typo), Q26 (question is 'which is true', not 'which is false'). Next: Phase 3 (Q33-48 — Venn diagrams area)."
+      }
+    },
     "chap-02-logic": {
       "source": "ข้อสอบรายบท",
       "subject": "ตรรกศาสตร์",
