@@ -397,11 +397,11 @@
       },
       "snapshot": {
         "round": 1,
-        "stage": "Phase 3 done (Q01-48)",
-        "questionsCompleted": 48,
-        "questionsRemaining": 34,
+        "stage": "Phase 4 done (Q01-64)",
+        "questionsCompleted": 64,
+        "questionsRemaining": 18,
         "exportedAt": "2026-05-20",
-        "note": "Phase 3 (Q33-48) added. Q33, Q36, Q48 มีรูป Venn ใช้ imageNote (รอ renderer). All answers verified with Python. Next: Phase 4 (Q49-64 — เริ่ม 'ข้อสอบเสริมประสบการณ์')."
+        "note": "Phase 4 (Q49-64) added. Q49-54 จบ Entrance section, Q55-64 เริ่ม 'ข้อสอบเสริมประสบการณ์' (พื้นฐานวิศวะ, โควตา มช./มข., ทุน กพ., คัดโอลิมปิก). Q60, Q61 เป็น fill ที่ตอบเป็นเซต. Next: Phase 5 (Q65-80)."
       }
     },
     "chap-02-logic": {
