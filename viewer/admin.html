@@ -675,6 +675,29 @@
     background: #fff;
     padding: 1px 5px;
   }
+  /* ตารางในโจทย์ (tables field) */
+  .q-table {
+    border-collapse: collapse;
+    margin: 8px 0;
+    background: #fff;
+    font-size: 14px;
+  }
+  .q-table th, .q-table td {
+    border: 1px solid var(--rule);
+    padding: 5px 14px;
+    text-align: center;
+  }
+  .q-table th {
+    background: var(--accent-soft);
+    font-weight: 500;
+    color: var(--ink);
+  }
+  .table-caption {
+    font-size: 12px;
+    color: var(--ink-soft);
+    font-style: italic;
+    margin-top: 4px;
+  }
 </style>
 </head>
 <body>
@@ -1166,6 +1189,27 @@
       <h4>โจทย์</h4>
       <div class="q-question">${q.question || ''}</div>
     </div>`;
+
+    // tables → render ตารางแจกแจงความถี่ ฯลฯ
+    if (Array.isArray(q.tables) && q.tables.length) {
+      out += q.tables.map(t => {
+        let tbl = '<table class="q-table">';
+        if (Array.isArray(t.headers) && t.headers.length) {
+          tbl += '<thead><tr>' + t.headers.map(h => `<th>${h}</th>`).join('') + '</tr></thead>';
+        }
+        if (Array.isArray(t.rows) && t.rows.length) {
+          tbl += '<tbody>' + t.rows.map(r =>
+            '<tr>' + r.map(c => `<td>${c}</td>`).join('') + '</tr>'
+          ).join('') + '</tbody>';
+        }
+        tbl += '</table>';
+        return `<div class="q-section">
+          <h4>ตาราง</h4>
+          ${tbl}
+          ${t.caption ? `<div class="table-caption">${t.caption}</div>` : ''}
+        </div>`;
+      }).join('');
+    }
 
     // imageSpec → render SVG ผ่าน renderers.js (Phase B)
     if (q.imageSpec) {
