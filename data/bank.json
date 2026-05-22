@@ -15189,7 +15189,7 @@
         "2"
       ],
       "subTopics": [
-        "1"
+        "6"
       ],
       "type": "mc",
       "level": "hard",
@@ -16633,9 +16633,7 @@
       "topics": [
         "13"
       ],
-      "subTopics": [
-        "4"
-      ],
+      "subTopics": [],
       "type": "fill",
       "level": "medium",
       "score": 5,
