@@ -78,6 +78,7 @@ function renderNormalCurve(spec){const W=spec.width||450,H=spec.height||220,pX=3
 //       'piecewise-linear' + points:[[x,y],[x,y],...]
 //       'polynomial'       + coefs:[aN,...,a1,a0]    (highest degree first; Horner's)
 //       'roots-polynomial' + roots:[r1,r2,...], leadingCoef?:1
+//     each function also accepts: dashed?:bool (true → เส้นประ), domain?, label?:{text,at:[x,y],anchor?}
 //   shadeBetween          - [{funcA, funcB, xRange:[a,b], color?}, ...]   funcA = lower, funcB = upper
 //   annotations           - [{text, at:[x,y], anchor?, arrowTo?:[x,y]}, ...] floating labels (optional arrow pointing to a target)
 function renderFunctionPlot(spec){const W=spec.width||450,H=spec.height||280,pX=30,pB=24,pT=20;
@@ -108,7 +109,8 @@ function renderFunctionPlot(spec){const W=spec.width||450,H=spec.height||280,pX=
   (spec.functions||[]).forEach(fn=>{const dom=fn.domain||xR,N=200,pts=[];
     for(let i=0;i<=N;i++){const x=dom[0]+(dom[1]-dom[0])*i/N,y=fnVal(fn,x);
       if(y!==null&&isFinite(y))pts.push(`${x2(x).toFixed(2)},${y2(y).toFixed(2)}`);}
-    svg+=`<polyline points="${pts.join(' ')}" fill="none" stroke="#222" stroke-width="1.6"/>`;
+    const dashAttr=fn.dashed?' stroke-dasharray="5 4"':'';
+    svg+=`<polyline points="${pts.join(' ')}" fill="none" stroke="#222" stroke-width="1.6"${dashAttr}/>`;
     if(fn.label){const[lx,ly]=fn.label.at,anc=fn.label.anchor||'start';
       svg+=`<text x="${x2(lx)}" y="${y2(ly)}" font-size="14" font-style="italic" fill="#222" text-anchor="${anc}">${fn.label.text}</text>`;}});
   (spec.annotations||[]).forEach(a=>{const[lx,ly]=a.at,anc=a.anchor||'start';
@@ -831,6 +833,93 @@ function renderPolygonLabeled(spec){
 // Returns: SVG string ที่ใช้ insert ผ่าน innerHTML ได้เลย,
 //          หรือ null ถ้า type ไม่รองรับ (caller จะ fallback)
 // Accepts a single spec OR an array of specs (Q23 has imageSpec = [fig1, fig2]).
+// ----- renderer: stem-and-leaf plot (แผนภาพต้นใบ) -----
+// Spec fields:
+//   rows       - [{stem:'4', leaves:['2','4','5','6']}, ...]  (required)
+//   highlight  - ['6:6','7:0']  รูปแบบ 'stem:leafIndex' (0-based) → เน้นใบนั้น (optional)
+//   caption    - heading 2 ช่อง default 'ต้น | ใบ' (optional; ใส่ '' เพื่อซ่อน)
+//   width      - SVG width (optional; auto จากจำนวนใบมากสุด)
+//   unitNote   - ข้อความหน่วยใต้ตาราง (optional)
+function renderStemLeaf(spec){
+  const rows = spec.rows || [];
+  if(rows.length === 0) return null;
+
+  const accent = '#8b3a1f';          // burnt sienna (เน้น)
+  const ink = '#222';
+  const rule = '#3a3424';            // เส้นตาราง (warm dark)
+  const fs = 16;                     // font size ตัวเลข
+  const rowH = 30;                   // ความสูงต่อแถว
+  const stemColW = 54;               // ความกว้างคอลัมน์ต้น
+  const leafGap = 24;                // ระยะห่างใบแต่ละตัว
+  const padT = 14, padB = 14, padL = 14, padR = 18;
+  const headH = (spec.caption === '') ? 6 : 26;
+
+  // จำนวนใบมากสุด → กำหนดความกว้าง
+  const maxLeaves = Math.max(...rows.map(r => (r.leaves||[]).length));
+  const leafAreaW = maxLeaves * leafGap + 14;
+  const W = spec.width || (padL + stemColW + leafAreaW + padR);
+  const H = padT + headH + rows.length * rowH + padB + (spec.unitNote ? 22 : 0);
+
+  // set ของ highlight เพื่อ lookup เร็ว
+  const hi = new Set(spec.highlight || []);
+
+  const sepX = padL + stemColW;      // เส้นแบ่งแนวตั้ง ต้น|ใบ
+  const topY = padT + headH;
+  const botY = topY + rows.length * rowH;
+
+  let svg = `<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" `
+          + `xmlns="http://www.w3.org/2000/svg" `
+          + `style="background:#fff;font-family:'Sarabun',sans-serif;">`;
+
+  // หัวตาราง (ต้น | ใบ)
+  if(spec.caption !== ''){
+    const cap = spec.caption || 'ต้น | ใบ';
+    const parts = cap.split('|');
+    const stemHead = (parts[0]||'ต้น').trim();
+    const leafHead = (parts[1]||'ใบ').trim();
+    svg += `<text x="${(padL + stemColW/2).toFixed(1)}" y="18" text-anchor="middle" `
+         + `font-size="13" font-weight="700" fill="${ink}">${stemHead}</text>`;
+    svg += `<text x="${(sepX + 16).toFixed(1)}" y="18" text-anchor="start" `
+         + `font-size="13" font-weight="700" fill="${ink}">${leafHead}</text>`;
+  }
+
+  // เส้นแบ่งแนวตั้ง (ต้น | ใบ)
+  svg += `<line x1="${sepX}" y1="${topY}" x2="${sepX}" y2="${botY}" `
+       + `stroke="${rule}" stroke-width="1.5"/>`;
+
+  // แต่ละแถว
+  rows.forEach((r, ri) => {
+    const yBase = topY + ri*rowH + rowH*0.65;   // baseline ตัวเลข
+    // ต้น (ชิดขวาก่อนเส้นแบ่ง)
+    svg += `<text x="${(sepX - 12).toFixed(1)}" y="${yBase.toFixed(1)}" `
+         + `text-anchor="end" font-size="${fs}" fill="${ink}">${r.stem}</text>`;
+    // ใบ
+    (r.leaves||[]).forEach((leaf, li) => {
+      const lx = sepX + 16 + li*leafGap;
+      const key = `${r.stem}:${li}`;
+      const isHi = hi.has(key);
+      const isVar = /[a-zA-Zก-ฮ]/.test(String(leaf));   // ตัวแปร → italic
+      if(isHi){
+        // วงกลมเน้น
+        svg += `<circle cx="${(lx).toFixed(1)}" cy="${(yBase - fs*0.32).toFixed(1)}" r="11" `
+             + `fill="none" stroke="${accent}" stroke-width="1.6"/>`;
+      }
+      svg += `<text x="${lx.toFixed(1)}" y="${yBase.toFixed(1)}" text-anchor="middle" `
+           + `font-size="${fs}" fill="${isHi?accent:ink}"${isVar?' font-style="italic"':''}>${leaf}</text>`;
+    });
+  });
+
+  // หน่วย/หมายเหตุใต้ตาราง
+  if(spec.unitNote){
+    svg += `<text x="${padL}" y="${(botY + 18).toFixed(1)}" text-anchor="start" `
+         + `font-size="11" fill="#5a4f3d">${spec.unitNote}</text>`;
+  }
+
+  svg += `</svg>`;
+  return svg;
+}
+
+
 function renderImage(spec){
   if(!spec) return null;
   // Array of specs → render each, wrap in horizontal flex container
@@ -855,6 +944,8 @@ function renderImage(spec){
       return renderStackedBar100(spec);
     case 'polygon-labeled':
       return renderPolygonLabeled(spec);
+    case 'stem-leaf':
+      return renderStemLeaf(spec);
     // TODO: case '3set-c-in-a-shade-ab-minus-c': return venn3CinA_shadeABminusC_13();
     default:
       return null; // unknown type → admin.html จะ fallback ไปแสดง placeholder
