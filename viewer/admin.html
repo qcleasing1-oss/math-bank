@@ -1480,6 +1480,10 @@
   // - Chapter sets (no year, has subject): source + subject (e.g. 'ข้อสอบรายบทตรรกศาสตร์')
   function setLabel(s) {
     if (!s) return '(no set)';
+    // Custom display name (set by teacher in manifest) takes priority
+    if (s.displayName) {
+      return s.displayName;
+    }
     // Chapter set: no year, but has subject → 'source + subject'
     if (!s.year && s.subject && s.source) {
       return `${s.source}${s.subject}`;
