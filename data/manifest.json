@@ -512,6 +512,37 @@
         "exportedAt": "2026-05-20",
         "note": "All 128 questions complete. Phase 4 (Q97-Q128) rewritten with detailed explanations. Q124 fixed (question + correct)."
       }
+    },
+    "pat1-2552-07": {
+      "source": "PAT 1",
+      "subject": "ความถนัดทางคณิตศาสตร์ (PAT 1)",
+      "year": 2552,
+      "month": 7,
+      "examDate": "วันเสาร์ที่ 11 กรกฎาคม 2552 เวลา 13.00-16.00 น.",
+      "totalQuestions": 50,
+      "totalScore": 300,
+      "structure": {
+        "part1": "แบบปรนัย 4 ตัวเลือก เลือก 1 คำตอบที่ถูกที่สุด จำนวน 50 ข้อ ข้อละ 6 คะแนน รวม 300 คะแนน"
+      },
+      "topicDistribution": {
+        "1": 2,
+        "2": 4,
+        "3": 3,
+        "4": 5,
+        "5": 3,
+        "6": 3,
+        "7": 2,
+        "8": 3,
+        "9": 2,
+        "10": 2,
+        "11": 3,
+        "12": 5,
+        "13": 3,
+        "14": 1,
+        "15": 6,
+        "16": 1,
+        "17": 2
+      }
     }
   }
 }
