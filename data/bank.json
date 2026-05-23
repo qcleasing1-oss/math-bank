@@ -32368,10 +32368,10 @@
       "question": "ถ้า $A$ และ $B$ เป็นเมทริกซ์ซึ่ง $2A - B = \\begin{bmatrix} 3 & 4 \\\\ 3 & 6 \\end{bmatrix}$ และ $A + 2B = \\begin{bmatrix} -1 & 2 \\\\ 4 & -2 \\end{bmatrix}$\nแล้ว $(AB)^{-1}$ คือเมทริกซ์ในข้อใดต่อไปนี้",
       "hasImage": false,
       "choices": [
-        "\\begin{bmatrix} -1/4 & 0 \\\\ 1 & -1/4 \\end{bmatrix}",
-        "\\begin{bmatrix} -1 & 0 \\\\ 1 & -1/4 \\end{bmatrix}",
-        "\\begin{bmatrix} 1 & 1/4 \\\\ 0 & -1 \\end{bmatrix}",
-        "\\begin{bmatrix} 1 & -1 \\\\ 0 & -1/4 \\end{bmatrix}"
+        "$\\begin{bmatrix} -\\dfrac{1}{4} & 0 \\\\ 1 & -\\dfrac{1}{4} \\end{bmatrix}$",
+        "$\\begin{bmatrix} -1 & 0 \\\\ 1 & -\\dfrac{1}{4} \\end{bmatrix}$",
+        "$\\begin{bmatrix} 1 & \\dfrac{1}{4} \\\\ 0 & -1 \\end{bmatrix}$",
+        "$\\begin{bmatrix} 1 & -1 \\\\ 0 & -\\dfrac{1}{4} \\end{bmatrix}$"
       ],
       "correct": 3,
       "explanation": [
@@ -32391,7 +32391,7 @@
         "$\\det(AB) = 1(-4) - (-4)(0) = -4$",
         "$(AB)^{-1} = \\frac{1}{-4}\\begin{bmatrix} -4 & 4 \\\\ 0 & 1 \\end{bmatrix} = \\begin{bmatrix} 1 & -1 \\\\ 0 & -1/4 \\end{bmatrix}$",
         "<b>✔ ตรวจคำตอบ:</b> $(AB)(AB)^{-1} = I$? ✓",
-        "<b>✅ คำตอบ: \\begin{bmatrix} 1 & -1 \\\\ 0 & -1/4 \\end{bmatrix} → ตัวเลือก 4</b>"
+        "<b>✅ คำตอบ: $\\begin{bmatrix} 1 & -1 \\\\ 0 & -\\dfrac{1}{4} \\end{bmatrix}$ → ตัวเลือก 4</b>"
       ]
     },
     {
