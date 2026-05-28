@@ -58,7 +58,7 @@
       "type": "mc",
       "level": "medium",
       "score": 3,
-      "question": "ให้เอกภพสัมพัทธ์ $U = \\{2, 3, 4\\}$ พิจารณาข้อความต่อไปนี้ ก) $\\exists x[\\,x + 1 \\le 5 \\leftrightarrow 2x > 1\\,]$ ข) $\\forall x[\\,x^2 > 1\\,] \\rightarrow \\exists x[\\,x - 3 > 1\\,]$ ค) $\\exists x[\\,x + 2 = x^2 \\rightarrow x^2 < 0\\,]$ ข้อใดถูกต้อง",
+      "question": "ให้เอกภพสัมพัทธ์ $U = \\{2, 3, 4\\}$ พิจารณาข้อความต่อไปนี้\nก) $\\exists x[\\,x + 1 \\le 5 \\leftrightarrow 2x > 1\\,]$\nข) $\\forall x[\\,x^2 > 1\\,] \\rightarrow \\exists x[\\,x - 3 > 1\\,]$\nค) $\\exists x[\\,x + 2 = x^2 \\rightarrow x^2 < 0\\,]$\nข้อใดถูกต้อง",
       "hasImage": false,
       "choices": [
         "ข้อความ ก) เท่านั้น ที่มีค่าความจริงเป็นจริง",
