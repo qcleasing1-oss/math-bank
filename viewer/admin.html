@@ -243,6 +243,68 @@
     color: var(--ink-soft);
   }
 
+  /* ===== Difficulty chips (Phase 4) ===== */
+  .diff-chip {
+    font-size: 11px;
+    padding: 1px 8px;
+    border-radius: 8px;
+    font-family: 'Sarabun', sans-serif;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+  .diff-chip.easy {
+    background: #e6efdc;
+    color: #4a6b3a;
+    border: 1px solid #4a6b3a;
+  }
+  .diff-chip.med {
+    background: #fff4dc;
+    color: #8a6500;
+    border: 1px solid #b58200;
+  }
+  .diff-chip.hard {
+    background: #f8d7c8;
+    color: #8b3a1f;
+    border: 1px solid #8b3a1f;
+  }
+  /* Difficulty list item in sidebar */
+  .diff-item {
+    padding: 7px 10px;
+    margin-bottom: 1px;
+    cursor: pointer;
+    border-left: 3px solid transparent;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background .15s ease;
+  }
+  .diff-item:hover { background: var(--accent-soft); }
+  .diff-item.active {
+    background: var(--accent-soft);
+    border-left-color: var(--accent);
+    font-weight: 500;
+  }
+  .diff-item .diff-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .diff-item .diff-dot.easy { background: #4a6b3a; }
+  .diff-item .diff-dot.med  { background: #b58200; }
+  .diff-item .diff-dot.hard { background: #8b3a1f; }
+  .diff-item .diff-name { flex: 1; }
+  .diff-item .diff-count {
+    font-size: 11px;
+    color: var(--ink-soft);
+    background: var(--bg);
+    padding: 1px 6px;
+    border-radius: 8px;
+  }
+  .diff-item .diff-count.zero { opacity: 0.4; }
+  .diff-item .diff-count.loading { opacity: 0.5; font-style: italic; }
+
   /* Set-prefix badge (shown only in chapter view to disambiguate source) */
   .set-prefix {
     font-family: 'IBM Plex Mono', monospace;
@@ -734,6 +796,10 @@
       <h3 class="sidebar-section-title">ดูตามบท</h3>
       <div id="chapterList"></div>
     </div>
+    <div class="sidebar-section">
+      <h3 class="sidebar-section-title">ดูตามความยาก</h3>
+      <div id="difficultyList"></div>
+    </div>
   </aside>
   <main class="empty" id="content">
     เลือกชุดข้อสอบจากด้านซ้าย
@@ -759,6 +825,11 @@
     <section>
       <h4>Secondary tags <span class="hint">(0+ บท — แสดงเป็น chip รอง)</span></h4>
       <div class="tag-selector" id="secondarySelector"></div>
+    </section>
+
+    <section>
+      <h4>ระดับความยาก <span class="hint">(ง่าย / ปานกลาง / ยาก)</span></h4>
+      <div class="tag-selector" id="difficultySelector"></div>
     </section>
 
     <div class="modal-footer">
@@ -795,16 +866,28 @@
   const LOADED_SETS = {};   // cache: sid → {setId, questions}
   let CURRENT_SET = null;
   let CURRENT_CHAPTER = null;   // Phase 2: state for chapter view
+  let CURRENT_DIFFICULTY = null;  // Phase 4: state for difficulty view
   let ALL_LOADED = false;       // true once every set file has been fetched
   let LOAD_ALL_PROMISE = null;  // memoize the background eager-load promise
 
+  // Synthesize stable q.id from setId + questionNumber (JSON files don't include it)
+  function normalizeSet(set) {
+    if (!set || !Array.isArray(set.questions)) return set;
+    const sid = set.setId || 'unknown';
+    set.questions.forEach(q => {
+      if (!q.id) q.id = `${sid}:Q${String(q.questionNumber).padStart(2,'0')}`;
+    });
+    return set;
+  }
+
   // ============ Phase 3: Tag editor state ============
-  // qId → {topics: [...], subTopics: [...]}  (only differences from original)
+  // qId → {topics: [...], subTopics: [...], difficulty?: '...'}  (only differences from original)
   const PENDING_CHANGES = new Map();
   const LS_KEY = 'math-bank:pending-tag-changes';
   let EDITING_QID = null;
   let EDITING_PRIMARY = new Set();   // selected primary chapter IDs (1-2)
   let EDITING_SUB = new Set();       // selected secondary chapter IDs
+  let EDITING_DIFFICULTY = null;     // Phase 4: 'ง่าย' | 'ปานกลาง' | 'ยาก' | null
 
   function loadPendingFromStorage() {
     try {
@@ -835,10 +918,16 @@
 
   // Return effective tags for a question (pending change if any, else original)
   function getEffectiveTags(q) {
+    const orig = { topics: q.topics || [], subTopics: q.subTopics || [], difficulty: q.difficulty || null };
     if (PENDING_CHANGES.has(q.id)) {
-      return PENDING_CHANGES.get(q.id);
+      const p = PENDING_CHANGES.get(q.id);
+      return {
+        topics: p.topics !== undefined ? p.topics : orig.topics,
+        subTopics: p.subTopics !== undefined ? p.subTopics : orig.subTopics,
+        difficulty: p.difficulty !== undefined ? p.difficulty : orig.difficulty,
+      };
     }
-    return { topics: q.topics || [], subTopics: q.subTopics || [] };
+    return orig;
   }
 
   function findQuestionById(qid) {
@@ -862,6 +951,7 @@
       updateExportBar();
       renderSetList();
       renderChapterList();
+      renderDifficultyList();
       // Background eager-load all sets so chapter counts populate
       // (lazy-load benefit สำหรับ set view ยังคงอยู่ — เพราะ set view ไม่ต้องรอ)
       ensureAllSetsLoaded();
@@ -937,22 +1027,101 @@
     if (ALL_LOADED) updateChapterCounts();
   }
 
-  // ---------- BUGFIX: stamp setId + id ลงทุก question ----------
-  // sets/*.json (source) ไม่มี field setId/id (มีเฉพาะใน bank.json ที่ GH Actions build)
-  // แต่ chapter view (sort ด้วย a.setId.localeCompare) + tag editor (คีย์ด้วย q.id) ต้องใช้
-  // → stamp ตอน fetch แต่ละ set กัน selectChapter โยน exception (อาการ panel ค้าง empty)
-  function stampQuestions(sid) {
-    const set = LOADED_SETS[sid];
-    if (!set || set._stamped) return;
-    const realSid = set.setId || sid;
-    (set.questions || []).forEach(q => {
-      if (q.setId == null) q.setId = realSid;
-      if (q.id == null)    q.id    = realSid + ':' + q.questionNumber;
-    });
-    set._stamped = true;
+  // ============ Phase 4: Difficulty list (sidebar) ============
+  const DIFF_LEVELS = [
+    { key: 'ง่าย',     cls: 'easy' },
+    { key: 'ปานกลาง', cls: 'med'  },
+    { key: 'ยาก',     cls: 'hard' },
+  ];
+
+  function diffClass(level) {
+    if (level === 'ง่าย') return 'easy';
+    if (level === 'ยาก') return 'hard';
+    if (level === 'ปานกลาง') return 'med';
+    return '';
   }
 
-  // Background-load ทุก set ที่ยังไม่ได้โหลด — memoized + idempotent
+  function renderDifficultyList() {
+    const html = DIFF_LEVELS.map(d => {
+      const placeholder = ALL_LOADED ? '0' : '…';
+      const cls = ALL_LOADED ? '' : ' loading';
+      return `
+        <div class="diff-item" data-diff="${d.key}">
+          <span class="diff-dot ${d.cls}"></span>
+          <span class="diff-name">${d.key}</span>
+          <span class="diff-count${cls}">${placeholder}</span>
+        </div>`;
+    }).join('');
+    document.getElementById('difficultyList').innerHTML = html;
+    document.querySelectorAll('.diff-item').forEach(el => {
+      el.addEventListener('click', () => selectDifficulty(el.dataset.diff));
+    });
+    if (ALL_LOADED) updateDifficultyCounts();
+  }
+
+  function updateDifficultyCounts() {
+    const counts = { 'ง่าย': 0, 'ปานกลาง': 0, 'ยาก': 0 };
+    Object.values(LOADED_SETS).forEach(set => {
+      (set.questions || []).forEach(q => {
+        const d = getEffectiveTags(q).difficulty;
+        if (d in counts) counts[d]++;
+      });
+    });
+    document.querySelectorAll('.diff-item').forEach(el => {
+      const key = el.dataset.diff;
+      const n = counts[key] || 0;
+      const c = el.querySelector('.diff-count');
+      if (c) {
+        c.textContent = n;
+        c.classList.remove('loading');
+        c.classList.toggle('zero', n === 0);
+      }
+    });
+  }
+
+  function clearActiveDifficulty() {
+    CURRENT_DIFFICULTY = null;
+    document.querySelectorAll('.diff-item').forEach(el => el.classList.remove('active'));
+  }
+
+  async function selectDifficulty(diff) {
+    CURRENT_DIFFICULTY = diff;
+    clearActiveSet();
+    clearActiveChapter();
+    document.querySelectorAll('.diff-item').forEach(el => {
+      el.classList.toggle('active', el.dataset.diff === diff);
+    });
+    const main = document.getElementById('content');
+    if (!ALL_LOADED) {
+      main.classList.remove('empty');
+      main.innerHTML = `
+        <div class="set-header">
+          <h1>ระดับความยาก: ${diff}</h1>
+          <div class="set-meta">กำลังโหลดข้อสอบทุก set…</div>
+        </div>`;
+      await ensureAllSetsLoaded();
+      if (CURRENT_DIFFICULTY !== diff) return;
+    }
+    const all = [];
+    Object.values(LOADED_SETS).forEach(set => (set.questions || []).forEach(q => all.push(q)));
+    const qs = all
+      .filter(q => getEffectiveTags(q).difficulty === diff)
+      .sort((a, b) => {
+        if (a.setId !== b.setId) return a.setId.localeCompare(b.setId);
+        return (a.questionNumber || 0) - (b.questionNumber || 0);
+      });
+    main.classList.remove('empty');
+    main.innerHTML = `
+      <div class="set-header">
+        <h1>ระดับ: <span class="diff-chip ${diffClass(diff)}">${diff}</span></h1>
+        <div class="set-meta">${qs.length} ข้อ · เรียงตาม set แล้ว Q#</div>
+      </div>
+      <div class="q-list">
+        ${qs.map(q => renderQCard(q, { showSetPrefix: true })).join('')}
+      </div>
+    `;
+    typeset(main);
+  }
   async function ensureAllSetsLoaded() {
     if (ALL_LOADED) return;
     if (LOAD_ALL_PROMISE) return LOAD_ALL_PROMISE;
@@ -962,13 +1131,14 @@
         if (LOADED_SETS[sid]) return;
         try {
           const res = await fetch(`../data/sets/${sid}.json`, { cache: 'no-cache' });
-          if (res.ok) { LOADED_SETS[sid] = await res.json(); stampQuestions(sid); }
+          if (res.ok) LOADED_SETS[sid] = normalizeSet(await res.json());
         } catch (e) {
           console.error('Failed to load set', sid, e);
         }
       }));
       ALL_LOADED = true;
       updateChapterCounts();
+      updateDifficultyCounts();
     })();
     return LOAD_ALL_PROMISE;
   }
@@ -1015,6 +1185,7 @@
   async function selectChapter(chId) {
     CURRENT_CHAPTER = chId;
     clearActiveSet();
+    clearActiveDifficulty();
     document.querySelectorAll('.chapter-item').forEach(el => {
       el.classList.toggle('active', el.dataset.chid === chId);
     });
@@ -1046,7 +1217,7 @@
     const qs = allQuestions
       .filter(q => getEffectiveTags(q).topics.includes(chId))
       .sort((a, b) => {
-        if (a.setId !== b.setId) return (a.setId || '').localeCompare(b.setId || '');
+        if (a.setId !== b.setId) return a.setId.localeCompare(b.setId);
         return (a.questionNumber || 0) - (b.questionNumber || 0);
       });
 
@@ -1071,6 +1242,7 @@
   async function selectSet(sid) {
     CURRENT_SET = sid;
     clearActiveChapter();  // mutual exclusion กับ chapter view
+    clearActiveDifficulty();
     document.querySelectorAll('.set-item').forEach(el => {
       el.classList.toggle('active', el.dataset.setid === sid);
     });
@@ -1089,8 +1261,7 @@
       try {
         const res = await fetch(`../data/sets/${sid}.json`, { cache: 'no-cache' });
         if (!res.ok) throw new Error('HTTP ' + res.status);
-        LOADED_SETS[sid] = await res.json();
-        stampQuestions(sid);
+        LOADED_SETS[sid] = normalizeSet(await res.json());
       } catch (e) {
         main.innerHTML = `
           <div class="set-header">
@@ -1144,6 +1315,7 @@
     const tags = getEffectiveTags(q);
     const primaryTopics = tags.topics;
     const subTopics = tags.subTopics;
+    const difficulty = tags.difficulty;
     const isModified = PENDING_CHANGES.has(q.id);
     const primaryChips = primaryTopics.map(t =>
       `<span class="tag-chip primary" title="${escapeHtml(topicLabel(t))}">บท ${t}</span>`
@@ -1151,8 +1323,11 @@
     const subChips = subTopics.map(t =>
       `<span class="tag-chip sub" title="${escapeHtml(topicLabel(t))}">+บท ${t}</span>`
     ).join('');
-    const tagRow = (primaryChips || subChips)
-      ? `<span class="tag-row">${primaryChips}${subChips}</span>`
+    const diffChip = difficulty
+      ? `<span class="diff-chip ${diffClass(difficulty)}" title="ระดับความยาก">${difficulty}</span>`
+      : '';
+    const tagRow = (primaryChips || subChips || diffChip)
+      ? `<span class="tag-row">${primaryChips}${subChips}${diffChip}</span>`
       : '';
 
     // Set prefix — แสดงเฉพาะใน chapter view (เพราะ Q มาจากหลาย set)
@@ -1191,13 +1366,18 @@
     const subHtml = tags.subTopics.map(t =>
       `<span class="tag-chip sub" title="${escapeHtml(topicLabel(t))}">+บท ${t}: ${escapeHtml(topicLabel(t))}</span>`
     ).join('');
+    const diffHtml = tags.difficulty
+      ? `<span class="diff-chip ${diffClass(tags.difficulty)}">${tags.difficulty}</span>`
+      : '<em style="color:var(--ink-soft)">(ไม่ได้กำหนด)</em>';
     out += `<div class="edit-tags-section">
       <div class="current-tags">
         <span class="label">Tag${isModified ? ' (แก้แล้ว)' : ''}:</span>
         ${primaryHtml || '<em style="color:var(--ink-soft)">(ไม่มี primary)</em>'}
         ${subHtml}
+        <span class="label" style="margin-left:14px">ระดับ:</span>
+        ${diffHtml}
       </div>
-      <button class="edit-tags-btn" onclick="openTagEditor('${escapeHtml(q.id)}')">✏️ แก้ Tag</button>
+      <button class="edit-tags-btn" onclick="openTagEditor('${escapeHtml(q.id)}')">✏️ แก้ Tag/ระดับ</button>
     </div>`;
 
     // คำถาม
@@ -1229,11 +1409,7 @@
 
     // imageSpec → render SVG ผ่าน renderers.js (Phase B)
     if (q.imageSpec) {
-      let svg = null;
-      if (typeof renderImage === 'function') {
-        try { svg = renderImage(q.imageSpec); }
-        catch (e) { console.error('renderImage failed for', q.id, e); svg = null; }
-      }
+      const svg = (typeof renderImage === 'function') ? renderImage(q.imageSpec) : null;
       if (svg) {
         // renderer คืน SVG → แสดงในกรอบขาว
         out += `<div class="q-section">
@@ -1308,6 +1484,7 @@
     const tags = getEffectiveTags(q);
     EDITING_PRIMARY = new Set(tags.topics);
     EDITING_SUB = new Set(tags.subTopics);
+    EDITING_DIFFICULTY = tags.difficulty || null;
 
     document.getElementById('tagEditQid').textContent = qid;
     document.getElementById('tagEditQuestion').innerHTML = q.question || '<em>(no question text)</em>';
@@ -1359,8 +1536,26 @@
     document.getElementById('primarySelector').innerHTML = primaryHtml;
     document.getElementById('secondarySelector').innerHTML = secondaryHtml;
 
+    // Phase 4: Difficulty selector (3 toggleable buttons)
+    const diffHtml = DIFF_LEVELS.map(d => {
+      const selected = EDITING_DIFFICULTY === d.key;
+      // Reuse tag-toggle styling but apply difficulty colors via diff-chip approach
+      const cls = selected
+        ? `tag-toggle selected diff-chip ${d.cls}`
+        : `tag-toggle`;
+      return `<button class="${cls}" onclick="setDifficulty('${d.key}')">${d.key}</button>`;
+    }).join('') +
+      `<button class="tag-toggle${EDITING_DIFFICULTY === null ? ' selected' : ''}"
+        onclick="setDifficulty(null)" title="ลบระดับ">— ไม่กำหนด —</button>`;
+    document.getElementById('difficultySelector').innerHTML = diffHtml;
+
     // Disable save if primary is empty
     document.getElementById('tagEditSaveBtn').disabled = EDITING_PRIMARY.size === 0;
+  }
+
+  function setDifficulty(level) {
+    EDITING_DIFFICULTY = level;  // 'ง่าย'|'ปานกลาง'|'ยาก'|null
+    renderTagSelectors();
   }
 
   function togglePrimary(chId) {
@@ -1396,17 +1591,24 @@
 
     const newTopics = Array.from(EDITING_PRIMARY).sort((a, b) => Number(a) - Number(b));
     const newSubTopics = Array.from(EDITING_SUB).sort((a, b) => Number(a) - Number(b));
+    const newDifficulty = EDITING_DIFFICULTY;
     const origTopics = q.topics || [];
     const origSubTopics = q.subTopics || [];
+    const origDifficulty = q.difficulty || null;
 
     const topicsSame = JSON.stringify(newTopics) === JSON.stringify(origTopics);
     const subSame = JSON.stringify(newSubTopics) === JSON.stringify(origSubTopics);
+    const diffSame = newDifficulty === origDifficulty;
 
-    if (topicsSame && subSame) {
+    if (topicsSame && subSame && diffSame) {
       // No real change → ensure not in pending
       PENDING_CHANGES.delete(EDITING_QID);
     } else {
-      PENDING_CHANGES.set(EDITING_QID, { topics: newTopics, subTopics: newSubTopics });
+      PENDING_CHANGES.set(EDITING_QID, {
+        topics: newTopics,
+        subTopics: newSubTopics,
+        difficulty: newDifficulty,
+      });
     }
 
     savePendingToStorage();
@@ -1419,10 +1621,15 @@
     // Re-render current view + sidebar counts
     if (CURRENT_CHAPTER) {
       selectChapter(CURRENT_CHAPTER);
+    } else if (CURRENT_DIFFICULTY) {
+      selectDifficulty(CURRENT_DIFFICULTY);
     } else if (CURRENT_SET) {
       selectSet(CURRENT_SET);
     }
-    if (ALL_LOADED) updateChapterCounts();
+    if (ALL_LOADED) {
+      updateChapterCounts();
+      updateDifficultyCounts();
+    }
   }
 
   function updateExportBar() {
@@ -1455,8 +1662,10 @@
         id: qid,
         previousTopics: origQ ? (origQ.topics || []) : [],
         previousSubTopics: origQ ? (origQ.subTopics || []) : [],
+        previousDifficulty: origQ ? (origQ.difficulty || null) : null,
         newTopics: tags.topics,
         newSubTopics: tags.subTopics,
+        newDifficulty: tags.difficulty !== undefined ? tags.difficulty : null,
       });
     });
     changes.sort((a, b) => a.id.localeCompare(b.id));
