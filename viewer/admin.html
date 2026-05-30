@@ -937,6 +937,21 @@
     if (ALL_LOADED) updateChapterCounts();
   }
 
+  // ---------- BUGFIX: stamp setId + id ลงทุก question ----------
+  // sets/*.json (source) ไม่มี field setId/id (มีเฉพาะใน bank.json ที่ GH Actions build)
+  // แต่ chapter view (sort ด้วย a.setId.localeCompare) + tag editor (คีย์ด้วย q.id) ต้องใช้
+  // → stamp ตอน fetch แต่ละ set กัน selectChapter โยน exception (อาการ panel ค้าง empty)
+  function stampQuestions(sid) {
+    const set = LOADED_SETS[sid];
+    if (!set || set._stamped) return;
+    const realSid = set.setId || sid;
+    (set.questions || []).forEach(q => {
+      if (q.setId == null) q.setId = realSid;
+      if (q.id == null)    q.id    = realSid + ':' + q.questionNumber;
+    });
+    set._stamped = true;
+  }
+
   // Background-load ทุก set ที่ยังไม่ได้โหลด — memoized + idempotent
   async function ensureAllSetsLoaded() {
     if (ALL_LOADED) return;
@@ -947,7 +962,7 @@
         if (LOADED_SETS[sid]) return;
         try {
           const res = await fetch(`../data/sets/${sid}.json`, { cache: 'no-cache' });
-          if (res.ok) LOADED_SETS[sid] = await res.json();
+          if (res.ok) { LOADED_SETS[sid] = await res.json(); stampQuestions(sid); }
         } catch (e) {
           console.error('Failed to load set', sid, e);
         }
@@ -1031,7 +1046,7 @@
     const qs = allQuestions
       .filter(q => getEffectiveTags(q).topics.includes(chId))
       .sort((a, b) => {
-        if (a.setId !== b.setId) return a.setId.localeCompare(b.setId);
+        if (a.setId !== b.setId) return (a.setId || '').localeCompare(b.setId || '');
         return (a.questionNumber || 0) - (b.questionNumber || 0);
       });
 
@@ -1075,6 +1090,7 @@
         const res = await fetch(`../data/sets/${sid}.json`, { cache: 'no-cache' });
         if (!res.ok) throw new Error('HTTP ' + res.status);
         LOADED_SETS[sid] = await res.json();
+        stampQuestions(sid);
       } catch (e) {
         main.innerHTML = `
           <div class="set-header">
@@ -1213,7 +1229,11 @@
 
     // imageSpec → render SVG ผ่าน renderers.js (Phase B)
     if (q.imageSpec) {
-      const svg = (typeof renderImage === 'function') ? renderImage(q.imageSpec) : null;
+      let svg = null;
+      if (typeof renderImage === 'function') {
+        try { svg = renderImage(q.imageSpec); }
+        catch (e) { console.error('renderImage failed for', q.id, e); svg = null; }
+      }
       if (svg) {
         // renderer คืน SVG → แสดงในกรอบขาว
         out += `<div class="q-section">
