@@ -1008,7 +1008,7 @@
         "12"
       ],
       "subTopics": [],
-      "difficulty": "ยาก",
+      "difficulty": "ปานกลาง",
       "topic": "หลักการนับและความน่าจะเป็น",
       "type": "mc",
       "level": "hard",
@@ -1062,7 +1062,7 @@
         "12"
       ],
       "subTopics": [],
-      "difficulty": "ยาก",
+      "difficulty": "ปานกลาง",
       "topic": "หลักการนับและความน่าจะเป็น",
       "type": "mc",
       "level": "hard",
@@ -1393,7 +1393,7 @@
         "1"
       ],
       "subTopics": [],
-      "difficulty": "ยาก",
+      "difficulty": "ปานกลาง",
       "topic": "เซต",
       "type": "fill",
       "level": "hard",
@@ -1785,7 +1785,7 @@
         "9"
       ],
       "subTopics": [],
-      "difficulty": "ยาก",
+      "difficulty": "ปานกลาง",
       "topic": "เวกเตอร์",
       "type": "fill",
       "level": "hard",
@@ -2088,7 +2088,7 @@
         "13"
       ],
       "subTopics": [],
-      "difficulty": "ยาก",
+      "difficulty": "ปานกลาง",
       "topic": "แคลคูลัส (อินทิเกรตซ้ำสองครั้ง)",
       "type": "fill",
       "level": "hard",
@@ -2246,7 +2246,7 @@
         "15"
       ],
       "subTopics": [],
-      "difficulty": "ยาก",
+      "difficulty": "ปานกลาง",
       "topic": "สถิติ (ความแปรปรวนเมื่อเพิ่มข้อมูล)",
       "type": "fill",
       "level": "hard",
@@ -2446,7 +2446,7 @@
         "17"
       ],
       "subTopics": [],
-      "difficulty": "ปานกลาง",
+      "difficulty": "ง่าย",
       "topic": "ทฤษฎีจำนวน (ห.ร.ม.)",
       "type": "fill",
       "level": "medium",
@@ -2494,7 +2494,7 @@
         "5"
       ],
       "subTopics": [],
-      "difficulty": "ปานกลาง",
+      "difficulty": "ง่าย",
       "topic": "ฟังก์ชัน (การดำเนินการที่นิยามขึ้น)",
       "type": "fill",
       "level": "medium",
@@ -2603,7 +2603,7 @@
         "11"
       ],
       "subTopics": [],
-      "difficulty": "ปานกลาง",
+      "difficulty": "ง่าย",
       "topic": "ลำดับและอนุกรม (การให้เหตุผลเชิงผลบวก)",
       "type": "fill",
       "level": "medium",
@@ -2646,7 +2646,7 @@
         "11"
       ],
       "subTopics": [],
-      "difficulty": "ยาก",
+      "difficulty": "ปานกลาง",
       "topic": "ลำดับและอนุกรม (แบบรูปการจัดเรียงในตาราง)",
       "type": "fill",
       "level": "hard",
