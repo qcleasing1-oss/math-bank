@@ -62,7 +62,7 @@
     "2"
    ],
    "subTopics": [],
-   "difficulty": "ยาก",
+   "difficulty": "ปานกลาง",
    "topic": "ตรรกศาสตร์",
    "type": "mc",
    "level": "hard",
@@ -588,7 +588,7 @@
     "6"
    ],
    "subTopics": [],
-   "difficulty": "ยาก",
+   "difficulty": "ปานกลาง",
    "topic": "เมทริกซ์",
    "type": "mc",
    "level": "hard",
@@ -633,7 +633,7 @@
     "9"
    ],
    "subTopics": [],
-   "difficulty": "ยาก",
+   "difficulty": "ปานกลาง",
    "topic": "เวกเตอร์",
    "type": "mc",
    "level": "hard",
@@ -833,7 +833,7 @@
     "12"
    ],
    "subTopics": [],
-   "difficulty": "ยาก",
+   "difficulty": "ปานกลาง",
    "topic": "หลักการนับและความน่าจะเป็น",
    "type": "mc",
    "level": "hard",
@@ -882,7 +882,7 @@
     "12"
    ],
    "subTopics": [],
-   "difficulty": "ยาก",
+   "difficulty": "ง่าย",
    "topic": "หลักการนับและความน่าจะเป็น",
    "type": "mc",
    "level": "hard",
@@ -932,7 +932,7 @@
     "15"
    ],
    "subTopics": [],
-   "difficulty": "ยาก",
+   "difficulty": "ง่าย",
    "topic": "สถิติ",
    "type": "mc",
    "level": "hard",
@@ -985,7 +985,7 @@
     "15"
    ],
    "subTopics": [],
-   "difficulty": "ยาก",
+   "difficulty": "ปานกลาง",
    "topic": "สถิติ",
    "type": "mc",
    "level": "hard",
@@ -1083,7 +1083,7 @@
     "7"
    ],
    "subTopics": [],
-   "difficulty": "ปานกลาง",
+   "difficulty": "ง่าย",
    "topic": "ตรีโกณมิติ",
    "type": "mc",
    "level": "medium",
@@ -1288,7 +1288,7 @@
     "1"
    ],
    "subTopics": [],
-   "difficulty": "ปานกลาง",
+   "difficulty": "ง่าย",
    "topic": "เซต",
    "type": "fill",
    "level": "medium",
@@ -1725,7 +1725,7 @@
     "8"
    ],
    "subTopics": [],
-   "difficulty": "ยาก",
+   "difficulty": "ปานกลาง",
    "topic": "เลขยกกำลังและลอการิทึม",
    "type": "fill",
    "level": "hard",
@@ -2126,7 +2126,7 @@
     "13"
    ],
    "subTopics": [],
-   "difficulty": "ยาก",
+   "difficulty": "ปานกลาง",
    "topic": "แคลคูลัส",
    "type": "fill",
    "level": "hard",
@@ -2475,7 +2475,7 @@
     "15"
    ],
    "subTopics": [],
-   "difficulty": "ยาก",
+   "difficulty": "ปานกลาง",
    "topic": "สถิติ",
    "type": "fill",
    "level": "hard",
