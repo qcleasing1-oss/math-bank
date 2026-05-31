@@ -234,7 +234,7 @@
         "1"
       ],
       "subTopics": [],
-      "difficulty": "ยาก",
+      "difficulty": "ปานกลาง",
       "topic": 1,
       "type": "mc",
       "level": "medium",
@@ -280,7 +280,7 @@
       "subTopics": [
         "3"
       ],
-      "difficulty": "ยาก",
+      "difficulty": "ปานกลาง",
       "topic": 8,
       "type": "mc",
       "level": "medium",
@@ -326,7 +326,7 @@
       "subTopics": [
         "3"
       ],
-      "difficulty": "ปานกลาง",
+      "difficulty": "ง่าย",
       "topic": 8,
       "type": "mc",
       "level": "medium",
@@ -1075,7 +1075,7 @@
         "12"
       ],
       "subTopics": [],
-      "difficulty": "ปานกลาง",
+      "difficulty": "ง่าย",
       "topic": 12,
       "type": "mc",
       "level": "medium",
