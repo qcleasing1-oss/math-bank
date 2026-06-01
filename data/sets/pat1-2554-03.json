@@ -9,6 +9,7 @@
     "2"
    ],
    "subTopics": [],
+   "difficulty": "ยาก",
    "topic": "ตรรกศาสตร์",
    "type": "mc",
    "level": "hard",
@@ -64,6 +65,7 @@
     "7",
     "8"
    ],
+   "difficulty": "ปานกลาง",
    "topic": "ตรรกศาสตร์",
    "type": "mc",
    "level": "hard",
@@ -111,6 +113,7 @@
    "subTopics": [
     "3"
    ],
+   "difficulty": "ปานกลาง",
    "topic": "ความสัมพันธ์และฟังก์ชัน",
    "type": "mc",
    "level": "hard",
@@ -168,6 +171,7 @@
    "subTopics": [
     "8"
    ],
+   "difficulty": "ยาก",
    "topic": "จำนวนจริง",
    "type": "mc",
    "level": "hard",
@@ -222,6 +226,7 @@
     "5"
    ],
    "subTopics": [],
+   "difficulty": "ยาก",
    "topic": "ความสัมพันธ์และฟังก์ชัน",
    "type": "mc",
    "level": "hard",
@@ -270,6 +275,7 @@
     "7"
    ],
    "subTopics": [],
+   "difficulty": "ปานกลาง",
    "topic": "ตรีโกณมิติ",
    "type": "mc",
    "level": "medium",
@@ -316,6 +322,7 @@
     "7"
    ],
    "subTopics": [],
+   "difficulty": "ปานกลาง",
    "topic": "ตรีโกณมิติ",
    "type": "mc",
    "level": "hard",
@@ -367,6 +374,7 @@
     "4"
    ],
    "subTopics": [],
+   "difficulty": "ยาก",
    "topic": "เรขาคณิตวิเคราะห์",
    "type": "mc",
    "level": "hard",
@@ -419,6 +427,7 @@
     "4"
    ],
    "subTopics": [],
+   "difficulty": "ปานกลาง",
    "topic": "เรขาคณิตวิเคราะห์",
    "type": "mc",
    "level": "hard",
@@ -472,6 +481,7 @@
     "8"
    ],
    "subTopics": [],
+   "difficulty": "ยาก",
    "topic": "เลขยกกำลังและลอการิทึม",
    "type": "mc",
    "level": "hard",
@@ -532,6 +542,7 @@
     "3",
     "8"
    ],
+   "difficulty": "ปานกลาง",
    "topic": "เซต",
    "type": "mc",
    "level": "hard",
@@ -586,6 +597,7 @@
     "6"
    ],
    "subTopics": [],
+   "difficulty": "ปานกลาง",
    "topic": "เมทริกซ์",
    "type": "mc",
    "level": "hard",
@@ -640,6 +652,7 @@
     "10"
    ],
    "subTopics": [],
+   "difficulty": "ยาก",
    "topic": "จำนวนเชิงซ้อน",
    "type": "mc",
    "level": "hard",
@@ -692,6 +705,7 @@
     "10"
    ],
    "subTopics": [],
+   "difficulty": "ปานกลาง",
    "topic": "จำนวนเชิงซ้อน",
    "type": "mc",
    "level": "medium",
@@ -743,6 +757,7 @@
     "9"
    ],
    "subTopics": [],
+   "difficulty": "ปานกลาง",
    "topic": "เวกเตอร์",
    "type": "mc",
    "level": "medium",
@@ -789,6 +804,7 @@
     "11"
    ],
    "subTopics": [],
+   "difficulty": "ปานกลาง",
    "topic": "ลำดับและอนุกรม",
    "type": "mc",
    "level": "hard",
@@ -840,6 +856,7 @@
     "11"
    ],
    "subTopics": [],
+   "difficulty": "ปานกลาง",
    "topic": "ลำดับและอนุกรม",
    "type": "mc",
    "level": "medium",
@@ -893,6 +910,7 @@
    "subTopics": [
     "3"
    ],
+   "difficulty": "ปานกลาง",
    "topic": "แคลคูลัส",
    "type": "mc",
    "level": "hard",
@@ -942,6 +960,7 @@
     "13"
    ],
    "subTopics": [],
+   "difficulty": "ปานกลาง",
    "topic": "แคลคูลัส",
    "type": "mc",
    "level": "hard",
@@ -998,6 +1017,7 @@
    "subTopics": [
     "5"
    ],
+   "difficulty": "ปานกลาง",
    "topic": "แคลคูลัส",
    "type": "mc",
    "level": "hard",
@@ -1048,6 +1068,7 @@
    "subTopics": [
     "11"
    ],
+   "difficulty": "ยาก",
    "topic": "หลักการนับและความน่าจะเป็น",
    "type": "mc",
    "level": "hard",
@@ -1097,6 +1118,7 @@
     "12"
    ],
    "subTopics": [],
+   "difficulty": "ปานกลาง",
    "topic": "หลักการนับและความน่าจะเป็น",
    "type": "mc",
    "level": "hard",
@@ -1146,6 +1168,7 @@
     "15"
    ],
    "subTopics": [],
+   "difficulty": "ปานกลาง",
    "topic": "สถิติ",
    "type": "mc",
    "level": "hard",
@@ -1193,6 +1216,7 @@
     "15"
    ],
    "subTopics": [],
+   "difficulty": "ปานกลาง",
    "topic": "สถิติ",
    "type": "mc",
    "level": "hard",
@@ -1245,6 +1269,7 @@
    "subTopics": [
     "3"
    ],
+   "difficulty": "ปานกลาง",
    "topic": "สถิติ",
    "type": "mc",
    "level": "hard",
@@ -1295,6 +1320,7 @@
     "1"
    ],
    "subTopics": [],
+   "difficulty": "ปานกลาง",
    "topic": "เซต",
    "type": "fill",
    "level": "hard",
@@ -1352,6 +1378,7 @@
    "subTopics": [
     "8"
    ],
+   "difficulty": "ปานกลาง",
    "topic": "เซต",
    "type": "fill",
    "level": "hard",
@@ -1406,6 +1433,7 @@
     "3",
     "17"
    ],
+   "difficulty": "ยาก",
    "topic": "ความสัมพันธ์และฟังก์ชัน",
    "type": "fill",
    "level": "hard",
@@ -1459,6 +1487,7 @@
    "subTopics": [
     "3"
    ],
+   "difficulty": "ปานกลาง",
    "topic": "เลขยกกำลังและลอการิทึม",
    "type": "fill",
    "level": "hard",
@@ -1515,6 +1544,7 @@
    "subTopics": [
     "8"
    ],
+   "difficulty": "ยาก",
    "topic": "ตรีโกณมิติ",
    "type": "fill",
    "level": "hard",
@@ -1560,6 +1590,7 @@
     "17"
    ],
    "subTopics": [],
+   "difficulty": "ปานกลาง",
    "topic": "ทฤษฎีจำนวน",
    "type": "fill",
    "level": "hard",
@@ -1612,6 +1643,7 @@
     "7"
    ],
    "subTopics": [],
+   "difficulty": "ยาก",
    "topic": "ตรีโกณมิติ",
    "type": "fill",
    "level": "hard",
@@ -1657,6 +1689,7 @@
     "7"
    ],
    "subTopics": [],
+   "difficulty": "ปานกลาง",
    "topic": "ตรีโกณมิติ",
    "type": "fill",
    "level": "hard",
@@ -1709,6 +1742,7 @@
     "4"
    ],
    "subTopics": [],
+   "difficulty": "ปานกลาง",
    "topic": "เรขาคณิตวิเคราะห์",
    "type": "fill",
    "level": "hard",
@@ -1766,6 +1800,7 @@
     "10"
    ],
    "subTopics": [],
+   "difficulty": "ปานกลาง",
    "topic": "จำนวนเชิงซ้อน",
    "type": "fill",
    "level": "hard",
@@ -1814,6 +1849,7 @@
     "9"
    ],
    "subTopics": [],
+   "difficulty": "ปานกลาง",
    "topic": "เวกเตอร์",
    "type": "fill",
    "level": "medium",
@@ -1862,6 +1898,7 @@
    "subTopics": [
     "7"
    ],
+   "difficulty": "ยาก",
    "topic": "เมทริกซ์",
    "type": "fill",
    "level": "hard",
@@ -1918,6 +1955,7 @@
     "16"
    ],
    "subTopics": [],
+   "difficulty": "ปานกลาง",
    "topic": "กำหนดการเชิงเส้น",
    "type": "fill",
    "level": "medium",
@@ -1969,6 +2007,7 @@
     "11"
    ],
    "subTopics": [],
+   "difficulty": "ปานกลาง",
    "topic": "ลำดับและอนุกรม",
    "type": "fill",
    "level": "medium",
@@ -2020,6 +2059,7 @@
    "subTopics": [
     "14"
    ],
+   "difficulty": "ยาก",
    "topic": "ลำดับและอนุกรม",
    "type": "fill",
    "level": "hard",
@@ -2070,6 +2110,7 @@
     "5"
    ],
    "subTopics": [],
+   "difficulty": "ปานกลาง",
    "topic": "ความสัมพันธ์และฟังก์ชัน",
    "type": "fill",
    "level": "hard",
@@ -2121,6 +2162,7 @@
    "subTopics": [
     "5"
    ],
+   "difficulty": "ปานกลาง",
    "topic": "แคลคูลัส",
    "type": "fill",
    "level": "hard",
@@ -2176,6 +2218,7 @@
     "13"
    ],
    "subTopics": [],
+   "difficulty": "ปานกลาง",
    "topic": "แคลคูลัส",
    "type": "fill",
    "level": "hard",
@@ -2224,6 +2267,7 @@
     "13"
    ],
    "subTopics": [],
+   "difficulty": "ปานกลาง",
    "topic": "แคลคูลัส",
    "type": "fill",
    "level": "medium",
@@ -2270,6 +2314,7 @@
     "12"
    ],
    "subTopics": [],
+   "difficulty": "ปานกลาง",
    "topic": "หลักการนับและความน่าจะเป็น",
    "type": "fill",
    "level": "hard",
@@ -2320,6 +2365,7 @@
    "subTopics": [
     "12"
    ],
+   "difficulty": "ปานกลาง",
    "topic": "ทฤษฎีจำนวน",
    "type": "fill",
    "level": "hard",
@@ -2371,6 +2417,7 @@
     "15"
    ],
    "subTopics": [],
+   "difficulty": "ปานกลาง",
    "topic": "สถิติ",
    "type": "fill",
    "level": "medium",
@@ -2418,6 +2465,7 @@
    "subTopics": [
     "5"
    ],
+   "difficulty": "ยาก",
    "topic": "ทฤษฎีจำนวน",
    "type": "fill",
    "level": "hard",
@@ -2465,6 +2513,7 @@
     "3"
    ],
    "subTopics": [],
+   "difficulty": "ยาก",
    "topic": "จำนวนจริง",
    "type": "fill",
    "level": "hard",
@@ -2511,6 +2560,7 @@
     "17"
    ],
    "subTopics": [],
+   "difficulty": "ปานกลาง",
    "topic": "ทฤษฎีจำนวน",
    "type": "fill",
    "level": "easy",
