@@ -9,6 +9,7 @@
         "11"
       ],
       "subTopics": [],
+      "difficulty": "ง่าย",
       "type": "mc",
       "level": "easy",
       "score": 3,
@@ -55,6 +56,7 @@
       "subTopics": [
         "1"
       ],
+      "difficulty": "ปานกลาง",
       "type": "mc",
       "level": "medium",
       "score": 3,
@@ -98,6 +100,7 @@
         "3"
       ],
       "subTopics": [],
+      "difficulty": "ปานกลาง",
       "type": "mc",
       "level": "medium",
       "score": 3,
@@ -141,6 +144,7 @@
         "15"
       ],
       "subTopics": [],
+      "difficulty": "ปานกลาง",
       "type": "mc",
       "level": "medium",
       "score": 3,
@@ -250,6 +254,7 @@
         "9"
       ],
       "subTopics": [],
+      "difficulty": "ปานกลาง",
       "type": "mc",
       "level": "medium",
       "score": 3,
@@ -293,6 +298,7 @@
       "subTopics": [
         "3"
       ],
+      "difficulty": "ปานกลาง",
       "type": "mc",
       "level": "medium",
       "score": 3,
@@ -336,6 +342,7 @@
         "7"
       ],
       "subTopics": [],
+      "difficulty": "ปานกลาง",
       "type": "mc",
       "level": "medium",
       "score": 3,
@@ -411,6 +418,7 @@
         "1"
       ],
       "subTopics": [],
+      "difficulty": "ปานกลาง",
       "type": "mc",
       "level": "medium",
       "score": 3,
@@ -451,6 +459,7 @@
         "3"
       ],
       "subTopics": [],
+      "difficulty": "ปานกลาง",
       "type": "mc",
       "level": "medium",
       "score": 3,
@@ -493,6 +502,7 @@
         "10"
       ],
       "subTopics": [],
+      "difficulty": "ง่าย",
       "type": "mc",
       "level": "easy",
       "score": 3,
@@ -533,6 +543,7 @@
         "10"
       ],
       "subTopics": [],
+      "difficulty": "ยาก",
       "type": "mc",
       "level": "hard",
       "score": 3,
@@ -575,6 +586,7 @@
         "14"
       ],
       "subTopics": [],
+      "difficulty": "ปานกลาง",
       "type": "mc",
       "level": "medium",
       "score": 3,
@@ -615,6 +627,7 @@
         "4"
       ],
       "subTopics": [],
+      "difficulty": "ปานกลาง",
       "type": "mc",
       "level": "medium",
       "score": 3,
@@ -656,6 +669,7 @@
         "4"
       ],
       "subTopics": [],
+      "difficulty": "ปานกลาง",
       "type": "mc",
       "level": "medium",
       "score": 3,
@@ -698,6 +712,7 @@
         "9"
       ],
       "subTopics": [],
+      "difficulty": "ปานกลาง",
       "type": "mc",
       "level": "medium",
       "score": 3,
@@ -820,6 +835,7 @@
         "6"
       ],
       "subTopics": [],
+      "difficulty": "ปานกลาง",
       "type": "mc",
       "level": "medium",
       "score": 3,
@@ -862,6 +878,7 @@
         "15"
       ],
       "subTopics": [],
+      "difficulty": "ปานกลาง",
       "type": "mc",
       "level": "medium",
       "score": 3,
@@ -903,6 +920,7 @@
         "12"
       ],
       "subTopics": [],
+      "difficulty": "ปานกลาง",
       "type": "mc",
       "level": "medium",
       "score": 3,
@@ -945,6 +963,7 @@
         "12"
       ],
       "subTopics": [],
+      "difficulty": "ปานกลาง",
       "type": "mc",
       "level": "medium",
       "score": 3,
@@ -985,6 +1004,7 @@
         "12"
       ],
       "subTopics": [],
+      "difficulty": "ปานกลาง",
       "type": "mc",
       "level": "medium",
       "score": 3,
@@ -1023,6 +1043,7 @@
         "12"
       ],
       "subTopics": [],
+      "difficulty": "ปานกลาง",
       "type": "mc",
       "level": "medium",
       "score": 3,
@@ -1065,6 +1086,7 @@
         "13"
       ],
       "subTopics": [],
+      "difficulty": "ปานกลาง",
       "type": "mc",
       "level": "medium",
       "score": 3,
@@ -1111,6 +1133,7 @@
       "subTopics": [
         "4"
       ],
+      "difficulty": "ยาก",
       "type": "mc",
       "level": "hard",
       "score": 3,
@@ -1378,6 +1401,7 @@
         "14"
       ],
       "subTopics": [],
+      "difficulty": "ยาก",
       "type": "mc",
       "level": "hard",
       "score": 3,
@@ -1418,6 +1442,7 @@
         "13"
       ],
       "subTopics": [],
+      "difficulty": "ยาก",
       "type": "mc",
       "level": "hard",
       "score": 3,
@@ -1460,6 +1485,7 @@
         "13"
       ],
       "subTopics": [],
+      "difficulty": "ปานกลาง",
       "type": "fill",
       "level": "medium",
       "score": 5,
@@ -1580,6 +1606,7 @@
         "5"
       ],
       "subTopics": [],
+      "difficulty": "ปานกลาง",
       "type": "fill",
       "level": "medium",
       "score": 5,
@@ -1643,6 +1670,7 @@
         "2"
       ],
       "subTopics": [],
+      "difficulty": "ปานกลาง",
       "type": "fill",
       "level": "hard",
       "score": 5,
@@ -1678,6 +1706,7 @@
         "15"
       ],
       "subTopics": [],
+      "difficulty": "ปานกลาง",
       "type": "fill",
       "level": "medium",
       "score": 5,
@@ -1713,6 +1742,7 @@
         "8"
       ],
       "subTopics": [],
+      "difficulty": "ปานกลาง",
       "type": "fill",
       "level": "hard",
       "score": 5,
