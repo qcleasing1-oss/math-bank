@@ -8,6 +8,7 @@
         "1"
       ],
       "subTopics": [],
+      "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "ให้ $A'$ แทนคอมพลีเมนต์ของเซต $A$ และ $n(A)$ แทนจำนวนสมาชิกของเซต $A$ กำหนดให้ $\\mathcal{U}$ แทนเอกภพสัมพัทธ์\nถ้า $A$ และ $B$ เป็นสับเซตใน $\\mathcal{U}$ โดยที่ $n(A' \\cup B) = 30$ , $n(A \\cup B') = 18$ , $n(A \\cap B) = 3$ และ $n(A' - B) = 8$\nแล้วจำนวนสมาชิกของเอกภพสัมพัทธ์ $\\mathcal{U}$ เท่ากับข้อใดต่อไปนี้",
       "choices": [
@@ -72,6 +73,7 @@
       "subTopics": [
         "3"
       ],
+      "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "กำหนดให้ $a$ และ $b$ เป็นจำนวนจริง โดยที่ $ab > 0$\nให้ $p$ แทนประพจน์ “ถ้า $a < b$ แล้ว $\\dfrac{1}{a} > \\dfrac{1}{b}$” และ $q$ แทนประพจน์ “$\\sqrt{ab} = \\sqrt{a}\\,\\sqrt{b}$”\nประพจน์ในข้อใดต่อไปนี้มีค่าความจริงเป็นจริง",
       "choices": [
@@ -126,6 +128,7 @@
         "2"
       ],
       "subTopics": [],
+      "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "กำหนดให้ $p, q, r$ และ $s$ เป็นประพจน์ใด ๆ พิจารณาข้อความต่อไปนี้\n(ก) ถ้าประพจน์ $(p \\vee q) \\Leftrightarrow (r \\wedge s)$ และประพจน์ $p$ มีค่าความจริงเป็นจริง แล้วสรุปได้ว่าประพจน์ $s$ มีค่าความจริงเป็นจริง\n(ข) ประพจน์ $(p \\wedge q) \\Rightarrow (r \\wedge s)$ สมมูลกับ ประพจน์ $[q \\Rightarrow (p \\Rightarrow r)] \\wedge [p \\Rightarrow (q \\Rightarrow s)]$\nข้อใดต่อไปนี้ถูกต้อง",
       "choices": [
@@ -180,6 +183,7 @@
       "subTopics": [
         "1"
       ],
+      "difficulty": "ยาก",
       "type": "mc",
       "question": "ให้ $\\mathbb{R}$ แทนเซตของจำนวนจริง ถ้า $A = \\{\\, x \\in \\mathbb{R} \\mid x^2 + \\sqrt{x^2 - 3x + 4} > 3x + 2 \\,\\}$\nแล้วเซต $A$ เป็นสับเซตของข้อใดต่อไปนี้",
       "choices": [
@@ -235,6 +239,7 @@
         "3"
       ],
       "subTopics": [],
+      "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "กำหนดให้ $a$ และ $b$ เป็นจำนวนจริงบวก และ $a < b$\nเซตคำตอบของสมการ $|x - a| - |x - b| = b - a$ เท่ากับข้อใดต่อไปนี้",
       "choices": [
@@ -305,6 +310,7 @@
       "subTopics": [
         "3"
       ],
+      "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "ให้ $\\mathbb{R}$ แทนเซตของจำนวนจริง ถ้า $f$ เป็นฟังก์ชัน ซึ่งมีโดเมนและเรนจ์เป็นสับเซตของเซตจำนวนจริง โดยที่ $f(x) = \\dfrac{2x^2 + 4x + 4}{x + 1}$ เมื่อ $x \\ne -1$ แล้วเรนจ์ของฟังก์ชัน $f$ เป็นสับเซตของข้อใดต่อไปนี้",
       "choices": [
@@ -371,6 +377,7 @@
         "6"
       ],
       "subTopics": [],
+      "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "กำหนดให้ $A = \\begin{bmatrix} 1 & -2 \\\\ 0 & -1 \\end{bmatrix}$ , $I = \\begin{bmatrix} 1 & 0 \\\\ 0 & 1 \\end{bmatrix}$ และ $B$ เป็นเมทริกซ์ใด ๆ มีมิติ $2 \\times 2$\nให้ $x$ เป็นจำนวนจริงที่สอดคล้องกับ $\\det(A^2 + xI) = 0$ พิจารณาข้อความต่อไปนี้\n(ก) $\\det(A + xI) = 0$\n(ข) $\\det(A^2 + xI - B) = \\det(B^t)$\nข้อใดต่อไปนี้ถูกต้อง",
       "choices": [
@@ -421,6 +428,7 @@
         "4"
       ],
       "subTopics": [],
+      "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "กำหนดให้ $L$ เป็นเส้นตรงมีสมการเป็น $\\dfrac{x}{a} + \\dfrac{y}{b} = 1$ เมื่อ $a, b > 0$ และให้ $C_1$ และ $C_2$ เป็นวงกลมสองวงที่ต่างกัน โดยที่มีรัศมีเท่ากันและวงกลมทั้งสองวงต่างสัมผัสกับเส้นตรง $L$ ที่จุดเดียวกัน ถ้าวงกลม $C_1$ มีจุดศูนย์กลางที่จุด $(0, 0)$ แล้วสมการของวงกลม $C_2$ คือข้อใดต่อไปนี้",
       "choices": [
@@ -486,6 +494,7 @@
         "4"
       ],
       "subTopics": [],
+      "difficulty": "ยาก",
       "type": "mc",
       "question": "กำหนดให้ไฮเพอร์โบลารูปหนึ่งมีสมการเป็น $x^2 - y^2 - 2x = 0$ ถ้าพาราโบลามีโฟกัสเป็นจุดกึ่งกลางของส่วนของเส้นตรงที่เชื่อมระหว่างจุดตัดของเส้นตรง $y = 2x$ กับเส้นกำกับของไฮเพอร์โบลา และมีเส้นไดเรกตริกซ์เป็นเส้นตรงที่ผ่านจุดยอดทั้งสองของไฮเพอร์โบลา แล้วสมการของพาราโบลาคือข้อใดต่อไปนี้",
       "choices": [
@@ -565,6 +574,7 @@
       "subTopics": [
         "13"
       ],
+      "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "พิจารณาข้อความต่อไปนี้\n(ก) ให้ $P(x, y)$ เป็นจุดใด ๆ ในระนาบ ถ้าผลบวกของระยะทางจากจุด $P(x, y)$ ไปยังจุด $(0, -2)$ และระยะทางจากจุด $P(x, y)$ ไปยังจุด $(2, -2)$ เท่ากับ $2\\sqrt{5}$ แล้ว เซตของจุด $P(x, y)$ คือ $\\{\\, (x, y) \\mid 4x^2 + 5y^2 - 8x + 20y - 12 = 0 \\,\\}$\n(ข) จุด $(1, 1)$ เป็นจุดบนพาราโบลา $y = x^2$ อยู่ใกล้กับเส้นตรง $y = 2x - 4$ มากที่สุด\nข้อใดต่อไปนี้ถูกต้อง",
       "choices": [
@@ -626,6 +636,7 @@
         "7"
       ],
       "subTopics": [],
+      "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "กำหนดให้ $\\theta$ เป็นจำนวนจริงใด ๆ พิจารณาข้อความต่อไปนี้\n(ก) $16\\sin^3 \\theta \\cos^2 \\theta = 2\\sin \\theta + \\sin 3\\theta - \\sin 5\\theta$\n(ข) $\\sin 3\\theta = (\\sin 2\\theta + \\sin \\theta)(2\\cos \\theta - 1)$\nข้อใดต่อไปนี้ถูกต้อง",
       "choices": [
@@ -678,6 +689,7 @@
         "7"
       ],
       "subTopics": [],
+      "difficulty": "ยาก",
       "type": "mc",
       "question": "$\\cot\\left(\\arccos\\sqrt{\\dfrac{2}{3}} - \\arccos\\dfrac{1+\\sqrt{6}}{2\\sqrt{3}}\\right)$ มีค่าเท่ากับข้อใดต่อไปนี้",
       "choices": [
@@ -752,6 +764,7 @@
         "9"
       ],
       "subTopics": [],
+      "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "กำหนดให้ $\\bar{u},\\ \\bar{v}$ และ $\\bar{w}$ เป็นเวกเตอร์ใด ๆ ในสามมิติ พิจารณาข้อความต่อไปนี้\n(ก) $\\bar{u} \\cdot (\\bar{v} \\times \\bar{w}) = \\bar{w} \\cdot (\\bar{u} \\times \\bar{v})$\n(ข) ถ้า $|\\bar{u}| = |\\bar{w}|$ , $|\\bar{u} - \\bar{v}| = |\\bar{v} + \\bar{w}|$ และเวกเตอร์ $\\bar{u}$ ตั้งฉากกับเวกเตอร์ $\\bar{v}$ แล้วเวกเตอร์ $\\bar{v}$ ตั้งฉากกับเวกเตอร์ $\\bar{w}$\nข้อใดต่อไปนี้ถูกต้อง",
       "choices": [
@@ -799,6 +812,7 @@
         "10"
       ],
       "subTopics": [],
+      "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "กำหนดให้ $z = x + y\\mathrm{i}$ เป็นจำนวนเชิงซ้อน เมื่อ $x$ และ $y$ เป็นจำนวนจริงที่สอดคล้องกับสมการ $x(3 + 5\\mathrm{i}) + y(1 - \\mathrm{i})^3 = 3 + 7\\mathrm{i}$ พิจารณาข้อความต่อไปนี้\n(ก) $\\text{Im}\\,\\overline{(\\mathrm{i}z)} = -\\text{Re}(\\mathrm{i}z)$\n(ข) $\\dfrac{1}{z} = \\dfrac{8 - 6\\mathrm{i}}{7}$\nข้อใดต่อไปนี้ถูกต้อง",
       "choices": [
@@ -868,6 +882,7 @@
         "12"
       ],
       "subTopics": [],
+      "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "ในคนกลุ่มหนึ่งประกอบด้วยชาย $6$ คน และหญิงจำนวนหนึ่ง ความน่าจะเป็นที่เลือกกรรมการ $2$ คน เป็นชายทั้งสองเท่ากับ $\\dfrac{1}{8}$ ความน่าจะเป็นที่จะเลือกกรรมการ $5$ คนเป็นชายไม่น้อยกว่า $3$ คน เท่ากับข้อใดต่อไปนี้",
       "choices": [
@@ -934,6 +949,7 @@
         "12"
       ],
       "subTopics": [],
+      "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "ต้องการสร้างจำนวนสามหลัก โดยที่มีตัวเลข $5$ อย่างน้อย $1$ หลัก แต่ไม่มีตัวเลข $7$ ในหลักใดเลย มีจำนวนวิธีสร้างจำนวนสามหลักเท่ากับข้อใดต่อไปนี้",
       "choices": [
@@ -991,6 +1007,7 @@
       "subTopics": [
         "5"
       ],
+      "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "ให้ $a$ และ $b$ เป็นจำนวนจริง และให้\n$f(x) = \\begin{cases} x^2 + ax + b, & x < 2 \\\\ \\sqrt{x - 1}, & 2 \\le x \\le 5 \\\\ ax + b, & x > 5 \\end{cases}$\nถ้า $f$ เป็นฟังก์ชันต่อเนื่องบนเซตของจำนวนจริง แล้ว $a - b$ เท่ากับข้อใดต่อไปนี้",
       "choices": [
@@ -1045,6 +1062,7 @@
       "subTopics": [
         "3"
       ],
+      "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "ถ้า $\\displaystyle\\int_{-2}^{2} |x^2 - 7x + 6|\\,dx = \\dfrac{a}{b}$ เมื่อ $a$ และ $b$ เป็นจำนวนเต็มที่ $b \\ne 0$ และ ห.ร.ม. ของ $a$ และ $b$ เท่ากับ $1$ แล้วค่าของ $a + b$ เท่ากับข้อใดต่อไปนี้",
       "choices": [
@@ -1103,6 +1121,7 @@
         "13"
       ],
       "subTopics": [],
+      "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "กำหนดให้ $f(x) = \\dfrac{4x^3}{x^6 - 3x^3 + 64}$ เมื่อ $x$ เป็นจำนวนจริงบวกใด ๆ พิจารณาข้อความต่อไปนี้\n(ก) $f$ เป็นฟังก์ชันเพิ่มบนช่วง $(0, 3)$\n(ข) ค่าสูงสุดสัมพัทธ์ของ $f$ เท่ากับ $\\dfrac{4}{13}$\nข้อใดต่อไปนี้ถูกต้อง",
       "choices": [
@@ -1175,6 +1194,7 @@
         "14"
       ],
       "subTopics": [],
+      "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "กำหนดให้ $a_n = \\sqrt{n^2 + 16n + 3} - \\sqrt{n^2 + 2}$ เมื่อ $n = 1, 2, 3, \\ldots$ ค่าของ $\\displaystyle\\lim_{n \\to \\infty} \\sqrt[3]{a_n}$ เท่ากับเท่าใด",
       "choices": [
@@ -1229,6 +1249,7 @@
       "subTopics": [
         "1"
       ],
+      "difficulty": "ยาก",
       "type": "mc",
       "question": "ให้ $\\mathbb{I}$ แทนเซตของจำนวนเต็ม ถ้า $A = \\{(x, y) \\in \\mathbb{I} \\times \\mathbb{I} \\mid xy - 21 = y - 4x\\}$ แล้วจำนวนสมาชิกของเซต $A$ เท่ากับข้อใดต่อไปนี้",
       "choices": [
@@ -1309,6 +1330,7 @@
       "subTopics": [
         "5"
       ],
+      "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "จำนวนประชากรในจังหวัดหนึ่ง ตั้งแต่ พ.ศ. 2550 ถึง พ.ศ. 2554 มีดังนี้\n\n<table style='margin:8px 0; border-collapse:collapse;'><tr><th style='border:1px solid #888; padding:4px 10px;'>พ.ศ.</th><th style='border:1px solid #888; padding:4px 10px;'>2550</th><th style='border:1px solid #888; padding:4px 10px;'>2551</th><th style='border:1px solid #888; padding:4px 10px;'>2552</th><th style='border:1px solid #888; padding:4px 10px;'>2553</th><th style='border:1px solid #888; padding:4px 10px;'>2554</th></tr><tr><td style='border:1px solid #888; padding:4px 10px;'>จำนวนประชากร (แสนคน)</td><td style='border:1px solid #888; padding:4px 10px; text-align:center;'>$1.2$</td><td style='border:1px solid #888; padding:4px 10px; text-align:center;'>$2.6$</td><td style='border:1px solid #888; padding:4px 10px; text-align:center;'>$a$</td><td style='border:1px solid #888; padding:4px 10px; text-align:center;'>$5.4$</td><td style='border:1px solid #888; padding:4px 10px; text-align:center;'>$6.3$</td></tr></table>\n\nถ้าจำนวนประชากรสัมพันธ์เชิงฟังก์ชันกับเวลา (พ.ศ.) เป็นเส้นตรง และทำนายว่าในปี พ.ศ. 2557 จะมีประชากร $1{,}028{,}000$ คน แล้วใน พ.ศ. 2552 จะมีประชากรกี่คน",
       "choices": [
@@ -1377,6 +1399,7 @@
         "7"
       ],
       "subTopics": [],
+      "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "ถ้า $x$ และ $y$ เป็นจำนวนจริงที่สอดคล้องกับสมการ $3\\sin(x - y) = 2\\sin(x + y)$ แล้ว $(\\tan^3 x)(\\cot^3 y)$ เท่ากับข้อใดต่อไปนี้",
       "choices": [
@@ -1438,6 +1461,7 @@
         "15"
       ],
       "subTopics": [],
+      "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "พิจารณาข้อความต่อไปนี้\n(ก) ถ้าข้อมูลชุดหนึ่งมีส่วนเบี่ยงเบนควอไทล์เท่ากับ $20$ และสัมประสิทธิ์ของส่วนเบี่ยงเบนควอไทล์เท่ากับ $\\dfrac{2}{3}$ แล้วสรุปได้ว่าร้อยละ $50$ ของข้อมูลชุดนี้มีค่าระหว่าง $10$ กับ $50$\n(ข) ในการสอบวิชาคณิตศาสตร์ของนักเรียนห้องหนึ่ง มีนักเรียนชาย $20$ คน และนักเรียนหญิง $40$ คน นักเรียนชายได้คะแนนสอบคนละ $32$ คะแนน ส่วนคะแนนสอบของนักเรียนหญิง มีค่าเฉลี่ยเลขคณิตของคะแนนสอบเท่ากับ $20$ คะแนน และความแปรปรวนของคะแนนสอบเท่ากับ $90$ สรุปว่าความแปรปรวนของคะแนนสอบของนักเรียนห้องนี้เท่ากับ $36$ คะแนน\nข้อใดต่อไปนี้ถูกต้อง",
       "choices": [
@@ -1514,6 +1538,7 @@
         "15"
       ],
       "subTopics": [],
+      "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "เงินเดือนของพนักงานจำนวน $50$ คนของบริษัทแห่งหนึ่งมีการแจกแจงความถี่ ดังนี้\n\n<table style='margin:8px 0; border-collapse:collapse;'><tr><th style='border:1px solid #888; padding:4px 12px;'>เงินเดือน (บาท)</th><th style='border:1px solid #888; padding:4px 12px;'>จำนวนพนักงาน (คน)</th></tr><tr><td style='border:1px solid #888; padding:4px 12px;'>$10{,}000 - 19{,}999$</td><td style='border:1px solid #888; padding:4px 12px; text-align:center;'>$5$</td></tr><tr><td style='border:1px solid #888; padding:4px 12px;'>$20{,}000 - 29{,}999$</td><td style='border:1px solid #888; padding:4px 12px; text-align:center;'>$10$</td></tr><tr><td style='border:1px solid #888; padding:4px 12px;'>$30{,}000 - 49{,}999$</td><td style='border:1px solid #888; padding:4px 12px; text-align:center;'>$25$</td></tr><tr><td style='border:1px solid #888; padding:4px 12px;'>$50{,}000 - 59{,}999$</td><td style='border:1px solid #888; padding:4px 12px; text-align:center;'>$10$</td></tr></table>\n\nพิจารณาข้อความต่อไปนี้\n(ก) ฐานนิยมของเงินเดือนเท่ากับ $39{,}999.50$ บาท\n(ข) มัธยฐานของเงินเดือนเท่ากับ $37{,}999.50$ บาท\nข้อใดต่อไปนี้ถูกต้อง",
       "choices": [
@@ -1577,6 +1602,7 @@
         "11"
       ],
       "subTopics": [],
+      "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "กำหนดให้ $\\{a_n\\}$ เป็นลำดับของจำนวนจริง โดยที่มี $a_1 = 2$ และ $a_n = 3a_{n-1} + 1$ สำหรับ $n = 2, 3, 4, \\ldots$ และกำหนดให้ $S_n = a_1 + a_2 + a_3 + \\ldots + a_n$ ข้อใดต่อไปนี้ถูกต้อง",
       "choices": [
@@ -1646,6 +1672,7 @@
         "6"
       ],
       "subTopics": [],
+      "difficulty": "ยาก",
       "type": "mc",
       "question": "กำหนดให้ $A$ และ $B$ เป็นเมทริกซ์จัตุรัสมิติเท่ากัน โดยที่ $\\det(A) \\neq 0$ และ $\\det(B) \\neq 0$ ถ้า $\\det(A^{-1} + B^{-1}) \\neq 0$ และ $\\det(A + B) \\neq 0$ แล้ว $(A + B)^{-1}$ ตรงกับข้อใดต่อไปนี้",
       "choices": [
@@ -1711,6 +1738,7 @@
         "16"
       ],
       "subTopics": [],
+      "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "กำหนดให้ $P = Ax + By$ เป็นฟังก์ชันจุดประสงค์ เมื่อ $A$ และ $B$ เป็นจำนวนจริงบวกที่สอดคล้องกับ $3A = 2B$ โดยมีอสมการข้อจำกัด ดังนี้\n$x + 2y \\leq 20,\\; 7x + 9y \\leq 105,\\; 5x + 3y \\geq 15,\\; x \\geq 0$ และ $y \\geq 0$\nถ้า $P$ มีค่ามากที่สุดเท่ากับ $M$ และ $P$ มีค่าน้อยที่สุดเท่ากับ $N$ แล้ว ข้อใดต่อไปนี้ถูกต้อง",
       "choices": [
@@ -1782,6 +1810,7 @@
       "subTopics": [
         "3"
       ],
+      "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "ถ้า $a, b, c, d, e$ เป็นจำนวนเต็มบวก โดยที่ $5a = 4b = 3c = 2d = e$ และ $a + 2b + 3c + 4d + 5e$ เป็นจำนวนเต็มบวกที่น้อยที่สุด แล้วค่าของ $a + 4b + 3c + 4d + e$ เท่ากับข้อใดต่อไปนี้",
       "choices": [
@@ -1845,6 +1874,7 @@
         "12"
       ],
       "subTopics": [],
+      "difficulty": "ยาก",
       "type": "mc",
       "question": "ตู้นิรภัยมีรหัสเปิดตู้เป็นจำนวน $10$ หลัก คือ ABCDEFGHIJ โดยที่\n(ก) A, B, C, D, E, F, G, H, I, J $\\in \\{0, 1, 2, \\ldots, 9\\}$ และ A, B, C, D, F, G, H, I, J เป็นจำนวนที่แตกต่างกันทั้งหมด\n(ข) A, B, C, D เป็นจำนวนคี่ที่เรียงติดกันและ A > B > C > D\n(ค) E, F, G เป็นจำนวนคู่ที่เรียงติดกันและ E > F > G\n(ง) H > I > J และ H + I + J = 15\nค่าของ C + F + I เท่ากับข้อใดต่อไปนี้",
       "choices": [
@@ -1936,6 +1966,7 @@
         "3"
       ],
       "subTopics": [],
+      "difficulty": "ยาก",
       "type": "fill",
       "question": "ถ้า $x$ เป็นจำนวนจริงที่มากที่สุดที่เป็นคำตอบของสมการ $\\sqrt{14 + 3x - x^2} - \\sqrt{9 + 5x - x^2} = 1$ แล้วค่าของ $\\left|\\dfrac{4 - 12x^{-1} + 9x^{-2}}{3x^{-2} - 2x^{-1}}\\right|$ เท่ากับเท่าใด",
       "correct": "4",
@@ -2012,6 +2043,7 @@
         "10"
       ],
       "subTopics": [],
+      "difficulty": "ปานกลาง",
       "type": "fill",
       "question": "กำหนดให้ $A$ เป็นเซตของจำนวนเชิงซ้อนทั้งหมดที่สอดคล้องกับสมการ $3|z|^2 - (28 - i)z + 4z^2 = 0$ และให้ $B = \\{|z + i| \\mid z \\in A\\}$ ผลบวกของสมาชิกทั้งหมดในเซต $B$ เท่ากับเท่าใด",
       "correct": "5",
@@ -2075,6 +2107,7 @@
         "7"
       ],
       "subTopics": [],
+      "difficulty": "ปานกลาง",
       "type": "fill",
       "question": "กำหนดให้ ABC เป็นรูปสามเหลี่ยมใดๆ โดยที่มีความยาวของด้านตรงข้ามมุม A มุม B และมุม C เท่ากับ $a$ หน่วย $b$ หน่วย และ $c$ หน่วย ตามลำดับ ถ้ามุม A มีขนาดมากกว่า $90°$ มุม B มีขนาด $45°$ และ $\\sqrt{2}\\,c = (\\sqrt{3} - 1)a$ แล้ว $\\cos^2(A - B - C) + \\cos^2 B + \\cos^2 C$ เท่ากับเท่าใด",
       "correct": "2",
@@ -2154,6 +2187,7 @@
         "8"
       ],
       "subTopics": [],
+      "difficulty": "ปานกลาง",
       "type": "fill",
       "question": "กำหนดให้ $A$ แทนเซตคำตอบของสมการ $\\log_3(3^{(2x^2 + 2x)} + 9) = x^2 + x + \\dfrac{1}{\\log 3}$ และให้ $B = \\{x^2 \\mid x \\in A\\}$ ผลบวกของสมาชิกทั้งหมดในเซต $B$ เท่ากับเท่าใด",
       "correct": "5",
@@ -2226,6 +2260,7 @@
       "subTopics": [
         "8"
       ],
+      "difficulty": "ปานกลาง",
       "type": "fill",
       "question": "ให้ $A$ แทนเซตคำตอบของจำนวนจริง $x \\in [0, 2\\pi)$ ทั้งหมดที่สอดคล้องกับสมการ $2^{(1+3\\sin x)} - 5 \\cdot 2^{2\\sin x} + 2^{(2+\\sin x)} = 1$ จำนวนสมาชิกของเซต $A$ เท่ากับเท่าใด",
       "correct": "3",
@@ -2287,6 +2322,7 @@
         "7"
       ],
       "subTopics": [],
+      "difficulty": "ปานกลาง",
       "type": "fill",
       "question": "กำหนดให้ $\\sin\\theta - \\sin 2\\theta + \\sin 3\\theta = 0$ โดยที่ $0 < \\theta < \\dfrac{\\pi}{2}$ ถ้า $a = \\dfrac{\\tan\\theta - \\tan 2\\theta}{\\cos\\theta - \\cos 2\\theta}$ และ $b = \\dfrac{\\sin 3\\theta + \\sin 4\\theta + \\sin 5\\theta}{\\cos 3\\theta + \\cos 4\\theta + \\cos 5\\theta}$ แล้วค่าของ $a^4 + b^4$ เท่ากับเท่าใด",
       "correct": "153",
@@ -2367,6 +2403,7 @@
       "subTopics": [
         "13"
       ],
+      "difficulty": "ยาก",
       "type": "fill",
       "question": "กำหนดให้ $a_n = \\sum_{k=1}^{n} \\dfrac{k}{2^k}$ เมื่อ $n = 1, 2, 3, \\ldots$ ค่าของ $\\displaystyle\\lim_{n \\to \\infty} \\dfrac{2^n(6 - 3a_n)}{\\sqrt{n^2 + 5n + 1}}$ เท่ากับเท่าใด",
       "correct": "3",
@@ -2430,6 +2467,7 @@
       "subTopics": [
         "5"
       ],
+      "difficulty": "ปานกลาง",
       "type": "fill",
       "question": "กำหนดให้ $f(x) = x^2 + ax + b$ เมื่อ $a$ และ $b$ เป็นจำนวนจริง ถ้า $f(1) = 2$ และ $(f \\circ f)(0) = 10$ แล้วค่าของ $\\displaystyle\\int_{-1}^{2} f(x)\\, dx$ เท่ากับเท่าใด",
       "correct": "12",
@@ -2492,6 +2530,7 @@
       "subTopics": [
         "3"
       ],
+      "difficulty": "ยาก",
       "type": "fill",
       "question": "สำหรับจำนวนเต็มบวก $n$ ใดๆ ให้ $S(n)$ แทนจำนวนคู่อันดับ $(a, b)$ ทั้งหมดที่สอดคล้องกับเงื่อนไขต่อไปนี้\n(1) $a$ และ $b$ เป็นจำนวนเต็มบวก\n(2) $\\dfrac{n}{a} \\in (0, 1]$\n(3) $\\dfrac{a}{b} \\in (1, 2]$\n(4) $\\dfrac{b}{n} \\in (2, 3]$\nค่าของ $n$ ที่ทำให้ $S(n) = 164$ เท่ากับเท่าใด",
       "correct": "8",
@@ -2559,6 +2598,7 @@
         "15"
       ],
       "subTopics": [],
+      "difficulty": "ปานกลาง",
       "type": "fill",
       "question": "ข้อมูลชุดหนึ่งเรียงจากน้อยไปหามาก ดังนี้ $a, 3, 5, 7, b$ ถ้าข้อมูลชุดนี้มีค่าเฉลี่ยเลขคณิตเท่ากับ $7$ และส่วนเบี่ยงเบนมาตรฐานเท่ากับ $2\\sqrt{10}$ แล้วค่าของ $2a + b$ เท่ากับเท่าใด",
       "correct": "21",
@@ -2638,6 +2678,7 @@
         "15"
       ],
       "subTopics": [],
+      "difficulty": "ปานกลาง",
       "type": "fill",
       "question": "คะแนนสอบวิชาคณิตศาสตร์และวิชาภาษาอังกฤษของนักเรียนกลุ่มหนึ่งมีการแจกแจงปกติ ค่าเฉลี่ยเลขคณิตและความแปรปรวนของคะแนนแต่ละวิชามีดังนี้\n<table style='margin:8px 0; border-collapse:collapse; border:1px solid #5a4f3d;'>\n<tr><th style='border:1px solid #5a4f3d; padding:4px 12px; background:#e8d5c0;'>วิชา</th><th style='border:1px solid #5a4f3d; padding:4px 12px; background:#e8d5c0;'>ค่าเฉลี่ยเลขคณิต (คะแนน)</th><th style='border:1px solid #5a4f3d; padding:4px 12px; background:#e8d5c0;'>ความแปรปรวน (คะแนน$^2$)</th></tr>\n<tr><td style='border:1px solid #5a4f3d; padding:4px 12px;'>วิชาคณิตศาสตร์</td><td style='border:1px solid #5a4f3d; padding:4px 12px; text-align:center;'>63</td><td style='border:1px solid #5a4f3d; padding:4px 12px; text-align:center;'>25</td></tr>\n<tr><td style='border:1px solid #5a4f3d; padding:4px 12px;'>วิชาภาษาอังกฤษ</td><td style='border:1px solid #5a4f3d; padding:4px 12px; text-align:center;'>72</td><td style='border:1px solid #5a4f3d; padding:4px 12px; text-align:center;'>9</td></tr>\n</table>\nถ้านักเรียนคนหนึ่งในกลุ่มนี้สอบทั้งสองวิชาได้คะแนนเท่ากัน พบว่าคะแนนสอบวิชาคณิตศาสตร์ของเขาเป็นตำแหน่งเปอร์เซ็นไทล์ที่ $88.49$ คะแนนสอบวิชาภาษาอังกฤษเป็นตำแหน่งเปอร์เซ็นไทล์เท่ากับเท่าใด\nเมื่อกำหนดพื้นที่ใต้เส้นโค้งปกติ ระหว่าง $0$ ถึง $z$ ดังตารางต่อไปนี้\n<table style='margin:8px 0; border-collapse:collapse; border:1px solid #5a4f3d;'>\n<tr><th style='border:1px solid #5a4f3d; padding:4px 12px; background:#e8d5c0;'>$Z$</th><td style='border:1px solid #5a4f3d; padding:4px 12px; text-align:center;'>$0.9$</td><td style='border:1px solid #5a4f3d; padding:4px 12px; text-align:center;'>$1.0$</td><td style='border:1px solid #5a4f3d; padding:4px 12px; text-align:center;'>$1.1$</td><td style='border:1px solid #5a4f3d; padding:4px 12px; text-align:center;'>$1.2$</td><td style='border:1px solid #5a4f3d; padding:4px 12px; text-align:center;'>$1.3$</td></tr>\n<tr><th style='border:1px solid #5a4f3d; padding:4px 12px; background:#e8d5c0;'>พื้นที่</th><td style='border:1px solid #5a4f3d; padding:4px 12px; text-align:center;'>$0.3159$</td><td style='border:1px solid #5a4f3d; padding:4px 12px; text-align:center;'>$0.3413$</td><td style='border:1px solid #5a4f3d; padding:4px 12px; text-align:center;'>$0.3643$</td><td style='border:1px solid #5a4f3d; padding:4px 12px; text-align:center;'>$0.3849$</td><td style='border:1px solid #5a4f3d; padding:4px 12px; text-align:center;'>$0.4032$</td></tr>\n</table>",
       "correct": "15.87",
@@ -2711,6 +2752,7 @@
         "13"
       ],
       "subTopics": [],
+      "difficulty": "ปานกลาง",
       "type": "fill",
       "question": "ให้ $\\mathbb{R}$ แทนเซตของจำนวนจริง ถ้า $f : \\mathbb{R} \\to \\mathbb{R}$ เป็นฟังก์ชันซึ่ง $f''(x) = 3 + 6x$ สำหรับทุกจำนวนจริง $x$ และความชันของเส้นสัมผัสโค้ง $y = f(x)$ ณ จุด $(2, 22)$ เท่ากับ $20$ แล้วค่าของ $\\displaystyle\\lim_{x \\to 4} f(x)$ เท่ากับเท่าใด",
       "correct": "100",
@@ -2784,6 +2826,7 @@
       "subTopics": [
         "3"
       ],
+      "difficulty": "ปานกลาง",
       "type": "fill",
       "question": "กำหนดให้ $f(x) = x^3 + ax^2 + bx + 3$ และ $g(x) = bx^2 + 3x + a$ เมื่อ $a$ และ $b$ เป็นจำนวนจริง\nถ้า $f(3) = 0$ และ $x - 2$ หาร $f(x)$ มีเศษเหลือเท่ากับ $5$ แล้วค่าของ $(g \\circ f)(1)$ เท่ากับเท่าใด",
       "correct": "721",
@@ -2844,6 +2887,7 @@
         "11"
       ],
       "subTopics": [],
+      "difficulty": "ปานกลาง",
       "type": "fill",
       "question": "หนังสือเล่มหนึ่งมี $500$ หน้า หน้าแรกมีคำผิด $1$ คำ เว้นไป $1$ หน้า หน้าที่สามมีคำผิด $1$ คำ เว้นไป $3$ หน้า หน้าที่เจ็ด มีคำผิด $1$ คำ เว้นไป $5$ หน้า เป็นเช่นนี้ต่อๆไป จำนวนหน้าที่ไม่มีคำผิดจะเพิ่มขึ้นทีละ $2$ หน้า จำนวนคำผิดในหนังสือเล่มนี้เท่ากับเท่าใด",
       "correct": "22",
@@ -2938,6 +2982,7 @@
       "subTopics": [
         "3"
       ],
+      "difficulty": "ปานกลาง",
       "type": "fill",
       "question": "ในกล่องใบหนึ่งบรรจุลูกบอลสีขาว ลูกบอลสีแดง และลูกบอลสีเหลือง โดยที่จำนวนลูกบอลสีขาวมีจำนวนไม่น้อยกว่าจำนวนลูกบอลสีแดง แต่ไม่มากกว่าหนึ่งในสามเท่าของจำนวนลูกบอลสีเหลือง และผลรวมของจำนวนลูกบอลสีขาวและสีแดงไม่น้อยกว่า $76$ ลูก อยากทราบว่าผลรวมของจำนวนลูกบอลสีขาวและลูกบอลสีเหลืองมีอย่างน้อยกี่ลูก",
       "correct": "152",
