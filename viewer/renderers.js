@@ -953,7 +953,10 @@ function renderVennDiagram(spec){
   if(sets === 2 && layout === 'disjoint'){
     return _venn2Disjoint(spec);
   }
-  return null;   // other variants → iteration 3+ (fallback to placeholder)
+  if(sets === 3 && layout === 'intersecting'){
+    return _venn3Intersecting(spec);
+  }
+  return null;   // other variants → future iterations
 }
 
 function _venn2Intersecting(spec){
@@ -1242,6 +1245,156 @@ function _venn2Disjoint(spec){
     B: [xB, cy],
     outside: universe ? [cx, ubY + ubH - 22] : [cx, H - 22]
   });
+
+  return svg + '</svg>';
+}
+
+
+// ----- 3-set intersecting variant (3 วงตัดกัน) -----
+// Three equal circles arranged at vertices of an equilateral triangle:
+// A = top-left, B = top-right, C = bottom-center.
+// Region IDs: A_only · B_only · C_only · AB_only · AC_only · BC_only · ABC · outside
+//
+// DESIGN:
+// - Set labels positioned via outward unit vector from triangle centroid.
+//   labOff = r + 32 → labels sit clearly outside the circles (no edge overlap).
+// - Region text positions tuned so AB_only / AC_only / BC_only stay ≥ 18px
+//   away from the EXCLUDED circle's edge while remaining safely inside their
+//   included circles (verified via geometry: edge clearance 18.4–19.8 px).
+// - Shading uses nested <clipPath> wrapping (A ∩ B ∩ ...) via <g> chains,
+//   then white-circle "punch-outs" for excluded sets. Cleaner than 7+ masks.
+function _venn3Intersecting(spec){
+  // ---- canvas ----
+  const W = spec.width || 400;
+  const H = spec.height || 360;
+
+  // ---- geometry: equilateral triangle of centers ----
+  const r = 68;             // circle radius
+  const d = 70;             // center-to-center distance
+  const cx = W / 2;
+  const cy = H / 2 - 4;     // shift up a touch for label room
+  const triH = d * Math.sqrt(3) / 2;
+  // A = top-left, B = top-right, C = bottom-center
+  const xA = cx - d/2, yA = cy - triH/3;
+  const xB = cx + d/2, yB = cy - triH/3;
+  const xC = cx,       yC = cy + 2*triH/3;
+  // Triangle centroid = (cx, cy) by construction — used for outward label vectors
+  const tcx = cx, tcy = cy;
+
+  // ---- universe box ----
+  const ubW = 360, ubH = 310;
+  const ubX = cx - ubW/2;
+  const ubY = cy - ubH/2;
+
+  // ---- defaults ----
+  const labels  = spec.labels  || { A: 'A', B: 'B', C: 'C' };
+  const regions = spec.regions || {};
+  const shadeSet = new Set(spec.shade || []);
+  const universe = !!spec.universe;
+
+  // ---- colors ----
+  const SHADE = '#b8aa88';
+  const SHADE_OP = 0.55;
+  const INK = '#222';
+  const RULE = '#3a3424';
+
+  // ---- unique clipPath IDs (per-call, prevents collisions across multiple venns) ----
+  const uid = ++_vennIdCounter;
+  const CP = (n) => `vClip${uid}_${n}`;
+
+  let svg = `<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" `
+          + `xmlns="http://www.w3.org/2000/svg" `
+          + `style="background:#fff;font-family:'Sarabun',sans-serif;">`;
+
+  // 0. <defs> — clipPaths for nested-AND shading
+  svg += `<defs>`;
+  svg += `<clipPath id="${CP('A')}"><circle cx="${xA}" cy="${yA}" r="${r}"/></clipPath>`;
+  svg += `<clipPath id="${CP('B')}"><circle cx="${xB}" cy="${yB}" r="${r}"/></clipPath>`;
+  svg += `<clipPath id="${CP('C')}"><circle cx="${xC}" cy="${yC}" r="${r}"/></clipPath>`;
+  svg += `</defs>`;
+
+  // 1. UNIVERSE BOX (drawn first so circles + shading sit on top)
+  if(universe){
+    svg += `<rect x="${ubX}" y="${ubY}" width="${ubW}" height="${ubH}" `
+         + `fill="none" stroke="${RULE}" stroke-width="1.4"/>`;
+    svg += `<text x="${ubX + 10}" y="${ubY + 20}" `
+         + `font-family="'Cambria Math','Times New Roman',serif" `
+         + `font-size="15" font-style="italic" fill="${INK}">U</text>`;
+  }
+
+  // 2. SHADING — nested clip wraps produce intersections, then white punch-outs erase excludes
+  // Each region is rendered as a self-contained <g> so combinations don't bleed into each other.
+  function shadeRegion(includes, excludes){
+    let inner = `<rect x="0" y="0" width="${W}" height="${H}" fill="${SHADE}" opacity="${SHADE_OP}"/>`;
+    includes.forEach(name => {
+      inner = `<g clip-path="url(#${CP(name)})">${inner}</g>`;
+    });
+    let result = inner;
+    excludes.forEach(name => {
+      const cx_ = name==='A' ? xA : name==='B' ? xB : xC;
+      const cy_ = name==='A' ? yA : name==='B' ? yB : yC;
+      result += `<circle cx="${cx_}" cy="${cy_}" r="${r}" fill="white"/>`;
+    });
+    return result;
+  }
+  if(shadeSet.has('A_only'))    svg += shadeRegion(['A'], ['B','C']);
+  if(shadeSet.has('B_only'))    svg += shadeRegion(['B'], ['A','C']);
+  if(shadeSet.has('C_only'))    svg += shadeRegion(['C'], ['A','B']);
+  if(shadeSet.has('AB_only'))   svg += shadeRegion(['A','B'], ['C']);
+  if(shadeSet.has('AC_only'))   svg += shadeRegion(['A','C'], ['B']);
+  if(shadeSet.has('BC_only'))   svg += shadeRegion(['B','C'], ['A']);
+  if(shadeSet.has('ABC'))       svg += shadeRegion(['A','B','C'], []);
+
+  // 3. CIRCLE OUTLINES (drawn AFTER shading so they sit visibly on top)
+  svg += `<circle cx="${xA}" cy="${yA}" r="${r}" fill="none" stroke="${RULE}" stroke-width="1.6"/>`;
+  svg += `<circle cx="${xB}" cy="${yB}" r="${r}" fill="none" stroke="${RULE}" stroke-width="1.6"/>`;
+  svg += `<circle cx="${xC}" cy="${yC}" r="${r}" fill="none" stroke="${RULE}" stroke-width="1.6"/>`;
+
+  // 4. SET LABELS — outward unit vector from triangle centroid, offset r+32
+  const labFS = 17;
+  const labOff = r + 32;
+  function outwardLabel(xCirc, yCirc, txt){
+    const dx = xCirc - tcx, dy = yCirc - tcy;
+    const len = Math.sqrt(dx*dx + dy*dy);
+    const ux = dx/len, uy = dy/len;
+    const lx = xCirc + ux * labOff;
+    const ly = yCirc + uy * labOff + 5;
+    return `<text x="${lx.toFixed(2)}" y="${ly.toFixed(2)}" `
+         + `font-family="'Cambria Math','Times New Roman',serif" `
+         + `font-size="${labFS}" font-style="italic" fill="${INK}" text-anchor="middle">${txt}</text>`;
+  }
+  svg += outwardLabel(xA, yA, labels.A);
+  svg += outwardLabel(xB, yB, labels.B);
+  svg += outwardLabel(xC, yC, labels.C);
+
+  // 5. REGION TEXT (centroid placement, tuned for 18+ px edge clearance from excluded circles)
+  const regFS = 14;
+  const positions = {
+    A_only:  [xA - r*0.50,           yA - r*0.10],
+    B_only:  [xB + r*0.50,           yB - r*0.10],
+    C_only:  [xC,                     yC + r*0.55],
+    AB_only: [(xA+xB)/2,             (yA+yB)/2 - r*0.40],   // ↑ away from C top
+    AC_only: [(xA+xC)/2 - r*0.36,    (yA+yC)/2 + r*0.13],   // ← away from B
+    BC_only: [(xB+xC)/2 + r*0.36,    (yB+yC)/2 + r*0.13],   // → away from A
+    ABC:     [cx,                     cy + triH/6 + 2],
+  };
+  Object.entries(positions).forEach(([key, pos]) => {
+    if(regions[key] !== undefined){
+      const txt = String(regions[key]);
+      const useItalic = /^[a-zA-Z]$/.test(txt);
+      const fontAttr = useItalic
+        ? ` font-family="'Cambria Math','Times New Roman',serif" font-style="italic"`
+        : '';
+      svg += `<text x="${pos[0].toFixed(2)}" y="${(pos[1]+5).toFixed(2)}" `
+           + `text-anchor="middle" font-size="${regFS}" fill="${INK}"${fontAttr}>${txt}</text>`;
+    }
+  });
+  if(regions.outside !== undefined){
+    const ox = universe ? (ubX + ubW - 14) : (W - 14);
+    const oy = universe ? (ubY + ubH - 14) : (H - 14);
+    const txt = String(regions.outside);
+    svg += `<text x="${ox}" y="${oy}" text-anchor="end" font-size="${regFS}" fill="${INK}">${txt}</text>`;
+  }
 
   return svg + '</svg>';
 }
