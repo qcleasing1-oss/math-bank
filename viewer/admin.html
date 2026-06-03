@@ -680,6 +680,30 @@
   }
   .img-rendered svg { display: block; max-width: 100%; height: auto; }
 
+  /* Inline image inside explanation (Phase E — [IMAGE] marker) */
+  .img-inline {
+    margin: 10px 0;
+    text-align: center;
+  }
+  .img-inline svg {
+    display: inline-block;
+    max-width: 100%;
+    height: auto;
+    background: #fff;
+    border: 1px solid var(--rule);
+    padding: 8px 10px;
+  }
+  .img-inline-span {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 4px;
+  }
+  .img-inline-missing {
+    color: var(--warn);
+    font-style: italic;
+    font-size: 13px;
+  }
+
   /* imageSpec placeholder card */
   .imgspec-placeholder {
     background: var(--placeholder-bg);
@@ -1360,6 +1384,90 @@
     `;
   }
 
+  // ============ Phase E: [IMAGE] marker support ============
+  // Pattern: '[IMAGE]' (single spec) or '[IMAGE:0]', '[IMAGE:1]' ... (array of specs)
+  // Two styles supported:
+  //   (a) bare line  — line is just the marker → render as standalone block
+  //   (b) inline    — marker mixed with text in same line → render SVG inline (span)
+
+  function hasImageMarkers(explanation) {
+    if (!Array.isArray(explanation)) return false;
+    return explanation.some(ln => typeof ln === 'string' && /\[IMAGE(?::\d+)?\]/.test(ln));
+  }
+
+  function _getSpecByIdx(imageSpec, idx) {
+    if (Array.isArray(imageSpec)) return imageSpec[idx];
+    return idx === 0 ? imageSpec : null;
+  }
+
+  function _renderSpecToSvg(spec) {
+    if (!spec) return null;
+    return (typeof renderImage === 'function') ? renderImage(spec) : null;
+  }
+
+  function renderExplanationWithImages(explanation, imageSpec) {
+    const out = [];
+    explanation.forEach(line => {
+      if (typeof line !== 'string') {
+        out.push(`<div>${line}</div>`);
+        return;
+      }
+
+      const re = /\[IMAGE(?::(\d+))?\]/g;
+      const parts = [];
+      let lastEnd = 0;
+      let m;
+      let hasMarker = false;
+      while ((m = re.exec(line)) !== null) {
+        hasMarker = true;
+        if (m.index > lastEnd) {
+          parts.push({ type: 'text', text: line.substring(lastEnd, m.index) });
+        }
+        const idx = m[1] !== undefined ? parseInt(m[1], 10) : 0;
+        parts.push({ type: 'image', idx });
+        lastEnd = m.index + m[0].length;
+      }
+      if (!hasMarker) {
+        out.push(`<div>${line}</div>`);
+        return;
+      }
+      if (lastEnd < line.length) {
+        parts.push({ type: 'text', text: line.substring(lastEnd) });
+      }
+
+      const isOnlyMarkers = parts.every(p =>
+        p.type === 'image' || /^\s*$/.test(p.text)
+      );
+
+      if (isOnlyMarkers) {
+        // Style (a): standalone block
+        parts.forEach(p => {
+          if (p.type !== 'image') return;
+          const spec = _getSpecByIdx(imageSpec, p.idx);
+          const svg = _renderSpecToSvg(spec);
+          if (svg) {
+            out.push(`<div class="img-inline">${svg}</div>`);
+          } else {
+            const label = p.idx > 0 ? `[IMAGE:${p.idx}]` : '[IMAGE]';
+            out.push(`<div class="img-inline-missing">⚠️ ${label} — ไม่มี imageSpec สำหรับ index นี้</div>`);
+          }
+        });
+      } else {
+        // Style (b): inline mix of text + SVG spans
+        const html = parts.map(p => {
+          if (p.type === 'text') return p.text;
+          const spec = _getSpecByIdx(imageSpec, p.idx);
+          const svg = _renderSpecToSvg(spec);
+          if (svg) return `<span class="img-inline-span">${svg}</span>`;
+          const label = p.idx > 0 ? `[IMAGE:${p.idx}]` : '[IMAGE]';
+          return `<span class="img-inline-missing">⚠️${label}</span>`;
+        }).join('');
+        out.push(`<div>${html}</div>`);
+      }
+    });
+    return out.join('');
+  }
+
   function renderQBody(q) {
     let out = '';
 
@@ -1414,7 +1522,11 @@
     }
 
     // imageSpec → render SVG ผ่าน renderers.js (Phase B)
-    if (q.imageSpec) {
+    // Phase E: ถ้า explanation มี [IMAGE] marker → skip section นี้
+    //          (SVG จะถูก inject ใน explanation ตรงตำแหน่ง marker)
+    //          ถ้าไม่มี marker → fallback แสดง section "รูปประกอบ" แยกเหมือนเดิม (backward compat)
+    const explHasImgMarkers = hasImageMarkers(q.explanation);
+    if (q.imageSpec && !explHasImgMarkers) {
       const svg = (typeof renderImage === 'function') ? renderImage(q.imageSpec) : null;
       if (svg) {
         // renderer คืน SVG → แสดงในกรอบขาว
@@ -1438,7 +1550,7 @@
           </div>
         </div>`;
       }
-    } else if (q.imageNote) {
+    } else if (q.imageNote && !q.imageSpec) {
       out += `<div class="q-section">
         <h4>รูปประกอบ (เป็น note)</h4>
         <div class="imgnote">${escapeHtml(q.imageNote)}</div>
@@ -1466,10 +1578,14 @@
 
     // เฉลย
     if (Array.isArray(q.explanation) && q.explanation.length) {
+      // Phase E: ถ้ามี [IMAGE] marker → inject SVG inline; ไม่มี → render ตรงๆ
+      const explHtml = (explHasImgMarkers && q.imageSpec)
+        ? renderExplanationWithImages(q.explanation, q.imageSpec)
+        : q.explanation.map(line => `<div>${line}</div>`).join('');
       out += `<div class="q-section">
         <h4>เฉลย</h4>
         <div class="explanation">
-          ${q.explanation.map(line => `<div>${line}</div>`).join('')}
+          ${explHtml}
         </div>
       </div>`;
     }
