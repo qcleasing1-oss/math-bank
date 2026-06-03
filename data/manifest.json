@@ -1,6 +1,6 @@
 {
  "schemaVersion": 3,
- "exported": "2026-05-21T00:00:00Z",
+ "exported": "2026-06-03T00:00:00Z",
  "topicNames": {
   "1": "เซต",
   "2": "ตรรกศาสตร์",
@@ -497,6 +497,26 @@
     "questionsRemaining": 0,
     "exportedAt": "2026-05-20",
     "note": "All 128 questions complete. Phase 4 (Q97-Q128) rewritten with detailed explanations. Q124 fixed (question + correct)."
+   }
+  },
+  "chap-03-realnumber": {
+   "source": "ข้อสอบรายบท",
+   "subject": "จำนวนจริง",
+   "totalQuestions": 170,
+   "totalScore": 170,
+   "structure": {
+    "part1": "ข้อสอบเข้ามหาวิทยาลัย + เสริมประสบการณ์ (Q1-Q170) — ทุกข้อจัดอยู่ในบทจำนวนจริง"
+   },
+   "topicDistribution": {
+    "3": 170
+   },
+   "snapshot": {
+    "round": 2,
+    "stage": "in progress (Q1-Q170 done — batch 24 Q171-Q180 next)",
+    "questionsCompleted": 170,
+    "questionsRemaining": 20,
+    "exportedAt": "2026-06-03",
+    "note": "Q161-Q170 ingest จาก batch 23 (3 มิ.ย.69). Q168 ⚠️ คำตอบแก้ 20 → 24 — เฉลย PDF (โควตา มช./2547) เผลอตัด ±8 ออกจาก A∩B; ที่ถูกต้องตามคณิตศาสตร์ |x| ≤ 8 → A∩B มี 12 ตัว → |(A∩B)×C| = 12×2 = 24. คงคำถามตามภาพ PDF (|x| ⩽ 8). Pending: batch 24 Q171-Q180 (Diophantine + gcd/lcm), batch 25 Q181-Q190."
    }
   },
   "pat1-2552-07": {
