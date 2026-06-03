@@ -502,21 +502,21 @@
   "chap-03-realnumber": {
    "source": "ข้อสอบรายบท",
    "subject": "จำนวนจริง",
-   "totalQuestions": 170,
-   "totalScore": 170,
+   "totalQuestions": 190,
+   "totalScore": 190,
    "structure": {
-    "part1": "ข้อสอบเข้ามหาวิทยาลัย + เสริมประสบการณ์ (Q1-Q170) — ทุกข้อจัดอยู่ในบทจำนวนจริง"
+    "part1": "ข้อสอบเข้ามหาวิทยาลัย + เสริมประสบการณ์ (Q1-Q190) — ทุกข้อจัดอยู่ในบทจำนวนจริง"
    },
    "topicDistribution": {
-    "3": 170
+    "3": 190
    },
    "snapshot": {
     "round": 2,
-    "stage": "in progress (Q1-Q170 done — batch 24 Q171-Q180 next)",
-    "questionsCompleted": 170,
-    "questionsRemaining": 20,
+    "stage": "in progress (Q1-Q190 done — chap-03 ใกล้จบ)",
+    "questionsCompleted": 190,
+    "questionsRemaining": 0,
     "exportedAt": "2026-06-03",
-    "note": "Q161-Q170 ingest จาก batch 23 (3 มิ.ย.69). Q168 ⚠️ คำตอบแก้ 20 → 24 — เฉลย PDF (โควตา มช./2547) เผลอตัด ±8 ออกจาก A∩B; ที่ถูกต้องตามคณิตศาสตร์ |x| ≤ 8 → A∩B มี 12 ตัว → |(A∩B)×C| = 12×2 = 24. คงคำถามตามภาพ PDF (|x| ⩽ 8). Pending: batch 24 Q171-Q180 (Diophantine + gcd/lcm), batch 25 Q181-Q190."
+    "note": "batch 24-25 (Q171-Q190) ingest 3 มิ.ย.69: Q171-180 Diophantine + gcd/lcm, Q181-190 modular + Legendre + Euclidean."
    }
   },
   "pat1-2552-07": {
