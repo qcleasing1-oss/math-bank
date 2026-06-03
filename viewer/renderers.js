@@ -28,6 +28,9 @@
 // ----- helper: standard normal PDF -----
 function normalPdf(x){return Math.exp(-x*x/2)/Math.sqrt(2*Math.PI);}
 
+// ----- helper: counter for unique mask IDs (used by venn-diagram) -----
+let _vennIdCounter = 0;
+
 
 // ----- renderer: normal distribution curve -----
 // Spec fields:
@@ -920,6 +923,330 @@ function renderStemLeaf(spec){
 }
 
 
+// ----- renderer: venn-diagram -----
+// Iteration 1 coverage: 2-set intersecting (Q24/Q32/Q71/Q73 of chap-01-set)
+// Future iterations will add: 2-set disjoint, 3-set intersecting,
+// custom layouts (inner-C), region arrows, box-set.
+//
+// Spec fields:
+//   sets: 2 (3 in future iters)
+//   layout: 'intersecting' (other values in future iters)
+//   labels: {A:'A', B:'B'}             - text outside circles
+//   regions: {A_only,B_only,AB,outside} - text inside each region
+//   shade: ['A_only','B_only','AB','outside']  - 0+ regions to fill
+//   universe: bool                     - draw outer rectangle + U label
+//   width, height                      - optional canvas size
+//
+// Region IDs (2-set):  A_only · B_only · AB · outside
+//
+// DESIGN: A_only/B_only/outside use SVG <mask> (bulletproof — just
+// "show circle X, hide circle Y"). AB uses lens path (small arcs of
+// both circles meeting at intersection points). All four regions can
+// shade independently — opacity is uniform regardless of combination.
+function renderVennDiagram(spec){
+  if(!spec || spec.type !== 'venn-diagram') return null;
+  const sets = spec.sets || 2;
+  const layout = spec.layout || 'intersecting';
+  if(sets === 2 && layout === 'intersecting'){
+    return _venn2Intersecting(spec);
+  }
+  if(sets === 2 && layout === 'disjoint'){
+    return _venn2Disjoint(spec);
+  }
+  return null;   // other variants → iteration 3+ (fallback to placeholder)
+}
+
+function _venn2Intersecting(spec){
+  // ---- canvas ----
+  const W = spec.width || 360;
+  const H = spec.height || 240;
+
+  // ---- geometry ----
+  const r = 70;
+  const d = 70;                     // center-distance (must be < 2r for overlap)
+  const cx = W / 2, cy = H / 2;
+  const xA = cx - d/2, xB = cx + d/2;
+  const yt = Math.sqrt(r*r - (d/2)*(d/2));
+  const mid = cx;
+  const PtX = mid, PtY = cy - yt;   // top intersection
+  const PbX = mid, PbY = cy + yt;   // bottom intersection
+
+  // universe box
+  const ubW = 280, ubH = 180;
+  const ubX = cx - ubW/2, ubY = cy - ubH/2;
+
+  // ---- defaults ----
+  const labels  = spec.labels  || { A: 'A', B: 'B' };
+  const regions = spec.regions || {};
+  const shadeSet = new Set(spec.shade || []);
+  const universe = !!spec.universe;
+
+  // ---- colors ----
+  const SHADE = '#b8aa88';          // warm tan (matches stacked-bar palette)
+  const SHADE_OP = 0.55;
+  const INK = '#222';
+  const RULE = '#3a3424';
+
+  // ---- unique mask IDs (per-call, prevents collisions across multiple venns) ----
+  const uid = ++_vennIdCounter;
+  const M = (n) => `vMask${uid}_${n}`;
+
+  let svg = `<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" `
+          + `xmlns="http://www.w3.org/2000/svg" `
+          + `style="background:#fff;font-family:'Sarabun',sans-serif;">`;
+
+  // 0. <defs> — masks for shading
+  svg += `<defs>`;
+  if(shadeSet.has('A_only')){
+    svg += `<mask id="${M('Aonly')}" maskUnits="userSpaceOnUse">`
+         + `<rect x="0" y="0" width="${W}" height="${H}" fill="black"/>`
+         + `<circle cx="${xA}" cy="${cy}" r="${r}" fill="white"/>`
+         + `<circle cx="${xB}" cy="${cy}" r="${r}" fill="black"/>`
+         + `</mask>`;
+  }
+  if(shadeSet.has('B_only')){
+    svg += `<mask id="${M('Bonly')}" maskUnits="userSpaceOnUse">`
+         + `<rect x="0" y="0" width="${W}" height="${H}" fill="black"/>`
+         + `<circle cx="${xB}" cy="${cy}" r="${r}" fill="white"/>`
+         + `<circle cx="${xA}" cy="${cy}" r="${r}" fill="black"/>`
+         + `</mask>`;
+  }
+  if(universe && shadeSet.has('outside')){
+    svg += `<mask id="${M('outside')}" maskUnits="userSpaceOnUse">`
+         + `<rect x="${ubX}" y="${ubY}" width="${ubW}" height="${ubH}" fill="white"/>`
+         + `<circle cx="${xA}" cy="${cy}" r="${r}" fill="black"/>`
+         + `<circle cx="${xB}" cy="${cy}" r="${r}" fill="black"/>`
+         + `</mask>`;
+  }
+  svg += `</defs>`;
+
+  // 1. SHADING (filled regions, drawn BEFORE circles so strokes overlay)
+  if(universe && shadeSet.has('outside')){
+    svg += `<rect x="0" y="0" width="${W}" height="${H}" `
+         + `fill="${SHADE}" opacity="${SHADE_OP}" mask="url(#${M('outside')})"/>`;
+  }
+  if(shadeSet.has('A_only')){
+    svg += `<rect x="0" y="0" width="${W}" height="${H}" `
+         + `fill="${SHADE}" opacity="${SHADE_OP}" mask="url(#${M('Aonly')})"/>`;
+  }
+  if(shadeSet.has('B_only')){
+    svg += `<rect x="0" y="0" width="${W}" height="${H}" `
+         + `fill="${SHADE}" opacity="${SHADE_OP}" mask="url(#${M('Bonly')})"/>`;
+  }
+  if(shadeSet.has('AB')){
+    // Lens: small arc of A (right side) + small arc of B (left side), both CW
+    const p = `M ${PtX} ${PtY} `
+            + `A ${r} ${r} 0 0 1 ${PbX} ${PbY} `
+            + `A ${r} ${r} 0 0 1 ${PtX} ${PtY} Z`;
+    svg += `<path d="${p}" fill="${SHADE}" opacity="${SHADE_OP}"/>`;
+  }
+
+  // 2. UNIVERSE BOX
+  if(universe){
+    svg += `<rect x="${ubX}" y="${ubY}" width="${ubW}" height="${ubH}" `
+         + `fill="none" stroke="${RULE}" stroke-width="1.4"/>`;
+    svg += `<text x="${ubX + 8}" y="${ubY + 18}" `
+         + `font-family="'Cambria Math','Times New Roman',serif" `
+         + `font-size="15" font-style="italic" fill="${INK}">U</text>`;
+  }
+
+  // 3. CIRCLES
+  svg += `<circle cx="${xA}" cy="${cy}" r="${r}" fill="none" stroke="${RULE}" stroke-width="1.6"/>`;
+  svg += `<circle cx="${xB}" cy="${cy}" r="${r}" fill="none" stroke="${RULE}" stroke-width="1.6"/>`;
+
+  // 4. SET LABELS (outside, top corners)
+  const labFS = 17;
+  svg += `<text x="${xA - r * 0.85}" y="${cy - r - 4}" `
+       + `font-family="'Cambria Math','Times New Roman',serif" `
+       + `font-size="${labFS}" font-style="italic" fill="${INK}" text-anchor="middle">${labels.A}</text>`;
+  svg += `<text x="${xB + r * 0.85}" y="${cy - r - 4}" `
+       + `font-family="'Cambria Math','Times New Roman',serif" `
+       + `font-size="${labFS}" font-style="italic" fill="${INK}" text-anchor="middle">${labels.B}</text>`;
+
+  // 5. REGION TEXT (centroid placement)
+  const regFS = 16;
+  if(regions.A_only !== undefined){
+    svg += `<text x="${xA - r * 0.45}" y="${cy + 5}" `
+         + `text-anchor="middle" font-size="${regFS}" fill="${INK}">${regions.A_only}</text>`;
+  }
+  if(regions.B_only !== undefined){
+    svg += `<text x="${xB + r * 0.45}" y="${cy + 5}" `
+         + `text-anchor="middle" font-size="${regFS}" fill="${INK}">${regions.B_only}</text>`;
+  }
+  if(regions.AB !== undefined){
+    svg += `<text x="${mid}" y="${cy + 5}" `
+         + `text-anchor="middle" font-size="${regFS}" fill="${INK}">${regions.AB}</text>`;
+  }
+  if(regions.outside !== undefined){
+    const ox = universe ? (ubX + ubW - 14) : (W - 14);
+    const oy = universe ? (ubY + ubH - 10) : (H - 10);
+    svg += `<text x="${ox}" y="${oy}" text-anchor="end" font-size="${regFS}" fill="${INK}">${regions.outside}</text>`;
+  }
+
+  // 6. ELEMENT LABELS (members of a set, e.g. 'a', 'b', 'c')
+  svg += _vennDrawElements(spec, {
+    A_only: [xA - r * 0.45, cy],
+    B_only: [xB + r * 0.45, cy],
+    AB:     [mid, cy],
+    outside: universe ? [cx, ubY + ubH - 22] : [cx, H - 22]
+  });
+
+  return svg + '</svg>';
+}
+
+
+// ----- helper: draw element labels (e.g. 'a', 'b', 'c' as set members) -----
+// Auto-places elements in a horizontal row centered at the region centroid.
+// Italic + serif for single ASCII letters (math variable convention);
+// upright Sarabun for everything else (Thai words, multi-char names).
+// Optional per-element override: dx, dy nudge from auto-placed position.
+function _vennDrawElements(spec, centroids){
+  const elements = spec.elements || [];
+  if(elements.length === 0) return '';
+
+  // Group by region (preserve order within each region)
+  const byRegion = new Map();
+  elements.forEach(e => {
+    const r = e.region || 'outside';
+    if(!byRegion.has(r)) byRegion.set(r, []);
+    byRegion.get(r).push(e);
+  });
+
+  const FS = 14;
+  const GAP = FS * 1.1;
+  const INK = '#222';
+  let out = '';
+
+  byRegion.forEach((items, region) => {
+    const c = centroids[region];
+    if(!c) return;
+    const totalW = (items.length - 1) * GAP;
+    const startX = c[0] - totalW / 2;
+    items.forEach((el, i) => {
+      const x = startX + i * GAP + (el.dx || 0);
+      const y = c[1] + 5 + (el.dy || 0);
+      const useItalic = /^[a-zA-Z]$/.test(el.text);
+      const fontAttr = useItalic
+        ? ` font-family="'Cambria Math','Times New Roman',serif" font-style="italic"`
+        : '';
+      out += `<text x="${x.toFixed(2)}" y="${y.toFixed(2)}" text-anchor="middle" `
+           + `font-size="${FS}" fill="${INK}"${fontAttr}>${el.text}</text>`;
+    });
+  });
+
+  return out;
+}
+
+
+// ----- 2-set disjoint variant (vงไม่ตัดกัน) -----
+// Two circles placed side-by-side with a gap between them.
+// Regions: 'A' (whole left circle), 'B' (whole right circle), 'outside' (rest of universe).
+// No 'AB' region (since circles don't intersect).
+function _venn2Disjoint(spec){
+  // ---- canvas ----
+  const W = spec.width || 380;
+  const H = spec.height || 240;
+
+  // ---- geometry: 2 non-overlapping circles ----
+  const r = 60;
+  const gap = 40;                     // gap between circles
+  const cx = W / 2, cy = H / 2;
+  const xA = cx - r - gap / 2;
+  const xB = cx + r + gap / 2;
+
+  // universe box
+  const ubW = 320, ubH = 180;
+  const ubX = cx - ubW / 2, ubY = cy - ubH / 2;
+
+  // ---- defaults ----
+  const labels  = spec.labels  || { A: 'A', B: 'B' };
+  const regions = spec.regions || {};
+  const shadeSet = new Set(spec.shade || []);
+  const universe = !!spec.universe;
+
+  // ---- colors ----
+  const SHADE = '#b8aa88';
+  const SHADE_OP = 0.55;
+  const INK = '#222';
+  const RULE = '#3a3424';
+
+  const uid = ++_vennIdCounter;
+  const M = (n) => `vMask${uid}_${n}`;
+
+  let svg = `<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" `
+          + `xmlns="http://www.w3.org/2000/svg" `
+          + `style="background:#fff;font-family:'Sarabun',sans-serif;">`;
+
+  // 0. <defs> — outside mask only (A and B are full-circle, no mask needed)
+  if(universe && shadeSet.has('outside')){
+    svg += `<defs>`
+         + `<mask id="${M('outside')}" maskUnits="userSpaceOnUse">`
+         + `<rect x="${ubX}" y="${ubY}" width="${ubW}" height="${ubH}" fill="white"/>`
+         + `<circle cx="${xA}" cy="${cy}" r="${r}" fill="black"/>`
+         + `<circle cx="${xB}" cy="${cy}" r="${r}" fill="black"/>`
+         + `</mask></defs>`;
+  }
+
+  // 1. SHADING
+  if(universe && shadeSet.has('outside')){
+    svg += `<rect x="0" y="0" width="${W}" height="${H}" `
+         + `fill="${SHADE}" opacity="${SHADE_OP}" mask="url(#${M('outside')})"/>`;
+  }
+  // Whole-circle shade for disjoint A or B (no inner subtraction needed)
+  if(shadeSet.has('A')){
+    svg += `<circle cx="${xA}" cy="${cy}" r="${r}" fill="${SHADE}" opacity="${SHADE_OP}"/>`;
+  }
+  if(shadeSet.has('B')){
+    svg += `<circle cx="${xB}" cy="${cy}" r="${r}" fill="${SHADE}" opacity="${SHADE_OP}"/>`;
+  }
+
+  // 2. UNIVERSE BOX
+  if(universe){
+    svg += `<rect x="${ubX}" y="${ubY}" width="${ubW}" height="${ubH}" `
+         + `fill="none" stroke="${RULE}" stroke-width="1.4"/>`;
+    svg += `<text x="${ubX + 8}" y="${ubY + 18}" `
+         + `font-family="'Cambria Math','Times New Roman',serif" `
+         + `font-size="15" font-style="italic" fill="${INK}">U</text>`;
+  }
+
+  // 3. CIRCLES
+  svg += `<circle cx="${xA}" cy="${cy}" r="${r}" fill="none" stroke="${RULE}" stroke-width="1.6"/>`;
+  svg += `<circle cx="${xB}" cy="${cy}" r="${r}" fill="none" stroke="${RULE}" stroke-width="1.6"/>`;
+
+  // 4. SET LABELS (above each circle)
+  const labFS = 16;
+  svg += `<text x="${xA}" y="${cy - r - 6}" `
+       + `font-family="'Sarabun',sans-serif" `
+       + `font-size="${labFS}" fill="${INK}" text-anchor="middle">${labels.A}</text>`;
+  svg += `<text x="${xB}" y="${cy - r - 6}" `
+       + `font-family="'Sarabun',sans-serif" `
+       + `font-size="${labFS}" fill="${INK}" text-anchor="middle">${labels.B}</text>`;
+
+  // 5. REGION TEXT (if any — typically for letter labels)
+  const regFS = 16;
+  if(regions.A !== undefined){
+    svg += `<text x="${xA}" y="${cy + 5}" text-anchor="middle" font-size="${regFS}" fill="${INK}">${regions.A}</text>`;
+  }
+  if(regions.B !== undefined){
+    svg += `<text x="${xB}" y="${cy + 5}" text-anchor="middle" font-size="${regFS}" fill="${INK}">${regions.B}</text>`;
+  }
+  if(regions.outside !== undefined){
+    const ox = universe ? (ubX + ubW - 14) : (W - 14);
+    const oy = universe ? (ubY + ubH - 10) : (H - 10);
+    svg += `<text x="${ox}" y="${oy}" text-anchor="end" font-size="${regFS}" fill="${INK}">${regions.outside}</text>`;
+  }
+
+  // 6. ELEMENT LABELS
+  svg += _vennDrawElements(spec, {
+    A: [xA, cy],
+    B: [xB, cy],
+    outside: universe ? [cx, ubY + ubH - 22] : [cx, H - 22]
+  });
+
+  return svg + '</svg>';
+}
+
+
 function renderImage(spec){
   if(!spec) return null;
   // Array of specs → render each, wrap in horizontal flex container
@@ -946,6 +1273,8 @@ function renderImage(spec){
       return renderPolygonLabeled(spec);
     case 'stem-leaf':
       return renderStemLeaf(spec);
+    case 'venn-diagram':
+      return renderVennDiagram(spec);
     // TODO: case '3set-c-in-a-shade-ab-minus-c': return venn3CinA_shadeABminusC_13();
     default:
       return null; // unknown type → admin.html จะ fallback ไปแสดง placeholder
