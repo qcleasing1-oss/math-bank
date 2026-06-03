@@ -1107,7 +1107,10 @@
     const qs = all
       .filter(q => getEffectiveTags(q).difficulty === diff)
       .sort((a, b) => {
-        if (a.setId !== b.setId) return a.setId.localeCompare(b.setId);
+        const aSet = a.setId || '';
+        const bSet = b.setId || '';
+        if (!a.setId) console.warn('[sort] Q missing setId:', a.id, 'Q#', a.questionNumber);
+        if (aSet !== bSet) return aSet.localeCompare(bSet);
         return (a.questionNumber || 0) - (b.questionNumber || 0);
       });
     main.classList.remove('empty');
@@ -1217,7 +1220,10 @@
     const qs = allQuestions
       .filter(q => getEffectiveTags(q).topics.includes(chId))
       .sort((a, b) => {
-        if (a.setId !== b.setId) return a.setId.localeCompare(b.setId);
+        const aSet = a.setId || '';
+        const bSet = b.setId || '';
+        if (!a.setId) console.warn('[sort] Q missing setId:', a.id, 'Q#', a.questionNumber);
+        if (aSet !== bSet) return aSet.localeCompare(bSet);
         return (a.questionNumber || 0) - (b.questionNumber || 0);
       });
 
