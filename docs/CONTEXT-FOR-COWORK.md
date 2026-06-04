@@ -72,6 +72,7 @@ math-bank/
 - ครู (หรือ Cowork) commit เฉพาะ `data/sets/<setId>.json` + `data/manifest.json` (ถ้าเพิ่ม/ลบชุด)
 - **ห้ามแก้ `data/bank.json` มือ** — GitHub Actions build เอง
 - **ห้าม push `viewer/renderers.js`** โดยไม่บอกครู (เป็น deploy critical)
+- **ห้ามสร้างไฟล์/โฟลเดอร์ใหม่ใน repo** นอกจากแก้ 2 ไฟล์ข้างบน — preview HTML, temp JSON, working files ทุกชนิด ต้องอยู่ใน outputs folder ของ Cowork sandbox (หรือโฟลเดอร์นอก repo เช่น `A:\โปรเจคสอนคณิตศาสตร์\preview\` ถ้าครูสั่ง) ถ้าจำเป็นต้องสร้างโฟลเดอร์ใหม่ใน repo → **ถามครูก่อนเสมอ** (`.gitignore` มี `_preview/` + `*.PREVIEW-*.json` กันพลาดไว้แล้ว)
 
 ---
 
@@ -210,6 +211,7 @@ id → setId → questionNumber → topics → subTopics → difficulty
 ```
 
 **Field rules:**
+- `hasImage=true` หมายถึง "**explanation มี imageSpec**" (ไม่เกี่ยวกับโจทย์มีภาพ — Q38/Q40/Q41 โจทย์ไม่มีภาพแต่ hasImage=true) และ `explanation[0]` ต้องเป็น `"[IMAGE]"` เสมอ
 - `correct` ใน mc = **0-indexed integer**
 - `correct` ใน fill = **string**
 - field `choices` **ห้ามมี**ในข้อ type=fill
@@ -294,8 +296,8 @@ for p in problems:
 1. **Pull origin ก่อน** เสมอ (กัน rebase conflict) — Cowork สั่ง `git pull` หรือบอกครู pull ผ่าน GitHub Desktop
 2. แก้ไฟล์ `data/sets/<setId>.json`
 3. **POST-FLIGHT 8 checks** ต้อง PASS
-4. สร้าง preview HTML standalone (KaTeX + Sarabun + parchment `#f6f1e6`)
-5. **ขอครู screenshot verify** preview ก่อน push
+4. ส่ง preview ผ่าน **widget ในแชท Cowork** (`show_widget` — KaTeX จาก jsdelivr ใช้ได้ใน widget sandbox, style: parchment `#f6f1e6` + card `#fffdf7`) — **ห้ามสร้างไฟล์ HTML preview** (เปิด `file://` โดน block CDN / วางใน repo ผิดกฎ)
+5. **ขอครู verify** preview ในแชทก่อน push
 6. ครู OK → commit ผ่าน GitHub Desktop
 7. **Push เฉพาะ `data/sets/<setId>.json`** (และ `data/manifest.json` ถ้าเพิ่ม/ลบชุด)
 8. **ห้ามแตะ:** `data/bank.json` (auto-build), `viewer/renderers.js` (deploy critical)
@@ -347,9 +349,11 @@ for p in problems:
 - Region label ยาว (>3 chars) อาจ overflow → ทดสอบ preview
 - Single letter หรือ single number = safe เสมอ
 
-### Pattern D: `universe=true` เมื่อไหร่
-- **`true`:** มี outside region (ไม่อยู่ในเซตใดเลย) / โจทย์ระบุ "universal set" / "เซตเอกภพ"
-- **`false`:** "ทุกคนต้องอยู่อย่างน้อย 1 เซต" (Q48 case — 100 คน อยู่ใน ก ∪ ข ∪ ค ครบ)
+### Pattern D: `universe` field (อัปเดต 4 มิ.ย. 2569 — ครูยืนยัน)
+- `universe` ควบคุม **การวาดกรอบ U** เท่านั้น — ไม่ผูกกับการมี/ไม่มี outside region
+- **Default: `true`** — กรอบ U + label มี information value (Q38/Q40 ใช้ true แม้ outside ว่าง)
+- Outside region = 0 (ว่าง) เป็นเรื่องปกติของ render ไม่ใช่ปัญหา
+- ⚠️ Q48 spec เดิม (ข้อ 5) เขียน `universe: false` ไว้ — ถามครูยืนยันตอน ingest Q48 (batch E3)
 
 ### Pattern E: Push workflow
 - Pull origin **ก่อน** Commit
@@ -429,6 +433,8 @@ for p in problems:
 8. ❌ **ห้ามตอบเป็นอังกฤษ** เว้นแต่ครูถามเป็นอังกฤษ
 9. ❌ **ห้าม batch ใหญ่เกิน 10 ข้อ** ต่อ task (ลด 5-7 ถ้า context โตเร็ว)
 10. ❌ **ห้าม push โดยไม่ pull origin ก่อน**
+11. ❌ **ห้ามสร้างไฟล์/โฟลเดอร์ใหม่ใน repo** — temp/preview อยู่ใน outputs sandbox เท่านั้น สร้างโฟลเดอร์ใน repo ต้องถามครูก่อน
+12. ❌ **ห้ามลบไฟล์โดยไม่ DRY RUN** — list รายการ (Python, ทีละไฟล์) → ครู confirm → ค่อยลบ ห้าม `rm -rf`/glob
 
 ---
 
@@ -442,7 +448,7 @@ for p in problems:
 6. **ใส่ imageSpec + [IMAGE] marker** บนสุด explanation (สำหรับข้อมี hasImage)
 7. **Drop legacy fields** — `needsExplanationImage`, update `notes`
 8. **POST-FLIGHT 8 checks** ต้อง PASS
-9. **Preview HTML standalone** — ครู verify ผ่าน screenshot
+9. **Preview ผ่าน widget ในแชท** (`show_widget`) — ครู verify ในแชทโดยตรง
 10. **Push** เฉพาะ `data/sets/<setId>.json`
 
 ---
