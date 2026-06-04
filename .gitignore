@@ -1,1 +1,4 @@
 /.vscode
+# Cowork temp files (don't commit preview/working files)
+_preview/
+*.PREVIEW-*.json
