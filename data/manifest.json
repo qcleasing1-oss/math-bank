@@ -1148,15 +1148,36 @@
         "part1": "ข้อสอบเข้ามหาวิทยาลัย (Q1-Q126) + เสริมประสบการณ์ (Q127-Q236) — ทั้งบท 236 ข้อ"
       },
       "topicDistribution": {
-        "4": 170
+        "4": 236
       },
       "snapshot": {
         "round": 1,
-        "stage": "in progress (Q1-Q170 done — เหลือ 66 ข้อ)",
+        "stage": "complete (Q1-Q236 ครบ)",
         "questionsCompleted": 236,
         "questionsRemaining": 0,
         "exportedAt": "2026-06-05",
         "note": "Phase F2 COMPLETE: ingest Q71-Q236 (รวม Q1-Q236 ครบ 236 ข้อ). fill: 53 ข้อ. hasImage: 20 ข้อ (Q1,10,21,25,26,71,126,128,141,161-163,166,178,179,196,201,205,210,220) — ยังไม่มี imageSpec รอ Phase G. correct=null 4 ข้อ (Q109,125,162,166) เนื่องจากเฉลย PDF ออกผิด — _noAnswerInKey/_multiAnswerKey flags ใน notes. subTopics: ตรีโกณ(7)=8 ฟังก์ชัน(5)=9 แคลคูลัส(13)=1 เวกเตอร์(9)=1."
+      }
+    },
+    "chap-05-function": {
+      "source": "ข้อสอบรายบท",
+      "subject": "ความสัมพันธ์และฟังก์ชัน",
+      "displayName": "บทที่ 5 ความสัมพันธ์และฟังก์ชัน",
+      "totalQuestions": 202,
+      "totalScore": 202,
+      "structure": {
+        "part1": "ข้อสอบเข้ามหาวิทยาลัย + เสริมประสบการณ์ (Q1-Q202) — ทั้งบท 202 ข้อ"
+      },
+      "topicDistribution": {
+        "5": 202
+      },
+      "snapshot": {
+        "round": 1,
+        "stage": "complete (Q1-Q202 ครบ)",
+        "questionsCompleted": 202,
+        "questionsRemaining": 0,
+        "exportedAt": "2026-06-05",
+        "note": "Phase F3 COMPLETE 5 มิ.ย. 2569: ingest Q1-Q202 ครบ 202 ข้อ (20 batches, POST-FLIGHT PASS ทุก batch, sympy verify ทุกข้อ). fill: 42 ข้อ. mc: 160 ข้อ (5 ตัวเลือก 16 ข้อ: Q1,3,8,14,25,31,34,36,39,61,68,72,73,76,94,138). hasImage 7 ข้อ (Q1,3,14,133,137,140,202) — ยังไม่มี imageSpec รอ Phase G. correct=null 3 ข้อ: Q31 _multiAnswerKey['3','4'], Q40+Q119 _noAnswerInKey. Q130 _bookKeyMismatch (เฉลยหนังสือ 3 → ที่ถูก 4/3). Q156 เฉลยหนังสือ R_f พลาดค่า 1 (ไม่กระทบคำตอบ). Q136 _dependsOnPreviousExamQuestion (ใช้ f(0)=-3). special fills: Q147+Q165+Q169+Q174+Q200 _setAnswer, Q155 _intervalAnswer, Q159+Q165+Q180+Q201 _multiPartAnswer, Q172+Q179+Q183+Q188+Q191 _expressionAnswer, Q157(sqrt5), Q196(7/2), Q199(732/209), Q190(-29/3)"
       }
     }
   }
