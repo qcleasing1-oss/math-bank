@@ -1,0 +1,48 @@
+﻿group,setId,questionId,questionNumber,status,hasImage,imageLocation,vennType,priority,pdfChecked,note
+chap-01,chap-01-set,chap-01-set-q33,33,render_needed,true,question,"3set-custom: A,B วงกลม + C วงรีตัดทั้งคู่ ใน U",high,Y (โจทย์ p6),"รูปต้นฉบับ: กรอบ U, ไม่มีแรเงา"
+chap-01,chap-01-set,chap-01-set-q36,36,render_needed,true,question,"3set-custom: B ตัด A, C อยู่ใน A และตัด B, แรเงา C∩B",high,Y (โจทย์ p7),ไม่มีกรอบ U ในรูปต้นฉบับ; แรเงาบริเวณ C∩B(⊂A∪B)
+chap-01,chap-01-set,chap-01-set-q48,48,render_needed,true,question,"3set-numbers ใน U: ก ข ค + เลข 20,22,23,11,9",high,Y (โจทย์ p9),"เลขอยู่ใน: ก∩ข=20, ก∩ค=22, กลาง=23, ข∩ค=11, ค เดี่ยว=9"
+chap-01,chap-01-set,chap-01-set-q74,74,render_needed,true,question,3set-7regions: ก-ช ใน U,high,Y (เฉลย p12),เล่มโจทย์ numbering เพี้ยนช่วงท้าย; เฉลยข้อ (74) มีรูป 7 บริเวณตรงกับ JSON
+chap-01,chap-01-set,chap-01-set-q79,79,render_needed,true,question,3set-7regions: ก-ช ใน U,high,Y (เฉลย p13),เฉลยข้อ (79) มีรูป 7 บริเวณ + สมการ n() ตรงกับ JSON
+chap-01,chap-01-set,chap-01-set-q44,44,candidate,false,solution,3set-numbers + นอกวง 10 ใน U=800,high,Y (โจทย์ p8 text-only),เฉลยเล่มใช้ Venn pattern เดียวกับ q45-q52
+chap-01,chap-01-set,chap-01-set-q46,46,candidate,false,solution,"3set-numbers (เพลง 3 ประเภท, U=300)",high,Y (เฉลย p7 มี Venn),
+chap-01,chap-01-set,chap-01-set-q47,47,candidate,false,solution,"3set-numbers (ช้าง/ลิง/หมี, U=100)",high,Y (เฉลย p7 มี Venn),
+chap-01,chap-01-set,chap-01-set-q49,49,candidate,false,solution,"3set-numbers (ละคร 3 เรื่อง, U=200)",high,Y (เฉลย p7 มี Venn),
+chap-01,chap-01-set,chap-01-set-q50,50,candidate,false,solution,3set-custom: เงื่อนไข A∩B⊆B∩C + ตัวเลข,med,Y (เฉลย p7 มี Venn),
+chap-01,chap-01-set,chap-01-set-q51,51,candidate,false,solution,3set-vars ใน U (แทนตัวแปรรายบริเวณ),med,Y (เฉลย p8 มี Venn),
+chap-01,chap-01-set,chap-01-set-q52,52,candidate,false,solution,3set-numbers,high,Y (เฉลย p8 มี Venn),
+chap-01,chap-01-set,chap-01-set-q54,54,candidate,false,solution,3set (max/min รายบริเวณ),med,Y (เฉลย p8 มี Venn),
+chap-01,chap-01-set,chap-01-set-q75,75,candidate,false,solution,"3set-vars: A−B=B−C แทน x,y,z รายบริเวณ",med,Y (เฉลย p12 มี Venn),
+pat1,pat1-2554-03,pat1-2554-03-q26,26,render_needed,true,solution,3set-numbers + นอกวง 30 ใน U=750 (กีฬา 3 ชนิด),high,Y (โจทย์ p10 text-only),FLAG: hasImage=true แต่โจทย์จริงไม่มีรูป → รูปควรอยู่เฉลย
+pat1,pat1-2555-03,pat1-2555-03-q26,26,render_needed,true,solution,"3set-numbers (75/70/80, U=100, หา min กลาง)",high,Y (โจทย์ p9 text-only),FLAG: hasImage=true แต่โจทย์จริงไม่มีรูป → รูปควรอยู่เฉลย
+pat1,pat1-2565-03,pat1-2565-03-q36,36,render_needed,true,question+solution,question: barchart (จีน56/อังกฤษ58/ฝรั่งเศส62/ญี่ปุ่น60) | solution: 3set Venn + จีน disjoint,high,Y (โจทย์ p17 มีแผนภูมิแท่ง),รูปโจทย์เป็น barchart ไม่ใช่ Venn; U=180
+pat1,pat1-2553-03,pat1-2553-03-q26,26,candidate,false,solution,3set-numbers/vars (ระบบสมการ n()),med,Y (โจทย์ p9 text-only),
+pat1,pat1-2553-07,pat1-2553-07-q26,26,candidate,false,solution,"3set-numbers (สอบตก 3 วิชา, U=66)",high,Y (โจทย์ p9 text-only),
+pat1,pat1-2554-12,pat1-2554-12-q26,26,candidate,false,solution,3set-numbers ใน U=44,med,Y (โจทย์ p9 text-only),
+pat1,pat1-2555-10,pat1-2555-10-q01,1,candidate,false,solution,"illustrative 2-3set (identity A,B,C⊆U)",low,Y (โจทย์ p1 text-only),ข้อพิสูจน์เอกลักษณ์ อาจไม่จำเป็นต้องมีรูป
+pat1,pat1-2556-03,pat1-2556-03-q02,2,candidate,false,solution,illustrative (เพาเวอร์เซต/identity),low,Y (โจทย์ p1 text-only),อาจไม่จำเป็นต้องมีรูป
+pat1,pat1-2557-03,pat1-2557-03-q01,1,candidate,false,solution,"2set-numbers ใน U (n(A')=30, n(A∪B)=18, ...)",med,Y (โจทย์ p1 text-only),2 เซตพอ
+pat1,pat1-2557-04,pat1-2557-04-q01,1,candidate,false,solution,"3set-numbers (n(A−B)=8, n(B−C)=4, n(A−C)=9)",med,Y (โจทย์ p1 text-only),
+pat1,pat1-2557-12,pat1-2557-12-q31,31,candidate,false,solution,3set-numbers ใน U=20 (โจทย์ให้ complement),med,Y (โจทย์ p13 text-only),
+pat1,pat1-2558-03,pat1-2558-03-q31,31,candidate,false,solution,"3set-numbers (A,B,C จากเงื่อนไขเพาเวอร์เซต)",med,Y (โจทย์ p11 มีตาราง ไม่มี Venn),"โจทย์มีตาราง n(A),n(B),n(A∩C),n(C−A) → render เป็นตาราง ไม่ใช่รูป"
+pat1,pat1-2558-10,pat1-2558-10-q02,2,candidate,false,solution,3set-numbers (A∩(B∪C)'=∅ ฯลฯ),med,Y (โจทย์ p1 text-only),
+pat1,pat1-2559-03,pat1-2559-03-q02,2,candidate,false,solution,"3set-numbers (3 วิชา 24/22/21, เดี่ยว 21, ครบ 4)",high,Y (โจทย์ p1 text-only),
+pat1,pat1-2559-10,pat1-2559-10-q31,31,candidate,false,solution,3set-numbers ใน U=70,med,Y (โจทย์ p11 text-only),
+pat1,pat1-2562-02,pat1-2562-02-q18,18,candidate,false,solution,"3set-numbers (n(A)=10, n(A∩B)=4, n(A∩C)=3?)",med,Y (โจทย์ p6 text-only),
+pat1,pat1-2563-02,pat1-2563-02-q03,3,candidate,false,solution,"illustrative subset (ก,ข) + นับเพาเวอร์เซต (ค)",low,Y (โจทย์ p2 text-only),อาจใช้รูปเฉพาะข้อ ค หรือไม่ใช้เลย
+pat1,pat1-2563-02,pat1-2563-02-q05,5,candidate,false,solution,"3set-numbers (ผลรวม 199, n(A∪B∪C)=100)",high,Y (โจทย์ p3 text-only),
+alvl,alvl1-2567-03,alvl1-2567-03-q06,6,candidate,false,solution,3set-custom: C⊂(A−B) + vars,med,Y (โจทย์ p2 text-only),
+alvl,alvl1-2568-03-v2,alvl1-2568-03-v2-q29,29,candidate,false,solution,"3set-numbers เน้นบริเวณใน A (n(A)=40, หา A−(B∪C))",high,Y (โจทย์ p11 text-only),
+alvl,alvl1-2569-03,alvl1-2569-03-q01,1,candidate,false,solution,3set-numbers ใน U=50 (3 ชมรม),high,Y (PDF เฉลยมือเขียน p1 ใช้ Venn),PDF 2569 เป็นฉบับมีเฉลยมือเขียน ไม่มี text layer
+samn,samn-2564-04,samn-2564-04-q08,8,candidate,false,solution,3set-equal-pairwise: A∩B=B∩C=A∩C=A∩B∩C + เลข ใน U=30,high,Y (โจทย์ p3 text-only),
+chap-01,chap-01-set,chap-01-set-q24,24,has_spec,true,solution,(มี imageSpec แล้ว),done,-,
+chap-01,chap-01-set,chap-01-set-q32,32,has_spec,true,solution,(มี imageSpec แล้ว),done,-,
+chap-01,chap-01-set,chap-01-set-q35,35,has_spec,true,solution,(มี imageSpec แล้ว),done,-,
+chap-01,chap-01-set,chap-01-set-q38,38,has_spec,true,solution,(มี imageSpec แล้ว),done,-,live แล้ว Phase E
+chap-01,chap-01-set,chap-01-set-q40,40,has_spec,true,solution,(มี imageSpec แล้ว),done,-,live แล้ว Phase E
+chap-01,chap-01-set,chap-01-set-q41,41,has_spec,true,solution,(มี imageSpec แล้ว),done,-,
+chap-01,chap-01-set,chap-01-set-q42,42,has_spec,true,solution,(มี imageSpec แล้ว),done,-,
+chap-01,chap-01-set,chap-01-set-q43,43,has_spec,true,solution,(มี imageSpec แล้ว),done,-,
+chap-01,chap-01-set,chap-01-set-q45,45,has_spec,true,solution,(มี imageSpec แล้ว),done,-,live แล้ว Phase E
+chap-01,chap-01-set,chap-01-set-q71,71,has_spec,true,solution,(มี imageSpec แล้ว),done,-,
+chap-01,chap-01-set,chap-01-set-q73,73,has_spec,true,solution,(มี imageSpec แล้ว),done,-,
