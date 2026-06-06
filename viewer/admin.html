@@ -668,6 +668,9 @@
   }
   .explanation { background: #fff; padding: 10px 14px; border: 1px solid var(--rule); }
   .explanation > div { margin: 4px 0; }
+  /* Phase F: แถบสีแยกวิธีในเฉลย */
+  .explanation .method-detail { background:#eaf6ec; border-left:4px solid #2e9e4f; padding:7px 12px; border-radius:6px; margin:12px 0 6px; }
+  .explanation .method-quick  { background:#fbf0e0; border-left:4px solid #d98a2b; padding:7px 12px; border-radius:6px; margin:12px 0 6px; }
 
   /* imageSpec — rendered SVG (Phase B) */
   .img-rendered {
@@ -1395,6 +1398,22 @@
     return explanation.some(ln => typeof ln === 'string' && /\[IMAGE(?::\d+)?\]/.test(ln));
   }
 
+  // Phase E+: เซ็ตของ index ที่ถูกอ้างผ่าน [IMAGE:N] ใน explanation
+  function getMarkedIndices(explanation) {
+    const set = new Set();
+    if (!Array.isArray(explanation)) return set;
+    const re = /\[IMAGE(?::(\d+))?\]/g;
+    explanation.forEach(ln => {
+      if (typeof ln !== 'string') return;
+      re.lastIndex = 0;
+      let m;
+      while ((m = re.exec(ln)) !== null) {
+        set.add(m[1] !== undefined ? parseInt(m[1], 10) : 0);
+      }
+    });
+    return set;
+  }
+
   function _getSpecByIdx(imageSpec, idx) {
     if (Array.isArray(imageSpec)) return imageSpec[idx];
     return idx === 0 ? imageSpec : null;
@@ -1403,6 +1422,15 @@
   function _renderSpecToSvg(spec) {
     if (!spec) return null;
     return (typeof renderImage === 'function') ? renderImage(spec) : null;
+  }
+
+  // Phase F: แถบสีแยกวิธี (วิธีที่ 1 = เขียว, วิธีที่ 2 = ส้ม)
+  function wrapExplLine(line) {
+    if (typeof line === 'string' && line.indexOf('【') >= 0) {
+      if (/วิธีที่\s*1/.test(line)) return `<div class="method-detail">${line}</div>`;
+      if (/วิธีที่\s*2/.test(line)) return `<div class="method-quick">${line}</div>`;
+    }
+    return `<div>${line}</div>`;
   }
 
   function renderExplanationWithImages(explanation, imageSpec) {
@@ -1428,7 +1456,7 @@
         lastEnd = m.index + m[0].length;
       }
       if (!hasMarker) {
-        out.push(`<div>${line}</div>`);
+        out.push(wrapExplLine(line));
         return;
       }
       if (lastEnd < line.length) {
@@ -1526,8 +1554,19 @@
     //          (SVG จะถูก inject ใน explanation ตรงตำแหน่ง marker)
     //          ถ้าไม่มี marker → fallback แสดง section "รูปประกอบ" แยกเหมือนเดิม (backward compat)
     const explHasImgMarkers = hasImageMarkers(q.explanation);
-    if (q.imageSpec && !explHasImgMarkers) {
-      const svg = (typeof renderImage === 'function') ? renderImage(q.imageSpec) : null;
+    const _markedIdx = getMarkedIndices(q.explanation);
+    // รูปที่จะแสดงในโจทย์ = imageSpec index ที่ไม่ถูก mark ใน explanation
+    let _questionSpec = null;
+    if (q.imageSpec) {
+      if (Array.isArray(q.imageSpec)) {
+        const _unmarked = q.imageSpec.filter((_, i) => !_markedIdx.has(i));
+        if (_unmarked.length) _questionSpec = _unmarked;
+      } else if (!_markedIdx.has(0)) {
+        _questionSpec = q.imageSpec;
+      }
+    }
+    if (_questionSpec) {
+      const svg = (typeof renderImage === 'function') ? renderImage(_questionSpec) : null;
       if (svg) {
         // renderer คืน SVG → แสดงในกรอบขาว
         out += `<div class="q-section">
@@ -1541,11 +1580,11 @@
           <h4>รูปประกอบ</h4>
           <div class="imgspec-placeholder">
             <div class="label">imageSpec (renderer ยังไม่รองรับ type นี้)</div>
-            <div class="type-pill">type: ${q.imageSpec.type || '(none)'}</div>
+            <div class="type-pill">type: ${Array.isArray(_questionSpec) ? ((_questionSpec[0]&&_questionSpec[0].type)||'(array)') : (_questionSpec.type||'(none)')}</div>
             ${q.imageNote ? `<div class="imgnote">📝 ${escapeHtml(q.imageNote)}</div>` : ''}
             <details>
               <summary>ดู JSON ทั้งหมด</summary>
-              <pre>${escapeHtml(JSON.stringify(q.imageSpec, null, 2))}</pre>
+              <pre>${escapeHtml(JSON.stringify(_questionSpec, null, 2))}</pre>
             </details>
           </div>
         </div>`;
@@ -1581,7 +1620,7 @@
       // Phase E: ถ้ามี [IMAGE] marker → inject SVG inline; ไม่มี → render ตรงๆ
       const explHtml = (explHasImgMarkers && q.imageSpec)
         ? renderExplanationWithImages(q.explanation, q.imageSpec)
-        : q.explanation.map(line => `<div>${line}</div>`).join('');
+        : q.explanation.map(line => wrapExplLine(line)).join('');
       out += `<div class="q-section">
         <h4>เฉลย</h4>
         <div class="explanation">
