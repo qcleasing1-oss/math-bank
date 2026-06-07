@@ -696,6 +696,60 @@ function renderStackedBar100(spec){
 //                            type "arc":   arc + optional `label`; optional `radius` (18),
 //                                          `labelDistance` (radius+14)
 //   annotations            - [{x, y, text, fontSize?, anchor?}, ...]  — free-form text
+// Math label renderer for polygon-labeled (native SVG, supports \sqrt{} with
+// vinculum). anchor: 'start' | 'middle' | 'end'. Vertical baseline = central (y = center).
+function _polyMathToSvg(latex, x, y, fontSize, anchor){
+  const expr = latex.replace(/^\$|\$$/g, '');
+  const ff = "'Cambria Math','Times New Roman',serif";
+  function chW(ch){
+    if(ch === ',' || ch === ' ') return fontSize * 0.3;
+    if(ch === '(' || ch === ')') return fontSize * 0.4;
+    if(ch === '−' || ch === '-') return fontSize * 0.55;
+    if(ch === '√') return fontSize * 0.7;
+    return fontSize * 0.55;
+  }
+  const toks = []; let i = 0;
+  while(i < expr.length){
+    const m = /^\\sqrt\s*\{([^}]*)\}/.exec(expr.substring(i));
+    if(m){ toks.push({t:'sqrt', rad:m[1]}); i += m[0].length; continue; }
+    if(expr.substr(i,2) === '\\ '){ toks.push({t:'sp', w:fontSize*0.3}); i += 2; continue; }
+    if(expr.substr(i,2) === '\\,'){ toks.push({t:'sp', w:fontSize*0.2}); i += 2; continue; }
+    if(expr[i] === '-'){ toks.push({t:'txt', s:'−', italic:false}); i += 1; continue; }
+    const isLetter = /[a-zA-Z]/.test(expr[i]);
+    let end = i;
+    while(end < expr.length && expr[end] !== '\\' && expr[end] !== '-'
+          && (/[a-zA-Z]/.test(expr[end]) === isLetter)) end++;
+    toks.push({t:'txt', s:expr.substring(i,end), italic:isLetter}); i = end;
+  }
+  function tokW(tk){
+    if(tk.t === 'sp') return tk.w;
+    if(tk.t === 'sqrt'){ let w = chW('√'); for(const c of tk.rad) w += chW(c); return w; }
+    let w = 0; for(const c of tk.s) w += chW(c); return w;
+  }
+  let total = 0; for(const tk of toks) total += tokW(tk);
+  let cur = anchor === 'middle' ? x - total/2 : (anchor === 'end' ? x - total : x);
+  const barY = y - fontSize * 0.55;
+  let out = '';
+  function emit(text, italic){
+    const it = italic ? ' font-style="italic"' : '';
+    out += `<text x="${cur.toFixed(2)}" y="${y.toFixed(2)}" font-family="${ff}" `
+         + `font-size="${fontSize}" fill="#222" dominant-baseline="central"${it}>${text}</text>`;
+  }
+  for(const tk of toks){
+    if(tk.t === 'sp'){ cur += tk.w; continue; }
+    if(tk.t === 'sqrt'){
+      emit('√', false); cur += chW('√');
+      let radW = 0; for(const c of tk.rad) radW += chW(c);
+      out += `<line x1="${(cur-1).toFixed(2)}" y1="${barY.toFixed(2)}" `
+           + `x2="${(cur+radW+1).toFixed(2)}" y2="${barY.toFixed(2)}" stroke="#222" stroke-width="1"/>`;
+      emit(tk.rad, false); cur += radW; continue;
+    }
+    emit(tk.s, tk.italic); cur += tokW(tk);
+  }
+  return out;
+}
+function _polyHasMath(s){ return typeof s === 'string' && (s.indexOf('\\sqrt') !== -1 || s.indexOf('$') !== -1); }
+
 function renderPolygonLabeled(spec){
   const W = spec.width || 380;
   const H = spec.height || 300;
@@ -802,10 +856,14 @@ function renderPolygonLabeled(spec){
     const off = s.labelOffset || {};
     const lx = mx + (off.dx || 0);
     const ly = my + (off.dy || 0);
-    svg += `<text x="${lx.toFixed(2)}" y="${ly.toFixed(2)}" `
-         + `font-family="'Cambria Math','Times New Roman',serif" `
-         + `font-size="15" fill="#222" text-anchor="middle" `
-         + `dominant-baseline="central">${s.label}</text>`;
+    if(_polyHasMath(s.label)){
+      svg += _polyMathToSvg(s.label, lx, ly, 15, 'middle');
+    } else {
+      svg += `<text x="${lx.toFixed(2)}" y="${ly.toFixed(2)}" `
+           + `font-family="'Cambria Math','Times New Roman',serif" `
+           + `font-size="15" fill="#222" text-anchor="middle" `
+           + `dominant-baseline="central">${s.label}</text>`;
+    }
   });
 
   // --- 4. Vertex labels (top layer) ---
@@ -823,9 +881,13 @@ function renderPolygonLabeled(spec){
   annotations.forEach(a => {
     const fs = a.fontSize || 14;
     const anchor = a.anchor || 'start';
-    svg += `<text x="${a.x}" y="${a.y}" `
-         + `font-family="'Cambria Math','Times New Roman',serif" `
-         + `font-size="${fs}" fill="#222" text-anchor="${anchor}">${a.text||''}</text>`;
+    if(_polyHasMath(a.text)){
+      svg += _polyMathToSvg(a.text, a.x, a.y, fs, anchor);
+    } else {
+      svg += `<text x="${a.x}" y="${a.y}" `
+           + `font-family="'Cambria Math','Times New Roman',serif" `
+           + `font-size="${fs}" fill="#222" text-anchor="${anchor}">${a.text||''}</text>`;
+    }
   });
 
   return svg + '</svg>';
