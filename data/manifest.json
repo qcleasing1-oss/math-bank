@@ -1200,6 +1200,27 @@
         "exportedAt": "2026-06-06",
         "note": "Phase H ครบ 152/152. POST-FLIGHT PASS ทั้งไฟล์ (7 จุด 0/0). mc consistency 0 mismatch (Q16/Q77/Q112 verify ตรง). sympy verify อิสระ 8 ข้อผ่าน. note mismatch เดิม (round 12) แก้หมดแล้ว. ไม่มี PDF answer key (ใช้ internal+sympy). subTopics ขาด 123 ข้อ = Phase A1."
       }
+    },
+    "chap-07-trigonometry": {
+      "source": "ข้อสอบรายบท",
+      "subject": "ตรีโกณมิติ",
+      "displayName": "บทที่ 7 ตรีโกณมิติ",
+      "totalQuestions": 230,
+      "totalScore": 230,
+      "structure": {
+        "part1": "ข้อสอบเข้ามหาวิทยาลัย + เสริมประสบการณ์ (Q1-Q230) — ทั้งบท 230 ข้อ"
+      },
+      "topicDistribution": {
+        "7": 230
+      },
+      "snapshot": {
+        "round": 1,
+        "stage": "complete content (Q1-Q230); push พร้อมรูป 15 ข้อ (ยังไม่ verify รูปกับ PDF) + 57 ข้อรอรูปเสริม",
+        "questionsCompleted": 230,
+        "questionsRemaining": 0,
+        "exportedAt": "2026-06-07",
+        "note": "Phase ingest COMPLETE 7 มิ.ย. 2569: 230 ข้อ (mc 182, fill 48). POST-FLIGHT render-field สะอาด (balanced $, ไม่มี newline ดิบ, bare √ เฉพาะ notes/internal ไม่ render, ไม่มีคำยอมแพ้). _needsReview 5 ข้อ resolved (เฉลยหนังสือผิด คำตอบ Cowork ถูก): Q13(idx1), Q64(idx0), Q165(idx1 + แก้ตัวเลือก 3), Q179(5 คู่), Q185(idx3) — เก็บ _bookKeyMismatch ใน notes. correct=null 3 ข้อ: Q23/Q45/Q162 (มี _needsReview flag ครบ). hasImage 15 ข้อ [30,87,103,104,113,114,115,119,120,121,123,126,130,131,158] = unit-circle-figure 8 + polygon-labeled 7 (logic verify ผ่าน; ยังไม่ verify รูปกับ PDF — แก้รอบหลัง). _needsImage 57 ข้อ = enhancement (ทุกข้อมีคำบรรยายรูปในโจทย์ หรือ self-contained ไม่ block ความเข้าใจ) ทยอยทำภายหลัง. subTopics ขาดเกือบทั้งบท = Phase A1."
+      }
     }
   }
 }
