@@ -2,7 +2,7 @@
   "setId": "chap-07-trigonometry",
   "questions": [
     {
-      "id": "chap-07-trigonometry-q1",
+      "id": "chap-07-trigonometry-q01",
       "setId": "chap-07-trigonometry",
       "questionNumber": 1,
       "topics": [
@@ -47,7 +47,7 @@
       "_imageNote": "วงกลมรัศมี 2 ศูนย์กลาง O; รัศมีแนวนอน OP, แนวตั้ง OQ; สี่เหลี่ยมผืนผ้า OABC: A=(0,sqrt3), B=(1,sqrt3) บนวงกลม, C=(1,0); มุม BOC=60deg; แรเงา = เสี้ยว 1/4 วงกลม QOP ส่วนที่อยู่นอกสี่เหลี่ยม (สองบริเวณ: เหนือ AB ถึงส่วนโค้ง และทางขวาของ BC ถึงส่วนโค้ง)"
     },
     {
-      "id": "chap-07-trigonometry-q2",
+      "id": "chap-07-trigonometry-q02",
       "setId": "chap-07-trigonometry",
       "questionNumber": 2,
       "topics": [
@@ -89,7 +89,7 @@
       "notes": "อนุกรมสลับเครื่องหมาย จับคู่มุมเสริม sin^2+cos^2=1; พจน์เดี่ยว k=45,90"
     },
     {
-      "id": "chap-07-trigonometry-q3",
+      "id": "chap-07-trigonometry-q03",
       "setId": "chap-07-trigonometry",
       "questionNumber": 3,
       "topics": [
@@ -133,7 +133,7 @@
       "notes": "ตรวจเอกลักษณ์ตรีโกณ 5 ข้อ; เปลี่ยนเป็น sin,cos แล้วใช้ pythagorean identity"
     },
     {
-      "id": "chap-07-trigonometry-q4",
+      "id": "chap-07-trigonometry-q04",
       "setId": "chap-07-trigonometry",
       "questionNumber": 4,
       "topics": [
@@ -184,7 +184,7 @@
       "notes": "เชื่อมโยงลอการิทึม (subTopic 8); rationalize + ระวัง cos<0 ในควอดแรนต์ 2; วิธีลัดใช้ sec+tan=(1+sin)/cos"
     },
     {
-      "id": "chap-07-trigonometry-q5",
+      "id": "chap-07-trigonometry-q05",
       "setId": "chap-07-trigonometry",
       "questionNumber": 5,
       "topics": [
@@ -234,7 +234,7 @@
       "_imageNote": "สามเหลี่ยมมุมฉาก มุม θ: ด้านตรงข้าม 0.55, ด้านฉาก 1, ด้านชิด √0.6975 ≈ 0.835 ช่วยให้เห็นที่มาของค่า tan/cot/sec/csc"
     },
     {
-      "id": "chap-07-trigonometry-q6",
+      "id": "chap-07-trigonometry-q06",
       "setId": "chap-07-trigonometry",
       "questionNumber": 6,
       "topics": [
@@ -280,7 +280,7 @@
       "_imageNote": "กราฟ y=sin x และ y=cos x บน [0,2pi] ทำเครื่องหมายจุดตัดที่ x=pi/4 และ 5pi/4 แรเงาช่วงที่ cos x>sin x"
     },
     {
-      "id": "chap-07-trigonometry-q7",
+      "id": "chap-07-trigonometry-q07",
       "setId": "chap-07-trigonometry",
       "questionNumber": 7,
       "topics": [
@@ -322,7 +322,7 @@
       "notes": "sqrt(cos^2 x)=|cos x|; แยกกรณีเครื่องหมาย f=|cos|+cos => 0 เมื่อ cos<=0"
     },
     {
-      "id": "chap-07-trigonometry-q8",
+      "id": "chap-07-trigonometry-q08",
       "setId": "chap-07-trigonometry",
       "questionNumber": 8,
       "topics": [
@@ -367,7 +367,7 @@
       "_imageNote": "สามเหลี่ยมอ้างอิง 5-12-13 ในควอดแรนต์ที่ 3: sin=-12/13, cos=-5/13, tan=12/5 ช่วยเด็กเห็นเครื่องหมาย"
     },
     {
-      "id": "chap-07-trigonometry-q9",
+      "id": "chap-07-trigonometry-q09",
       "setId": "chap-07-trigonometry",
       "questionNumber": 9,
       "topics": [
