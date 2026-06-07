@@ -1179,6 +1179,27 @@
         "exportedAt": "2026-06-05",
         "note": "Phase F3 COMPLETE 5 มิ.ย. 2569: ingest Q1-Q202 ครบ 202 ข้อ (20 batches, POST-FLIGHT PASS ทุก batch, sympy verify ทุกข้อ). fill: 42 ข้อ. mc: 160 ข้อ (5 ตัวเลือก 16 ข้อ: Q1,3,8,14,25,31,34,36,39,61,68,72,73,76,94,138). hasImage 7 ข้อ (Q1,3,14,133,137,140,202) — ยังไม่มี imageSpec รอ Phase G. correct=null 3 ข้อ: Q31 _multiAnswerKey['3','4'], Q40+Q119 _noAnswerInKey. Q130 _bookKeyMismatch (เฉลยหนังสือ 3 → ที่ถูก 4/3). Q156 เฉลยหนังสือ R_f พลาดค่า 1 (ไม่กระทบคำตอบ). Q136 _dependsOnPreviousExamQuestion (ใช้ f(0)=-3). special fills: Q147+Q165+Q169+Q174+Q200 _setAnswer, Q155 _intervalAnswer, Q159+Q165+Q180+Q201 _multiPartAnswer, Q172+Q179+Q183+Q188+Q191 _expressionAnswer, Q157(sqrt5), Q196(7/2), Q199(732/209), Q190(-29/3)"
       }
+    },
+    "chap-06-matrix": {
+      "source": "ข้อสอบรายบท",
+      "subject": "เมทริกซ์",
+      "displayName": "บทที่ 6 เมทริกซ์",
+      "totalQuestions": 152,
+      "totalScore": 152,
+      "structure": {
+        "part1": "ข้อสอบเข้ามหาวิทยาลัย (Q1-Q152) — กำลัง ingest"
+      },
+      "topicDistribution": {
+        "6": 152
+      },
+      "snapshot": {
+        "round": 12,
+        "stage": "COMPLETE pending screenshot review (Q1-152)",
+        "questionsCompleted": 152,
+        "questionsRemaining": 0,
+        "exportedAt": "2026-06-06",
+        "note": "Phase H ครบ 152/152. POST-FLIGHT PASS ทั้งไฟล์ (7 จุด 0/0). mc consistency 0 mismatch (Q16/Q77/Q112 verify ตรง). sympy verify อิสระ 8 ข้อผ่าน. note mismatch เดิม (round 12) แก้หมดแล้ว. ไม่มี PDF answer key (ใช้ internal+sympy). subTopics ขาด 123 ข้อ = Phase A1."
+      }
     }
   }
 }
