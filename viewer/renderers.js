@@ -874,7 +874,7 @@ function renderPolygonLabeled(spec){
     const ly = p[1] + (off.dy || 0);
     svg += `<text x="${lx.toFixed(2)}" y="${ly.toFixed(2)}" `
          + `font-family="'Cambria Math','Times New Roman',serif" `
-         + `font-size="18" fill="#222">${name}</text>`;
+         + `font-size="18" fill="#222">${(vLabels[name] && vLabels[name].text) || name}</text>`;
   });
 
   // --- 5. Free-form annotations (top, optional) ---
