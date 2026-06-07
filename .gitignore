@@ -2,3 +2,7 @@
 # Cowork temp files (don't commit preview/working files)
 _preview/
 *.PREVIEW-*.json
+# PDF ต้นฉบับ + working files (ไม่ขึ้น repo)
+temp-pdf/
+audit/
+docs/chap-02-logic-figure-audit.md
