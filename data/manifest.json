@@ -1221,6 +1221,27 @@
         "exportedAt": "2026-06-07",
         "note": "Phase ingest COMPLETE 7 มิ.ย. 2569: 230 ข้อ (mc 182, fill 48). POST-FLIGHT render-field สะอาด (balanced $, ไม่มี newline ดิบ, bare √ เฉพาะ notes/internal ไม่ render, ไม่มีคำยอมแพ้). _needsReview 5 ข้อ resolved (เฉลยหนังสือผิด คำตอบ Cowork ถูก): Q13(idx1), Q64(idx0), Q165(idx1 + แก้ตัวเลือก 3), Q179(5 คู่), Q185(idx3) — เก็บ _bookKeyMismatch ใน notes. correct=null 3 ข้อ: Q23/Q45/Q162 (มี _needsReview flag ครบ). hasImage 15 ข้อ [30,87,103,104,113,114,115,119,120,121,123,126,130,131,158] = unit-circle-figure 8 + polygon-labeled 7 (logic verify ผ่าน; ยังไม่ verify รูปกับ PDF — แก้รอบหลัง). _needsImage 57 ข้อ = enhancement (ทุกข้อมีคำบรรยายรูปในโจทย์ หรือ self-contained ไม่ block ความเข้าใจ) ทยอยทำภายหลัง. subTopics ขาดเกือบทั้งบท = Phase A1."
       }
+    },
+    "chap-08-explog": {
+      "source": "ข้อสอบรายบท",
+      "subject": "เลขยกกำลังและลอการิทึม",
+      "displayName": "บทที่ 8 เลขยกกำลังและลอการิทึม",
+      "totalQuestions": 212,
+      "totalScore": 212,
+      "structure": {
+        "part1": "ข้อสอบเข้ามหาวิทยาลัย (Q1-Q212) — ทั้งบท 212 ข้อ"
+      },
+      "topicDistribution": {
+        "8": 212
+      },
+      "snapshot": {
+        "round": 5,
+        "stage": "VERIFY COMPLETE 212/212 pending screenshot review",
+        "questionsCompleted": 212,
+        "questionsRemaining": 0,
+        "exportedAt": "2026-06-08",
+        "note": "Verify COMPLETE 8 มิ.ย. 2569: 212/212 sympy/numpy ตรง correct + PDF answer key. flag: _needsImage[71,113,211,212] · _noAnswerInKey[99,102,106,175] · _multiAnswerKey[164] · _bookKeyMismatch[193] · correct=null 5 ข้อ. KaTeX clean (Q195 อักษรไทยใน math ใส่ \\text{}; Q3 ≡ = cosmetic \\ne ของ local preview production render ≠ ถูก). <b> balanced 1723/1723. subTopics ขาดทั้งบท = Phase A1. audit ว.2/multi-method ยังไม่ทำ (1/212)."
+      }
     }
   }
 }
