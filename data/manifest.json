@@ -1242,6 +1242,27 @@
         "exportedAt": "2026-06-08",
         "note": "Verify COMPLETE 8 มิ.ย. 2569: 212/212 sympy/numpy ตรง correct + PDF answer key. flag: _needsImage[71,113,211,212] · _noAnswerInKey[99,102,106,175] · _multiAnswerKey[164] · _bookKeyMismatch[193] · correct=null 5 ข้อ. KaTeX clean (Q195 อักษรไทยใน math ใส่ \\text{}; Q3 ≡ = cosmetic \\ne ของ local preview production render ≠ ถูก). <b> balanced 1723/1723. subTopics ขาดทั้งบท = Phase A1. audit ว.2/multi-method ยังไม่ทำ (1/212)."
       }
+    },
+    "chap-09-vector": {
+      "source": "ข้อสอบรายบท",
+      "subject": "เวกเตอร์ในสามมิติ",
+      "displayName": "บทที่ 9 เวกเตอร์ในสามมิติ",
+      "totalQuestions": 127,
+      "totalScore": 127,
+      "structure": {
+        "part1": "ข้อสอบเข้ามหาวิทยาลัย + เสริมประสบการณ์ (Q1-Q127) — ทั้งบท 127 ข้อ"
+      },
+      "topicDistribution": {
+        "9": 127
+      },
+      "snapshot": {
+        "round": 1,
+        "stage": "VERIFY COMPLETE 127/127 pending screenshot review",
+        "questionsCompleted": 127,
+        "questionsRemaining": 0,
+        "exportedAt": "2026-06-09",
+        "note": "Verify COMPLETE 9 มิ.ย. 2569: 127/127 sympy/numpy ตรง correct + PDF answer key (0 mismatch, 96 mc + 18 fill key). flag: _needsImage[27,30,32,81,82,84,85,97,99,100,103,108,109,123] · _noAnswerInKey[16,124] · _bookKeyMismatch[88 → 120° override, เฉลยหนังสือ 60° ผิดใช้สูตรเครื่องหมายลบ] · correct=null 2 ข้อ. POST-FLIGHT=0 ทุกจุด. KaTeX clean (0 Thai-in-math จริง; warning ใน local preview = artifact ของ <,> relation + production render แต่ละ field แยก). subTopics + difficulty ครบทั้งบท. imageSpec 14 ข้อ = Phase ถัดไป. audit ว.2/multi-method ยังไม่ทำ."
+      }
     }
   }
 }
