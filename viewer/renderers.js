@@ -1462,6 +1462,46 @@ function _venn3Intersecting(spec){
 }
 
 
+// ----- adapter: 3set-labeled (portal schema) -> _venn3Intersecting -----
+// Portal's lessons embed copies using this shape; bank stores imageSpec in
+// THIS shape so portal wires directly with no mapping. Adapter only renames
+// keys + converts labels array->object, then reuses the existing 3-set venn.
+//   portal:  { type:"3set-labeled", labels:["ก","ข","ค"],
+//              values:{aOnly,bOnly,cOnly,abNotC,acNotB,bcNotA,abc,outside},
+//              width (CSS max-width), height (ignored) }
+// GUARD: skip any region whose value is undefined/null/"" so we never emit
+//        "undefined"/"null"/empty text (matches portal's blank rule). A value
+//        of "?" passes through verbatim and renders as "?" (intended).
+function render3SetLabeled(spec){
+  if(!spec || spec.type !== '3set-labeled') return null;
+  const v = spec.values || {};
+  const KEYMAP = {
+    aOnly:'A_only', bOnly:'B_only', cOnly:'C_only',
+    abNotC:'AB_only', acNotB:'AC_only', bcNotA:'BC_only',
+    abc:'ABC', outside:'outside'
+  };
+  const regions = {};
+  for(const pk in KEYMAP){
+    const val = v[pk];
+    if(val === undefined || val === null || val === '') continue; // blank guard
+    regions[KEYMAP[pk]] = val; // verbatim — "?" stays "?"
+  }
+  const lab = Array.isArray(spec.labels) ? spec.labels : ['A','B','C'];
+  const innerSpec = {
+    type: 'venn-diagram', sets: 3, layout: 'intersecting',
+    labels: { A: (lab[0] != null ? lab[0] : 'A'),
+              B: (lab[1] != null ? lab[1] : 'B'),
+              C: (lab[2] != null ? lab[2] : 'C') },
+    regions,
+    universe: (regions.outside !== undefined), // outside present -> draw U box
+    width: 400, height: 380                    // match portal's fixed viewBox
+  };
+  const inner = renderVennDiagram(innerSpec);
+  if(!inner) return null;
+  const cssW = spec.width || 240;              // portal default when omitted
+  return `<div style="max-width:${cssW}px;">${inner}</div>`;
+}
+
 function renderImage(spec){
   if(!spec) return null;
   // Array of specs → render each, wrap in horizontal flex container
@@ -1490,6 +1530,8 @@ function renderImage(spec){
       return renderStemLeaf(spec);
     case 'venn-diagram':
       return renderVennDiagram(spec);
+    case '3set-labeled':
+      return render3SetLabeled(spec);
     // TODO: case '3set-c-in-a-shade-ab-minus-c': return venn3CinA_shadeABminusC_13();
     default:
       return null; // unknown type → admin.html จะ fallback ไปแสดง placeholder
