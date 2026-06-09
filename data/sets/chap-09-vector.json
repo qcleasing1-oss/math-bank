@@ -102,7 +102,9 @@
       "topics": [
         "9"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "4"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "level": "medium",
@@ -154,7 +156,9 @@
       "topics": [
         "9"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "3"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "level": "medium",
@@ -208,7 +212,9 @@
       "topics": [
         "9"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "4"
+      ],
       "difficulty": "ง่าย",
       "type": "mc",
       "level": "easy",
@@ -263,7 +269,9 @@
       "topics": [
         "9"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "4"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "level": "medium",
@@ -365,7 +373,9 @@
       "topics": [
         "9"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "7"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "level": "medium",
@@ -415,7 +425,9 @@
       "topics": [
         "9"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "4"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "level": "medium",
@@ -782,7 +794,9 @@
       "topics": [
         "9"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "4"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "level": "medium",
@@ -930,7 +944,9 @@
       "topics": [
         "9"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "3"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "level": "medium",
@@ -1272,7 +1288,9 @@
       "topics": [
         "9"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "7"
+      ],
       "difficulty": "ยาก",
       "type": "mc",
       "level": "hard",
@@ -1543,7 +1561,9 @@
       "topics": [
         "9"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "4"
+      ],
       "difficulty": "ยาก",
       "type": "mc",
       "level": "hard",
@@ -1594,7 +1614,9 @@
       "topics": [
         "9"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "7"
+      ],
       "difficulty": "ยาก",
       "type": "mc",
       "level": "hard",
@@ -1695,7 +1717,9 @@
       "topics": [
         "9"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "7"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "level": "medium",
@@ -1839,7 +1863,9 @@
       "topics": [
         "9"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "7"
+      ],
       "difficulty": "ง่าย",
       "type": "mc",
       "level": "easy",
@@ -1971,7 +1997,9 @@
       "topics": [
         "9"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "7"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "level": "medium",
@@ -2021,7 +2049,9 @@
       "topics": [
         "9"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "7"
+      ],
       "difficulty": "ยาก",
       "type": "mc",
       "level": "hard",
@@ -2073,7 +2103,9 @@
       "topics": [
         "9"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "7"
+      ],
       "difficulty": "ยาก",
       "type": "mc",
       "level": "hard",
@@ -2123,7 +2155,9 @@
       "topics": [
         "9"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "7"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "level": "medium",
@@ -2174,7 +2208,9 @@
       "topics": [
         "9"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "7"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "level": "medium",
@@ -2222,7 +2258,9 @@
       "topics": [
         "9"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "4"
+      ],
       "difficulty": "ยาก",
       "type": "mc",
       "level": "hard",
@@ -2275,7 +2313,9 @@
       "topics": [
         "9"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "7"
+      ],
       "difficulty": "ยาก",
       "type": "fill",
       "level": "hard",
@@ -2375,7 +2415,9 @@
       "topics": [
         "9"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "4"
+      ],
       "difficulty": "ยาก",
       "type": "mc",
       "level": "hard",
@@ -2437,7 +2479,9 @@
       "topics": [
         "9"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "7"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "level": "medium",
@@ -2493,7 +2537,9 @@
       "topics": [
         "9"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "7"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "level": "medium",
@@ -2595,7 +2641,9 @@
       "topics": [
         "9"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "7"
+      ],
       "difficulty": "ปานกลาง",
       "type": "fill",
       "level": "medium",
@@ -2641,7 +2689,9 @@
       "topics": [
         "9"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "7"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "level": "medium",
@@ -2885,7 +2935,9 @@
       "topics": [
         "9"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "7"
+      ],
       "difficulty": "ยาก",
       "type": "mc",
       "level": "hard",
@@ -2933,7 +2985,9 @@
       "topics": [
         "9"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "4"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "level": "medium",
@@ -3269,7 +3323,9 @@
       "topics": [
         "9"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "7"
+      ],
       "difficulty": "ยาก",
       "type": "mc",
       "level": "hard",
@@ -3717,7 +3773,9 @@
       "topics": [
         "9"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "4"
+      ],
       "difficulty": "ยาก",
       "type": "mc",
       "level": "hard",
@@ -3785,14 +3843,22 @@
         "เดินครบรอบสามเหลี่ยม: $\\overrightarrow{AB} + \\overrightarrow{BC} + \\overrightarrow{CA} = \\overline{0}$",
         "ขนาดกำลังสองของผลรวมสามเวกเตอร์: $|\\overline{p}+\\overline{q}+\\overline{r}|^2 = |\\overline{p}|^2+|\\overline{q}|^2+|\\overline{r}|^2 + 2(\\overline{p}\\cdot\\overline{q}+\\overline{q}\\cdot\\overline{r}+\\overline{r}\\cdot\\overline{p})$",
         "",
-        "<b>🎯 เป้าหมาย</b> ยกกำลังสองสมการรอบรูป แล้วแก้หาผลรวม dot",
+        "<b>🎯 เป้าหมาย</b> หาผลรวม dot รอบรูป — ทำได้ทั้งยกกำลังสองสมการเวกเตอร์ (พื้นฐาน) และกระจาย dot เป็นกฎ cosine (ประยุกต์)",
         "",
+        "<b>【 วิธีที่ 1 ▸ พื้นฐาน 】</b>",
         "<b>ขั้นที่ 1:</b> ยกกำลังสองทั้งสองข้างของ $\\overrightarrow{AB} + \\overrightarrow{BC} + \\overrightarrow{CA} = \\overline{0}$",
         "$0 = |\\overrightarrow{AB}|^2 + |\\overrightarrow{BC}|^2 + |\\overrightarrow{CA}|^2 + 2\\left(\\overrightarrow{AB}\\cdot\\overrightarrow{BC} + \\overrightarrow{BC}\\cdot\\overrightarrow{CA} + \\overrightarrow{CA}\\cdot\\overrightarrow{AB}\\right)$",
         "",
         "<b>ขั้นที่ 2:</b> แทนค่า",
         "$0 = (c^2 + a^2 + b^2) + 2S$ โดย $S$ คือผลรวม dot ที่ต้องการ",
         "$0 = \\sqrt{13} + 2S$ → $S = -\\dfrac{\\sqrt{13}}{2}$",
+        "",
+        "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ 】</b>",
+        "<b>เครื่องมือ:</b> $\\overrightarrow{AB}\\cdot\\overrightarrow{BC} = ca\\cos(180^\\circ - B) = -ca\\cos B$ (dot ของด้านที่ประชิดในสามเหลี่ยม)",
+        "รวม $= -(ca\\cos B + ab\\cos C + bc\\cos A)$",
+        "กฎ cosine: $ca\\cos B = \\dfrac{a^2+c^2-b^2}{2}$ ฯลฯ บวกกันได้ $\\dfrac{a^2+b^2+c^2}{2}$",
+        "จึง $S = -\\dfrac{a^2+b^2+c^2}{2} = -\\dfrac{\\sqrt{13}}{2}$",
+        "<b>ข้อต่าง:</b> วิธีพื้นฐานยกกำลังสองสมการเวกเตอร์รอบรูป ลัดและไม่ต้องแตกมุม ส่วนวิธีประยุกต์ดึงกฎ cosine มาใช้ เห็นที่มาเชิงเรขาคณิตชัด แต่ต้องระวังว่ามุมระหว่าง $\\overrightarrow{AB}$ กับ $\\overrightarrow{BC}$ คือ $180^\\circ - B$ ไม่ใช่ $B$",
         "",
         "<b>✔ ตรวจคำตอบ</b> numpy สามเหลี่ยมสุ่ม: ผลรวม dot $= -\\dfrac{a^2+b^2+c^2}{2}$ ทุกรูปจริง ✓ (เอกลักษณ์ ไม่ขึ้นกับรูปร่าง)",
         "",
@@ -3860,7 +3926,9 @@
       "topics": [
         "9"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "7"
+      ],
       "difficulty": "ยาก",
       "type": "mc",
       "level": "hard",
@@ -4011,7 +4079,9 @@
       "topics": [
         "9"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "7"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "level": "medium",
@@ -4063,7 +4133,9 @@
       "topics": [
         "9"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "7"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "level": "medium",
@@ -4113,7 +4185,10 @@
       "topics": [
         "9"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "4",
+        "7"
+      ],
       "difficulty": "ยาก",
       "type": "mc",
       "level": "hard",
@@ -4365,7 +4440,9 @@
       "topics": [
         "9"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "7"
+      ],
       "difficulty": "ปานกลาง",
       "type": "fill",
       "level": "medium",
@@ -4412,7 +4489,9 @@
       "topics": [
         "9"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "7"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "level": "medium",
@@ -4460,7 +4539,9 @@
       "topics": [
         "9"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "7"
+      ],
       "difficulty": "ง่าย",
       "type": "mc",
       "level": "easy",
@@ -4642,7 +4723,9 @@
       "topics": [
         "9"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "4"
+      ],
       "difficulty": "ปานกลาง",
       "type": "fill",
       "level": "medium",
@@ -4690,7 +4773,9 @@
       "topics": [
         "9"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "4"
+      ],
       "difficulty": "ยาก",
       "type": "fill",
       "level": "hard",
@@ -4856,7 +4941,9 @@
       "topics": [
         "9"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "7"
+      ],
       "difficulty": "ยาก",
       "type": "fill",
       "level": "hard",
@@ -5058,7 +5145,9 @@
       "topics": [
         "9"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "3"
+      ],
       "difficulty": "ยาก",
       "type": "mc",
       "level": "hard",
@@ -5106,7 +5195,9 @@
       "topics": [
         "9"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "7"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "level": "medium",
@@ -5211,7 +5302,9 @@
       "topics": [
         "9"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "7"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "level": "medium",
@@ -5306,7 +5399,9 @@
       "topics": [
         "9"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "4"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "level": "medium",
@@ -5402,7 +5497,9 @@
       "topics": [
         "9"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "7"
+      ],
       "difficulty": "ปานกลาง",
       "type": "fill",
       "level": "medium",
@@ -5452,7 +5549,10 @@
       "topics": [
         "9"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "4",
+        "7"
+      ],
       "difficulty": "ปานกลาง",
       "type": "fill",
       "level": "medium",
@@ -5500,7 +5600,9 @@
       "topics": [
         "9"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "7"
+      ],
       "difficulty": "ง่าย",
       "type": "fill",
       "level": "easy",
@@ -5541,7 +5643,9 @@
       "topics": [
         "9"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "7"
+      ],
       "difficulty": "ยาก",
       "type": "fill",
       "level": "hard",
@@ -5643,7 +5747,9 @@
       "topics": [
         "9"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "7"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "level": "medium",
@@ -5690,7 +5796,9 @@
       "topics": [
         "9"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "3"
+      ],
       "difficulty": "ง่าย",
       "type": "fill",
       "level": "easy",
@@ -5734,7 +5842,9 @@
       "topics": [
         "9"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "7"
+      ],
       "difficulty": "ยาก",
       "type": "fill",
       "level": "hard",
@@ -5785,7 +5895,10 @@
       "topics": [
         "9"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "6",
+        "7"
+      ],
       "difficulty": "ยาก",
       "type": "fill",
       "level": "hard",
@@ -5853,6 +5966,7 @@
         "",
         "<b>🎯 เป้าหมาย</b> หาแนว $\\overline{u}$ → หา $\\cos\\theta$ กับ $\\overrightarrow{BC}$ → กลับเป็น $\\sec$",
         "",
+        "<b>【 วิธีที่ 1 ▸ พื้นฐาน 】</b>",
         "<b>ขั้นที่ 1:</b> หาแนว $\\overline{u}$",
         "$\\overrightarrow{AB} = (1, 3)$ → แนวตั้งฉาก: $(3, -1)$ หรือ $(-3, 1)$ เงื่อนไข $x > 0$ เลือก $(3, -1)$",
         "(ขนาด $3\\sqrt{10}$ ให้ $\\overline{u} = (9, -3)$ แต่มุมไม่สนขนาด ใช้ $(3, -1)$ ได้เลย)",
@@ -5861,6 +5975,13 @@
         "$\\cos\\theta = \\dfrac{(3)(1) + (-1)(-2)}{\\sqrt{10}\\cdot\\sqrt{5}} = \\dfrac{5}{\\sqrt{50}} = \\dfrac{5}{5\\sqrt{2}} = \\dfrac{1}{\\sqrt{2}}$",
         "",
         "<b>ขั้นที่ 3:</b> $\\sec\\theta = \\sqrt{2}$",
+        "",
+        "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ 】</b>",
+        "<b>เครื่องมือ:</b> หามุม $\\overrightarrow{AB}$-$\\overrightarrow{BC}$ ก่อน แล้วหักด้วย $90^\\circ$ (ไม่ต้องหา $\\overline{u}$ เต็ม)",
+        "$\\cos\\varphi = \\dfrac{\\overrightarrow{AB}\\cdot\\overrightarrow{BC}}{|\\overrightarrow{AB}||\\overrightarrow{BC}|} = \\dfrac{(1)(1)+(3)(-2)}{\\sqrt{10}\\,\\sqrt{5}} = \\dfrac{-5}{\\sqrt{50}} = -\\dfrac{1}{\\sqrt{2}}$ → $\\varphi = 135^\\circ$",
+        "$\\overline{u}$ ตั้งฉาก $\\overrightarrow{AB}$ และอยู่ฝั่ง $x > 0$ จึงอยู่ระหว่าง $\\overrightarrow{AB}$ กับ $\\overrightarrow{BC}$",
+        "ดังนั้น $\\theta = \\varphi - 90^\\circ = 45^\\circ$ → $\\sec\\theta = \\sqrt{2}$",
+        "<b>ข้อต่าง:</b> วิธีพื้นฐานหาแนว $\\overline{u} = (3, -1)$ แล้ว dot กับ $\\overrightarrow{BC}$ ตรง ๆ ส่วนวิธีประยุกต์เลี่ยงการหา $\\overline{u}$ โดยอาศัยว่ามันตั้งฉาก $\\overrightarrow{AB}$ คือหมุนจากมุม $\\varphi$ ไป $90^\\circ$ เร็วถ้าเห็นภาพมุม แต่ต้องระวังทิศว่าหัก $+90^\\circ$ หรือ $-90^\\circ$",
         "",
         "<b>✔ ตรวจคำตอบ</b> numpy: $\\overline{u} = (9, -3)$ ตั้งฉาก $\\overrightarrow{AB}$ ✓ ขนาด $3\\sqrt{10}$ ✓ $\\cos\\theta = 0.7071$ → $\\sec\\theta = 1.414 = \\sqrt{2}$ ✓",
         "",
@@ -5937,16 +6058,26 @@
       ],
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
-        "พื้นที่สี่เหลี่ยมด้านขนานจากด้านประกอบ $(a_1, a_2)$ กับ $(b_1, b_2)$:",
-        "พื้นที่ $= |a_1 b_2 - a_2 b_1|$ (ขนาดของผลคูณไขว้ในระนาบ)",
-        "(ที่มา: พื้นที่ $= |\\overline{A}||\\overline{B}|\\sin\\theta$ และ $\\sin$ ได้จากองค์ประกอบไขว้)",
+        "พื้นที่สี่เหลี่ยมด้านขนานจากด้านประกอบ $\\overline{A}, \\overline{B}$ คือ $|\\overline{A}||\\overline{B}|\\sin\\theta$ (ฐานคูณสูง ผ่านมุมระหว่างด้าน)",
+        "ทางลัด: $|a_1 b_2 - a_2 b_1|$ (ขนาดผลคูณไขว้ในระนาบ) ให้ผลเท่ากัน",
         "",
-        "<b>🎯 เป้าหมาย</b> ใช้สูตรผลคูณไขว้ตรง ๆ",
+        "<b>🎯 เป้าหมาย</b> หาพื้นที่ — ไล่ตามนิยามผ่านมุม (พื้นฐาน) หรือใช้สูตรไขว้ตรง ๆ (ประยุกต์)",
         "",
-        "<b>ขั้นที่ 1:</b> คำนวณ",
-        "พื้นที่ $= |(1)(-1) - (2)(3)| = |-1 - 6| = 7$ ตารางหน่วย",
+        "<b>【 วิธีที่ 1 ▸ พื้นฐาน 】</b>",
+        "<b>ขั้นที่ 1:</b> หา dot และขนาด",
+        "$\\overline{A}\\cdot\\overline{B} = (1)(3)+(2)(-1) = 1$ , $|\\overline{A}| = \\sqrt{5}$ , $|\\overline{B}| = \\sqrt{10}$",
         "",
-        "<b>✔ ตรวจคำตอบ</b> ทางอ้อม: $|\\overline{A}| = \\sqrt{5} ,\\ |\\overline{B}| = \\sqrt{10}$ , $\\cos\\theta = \\dfrac{1}{\\sqrt{50}}$ → $\\sin\\theta = \\dfrac{7}{\\sqrt{50}}$ → พื้นที่ $= \\sqrt{5}\\sqrt{10}\\cdot\\dfrac{7}{\\sqrt{50}} = 7$ ✓ สองวิธีตรงกัน",
+        "<b>ขั้นที่ 2:</b> หา $\\sin\\theta$ จาก $\\cos\\theta$",
+        "$\\cos\\theta = \\dfrac{1}{\\sqrt{50}}$ → $\\sin\\theta = \\sqrt{1 - \\dfrac{1}{50}} = \\dfrac{7}{\\sqrt{50}}$",
+        "",
+        "<b>ขั้นที่ 3:</b> พื้นที่ $= |\\overline{A}||\\overline{B}|\\sin\\theta = \\sqrt{5}\\cdot\\sqrt{10}\\cdot\\dfrac{7}{\\sqrt{50}} = 7$ ตารางหน่วย",
+        "",
+        "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ 】</b>",
+        "<b>เครื่องมือ:</b> พื้นที่ $= |a_1 b_2 - a_2 b_1|$ (ขนาดผลคูณไขว้ในระนาบ — เลี่ยงการหามุม)",
+        "$= |(1)(-1) - (2)(3)| = |-1 - 6| = 7$ ตารางหน่วย",
+        "<b>ข้อต่าง:</b> วิธีพื้นฐานไล่ตามนิยาม $\\cos\\theta \\to \\sin\\theta \\to |\\overline{A}||\\overline{B}|\\sin\\theta$ เห็นที่มาของพื้นที่ชัด ส่วนวิธีประยุกต์ใช้สูตรไขว้ตรง ๆ เร็วและไม่ผ่านมุม",
+        "",
+        "<b>✔ ตรวจคำตอบ</b> numpy: เวกเตอร์สุ่มยืนยัน $|a_1 b_2 - a_2 b_1| = |\\overline{A}||\\overline{B}|\\sin\\theta$ ตรงทุกคู่ ✓ ที่นี่สองวิธีได้ 7 เท่ากัน",
         "",
         "<b>✅ คำตอบ: พื้นที่ $= 7$ ตารางหน่วย</b>",
         "",
@@ -6152,7 +6283,9 @@
       "topics": [
         "9"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "7"
+      ],
       "difficulty": "ยาก",
       "type": "fill",
       "level": "hard",
