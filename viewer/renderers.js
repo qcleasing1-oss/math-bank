@@ -1328,13 +1328,15 @@ function _venn2Disjoint(spec){
 function _venn3Intersecting(spec){
   // ---- canvas ----
   const W = spec.width || 400;
-  const H = spec.height || 360;
+  const capH = spec.caption ? 30 : 0;     // optional title strip (e.g. choice number)
+  const contentH = spec.height || 360;
+  const H = contentH + capH;
 
   // ---- geometry: equilateral triangle of centers ----
   const r = 68;             // circle radius
   const d = 70;             // center-to-center distance
   const cx = W / 2;
-  const cy = H / 2 - 4;     // shift up a touch for label room
+  const cy = capH + contentH / 2 - 4;     // shift content below caption strip
   const triH = d * Math.sqrt(3) / 2;
   // A = top-left, B = top-right, C = bottom-center
   const xA = cx - d/2, yA = cy - triH/3;
@@ -1368,6 +1370,12 @@ function _venn3Intersecting(spec){
           + `xmlns="http://www.w3.org/2000/svg" `
           + `style="background:#fff;font-family:'Sarabun',sans-serif;">`;
 
+  // 0b. CAPTION (optional title strip, e.g. choice label "1.")
+  if(spec.caption){
+    svg += `<text x="${W/2}" y="21" text-anchor="middle" font-size="18" `
+         + `font-weight="bold" fill="${INK}" font-family="'Sarabun',sans-serif">${spec.caption}</text>`;
+  }
+
   // 0. <defs> — clipPaths for nested-AND shading
   svg += `<defs>`;
   svg += `<clipPath id="${CP('A')}"><circle cx="${xA}" cy="${yA}" r="${r}"/></clipPath>`;
@@ -1387,17 +1395,20 @@ function _venn3Intersecting(spec){
   // 2. SHADING — nested clip wraps produce intersections, then white punch-outs erase excludes
   // Each region is rendered as a self-contained <g> so combinations don't bleed into each other.
   function shadeRegion(includes, excludes){
+    // shade rect + white punch-outs for excludes, ALL wrapped together inside the
+    // include-clips. Keeping the punch INSIDE the clip confines it to this region
+    // so it can't overpaint other already-drawn regions (the iter-3 bug, where a
+    // bare white <circle> outside the clip erased every prior region's shading).
     let inner = `<rect x="0" y="0" width="${W}" height="${H}" fill="${SHADE}" opacity="${SHADE_OP}"/>`;
-    includes.forEach(name => {
-      inner = `<g clip-path="url(#${CP(name)})">${inner}</g>`;
-    });
-    let result = inner;
     excludes.forEach(name => {
       const cx_ = name==='A' ? xA : name==='B' ? xB : xC;
       const cy_ = name==='A' ? yA : name==='B' ? yB : yC;
-      result += `<circle cx="${cx_}" cy="${cy_}" r="${r}" fill="white"/>`;
+      inner += `<circle cx="${cx_}" cy="${cy_}" r="${r}" fill="white"/>`;
     });
-    return result;
+    includes.forEach(name => {
+      inner = `<g clip-path="url(#${CP(name)})">${inner}</g>`;
+    });
+    return inner;
   }
   if(shadeSet.has('A_only'))    svg += shadeRegion(['A'], ['B','C']);
   if(shadeSet.has('B_only'))    svg += shadeRegion(['B'], ['A','C']);
