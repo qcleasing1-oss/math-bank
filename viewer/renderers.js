@@ -1513,6 +1513,94 @@ function render3SetLabeled(spec){
   return `<div style="max-width:${cssW}px;">${inner}</div>`;
 }
 
+// ----- venn: C nested inside A, B intersects A (C disjoint from B) -----
+// topology โจทย์ "C ⊂ A, B ตัด A" (เช่น Q36 Entrance 2530)
+//   shade:['AB'] = แรเงา A∩B (lens), punch C → semantically (A∩B)−C
+function venn3CinA(spec){
+  if(!spec || spec.type !== 'venn-c-in-a') return null;
+  const W = spec.width || 300;
+  const capH = spec.caption ? 30 : 0;
+  const contentH = spec.height || 200;
+  const H = contentH + capH;
+  const INK='#222', RULE='#3a3424', SHADE='#b8aa88', SHADE_OP=0.55;
+  const cy = capH + contentH/2;
+  const A = { x: W*0.42, y: cy, r: 70 };
+  const B = { x: W*0.70, y: cy, r: 54 };
+  const C = { x: W*0.50, y: cy, r: 37 };   // C⊆A but reaches into A∩B → punch makes (A∩B)−C
+  const labels = spec.labels || {A:'A',B:'B',C:'C'};
+  const shadeSet = new Set(spec.shade || []);
+  const uid = ++_vennIdCounter;
+  const CP = (n)=>`vci${uid}_${n}`;
+  let svg = `<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" `
+          + `xmlns="http://www.w3.org/2000/svg" style="background:#fff;font-family:'Sarabun',sans-serif;">`;
+  if(spec.caption){
+    svg += `<text x="${W/2}" y="21" text-anchor="middle" font-size="18" font-weight="bold" `
+         + `fill="${INK}" font-family="'Sarabun',sans-serif">${spec.caption}</text>`;
+  }
+  svg += `<defs>`
+       + `<clipPath id="${CP('A')}"><circle cx="${A.x}" cy="${A.y}" r="${A.r}"/></clipPath>`
+       + `<clipPath id="${CP('B')}"><circle cx="${B.x}" cy="${B.y}" r="${B.r}"/></clipPath>`
+       + `</defs>`;
+  if(shadeSet.has('AB')){
+    let inner = `<rect x="0" y="0" width="${W}" height="${H}" fill="${SHADE}" opacity="${SHADE_OP}"/>`;
+    inner += `<circle cx="${C.x}" cy="${C.y}" r="${C.r}" fill="white"/>`;
+    inner = `<g clip-path="url(#${CP('B')})">${inner}</g>`;
+    inner = `<g clip-path="url(#${CP('A')})">${inner}</g>`;
+    svg += inner;
+  }
+  svg += `<circle cx="${A.x}" cy="${A.y}" r="${A.r}" fill="none" stroke="${RULE}" stroke-width="1.6"/>`;
+  svg += `<circle cx="${B.x}" cy="${B.y}" r="${B.r}" fill="none" stroke="${RULE}" stroke-width="1.6"/>`;
+  svg += `<circle cx="${C.x}" cy="${C.y}" r="${C.r}" fill="none" stroke="${RULE}" stroke-width="1.6"/>`;
+  const lab=(x,y,t)=>`<text x="${x.toFixed(1)}" y="${y.toFixed(1)}" `
+       + `font-family="'Cambria Math','Times New Roman',serif" font-size="17" font-style="italic" `
+       + `fill="${INK}" text-anchor="middle">${t}</text>`;
+  svg += lab(A.x - A.r*0.92, A.y - A.r*0.78, labels.A);
+  svg += lab(B.x + B.r*0.78, B.y - B.r*0.82, labels.B);
+  svg += lab(C.x - C.r*0.5, C.y + 5, labels.C);
+  return svg + '</svg>';
+}
+
+// ----- venn: C is a horizontal ellipse spanning A∪B (C ⊆ A∪B) -----
+// topology โจทย์ "C วงรีพาด A∪B" (เช่น Q33 Entrance 2525); universe box default
+function venn3COval(spec){
+  if(!spec || spec.type !== 'venn-c-oval') return null;
+  const W = spec.width || 320;
+  const capH = spec.caption ? 30 : 0;
+  const H = capH + 245;
+  const INK='#222', RULE='#3a3424';
+  const universe = (spec.universe !== false);
+  const labels = spec.labels || {A:'A',B:'B',C:'C'};
+  const y0 = capH;
+  const A = { x:118, y:y0+115, r:66 };
+  const B = { x:204, y:y0+115, r:66 };
+  const C = { x:161, y:y0+115, rx:80, ry:27 };   // center = A,B center → ห่างจุดตัดบน-ล่างเท่ากัน
+  const ubX=18, ubY=y0+30, ubW=284, ubH=200;
+  let svg = `<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" `
+          + `xmlns="http://www.w3.org/2000/svg" style="background:#fff;font-family:'Sarabun',sans-serif;">`;
+  if(spec.caption){
+    svg += `<text x="${W/2}" y="21" text-anchor="middle" font-size="18" font-weight="bold" `
+         + `fill="${INK}" font-family="'Sarabun',sans-serif">${spec.caption}</text>`;
+  }
+  if(universe){
+    svg += `<rect x="${ubX}" y="${ubY}" width="${ubW}" height="${ubH}" fill="none" stroke="${RULE}" stroke-width="1.4"/>`;
+  }
+  svg += `<circle cx="${A.x}" cy="${A.y}" r="${A.r}" fill="none" stroke="${RULE}" stroke-width="1.6"/>`;
+  svg += `<circle cx="${B.x}" cy="${B.y}" r="${B.r}" fill="none" stroke="${RULE}" stroke-width="1.6"/>`;
+  svg += `<ellipse cx="${C.x}" cy="${C.y}" rx="${C.rx}" ry="${C.ry}" fill="none" stroke="${RULE}" stroke-width="1.6"/>`;
+  const lab=(x,y,t)=>`<text x="${x.toFixed(1)}" y="${y.toFixed(1)}" `
+       + `font-family="'Cambria Math','Times New Roman',serif" font-size="17" font-style="italic" `
+       + `fill="${INK}" text-anchor="middle">${t}</text>`;
+  svg += lab(A.x - A.r*0.82, A.y - A.r*0.74, labels.A);
+  svg += lab(B.x + B.r*0.82, B.y - B.r*0.74, labels.B);
+  svg += lab(C.x - C.rx - 14, C.y + 5,        labels.C);
+  if(universe){
+    svg += `<text x="${ubX+ubW-14}" y="${ubY+ubH-12}" text-anchor="end" `
+         + `font-family="'Cambria Math','Times New Roman',serif" font-size="16" font-style="italic" `
+         + `fill="${INK}">${spec.universeLabel || 'U'}</text>`;
+  }
+  return svg + '</svg>';
+}
+
 function renderImage(spec){
   if(!spec) return null;
   // Array of specs → render each, wrap in horizontal flex container
@@ -1543,6 +1631,10 @@ function renderImage(spec){
       return renderVennDiagram(spec);
     case '3set-labeled':
       return render3SetLabeled(spec);
+    case 'venn-c-in-a':
+      return venn3CinA(spec);
+    case 'venn-c-oval':
+      return venn3COval(spec);
     // TODO: case '3set-c-in-a-shade-ab-minus-c': return venn3CinA_shadeABminusC_13();
     default:
       return null; // unknown type → admin.html จะ fallback ไปแสดง placeholder
