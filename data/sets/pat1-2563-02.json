@@ -242,6 +242,16 @@
         "• แบ่ง $A \\cup B \\cup C$ ออกเป็นสองส่วนที่ไม่ทับกัน: ส่วนที่อยู่ใน $A\\cup B$ และส่วนที่เป็น $C$ ล้วน (อยู่นอก $A\\cup B$)",
         "• สูตรอินคลูชัน–เอกซ์คลูชันสองเซต: $n(A \\cup B) = n(A) + n(B) - n(A \\cap B)$",
         "",
+        "",
+        "<b>🖼 มองด้วยแผนภาพเวนน์ (แนวเฉลย)</b>",
+        "แรเงาบริเวณตามเงื่อนไขที่โจทย์ให้มา 3 รูป แล้ว “ลบแผนภาพ” กันเพื่อสร้างข้อมูลใหม่",
+        "[IMAGE:0]",
+        "[IMAGE:1]",
+        "[IMAGE:2]",
+        "นำมาลบกัน: $n(C) = n(A\\cup B\\cup C) - n((A\\cup B)-C) = 100-35 = 65$ และ $n(A\\cup B) = n(A\\cup B\\cup C) - n(C-(A\\cup B)) = 100-9 = 91$",
+        "[IMAGE:3]",
+        "[IMAGE:4]",
+        "",
         "<b>ขั้นที่ 1: หา $n(C)$</b>",
         "$A \\cup B \\cup C$ แบ่งเป็น $(A\\cup B)$ กับส่วน $C-(A\\cup B)$ ซึ่งไม่ทับกัน",
         "ดังนั้น $n(C - (A\\cup B)) + n(A\\cup B) = n(A\\cup B\\cup C)$",
@@ -266,7 +276,107 @@
         "<b>💡 เทคนิคที่ใช้</b> แตก $A\\cup B\\cup C$ เป็นก้อนที่ไม่ทับกันเพื่อหา $n(C)$ และ $n(A\\cup B)$ ก่อน แล้วค่อยใช้สูตรสองเซตปิดท้าย",
         "",
         "<b>⚠️ จุดที่เด็กมักผิด</b> สับสน $(A\\cup B) - C$ กับ $C - (A\\cup B)$ ซึ่งเป็นคนละก้อน; วาดเวนน์ช่วยแยกได้ชัด"
-      ]
+      ],
+      "imageSpec": [
+        {
+          "type": "venn-diagram",
+          "sets": 3,
+          "layout": "intersecting",
+          "width": 300,
+          "height": 310,
+          "labels": {
+            "A": "A",
+            "B": "B",
+            "C": "C"
+          },
+          "caption": "A∪B∪C = 100",
+          "shade": [
+            "A_only",
+            "B_only",
+            "C_only",
+            "AB_only",
+            "AC_only",
+            "BC_only",
+            "ABC"
+          ]
+        },
+        {
+          "type": "venn-diagram",
+          "sets": 3,
+          "layout": "intersecting",
+          "width": 300,
+          "height": 310,
+          "labels": {
+            "A": "A",
+            "B": "B",
+            "C": "C"
+          },
+          "caption": "(A∪B) − C = 35",
+          "shade": [
+            "A_only",
+            "B_only",
+            "AB_only"
+          ]
+        },
+        {
+          "type": "venn-diagram",
+          "sets": 3,
+          "layout": "intersecting",
+          "width": 300,
+          "height": 310,
+          "labels": {
+            "A": "A",
+            "B": "B",
+            "C": "C"
+          },
+          "caption": "C − (A∪B) = 9",
+          "shade": [
+            "C_only"
+          ]
+        },
+        {
+          "type": "venn-diagram",
+          "sets": 3,
+          "layout": "intersecting",
+          "width": 300,
+          "height": 310,
+          "labels": {
+            "A": "A",
+            "B": "B",
+            "C": "C"
+          },
+          "caption": "n(C) = 100 − 35 = 65",
+          "shade": [
+            "C_only",
+            "AC_only",
+            "BC_only",
+            "ABC"
+          ]
+        },
+        {
+          "type": "venn-diagram",
+          "sets": 3,
+          "layout": "intersecting",
+          "width": 300,
+          "height": 310,
+          "labels": {
+            "A": "A",
+            "B": "B",
+            "C": "C"
+          },
+          "caption": "n(A∪B) = 100 − 9 = 91",
+          "shade": [
+            "A_only",
+            "B_only",
+            "AB_only",
+            "AC_only",
+            "BC_only",
+            "ABC"
+          ]
+        }
+      ],
+      "needsExplanationImage": true,
+      "imageNote": "แผนภาพเวนน์ 3 เซต A, B, C แบบแรเงา 5 รูป: (1) A∪B∪C, (2) (A∪B)−C, (3) C−(A∪B), (4) C ทั้งวง, (5) A∪B ทั้งหมด — แสดงการลบแผนภาพเพื่อหา n(C)=65 และ n(A∪B)=91"
     },
     {
       "id": "pat1-2563-02-q06",

@@ -1323,8 +1323,10 @@ function _venn2Disjoint(spec){
 // - Region text positions tuned so AB_only / AC_only / BC_only stay ≥ 18px
 //   away from the EXCLUDED circle's edge while remaining safely inside their
 //   included circles (verified via geometry: edge clearance 18.4–19.8 px).
-// - Shading uses nested <clipPath> wrapping (A ∩ B ∩ ...) via <g> chains,
-//   then white-circle "punch-outs" for excluded sets. Cleaner than 7+ masks.
+// - Shading: single-circle regions via <mask>; lenses (Aᵢ∩Aⱼ) and the central
+//   region (A∩B∩C) via explicit <path> arcs. NO nested clip-path — that renders
+//   EMPTY in some browsers (confirmed). All 7 regions are pairwise disjoint, so
+//   they paint at uniform opacity in any order. Verified pixel-exact vs resvg.
 function _venn3Intersecting(spec){
   // ---- canvas ----
   const W = spec.width || 400;
@@ -1362,9 +1364,40 @@ function _venn3Intersecting(spec){
   const INK = '#222';
   const RULE = '#3a3424';
 
-  // ---- unique clipPath IDs (per-call, prevents collisions across multiple venns) ----
+  // ---- unique mask IDs (per-call, prevents collisions across multiple venns) ----
   const uid = ++_vennIdCounter;
-  const CP = (n) => `vClip${uid}_${n}`;
+  const M = (n) => `vM${uid}_${n}`;
+
+  // ---- shading helpers: mask (single-circle − others) + <path> (lens, central) ----
+  //   NO nested clip-path (renders empty in some browsers); mask+path is the proven approach.
+  const F2 = (v) => v.toFixed(2);
+  const ctrOf = { A:[xA,yA], B:[xB,yB], C:[xC,yC] };
+  // equal-radius circle∩circle → [Q(+normal), Q(−normal)]
+  function isect3(x1,y1,x2,y2){
+    const dx=x2-x1, dy=y2-y1, dd=Math.sqrt(dx*dx+dy*dy);
+    const hh=Math.sqrt(Math.max(0, r*r - (dd/2)*(dd/2)));
+    const mx=(x1+x2)/2, my=(y1+y2)/2, nx=-dy/dd, ny=dx/dd;
+    return [{x:mx+nx*hh, y:my+ny*hh}, {x:mx-nx*hh, y:my-ny*hh}];
+  }
+  // full lens (Pᵢ∩Pⱼ): arc of circ-i then arc of circ-j (sweep 1,1 — verified vs resvg)
+  function lensPath3(x1,y1,x2,y2){
+    const q=isect3(x1,y1,x2,y2);
+    return `M ${F2(q[0].x)} ${F2(q[0].y)} A ${r} ${r} 0 0 1 ${F2(q[1].x)} ${F2(q[1].y)} `
+         + `A ${r} ${r} 0 0 1 ${F2(q[0].x)} ${F2(q[0].y)} Z`;
+  }
+  // inner intersection of a pair (closer to triangle centroid tcx,tcy)
+  function innerPt(x1,y1,x2,y2){
+    const q=isect3(x1,y1,x2,y2);
+    return (Math.hypot(q[0].x-tcx,q[0].y-tcy) < Math.hypot(q[1].x-tcx,q[1].y-tcy)) ? q[0] : q[1];
+  }
+  // central A∩B∩C: innerAB →(arc A)→ innerAC →(arc C)→ innerBC →(arc B)→ back (sweep 0,0,0 — verified)
+  function abcPath3(){
+    const iAB=innerPt(xA,yA,xB,yB), iAC=innerPt(xA,yA,xC,yC), iBC=innerPt(xB,yB,xC,yC);
+    return `M ${F2(iAB.x)} ${F2(iAB.y)} `
+         + `A ${r} ${r} 0 0 0 ${F2(iAC.x)} ${F2(iAC.y)} `
+         + `A ${r} ${r} 0 0 0 ${F2(iBC.x)} ${F2(iBC.y)} `
+         + `A ${r} ${r} 0 0 0 ${F2(iAB.x)} ${F2(iAB.y)} Z`;
+  }
 
   let svg = `<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" `
           + `xmlns="http://www.w3.org/2000/svg" `
@@ -1376,11 +1409,27 @@ function _venn3Intersecting(spec){
          + `font-weight="bold" fill="${INK}" font-family="'Sarabun',sans-serif">${spec.caption}</text>`;
   }
 
-  // 0. <defs> — clipPaths for nested-AND shading
+  // 0. <defs> — masks: single-circle regions (incl − excl) + lens-minus-third
   svg += `<defs>`;
-  svg += `<clipPath id="${CP('A')}"><circle cx="${xA}" cy="${yA}" r="${r}"/></clipPath>`;
-  svg += `<clipPath id="${CP('B')}"><circle cx="${xB}" cy="${yB}" r="${r}"/></clipPath>`;
-  svg += `<clipPath id="${CP('C')}"><circle cx="${xC}" cy="${yC}" r="${r}"/></clipPath>`;
+  const SHADE_RECT = `<rect x="0" y="0" width="${W}" height="${H}"`;
+  const singleDef = { A_only:['A',['B','C']], B_only:['B',['A','C']], C_only:['C',['A','B']] };
+  Object.keys(singleDef).forEach(k => {
+    if(!shadeSet.has(k)) return;
+    const inc=singleDef[k][0], exc=singleDef[k][1];
+    svg += `<mask id="${M(k)}" maskUnits="userSpaceOnUse">`
+         + `${SHADE_RECT} fill="black"/>`
+         + `<circle cx="${ctrOf[inc][0]}" cy="${ctrOf[inc][1]}" r="${r}" fill="white"/>`
+         + exc.map(e=>`<circle cx="${ctrOf[e][0]}" cy="${ctrOf[e][1]}" r="${r}" fill="black"/>`).join('')
+         + `</mask>`;
+  });
+  const lensDef = { AB_only:'C', AC_only:'B', BC_only:'A' };
+  Object.keys(lensDef).forEach(k => {
+    if(!shadeSet.has(k)) return;
+    const e=lensDef[k];
+    svg += `<mask id="${M(k)}" maskUnits="userSpaceOnUse">`
+         + `${SHADE_RECT} fill="white"/>`
+         + `<circle cx="${ctrOf[e][0]}" cy="${ctrOf[e][1]}" r="${r}" fill="black"/></mask>`;
+  });
   svg += `</defs>`;
 
   // 1. UNIVERSE BOX (drawn first so circles + shading sit on top)
@@ -1392,31 +1441,16 @@ function _venn3Intersecting(spec){
          + `font-size="15" font-style="italic" fill="${INK}">U</text>`;
   }
 
-  // 2. SHADING — nested clip wraps produce intersections, then white punch-outs erase excludes
-  // Each region is rendered as a self-contained <g> so combinations don't bleed into each other.
-  function shadeRegion(includes, excludes){
-    // shade rect + white punch-outs for excludes, ALL wrapped together inside the
-    // include-clips. Keeping the punch INSIDE the clip confines it to this region
-    // so it can't overpaint other already-drawn regions (the iter-3 bug, where a
-    // bare white <circle> outside the clip erased every prior region's shading).
-    let inner = `<rect x="0" y="0" width="${W}" height="${H}" fill="${SHADE}" opacity="${SHADE_OP}"/>`;
-    excludes.forEach(name => {
-      const cx_ = name==='A' ? xA : name==='B' ? xB : xC;
-      const cy_ = name==='A' ? yA : name==='B' ? yB : yC;
-      inner += `<circle cx="${cx_}" cy="${cy_}" r="${r}" fill="white"/>`;
-    });
-    includes.forEach(name => {
-      inner = `<g clip-path="url(#${CP(name)})">${inner}</g>`;
-    });
-    return inner;
-  }
-  if(shadeSet.has('A_only'))    svg += shadeRegion(['A'], ['B','C']);
-  if(shadeSet.has('B_only'))    svg += shadeRegion(['B'], ['A','C']);
-  if(shadeSet.has('C_only'))    svg += shadeRegion(['C'], ['A','B']);
-  if(shadeSet.has('AB_only'))   svg += shadeRegion(['A','B'], ['C']);
-  if(shadeSet.has('AC_only'))   svg += shadeRegion(['A','C'], ['B']);
-  if(shadeSet.has('BC_only'))   svg += shadeRegion(['B','C'], ['A']);
-  if(shadeSet.has('ABC'))       svg += shadeRegion(['A','B','C'], []);
+  // 2. SHADING — all 7 regions are pairwise DISJOINT → uniform opacity, order-independent.
+  //    single-circle regions via <mask>; lenses & central region via explicit <path>.
+  const SH = `fill="${SHADE}" opacity="${SHADE_OP}"`;
+  if(shadeSet.has('A_only'))  svg += `${SHADE_RECT} ${SH} mask="url(#${M('A_only')})"/>`;
+  if(shadeSet.has('B_only'))  svg += `${SHADE_RECT} ${SH} mask="url(#${M('B_only')})"/>`;
+  if(shadeSet.has('C_only'))  svg += `${SHADE_RECT} ${SH} mask="url(#${M('C_only')})"/>`;
+  if(shadeSet.has('AB_only')) svg += `<path d="${lensPath3(xA,yA,xB,yB)}" ${SH} mask="url(#${M('AB_only')})"/>`;
+  if(shadeSet.has('AC_only')) svg += `<path d="${lensPath3(xA,yA,xC,yC)}" ${SH} mask="url(#${M('AC_only')})"/>`;
+  if(shadeSet.has('BC_only')) svg += `<path d="${lensPath3(xB,yB,xC,yC)}" ${SH} mask="url(#${M('BC_only')})"/>`;
+  if(shadeSet.has('ABC'))     svg += `<path d="${abcPath3()}" ${SH}/>`;
 
   // 3. CIRCLE OUTLINES (drawn AFTER shading so they sit visibly on top)
   svg += `<circle cx="${xA}" cy="${yA}" r="${r}" fill="none" stroke="${RULE}" stroke-width="1.6"/>`;
@@ -1601,6 +1635,88 @@ function venn3COval(spec){
   return svg + '</svg>';
 }
 
+// ----- venn: C nested inside (A − B); B intersects A; C disjoint from B -----
+// topology โจทย์ "C ⊂ (A − B)" → C อยู่ในส่วน A-only (ซ้าย) ห่าง B ชัด, A∩B ยังมีได้
+//   shade tokens (atomic, ต่อกันได้): 'A_only' = (A−B)−C , 'C' = วง C , 'AB' = A∩B , 'B_only' = B−A
+//   ตัวอย่างประกอบ:  A∪B = ['A_only','C','AB','B_only'] ;  A = ['A_only','C','AB'] ;
+//                    B∪C = ['B_only','AB','C'] ;  (A∩B)∪C = ['AB','C'] ;  B−A = ['B_only']
+function venn3CinAOnly(spec){
+  if(!spec || spec.type !== 'venn-c-in-a-only') return null;
+  const W = spec.width || 300;
+  const capH = spec.caption ? 30 : 0;
+  const contentH = spec.height || 210;
+  const H = contentH + capH;
+  const INK='#222', RULE='#3a3424', SHADE='#b8aa88', SHADE_OP=0.55;
+  const cy = capH + contentH/2;
+  // geometry (verified): C⊆A, C∩B=∅, A∩B≠∅, C ซ้ายของ lens
+  const A = { x: W*0.40, y: cy, r: 78 };
+  const B = { x: W*0.70, y: cy, r: 62 };
+  const C = { x: W*0.30, y: cy, r: 28 };
+  const labels = spec.labels || {A:'A',B:'B',C:'C'};
+  const shadeSet = new Set(spec.shade || []);
+  const uid = ++_vennIdCounter;
+  const M = (n)=>`vcao${uid}_${n}`;
+
+  // A∩B lens (centers share y=cy): intersection points (xi, cy±hi)
+  const dAB = B.x - A.x;
+  const aDist = (dAB*dAB + A.r*A.r - B.r*B.r) / (2*dAB);
+  const xi = A.x + aDist;
+  const hi = Math.sqrt(Math.max(0, A.r*A.r - aDist*aDist));
+  // right boundary = arc of A; left boundary = arc of B (both short, CW) — proven 2-set technique
+  const lensPath = `M ${xi.toFixed(2)} ${(cy-hi).toFixed(2)} `
+                 + `A ${A.r} ${A.r} 0 0 1 ${xi.toFixed(2)} ${(cy+hi).toFixed(2)} `
+                 + `A ${B.r} ${B.r} 0 0 1 ${xi.toFixed(2)} ${(cy-hi).toFixed(2)} Z`;
+
+  let svg = `<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" `
+          + `xmlns="http://www.w3.org/2000/svg" style="background:#fff;font-family:'Sarabun',sans-serif;">`;
+  if(spec.caption){
+    svg += `<text x="${W/2}" y="21" text-anchor="middle" font-size="18" font-weight="bold" `
+         + `fill="${INK}" font-family="'Sarabun',sans-serif">${spec.caption}</text>`;
+  }
+  // SHADING — uses <mask> (single-circle regions) + explicit <path> (lens); NO nested clip-path
+  // (nested clip-path-on-<g> renders empty in some browsers; mask+path is the proven 2-set approach)
+  svg += `<defs>`;
+  if(shadeSet.has('A_only')){
+    // A − B − C
+    svg += `<mask id="${M('Aonly')}" maskUnits="userSpaceOnUse">`
+         + `<rect x="0" y="0" width="${W}" height="${H}" fill="black"/>`
+         + `<circle cx="${A.x}" cy="${A.y}" r="${A.r}" fill="white"/>`
+         + `<circle cx="${B.x}" cy="${B.y}" r="${B.r}" fill="black"/>`
+         + `<circle cx="${C.x}" cy="${C.y}" r="${C.r}" fill="black"/>`
+         + `</mask>`;
+  }
+  if(shadeSet.has('B_only')){
+    // B − A
+    svg += `<mask id="${M('Bonly')}" maskUnits="userSpaceOnUse">`
+         + `<rect x="0" y="0" width="${W}" height="${H}" fill="black"/>`
+         + `<circle cx="${B.x}" cy="${B.y}" r="${B.r}" fill="white"/>`
+         + `<circle cx="${A.x}" cy="${A.y}" r="${A.r}" fill="black"/>`
+         + `</mask>`;
+  }
+  svg += `</defs>`;
+  // regions A_only / AB / B_only / C are pairwise disjoint → uniform opacity, order-independent
+  if(shadeSet.has('A_only'))
+    svg += `<rect x="0" y="0" width="${W}" height="${H}" fill="${SHADE}" opacity="${SHADE_OP}" mask="url(#${M('Aonly')})"/>`;
+  if(shadeSet.has('AB'))
+    svg += `<path d="${lensPath}" fill="${SHADE}" opacity="${SHADE_OP}"/>`;
+  if(shadeSet.has('B_only'))
+    svg += `<rect x="0" y="0" width="${W}" height="${H}" fill="${SHADE}" opacity="${SHADE_OP}" mask="url(#${M('Bonly')})"/>`;
+  if(shadeSet.has('C'))
+    svg += `<circle cx="${C.x}" cy="${C.y}" r="${C.r}" fill="${SHADE}" opacity="${SHADE_OP}"/>`;
+  // CIRCLE OUTLINES on top
+  svg += `<circle cx="${A.x}" cy="${A.y}" r="${A.r}" fill="none" stroke="${RULE}" stroke-width="1.6"/>`;
+  svg += `<circle cx="${B.x}" cy="${B.y}" r="${B.r}" fill="none" stroke="${RULE}" stroke-width="1.6"/>`;
+  svg += `<circle cx="${C.x}" cy="${C.y}" r="${C.r}" fill="none" stroke="${RULE}" stroke-width="1.6"/>`;
+  // LABELS (outward)
+  const lab=(x,y,t)=>`<text x="${x.toFixed(1)}" y="${y.toFixed(1)}" `
+       + `font-family="'Cambria Math','Times New Roman',serif" font-size="17" font-style="italic" `
+       + `fill="${INK}" text-anchor="middle">${t}</text>`;
+  svg += lab(A.x - A.r*0.72, A.y - A.r*0.78, labels.A);
+  svg += lab(B.x + B.r*0.78, B.y - B.r*0.82, labels.B);
+  svg += lab(C.x,            C.y + 5,        labels.C);
+  return svg + '</svg>';
+}
+
 function renderImage(spec){
   if(!spec) return null;
   // Array of specs → render each, wrap in horizontal flex container
@@ -1635,6 +1751,8 @@ function renderImage(spec){
       return venn3CinA(spec);
     case 'venn-c-oval':
       return venn3COval(spec);
+    case 'venn-c-in-a-only':
+      return venn3CinAOnly(spec);
     // TODO: case '3set-c-in-a-shade-ab-minus-c': return venn3CinA_shadeABminusC_13();
     default:
       return null; // unknown type → admin.html จะ fallback ไปแสดง placeholder
