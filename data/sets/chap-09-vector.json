@@ -2364,7 +2364,9 @@
       "topics": [
         "9"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "7"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "level": "medium",
@@ -4992,7 +4994,9 @@
       "topics": [
         "9"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "4"
+      ],
       "difficulty": "ยาก",
       "type": "mc",
       "level": "hard",
@@ -5046,7 +5050,9 @@
       "topics": [
         "9"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "4"
+      ],
       "difficulty": "ยาก",
       "type": "mc",
       "level": "hard",
