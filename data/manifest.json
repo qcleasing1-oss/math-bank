@@ -1146,8 +1146,8 @@
       "source": "ข้อสอบรายบท",
       "subject": "เรขาคณิตวิเคราะห์",
       "displayName": "บทที่ 4 เรขาคณิตวิเคราะห์",
-      "totalQuestions": 236,
-      "totalScore": 236,
+      "totalQuestions": 232,
+      "totalScore": 232,
       "structure": {
         "part1": "ข้อสอบเข้ามหาวิทยาลัย (Q1-Q126) + เสริมประสบการณ์ (Q127-Q236) — ทั้งบท 236 ข้อ"
       },
@@ -1157,10 +1157,10 @@
       "snapshot": {
         "round": 1,
         "stage": "complete (Q1-Q236 ครบ)",
-        "questionsCompleted": 236,
+        "questionsCompleted": 232,
         "questionsRemaining": 0,
         "exportedAt": "2026-06-05",
-        "note": "Phase F2 COMPLETE: ingest Q71-Q236 (รวม Q1-Q236 ครบ 236 ข้อ). fill: 53 ข้อ. hasImage: 20 ข้อ (Q1,10,21,25,26,71,126,128,141,161-163,166,178,179,196,201,205,210,220) — ยังไม่มี imageSpec รอ Phase G. correct=null 4 ข้อ (Q109,125,162,166) เนื่องจากเฉลย PDF ออกผิด — _noAnswerInKey/_multiAnswerKey flags ใน notes. subTopics: ตรีโกณ(7)=8 ฟังก์ชัน(5)=9 แคลคูลัส(13)=1 เวกเตอร์(9)=1."
+        "note": "Phase F2 + audit (12 มิ.ย.69): ingest Q1-Q236 แล้วตัดออก 4 ข้อ mc ตาม policy ข้อบกพร่อง (Q109/162/166 หนังสือระบุ 'ไม่มีข้อใดถูก', Q125 เฉลยให้ 2 คำตอบ) — เว้นเลข ไม่เรียงใหม่ → เหลือ 232 ข้อ (mc 179 + fill 53). hasImage: 18 ข้อ (Q1,10,21,25,26,71,126,128,141,161,163,178,179,196,201,205,210,220) ยังไม่มี imageSpec รอ Phase G. subTopics: ตรีโกณ(7)=8 ฟังก์ชัน(5)=9 แคลคูลัส(13)=1 เวกเตอร์(9)=1."
       }
     },
     "chap-05-function": {
