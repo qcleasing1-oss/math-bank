@@ -1125,21 +1125,21 @@
       "source": "ข้อสอบรายบท",
       "subject": "จำนวนจริง",
       "displayName": "บทที่ 3 จำนวนจริง",
-      "totalQuestions": 190,
-      "totalScore": 190,
+      "totalQuestions": 189,
+      "totalScore": 189,
       "structure": {
-        "part1": "ข้อสอบเข้ามหาวิทยาลัย + เสริมประสบการณ์ (Q1-Q190) — ทุกข้อจัดอยู่ในบทจำนวนจริง"
+        "part1": "ข้อสอบเข้ามหาวิทยาลัย + เสริมประสบการณ์ (Q1-Q190, ตัด Q103 ออก เหลือ 189 ข้อ) — ทุกข้อจัดอยู่ในบทจำนวนจริง"
       },
       "topicDistribution": {
-        "3": 190
+        "3": 189
       },
       "snapshot": {
         "round": 2,
         "stage": "in progress (Q1-Q190 done — chap-03 ใกล้จบ)",
-        "questionsCompleted": 190,
+        "questionsCompleted": 189,
         "questionsRemaining": 0,
         "exportedAt": "2026-06-03",
-        "note": "batch 24-25 (Q171-Q190) ingest 3 มิ.ย.69: Q171-180 Diophantine + gcd/lcm, Q181-190 modular + Legendre + Euclidean."
+        "note": "batch 24-25 (Q171-Q190) ingest 3 มิ.ย.69: Q171-180 Diophantine + gcd/lcm, Q181-190 modular + Legendre + Euclidean. | 12 มิ.ย.69: ตัด Q103 ทิ้งทั้งข้อ (โจทย์ต้นฉบับบกพร่อง มีคำตอบเท็จซ้อน ข้อ 2 และ ข้อ 4) — เว้นช่องว่างที่ 103 ไม่เรียงเลขใหม่ ; total 190→189"
       }
     },
     "chap-04-coord": {
