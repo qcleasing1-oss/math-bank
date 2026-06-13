@@ -12,7 +12,9 @@
 //   ✅ unit-circle-figure   (Q9 samn-2565-03 + Q23 samn-2564-04 — 12 features incl. spiral + LaTeX)
 //   ✅ stacked-bar-100      (Q30 samn-2565-03 — 100% composition bar chart)
 //   ✅ polygon-labeled      (Q15 samn-2559-12 — labeled polygons with vertices/sides/angle marks)
-//   ⏳ 3set-c-in-a-shade-ab-minus-c
+//   ✅ venn-c-oval / venn-c-in-a  (Q33 / Q36 chap-01-set; portal alias: 3set-c-in-aub, 3set-c-in-a-shade-ab-minus-c)
+//   ✅ disk-shading         (Q3 chap-05-function — แผ่นวงกลม + sector/halfplane ตัด clipPath)
+//   ✅ number-line          (Q14 chap-05-function — รังสี/จุดทึบ-โปร่ง)
 //
 // renderImage() จะคืน null ถ้า type ยังไม่รองรับ
 // → admin.html จะ fallback ไปแสดง placeholder card เดิม
@@ -1921,7 +1923,12 @@ function renderImage(spec){
       return renderNumberLine(spec);
     case 'disk-shading':
       return renderDiskShading(spec);
-    // TODO: case '3set-c-in-a-shade-ab-minus-c': return venn3CinA_shadeABminusC_13();
+    // portal convergence (§3): portal เรียกชื่อ type 3set-* → map ไป function เดิม
+    //   geometry เดียวกับ venn-c-oval / venn-c-in-a+shade (verify แล้วผ่าน Q33/Q36 chap-01-set)
+    case '3set-c-in-aub':
+      return venn3COval(Object.assign({}, spec, {type:'venn-c-oval'}));
+    case '3set-c-in-a-shade-ab-minus-c':
+      return venn3CinA(Object.assign({}, spec, {type:'venn-c-in-a', shade: spec.shade || ['AB']}));
     default:
       return null; // unknown type → admin.html จะ fallback ไปแสดง placeholder
   }
