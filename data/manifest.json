@@ -1167,21 +1167,21 @@
       "source": "ข้อสอบรายบท",
       "subject": "ความสัมพันธ์และฟังก์ชัน",
       "displayName": "บทที่ 5 ความสัมพันธ์และฟังก์ชัน",
-      "totalQuestions": 202,
-      "totalScore": 202,
+      "totalQuestions": 199,
+      "totalScore": 199,
       "structure": {
-        "part1": "ข้อสอบเข้ามหาวิทยาลัย + เสริมประสบการณ์ (Q1-Q202) — ทั้งบท 202 ข้อ"
+        "part1": "ข้อสอบเข้ามหาวิทยาลัย + เสริมประสบการณ์ (Q1-Q202, ตัด Q31/40/119) — เหลือ 199 ข้อ"
       },
       "topicDistribution": {
-        "5": 202
+        "5": 199
       },
       "snapshot": {
         "round": 1,
-        "stage": "complete (Q1-Q202 ครบ)",
-        "questionsCompleted": 202,
+        "stage": "complete + audit (ตัด 3 บกพร่อง เหลือ 199)",
+        "questionsCompleted": 199,
         "questionsRemaining": 0,
         "exportedAt": "2026-06-05",
-        "note": "Phase F3 COMPLETE 5 มิ.ย. 2569: ingest Q1-Q202 ครบ 202 ข้อ (20 batches, POST-FLIGHT PASS ทุก batch, sympy verify ทุกข้อ). fill: 42 ข้อ. mc: 160 ข้อ (5 ตัวเลือก 16 ข้อ: Q1,3,8,14,25,31,34,36,39,61,68,72,73,76,94,138). hasImage 7 ข้อ (Q1,3,14,133,137,140,202) — ยังไม่มี imageSpec รอ Phase G. correct=null 3 ข้อ: Q31 _multiAnswerKey['3','4'], Q40+Q119 _noAnswerInKey. Q130 _bookKeyMismatch (เฉลยหนังสือ 3 → ที่ถูก 4/3). Q156 เฉลยหนังสือ R_f พลาดค่า 1 (ไม่กระทบคำตอบ). Q136 _dependsOnPreviousExamQuestion (ใช้ f(0)=-3). special fills: Q147+Q165+Q169+Q174+Q200 _setAnswer, Q155 _intervalAnswer, Q159+Q165+Q180+Q201 _multiPartAnswer, Q172+Q179+Q183+Q188+Q191 _expressionAnswer, Q157(sqrt5), Q196(7/2), Q199(732/209), Q190(-29/3)"
+        "note": "Phase F3 + audit 13 มิ.ย. 2569: ingest 202 ข้อ แล้วตัดบกพร่อง 3 ข้อ (เว้นเลข ไม่เรียงใหม่) เหลือ 199 ข้อ (20 batches, POST-FLIGHT PASS ทุก batch, sympy verify ทุกข้อ). fill: 42 ข้อ. mc: 157 ข้อ (5 ตัวเลือก 15 ข้อ: Q1,3,8,14,25,34,36,39,61,68,72,73,76,94,138). hasImage 7 ข้อ (Q1,3,14,133,137,140,202) — ยังไม่มี imageSpec รอ Phase G. ตัดออก 3 ข้อ: Q31 _multiAnswerKey['3','4'](ถูกทั้ง 3,4), Q40+Q119 _noAnswerInKey(ไม่มีข้อถูก). Q130 _bookKeyMismatch (เฉลยหนังสือ 3 → ที่ถูก 4/3). Q156 เฉลยหนังสือ R_f พลาดค่า 1 (ไม่กระทบคำตอบ). Q136 _dependsOnPreviousExamQuestion (ใช้ f(0)=-3). special fills: Q147+Q165+Q169+Q174+Q200 _setAnswer, Q155 _intervalAnswer, Q159+Q165+Q180+Q201 _multiPartAnswer, Q172+Q179+Q183+Q188+Q191 _expressionAnswer, Q157(sqrt5), Q196(7/2), Q199(732/209), Q190(-29/3) | AUDIT 13มิ.ย.: figure verify 7/7 ผ่าน(correct ตรงเฉลย); format ตรง chap-07(🔄12+multi24 ข้อต่างครบ); ค้าง: คำ'ลัด' 4ข้อ(Q43/57/97/172) รอเช็ค label, notes รูปว่าง Q133/137/140 รอเติม."
       }
     },
     "chap-06-matrix": {
