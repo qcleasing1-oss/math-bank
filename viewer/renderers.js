@@ -94,9 +94,13 @@ function renderFunctionPlot(spec){const W=spec.width||450,H=spec.height||280,pX=
     if(fn.kind==='piecewise-linear'){const pts=fn.points;for(let i=0;i<pts.length-1;i++){const[x1,y1]=pts[i],[x3,y3]=pts[i+1];if(x>=Math.min(x1,x3)&&x<=Math.max(x1,x3)){if(x3===x1)return y1;return y1+(y3-y1)*(x-x1)/(x3-x1);}}return null;}
     if(fn.kind==='polynomial'){let y=0;fn.coefs.forEach(c=>{y=y*x+c;});return y;}
     if(fn.kind==='roots-polynomial'){const a=fn.leadingCoef||1;let y=a;fn.roots.forEach(r=>{y*=(x-r);});return y;}
+    if(fn.kind==='rational'){const a=(fn.a!==undefined?fn.a:1),b=fn.b||0,c=fn.c||0;return a/(x-b)+c;}
     return 0;};
   let svg=`<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" xmlns="http://www.w3.org/2000/svg" style="background:#fff;">`;
   svg+=`<defs><marker id="fpArr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#222"/></marker></defs>`;
+  // grid (behind everything; only when grid + ticks present)
+  if(spec.grid){(spec.xTicks||[]).forEach(t=>{if(t===0)return;const xp=x2(t);svg+=`<line x1="${xp.toFixed(2)}" y1="${pT}" x2="${xp.toFixed(2)}" y2="${pT+pH}" stroke="#e8e8e8" stroke-width="0.6"/>`;});
+    (spec.yTicks||[]).forEach(t=>{if(t===0)return;const yp=y2(t);svg+=`<line x1="${pX}" y1="${yp.toFixed(2)}" x2="${pX+pW}" y2="${yp.toFixed(2)}" stroke="#e8e8e8" stroke-width="0.6"/>`;});}
   const fnMap={};(spec.functions||[]).forEach(fn=>{fnMap[fn.id]=fn;});
   (spec.shadeBetween||[]).forEach(s=>{const fA=fnMap[s.funcA],fB=fnMap[s.funcB];if(!fA||!fB)return;
     const[xa,xb]=s.xRange,N=120,pts=[];
@@ -106,16 +110,35 @@ function renderFunctionPlot(spec){const W=spec.width||450,H=spec.height||280,pX=
   const ax=spec.axes||{},x0=x2(0),y0=y2(0),arr=ax.arrows?' marker-end="url(#fpArr)"':'';
   svg+=`<line x1="${pX-8}" y1="${y0}" x2="${W-pX+8}" y2="${y0}" stroke="#222" stroke-width="1.2"${arr}/>`;
   svg+=`<line x1="${x0}" y1="${H-pB+8}" x2="${x0}" y2="${pT-8}" stroke="#222" stroke-width="1.2"${arr}/>`;
+  // tick marks + numbers (after axes; only if ticks present)
+  (spec.xTicks||[]).forEach(t=>{if(t===0)return;const xp=x2(t);svg+=`<line x1="${xp.toFixed(2)}" y1="${(y0-3).toFixed(2)}" x2="${xp.toFixed(2)}" y2="${(y0+3).toFixed(2)}" stroke="#222"/><text x="${xp.toFixed(2)}" y="${(y0+15).toFixed(2)}" text-anchor="middle" font-size="11" fill="#555">${t}</text>`;});
+  (spec.yTicks||[]).forEach(t=>{if(t===0)return;const yp=y2(t);svg+=`<line x1="${(x0-3).toFixed(2)}" y1="${yp.toFixed(2)}" x2="${(x0+3).toFixed(2)}" y2="${yp.toFixed(2)}" stroke="#222"/><text x="${(x0-6).toFixed(2)}" y="${(yp+4).toFixed(2)}" text-anchor="end" font-size="11" fill="#555">${t}</text>`;});
   if(ax.xLabel)svg+=`<text x="${W-pX+12}" y="${y0+5}" font-size="14" font-style="italic" fill="#222">${ax.xLabel}</text>`;
   if(ax.yLabel)svg+=`<text x="${x0-8}" y="${pT-6}" font-size="14" font-style="italic" fill="#222" text-anchor="end">${ax.yLabel}</text>`;
   if(ax.originLabel)svg+=`<text x="${x0-6}" y="${y0+14}" font-size="13" fill="#222" text-anchor="end">${ax.originLabel}</text>`;
-  (spec.functions||[]).forEach(fn=>{const dom=fn.domain||xR,N=200,pts=[];
-    for(let i=0;i<=N;i++){const x=dom[0]+(dom[1]-dom[0])*i/N,y=fnVal(fn,x);
-      if(y!==null&&isFinite(y))pts.push(`${x2(x).toFixed(2)},${y2(y).toFixed(2)}`);}
-    const dashAttr=fn.dashed?' stroke-dasharray="5 4"':'';
-    svg+=`<polyline points="${pts.join(' ')}" fill="none" stroke="#222" stroke-width="1.6"${dashAttr}/>`;
+  (spec.functions||[]).forEach(fn=>{const dom=fn.domain||xR,N=200,col=fn.color||'#222',dashAttr=fn.dashed?' stroke-dasharray="5 4"':'';
+    if(fn.kind==='rational'){const b=fn.b||0,runs=[];let cur=[],prevSide=null;
+      for(let i=0;i<=N;i++){const x=dom[0]+(dom[1]-dom[0])*i/N,y=fnVal(fn,x),side=(x-b)>=0?1:-1;
+        if(prevSide!==null&&side!==prevSide){if(cur.length)runs.push(cur);cur=[];}
+        prevSide=side;
+        if(y!==null&&isFinite(y))cur.push(`${x2(x).toFixed(2)},${y2(y).toFixed(2)}`);}
+      if(cur.length)runs.push(cur);
+      runs.forEach(r=>{if(r.length>1)svg+=`<polyline points="${r.join(' ')}" fill="none" stroke="${col}" stroke-width="1.6"${dashAttr}/>`;});
+    }else{const pts=[];
+      for(let i=0;i<=N;i++){const x=dom[0]+(dom[1]-dom[0])*i/N,y=fnVal(fn,x);
+        if(y!==null&&isFinite(y))pts.push(`${x2(x).toFixed(2)},${y2(y).toFixed(2)}`);}
+      svg+=`<polyline points="${pts.join(' ')}" fill="none" stroke="${col}" stroke-width="1.6"${dashAttr}/>`;}
     if(fn.label){const[lx,ly]=fn.label.at,anc=fn.label.anchor||'start';
       svg+=`<text x="${x2(lx)}" y="${y2(ly)}" font-size="14" font-style="italic" fill="#222" text-anchor="${anc}">${fn.label.text}</text>`;}});
+  // straight reference segments (after functions)
+  (spec.segments||[]).forEach(s=>{const[fx,fy]=s.from,[tx,ty]=s.to,d=s.dashed?' stroke-dasharray="5 4"':'';
+    svg+=`<line x1="${x2(fx).toFixed(2)}" y1="${y2(fy).toFixed(2)}" x2="${x2(tx).toFixed(2)}" y2="${y2(ty).toFixed(2)}" stroke="#222" stroke-width="1.4"${d}/>`;});
+  // dots (after segments)
+  (spec.dots||[]).forEach(d=>{const cx=x2(d.x).toFixed(2),cy=y2(d.y).toFixed(2);
+    if(d.open)svg+=`<circle cx="${cx}" cy="${cy}" r="3.5" fill="#fff" stroke="#222" stroke-width="1.4"/>`;
+    else svg+=`<circle cx="${cx}" cy="${cy}" r="3.5" fill="#222"/>`;
+    if(d.label){const anc=d.labelAnchor||'start',dx=(d.labelDx!==undefined?d.labelDx:6),dy=(d.labelDy!==undefined?d.labelDy:-6);
+      svg+=`<text x="${(x2(d.x)+dx).toFixed(2)}" y="${(y2(d.y)+dy).toFixed(2)}" font-size="13" fill="#222" text-anchor="${anc}">${d.label}</text>`;}});
   (spec.annotations||[]).forEach(a=>{const[lx,ly]=a.at,anc=a.anchor||'start';
     svg+=`<text x="${x2(lx)}" y="${y2(ly)}" font-size="13" fill="#222" text-anchor="${anc}">${a.text}</text>`;
     if(a.arrowTo){const[ax,ay]=a.arrowTo;
