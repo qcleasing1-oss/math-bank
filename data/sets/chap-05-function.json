@@ -1456,10 +1456,207 @@
         "ไม่มีคำตอบที่ถูกต้องในข้อ 1. ถึงข้อ 4."
       ],
       "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "number-line",
+          "width": 300,
+          "height": 74,
+          "xRange": [
+            -6.5,
+            5
+          ],
+          "labels": [
+            {
+              "at": -4,
+              "text": "-4"
+            },
+            {
+              "at": -2,
+              "text": "-2"
+            },
+            {
+              "at": 0,
+              "text": "0"
+            },
+            {
+              "at": 3,
+              "text": "3"
+            }
+          ],
+          "annotations": [
+            {
+              "text": "(1)"
+            }
+          ],
+          "rays": [
+            {
+              "from": 3,
+              "dir": "left"
+            }
+          ],
+          "points": [
+            {
+              "at": 3,
+              "open": true
+            },
+            {
+              "at": -2,
+              "open": true
+            },
+            {
+              "at": -4,
+              "open": true
+            }
+          ]
+        },
+        {
+          "type": "number-line",
+          "width": 300,
+          "height": 74,
+          "xRange": [
+            -6.5,
+            5
+          ],
+          "labels": [
+            {
+              "at": -4,
+              "text": "-4"
+            },
+            {
+              "at": -2,
+              "text": "-2"
+            },
+            {
+              "at": 0,
+              "text": "0"
+            },
+            {
+              "at": 3,
+              "text": "3"
+            }
+          ],
+          "annotations": [
+            {
+              "text": "(2)"
+            }
+          ],
+          "rays": [
+            {
+              "from": 3,
+              "dir": "right"
+            }
+          ],
+          "points": [
+            {
+              "at": 3,
+              "open": false
+            }
+          ]
+        },
+        {
+          "type": "number-line",
+          "width": 300,
+          "height": 74,
+          "xRange": [
+            -6.5,
+            5
+          ],
+          "labels": [
+            {
+              "at": -4,
+              "text": "-4"
+            },
+            {
+              "at": -2,
+              "text": "-2"
+            },
+            {
+              "at": 0,
+              "text": "0"
+            },
+            {
+              "at": 3,
+              "text": "3"
+            }
+          ],
+          "annotations": [
+            {
+              "text": "(3)"
+            }
+          ],
+          "rays": [
+            {
+              "from": 3,
+              "dir": "left"
+            }
+          ],
+          "points": [
+            {
+              "at": 3,
+              "open": false
+            },
+            {
+              "at": -2,
+              "open": true
+            },
+            {
+              "at": -4,
+              "open": true
+            }
+          ]
+        },
+        {
+          "type": "number-line",
+          "width": 300,
+          "height": 74,
+          "xRange": [
+            -6.5,
+            5
+          ],
+          "labels": [
+            {
+              "at": -4,
+              "text": "-4"
+            },
+            {
+              "at": -2,
+              "text": "-2"
+            },
+            {
+              "at": 0,
+              "text": "0"
+            },
+            {
+              "at": 3,
+              "text": "3"
+            }
+          ],
+          "annotations": [
+            {
+              "text": "(4)"
+            }
+          ],
+          "rays": [
+            {
+              "from": 3,
+              "dir": "left"
+            }
+          ],
+          "points": [
+            {
+              "at": 3,
+              "open": true
+            },
+            {
+              "at": -2,
+              "open": true
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance 2521",
       "correct": 2,
       "explanation": [
-        "[IMAGE]",
         "<b>📐 ความรู้พื้นฐาน</b>",
         "โดเมนของฟังก์ชันรากที่สอง: นิพจน์ใต้รากต้องไม่ติดลบ | โดเมนของเศษส่วน: ตัวส่วนต้องไม่เป็นศูนย์",
         "",
