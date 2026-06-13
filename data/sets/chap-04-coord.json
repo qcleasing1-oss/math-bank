@@ -15,6 +15,83 @@
       "score": 1,
       "question": "$A$, $B$ และ $C$ เป็นจุดยอดของรูปสามเหลี่ยม ที่กำหนดให้ดังในรูป โดยมีด้าน $BC$ ขนานกับแกน $x$\nพื้นที่ของสามเหลี่ยม $ABC$ มีค่าเท่ากับเท่าใด",
       "hasImage": true,
+      "imageSpec": {
+        "type": "function-plot",
+        "width": 300,
+        "height": 260,
+        "xRange": [
+          -4.5,
+          5.5
+        ],
+        "yRange": [
+          -3.5,
+          5
+        ],
+        "axes": {
+          "arrows": true,
+          "xLabel": "x",
+          "yLabel": "y",
+          "originLabel": "O"
+        },
+        "segments": [
+          {
+            "from": [
+              3,
+              4
+            ],
+            "to": [
+              -3,
+              -2
+            ]
+          },
+          {
+            "from": [
+              -3,
+              -2
+            ],
+            "to": [
+              4,
+              -2
+            ]
+          },
+          {
+            "from": [
+              4,
+              -2
+            ],
+            "to": [
+              3,
+              4
+            ]
+          }
+        ],
+        "dots": [
+          {
+            "x": 3,
+            "y": 4,
+            "label": "A( ,4)",
+            "labelDx": 6,
+            "labelDy": -4,
+            "labelAnchor": "start"
+          },
+          {
+            "x": -3,
+            "y": -2,
+            "label": "B(-3, )",
+            "labelDx": -6,
+            "labelDy": 15,
+            "labelAnchor": "end"
+          },
+          {
+            "x": 4,
+            "y": -2,
+            "label": "C(4,-2)",
+            "labelDx": 6,
+            "labelDy": 15,
+            "labelAnchor": "start"
+          }
+        ]
+      },
       "sourceTag": "Entrance 2521",
       "choices": [
         "1 ตารางหน่วย",
@@ -25,7 +102,6 @@
       ],
       "correct": 1,
       "explanation": [
-        "[IMAGE]",
         "<b>📐 ความรู้พื้นฐาน</b>",
         "พื้นที่สามเหลี่ยม $= \\dfrac{1}{2} \\times$ ฐาน $\\times$ สูง",
         "เมื่อฐานขนานแกน $x$ ความยาวฐานหาจากผลต่างพิกัด $x$ และส่วนสูงคือระยะแนวดิ่ง (ผลต่างพิกัด $y$) จากจุดยอดถึงแนวฐาน",
@@ -1053,6 +1129,145 @@
       "score": 1,
       "question": "$ABCDEF$ เป็นรูปหกเหลี่ยมด้านเท่า โดยมีจุด $A$ และ $B$ อยู่บนแกน $x$\nและ $P$ เป็นจุดกึ่งกลางของด้าน $CD$ ดังแสดงในรูป\nถ้า $A$ เป็นจุด $(2, 0)$ แล้ว จุด $P$ มีพิกัดเป็นเท่าใด",
       "hasImage": true,
+      "imageSpec": {
+        "type": "function-plot",
+        "width": 300,
+        "height": 248,
+        "xRange": [
+          -1,
+          9
+        ],
+        "yRange": [
+          -1,
+          7.5
+        ],
+        "axes": {
+          "arrows": true,
+          "xLabel": "x",
+          "yLabel": "y",
+          "originLabel": "O"
+        },
+        "segments": [
+          {
+            "from": [
+              2,
+              0
+            ],
+            "to": [
+              6,
+              0
+            ]
+          },
+          {
+            "from": [
+              6,
+              0
+            ],
+            "to": [
+              8,
+              3.4641016151377544
+            ]
+          },
+          {
+            "from": [
+              8,
+              3.4641016151377544
+            ],
+            "to": [
+              6,
+              6.928203230275509
+            ]
+          },
+          {
+            "from": [
+              6,
+              6.928203230275509
+            ],
+            "to": [
+              2,
+              6.928203230275509
+            ]
+          },
+          {
+            "from": [
+              2,
+              6.928203230275509
+            ],
+            "to": [
+              0,
+              3.4641016151377544
+            ]
+          },
+          {
+            "from": [
+              0,
+              3.4641016151377544
+            ],
+            "to": [
+              2,
+              0
+            ]
+          }
+        ],
+        "dots": [
+          {
+            "x": 2,
+            "y": 0,
+            "label": "A(2,0)",
+            "labelDx": -3,
+            "labelDy": 15,
+            "labelAnchor": "end"
+          },
+          {
+            "x": 6,
+            "y": 0,
+            "label": "B",
+            "labelDx": 4,
+            "labelDy": 15,
+            "labelAnchor": "start"
+          },
+          {
+            "x": 8,
+            "y": 3.4641016151377544,
+            "label": "C",
+            "labelDx": 6,
+            "labelDy": 4,
+            "labelAnchor": "start"
+          },
+          {
+            "x": 6,
+            "y": 6.928203230275509,
+            "label": "D",
+            "labelDx": 3,
+            "labelDy": -5,
+            "labelAnchor": "start"
+          },
+          {
+            "x": 2,
+            "y": 6.928203230275509,
+            "label": "E",
+            "labelDx": -4,
+            "labelDy": -5,
+            "labelAnchor": "end"
+          },
+          {
+            "x": 0,
+            "y": 3.4641016151377544,
+            "label": "F",
+            "labelDx": -6,
+            "labelDy": 4,
+            "labelAnchor": "end"
+          },
+          {
+            "x": 7,
+            "y": 5.196152422706632,
+            "label": "P",
+            "labelDx": 6,
+            "labelDy": 2,
+            "labelAnchor": "start"
+          }
+        ]
+      },
       "sourceTag": "Entrance 2520",
       "choices": [
         "$(7, 2\\sqrt{3})$",
@@ -1063,7 +1278,6 @@
       ],
       "correct": 1,
       "explanation": [
-        "[IMAGE]",
         "<b>📐 ความรู้พื้นฐาน</b>",
         "หกเหลี่ยมด้านเท่ามุมเท่า (ตามรูป) มีมุมภายใน $120°$ — เดินรอบรูปแต่ละด้านเลี้ยว $60°$ | การเลื่อนจากจุดหนึ่งไปอีกจุดตามทิศมุม $\\theta$ ระยะ $s$: บวกเวกเตอร์ $(s\\cos\\theta, s\\sin\\theta)$",
         "",
@@ -1314,6 +1528,132 @@
       "score": 1,
       "question": "จากพาราโบลาที่กำหนดให้ดังในรูป\nความยาวของ $AB$ เท่ากับข้อใดต่อไปนี้",
       "hasImage": true,
+      "imageSpec": {
+        "type": "function-plot",
+        "width": 320,
+        "height": 300,
+        "xRange": [
+          -0.8,
+          6
+        ],
+        "yRange": [
+          -0.8,
+          6
+        ],
+        "axes": {
+          "arrows": true,
+          "xLabel": "x",
+          "yLabel": "y",
+          "originLabel": "O"
+        },
+        "functions": [
+          {
+            "id": "p",
+            "kind": "parabola",
+            "vertex": [
+              1,
+              1
+            ],
+            "throughPoint": [
+              5,
+              5
+            ],
+            "domain": [
+              -0.5,
+              5.6
+            ],
+            "color": "#222"
+          }
+        ],
+        "segments": [
+          {
+            "from": [
+              5,
+              0
+            ],
+            "to": [
+              5,
+              5
+            ],
+            "dashed": true
+          },
+          {
+            "from": [
+              0,
+              5
+            ],
+            "to": [
+              5,
+              5
+            ],
+            "dashed": true
+          },
+          {
+            "from": [
+              4,
+              0
+            ],
+            "to": [
+              4,
+              3.25
+            ],
+            "dashed": true
+          },
+          {
+            "from": [
+              0,
+              1
+            ],
+            "to": [
+              1,
+              1
+            ],
+            "dashed": true
+          }
+        ],
+        "xTicks": [
+          1,
+          4,
+          5
+        ],
+        "yTicks": [
+          1,
+          5
+        ],
+        "dots": [
+          {
+            "x": 5,
+            "y": 5,
+            "label": "C",
+            "labelDx": 6,
+            "labelDy": -3,
+            "labelAnchor": "start"
+          },
+          {
+            "x": 4,
+            "y": 3.25,
+            "label": "A",
+            "labelDx": -5,
+            "labelDy": -3,
+            "labelAnchor": "end"
+          },
+          {
+            "x": 4,
+            "y": 0,
+            "label": "B",
+            "labelDx": -3,
+            "labelDy": -4,
+            "labelAnchor": "end"
+          },
+          {
+            "x": 1,
+            "y": 1,
+            "label": "",
+            "labelDx": 0,
+            "labelDy": 0
+          }
+        ]
+      },
       "sourceTag": "Entrance 2534",
       "choices": [
         "3.00",
@@ -1323,7 +1663,6 @@
       ],
       "correct": 1,
       "explanation": [
-        "[IMAGE]",
         "<b>📐 ความรู้พื้นฐาน</b>",
         "พาราโบลาหงายขึ้น จุดยอด $(h, k)$: $y = a(x - h)^2 + k$ — หา $a$ ได้จากจุดอื่นที่กราฟผ่าน",
         "",
