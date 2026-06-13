@@ -1776,6 +1776,111 @@ function renderNumberLine(spec){
   return svg+'</svg>';
 }
 
+// ----- renderer: disk-shading -----
+// แผ่นวงกลม (disk) + แรเงาบริเวณ (sector จากจุดกำเนิด / half-plane) ตัดด้วยแผ่นวงกลม
+// ใช้ clipPath ชั้นเดียว (แผ่นวงกลม) ครอบ shade polygon — ไม่ nested (กัน render ว่างในบางเบราว์เซอร์)
+// อัตราส่วนคงที่ (วงกลมไม่เพี้ยนเป็นวงรี): สเกล px/หน่วย = min ของสองแกน, จัดกึ่งกลางอัตโนมัติ
+//
+// Spec:
+//   radius            - รัศมีแผ่นวงกลม (หน่วยข้อมูล) — บังคับ
+//   width,height      - ขนาด canvas (default 200 x 184  ≈ W-16)
+//   xRange,yRange     - ช่วงข้อมูล (default ±radius*1.3 สมมาตร)
+//   diskDashed        - ขอบวงกลมเป็นเส้นประ (ถ้าไม่รวมขอบ) default false (ทึบ)
+//   shade: [region]   - บริเวณแรเงา (ตัดด้วยแผ่นวงกลมทุก region):
+//       {kind:'sector', angles:[deg0,deg1]}              เซกเตอร์จากจุดกำเนิด (องศาคณิต ทวนเข็ม)
+//       {kind:'halfplane', line:[[x1,y1],[x2,y2]], test:[tx,ty]}  ครึ่งระนาบฝั่งที่มีจุด test
+//   lines: [{from:[x,y],to:[x,y],dashed}]   เส้นอ้างอิง (เช่น y=x, y=-x) วาดทับ shade
+//   axisTicks: [{at, axis:'x'|'y', latex}]  ป้ายแกน เช่น \sqrt{2} (มี vinculum ผ่าน _ucMathToSvg)
+//   dots: [{x,y,open,label,labelDx,labelDy,labelAnchor}]
+//   annotations: [{at:[x,y],text,anchor}]
+function renderDiskShading(spec){
+  const W=spec.width||200, H=spec.height||(W-16), pad=18;
+  const R=spec.radius||Math.SQRT2;
+  const m=R*1.3;
+  const xR=spec.xRange||[-m,m], yR=spec.yRange||[-m,m];
+  const xM=xR[0],xX=xR[1],yM=yR[0],yX=yR[1];
+  const pW=W-2*pad, pH=H-2*pad;
+  const s=Math.min(pW/(xX-xM), pH/(yX-yM));               // px ต่อหน่วย (เท่ากันทั้งสองแกน)
+  const offX=pad+(pW-(xX-xM)*s)/2, offY=pad+(pH-(yX-yM)*s)/2;
+  const x2=x=>offX+(x-xM)*s;
+  const y2=y=>offY+(yX-y)*s;                              // flip แกน y
+  const cx=x2(0), cy=y2(0), rPix=R*s;
+  const BIG=(xX-xM+yX-yM)*4;                              // ขนาดใหญ่พอครอบครึ่งระนาบ
+  const SHADE='#8fb3e0', SHADE_OP=0.55;
+
+  let svg=`<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" xmlns="http://www.w3.org/2000/svg" style="background:#fff;">`;
+  const CID='diskClip_'+Math.floor(Math.random()*1e6);
+  svg+=`<defs><clipPath id="${CID}"><circle cx="${cx.toFixed(2)}" cy="${cy.toFixed(2)}" r="${rPix.toFixed(2)}"/></clipPath>`;
+  svg+=`<marker id="dsArr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#222"/></marker></defs>`;
+
+  // แกน x,y (บาง อยู่หลังสุด)
+  svg+=`<line x1="${(x2(xM)-2).toFixed(2)}" y1="${cy.toFixed(2)}" x2="${(x2(xX)+2).toFixed(2)}" y2="${cy.toFixed(2)}" stroke="#bbb" stroke-width="1" marker-end="url(#dsArr)"/>`;
+  svg+=`<line x1="${cx.toFixed(2)}" y1="${(y2(yM)+2).toFixed(2)}" x2="${cx.toFixed(2)}" y2="${(y2(yX)-2).toFixed(2)}" stroke="#bbb" stroke-width="1" marker-end="url(#dsArr)"/>`;
+
+  // ----- shade regions (ตัดด้วยแผ่นวงกลม clipPath ชั้นเดียว) -----
+  const polys=[];
+  (spec.shade||[]).forEach(rg=>{
+    if(rg.kind==='sector'){
+      const[a0,a1]=rg.angles, p0=[Math.cos(a0*Math.PI/180)*BIG, Math.sin(a0*Math.PI/180)*BIG],
+            p1=[Math.cos(a1*Math.PI/180)*BIG, Math.sin(a1*Math.PI/180)*BIG];
+      // จุดกลางส่วนโค้งกันกรณีมุมกาง ~180 (ให้สามเหลี่ยมครอบเซกเตอร์เสมอ)
+      const am=(a0+a1)/2, pm=[Math.cos(am*Math.PI/180)*BIG, Math.sin(am*Math.PI/180)*BIG];
+      polys.push([[0,0],p0,pm,p1]);
+    }else if(rg.kind==='halfplane'){
+      const[[x1,y1],[x2d,y2d]]=rg.line, dx=x2d-x1, dy=y2d-y1, L=Math.hypot(dx,dy)||1;
+      const ux=dx/L, uy=dy/L;                              // ทิศตามเส้น
+      let nx=-uy, ny=ux;                                   // ตั้งฉาก
+      const mx=(x1+x2d)/2, my=(y1+y2d)/2;
+      const[tx,ty]=rg.test;
+      if((tx-mx)*nx+(ty-my)*ny < 0){ nx=-nx; ny=-ny; }     // ให้ normal ชี้ไปฝั่ง test
+      const A=[x1-ux*BIG, y1-uy*BIG], B=[x2d+ux*BIG, y2d+uy*BIG];
+      const C=[B[0]+nx*BIG, B[1]+ny*BIG], D=[A[0]+nx*BIG, A[1]+ny*BIG];
+      polys.push([A,B,C,D]);
+    }
+  });
+  if(polys.length){
+    svg+=`<g clip-path="url(#${CID})" fill="${SHADE}" fill-opacity="${SHADE_OP}">`;
+    polys.forEach(p=>{ svg+=`<polygon points="${p.map(([px,py])=>`${x2(px).toFixed(2)},${y2(py).toFixed(2)}`).join(' ')}"/>`; });
+    svg+=`</g>`;
+  }
+
+  // ขอบแผ่นวงกลม
+  const dash=spec.diskDashed?' stroke-dasharray="4 3"':'';
+  svg+=`<circle cx="${cx.toFixed(2)}" cy="${cy.toFixed(2)}" r="${rPix.toFixed(2)}" fill="none" stroke="#222" stroke-width="1.5"${dash}/>`;
+
+  // เส้นอ้างอิง (y=x ฯลฯ) — ตัดให้พอดีในกรอบ
+  (spec.lines||[]).forEach(ln=>{
+    const d=ln.dashed?' stroke-dasharray="5 4"':'';
+    svg+=`<line x1="${x2(ln.from[0]).toFixed(2)}" y1="${y2(ln.from[1]).toFixed(2)}" x2="${x2(ln.to[0]).toFixed(2)}" y2="${y2(ln.to[1]).toFixed(2)}" stroke="#555" stroke-width="1.2"${d}/>`;
+  });
+
+  // ป้ายแกน (√2 ฯลฯ) — _ucMathToSvg ให้ vinculum
+  (spec.axisTicks||[]).forEach(t=>{
+    const isX=t.axis!=='y';
+    const px=isX?x2(t.at):cx, py=isX?cy:y2(t.at);
+    svg+=`<line x1="${(px-(isX?0:3)).toFixed(2)}" y1="${(py-(isX?3:0)).toFixed(2)}" x2="${(px+(isX?0:3)).toFixed(2)}" y2="${(py+(isX?3:0)).toFixed(2)}" stroke="#222"/>`;
+    const lx=isX?px:(px-20), ly=isX?(py+14):(py+4);
+    svg+=_ucMathToSvg(t.latex, lx, ly, 11);
+  });
+
+  // dots
+  (spec.dots||[]).forEach(d=>{const dx=x2(d.x).toFixed(2),dy=y2(d.y).toFixed(2);
+    if(d.open) svg+=`<circle cx="${dx}" cy="${dy}" r="3" fill="#fff" stroke="#222" stroke-width="1.4"/>`;
+    else svg+=`<circle cx="${dx}" cy="${dy}" r="3" fill="#222"/>`;
+    if(d.label){const anc=d.labelAnchor||'start',ddx=(d.labelDx!==undefined?d.labelDx:5),ddy=(d.labelDy!==undefined?d.labelDy:-5);
+      svg+=`<text x="${(x2(d.x)+ddx).toFixed(2)}" y="${(y2(d.y)+ddy).toFixed(2)}" font-size="11" fill="#222" text-anchor="${anc}">${d.label}</text>`;}});
+
+  // math labels (พิกัด เช่น (\sqrt{2},0)) — _polyMathToSvg ให้ √ vinculum + รองรับ anchor
+  (spec.labels||[]).forEach(l=>{const anc=l.anchor||'start',ddx=(l.dx!==undefined?l.dx:0),ddy=(l.dy!==undefined?l.dy:0);
+    svg+=_polyMathToSvg(l.latex, x2(l.at[0])+ddx, y2(l.at[1])+ddy, l.fontSize||10, anc);});
+
+  // annotations (plain text)
+  (spec.annotations||[]).forEach(a=>{const anc=a.anchor||'start';
+    svg+=`<text x="${x2(a.at[0]).toFixed(2)}" y="${y2(a.at[1]).toFixed(2)}" font-size="12" fill="#222" text-anchor="${anc}">${a.text}</text>`;});
+
+  return svg+'</svg>';
+}
+
 function renderImage(spec){
   if(!spec) return null;
   // Array of specs → render each, wrap in horizontal flex container
@@ -1814,6 +1919,8 @@ function renderImage(spec){
       return venn3CinAOnly(spec);
     case 'number-line':
       return renderNumberLine(spec);
+    case 'disk-shading':
+      return renderDiskShading(spec);
     // TODO: case '3set-c-in-a-shade-ab-minus-c': return venn3CinA_shadeABminusC_13();
     default:
       return null; // unknown type → admin.html จะ fallback ไปแสดง placeholder
