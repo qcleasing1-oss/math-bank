@@ -1740,6 +1740,42 @@ function venn3CinAOnly(spec){
   return svg + '</svg>';
 }
 
+
+// ----- renderer: number-line -----
+// Spec: width,height,xRange,axisY; ticks[] OR labels[{at,text}];
+//   rays[{from,dir:'left'|'right',color}]; segments[{from,to,color}];
+//   points[{at,open}]; annotations[{text,x,y,anchor}] (x,y = px)
+function renderNumberLine(spec){
+  const W=spec.width||300,H=spec.height||74;
+  const pX=22, axisY=(spec.axisY!==undefined?spec.axisY:H*0.55);
+  const xR=spec.xRange||[-5,5], xM=xR[0], xX=xR[1];
+  const x2=x=>pX+(W-2*pX)*(x-xM)/(xX-xM);
+  let svg=`<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" xmlns="http://www.w3.org/2000/svg" style="background:#fff;">`;
+  svg+=`<defs><marker id="nlArr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#222"/></marker></defs>`;
+  // base number line (thin, arrows both ends)
+  svg+=`<line x1="${(pX-8).toFixed(2)}" y1="${axisY}" x2="${(W-pX+8).toFixed(2)}" y2="${axisY}" stroke="#222" stroke-width="1.1" marker-start="url(#nlArr)" marker-end="url(#nlArr)"/>`;
+  // ticks + labels
+  const tick=(at,txt)=>{const xp=x2(at);
+    svg+=`<line x1="${xp.toFixed(2)}" y1="${(axisY-3).toFixed(2)}" x2="${xp.toFixed(2)}" y2="${(axisY+3).toFixed(2)}" stroke="#222"/>`;
+    svg+=`<text x="${xp.toFixed(2)}" y="${(axisY+16).toFixed(2)}" text-anchor="middle" font-size="11" fill="#555">${txt}</text>`;};
+  (spec.ticks||[]).forEach(t=>tick(t,t));
+  (spec.labels||[]).forEach(l=>tick(l.at,l.text));
+  // finite shaded segments (bold overlay)
+  (spec.segments||[]).forEach(s=>{
+    svg+=`<line x1="${x2(s.from).toFixed(2)}" y1="${axisY}" x2="${x2(s.to).toFixed(2)}" y2="${axisY}" stroke="${s.color||'#222'}" stroke-width="3"/>`;});
+  // rays: bold from `from` to edge in dir, arrow at edge
+  (spec.rays||[]).forEach(r=>{const a=x2(r.from),edge=r.dir==='left'?(pX-8):(W-pX+8);
+    svg+=`<line x1="${a.toFixed(2)}" y1="${axisY}" x2="${edge.toFixed(2)}" y2="${axisY}" stroke="${r.color||'#222'}" stroke-width="3" marker-end="url(#nlArr)"/>`;});
+  // points: open/closed (on top)
+  (spec.points||[]).forEach(p=>{const cx=x2(p.at).toFixed(2);
+    if(p.open) svg+=`<circle cx="${cx}" cy="${axisY}" r="4" fill="#fff" stroke="#222" stroke-width="1.6"/>`;
+    else svg+=`<circle cx="${cx}" cy="${axisY}" r="4" fill="#222"/>`;});
+  // annotations (px coords; e.g. choice "(1)")
+  (spec.annotations||[]).forEach(a=>{
+    svg+=`<text x="${a.x!==undefined?a.x:8}" y="${a.y!==undefined?a.y:14}" font-size="13" fill="#222" text-anchor="${a.anchor||'start'}">${a.text}</text>`;});
+  return svg+'</svg>';
+}
+
 function renderImage(spec){
   if(!spec) return null;
   // Array of specs → render each, wrap in horizontal flex container
@@ -1776,6 +1812,8 @@ function renderImage(spec){
       return venn3COval(spec);
     case 'venn-c-in-a-only':
       return venn3CinAOnly(spec);
+    case 'number-line':
+      return renderNumberLine(spec);
     // TODO: case '3set-c-in-a-shade-ab-minus-c': return venn3CinA_shadeABminusC_13();
     default:
       return null; // unknown type → admin.html จะ fallback ไปแสดง placeholder
