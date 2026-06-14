@@ -83,7 +83,7 @@ function renderNormalCurve(spec){const W=spec.width||450,H=spec.height||220,pX=3
 //       'piecewise-linear' + points:[[x,y],[x,y],...]
 //       'polynomial'       + coefs:[aN,...,a1,a0]    (highest degree first; Horner's)
 //       'roots-polynomial' + roots:[r1,r2,...], leadingCoef?:1
-//     each function also accepts: dashed?:bool (true → เส้นประ), domain?, label?:{text,at:[x,y],anchor?}
+//     each function also accepts: dashed?:bool (true → เส้นประ), domain?, label?:{text,at:[x,y],anchor?}, strokeWidth?:number (default 1.6; spec.lineWidth = ค่า default ทั้งกราฟ)
 //   shadeBetween          - [{funcA, funcB, xRange:[a,b], color?}, ...]   funcA = lower, funcB = upper
 //   annotations           - [{text, at:[x,y], anchor?, arrowTo?:[x,y]}, ...] floating labels (optional arrow pointing to a target)
 function renderFunctionPlot(spec){const W=spec.width||450,H=spec.height||280,pX=30,pB=24,pT=20;
@@ -118,18 +118,18 @@ function renderFunctionPlot(spec){const W=spec.width||450,H=spec.height||280,pX=
   if(ax.xLabel)svg+=`<text x="${W-pX+12}" y="${y0+5}" font-size="14" font-style="italic" fill="#222">${ax.xLabel}</text>`;
   if(ax.yLabel)svg+=`<text x="${x0-8}" y="${pT-6}" font-size="14" font-style="italic" fill="#222" text-anchor="end">${ax.yLabel}</text>`;
   if(ax.originLabel)svg+=`<text x="${x0-6}" y="${y0+14}" font-size="13" fill="#222" text-anchor="end">${ax.originLabel}</text>`;
-  (spec.functions||[]).forEach(fn=>{const dom=fn.domain||xR,N=200,col=fn.color||'#222',dashAttr=fn.dashed?' stroke-dasharray="5 4"':'';
+  (spec.functions||[]).forEach(fn=>{const dom=fn.domain||xR,N=200,col=fn.color||'#222',dashAttr=fn.dashed?' stroke-dasharray="5 4"':'',sw=fn.strokeWidth||spec.lineWidth||1.6;
     if(fn.kind==='rational'){const b=fn.b||0,runs=[];let cur=[],prevSide=null;
       for(let i=0;i<=N;i++){const x=dom[0]+(dom[1]-dom[0])*i/N,y=fnVal(fn,x),side=(x-b)>=0?1:-1;
         if(prevSide!==null&&side!==prevSide){if(cur.length)runs.push(cur);cur=[];}
         prevSide=side;
         if(y!==null&&isFinite(y))cur.push(`${x2(x).toFixed(2)},${y2(y).toFixed(2)}`);}
       if(cur.length)runs.push(cur);
-      runs.forEach(r=>{if(r.length>1)svg+=`<polyline points="${r.join(' ')}" fill="none" stroke="${col}" stroke-width="1.6"${dashAttr}/>`;});
+      runs.forEach(r=>{if(r.length>1)svg+=`<polyline points="${r.join(' ')}" fill="none" stroke="${col}" stroke-width="${sw}"${dashAttr}/>`;});
     }else{const pts=[];
       for(let i=0;i<=N;i++){const x=dom[0]+(dom[1]-dom[0])*i/N,y=fnVal(fn,x);
         if(y!==null&&isFinite(y))pts.push(`${x2(x).toFixed(2)},${y2(y).toFixed(2)}`);}
-      svg+=`<polyline points="${pts.join(' ')}" fill="none" stroke="${col}" stroke-width="1.6"${dashAttr}/>`;}
+      svg+=`<polyline points="${pts.join(' ')}" fill="none" stroke="${col}" stroke-width="${sw}"${dashAttr}/>`;}
     if(fn.label){const[lx,ly]=fn.label.at,anc=fn.label.anchor||'start';
       svg+=`<text x="${x2(lx)}" y="${y2(ly)}" font-size="14" font-style="italic" fill="#222" text-anchor="${anc}">${fn.label.text}</text>`;}});
   // straight reference segments (after functions)
