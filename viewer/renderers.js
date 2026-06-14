@@ -82,6 +82,7 @@ function renderNormalCurve(spec){const W=spec.width||450,H=spec.height||220,pX=3
 //       'parabola'         + vertex:[h,k], throughPoint:[px,py]
 //       'parabola-h'       + vertex:[h,k], throughPoint:[px,py], yDomain?:[ymin,ymax]  (sideways x=a(y-k)^2+h, opens right/left; iterates over y — not shadeBetween-compatible)
 //       'ellipse-arc'      + center?:[cx,cy], a, b, half?:'upper'|'lower'|'right'|'left', fullOutline?:bool  (half circle/ellipse; upper/lower iterate x, left/right iterate y; fullOutline draws faint dashed full ellipse)
+//       'hyperbola'        + center?:[h,k], a, b, orientation?:'horizontal'(default)|'vertical', branches?:'both'(default)|'right'|'left'|'up'|'down', asymptotes?:bool, tRange?:[t0,t1]  (each branch a separate polyline via cosh/sinh; asymptotes drawn dashed/grey first; NOT shadeBetween-compatible)
 //       'piecewise-linear' + points:[[x,y],[x,y],...]
 //       'polynomial'       + coefs:[aN,...,a1,a0]    (highest degree first; Horner's)
 //       'roots-polynomial' + roots:[r1,r2,...], leadingCoef?:1
@@ -131,6 +132,19 @@ function renderFunctionPlot(spec){const W=spec.width||450,H=spec.height||280,pX=
       else{const s=half==='right'?1:-1;
         for(let i=0;i<=N;i++){const y=cy-bb+2*bb*i/N,t=1-((y-cy)/bb)**2,x=cx+s*aa*Math.sqrt(Math.max(0,t));pts.push(`${x2(x).toFixed(2)},${y2(y).toFixed(2)}`);}}
       svg+=`<polyline points="${pts.join(' ')}" fill="none" stroke="${col}" stroke-width="${sw}"${dashAttr}/>`;
+    }else if(fn.kind==='hyperbola'){const[hh,kk]=fn.center||[0,0],aa=fn.a,bb=fn.b,orient=fn.orientation||'horizontal',br=fn.branches||'both',tr=fn.tRange||[-2,2],NH=140;
+      if(fn.asymptotes){const slope=orient==='horizontal'?bb/aa:aa/bb;
+        [1,-1].forEach(ss=>{const m=ss*slope,ax1=xM,ax2=xX,ay1=kk+m*(ax1-hh),ay2=kk+m*(ax2-hh);
+          svg+=`<line x1="${x2(ax1).toFixed(2)}" y1="${y2(ay1).toFixed(2)}" x2="${x2(ax2).toFixed(2)}" y2="${y2(ay2).toFixed(2)}" stroke="#999" stroke-width="1" stroke-dasharray="4 3"/>`;});}
+      let signs;
+      if(orient==='horizontal'){signs=br==='right'?[1]:br==='left'?[-1]:[1,-1];}
+      else{signs=br==='up'?[1]:br==='down'?[-1]:[1,-1];}
+      signs.forEach(s=>{const pts2=[];
+        for(let i=0;i<=NH;i++){const t=tr[0]+(tr[1]-tr[0])*i/NH;let X,Y;
+          if(orient==='horizontal'){X=hh+s*aa*Math.cosh(t);Y=kk+bb*Math.sinh(t);}
+          else{Y=kk+s*aa*Math.cosh(t);X=hh+bb*Math.sinh(t);}
+          pts2.push(`${x2(X).toFixed(2)},${y2(Y).toFixed(2)}`);}
+        svg+=`<polyline points="${pts2.join(' ')}" fill="none" stroke="${col}" stroke-width="${sw}"${dashAttr}/>`;});
     }else if(fn.kind==='rational'){const b=fn.b||0,runs=[];let cur=[],prevSide=null;
       for(let i=0;i<=N;i++){const x=dom[0]+(dom[1]-dom[0])*i/N,y=fnVal(fn,x),side=(x-b)>=0?1:-1;
         if(prevSide!==null&&side!==prevSide){if(cur.length)runs.push(cur);cur=[];}
