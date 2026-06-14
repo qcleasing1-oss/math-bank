@@ -577,6 +577,14 @@
     color: var(--ink-soft);
     font-family: 'IBM Plex Mono', monospace;
   }
+  .bulk-controls { display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
+  .bulk-btn {
+    font-family: 'Sarabun', sans-serif; font-size: 13px; font-weight: 500;
+    padding: 5px 13px; border: 1.5px solid var(--ink); border-radius: 6px;
+    background: transparent; color: var(--ink); cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+  }
+  .bulk-btn:hover { background: var(--accent-soft); }
 
   /* Question list (accordion) */
   .q-list { margin-top: 8px; }
@@ -1145,6 +1153,7 @@
       <div class="set-header">
         <h1>ระดับ: <span class="diff-chip ${diffClass(diff)}">${diff}</span></h1>
         <div class="set-meta">${qs.length} ข้อ · เรียงตาม set แล้ว Q#</div>
+        ${BULK_CONTROLS_HTML}
       </div>
       <div class="q-list">
         ${qs.map(q => renderQCard(q, { showSetPrefix: true })).join('')}
@@ -1261,6 +1270,7 @@
           <code>chapter:${chId}</code> · ${qs.length} ข้อ
           · primary tag · เรียงตาม set แล้ว Q#
         </div>
+        ${BULK_CONTROLS_HTML}
       </div>
       <div class="q-list">
         ${qs.map(q => renderQCard(q, { showSetPrefix: true })).join('')}
@@ -1323,6 +1333,7 @@
           ${s.totalScore ? ` · ${s.totalScore} คะแนน` : ''}
           ${s.examDate && looksLikeDate(s.examDate) ? ' · สอบ ' + s.examDate : ''}
         </div>
+        ${BULK_CONTROLS_HTML}
       </div>
       <div class="q-list">
         ${qs.map(renderQCard).join('')}
@@ -1331,6 +1342,19 @@
     main.classList.remove('empty');
     main.innerHTML = html;
     typeset(main);
+  }
+
+  // ============ Bulk expand/collapse (ดูทั้งบทรวด) ============
+  const BULK_CONTROLS_HTML = `
+        <div class="bulk-controls">
+          <button class="bulk-btn" onclick="expandAllQ()" title="เปิดโจทย์และเฉลยทุกข้อพร้อมกัน">⊕ ขยายทั้งหมด</button>
+          <button class="bulk-btn" onclick="collapseAllQ()" title="ย่อทุกข้อ">⊖ ย่อทั้งหมด</button>
+        </div>`;
+  function expandAllQ() {
+    document.querySelectorAll('#content .q-card').forEach(d => { d.open = true; });
+  }
+  function collapseAllQ() {
+    document.querySelectorAll('#content .q-card').forEach(d => { d.open = false; });
   }
 
   // ============ Question card ============
