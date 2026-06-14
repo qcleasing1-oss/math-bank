@@ -1175,6 +1175,14 @@
       "topicDistribution": {
         "5": 199
       },
+      "difficulty": {
+        "level": "ปานกลาง",
+        "breakdown": {
+          "ง่าย": 15,
+          "ปานกลาง": 127,
+          "ยาก": 57
+        }
+      },
       "snapshot": {
         "round": 1,
         "stage": "complete + audit (ตัด 3 บกพร่อง เหลือ 199)",

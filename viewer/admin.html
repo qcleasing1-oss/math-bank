@@ -1330,7 +1330,7 @@
         <h1>${setLabel(s)}</h1>
         <div class="set-meta">
           <code>${sid}</code> · ${qs.length} ข้อ
-          ${s.totalScore ? ` · ${s.totalScore} คะแนน` : ''}
+          ${s.totalScore ? ` · ${s.totalScore} คะแนน` : ''}${difficultyMeta(s)}
           ${s.examDate && looksLikeDate(s.examDate) ? ' · สอบ ' + s.examDate : ''}
         </div>
         ${BULK_CONTROLS_HTML}
@@ -1908,6 +1908,23 @@
     }
     // Exam set fallback
     return `${s.source || ''} ${s.year || ''}${s.month ? ' · เดือน ' + s.month : ''}`.trim();
+  }
+
+  // Set-level difficulty (from manifest). Supports {level, breakdown} object or plain string.
+  // Returns '' for sets without the field (graceful for legacy sets).
+  function difficultyMeta(s) {
+    if (!s || !s.difficulty) return '';
+    const d = s.difficulty;
+    const level = (typeof d === 'string') ? d : d.level;
+    if (!level) return '';
+    const cls = level === 'ง่าย' ? 'easy' : (level === 'ยาก' ? 'hard' : 'med');
+    let bd = '';
+    if (d && typeof d === 'object' && d.breakdown) {
+      const b = d.breakdown;
+      const parts = ['ง่าย', 'ปานกลาง', 'ยาก'].filter(k => b[k]).map(k => `${k} ${b[k]} ข้อ`);
+      if (parts.length) bd = ` (${parts.join(' · ')})`;
+    }
+    return ` · <span class="diff-chip ${cls}">${escapeHtml(level)}</span>${bd}`;
   }
 
   // Heuristic: examDate is a real date if it contains digits (year/day)
