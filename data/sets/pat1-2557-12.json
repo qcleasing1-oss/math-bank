@@ -2261,7 +2261,7 @@
         "• ใช้ $ \\cos 2\\theta = \\dfrac{1}{8} $ , $ \\sin 2\\theta = \\dfrac{3\\sqrt{7}}{8} $ : $ \\sin\\dfrac{5\\theta}{2} = \\sin\\dfrac{\\theta}{2}\\cos 2\\theta + \\cos\\dfrac{\\theta}{2}\\sin 2\\theta = \\dfrac{1}{2\\sqrt{2}}\\cdot\\dfrac{1}{8} + \\dfrac{\\sqrt{7}}{2\\sqrt{2}}\\cdot\\dfrac{3\\sqrt{7}}{8} = \\dfrac{22}{16\\sqrt{2}} = \\dfrac{11}{8\\sqrt{2}} $",
         "<b>ขั้นที่ 3:</b> คูณค่าที่ถามตรง ๆ",
         "• $ 160\\sin\\dfrac{\\theta}{2}\\sin\\dfrac{5\\theta}{2} = 160\\cdot\\dfrac{1}{2\\sqrt{2}}\\cdot\\dfrac{11}{8\\sqrt{2}} = \\dfrac{160\\cdot 11}{32} = 55 $",
-        "<b>ข้อต่าง:</b> ว.1 แปลงผลคูณเป็นผลต่าง $ \\cos 3\\theta - \\cos 2\\theta $ แล้วใช้สูตรมุมสามเท่า ; ว.2 หาค่า $ \\sin\\dfrac{\\theta}{2}, \\sin\\dfrac{5\\theta}{2} $ จากครึ่งมุมและผลบวกมุมโดยตรง ไม่ต้องใช้ $ \\cos 3\\theta $",
+        "<b>ข้อต่าง:</b> วิธีที่ 1 แปลงผลคูณเป็นผลต่าง $ \\cos 3\\theta - \\cos 2\\theta $ แล้วใช้สูตรมุมสามเท่า ; วิธีที่ 2 หาค่า $ \\sin\\dfrac{\\theta}{2}, \\sin\\dfrac{5\\theta}{2} $ จากครึ่งมุมและผลบวกมุมโดยตรง ไม่ต้องใช้ $ \\cos 3\\theta $",
         "",
         "<b>✔ ตรวจคำตอบ:</b> $\\cos\\theta = \\frac34 \\to \\theta \\approx 41.4°$ ; $\\sin\\frac{\\theta}{2} \\approx \\sin 20.7° \\approx 0.354$, $\\sin\\frac{5\\theta}{2} \\approx \\sin 103.5° \\approx 0.972$ ; $160 \\times 0.354 \\times 0.972 \\approx 55$ ✓",
         "",
