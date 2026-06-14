@@ -1760,6 +1760,283 @@
         "$(-\\infty, -1] \\cup \\left[-\\dfrac{2}{3}, -\\dfrac{1}{2}\\right) \\cup [3, \\infty)$"
       ],
       "correct": 2,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
+            -1,
+            -0.6667
+          ],
+          "width": 440,
+          "height": 96,
+          "axisY": 60,
+          "solutionY": 36,
+          "labels": [
+            {
+              "at": -1,
+              "text": "−1"
+            },
+            {
+              "at": -0.6667,
+              "num": 2,
+              "den": 3,
+              "neg": true
+            }
+          ],
+          "signs": [
+            {
+              "from": null,
+              "to": -1,
+              "label": "+"
+            },
+            {
+              "from": -1,
+              "to": -0.6667,
+              "label": "−"
+            },
+            {
+              "from": -0.6667,
+              "to": null,
+              "label": "+"
+            }
+          ],
+          "segments": [
+            {
+              "from": -1,
+              "to": -0.6667,
+              "color": "#d11"
+            }
+          ],
+          "points": [
+            {
+              "at": -1,
+              "open": true,
+              "color": "#d11"
+            },
+            {
+              "at": -0.6667,
+              "open": true,
+              "color": "#d11"
+            }
+          ]
+        },
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
+            -0.5,
+            3
+          ],
+          "width": 460,
+          "height": 96,
+          "axisY": 60,
+          "solutionY": 36,
+          "labels": [
+            {
+              "at": -0.5,
+              "num": 1,
+              "den": 2,
+              "neg": true
+            },
+            {
+              "at": 3,
+              "text": "3"
+            }
+          ],
+          "signs": [
+            {
+              "from": null,
+              "to": -0.5,
+              "label": "+"
+            },
+            {
+              "from": -0.5,
+              "to": 3,
+              "label": "−"
+            },
+            {
+              "from": 3,
+              "to": null,
+              "label": "+"
+            }
+          ],
+          "rays": [
+            {
+              "from": -0.5,
+              "dir": "left",
+              "color": "#2e7d32"
+            },
+            {
+              "from": 3,
+              "dir": "right",
+              "color": "#2e7d32"
+            }
+          ],
+          "points": [
+            {
+              "at": -0.5,
+              "open": false,
+              "color": "#2e7d32"
+            },
+            {
+              "at": 3,
+              "open": true,
+              "color": "#2e7d32"
+            }
+          ]
+        },
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
+            -1,
+            -0.6667,
+            -0.5,
+            3
+          ],
+          "width": 520,
+          "height": 108,
+          "axisY": 66,
+          "solutionY": 44,
+          "bands": [
+            {
+              "from": null,
+              "to": -0.5,
+              "top": 26,
+              "height": 46
+            },
+            {
+              "from": 3,
+              "to": null,
+              "top": 26,
+              "height": 46
+            }
+          ],
+          "labels": [
+            {
+              "at": -1,
+              "text": "−1"
+            },
+            {
+              "at": -0.6667,
+              "num": 2,
+              "den": 3,
+              "neg": true
+            },
+            {
+              "at": -0.5,
+              "num": 1,
+              "den": 2,
+              "neg": true
+            },
+            {
+              "at": 3,
+              "text": "3"
+            }
+          ],
+          "segments": [
+            {
+              "from": -1,
+              "to": -0.6667,
+              "color": "#d11",
+              "y": 32
+            }
+          ],
+          "rays": [
+            {
+              "from": -0.5,
+              "dir": "left",
+              "color": "#2e7d32"
+            },
+            {
+              "from": 3,
+              "dir": "right",
+              "color": "#2e7d32"
+            }
+          ],
+          "points": [
+            {
+              "at": -1,
+              "open": true,
+              "color": "#d11",
+              "y": 32
+            },
+            {
+              "at": -0.6667,
+              "open": true,
+              "color": "#d11",
+              "y": 32
+            },
+            {
+              "at": -0.5,
+              "open": false,
+              "color": "#2e7d32"
+            },
+            {
+              "at": 3,
+              "open": true,
+              "color": "#2e7d32"
+            }
+          ]
+        },
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
+            -1,
+            -0.6667,
+            -0.5,
+            3
+          ],
+          "width": 520,
+          "height": 96,
+          "axisY": 60,
+          "solutionY": 36,
+          "labels": [
+            {
+              "at": -1,
+              "text": "−1"
+            },
+            {
+              "at": -0.6667,
+              "num": 2,
+              "den": 3,
+              "neg": true
+            },
+            {
+              "at": -0.5,
+              "num": 1,
+              "den": 2,
+              "neg": true
+            },
+            {
+              "at": 3,
+              "text": "3"
+            }
+          ],
+          "segments": [
+            {
+              "from": -0.5,
+              "to": 3,
+              "color": "#d11"
+            }
+          ],
+          "points": [
+            {
+              "at": -0.5,
+              "open": true,
+              "color": "#d11"
+            },
+            {
+              "at": 3,
+              "open": false,
+              "color": "#d11"
+            }
+          ]
+        }
+      ],
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
         "หาเซตคำตอบ $A, B$ ก่อน แล้วหา $A \\cup B$ จึงนำคอมพลีเมนต์",
@@ -1768,13 +2045,17 @@
         "",
         "<b>【 วิธีที่ 1 ▸ พื้นฐาน · หาเซตเต็มแล้วคอมพลีเมนต์ 】</b>",
         "<b>ขั้นที่ 1:</b> เซต $A$: $3x^{2} + 5x + 2 < 0$ แยกตัวประกอบ $(3x + 2)(x + 1) < 0$ ได้ $A = \\left(-1, -\\dfrac{2}{3}\\right)$",
+        "[IMAGE:0]",
         "",
         "<b>ขั้นที่ 2:</b> เซต $B$: $\\dfrac{2x + 1}{x - 3} \\ge 0$ พิจารณาเครื่องหมาย ได้ $x \\le -\\dfrac{1}{2}$ หรือ $x > 3$",
         "จึง $B = \\left(-\\infty, -\\dfrac{1}{2}\\right] \\cup (3, \\infty)$",
+        "[IMAGE:1]",
         "",
         "<b>ขั้นที่ 3:</b> $A \\cup B$: เพราะ $A = \\left(-1, -\\dfrac{2}{3}\\right)$ อยู่ภายใน $\\left(-\\infty, -\\dfrac{1}{2}\\right]$ แล้ว จึง $A \\cup B = \\left(-\\infty, -\\dfrac{1}{2}\\right] \\cup (3, \\infty)$",
+        "[IMAGE:2]",
         "",
         "<b>ขั้นที่ 4:</b> คอมพลีเมนต์ $(A \\cup B)' = \\left(-\\dfrac{1}{2}, 3\\right]$",
+        "[IMAGE:3]",
         "",
         "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ · จุดทดสอบตัดตัวเลือก 】</b>",
         "<b>ขั้นที่ 1:</b> ทดสอบ $x = 0$ — ใน $A$? $3(0) + 0 + 2 = 2$ ไม่น้อยกว่า $0$ ✗ ; ใน $B$? $\\dfrac{1}{-3}$ เป็นลบ ✗",

@@ -1770,35 +1770,70 @@ function venn3CinAOnly(spec){
 
 
 // ----- renderer: number-line -----
-// Spec: width,height,xRange,axisY; ticks[] OR labels[{at,text}];
-//   rays[{from,dir:'left'|'right',color}]; segments[{from,to,color}];
-//   points[{at,open}]; annotations[{text,x,y,anchor}] (x,y = px)
+// Spec: width,height,axisY,solutionY
+//   scale:'even' + criticals:[..] → จุดวิกฤตห่างเท่ากัน (sign-line convention) [additive]
+//   xRange (ใช้เมื่อ scale != even)
+//   ticks[] | labels[{at,text,dy}] | labels[{at,num,den,neg}] (เศษส่วนซ้อน) [additive]
+//   signs[{from,to,label,color}]  (from/to=null → ขอบ)
+//   bands[{from,to,color,opacity,top,height}]
+//   segments[{from,to,color,y}]; rays[{from,dir,color,y}]; points[{at,open,color,y}]  (y = px lane override) [additive]
+//   annotations[{text,x,y,anchor}]
 function renderNumberLine(spec){
   const W=spec.width||300,H=spec.height||74;
   const pX=22, axisY=(spec.axisY!==undefined?spec.axisY:H*0.55);
-  const xR=spec.xRange||[-5,5], xM=xR[0], xX=xR[1];
-  const x2=x=>pX+(W-2*pX)*(x-xM)/(xX-xM);
+  const solY=(spec.solutionY!==undefined?spec.solutionY:axisY);
+  // x-mapping: even (criticals ห่างเท่ากัน) หรือ linear
+  let x2;
+  if(spec.scale==='even' && Array.isArray(spec.criticals) && spec.criticals.length){
+    const cs=spec.criticals.slice().sort((a,b)=>a-b), n=cs.length;
+    const step=(W-2*pX)/(n+1), px=cs.map((_,k)=>pX+(k+1)*step);
+    x2=x=>{
+      if(n===1) return px[0]+(x-cs[0])*step;
+      if(x<=cs[0]) return px[0]+(x-cs[0])*(px[1]-px[0])/(cs[1]-cs[0]);
+      if(x>=cs[n-1]) return px[n-1]+(x-cs[n-1])*(px[n-1]-px[n-2])/(cs[n-1]-cs[n-2]);
+      for(let k=0;k<n-1;k++) if(x>=cs[k]&&x<=cs[k+1]) return px[k]+(x-cs[k])/(cs[k+1]-cs[k])*(px[k+1]-px[k]);
+      return px[0];
+    };
+  } else {
+    const xR=spec.xRange||[-5,5], xM=xR[0], xX=xR[1];
+    x2=x=>pX+(W-2*pX)*(x-xM)/(xX-xM);
+  }
+  const edgePx=(v,left)=>(v===null||v===undefined?(left?pX:W-pX):x2(v));
   let svg=`<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" xmlns="http://www.w3.org/2000/svg" style="background:#fff;">`;
   svg+=`<defs><marker id="nlArr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#222"/></marker></defs>`;
-  // base number line (thin, arrows both ends)
+  // background highlight bands (behind everything)
+  (spec.bands||[]).forEach(b=>{
+    const xa=edgePx(b.from,true), xb=edgePx(b.to,false);
+    const top=(b.top!==undefined?b.top:axisY-15), h=(b.height!==undefined?b.height:30);
+    svg+=`<rect x="${Math.min(xa,xb).toFixed(2)}" y="${top.toFixed(2)}" width="${Math.abs(xb-xa).toFixed(2)}" height="${h}" fill="${b.color||'#efe2a4'}" fill-opacity="${b.opacity!==undefined?b.opacity:0.55}"/>`;});
+  // base number line
   svg+=`<line x1="${(pX-8).toFixed(2)}" y1="${axisY}" x2="${(W-pX+8).toFixed(2)}" y2="${axisY}" stroke="#222" stroke-width="1.1" marker-start="url(#nlArr)" marker-end="url(#nlArr)"/>`;
-  // ticks + labels
-  const tick=(at,txt)=>{const xp=x2(at);
-    svg+=`<line x1="${xp.toFixed(2)}" y1="${(axisY-3).toFixed(2)}" x2="${xp.toFixed(2)}" y2="${(axisY+3).toFixed(2)}" stroke="#222"/>`;
-    svg+=`<text x="${xp.toFixed(2)}" y="${(axisY+16).toFixed(2)}" text-anchor="middle" font-size="11" fill="#555">${txt}</text>`;};
-  (spec.ticks||[]).forEach(t=>tick(t,t));
-  (spec.labels||[]).forEach(l=>tick(l.at,l.text));
-  // finite shaded segments (bold overlay)
-  (spec.segments||[]).forEach(s=>{
-    svg+=`<line x1="${x2(s.from).toFixed(2)}" y1="${axisY}" x2="${x2(s.to).toFixed(2)}" y2="${axisY}" stroke="${s.color||'#222'}" stroke-width="3"/>`;});
-  // rays: bold from `from` to edge in dir, arrow at edge
-  (spec.rays||[]).forEach(r=>{const a=x2(r.from),edge=r.dir==='left'?(pX-8):(W-pX+8);
-    svg+=`<line x1="${a.toFixed(2)}" y1="${axisY}" x2="${edge.toFixed(2)}" y2="${axisY}" stroke="${r.color||'#222'}" stroke-width="3" marker-end="url(#nlArr)"/>`;});
-  // points: open/closed (on top)
-  (spec.points||[]).forEach(p=>{const cx=x2(p.at).toFixed(2);
-    if(p.open) svg+=`<circle cx="${cx}" cy="${axisY}" r="4" fill="#fff" stroke="#222" stroke-width="1.6"/>`;
-    else svg+=`<circle cx="${cx}" cy="${axisY}" r="4" fill="#222"/>`;});
-  // annotations (px coords; e.g. choice "(1)")
+  // tick mark + labels (plain / dy / stacked fraction)
+  const tMark=xp=>{svg+=`<line x1="${xp.toFixed(2)}" y1="${(axisY-3).toFixed(2)}" x2="${xp.toFixed(2)}" y2="${(axisY+3).toFixed(2)}" stroke="#222"/>`;};
+  const tText=(xp,txt,dy)=>{svg+=`<text x="${xp.toFixed(2)}" y="${(axisY+16+(dy||0)).toFixed(2)}" text-anchor="middle" font-size="11" fill="#555">${txt}</text>`;};
+  const tFrac=(xp,num,den,neg)=>{const off=neg?3:0, bx=xp+off, bh=5, by=axisY+15;
+    if(neg) svg+=`<text x="${(bx-bh-4).toFixed(2)}" y="${(by+4).toFixed(2)}" text-anchor="middle" font-size="12" fill="#555">\u2212</text>`;
+    svg+=`<text x="${bx.toFixed(2)}" y="${(by-3).toFixed(2)}" text-anchor="middle" font-size="11" fill="#555">${num}</text>`;
+    svg+=`<line x1="${(bx-bh).toFixed(2)}" y1="${by.toFixed(2)}" x2="${(bx+bh).toFixed(2)}" y2="${by.toFixed(2)}" stroke="#555" stroke-width="1"/>`;
+    svg+=`<text x="${bx.toFixed(2)}" y="${(by+11).toFixed(2)}" text-anchor="middle" font-size="11" fill="#555">${den}</text>`;};
+  (spec.ticks||[]).forEach(t=>{const xp=x2(t);tMark(xp);tText(xp,t);});
+  (spec.labels||[]).forEach(l=>{const xp=x2(l.at);tMark(xp);
+    if(l.num!==undefined&&l.den!==undefined) tFrac(xp,l.num,l.den,l.neg);
+    else tText(xp,l.text,l.dy);});
+  // signs (+/-) centered per region (px-based), above axis
+  (spec.signs||[]).forEach(s=>{const mid=(edgePx(s.from,true)+edgePx(s.to,false))/2;
+    svg+=`<text x="${mid.toFixed(2)}" y="${(axisY-9).toFixed(2)}" text-anchor="middle" font-size="13" font-weight="bold" fill="${s.color||'#c0392b'}">${s.label}</text>`;});
+  // segments (per-element y lane)
+  (spec.segments||[]).forEach(s=>{const yy=(s.y!==undefined?s.y:solY);
+    svg+=`<line x1="${x2(s.from).toFixed(2)}" y1="${yy}" x2="${x2(s.to).toFixed(2)}" y2="${yy}" stroke="${s.color||'#222'}" stroke-width="3"/>`;});
+  // rays
+  (spec.rays||[]).forEach(r=>{const a=x2(r.from),edge=r.dir==='left'?(pX-8):(W-pX+8),yy=(r.y!==undefined?r.y:solY);
+    svg+=`<line x1="${a.toFixed(2)}" y1="${yy}" x2="${edge.toFixed(2)}" y2="${yy}" stroke="${r.color||'#222'}" stroke-width="3" marker-end="url(#nlArr)"/>`;});
+  // points
+  (spec.points||[]).forEach(p=>{const cx=x2(p.at).toFixed(2),col=p.color||'#222',yy=(p.y!==undefined?p.y:solY);
+    if(p.open) svg+=`<circle cx="${cx}" cy="${yy}" r="4" fill="#fff" stroke="${col}" stroke-width="1.6"/>`;
+    else svg+=`<circle cx="${cx}" cy="${yy}" r="4" fill="${col}"/>`;});
+  // annotations (px coords)
   (spec.annotations||[]).forEach(a=>{
     svg+=`<text x="${a.x!==undefined?a.x:8}" y="${a.y!==undefined?a.y:14}" font-size="13" fill="#222" text-anchor="${a.anchor||'start'}">${a.text}</text>`;});
   return svg+'</svg>';
