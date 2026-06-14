@@ -80,6 +80,8 @@ function renderNormalCurve(spec){const W=spec.width||450,H=spec.height||220,pX=3
 //   functions             - [{id, kind, ...args, domain?, label?: {text, at:[x,y], anchor?}}, ...]
 //     kinds:
 //       'parabola'         + vertex:[h,k], throughPoint:[px,py]
+//       'parabola-h'       + vertex:[h,k], throughPoint:[px,py], yDomain?:[ymin,ymax]  (sideways x=a(y-k)^2+h, opens right/left; iterates over y — not shadeBetween-compatible)
+//       'ellipse-arc'      + center?:[cx,cy], a, b, half?:'upper'|'lower'|'right'|'left', fullOutline?:bool  (half circle/ellipse; upper/lower iterate x, left/right iterate y; fullOutline draws faint dashed full ellipse)
 //       'piecewise-linear' + points:[[x,y],[x,y],...]
 //       'polynomial'       + coefs:[aN,...,a1,a0]    (highest degree first; Horner's)
 //       'roots-polynomial' + roots:[r1,r2,...], leadingCoef?:1
@@ -119,7 +121,17 @@ function renderFunctionPlot(spec){const W=spec.width||450,H=spec.height||280,pX=
   if(ax.yLabel)svg+=`<text x="${x0-8}" y="${pT-6}" font-size="14" font-style="italic" fill="#222" text-anchor="end">${ax.yLabel}</text>`;
   if(ax.originLabel)svg+=`<text x="${x0-6}" y="${y0+14}" font-size="13" fill="#222" text-anchor="end">${ax.originLabel}</text>`;
   (spec.functions||[]).forEach(fn=>{const dom=fn.domain||xR,N=200,col=fn.color||'#222',dashAttr=fn.dashed?' stroke-dasharray="5 4"':'',sw=fn.strokeWidth||spec.lineWidth||1.6;
-    if(fn.kind==='rational'){const b=fn.b||0,runs=[];let cur=[],prevSide=null;
+    if(fn.kind==='parabola-h'){const[h,k]=fn.vertex,[px,py]=fn.throughPoint,a=(px-h)/((py-k)*(py-k)),yd=fn.yDomain||yR,pts=[];
+      for(let i=0;i<=N;i++){const y=yd[0]+(yd[1]-yd[0])*i/N,X=a*(y-k)*(y-k)+h;pts.push(`${x2(X).toFixed(2)},${y2(y).toFixed(2)}`);}
+      svg+=`<polyline points="${pts.join(' ')}" fill="none" stroke="${col}" stroke-width="${sw}"${dashAttr}/>`;
+    }else if(fn.kind==='ellipse-arc'){const[cx,cy]=fn.center||[0,0],aa=fn.a,bb=fn.b,half=fn.half||'upper',pts=[];
+      if(fn.fullOutline){svg+=`<ellipse cx="${x2(cx).toFixed(2)}" cy="${y2(cy).toFixed(2)}" rx="${Math.abs(x2(cx+aa)-x2(cx)).toFixed(2)}" ry="${Math.abs(y2(cy+bb)-y2(cy)).toFixed(2)}" fill="none" stroke="${col}" stroke-width="${sw}" stroke-dasharray="5 4"/>`;}
+      if(half==='upper'||half==='lower'){const s=half==='upper'?1:-1;
+        for(let i=0;i<=N;i++){const x=cx-aa+2*aa*i/N,t=1-((x-cx)/aa)**2,y=cy+s*bb*Math.sqrt(Math.max(0,t));pts.push(`${x2(x).toFixed(2)},${y2(y).toFixed(2)}`);}}
+      else{const s=half==='right'?1:-1;
+        for(let i=0;i<=N;i++){const y=cy-bb+2*bb*i/N,t=1-((y-cy)/bb)**2,x=cx+s*aa*Math.sqrt(Math.max(0,t));pts.push(`${x2(x).toFixed(2)},${y2(y).toFixed(2)}`);}}
+      svg+=`<polyline points="${pts.join(' ')}" fill="none" stroke="${col}" stroke-width="${sw}"${dashAttr}/>`;
+    }else if(fn.kind==='rational'){const b=fn.b||0,runs=[];let cur=[],prevSide=null;
       for(let i=0;i<=N;i++){const x=dom[0]+(dom[1]-dom[0])*i/N,y=fnVal(fn,x),side=(x-b)>=0?1:-1;
         if(prevSide!==null&&side!==prevSide){if(cur.length)runs.push(cur);cur=[];}
         prevSide=side;
