@@ -1635,6 +1635,179 @@
         "exportedAt": "2026-06-09",
         "note": "Verify COMPLETE 9 มิ.ย. 2569: 127/127 sympy/numpy ตรง correct + PDF answer key (0 mismatch, 96 mc + 18 fill key). flag: _needsImage[27,30,32,81,82,84,85,97,99,100,103,108,109,123] · _noAnswerInKey[16,124] · _bookKeyMismatch[88 → 120° override, เฉลยหนังสือ 60° ผิดใช้สูตรเครื่องหมายลบ] · correct=null 2 ข้อ. POST-FLIGHT=0 ทุกจุด. KaTeX clean (0 Thai-in-math จริง; warning ใน local preview = artifact ของ <,> relation + production render แต่ละ field แยก). subTopics + difficulty ครบทั้งบท. imageSpec 14 ข้อ = Phase ถัดไป. audit ว.2/multi-method ยังไม่ทำ."
       }
+    },
+    "chap-10-complex": {
+      "source": "ข้อสอบรายบท",
+      "subject": "จำนวนเชิงซ้อน",
+      "displayName": "บทที่ 10 จำนวนเชิงซ้อน",
+      "totalQuestions": 122,
+      "totalScore": 122,
+      "structure": {
+        "part1": "ข้อสอบเข้ามหาวิทยาลัย + เสริมประสบการณ์ (Q1-Q122) — 122 ข้อ"
+      },
+      "topicDistribution": {
+        "10": 122
+      },
+      "difficulty": {
+        "level": "ยาก",
+        "breakdown": {
+          "ง่าย": 1,
+          "ปานกลาง": 60,
+          "ยาก": 61
+        }
+      },
+      "snapshot": {
+        "round": 1,
+        "stage": "ingest complete, pending pipeline",
+        "questionsCompleted": 122,
+        "questionsRemaining": 0,
+        "exportedAt": "2026-06-14",
+        "note": "ingest จาก Projects วางใน repo (14 มิ.ย.69): 122 ข้อ (mc 86 + fill 36), ช่วง 1-122. format OK (LF, indent=2, ไม่มี BOM/trailing). correct=null=0. difficulty+topicDistribution ครบ. ยังไม่ทำ: pipeline (🔄→วิธีที่N, format ตรีโกณ, เพิ่มวิธี ว.2, เช็คลัด), imageSpec, audit. exported 2026-06-14."
+      }
+    },
+    "chap-11-sequence": {
+      "source": "ข้อสอบรายบท",
+      "subject": "ลำดับและอนุกรม",
+      "displayName": "บทที่ 11 ลำดับและอนุกรม",
+      "totalQuestions": 162,
+      "totalScore": 162,
+      "structure": {
+        "part1": "ข้อสอบเข้ามหาวิทยาลัย + เสริมประสบการณ์ (Q1-Q163) (ตัด 1 ข้อ: [146]) — 162 ข้อ"
+      },
+      "topicDistribution": {
+        "11": 162
+      },
+      "difficulty": {
+        "level": "ปานกลาง",
+        "breakdown": {
+          "ง่าย": 3,
+          "ปานกลาง": 81,
+          "ยาก": 78
+        }
+      },
+      "snapshot": {
+        "round": 1,
+        "stage": "ingest complete, pending pipeline",
+        "questionsCompleted": 162,
+        "questionsRemaining": 0,
+        "exportedAt": "2026-06-14",
+        "note": "ingest จาก Projects วางใน repo (14 มิ.ย.69): 162 ข้อ (mc 114 + fill 48), ช่วง 1-163 (ตัด 1 ข้อ: [146]). format OK (LF, indent=2, ไม่มี BOM/trailing). correct=null=0. difficulty+topicDistribution ครบ. ยังไม่ทำ: pipeline (🔄→วิธีที่N, format ตรีโกณ, เพิ่มวิธี ว.2, เช็คลัด), imageSpec, audit. exported 2026-06-14."
+      }
+    },
+    "chap-12-probability": {
+      "source": "ข้อสอบรายบท",
+      "subject": "หลักการนับและความน่าจะเป็น",
+      "displayName": "บทที่ 12 หลักการนับและความน่าจะเป็น",
+      "totalQuestions": 171,
+      "totalScore": 171,
+      "structure": {
+        "part1": "ข้อสอบเข้ามหาวิทยาลัย + เสริมประสบการณ์ (Q1-Q175) (ตัด 4 ข้อ: [157, 161, 163, 166]) — 171 ข้อ"
+      },
+      "topicDistribution": {
+        "12": 171
+      },
+      "difficulty": {
+        "level": "ปานกลาง",
+        "breakdown": {
+          "ง่าย": 21,
+          "ปานกลาง": 94,
+          "ยาก": 56
+        }
+      },
+      "snapshot": {
+        "round": 1,
+        "stage": "ingest complete, pending pipeline",
+        "questionsCompleted": 171,
+        "questionsRemaining": 0,
+        "exportedAt": "2026-06-14",
+        "note": "ingest จาก Projects วางใน repo (14 มิ.ย.69): 171 ข้อ (mc 138 + fill 33), ช่วง 1-175 (ตัด 4 ข้อ: [157, 161, 163, 166]). format OK (LF, indent=2, ไม่มี BOM/trailing). correct=null=0. difficulty+topicDistribution ครบ. ยังไม่ทำ: pipeline (🔄→วิธีที่N, format ตรีโกณ, เพิ่มวิธี ว.2, เช็คลัด), imageSpec, audit. exported 2026-06-14."
+      }
+    },
+    "chap-13-calculus": {
+      "source": "ข้อสอบรายบท",
+      "subject": "แคลคูลัส",
+      "displayName": "บทที่ 13 แคลคูลัส",
+      "totalQuestions": 292,
+      "totalScore": 292,
+      "structure": {
+        "part1": "ข้อสอบเข้ามหาวิทยาลัย + เสริมประสบการณ์ (Q1-Q292) — 292 ข้อ"
+      },
+      "topicDistribution": {
+        "13": 292
+      },
+      "difficulty": {
+        "level": "ปานกลาง",
+        "breakdown": {
+          "ง่าย": 8,
+          "ปานกลาง": 146,
+          "ยาก": 138
+        }
+      },
+      "snapshot": {
+        "round": 1,
+        "stage": "ingest complete, pending pipeline",
+        "questionsCompleted": 292,
+        "questionsRemaining": 0,
+        "exportedAt": "2026-06-14",
+        "note": "ingest จาก Projects วางใน repo (14 มิ.ย.69): 292 ข้อ (mc 214 + fill 78), ช่วง 1-292. format OK (LF, indent=2, ไม่มี BOM/trailing). correct=null=0. difficulty+topicDistribution ครบ. ยังไม่ทำ: pipeline (🔄→วิธีที่N, format ตรีโกณ, เพิ่มวิธี ว.2, เช็คลัด), imageSpec, audit. exported 2026-06-14."
+      }
+    },
+    "chap-15-statistics": {
+      "source": "ข้อสอบรายบท",
+      "subject": "สถิติ",
+      "displayName": "บทที่ 15 สถิติ",
+      "totalQuestions": 264,
+      "totalScore": 264,
+      "structure": {
+        "part1": "ข้อสอบเข้ามหาวิทยาลัย + เสริมประสบการณ์ (Q1-Q287) (ตัด 23 ข้อ: [37, 61, 87, 171, 172, 178, 191, 200, 202, 216, 222, 224, 227, 228, 229, 235, 236, 240, 242, 246, 254, 262, 277]) — 264 ข้อ"
+      },
+      "topicDistribution": {
+        "15": 264
+      },
+      "difficulty": {
+        "level": "ยาก",
+        "breakdown": {
+          "ง่าย": 9,
+          "ปานกลาง": 124,
+          "ยาก": 131
+        }
+      },
+      "snapshot": {
+        "round": 1,
+        "stage": "ingest complete, pending pipeline",
+        "questionsCompleted": 264,
+        "questionsRemaining": 0,
+        "exportedAt": "2026-06-14",
+        "note": "ingest จาก Projects วางใน repo (14 มิ.ย.69): 264 ข้อ (mc 218 + fill 46), ช่วง 1-287 (ตัด 23 ข้อ: [37, 61, 87, 171, 172, 178, 191, 200, 202, 216, 222, 224, 227, 228, 229, 235, 236, 240, 242, 246, 254, 262, 277]). format OK (LF, indent=2, ไม่มี BOM/trailing). correct=null=0. difficulty+topicDistribution ครบ. ยังไม่ทำ: pipeline (🔄→วิธีที่N, format ตรีโกณ, เพิ่มวิธี ว.2, เช็คลัด), imageSpec, audit. exported 2026-06-14."
+      }
+    },
+    "chap-16-linearprog": {
+      "source": "ข้อสอบรายบท",
+      "subject": "กำหนดการเชิงเส้น",
+      "displayName": "บทที่ 16 กำหนดการเชิงเส้น",
+      "totalQuestions": 46,
+      "totalScore": 46,
+      "structure": {
+        "part1": "ข้อสอบเข้ามหาวิทยาลัย + เสริมประสบการณ์ (Q1-Q46) — 46 ข้อ"
+      },
+      "topicDistribution": {
+        "16": 46
+      },
+      "difficulty": {
+        "level": "ปานกลาง",
+        "breakdown": {
+          "ปานกลาง": 23,
+          "ยาก": 23
+        }
+      },
+      "snapshot": {
+        "round": 1,
+        "stage": "ingest complete, pending pipeline",
+        "questionsCompleted": 46,
+        "questionsRemaining": 0,
+        "exportedAt": "2026-06-14",
+        "note": "ingest จาก Projects วางใน repo (14 มิ.ย.69): 46 ข้อ (mc 23 + fill 23), ช่วง 1-46. format OK (LF, indent=2, ไม่มี BOM/trailing). correct=null=0. difficulty+topicDistribution ครบ. ยังไม่ทำ: pipeline (🔄→วิธีที่N, format ตรีโกณ, เพิ่มวิธี ว.2, เช็คลัด), imageSpec, audit. exported 2026-06-14."
+      }
     }
   }
 }
