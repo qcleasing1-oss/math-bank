@@ -3855,6 +3855,94 @@
         "ก. ผิด และ ข. ผิด"
       ],
       "hasImage": false,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 360,
+          "height": 300,
+          "xRange": [
+            -6,
+            4
+          ],
+          "yRange": [
+            -3.5,
+            3.5
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y"
+          },
+          "functions": [
+            {
+              "id": "hyp",
+              "kind": "hyperbola",
+              "center": [
+                -1,
+                0
+              ],
+              "a": 2,
+              "b": 2,
+              "orientation": "horizontal",
+              "branches": "both",
+              "asymptotes": true,
+              "tRange": [
+                -1.5,
+                1.5
+              ]
+            }
+          ],
+          "segments": [
+            {
+              "from": [
+                -3.3,
+                -3.3
+              ],
+              "to": [
+                3.3,
+                3.3
+              ],
+              "dashed": true
+            }
+          ],
+          "dots": [
+            {
+              "x": -1,
+              "y": 0,
+              "label": "(-1, 0)",
+              "labelDx": -8,
+              "labelDy": -8,
+              "labelAnchor": "end"
+            },
+            {
+              "x": 1,
+              "y": 0,
+              "label": "(1, 0)",
+              "labelDx": 8,
+              "labelDy": 16,
+              "labelAnchor": "start"
+            },
+            {
+              "x": 1.5,
+              "y": 1.5,
+              "label": "(3/2, 3/2)",
+              "labelDx": 9,
+              "labelDy": -6,
+              "labelAnchor": "start"
+            }
+          ],
+          "annotations": [
+            {
+              "text": "x = y",
+              "at": [
+                -2.7,
+                -1.5
+              ],
+              "anchor": "start"
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance มี.ค. 2547",
       "correct": 1,
       "explanation": [
@@ -3862,6 +3950,7 @@
         "$y^2 = f(x)$ มีคำตอบ $y = \\pm\\sqrt{f(x)}$ เมื่อ $f(x) \\ge 0$ — แต่ต้องคัดด้วยเงื่อนไขเพิ่ม ($x \\ge y$) ทีละกิ่ง",
         "",
         "<b>🎯 เป้าหมาย</b> หา $D_r$ และ $R_r$ โดยคำนึงเงื่อนไข $x \\ge y$",
+        "[IMAGE:0]",
         "",
         "<b>ขั้นที่ 1:</b> เงื่อนไข $y^2 \\ge 0$: $x^2 + 2x - 3 = (x + 3)(x - 1) \\ge 0$ ได้ $x \\le -3$ หรือ $x \\ge 1$",
         "",
