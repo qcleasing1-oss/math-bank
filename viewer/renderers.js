@@ -1800,7 +1800,10 @@ function renderNumberLine(spec){
   }
   const edgePx=(v,left)=>(v===null||v===undefined?(left?pX:W-pX):x2(v));
   let svg=`<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" xmlns="http://www.w3.org/2000/svg" style="background:#fff;">`;
-  svg+=`<defs><marker id="nlArr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#222"/></marker></defs>`;
+  const _arrId=c=>'nlArr_'+String(c).replace(/[^a-zA-Z0-9]/g,'');
+  let _defs=`<marker id="nlArr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#222"/></marker>`;
+  [...new Set((spec.rays||[]).map(r=>r.color||'#222'))].forEach(c=>{_defs+=`<marker id="${_arrId(c)}" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="${c}"/></marker>`;});
+  svg+=`<defs>${_defs}</defs>`;
   // background highlight bands (behind everything)
   (spec.bands||[]).forEach(b=>{
     const xa=edgePx(b.from,true), xb=edgePx(b.to,false);
@@ -1828,7 +1831,7 @@ function renderNumberLine(spec){
     svg+=`<line x1="${x2(s.from).toFixed(2)}" y1="${yy}" x2="${x2(s.to).toFixed(2)}" y2="${yy}" stroke="${s.color||'#222'}" stroke-width="3"/>`;});
   // rays
   (spec.rays||[]).forEach(r=>{const a=x2(r.from),edge=r.dir==='left'?(pX-8):(W-pX+8),yy=(r.y!==undefined?r.y:solY);
-    svg+=`<line x1="${a.toFixed(2)}" y1="${yy}" x2="${edge.toFixed(2)}" y2="${yy}" stroke="${r.color||'#222'}" stroke-width="3" marker-end="url(#nlArr)"/>`;});
+    svg+=`<line x1="${a.toFixed(2)}" y1="${yy}" x2="${edge.toFixed(2)}" y2="${yy}" stroke="${r.color||'#222'}" stroke-width="3" marker-end="url(#${_arrId(r.color||'#222')})"/>`;});
   // points
   (spec.points||[]).forEach(p=>{const cx=x2(p.at).toFixed(2),col=p.color||'#222',yy=(p.y!==undefined?p.y:solY);
     if(p.open) svg+=`<circle cx="${cx}" cy="${yy}" r="4" fill="#fff" stroke="${col}" stroke-width="1.6"/>`;
