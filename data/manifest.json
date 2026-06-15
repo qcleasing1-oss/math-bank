@@ -1,6 +1,6 @@
 {
   "schemaVersion": 3,
-  "exported": "2026-06-03T00:00:00Z",
+  "exported": "2026-06-15T00:00:00Z",
   "topicNames": {
     "1": "เซต",
     "2": "ตรรกศาสตร์",
@@ -1669,29 +1669,29 @@
       "source": "ข้อสอบรายบท",
       "subject": "ลำดับและอนุกรม",
       "displayName": "บทที่ 11 ลำดับและอนุกรม",
-      "totalQuestions": 162,
-      "totalScore": 162,
+      "totalQuestions": 71,
+      "totalScore": 71,
       "structure": {
-        "part1": "ข้อสอบเข้ามหาวิทยาลัย + เสริมประสบการณ์ (Q1-Q163) (ตัด 1 ข้อ: [146]) — 162 ข้อ"
+        "part1": "เฉพาะลำดับ/อนุกรมจำกัด (แยกอนันต์ออก chap-14) — renumber q01-q71, เลข PDF เดิมเก็บใน pdfNumber — 71 ข้อ"
       },
       "topicDistribution": {
-        "11": 162
+        "11": 71
       },
       "difficulty": {
-        "level": "ปานกลาง",
+        "level": "ยาก",
         "breakdown": {
-          "ง่าย": 3,
-          "ปานกลาง": 81,
-          "ยาก": 78
+          "ง่าย": 1,
+          "ปานกลาง": 29,
+          "ยาก": 41
         }
       },
       "snapshot": {
         "round": 1,
-        "stage": "ingest complete, pending pipeline",
-        "questionsCompleted": 162,
+        "stage": "split done (FIN), pending pipeline",
+        "questionsCompleted": 71,
         "questionsRemaining": 0,
-        "exportedAt": "2026-06-14",
-        "note": "ingest จาก Projects วางใน repo (14 มิ.ย.69): 162 ข้อ (mc 114 + fill 48), ช่วง 1-163 (ตัด 1 ข้อ: [146]). format OK (LF, indent=2, ไม่มี BOM/trailing). correct=null=0. difficulty+topicDistribution ครบ. ยังไม่ทำ: pipeline (🔄→วิธีที่N, format ตรีโกณ, เพิ่มวิธี ว.2, เช็คลัด), imageSpec, audit. exported 2026-06-14."
+        "exportedAt": "2026-06-15",
+        "note": "แยก chap-11 → FIN(71)+chap-14 INF(91) (15 มิ.ย.69). FIN: 71 ข้อ (mc 52 + fill 19), renumber q01-q71, topics คง [11], เก็บเลข PDF เดิมใน pdfNumber. Q6 (ลำดับคอนเวอร์เจนต์/ผลบวกจำกัด) คงไว้ FIN ตามครูชี้ขาด. format OK (LF, indent=2, ไม่มี BOM/trailing). content เทียบ byte ตรงต้นฉบับ. ยังไม่ทำ: pipeline, imageSpec, audit."
       }
     },
     "chap-12-probability": {
@@ -1750,6 +1750,35 @@
         "questionsRemaining": 0,
         "exportedAt": "2026-06-14",
         "note": "ingest จาก Projects วางใน repo (14 มิ.ย.69): 292 ข้อ (mc 214 + fill 78), ช่วง 1-292. format OK (LF, indent=2, ไม่มี BOM/trailing). correct=null=0. difficulty+topicDistribution ครบ. ยังไม่ทำ: pipeline (🔄→วิธีที่N, format ตรีโกณ, เพิ่มวิธี ว.2, เช็คลัด), imageSpec, audit. exported 2026-06-14."
+      }
+    },
+    "chap-14-infiniteseries": {
+      "source": "ข้อสอบรายบท",
+      "subject": "ลำดับและอนุกรมอนันต์",
+      "displayName": "บทที่ 14 ลำดับและอนุกรมอนันต์",
+      "totalQuestions": 91,
+      "totalScore": 91,
+      "structure": {
+        "part1": "แยกจาก chap-11 (เลข PDF บทที่ 11 เดิมเก็บใน pdfNumber) — อนุกรมอนันต์/ลิมิตลำดับ/ลู่เข้าลู่ออก — 91 ข้อ"
+      },
+      "topicDistribution": {
+        "14": 91
+      },
+      "difficulty": {
+        "level": "ปานกลาง",
+        "breakdown": {
+          "ง่าย": 2,
+          "ปานกลาง": 52,
+          "ยาก": 37
+        }
+      },
+      "snapshot": {
+        "round": 1,
+        "stage": "split from chap-11 (INF), pending pipeline",
+        "questionsCompleted": 91,
+        "questionsRemaining": 0,
+        "exportedAt": "2026-06-15",
+        "note": "แยกจาก chap-11-sequence (15 มิ.ย.69): 91 ข้อ (mc 62 + fill 29), topics flip 11→14, renumber q01-q91, เก็บเลข PDF เดิมใน pdfNumber. Q28/Q81/Q154 ย้ายเข้า INF ตามครูชี้ขาด. format OK (LF, indent=2, ไม่มี BOM/trailing). content เทียบ byte ตรงต้นฉบับ. ยังไม่ทำ: pipeline, imageSpec, audit, difficulty tag review."
       }
     },
     "chap-15-statistics": {
