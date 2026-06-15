@@ -1709,6 +1709,68 @@
         "ไม่มีคำตอบที่ถูกต้องในข้อ 1. ถึงข้อ 4."
       ],
       "correct": 1,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
+            0.25,
+            3
+          ],
+          "width": 440,
+          "height": 96,
+          "axisY": 60,
+          "solutionY": 36,
+          "labels": [
+            {
+              "at": 0.25,
+              "num": 1,
+              "den": 4
+            },
+            {
+              "at": 3,
+              "text": "3"
+            }
+          ],
+          "signs": [
+            {
+              "from": null,
+              "to": 0.25,
+              "label": "+"
+            },
+            {
+              "from": 0.25,
+              "to": 3,
+              "label": "−"
+            },
+            {
+              "from": 3,
+              "to": null,
+              "label": "+"
+            }
+          ],
+          "segments": [
+            {
+              "from": 0.25,
+              "to": 3,
+              "color": "#d11"
+            }
+          ],
+          "points": [
+            {
+              "at": 0.25,
+              "open": true,
+              "color": "#d11"
+            },
+            {
+              "at": 3,
+              "open": true,
+              "color": "#d11"
+            }
+          ]
+        }
+      ],
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
         "ย้ายทุกพจน์มาข้างเดียวให้เป็น $< 0$ แล้วแยกตัวประกอบ เขียนเส้นจำนวนหาช่วงคำตอบ",
@@ -1722,6 +1784,7 @@
         "",
         "<b>ขั้นที่ 3:</b> รากคือ $x = \\dfrac{1}{4}$ และ $x = 3$ เขียนเส้นจำนวน นิพจน์เป็นลบระหว่างราก",
         "จึงได้ $\\dfrac{1}{4} < x < 3$",
+        "[IMAGE:0]",
         "",
         "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ · สูตรกำลังสองหาราก 】</b>",
         "<b>เครื่องมือ:</b> $4x^{2} - 13x + 3$ แยกตัวประกอบไม่ชัด ใช้สูตร $x = \\dfrac{-b \\pm \\sqrt{b^{2} - 4ac}}{2a}$ หารากได้ตรง ๆ",
@@ -3054,6 +3117,243 @@
         "$(3, 5)$"
       ],
       "correct": 0,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
+            -3,
+            4
+          ],
+          "width": 440,
+          "height": 96,
+          "axisY": 60,
+          "solutionY": 36,
+          "labels": [
+            {
+              "at": -3,
+              "text": "−3"
+            },
+            {
+              "at": 4,
+              "text": "4"
+            }
+          ],
+          "signs": [
+            {
+              "from": null,
+              "to": -3,
+              "label": "+"
+            },
+            {
+              "from": -3,
+              "to": 4,
+              "label": "−"
+            },
+            {
+              "from": 4,
+              "to": null,
+              "label": "+"
+            }
+          ],
+          "rays": [
+            {
+              "from": -3,
+              "dir": "left",
+              "color": "#d11"
+            },
+            {
+              "from": 4,
+              "dir": "right",
+              "color": "#d11"
+            }
+          ],
+          "points": [
+            {
+              "at": -3,
+              "open": true,
+              "color": "#d11"
+            },
+            {
+              "at": 4,
+              "open": true,
+              "color": "#d11"
+            }
+          ]
+        },
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
+            -4,
+            -2,
+            2,
+            4
+          ],
+          "width": 480,
+          "height": 84,
+          "axisY": 52,
+          "solutionY": 32,
+          "labels": [
+            {
+              "at": -4,
+              "text": "−4"
+            },
+            {
+              "at": -2,
+              "text": "−2"
+            },
+            {
+              "at": 2,
+              "text": "2"
+            },
+            {
+              "at": 4,
+              "text": "4"
+            }
+          ],
+          "segments": [
+            {
+              "from": -4,
+              "to": -2,
+              "color": "#2e7d32"
+            },
+            {
+              "from": 2,
+              "to": 4,
+              "color": "#2e7d32"
+            }
+          ],
+          "points": [
+            {
+              "at": -4,
+              "open": true,
+              "color": "#2e7d32"
+            },
+            {
+              "at": -2,
+              "open": true,
+              "color": "#2e7d32"
+            },
+            {
+              "at": 2,
+              "open": true,
+              "color": "#2e7d32"
+            },
+            {
+              "at": 4,
+              "open": true,
+              "color": "#2e7d32"
+            }
+          ]
+        },
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
+            -4,
+            -3,
+            -2,
+            2,
+            4
+          ],
+          "width": 540,
+          "height": 108,
+          "axisY": 66,
+          "solutionY": 44,
+          "bands": [
+            {
+              "from": -4,
+              "to": -3,
+              "top": 26,
+              "height": 46
+            }
+          ],
+          "labels": [
+            {
+              "at": -4,
+              "text": "−4"
+            },
+            {
+              "at": -3,
+              "text": "−3"
+            },
+            {
+              "at": -2,
+              "text": "−2"
+            },
+            {
+              "at": 2,
+              "text": "2"
+            },
+            {
+              "at": 4,
+              "text": "4"
+            }
+          ],
+          "rays": [
+            {
+              "from": -3,
+              "dir": "left",
+              "color": "#d11",
+              "y": 32
+            },
+            {
+              "from": 4,
+              "dir": "right",
+              "color": "#d11",
+              "y": 32
+            }
+          ],
+          "segments": [
+            {
+              "from": -4,
+              "to": -2,
+              "color": "#2e7d32"
+            },
+            {
+              "from": 2,
+              "to": 4,
+              "color": "#2e7d32"
+            }
+          ],
+          "points": [
+            {
+              "at": -3,
+              "open": true,
+              "color": "#d11",
+              "y": 32
+            },
+            {
+              "at": 4,
+              "open": true,
+              "color": "#d11",
+              "y": 32
+            },
+            {
+              "at": -4,
+              "open": true,
+              "color": "#2e7d32"
+            },
+            {
+              "at": -2,
+              "open": true,
+              "color": "#2e7d32"
+            },
+            {
+              "at": 2,
+              "open": true,
+              "color": "#2e7d32"
+            },
+            {
+              "at": 4,
+              "open": true,
+              "color": "#2e7d32"
+            }
+          ]
+        }
+      ],
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
         "$12 + x - x^{2} < 0$ จัดเป็น $x^{2} - x - 12 > 0$ (คูณ $-1$ พลิกเครื่องหมาย) ; ค่าสัมบูรณ์ซ้อน $|3 - |x|| < 1 \\Leftrightarrow -1 < 3 - |x| < 1$ ; แล้วหา $A \\cap B$",
@@ -3062,10 +3362,13 @@
         "",
         "<b>【 วิธีที่ 1 ▸ พื้นฐาน · แก้สองเซตแล้วอินเตอร์เซก 】</b>",
         "<b>ขั้นที่ 1:</b> หาเซต $A$ — $12 + x - x^{2} < 0 \\Rightarrow x^{2} - x - 12 > 0 \\Rightarrow (x - 4)(x + 3) > 0 \\Rightarrow x < -3$ หรือ $x > 4$ ดังนั้น $A = (-\\infty, -3) \\cup (4, \\infty)$",
+        "[IMAGE:0]",
         "",
         "<b>ขั้นที่ 2:</b> หาเซต $B$ — $|3 - |x|| < 1 \\Rightarrow -1 < 3 - |x| < 1 \\Rightarrow -4 < -|x| < -2 \\Rightarrow 2 < |x| < 4$ ดังนั้น $B = (-4, -2) \\cup (2, 4)$",
+        "[IMAGE:1]",
         "",
         "<b>ขั้นที่ 3:</b> หา $A \\cap B$ — ส่วนเดียวที่ทับกันคือ $(-\\infty, -3) \\cap (-4, -2) = (-4, -3)$ ดังนั้น $A \\cap B = (-4, -3)$",
+        "[IMAGE:2]",
         "",
         "<b>ขั้นที่ 4:</b> $(-4, -3)$ เป็นสับเซตของช่วงใด? ตรวจตัวเลือก — $(-4, -3) \\subseteq (-5, -3)$ เพราะ $-5 < -4$ และปลายขวา $-3$ ตรงกัน",
         "",
@@ -7459,6 +7762,193 @@
         "(-6,-4)∪(-4,1)",
         "(-6, -4) U (-4, 1)"
       ],
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
+            -6,
+            1
+          ],
+          "width": 440,
+          "height": 96,
+          "axisY": 60,
+          "solutionY": 36,
+          "labels": [
+            {
+              "at": -6,
+              "text": "−6"
+            },
+            {
+              "at": 1,
+              "text": "1"
+            }
+          ],
+          "signs": [
+            {
+              "from": null,
+              "to": -6,
+              "label": "+"
+            },
+            {
+              "from": -6,
+              "to": 1,
+              "label": "−"
+            },
+            {
+              "from": 1,
+              "to": null,
+              "label": "+"
+            }
+          ],
+          "segments": [
+            {
+              "from": -6,
+              "to": 1,
+              "color": "#d11"
+            }
+          ],
+          "points": [
+            {
+              "at": -6,
+              "open": true,
+              "color": "#d11"
+            },
+            {
+              "at": 1,
+              "open": true,
+              "color": "#d11"
+            }
+          ]
+        },
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
+            -4,
+            3
+          ],
+          "width": 440,
+          "height": 84,
+          "axisY": 52,
+          "solutionY": 32,
+          "labels": [
+            {
+              "at": -4,
+              "text": "−4"
+            },
+            {
+              "at": 3,
+              "text": "3"
+            }
+          ],
+          "rays": [
+            {
+              "from": 3,
+              "dir": "left",
+              "color": "#2e7d32"
+            }
+          ],
+          "points": [
+            {
+              "at": 3,
+              "open": true,
+              "color": "#2e7d32"
+            },
+            {
+              "at": -4,
+              "open": true,
+              "color": "#2e7d32"
+            }
+          ]
+        },
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
+            -6,
+            -4,
+            1,
+            3
+          ],
+          "width": 560,
+          "height": 108,
+          "axisY": 66,
+          "solutionY": 44,
+          "bands": [
+            {
+              "from": -6,
+              "to": -4.1357,
+              "top": 26,
+              "height": 46
+            },
+            {
+              "from": -3.6609,
+              "to": 1,
+              "top": 26,
+              "height": 46
+            }
+          ],
+          "labels": [
+            {
+              "at": -6,
+              "text": "−6"
+            },
+            {
+              "at": -4,
+              "text": "−4"
+            },
+            {
+              "at": 1,
+              "text": "1"
+            },
+            {
+              "at": 3,
+              "text": "3"
+            }
+          ],
+          "segments": [
+            {
+              "from": -6,
+              "to": 1,
+              "color": "#d11",
+              "y": 32
+            }
+          ],
+          "rays": [
+            {
+              "from": 3,
+              "dir": "left",
+              "color": "#2e7d32"
+            }
+          ],
+          "points": [
+            {
+              "at": -6,
+              "open": true,
+              "color": "#d11",
+              "y": 32
+            },
+            {
+              "at": 1,
+              "open": true,
+              "color": "#d11",
+              "y": 32
+            },
+            {
+              "at": 3,
+              "open": true,
+              "color": "#2e7d32"
+            },
+            {
+              "at": -4,
+              "open": true,
+              "color": "#2e7d32"
+            }
+          ]
+        }
+      ],
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
         "• อสมการพหุนาม: แยกตัวประกอบแล้ววิเคราะห์เครื่องหมาย",
@@ -7469,6 +7959,7 @@
         "<b>ขั้นที่ 1:</b> หา $A$",
         "$(x+6)(x-1)< 0$ — สองรากต่างเครื่องหมาย → $-6< x< 1$",
         "$A = (-6, 1)$",
+        "[IMAGE:0]",
         "",
         "<b>ขั้นที่ 2:</b> หา $B$",
         "$(x-3)^3(x+4)^4< 0$",
@@ -7476,11 +7967,13 @@
         "→ ต้อง $(x+4)^4 >0$ (เคร่ง — ไม่เท่ากับ 0) คือ $x\\ne -4$",
         "→ และ $(x-3)^3< 0$ คือ $x-3< 0$ คือ $x< 3$",
         "$B = (-\\infty, 3) - \\{-4\\} = (-\\infty, -4)\\cup(-4, 3)$",
+        "[IMAGE:1]",
         "",
         "<b>ขั้นที่ 3:</b> หา $A\\cap B$",
         "$A\\cap B = (-6,1)\\cap[(-\\infty,-4)\\cup(-4,3)]$",
         "$= [(-6,1)\\cap(-\\infty,-4)] \\cup [(-6,1)\\cap(-4,3)]$",
         "$= (-6,-4) \\cup (-4,1)$",
+        "[IMAGE:2]",
         "",
         "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ · จุดทดสอบทุกช่วง 】</b>",
         "<b>ขั้นที่ 1:</b> รวมจุดวิกฤตของทั้งสองอสมการไว้บนเส้นจำนวนเดียว: $-6, -4, 1, 3$ → แบ่งเป็น 5 ช่วง แทนค่าทดสอบช่วงละค่า ต้องจริงทั้งสองอสมการ",
