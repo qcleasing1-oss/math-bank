@@ -1939,6 +1939,14 @@
               "open": true,
               "color": "#d11"
             }
+          ],
+          "annotations": [
+            {
+              "text": "เซตคำตอบ = (¼, 3)",
+              "x": 220,
+              "y": 15,
+              "anchor": "middle"
+            }
           ]
         }
       ],
@@ -2058,6 +2066,14 @@
               "open": true,
               "color": "#d11"
             }
+          ],
+          "annotations": [
+            {
+              "text": "A = (−1, −⅔)",
+              "x": 220,
+              "y": 15,
+              "anchor": "middle"
+            }
           ]
         },
         {
@@ -2122,6 +2138,14 @@
               "at": 3,
               "open": true,
               "color": "#2e7d32"
+            }
+          ],
+          "annotations": [
+            {
+              "text": "B = (−∞, −½] ∪ (3, ∞)",
+              "x": 230,
+              "y": 15,
+              "anchor": "middle"
             }
           ]
         },
@@ -2217,6 +2241,14 @@
               "open": true,
               "color": "#2e7d32"
             }
+          ],
+          "annotations": [
+            {
+              "text": "A ∪ B",
+              "x": 260,
+              "y": 15,
+              "anchor": "middle"
+            }
           ]
         },
         {
@@ -2271,6 +2303,14 @@
               "at": 3,
               "open": false,
               "color": "#d11"
+            }
+          ],
+          "annotations": [
+            {
+              "text": "(A ∪ B)′ = (−½, 3]",
+              "x": 260,
+              "y": 15,
+              "anchor": "middle"
             }
           ]
         }
@@ -2413,6 +2453,14 @@
               "open": true,
               "color": "#d11"
             }
+          ],
+          "annotations": [
+            {
+              "text": "เซตคำตอบ = (−∞, −1) ∪ (1, 5)",
+              "x": 240,
+              "y": 15,
+              "anchor": "middle"
+            }
           ]
         }
       ],
@@ -2530,6 +2578,14 @@
               "at": -2,
               "open": true,
               "color": "#d11"
+            }
+          ],
+          "annotations": [
+            {
+              "text": "S = (−5, −2)",
+              "x": 220,
+              "y": 15,
+              "anchor": "middle"
             }
           ]
         }
@@ -3528,6 +3584,14 @@
               "open": false,
               "color": "#d11"
             }
+          ],
+          "annotations": [
+            {
+              "text": "A = (−∞, −2) ∪ [−√3, √3]",
+              "x": 240,
+              "y": 15,
+              "anchor": "middle"
+            }
           ]
         },
         {
@@ -3568,6 +3632,14 @@
               "at": 2,
               "open": false,
               "color": "#2e7d32"
+            }
+          ],
+          "annotations": [
+            {
+              "text": "B = [−2, 2]",
+              "x": 220,
+              "y": 15,
+              "anchor": "middle"
             }
           ]
         },
@@ -3654,6 +3726,14 @@
               "open": false,
               "color": "#d11",
               "y": 32
+            }
+          ],
+          "annotations": [
+            {
+              "text": "B − A = [−2, −√3) ∪ (√3, 2]",
+              "x": 280,
+              "y": 15,
+              "anchor": "middle"
             }
           ]
         }
@@ -3787,6 +3867,14 @@
               "open": false,
               "color": "#d11"
             }
+          ],
+          "annotations": [
+            {
+              "text": "A = (−2, 3]",
+              "x": 220,
+              "y": 15,
+              "anchor": "middle"
+            }
           ]
         },
         {
@@ -3862,6 +3950,14 @@
               "color": "#2e7d32",
               "y": 44
             }
+          ],
+          "annotations": [
+            {
+              "text": "A − B = (−2, −1)",
+              "x": 260,
+              "y": 15,
+              "anchor": "middle"
+            }
           ]
         },
         {
@@ -3907,6 +4003,14 @@
               "at": -1,
               "open": false,
               "color": "#d11"
+            }
+          ],
+          "annotations": [
+            {
+              "text": "(A − B)′ = (−∞, −2] ∪ [−1, ∞)",
+              "x": 220,
+              "y": 15,
+              "anchor": "middle"
             }
           ]
         }
@@ -4036,6 +4140,14 @@
               "open": true,
               "color": "#d11"
             }
+          ],
+          "annotations": [
+            {
+              "text": "A = (−∞, −3) ∪ (4, ∞)",
+              "x": 220,
+              "y": 15,
+              "anchor": "middle"
+            }
           ]
         },
         {
@@ -4101,6 +4213,14 @@
               "at": 4,
               "open": true,
               "color": "#2e7d32"
+            }
+          ],
+          "annotations": [
+            {
+              "text": "B = (−4, −2) ∪ (2, 4)",
+              "x": 240,
+              "y": 15,
+              "anchor": "middle"
             }
           ]
         },
@@ -4207,6 +4327,14 @@
               "open": true,
               "color": "#2e7d32"
             }
+          ],
+          "annotations": [
+            {
+              "text": "A ∩ B = (−4, −3)",
+              "x": 270,
+              "y": 15,
+              "anchor": "middle"
+            }
           ]
         }
       ],
@@ -4277,6 +4405,291 @@
         "$(-\\infty, \\infty)$"
       ],
       "correct": 3,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
+            1,
+            2
+          ],
+          "width": 440,
+          "height": 96,
+          "axisY": 60,
+          "solutionY": 36,
+          "labels": [
+            {
+              "at": 1,
+              "text": "1"
+            },
+            {
+              "at": 2,
+              "text": "2"
+            }
+          ],
+          "signs": [
+            {
+              "from": null,
+              "to": 1,
+              "label": "+"
+            },
+            {
+              "from": 1,
+              "to": 2,
+              "label": "−"
+            },
+            {
+              "from": 2,
+              "to": null,
+              "label": "+"
+            }
+          ],
+          "segments": [
+            {
+              "from": 1,
+              "to": 2,
+              "color": "#d11"
+            }
+          ],
+          "points": [
+            {
+              "at": 1,
+              "open": false,
+              "color": "#d11"
+            },
+            {
+              "at": 2,
+              "open": true,
+              "color": "#d11"
+            }
+          ],
+          "annotations": [
+            {
+              "text": "|x| ∈ [1, 2)",
+              "x": 220,
+              "y": 15,
+              "anchor": "middle"
+            }
+          ]
+        },
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
+            -2,
+            -1,
+            1,
+            2
+          ],
+          "width": 480,
+          "height": 96,
+          "axisY": 60,
+          "solutionY": 36,
+          "labels": [
+            {
+              "at": -2,
+              "text": "−2"
+            },
+            {
+              "at": -1,
+              "text": "−1"
+            },
+            {
+              "at": 1,
+              "text": "1"
+            },
+            {
+              "at": 2,
+              "text": "2"
+            }
+          ],
+          "segments": [
+            {
+              "from": -2,
+              "to": -1,
+              "color": "#d11"
+            },
+            {
+              "from": 1,
+              "to": 2,
+              "color": "#d11"
+            }
+          ],
+          "points": [
+            {
+              "at": -2,
+              "open": true,
+              "color": "#d11"
+            },
+            {
+              "at": -1,
+              "open": false,
+              "color": "#d11"
+            },
+            {
+              "at": 1,
+              "open": false,
+              "color": "#d11"
+            },
+            {
+              "at": 2,
+              "open": true,
+              "color": "#d11"
+            }
+          ],
+          "annotations": [
+            {
+              "text": "A = (−2, −1] ∪ [1, 2)",
+              "x": 240,
+              "y": 15,
+              "anchor": "middle"
+            }
+          ]
+        },
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
+            -3,
+            -2,
+            -1,
+            1,
+            2,
+            3
+          ],
+          "width": 560,
+          "height": 108,
+          "axisY": 66,
+          "solutionY": 44,
+          "bands": [
+            {
+              "from": null,
+              "to": null,
+              "top": 26,
+              "height": 46
+            }
+          ],
+          "labels": [
+            {
+              "at": -3,
+              "text": "−3"
+            },
+            {
+              "at": -2,
+              "text": "−2"
+            },
+            {
+              "at": -1,
+              "text": "−1"
+            },
+            {
+              "at": 1,
+              "text": "1"
+            },
+            {
+              "at": 2,
+              "text": "2"
+            },
+            {
+              "at": 3,
+              "text": "3"
+            }
+          ],
+          "rays": [
+            {
+              "from": -2,
+              "dir": "left",
+              "color": "#d11",
+              "y": 32
+            },
+            {
+              "from": 2,
+              "dir": "right",
+              "color": "#d11",
+              "y": 32
+            }
+          ],
+          "segments": [
+            {
+              "from": -1,
+              "to": 1,
+              "color": "#d11",
+              "y": 32
+            },
+            {
+              "from": -3,
+              "to": -1,
+              "color": "#2e7d32",
+              "y": 46
+            },
+            {
+              "from": 1,
+              "to": 3,
+              "color": "#2e7d32",
+              "y": 46
+            }
+          ],
+          "points": [
+            {
+              "at": -2,
+              "open": false,
+              "color": "#d11",
+              "y": 32
+            },
+            {
+              "at": -1,
+              "open": true,
+              "color": "#d11",
+              "y": 32
+            },
+            {
+              "at": 1,
+              "open": true,
+              "color": "#d11",
+              "y": 32
+            },
+            {
+              "at": 2,
+              "open": false,
+              "color": "#d11",
+              "y": 32
+            },
+            {
+              "at": -3,
+              "open": false,
+              "color": "#2e7d32",
+              "y": 46
+            },
+            {
+              "at": -1,
+              "open": false,
+              "color": "#2e7d32",
+              "y": 46
+            },
+            {
+              "at": 1,
+              "open": false,
+              "color": "#2e7d32",
+              "y": 46
+            },
+            {
+              "at": 3,
+              "open": false,
+              "color": "#2e7d32",
+              "y": 46
+            }
+          ],
+          "annotations": [
+            {
+              "text": "A′ ∪ B = ℝ",
+              "x": 280,
+              "y": 15,
+              "anchor": "middle"
+            }
+          ]
+        }
+      ],
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
         "แทน $a = |x|$ เพื่อลดรูปอสมการ $\\dfrac{|x| - 1}{|x| - 2} \\le 0$ ให้เป็นเศษส่วนพหุนามในตัวแปร $a$ แล้วแปลงช่วงของ $a$ (ซึ่ง $a \\ge 0$) กลับเป็นช่วงของ $x$ แบบสมมาตร",
@@ -4287,11 +4700,13 @@
         "<b>【 วิธีที่ 1 ▸ พื้นฐาน · แทน $a = |x|$ แล้วทำส่วนเติมเต็ม 】</b>",
         "<b>ขั้นที่ 1:</b> หาเซต $A$ — ให้ $a = |x|$",
         "$\\dfrac{a - 1}{a - 2} \\le 0$ จุดวิกฤต $a = 1$ (ราก), $a = 2$ (ตัวส่วน) ได้ $1 \\le a < 2$ นั่นคือ $1 \\le |x| < 2$",
+        "[IMAGE:0]",
         "",
         "<b>ขั้นที่ 2:</b> แปลง $1 \\le |x| < 2$ กลับเป็น $x$ — $|x| \\ge 1 \\Rightarrow x \\le -1$",
         "หรือ $x \\ge 1$",
         "$\\begin{aligned} |x| & < 2 \\\\ -2 & < x < 2 \\end{aligned}$",
         "รวมกันได้ $A = (-2, -1] \\cup [1, 2)$",
+        "[IMAGE:1]",
         "",
         "<b>ขั้นที่ 3:</b> หา $A' = (-\\infty, -2] \\cup (-1, 1) \\cup [2, \\infty)$",
         "",
@@ -4304,6 +4719,7 @@
         "เติม $(-1, 1)$ ได้ $(-\\infty, 1)$",
         "เติม $[1, 3]$ ได้ $(-\\infty, 3]$",
         "เติม $[2, \\infty)$ ได้ $(-\\infty, \\infty)$ ดังนั้น $A' \\cup B = \\mathbb{R}$",
+        "[IMAGE:2]",
         "",
         "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ · มองเชิงเซต $A \\subseteq B$ 】</b>",
         "<b>ขั้นที่ 1:</b> จากขั้นที่ 1 ของ วิธีที่ 1: $A$ คือ $1 \\le |x| < 2$ ส่วน $B$ คือ $1 \\le |x| \\le 3$",
@@ -4404,6 +4820,264 @@
         "$[\\dfrac{3}{4}, 3]$"
       ],
       "correct": 2,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
+            0,
+            0.6666666666666666
+          ],
+          "width": 440,
+          "height": 96,
+          "axisY": 60,
+          "solutionY": 36,
+          "labels": [
+            {
+              "at": 0,
+              "text": "0"
+            },
+            {
+              "at": 0.6666666666666666,
+              "num": 2,
+              "den": 3
+            }
+          ],
+          "signs": [
+            {
+              "from": null,
+              "to": 0,
+              "label": "+"
+            },
+            {
+              "from": 0,
+              "to": 0.6666666666666666,
+              "label": "−"
+            },
+            {
+              "from": 0.6666666666666666,
+              "to": null,
+              "label": "+"
+            }
+          ],
+          "segments": [
+            {
+              "from": 0,
+              "to": 0.6666666666666666,
+              "color": "#d11"
+            }
+          ],
+          "points": [
+            {
+              "at": 0,
+              "open": true,
+              "color": "#d11"
+            },
+            {
+              "at": 0.6666666666666666,
+              "open": false,
+              "color": "#d11"
+            }
+          ],
+          "annotations": [
+            {
+              "text": "กรณี x ∈ (−∞, 1) : (0, ⅔]",
+              "x": 220,
+              "y": 15,
+              "anchor": "middle"
+            }
+          ]
+        },
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
+            0.6666666666666666,
+            1,
+            2
+          ],
+          "width": 520,
+          "height": 108,
+          "axisY": 66,
+          "solutionY": 44,
+          "bands": [
+            {
+              "from": 2,
+              "to": null,
+              "top": 26,
+              "height": 46
+            }
+          ],
+          "labels": [
+            {
+              "at": 0.6666666666666666,
+              "num": 2,
+              "den": 3
+            },
+            {
+              "at": 1,
+              "text": "1"
+            },
+            {
+              "at": 2,
+              "text": "2"
+            }
+          ],
+          "signs": [
+            {
+              "from": null,
+              "to": 0.6666666666666666,
+              "label": "+"
+            },
+            {
+              "from": 0.6666666666666666,
+              "to": 2,
+              "label": "−"
+            },
+            {
+              "from": 2,
+              "to": null,
+              "label": "+"
+            }
+          ],
+          "rays": [
+            {
+              "from": 0.6666666666666666,
+              "dir": "left",
+              "color": "#d11",
+              "y": 32
+            },
+            {
+              "from": 2,
+              "dir": "right",
+              "color": "#d11",
+              "y": 32
+            },
+            {
+              "from": 1,
+              "dir": "right",
+              "color": "#2e7d32",
+              "y": 46
+            }
+          ],
+          "points": [
+            {
+              "at": 0.6666666666666666,
+              "open": false,
+              "color": "#d11",
+              "y": 32
+            },
+            {
+              "at": 2,
+              "open": true,
+              "color": "#d11",
+              "y": 32
+            },
+            {
+              "at": 1,
+              "open": false,
+              "color": "#2e7d32",
+              "y": 46
+            }
+          ],
+          "annotations": [
+            {
+              "text": "กรณี x ∈ [1, ∞) : (2, ∞)",
+              "x": 260,
+              "y": 15,
+              "anchor": "middle"
+            }
+          ]
+        },
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
+            0.5,
+            0.6666666666666666,
+            2
+          ],
+          "width": 520,
+          "height": 108,
+          "axisY": 66,
+          "solutionY": 44,
+          "bands": [
+            {
+              "from": 0.5,
+              "to": 2,
+              "top": 26,
+              "height": 46,
+              "color": "#c8e6c9",
+              "opacity": 0.6
+            }
+          ],
+          "labels": [
+            {
+              "at": 0.5,
+              "num": 1,
+              "den": 2
+            },
+            {
+              "at": 0.6666666666666666,
+              "num": 2,
+              "den": 3
+            },
+            {
+              "at": 2,
+              "text": "2"
+            }
+          ],
+          "segments": [
+            {
+              "from": 0.6666666666666666,
+              "to": 2,
+              "color": "#d11",
+              "y": 32
+            },
+            {
+              "from": 0.5,
+              "to": 2,
+              "color": "#2e7d32",
+              "y": 46
+            }
+          ],
+          "points": [
+            {
+              "at": 0.6666666666666666,
+              "open": true,
+              "color": "#d11",
+              "y": 32
+            },
+            {
+              "at": 2,
+              "open": false,
+              "color": "#d11",
+              "y": 32
+            },
+            {
+              "at": 0.5,
+              "open": false,
+              "color": "#2e7d32",
+              "y": 46
+            },
+            {
+              "at": 2,
+              "open": false,
+              "color": "#2e7d32",
+              "y": 46
+            }
+          ],
+          "annotations": [
+            {
+              "text": "(⅔, 2] ⊆ [½, 2]",
+              "x": 260,
+              "y": 15,
+              "anchor": "middle"
+            }
+          ]
+        }
+      ],
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
         "ตัวส่วน $|x - 1| - 1$ ต้องแยกกรณีถอดค่าสัมบูรณ์ที่ $x = 1$",
@@ -4416,16 +5090,19 @@
         "<b>【 วิธีที่ 1 ▸ พื้นฐาน · แยกกรณีถอดค่าสัมบูรณ์ 】</b>",
         "<b>ขั้นที่ 1:</b> กรณี $x < 1$ — $|x - 1| = 1 - x$ ตัวส่วน $= (1 - x) - 1 = -x$ อสมการเป็น $\\dfrac{3x - 2}{-x} \\ge 0 \\Leftrightarrow \\dfrac{3x - 2}{x} \\le 0$ จุดวิกฤต $x = \\dfrac{2}{3}, 0$ ได้ $0 < x \\le \\dfrac{2}{3}$",
         "รวมกับ $x < 1$ ได้ $(0, \\dfrac{2}{3}]$",
+        "[IMAGE:0]",
         "",
         "<b>ขั้นที่ 2:</b> กรณี $x \\ge 1$ — $|x - 1| = x - 1$ ตัวส่วน $= (x - 1) - 1 = x - 2$ อสมการเป็น $\\dfrac{3x - 2}{x - 2} \\ge 0$ จุดวิกฤต $x = \\dfrac{2}{3}, 2$ ได้ $x \\le \\dfrac{2}{3}$",
         "หรือ $x > 2$",
         "รวมกับ $x \\ge 1$ ได้ $(2, \\infty)$",
+        "[IMAGE:1]",
         "",
         "<b>ขั้นที่ 3:</b> รวมสองกรณี — $S = (0, \\dfrac{2}{3}] \\cup (2, \\infty)$",
         "",
         "<b>ขั้นที่ 4:</b> หา $\\{x \\mid x > 0$ และ $x \\notin S\\}$ — ในช่วง $x > 0$ ส่วนที่ไม่อยู่ใน $S$ คือ $(\\dfrac{2}{3}, 2]$",
         "",
         "<b>ขั้นที่ 5:</b> $(\\dfrac{2}{3}, 2]$ เป็นสับเซตของช่วงใด? เพราะ $\\dfrac{2}{3} \\approx 0.667$ จึง $(\\dfrac{2}{3}, 2] \\subseteq [\\dfrac{1}{2}, 2]$ (เพราะ $\\dfrac{1}{2} < \\dfrac{2}{3}$ และปลายขวา $2$ ตรงกัน)",
+        "[IMAGE:2]",
         "",
         "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ · เครื่องหมายเศษ-ส่วนผ่านระยะทาง 】</b>",
         "<b>ขั้นที่ 1:</b> ไม่ต้องแยกกรณี — วิเคราะห์เครื่องหมายของเศษกับส่วนแยกกัน",
@@ -4479,6 +5156,329 @@
         "ก. ผิด และ ข. ผิด"
       ],
       "correct": 1,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
+            0,
+            1
+          ],
+          "width": 440,
+          "height": 96,
+          "axisY": 60,
+          "solutionY": 36,
+          "labels": [
+            {
+              "at": 0,
+              "text": "0"
+            },
+            {
+              "at": 1,
+              "text": "1"
+            }
+          ],
+          "signs": [
+            {
+              "from": null,
+              "to": 0,
+              "label": "+"
+            },
+            {
+              "from": 0,
+              "to": 1,
+              "label": "−"
+            },
+            {
+              "from": 1,
+              "to": null,
+              "label": "+"
+            }
+          ],
+          "rays": [
+            {
+              "from": 0,
+              "dir": "left",
+              "color": "#d11"
+            },
+            {
+              "from": 1,
+              "dir": "right",
+              "color": "#d11"
+            }
+          ],
+          "points": [
+            {
+              "at": 0,
+              "open": false,
+              "color": "#d11"
+            },
+            {
+              "at": 1,
+              "open": true,
+              "color": "#d11"
+            }
+          ],
+          "annotations": [
+            {
+              "text": "x/(x−1) ≥ 0 : (−∞, 0] ∪ (1, ∞)",
+              "x": 220,
+              "y": 15,
+              "anchor": "middle"
+            }
+          ]
+        },
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
+            -1,
+            0
+          ],
+          "width": 440,
+          "height": 96,
+          "axisY": 60,
+          "solutionY": 36,
+          "labels": [
+            {
+              "at": -1,
+              "text": "−1"
+            },
+            {
+              "at": 0,
+              "text": "0"
+            }
+          ],
+          "signs": [
+            {
+              "from": null,
+              "to": -1,
+              "label": "+"
+            },
+            {
+              "from": -1,
+              "to": 0,
+              "label": "−"
+            },
+            {
+              "from": 0,
+              "to": null,
+              "label": "+"
+            }
+          ],
+          "segments": [
+            {
+              "from": -1,
+              "to": 0,
+              "color": "#d11"
+            }
+          ],
+          "points": [
+            {
+              "at": -1,
+              "open": true,
+              "color": "#d11"
+            },
+            {
+              "at": 0,
+              "open": false,
+              "color": "#d11"
+            }
+          ],
+          "annotations": [
+            {
+              "text": "x/(x+1) ≤ 0 : (−1, 0]",
+              "x": 220,
+              "y": 15,
+              "anchor": "middle"
+            }
+          ]
+        },
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
+            -1,
+            0,
+            1
+          ],
+          "width": 480,
+          "height": 96,
+          "axisY": 60,
+          "solutionY": 36,
+          "labels": [
+            {
+              "at": -1,
+              "text": "−1"
+            },
+            {
+              "at": 0,
+              "text": "0"
+            },
+            {
+              "at": 1,
+              "text": "1"
+            }
+          ],
+          "segments": [
+            {
+              "from": -1,
+              "to": 0,
+              "color": "#d11"
+            }
+          ],
+          "rays": [
+            {
+              "from": 1,
+              "dir": "right",
+              "color": "#d11"
+            }
+          ],
+          "points": [
+            {
+              "at": -1,
+              "open": true,
+              "color": "#d11"
+            },
+            {
+              "at": 0,
+              "open": false,
+              "color": "#d11"
+            },
+            {
+              "at": 1,
+              "open": true,
+              "color": "#d11"
+            }
+          ],
+          "annotations": [
+            {
+              "text": "S = (−1, 0] ∪ (1, ∞)",
+              "x": 240,
+              "y": 15,
+              "anchor": "middle"
+            }
+          ]
+        },
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
+            -1,
+            0,
+            1,
+            2,
+            3
+          ],
+          "width": 560,
+          "height": 108,
+          "axisY": 66,
+          "solutionY": 44,
+          "labels": [
+            {
+              "at": -1,
+              "text": "−1"
+            },
+            {
+              "at": 0,
+              "text": "0"
+            },
+            {
+              "at": 1,
+              "text": "1"
+            },
+            {
+              "at": 2,
+              "text": "2"
+            },
+            {
+              "at": 3,
+              "text": "3"
+            }
+          ],
+          "segments": [
+            {
+              "from": -1,
+              "to": 0,
+              "color": "#d11",
+              "y": 32
+            },
+            {
+              "from": 1,
+              "to": 2,
+              "color": "#1565c0",
+              "y": 46
+            }
+          ],
+          "rays": [
+            {
+              "from": 1,
+              "dir": "right",
+              "color": "#d11",
+              "y": 32
+            },
+            {
+              "from": 3,
+              "dir": "right",
+              "color": "#1565c0",
+              "y": 46
+            }
+          ],
+          "points": [
+            {
+              "at": -1,
+              "open": true,
+              "color": "#d11",
+              "y": 32
+            },
+            {
+              "at": 0,
+              "open": false,
+              "color": "#d11",
+              "y": 32
+            },
+            {
+              "at": 1,
+              "open": true,
+              "color": "#d11",
+              "y": 32
+            },
+            {
+              "at": 1,
+              "open": true,
+              "color": "#1565c0",
+              "y": 46
+            },
+            {
+              "at": 2,
+              "open": false,
+              "color": "#1565c0",
+              "y": 46
+            },
+            {
+              "at": 3,
+              "open": true,
+              "color": "#1565c0",
+              "y": 46
+            }
+          ],
+          "annotations": [
+            {
+              "x": 6,
+              "y": 35,
+              "text": "S",
+              "anchor": "start"
+            },
+            {
+              "x": 6,
+              "y": 49,
+              "text": "S+2",
+              "anchor": "start"
+            }
+          ]
+        }
+      ],
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
         "ตัวส่วน $|x| - 1$ แยกกรณีถอดค่าสัมบูรณ์ที่ $x = 0$",
@@ -4493,16 +5493,20 @@
         "จุดวิกฤต $0, 1$ ได้ $x \\le 0$",
         "หรือ $x > 1$",
         "รวมกับ $x \\ge 0$ ได้ $\\{0\\} \\cup (1, \\infty)$",
+        "[IMAGE:0]",
         "",
         "<b>ขั้นที่ 2:</b> กรณี $x < 0$ — $|x| = -x$",
         "$\\begin{aligned} \\dfrac{3x - 2}{-x - 1} & \\ge 2 \\\\ \\dfrac{3x - 2 - 2(-x - 1)}{-x - 1} & \\ge 0 \\\\ \\dfrac{5x}{-x - 1} & \\ge 0 \\\\ \\dfrac{x}{x + 1} & \\le 0 \\end{aligned}$",
         "จุดวิกฤต $0, -1$ ได้ $-1 < x \\le 0$",
         "รวมกับ $x < 0$ ได้ $(-1, 0)$",
+        "[IMAGE:1]",
         "",
         "<b>ขั้นที่ 3:</b> รวมสองกรณี — $S = (-1, 0] \\cup (1, \\infty)$ ดังนั้น ข้อ ก. <b>ถูก</b>",
+        "[IMAGE:2]",
         "",
         "<b>ขั้นที่ 4:</b> ตรวจ ข. — ข้ออ้างว่า \"มี $x$ บางตัวใน $S$ ที่ $x + 2 \\notin S$\" ลองตรวจทุกส่วนของ $S$ : ถ้า $x \\in (-1, 0]$ แล้ว $x + 2 \\in (1, 2] \\subseteq (1, \\infty) \\subseteq S$ ✓",
         "ถ้า $x \\in (1, \\infty)$ แล้ว $x + 2 \\in (3, \\infty) \\subseteq S$ ✓ ดังนั้นทุก $x \\in S$ ย่อมมี $x + 2 \\in S$ เสมอ หา $x$ ที่ $x + 2 \\notin S$ ไม่ได้เลย ข้อความ ข. จึงเป็น<b>เท็จ</b> ⟹ ข. <b>ผิด</b>",
+        "[IMAGE:3]",
         "",
         "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ · ทดสอบจุดยืนยัน S + มองการเลื่อนขวา 】</b>",
         "<b>เครื่องมือ:</b> ตรวจ ก. ด้วยการแทนจุดตัวแทนแต่ละช่วง (จุดวิกฤต $-1, 0, 1$) ไม่ต้องแก้พีชคณิต",
@@ -4608,6 +5612,155 @@
         "$(-6, -1) \\cup (-1, \\infty)$"
       ],
       "correct": 0,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
+            -2,
+            0
+          ],
+          "width": 460,
+          "height": 96,
+          "axisY": 60,
+          "solutionY": 36,
+          "labels": [
+            {
+              "at": -2,
+              "text": "−2"
+            },
+            {
+              "at": 0,
+              "text": "0"
+            }
+          ],
+          "signs": [
+            {
+              "from": null,
+              "to": -2,
+              "label": "+"
+            },
+            {
+              "from": -2,
+              "to": 0,
+              "label": "−"
+            },
+            {
+              "from": 0,
+              "to": null,
+              "label": "+"
+            }
+          ],
+          "rays": [
+            {
+              "from": -2,
+              "dir": "left",
+              "color": "#d11"
+            },
+            {
+              "from": 0,
+              "dir": "right",
+              "color": "#d11"
+            }
+          ],
+          "points": [
+            {
+              "at": -2,
+              "open": true,
+              "color": "#d11"
+            },
+            {
+              "at": 0,
+              "open": true,
+              "color": "#d11"
+            }
+          ],
+          "annotations": [
+            {
+              "text": "ตัวส่วนเป็นบวก : (−∞, −2) ∪ (0, ∞)",
+              "x": 230,
+              "y": 15,
+              "anchor": "middle"
+            }
+          ]
+        },
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
+            -6,
+            -2,
+            0,
+            0.25
+          ],
+          "width": 520,
+          "height": 96,
+          "axisY": 60,
+          "solutionY": 36,
+          "labels": [
+            {
+              "at": -6,
+              "text": "−6"
+            },
+            {
+              "at": -2,
+              "text": "−2"
+            },
+            {
+              "at": 0,
+              "text": "0"
+            },
+            {
+              "at": 0.25,
+              "num": 1,
+              "den": 4
+            }
+          ],
+          "segments": [
+            {
+              "from": -6,
+              "to": -2,
+              "color": "#d11"
+            },
+            {
+              "from": 0,
+              "to": 0.25,
+              "color": "#d11"
+            }
+          ],
+          "points": [
+            {
+              "at": -6,
+              "open": true,
+              "color": "#d11"
+            },
+            {
+              "at": -2,
+              "open": true,
+              "color": "#d11"
+            },
+            {
+              "at": 0,
+              "open": true,
+              "color": "#d11"
+            },
+            {
+              "at": 0.25,
+              "open": true,
+              "color": "#d11"
+            }
+          ],
+          "annotations": [
+            {
+              "text": "เซตคำตอบ = (−6, −2) ∪ (0, ¼)",
+              "x": 260,
+              "y": 15,
+              "anchor": "middle"
+            }
+          ]
+        }
+      ],
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
         "เศษ $|3x - 2| \\ge 0$ เสมอ และฝั่งขวาคือ $5 > 0$ ดังนั้นอสมการจะเป็นจริงได้ก็ต่อเมื่อ \"ตัวส่วนเป็นบวก\" คือ $|x + 1| - 1 > 0$",
@@ -4619,6 +5772,7 @@
         "<b>ขั้นที่ 1:</b> บังคับตัวส่วนเป็นบวก —",
         "$\\begin{aligned} |x + 1| - 1 & > 0 \\\\ |x + 1| & > 1 \\\\ x & > 0 \\end{aligned}$",
         "หรือ $x < -2$ (เฉพาะสองช่วงนี้เท่านั้นที่อสมการมีโอกาสจริง)",
+        "[IMAGE:0]",
         "",
         "<b>ขั้นที่ 2:</b> ช่วง $x > 0$ — ตรงนี้ $|x + 1| = x + 1$ ตัวส่วน $= x$",
         "แยกย่อยที่ $x = \\dfrac{2}{3}$",
@@ -4635,6 +5789,7 @@
         "→ ได้ $(-6, -2)$",
         "",
         "<b>ขั้นที่ 4:</b> รวมคำตอบ — $(-6, -2) \\cup \\left(0, \\dfrac{1}{4}\\right)$",
+        "[IMAGE:1]",
         "",
         "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ · ค่าทดสอบตัดตัวเลือก 】</b>",
         "<b>ขั้นที่ 1:</b> ตัวเลือกต่างกันที่ช่วงซ้าย ($-2$ หรือ $-1$) และช่วงขวา ($0$ หรือ $-1$ เป็นปลาย) — ทดสอบค่าในจุดที่ต่าง",
@@ -4678,6 +5833,142 @@
         "$\\left(\\dfrac{5}{3}, 2\\right) \\cup (2, 3)$"
       ],
       "correct": 3,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
+            1.6667,
+            3
+          ],
+          "width": 460,
+          "height": 96,
+          "axisY": 60,
+          "solutionY": 36,
+          "labels": [
+            {
+              "at": 1.6667,
+              "num": 5,
+              "den": 3
+            },
+            {
+              "at": 3,
+              "text": "3"
+            }
+          ],
+          "signs": [
+            {
+              "from": null,
+              "to": 1.6667,
+              "label": "+"
+            },
+            {
+              "from": 1.6667,
+              "to": 3,
+              "label": "−",
+              "color": "#c0392b"
+            },
+            {
+              "from": 3,
+              "to": null,
+              "label": "+"
+            }
+          ],
+          "segments": [
+            {
+              "from": 1.6667,
+              "to": 3,
+              "color": "#2e7d32"
+            }
+          ],
+          "points": [
+            {
+              "at": 1.6667,
+              "open": true,
+              "color": "#2e7d32"
+            },
+            {
+              "at": 3,
+              "open": true,
+              "color": "#2e7d32"
+            }
+          ],
+          "annotations": [
+            {
+              "text": "(x−3)(3x−5) เป็นลบ : (5/3, 3)",
+              "x": 230,
+              "y": 15,
+              "anchor": "middle"
+            }
+          ]
+        },
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
+            1.6667,
+            2,
+            3
+          ],
+          "width": 500,
+          "height": 96,
+          "axisY": 60,
+          "solutionY": 36,
+          "labels": [
+            {
+              "at": 1.6667,
+              "num": 5,
+              "den": 3
+            },
+            {
+              "at": 2,
+              "text": "2"
+            },
+            {
+              "at": 3,
+              "text": "3"
+            }
+          ],
+          "segments": [
+            {
+              "from": 1.6667,
+              "to": 2,
+              "color": "#d11"
+            },
+            {
+              "from": 2,
+              "to": 3,
+              "color": "#d11"
+            }
+          ],
+          "points": [
+            {
+              "at": 1.6667,
+              "open": true,
+              "color": "#d11"
+            },
+            {
+              "at": 2,
+              "open": true,
+              "color": "#d11"
+            },
+            {
+              "at": 3,
+              "open": true,
+              "color": "#d11"
+            }
+          ],
+          "annotations": [
+            {
+              "text": "เจาะ x = 2",
+              "x": 250,
+              "y": 15,
+              "anchor": "middle"
+            }
+          ]
+        }
+      ],
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
         "$\\left|\\dfrac{p}{q}\\right| = \\dfrac{|p|}{|q|}$ และเมื่อทั้งสองฝั่งของอสมการไม่เป็นลบ การยกกำลังสองรักษาทิศอสมการ",
@@ -4692,8 +5983,10 @@
         "$\\begin{aligned} (-x + 3)(3x - 5) & > 0 \\\\ (x - 3)(3x - 5) & < 0 \\end{aligned}$",
         "",
         "<b>ขั้นที่ 3:</b> เขียนเส้นจำนวนจากจุดวิกฤต $\\dfrac{5}{3}$ และ $3$ — ผลคูณ $ < 0$ เอาช่วงใน ได้ $\\dfrac{5}{3} < x < 3$",
+        "[IMAGE:0]",
         "",
         "<b>ขั้นที่ 4:</b> ตัด $x = 2$ ออก (ไม่อยู่ในโดเมน) — เซตคำตอบ $= \\left(\\dfrac{5}{3}, 2\\right) \\cup (2, 3)$",
+        "[IMAGE:1]",
         "",
         "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ · แยกพจน์คงตัว 】</b>",
         "<b>ขั้นที่ 1:</b> เขียน",
@@ -4739,6 +6032,153 @@
         "$\\left(-\\infty, -\\dfrac{3}{2}\\right) \\cup \\left(-\\dfrac{5}{6}, \\infty\\right)$"
       ],
       "correct": 2,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
+            -5.5,
+            -0.8333
+          ],
+          "width": 460,
+          "height": 96,
+          "axisY": 60,
+          "solutionY": 36,
+          "labels": [
+            {
+              "at": -5.5,
+              "num": 11,
+              "den": 2,
+              "neg": true
+            },
+            {
+              "at": -0.8333,
+              "num": 5,
+              "den": 6,
+              "neg": true
+            }
+          ],
+          "signs": [
+            {
+              "from": null,
+              "to": -5.5,
+              "label": "+"
+            },
+            {
+              "from": -5.5,
+              "to": -0.8333,
+              "label": "−",
+              "color": "#c0392b"
+            },
+            {
+              "from": -0.8333,
+              "to": null,
+              "label": "+"
+            }
+          ],
+          "rays": [
+            {
+              "from": -5.5,
+              "dir": "left",
+              "color": "#d11"
+            },
+            {
+              "from": -0.8333,
+              "dir": "right",
+              "color": "#d11"
+            }
+          ],
+          "points": [
+            {
+              "at": -5.5,
+              "open": true,
+              "color": "#d11"
+            },
+            {
+              "at": -0.8333,
+              "open": true,
+              "color": "#d11"
+            }
+          ],
+          "annotations": [
+            {
+              "text": "(−∞, −11/2) ∪ (−5/6, ∞)",
+              "x": 230,
+              "y": 15,
+              "anchor": "middle"
+            }
+          ]
+        },
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
+            -5.5,
+            -2,
+            -0.8333
+          ],
+          "width": 500,
+          "height": 96,
+          "axisY": 60,
+          "solutionY": 36,
+          "labels": [
+            {
+              "at": -5.5,
+              "num": 11,
+              "den": 2,
+              "neg": true
+            },
+            {
+              "at": -2,
+              "text": "−2"
+            },
+            {
+              "at": -0.8333,
+              "num": 5,
+              "den": 6,
+              "neg": true
+            }
+          ],
+          "rays": [
+            {
+              "from": -5.5,
+              "dir": "left",
+              "color": "#d11"
+            },
+            {
+              "from": -0.8333,
+              "dir": "right",
+              "color": "#d11"
+            }
+          ],
+          "points": [
+            {
+              "at": -5.5,
+              "open": true,
+              "color": "#d11"
+            },
+            {
+              "at": -0.8333,
+              "open": true,
+              "color": "#d11"
+            },
+            {
+              "at": -2,
+              "open": true,
+              "color": "#1565c0"
+            }
+          ],
+          "annotations": [
+            {
+              "text": "x = −2 อยู่นอกเซตอยู่แล้ว",
+              "x": 250,
+              "y": 15,
+              "anchor": "middle"
+            }
+          ]
+        }
+      ],
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
         "$\\begin{aligned}  & \\left|\\dfrac{p}{q}\\right| < k \\\\ |p| & < k|q| \\end{aligned}$",
@@ -4758,8 +6198,10 @@
         "<b>ขั้นที่ 3:</b> จุดวิกฤต $-\\dfrac{11}{2}$ และ $-\\dfrac{5}{6}$",
         "สัมประสิทธิ์นำเป็นบวก ผลคูณ $ > 0$ จึงเอา \"ช่วงนอก\" — $x < -\\dfrac{11}{2}$",
         "หรือ $x > -\\dfrac{5}{6}$",
+        "[IMAGE:0]",
         "",
         "<b>ขั้นที่ 4:</b> $x = -2$ ไม่อยู่ในเซตนี้อยู่แล้ว (เพราะ $-\\dfrac{11}{2} < -2 < -\\dfrac{5}{6}$) จึงไม่ต้องเจาะเพิ่ม — เซตคำตอบ $= \\left(-\\infty, -\\dfrac{11}{2}\\right) \\cup \\left(-\\dfrac{5}{6}, \\infty\\right)$",
+        "[IMAGE:1]",
         "",
         "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ · ค่าทดสอบตัดตัวเลือก 】</b>",
         "<b>ขั้นที่ 1:</b> ทุกตัวเลือกมีช่วง $\\left(-\\dfrac{5}{6}, \\infty\\right)$ เหมือนกัน — ต่างกันแค่ก้อนซ้าย จึงทดสอบเฉพาะค่าฝั่งซ้าย",
@@ -4803,6 +6245,175 @@
         "ก. ถูก ข. ผิด"
       ],
       "correct": 1,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
+            -5.5,
+            -0.8333
+          ],
+          "width": 460,
+          "height": 96,
+          "axisY": 60,
+          "solutionY": 36,
+          "labels": [
+            {
+              "at": -5.5,
+              "num": 11,
+              "den": 2,
+              "neg": true
+            },
+            {
+              "at": -0.8333,
+              "num": 5,
+              "den": 6,
+              "neg": true
+            }
+          ],
+          "signs": [
+            {
+              "from": null,
+              "to": -5.5,
+              "label": "+"
+            },
+            {
+              "from": -5.5,
+              "to": -0.8333,
+              "label": "−",
+              "color": "#c0392b"
+            },
+            {
+              "from": -0.8333,
+              "to": null,
+              "label": "+"
+            }
+          ],
+          "rays": [
+            {
+              "from": -5.5,
+              "dir": "left",
+              "color": "#d11"
+            },
+            {
+              "from": -0.8333,
+              "dir": "right",
+              "color": "#d11"
+            }
+          ],
+          "points": [
+            {
+              "at": -5.5,
+              "open": true,
+              "color": "#d11"
+            },
+            {
+              "at": -0.8333,
+              "open": true,
+              "color": "#d11"
+            }
+          ],
+          "annotations": [
+            {
+              "text": "A",
+              "x": 230,
+              "y": 15,
+              "anchor": "middle"
+            }
+          ]
+        },
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
+            -6,
+            -5.5,
+            -3,
+            -0.8333,
+            0
+          ],
+          "width": 560,
+          "height": 96,
+          "axisY": 60,
+          "solutionY": 36,
+          "labels": [
+            {
+              "at": -6,
+              "text": "−6"
+            },
+            {
+              "at": -5.5,
+              "num": 11,
+              "den": 2,
+              "neg": true
+            },
+            {
+              "at": -3,
+              "text": "−3"
+            },
+            {
+              "at": -0.8333,
+              "num": 5,
+              "den": 6,
+              "neg": true
+            },
+            {
+              "at": 0,
+              "text": "0"
+            }
+          ],
+          "rays": [
+            {
+              "from": -5.5,
+              "dir": "left",
+              "color": "#d11"
+            },
+            {
+              "from": -0.8333,
+              "dir": "right",
+              "color": "#d11"
+            }
+          ],
+          "points": [
+            {
+              "at": -6,
+              "open": false,
+              "color": "#2e7d32"
+            },
+            {
+              "at": 0,
+              "open": false,
+              "color": "#2e7d32"
+            },
+            {
+              "at": -3,
+              "open": true,
+              "color": "#1565c0"
+            }
+          ],
+          "annotations": [
+            {
+              "text": "a",
+              "x": 108,
+              "y": 15,
+              "anchor": "middle"
+            },
+            {
+              "text": "(a+b)/2 = −3 ∉ A",
+              "x": 280,
+              "y": 15,
+              "anchor": "middle"
+            },
+            {
+              "text": "b",
+              "x": 452,
+              "y": 15,
+              "anchor": "middle"
+            }
+          ]
+        }
+      ],
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
         "หาเซต $A$ ก่อนด้วยวิธีอสมการค่าสัมบูรณ์เศษส่วน",
@@ -4816,8 +6427,10 @@
         "ยกกำลังสอง $(2x - 3)^{2} < (4x + 8)^{2}$",
         "$\\begin{aligned} [(2x - 3) - (4x + 8)][(2x - 3) + (4x + 8)] & < 0 \\\\ (-2x - 11)(6x + 5) & < 0 \\\\ (2x + 11)(6x + 5) & > 0 \\end{aligned}$",
         "จุดวิกฤต $-\\dfrac{11}{2}$ และ $-\\dfrac{5}{6}$ ได้ $A = \\left(-\\infty, -\\dfrac{11}{2}\\right) \\cup \\left(-\\dfrac{5}{6}, \\infty\\right)$",
+        "[IMAGE:0]",
         "",
         "<b>ขั้นที่ 2:</b> ตรวจ ก. \"ถ้า $a, b \\in A$ แล้ว $\\dfrac{a + b}{2} \\in A$\" — ลองตัวอย่างค้าน $a = -6 \\in A$ (เพราะ $-6 < -\\dfrac{11}{2}$) และ $b = 0 \\in A$ (เพราะ $0 > -\\dfrac{5}{6}$) แต่ $\\dfrac{a + b}{2} = -3$ ซึ่ง $-3 \\notin A$ (ตกในช่องว่าง $-\\dfrac{11}{2} < -3 < -\\dfrac{5}{6}$) ⟹ ก. <b>ผิด</b>",
+        "[IMAGE:1]",
         "",
         "<b>ขั้นที่ 3:</b> ตรวจ ข. — $f(x) = x^{2}$ บนโดเมน $A$",
         "เนื่องจาก $A$ คลุมช่วง $\\left(-\\dfrac{5}{6}, \\infty\\right)$ ซึ่งมีทั้ง $0$ และจำนวนบวกทุกค่า ดังนั้น $x^{2}$ รับค่าได้ตั้งแต่ $0$ (ที่ $x = 0 \\in A$) ไปจนถึง $\\infty$ ⟹ เรนจ์ $= [0, \\infty)$ ⟹ ข. <b>ถูก</b>",
@@ -4871,6 +6484,210 @@
       "accept": [
         "5.5"
       ],
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
+            0.5
+          ],
+          "width": 420,
+          "height": 96,
+          "axisY": 60,
+          "solutionY": 36,
+          "labels": [
+            {
+              "at": 0.5,
+              "num": 1,
+              "den": 2
+            }
+          ],
+          "rays": [
+            {
+              "from": 0.5,
+              "dir": "right",
+              "color": "#d11"
+            }
+          ],
+          "points": [
+            {
+              "at": 0.5,
+              "open": true,
+              "color": "#d11"
+            }
+          ],
+          "annotations": [
+            {
+              "text": "A = (½, ∞)",
+              "x": 210,
+              "y": 15,
+              "anchor": "middle"
+            }
+          ]
+        },
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
+            -3,
+            -1,
+            5
+          ],
+          "width": 480,
+          "height": 96,
+          "axisY": 60,
+          "solutionY": 36,
+          "labels": [
+            {
+              "at": -3,
+              "text": "−3"
+            },
+            {
+              "at": -1,
+              "text": "−1"
+            },
+            {
+              "at": 5,
+              "text": "5"
+            }
+          ],
+          "signs": [
+            {
+              "from": null,
+              "to": -3,
+              "label": "−"
+            },
+            {
+              "from": -3,
+              "to": -1,
+              "label": "+"
+            },
+            {
+              "from": -1,
+              "to": 5,
+              "label": "−"
+            },
+            {
+              "from": 5,
+              "to": null,
+              "label": "+"
+            }
+          ],
+          "segments": [
+            {
+              "from": -3,
+              "to": -1,
+              "color": "#2e7d32"
+            }
+          ],
+          "rays": [
+            {
+              "from": 5,
+              "dir": "right",
+              "color": "#2e7d32"
+            }
+          ],
+          "points": [
+            {
+              "at": -3,
+              "open": true,
+              "color": "#2e7d32"
+            },
+            {
+              "at": -1,
+              "open": true,
+              "color": "#2e7d32"
+            },
+            {
+              "at": 5,
+              "open": false,
+              "color": "#2e7d32"
+            }
+          ],
+          "annotations": [
+            {
+              "text": "B = (−3, −1) ∪ [5, ∞)",
+              "x": 240,
+              "y": 15,
+              "anchor": "middle"
+            }
+          ]
+        },
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
+            0.5,
+            5
+          ],
+          "width": 480,
+          "height": 104,
+          "axisY": 66,
+          "solutionY": 32,
+          "labels": [
+            {
+              "at": 0.5,
+              "num": 1,
+              "den": 2
+            },
+            {
+              "at": 5,
+              "text": "5"
+            }
+          ],
+          "segments": [
+            {
+              "from": 0.5,
+              "to": 5,
+              "color": "#d11",
+              "y": 32
+            }
+          ],
+          "rays": [
+            {
+              "from": 5,
+              "dir": "right",
+              "color": "#2e7d32",
+              "y": 46
+            }
+          ],
+          "points": [
+            {
+              "at": 0.5,
+              "open": true,
+              "color": "#d11",
+              "y": 32
+            },
+            {
+              "at": 5,
+              "open": true,
+              "color": "#d11",
+              "y": 32
+            },
+            {
+              "at": 5,
+              "open": false,
+              "color": "#2e7d32",
+              "y": 46
+            }
+          ],
+          "annotations": [
+            {
+              "text": "A − B = (½, 5)",
+              "x": 240,
+              "y": 13,
+              "anchor": "middle"
+            },
+            {
+              "text": "[5, ∞) ⊂ B ตัดออก",
+              "x": 400,
+              "y": 58,
+              "anchor": "middle"
+            }
+          ]
+        }
+      ],
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
         "$x > |x - 1|$ : ฝั่งขวาไม่เป็นลบ ฝั่งซ้ายจึงต้องเป็นบวก แล้วยกกำลังสองได้",
@@ -4880,12 +6697,15 @@
         "",
         "<b>【 วิธีที่ 1 ▸ พื้นฐาน · ยกกำลังสองหา A + เส้นจำนวนหา B 】</b>",
         "<b>ขั้นที่ 1:</b> หา $A$ จาก $x > |x - 1|$ — ฝั่งขวา $\\ge 0$ จึงต้อง $x > 0$ ยกกำลังสอง: $x^{2} > (x - 1)^{2} \\Rightarrow x^{2} - (x - 1)^{2} > 0 \\Rightarrow (1)(2x - 1) > 0 \\Rightarrow x > \\dfrac{1}{2}$ ⟹ $A = \\left(\\dfrac{1}{2}, \\infty\\right)$",
+        "[IMAGE:0]",
         "",
         "<b>ขั้นที่ 2:</b> หา $B$ จาก $\\dfrac{x - 5}{(x + 1)(x + 3)} \\ge 0$ — จุดวิกฤต $-3, -1$ (ส่วนเป็น 0 → เจาะออก) และ $5$ (เศษเป็น 0 → รวมได้)",
         "เขียนเส้นจำนวนได้ $\\ge 0$ บนช่วง $(-3, -1)$ และ $[5, \\infty)$ ⟹ $B = (-3, -1) \\cup [5, \\infty)$",
+        "[IMAGE:1]",
         "",
         "<b>ขั้นที่ 3:</b> หา $A - B$ — ตัดส่วนของ $B$ ออกจาก $A$",
         "ช่วง $(-3, -1)$ ไม่ทับ $A$ เลย ส่วน $[5, \\infty)$ ตัดหางของ $A$ ออก เหลือ $\\left(\\dfrac{1}{2}, 5\\right)$ ⟹ $A - B = \\left(\\dfrac{1}{2}, 5\\right)$",
+        "[IMAGE:2]",
         "",
         "<b>ขั้นที่ 4:</b> ดังนั้น $(a, b) = \\left(\\dfrac{1}{2}, 5\\right)$ ⟹ $a + b = \\dfrac{1}{2} + 5 = 5.5$",
         "",
@@ -5057,6 +6877,183 @@
         "$-1$"
       ],
       "correct": 1,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
+            -3,
+            -2,
+            -1
+          ],
+          "width": 460,
+          "height": 96,
+          "axisY": 60,
+          "solutionY": 36,
+          "labels": [
+            {
+              "at": -3,
+              "text": "−3"
+            },
+            {
+              "at": -2,
+              "text": "−2"
+            },
+            {
+              "at": -1,
+              "text": "−1"
+            }
+          ],
+          "segments": [
+            {
+              "from": -3,
+              "to": -2,
+              "color": "#d11"
+            },
+            {
+              "from": -2,
+              "to": -1,
+              "color": "#d11"
+            }
+          ],
+          "points": [
+            {
+              "at": -3,
+              "open": false,
+              "color": "#d11"
+            },
+            {
+              "at": -2,
+              "open": true,
+              "color": "#d11"
+            },
+            {
+              "at": -1,
+              "open": false,
+              "color": "#d11"
+            }
+          ],
+          "annotations": [
+            {
+              "text": "A = [−3, −2) ∪ (−2, −1]",
+              "x": 230,
+              "y": 15,
+              "anchor": "middle"
+            }
+          ]
+        },
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
+            -4,
+            -3,
+            -2,
+            -1
+          ],
+          "width": 500,
+          "height": 110,
+          "axisY": 72,
+          "solutionY": 34,
+          "labels": [
+            {
+              "at": -4,
+              "text": "−4"
+            },
+            {
+              "at": -3,
+              "text": "−3"
+            },
+            {
+              "at": -2,
+              "text": "−2"
+            },
+            {
+              "at": -1,
+              "text": "−1"
+            }
+          ],
+          "segments": [
+            {
+              "from": -3,
+              "to": -2,
+              "color": "#d11",
+              "y": 34
+            },
+            {
+              "from": -2,
+              "to": -1,
+              "color": "#d11",
+              "y": 34
+            }
+          ],
+          "points": [
+            {
+              "at": -3,
+              "open": false,
+              "color": "#d11",
+              "y": 34
+            },
+            {
+              "at": -2,
+              "open": true,
+              "color": "#d11",
+              "y": 34
+            },
+            {
+              "at": -1,
+              "open": false,
+              "color": "#d11",
+              "y": 34
+            },
+            {
+              "at": -4,
+              "open": false,
+              "color": "#2e7d32",
+              "y": 54
+            },
+            {
+              "at": -3,
+              "open": false,
+              "color": "#2e7d32",
+              "y": 54
+            },
+            {
+              "at": -2,
+              "open": false,
+              "color": "#2e7d32",
+              "y": 54
+            }
+          ],
+          "annotations": [
+            {
+              "text": "A ∩ B = {−3}  ⟹  sup = −3",
+              "x": 250,
+              "y": 14,
+              "anchor": "middle"
+            },
+            {
+              "text": "A",
+              "x": 34,
+              "y": 38,
+              "anchor": "middle"
+            },
+            {
+              "text": "B",
+              "x": 34,
+              "y": 58,
+              "anchor": "middle"
+            },
+            {
+              "text": "…",
+              "x": 86,
+              "y": 58,
+              "anchor": "middle"
+            }
+          ]
+        }
+      ],
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
         "$x^{2} + 4x + 4 = (x + 2)^{2}$",
@@ -5068,11 +7065,13 @@
         "<b>【 วิธีที่ 1 ▸ พื้นฐาน · แปลง $\\sqrt{(x+2)^{2}} = |x+2|$ แล้วหา A เป็นช่วง 】</b>",
         "<b>ขั้นที่ 1:</b> หา $A$ — $\\dfrac{1}{|x + 2|} \\ge 1$ ต้องมี $|x + 2| > 0$ (คือ $x \\ne -2$) และ $|x + 2| \\le 1 \\Rightarrow -1 \\le x + 2 \\le 1 \\Rightarrow -3 \\le x \\le -1$",
         "ตัด $x = -2$ ออก ⟹ $A = [-3, -2) \\cup (-2, -1]$",
+        "[IMAGE:0]",
         "",
         "<b>ขั้นที่ 2:</b> หา $B$ — จำนวนเต็มลบที่ $\\le -2$ คือ $B = \\{-2, -3, -4, -5, \\dots\\}$",
         "",
         "<b>ขั้นที่ 3:</b> หา $A \\cap B$ — จำนวนเต็มที่อยู่ใน $A$ มีเพียง $-3$ และ $-1$ ($-2$ ถูกเจาะออก)",
         "ในจำนวนนี้มีแค่ $-3$ ที่อยู่ใน $B$ ด้วย ($-1 \\notin B$) ⟹ $A \\cap B = \\{-3\\}$",
+        "[IMAGE:1]",
         "",
         "<b>ขั้นที่ 4:</b> ซูพรีมัมของ $\\{-3\\}$ คือ $-3$",
         "",
@@ -5239,6 +7238,14 @@
               "color": "#1565c0",
               "y": 46
             }
+          ],
+          "annotations": [
+            {
+              "text": "A = (2, 8]",
+              "x": 270,
+              "y": 15,
+              "anchor": "middle"
+            }
           ]
         }
       ],
@@ -5378,6 +7385,14 @@
               "open": true,
               "color": "#d11"
             }
+          ],
+          "annotations": [
+            {
+              "text": "(−∞, −5/2) ∪ (0, ∞)",
+              "x": 230,
+              "y": 15,
+              "anchor": "middle"
+            }
           ]
         },
         {
@@ -5456,6 +7471,14 @@
               "open": false,
               "color": "#2e7d32",
               "y": 46
+            }
+          ],
+          "annotations": [
+            {
+              "text": "เซตคำตอบ = (0, ∞)",
+              "x": 260,
+              "y": 15,
+              "anchor": "middle"
             }
           ]
         }
@@ -8636,6 +10659,14 @@
               "open": true,
               "color": "#d11"
             }
+          ],
+          "annotations": [
+            {
+              "text": "ตัวส่วนเป็นลบ : (1, 2) ∪ (3, 4)",
+              "x": 240,
+              "y": 15,
+              "anchor": "middle"
+            }
           ]
         }
       ],
@@ -9624,6 +11655,14 @@
               "open": true,
               "color": "#d11"
             }
+          ],
+          "annotations": [
+            {
+              "text": "A = (−6, 1)",
+              "x": 220,
+              "y": 15,
+              "anchor": "middle"
+            }
           ]
         },
         {
@@ -9664,6 +11703,14 @@
               "at": -4,
               "open": true,
               "color": "#2e7d32"
+            }
+          ],
+          "annotations": [
+            {
+              "text": "B = (−∞, −4) ∪ (−4, 3)",
+              "x": 220,
+              "y": 15,
+              "anchor": "middle"
             }
           ]
         },
@@ -9749,6 +11796,14 @@
               "at": -4,
               "open": true,
               "color": "#2e7d32"
+            }
+          ],
+          "annotations": [
+            {
+              "text": "A ∩ B = (−6, −4) ∪ (−4, 1)",
+              "x": 280,
+              "y": 15,
+              "anchor": "middle"
             }
           ]
         }
@@ -9898,6 +11953,14 @@
               "open": true,
               "color": "#555"
             }
+          ],
+          "annotations": [
+            {
+              "text": "เครื่องหมายของนิพจน์ (ทดสอบช่วง)",
+              "x": 270,
+              "y": 15,
+              "anchor": "middle"
+            }
           ]
         },
         {
@@ -9972,6 +12035,14 @@
               "at": 1,
               "open": true,
               "color": "#d11"
+            }
+          ],
+          "annotations": [
+            {
+              "text": "เซตคำตอบ = (−3, −1] ∪ [−½, 1) ∪ (1, ∞)",
+              "x": 270,
+              "y": 15,
+              "anchor": "middle"
             }
           ]
         }
@@ -10132,6 +12203,14 @@
               "at": 1,
               "open": false,
               "color": "#d11"
+            }
+          ],
+          "annotations": [
+            {
+              "text": "เซตคำตอบ = (−∞, −1) ∪ [0, 1]",
+              "x": 240,
+              "y": 15,
+              "anchor": "middle"
             }
           ]
         }
@@ -10423,6 +12502,14 @@
               "open": false,
               "color": "#d11"
             }
+          ],
+          "annotations": [
+            {
+              "text": "A = (1, 2]",
+              "x": 220,
+              "y": 15,
+              "anchor": "middle"
+            }
           ]
         },
         {
@@ -10480,6 +12567,14 @@
               "at": 3,
               "open": true,
               "color": "#2e7d32"
+            }
+          ],
+          "annotations": [
+            {
+              "text": "B = [2, 3)",
+              "x": 220,
+              "y": 15,
+              "anchor": "middle"
             }
           ]
         },
@@ -10708,6 +12803,14 @@
               "open": false,
               "color": "#d11"
             }
+          ],
+          "annotations": [
+            {
+              "text": "เซตคำตอบ = [−1, 1) ∪ [5, ∞)",
+              "x": 240,
+              "y": 15,
+              "anchor": "middle"
+            }
           ]
         }
       ],
@@ -10846,6 +12949,14 @@
               "open": false,
               "color": "#d11"
             }
+          ],
+          "annotations": [
+            {
+              "text": "(−∞, 1) ∪ [3, ∞)",
+              "x": 220,
+              "y": 15,
+              "anchor": "middle"
+            }
           ]
         },
         {
@@ -10932,6 +13043,14 @@
               "open": true,
               "color": "#2e7d32",
               "y": 46
+            }
+          ],
+          "annotations": [
+            {
+              "text": "S = (0, 1) ∪ [3, ∞)",
+              "x": 260,
+              "y": 15,
+              "anchor": "middle"
             }
           ]
         }
@@ -11380,6 +13499,14 @@
               "at": -2,
               "open": true,
               "color": "#d11"
+            }
+          ],
+          "annotations": [
+            {
+              "text": "เซตคำตอบ = (−∞, −4) ∪ (−10/3, −5/2) ∪ (−2, ∞)",
+              "x": 310,
+              "y": 15,
+              "anchor": "middle"
             }
           ]
         }
