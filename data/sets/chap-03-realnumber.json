@@ -3448,6 +3448,216 @@
         "$\\{-1.8, 1.7\\}$"
       ],
       "correct": 2,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
+            -2,
+            -1.7320508075688772,
+            1.7320508075688772
+          ],
+          "width": 480,
+          "height": 96,
+          "axisY": 60,
+          "solutionY": 36,
+          "labels": [
+            {
+              "at": -2,
+              "text": "−2"
+            },
+            {
+              "at": -1.7320508075688772,
+              "latex": "-\\sqrt{3}"
+            },
+            {
+              "at": 1.7320508075688772,
+              "latex": "\\sqrt{3}"
+            }
+          ],
+          "signs": [
+            {
+              "from": null,
+              "to": -2,
+              "label": "−"
+            },
+            {
+              "from": -2,
+              "to": -1.7320508075688772,
+              "label": "+"
+            },
+            {
+              "from": -1.7320508075688772,
+              "to": 1.7320508075688772,
+              "label": "−"
+            },
+            {
+              "from": 1.7320508075688772,
+              "to": null,
+              "label": "+"
+            }
+          ],
+          "rays": [
+            {
+              "from": -2,
+              "dir": "left",
+              "color": "#d11"
+            }
+          ],
+          "segments": [
+            {
+              "from": -1.7320508075688772,
+              "to": 1.7320508075688772,
+              "color": "#d11"
+            }
+          ],
+          "points": [
+            {
+              "at": -2,
+              "open": true,
+              "color": "#d11"
+            },
+            {
+              "at": -1.7320508075688772,
+              "open": false,
+              "color": "#d11"
+            },
+            {
+              "at": 1.7320508075688772,
+              "open": false,
+              "color": "#d11"
+            }
+          ]
+        },
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
+            -2,
+            2
+          ],
+          "width": 440,
+          "height": 96,
+          "axisY": 60,
+          "solutionY": 36,
+          "labels": [
+            {
+              "at": -2,
+              "text": "−2"
+            },
+            {
+              "at": 2,
+              "text": "2"
+            }
+          ],
+          "segments": [
+            {
+              "from": -2,
+              "to": 2,
+              "color": "#2e7d32"
+            }
+          ],
+          "points": [
+            {
+              "at": -2,
+              "open": false,
+              "color": "#2e7d32"
+            },
+            {
+              "at": 2,
+              "open": false,
+              "color": "#2e7d32"
+            }
+          ]
+        },
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
+            -2,
+            -1.7320508075688772,
+            1.7320508075688772,
+            2
+          ],
+          "width": 560,
+          "height": 108,
+          "axisY": 66,
+          "solutionY": 44,
+          "bands": [
+            {
+              "from": -2,
+              "to": -1.7320508075688772,
+              "top": 26,
+              "height": 46
+            },
+            {
+              "from": 1.7320508075688772,
+              "to": 2,
+              "top": 26,
+              "height": 46
+            }
+          ],
+          "labels": [
+            {
+              "at": -2,
+              "text": "−2"
+            },
+            {
+              "at": -1.7320508075688772,
+              "latex": "-\\sqrt{3}"
+            },
+            {
+              "at": 1.7320508075688772,
+              "latex": "\\sqrt{3}"
+            },
+            {
+              "at": 2,
+              "text": "2"
+            }
+          ],
+          "segments": [
+            {
+              "from": -2,
+              "to": 2,
+              "color": "#2e7d32",
+              "y": 46
+            },
+            {
+              "from": -1.7320508075688772,
+              "to": 1.7320508075688772,
+              "color": "#d11",
+              "y": 32
+            }
+          ],
+          "points": [
+            {
+              "at": -2,
+              "open": false,
+              "color": "#2e7d32",
+              "y": 46
+            },
+            {
+              "at": 2,
+              "open": false,
+              "color": "#2e7d32",
+              "y": 46
+            },
+            {
+              "at": -1.7320508075688772,
+              "open": false,
+              "color": "#d11",
+              "y": 32
+            },
+            {
+              "at": 1.7320508075688772,
+              "open": false,
+              "color": "#d11",
+              "y": 32
+            }
+          ]
+        }
+      ],
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
         "อสมการเศษส่วน $\\dfrac{3 - x^{2}}{x + 2} \\ge 0$ — จัดเป็นรูปมาตรฐานแล้วเขียนเส้นจำนวน (จุดที่ตัวส่วนเป็นศูนย์เป็นช่วงเปิดเสมอ)",
@@ -3460,14 +3670,17 @@
         "<b>ขั้นที่ 1:</b> หาเซต $A$ —",
         "$\\begin{aligned} \\dfrac{3 - x^{2}}{x + 2} & \\ge 0 \\\\ \\dfrac{x^{2} - 3}{x + 2} & \\le 0 \\\\ \\dfrac{(x - \\sqrt{3})(x + \\sqrt{3})}{x + 2} & \\le 0 \\end{aligned}$",
         "จุดวิกฤต $x = -2, -\\sqrt{3}, \\sqrt{3}$ เขียนเส้นจำนวน ($x = -2$ เปิด) ได้ $A = (-\\infty, -2) \\cup [-\\sqrt{3}, \\sqrt{3}]$",
+        "[IMAGE:0]",
         "",
         "<b>ขั้นที่ 2:</b> หาเซต $B$ —",
         "$\\begin{aligned} |2 - x^{2}| & \\le 2 \\\\ -2 & \\le 2 - x^{2} \\le 2 \\\\ -4 & \\le -x^{2} \\le 0 \\\\ 0 & \\le x^{2} \\le 4 \\\\ -2 & \\le x \\le 2 \\end{aligned}$",
         "ดังนั้น $B = [-2, 2]$",
+        "[IMAGE:1]",
         "",
         "<b>ขั้นที่ 3:</b> หา $B - A = B \\cap A'$ โดย $A' = [-2, -\\sqrt{3}) \\cup (\\sqrt{3}, \\infty)$",
         "ดังนั้น",
         "$\\begin{aligned} B - A &= [-2, 2] \\cap A' \\\\ &= [-2, -\\sqrt{3}) \\cup (\\sqrt{3}, 2] \\end{aligned}$",
+        "[IMAGE:2]",
         "",
         "<b>ขั้นที่ 4:</b> ประมาณ $\\sqrt{3} \\approx 1.732$ ได้ $B - A \\approx [-2, -1.732) \\cup (1.732, 2]$ แล้วตรวจว่าสมาชิกทั้งสองของแต่ละตัวเลือกตกในช่วงนี้หรือไม่",
         "ข้อ 1 $\\{-1.6, 1.6\\}$ : $-1.6 > -1.732$ จึง $-1.6 \\notin [-2, -1.732)$ $\\Rightarrow$ ไม่ใช่สับเซต",
@@ -5100,6 +5313,153 @@
         "$\\left\\{x \\mid -\\dfrac{1}{2} \\le x \\le 0\\right\\}$"
       ],
       "correct": 1,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
+            -2.5,
+            0
+          ],
+          "width": 460,
+          "height": 96,
+          "axisY": 60,
+          "solutionY": 36,
+          "labels": [
+            {
+              "at": -2.5,
+              "num": 5,
+              "den": 2,
+              "neg": true
+            },
+            {
+              "at": 0,
+              "text": "0"
+            }
+          ],
+          "signs": [
+            {
+              "from": null,
+              "to": -2.5,
+              "label": "+"
+            },
+            {
+              "from": -2.5,
+              "to": 0,
+              "label": "−"
+            },
+            {
+              "from": 0,
+              "to": null,
+              "label": "+"
+            }
+          ],
+          "rays": [
+            {
+              "from": -2.5,
+              "dir": "left",
+              "color": "#d11"
+            },
+            {
+              "from": 0,
+              "dir": "right",
+              "color": "#d11"
+            }
+          ],
+          "points": [
+            {
+              "at": -2.5,
+              "open": true,
+              "color": "#d11"
+            },
+            {
+              "at": 0,
+              "open": true,
+              "color": "#d11"
+            }
+          ]
+        },
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
+            -2.5,
+            -0.5,
+            0
+          ],
+          "width": 520,
+          "height": 108,
+          "axisY": 66,
+          "solutionY": 44,
+          "bands": [
+            {
+              "from": 0,
+              "to": null,
+              "top": 26,
+              "height": 46
+            }
+          ],
+          "labels": [
+            {
+              "at": -2.5,
+              "num": 5,
+              "den": 2,
+              "neg": true
+            },
+            {
+              "at": -0.5,
+              "num": 1,
+              "den": 2,
+              "neg": true
+            },
+            {
+              "at": 0,
+              "text": "0"
+            }
+          ],
+          "rays": [
+            {
+              "from": -2.5,
+              "dir": "left",
+              "color": "#d11",
+              "y": 32
+            },
+            {
+              "from": 0,
+              "dir": "right",
+              "color": "#d11",
+              "y": 32
+            },
+            {
+              "from": -0.5,
+              "dir": "right",
+              "color": "#2e7d32",
+              "y": 46
+            }
+          ],
+          "points": [
+            {
+              "at": -2.5,
+              "open": true,
+              "color": "#d11",
+              "y": 32
+            },
+            {
+              "at": 0,
+              "open": true,
+              "color": "#d11",
+              "y": 32
+            },
+            {
+              "at": -0.5,
+              "open": false,
+              "color": "#2e7d32",
+              "y": 46
+            }
+          ]
+        }
+      ],
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
         "หาโดเมนก่อน: รูปในรูทต้อง $\\ge 0$ และตัวส่วน $\\ne 0$ — $\\sqrt{x + 2}$ อยู่ในตัวส่วนจึงต้อง $x + 2 > 0$",
@@ -5119,8 +5479,10 @@
         "<b>ขั้นที่ 3:</b> จัดรูป —",
         "$\\begin{aligned} 2 & < 2x^{2} + 5x + 2 \\\\ 0 & < 2x^{2} + 5x \\\\ x(2x + 5) & > 0 \\\\ x & < -\\dfrac{5}{2} \\end{aligned}$",
         "หรือ $x > 0$",
+        "[IMAGE:0]",
         "",
         "<b>ขั้นที่ 4:</b> อินเตอร์เซคกับโดเมน $x \\ge -\\dfrac{1}{2}$ — ช่วง $x < -\\dfrac{5}{2}$ ถูกตัดทิ้งทั้งหมด เหลือ $x > 0$ ⟹ เซตคำตอบ $= \\{x \\mid x > 0\\}$",
+        "[IMAGE:1]",
         "",
         "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ · ฟังก์ชันทางเดียว 】</b>",
         "<b>ขั้นที่ 1:</b> บนโดเมน $x \\ge -\\dfrac{1}{2}$ สังเกตพฤติกรรมสองฝั่งเมื่อ $x$ เพิ่มขึ้น",
@@ -8181,6 +8543,102 @@
         "(1, 2) U (3, 4)",
         "1 < x < 2 หรือ 3 < x < 4"
       ],
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "width": 480,
+          "height": 96,
+          "axisY": 60,
+          "solutionY": 36,
+          "labels": [
+            {
+              "at": 1,
+              "text": "1"
+            },
+            {
+              "at": 2,
+              "text": "2"
+            },
+            {
+              "at": 3,
+              "text": "3"
+            },
+            {
+              "at": 4,
+              "text": "4"
+            }
+          ],
+          "signs": [
+            {
+              "from": null,
+              "to": 1,
+              "label": "+"
+            },
+            {
+              "from": 1,
+              "to": 2,
+              "label": "−"
+            },
+            {
+              "from": 2,
+              "to": 3,
+              "label": "+"
+            },
+            {
+              "from": 3,
+              "to": 4,
+              "label": "−"
+            },
+            {
+              "from": 4,
+              "to": null,
+              "label": "+"
+            }
+          ],
+          "segments": [
+            {
+              "from": 1,
+              "to": 2,
+              "color": "#d11"
+            },
+            {
+              "from": 3,
+              "to": 4,
+              "color": "#d11"
+            }
+          ],
+          "points": [
+            {
+              "at": 1,
+              "open": true,
+              "color": "#d11"
+            },
+            {
+              "at": 2,
+              "open": true,
+              "color": "#d11"
+            },
+            {
+              "at": 3,
+              "open": true,
+              "color": "#d11"
+            },
+            {
+              "at": 4,
+              "open": true,
+              "color": "#d11"
+            }
+          ]
+        }
+      ],
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
         "• การจัดรูปอสมการเศษส่วน: รวมเศษส่วนให้เป็นก้อนเดียว แล้ววิเคราะห์เครื่องหมายจากเส้นจำนวน",
@@ -8216,6 +8674,7 @@
         "ตัวประกอบเชิงเส้น 4 ตัว เปลี่ยนเครื่องหมายที่แต่ละราก",
         "$+ \\ |_1 \\ - \\ |_2 \\ + \\ |_3 \\ - \\ |_4 \\ +$",
         "ตัวส่วน $ < 0$ ในช่วง $(1, 2)$ และ $(3, 4)$",
+        "[IMAGE:0]",
         "",
         "<b>ขั้นที่ 7:</b> ระวัง: ที่ $x = 1, 2, 3, 4$ ตัวส่วนของพจน์ใดพจน์หนึ่งเป็น 0 → ค่าไม่นิยาม (ตัดออกเรียบร้อยแล้วเพราะใช้ช่วงเปิด)",
         "",
@@ -9906,6 +10365,200 @@
       "accept": [
         "2"
       ],
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
+            1,
+            2
+          ],
+          "width": 440,
+          "height": 96,
+          "axisY": 60,
+          "solutionY": 36,
+          "labels": [
+            {
+              "at": 1,
+              "text": "1"
+            },
+            {
+              "at": 2,
+              "text": "2"
+            }
+          ],
+          "signs": [
+            {
+              "from": null,
+              "to": 1,
+              "label": "+"
+            },
+            {
+              "from": 1,
+              "to": 2,
+              "label": "−"
+            },
+            {
+              "from": 2,
+              "to": null,
+              "label": "+"
+            }
+          ],
+          "segments": [
+            {
+              "from": 1,
+              "to": 2,
+              "color": "#d11"
+            }
+          ],
+          "points": [
+            {
+              "at": 1,
+              "open": true,
+              "color": "#d11"
+            },
+            {
+              "at": 2,
+              "open": false,
+              "color": "#d11"
+            }
+          ]
+        },
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
+            2,
+            3
+          ],
+          "width": 440,
+          "height": 96,
+          "axisY": 60,
+          "solutionY": 36,
+          "labels": [
+            {
+              "at": 2,
+              "text": "2"
+            },
+            {
+              "at": 3,
+              "text": "3"
+            }
+          ],
+          "signs": [
+            {
+              "from": null,
+              "to": 2,
+              "label": "+"
+            },
+            {
+              "from": 2,
+              "to": 3,
+              "label": "−"
+            },
+            {
+              "from": 3,
+              "to": null,
+              "label": "+"
+            }
+          ],
+          "segments": [
+            {
+              "from": 2,
+              "to": 3,
+              "color": "#2e7d32"
+            }
+          ],
+          "points": [
+            {
+              "at": 2,
+              "open": false,
+              "color": "#2e7d32"
+            },
+            {
+              "at": 3,
+              "open": true,
+              "color": "#2e7d32"
+            }
+          ]
+        },
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
+            1,
+            2,
+            3
+          ],
+          "width": 480,
+          "height": 108,
+          "axisY": 66,
+          "solutionY": 44,
+          "labels": [
+            {
+              "at": 1,
+              "text": "1"
+            },
+            {
+              "at": 2,
+              "text": "2"
+            },
+            {
+              "at": 3,
+              "text": "3"
+            }
+          ],
+          "segments": [
+            {
+              "from": 1,
+              "to": 2,
+              "color": "#d11",
+              "y": 34
+            },
+            {
+              "from": 2,
+              "to": 3,
+              "color": "#2e7d32",
+              "y": 48
+            }
+          ],
+          "points": [
+            {
+              "at": 1,
+              "open": true,
+              "color": "#d11",
+              "y": 34
+            },
+            {
+              "at": 2,
+              "open": false,
+              "color": "#d11",
+              "y": 34
+            },
+            {
+              "at": 2,
+              "open": false,
+              "color": "#2e7d32",
+              "y": 48
+            },
+            {
+              "at": 3,
+              "open": true,
+              "color": "#2e7d32",
+              "y": 48
+            }
+          ],
+          "annotations": [
+            {
+              "text": "A ∩ B = {2}",
+              "x": 240,
+              "y": 16,
+              "anchor": "middle"
+            }
+          ]
+        }
+      ],
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
         "อสมการเศษส่วน $\\dfrac{P}{Q} \\le 0$",
@@ -9923,16 +10576,19 @@
         "ตัวส่วน = 0 ที่ $x=1$ (ห้าม)",
         "ค่า $\\le 0$ คือช่วงที่เศษกับส่วนต่างเครื่องหมาย $\\Rightarrow x \\in (1, 2]$",
         "ดังนั้น $A = (1, 2]$",
+        "[IMAGE:0]",
         "",
         "<b>ขั้นที่ 2:</b> หาเซต $B$ จาก $\\dfrac{x-2}{x-3} \\le 0$",
         "ตัวเศษ = 0 ที่ $x=2$",
         "ตัวส่วน = 0 ที่ $x=3$ (ห้าม)",
         "ค่า $\\le 0$ คือ $x \\in [2, 3)$",
         "ดังนั้น $B = [2, 3)$",
+        "[IMAGE:1]",
         "",
         "<b>ขั้นที่ 3:</b> หา $A \\cap B$",
         "$A \\cap B = (1, 2] \\cap [2, 3) = \\{2\\}$",
         "เป็นเซตที่มีสมาชิกเพียงตัวเดียวคือ 2",
+        "[IMAGE:2]",
         "",
         "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ · แก้เซตง่ายก่อนแล้วเช็คผู้สมัคร 】</b>",
         "<b>ขั้นที่ 1:</b> โจทย์ถาม \"จำนวนเต็ม\" ที่น้อยสุดใน $A \\cap B$ — เริ่มจากเซตที่ง่ายกว่า: $B$: $\\dfrac{x - 2}{x - 3} \\le 0$ ⟺ $2 \\le x < 3$",
@@ -10127,6 +10783,159 @@
         "$(-5, 5)$"
       ],
       "correct": 0,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
+            1,
+            3
+          ],
+          "width": 440,
+          "height": 96,
+          "axisY": 60,
+          "solutionY": 36,
+          "labels": [
+            {
+              "at": 1,
+              "text": "1"
+            },
+            {
+              "at": 3,
+              "text": "3"
+            }
+          ],
+          "signs": [
+            {
+              "from": null,
+              "to": 1,
+              "label": "+"
+            },
+            {
+              "from": 1,
+              "to": 3,
+              "label": "−"
+            },
+            {
+              "from": 3,
+              "to": null,
+              "label": "+"
+            }
+          ],
+          "rays": [
+            {
+              "from": 1,
+              "dir": "left",
+              "color": "#d11"
+            },
+            {
+              "from": 3,
+              "dir": "right",
+              "color": "#d11"
+            }
+          ],
+          "points": [
+            {
+              "at": 1,
+              "open": true,
+              "color": "#d11"
+            },
+            {
+              "at": 3,
+              "open": false,
+              "color": "#d11"
+            }
+          ]
+        },
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
+            0,
+            1,
+            3
+          ],
+          "width": 520,
+          "height": 108,
+          "axisY": 66,
+          "solutionY": 44,
+          "bands": [
+            {
+              "from": 0,
+              "to": 1,
+              "top": 26,
+              "height": 46
+            },
+            {
+              "from": 3,
+              "to": null,
+              "top": 26,
+              "height": 46
+            }
+          ],
+          "labels": [
+            {
+              "at": 0,
+              "text": "0"
+            },
+            {
+              "at": 1,
+              "text": "1"
+            },
+            {
+              "at": 3,
+              "text": "3"
+            }
+          ],
+          "rays": [
+            {
+              "from": 1,
+              "dir": "left",
+              "color": "#d11",
+              "y": 32
+            },
+            {
+              "from": 3,
+              "dir": "right",
+              "color": "#d11",
+              "y": 32
+            },
+            {
+              "from": 0,
+              "dir": "right",
+              "color": "#2e7d32",
+              "y": 46
+            }
+          ],
+          "points": [
+            {
+              "at": 1,
+              "open": true,
+              "color": "#d11",
+              "y": 32
+            },
+            {
+              "at": 3,
+              "open": false,
+              "color": "#d11",
+              "y": 32
+            },
+            {
+              "at": 0,
+              "open": true,
+              "color": "#2e7d32",
+              "y": 46
+            },
+            {
+              "at": 1,
+              "open": true,
+              "color": "#2e7d32",
+              "y": 46
+            }
+          ]
+        }
+      ],
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
         "เมื่อพบ $\\sqrt{x}$ ในโจทย์ ต้องมีเงื่อนไข $x \\ge 0$ ก่อนเสมอ",
@@ -10156,9 +10965,11 @@
         "จุดวิกฤต: $x = 1$ (ห้าม), $3$",
         "ค่า $\\ge 0$ คือ $x < 1$",
         "หรือ $x \\ge 3$",
+        "[IMAGE:0]",
         "",
         "<b>ขั้นที่ 4:</b> รวมกับ domain $x > 0,\\ x \\ne 1$",
         "เซตคำตอบ $S = (0, 1) \\cup [3, \\infty)$",
+        "[IMAGE:1]",
         "",
         "<b>ขั้นที่ 5:</b> ตรวจอินเตอร์เซกชันกับแต่ละ choice",
         "- $(-\\infty, 0] \\cup [1, 3)$: $\\cap S = \\varnothing$ ✓ (เพราะ $(-\\infty,0]$ ไม่มีจุดร่วมกับ $S\\subset(0,\\infty)$ และ $[1,3)$ อยู่ในช่อง $1$ ถึง $3$ ที่ไม่อยู่ใน $S$)",
@@ -10488,6 +11299,91 @@
         "$\\mathbb{R} - \\{-4, -2\\}$"
       ],
       "correct": 2,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
+            -4,
+            -3.3333333333333335,
+            -3,
+            -2.5,
+            -2
+          ],
+          "width": 620,
+          "height": 96,
+          "axisY": 60,
+          "solutionY": 36,
+          "labels": [
+            {
+              "at": -4,
+              "text": "−4"
+            },
+            {
+              "at": -3.3333333333333335,
+              "num": 10,
+              "den": 3,
+              "neg": true
+            },
+            {
+              "at": -3,
+              "text": "−3"
+            },
+            {
+              "at": -2.5,
+              "num": 5,
+              "den": 2,
+              "neg": true
+            },
+            {
+              "at": -2,
+              "text": "−2"
+            }
+          ],
+          "segments": [
+            {
+              "from": -3.3333333333333335,
+              "to": -2.5,
+              "color": "#d11"
+            }
+          ],
+          "rays": [
+            {
+              "from": -4,
+              "dir": "left",
+              "color": "#d11"
+            },
+            {
+              "from": -2,
+              "dir": "right",
+              "color": "#d11"
+            }
+          ],
+          "points": [
+            {
+              "at": -4,
+              "open": true,
+              "color": "#d11"
+            },
+            {
+              "at": -3.3333333333333335,
+              "open": true,
+              "color": "#d11"
+            },
+            {
+              "at": -2.5,
+              "open": true,
+              "color": "#d11"
+            },
+            {
+              "at": -2,
+              "open": true,
+              "color": "#d11"
+            }
+          ]
+        }
+      ],
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
         "แบ่งกรณีตามเครื่องหมายภายใน $|\\cdot|$",
@@ -10527,6 +11423,7 @@
         "$(-\\infty, -4) \\cup (-\\dfrac{10}{3}, -3) \\cup [-3, -\\dfrac{5}{2}) \\cup (-2, \\infty)$",
         "$= (-\\infty, -4) \\cup (-\\dfrac{10}{3}, -\\dfrac{5}{2}) \\cup (-2, \\infty)$",
         "(เพราะ $(-\\dfrac{10}{3}, -3) \\cup [-3, -\\dfrac{5}{2}) = (-\\dfrac{10}{3}, -\\dfrac{5}{2})$ — รวมจุด $-3$ เข้าด้วยกัน)",
+        "[IMAGE:0]",
         "",
         "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ · จุดทดสอบขอบตัวเลือก 】</b>",
         "ใช้ค่าทดสอบที่จุดซึ่งตัวเลือกต่างกัน: $x = -3$: $\\dfrac{-3}{|0| - 1} = 3 < 5$ ✓ อยู่ในเซต → ตัดตัวเลือกที่ไม่รวม $-3$",

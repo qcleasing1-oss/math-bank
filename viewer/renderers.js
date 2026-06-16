@@ -1773,11 +1773,26 @@ function venn3CinAOnly(spec){
 // Spec: width,height,axisY,solutionY
 //   scale:'even' + criticals:[..] → จุดวิกฤตห่างเท่ากัน (sign-line convention) [additive]
 //   xRange (ใช้เมื่อ scale != even)
-//   ticks[] | labels[{at,text,dy}] | labels[{at,num,den,neg}] (เศษส่วนซ้อน) [additive]
+//   ticks[] | labels[{at,text,dy}] | labels[{at,num,den,neg}] (เศษส่วนซ้อน) | labels[{at,latex,dy}] (\sqrt ฯลฯ มี vinculum ผ่าน _ucMathToSvg) [additive]
 //   signs[{from,to,label,color}]  (from/to=null → ขอบ)
 //   bands[{from,to,color,opacity,top,height}]
 //   segments[{from,to,color,y}]; rays[{from,dir,color,y}]; points[{at,open,color,y}]  (y = px lane override) [additive]
 //   annotations[{text,x,y,anchor}]
+// width estimator for centering _ucMathToSvg labels (mirrors its chW advancement)
+function _nlLatexW(latex,fs){
+  const e=latex.replace(/^\$|\$$/g,'');
+  const chW=ch=>{ if(ch===','||ch===' ')return fs*0.3; if(ch==='('||ch===')')return fs*0.4; if(ch==='\u2212'||ch==='-')return fs*0.55; if(ch==='\u221a')return fs*0.7; return fs*0.55; };
+  let i=0,w=0;
+  while(i<e.length){
+    const m=/^\\sqrt\s*\{([^}]*)\}/.exec(e.substring(i));
+    if(m){ w+=chW('\u221a'); for(const c of m[1]) w+=chW(c); i+=m[0].length; continue; }
+    if(e.substr(i,2)==='\\ '){w+=fs*0.3;i+=2;continue;}
+    if(e.substr(i,2)==='\\,'){w+=fs*0.2;i+=2;continue;}
+    if(e[i]==='-'){w+=fs*0.55;i+=1;continue;}
+    w+=chW(e[i]); i+=1;
+  }
+  return w;
+}
 function renderNumberLine(spec){
   const W=spec.width||300,H=spec.height||74;
   const pX=22, axisY=(spec.axisY!==undefined?spec.axisY:H*0.55);
@@ -1800,8 +1815,10 @@ function renderNumberLine(spec){
   }
   const edgePx=(v,left)=>(v===null||v===undefined?(left?pX:W-pX):x2(v));
   let svg=`<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" xmlns="http://www.w3.org/2000/svg" style="background:#fff;">`;
-  const _arrId=c=>'nlArr_'+String(c).replace(/[^a-zA-Z0-9]/g,'');
-  let _defs=`<marker id="nlArr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#222"/></marker>`;
+  const _uid='nl'+Math.floor(Math.random()*1e9);          // unique per-SVG → กัน id ลูกศรชนกันหลายเส้นจำนวนในหน้าเดียว
+  const _baseArr=_uid+'_a';
+  const _arrId=c=>_uid+'_a_'+String(c).replace(/[^a-zA-Z0-9]/g,'');
+  let _defs=`<marker id="${_baseArr}" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#222"/></marker>`;
   [...new Set((spec.rays||[]).map(r=>r.color||'#222'))].forEach(c=>{_defs+=`<marker id="${_arrId(c)}" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="${c}"/></marker>`;});
   svg+=`<defs>${_defs}</defs>`;
   // background highlight bands (behind everything)
@@ -1810,7 +1827,7 @@ function renderNumberLine(spec){
     const top=(b.top!==undefined?b.top:axisY-15), h=(b.height!==undefined?b.height:30);
     svg+=`<rect x="${Math.min(xa,xb).toFixed(2)}" y="${top.toFixed(2)}" width="${Math.abs(xb-xa).toFixed(2)}" height="${h}" fill="${b.color||'#efe2a4'}" fill-opacity="${b.opacity!==undefined?b.opacity:0.55}"/>`;});
   // base number line
-  svg+=`<line x1="${(pX-8).toFixed(2)}" y1="${axisY}" x2="${(W-pX+8).toFixed(2)}" y2="${axisY}" stroke="#222" stroke-width="1.1" marker-start="url(#nlArr)" marker-end="url(#nlArr)"/>`;
+  svg+=`<line x1="${(pX-8).toFixed(2)}" y1="${axisY}" x2="${(W-pX+8).toFixed(2)}" y2="${axisY}" stroke="#222" stroke-width="1.1" marker-start="url(#${_baseArr})" marker-end="url(#${_baseArr})"/>`;
   // tick mark + labels (plain / dy / stacked fraction)
   const tMark=xp=>{svg+=`<line x1="${xp.toFixed(2)}" y1="${(axisY-3).toFixed(2)}" x2="${xp.toFixed(2)}" y2="${(axisY+3).toFixed(2)}" stroke="#222"/>`;};
   const tText=(xp,txt,dy)=>{svg+=`<text x="${xp.toFixed(2)}" y="${(axisY+16+(dy||0)).toFixed(2)}" text-anchor="middle" font-size="11" fill="#555">${txt}</text>`;};
@@ -1822,6 +1839,7 @@ function renderNumberLine(spec){
   (spec.ticks||[]).forEach(t=>{const xp=x2(t);tMark(xp);tText(xp,t);});
   (spec.labels||[]).forEach(l=>{const xp=x2(l.at);tMark(xp);
     if(l.num!==undefined&&l.den!==undefined) tFrac(xp,l.num,l.den,l.neg);
+    else if(l.latex!==undefined){const fs=11,w=_nlLatexW(l.latex,fs);svg+=_ucMathToSvg(l.latex,xp-w/2,axisY+16+(l.dy||0),fs);}
     else tText(xp,l.text,l.dy);});
   // signs (+/-) centered per region (px-based), above axis
   (spec.signs||[]).forEach(s=>{const mid=(edgePx(s.from,true)+edgePx(s.to,false))/2;
