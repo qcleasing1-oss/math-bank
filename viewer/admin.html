@@ -12,6 +12,7 @@
 
 <!-- Image spec renderers (Phase B — port จาก portal) -->
 <script defer src="renderers.js"></script>
+<script defer src="export.js"></script>
 
 <!-- Thai font: Sarabun -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -408,6 +409,30 @@
     background: var(--accent);
     color: white;
   }
+
+  /* Export-set modal (PDF / Word / JSON) */
+  .export-set-btn { border-color: var(--accent); color: var(--accent); }
+  .export-modal-backdrop { position: fixed; inset: 0; background: rgba(43,36,25,0.45);
+    display: flex; align-items: center; justify-content: center; z-index: 1000; }
+  .export-modal-backdrop[hidden] { display: none; }
+  .export-modal { background: var(--panel); border: 1px solid var(--rule); border-radius: 10px;
+    width: min(430px, 92vw); padding: 20px 22px; box-shadow: 0 10px 40px rgba(0,0,0,0.25);
+    font-family: 'Sarabun', sans-serif; color: var(--ink); }
+  .export-modal h3 { margin: 0 0 4px; font-size: 18px; }
+  .export-modal .em-sub { font-size: 13px; color: var(--ink-soft); margin-bottom: 16px; }
+  .export-modal .em-group { margin-bottom: 16px; }
+  .export-modal .em-label { font-weight: 600; font-size: 13px; margin-bottom: 7px; }
+  .export-modal .em-opt { display: flex; align-items: flex-start; gap: 8px; padding: 7px 9px;
+    border: 1px solid var(--rule); border-radius: 6px; margin-bottom: 6px; cursor: pointer; background: #fff; }
+  .export-modal .em-opt:hover { background: var(--accent-soft); }
+  .export-modal .em-opt input { margin-top: 3px; }
+  .export-modal .em-opt-title { font-size: 14px; font-weight: 500; }
+  .export-modal .em-opt-desc { font-size: 12px; color: var(--ink-soft); }
+  .export-modal .em-actions { display: flex; gap: 8px; justify-content: flex-end; margin-top: 4px; }
+  .export-modal .em-go { background: var(--accent); color: #fff; border: none; border-radius: 5px;
+    padding: 8px 16px; font-family: inherit; font-size: 14px; font-weight: 500; cursor: pointer; }
+  .export-modal .em-cancel { background: transparent; color: var(--ink-soft); border: 1px solid var(--rule);
+    border-radius: 5px; padding: 8px 14px; font-family: inherit; font-size: 14px; cursor: pointer; }
 
   /* Modal overlay */
   .modal {
@@ -874,6 +899,27 @@
   </div>
 </div>
 
+<div id="exportModal" class="export-modal-backdrop" hidden onclick="if(event.target===this)closeExportModal()">
+  <div class="export-modal" role="dialog" aria-modal="true">
+    <h3>ส่งออกชุดข้อสอบ</h3>
+    <div class="em-sub" id="exportModalSub"></div>
+    <div class="em-group">
+      <div class="em-label">รูปแบบไฟล์</div>
+      <label class="em-opt"><input type="radio" name="exp-fmt" value="pdf" checked><span><span class="em-opt-title">PDF</span><br><span class="em-opt-desc">เปิดหน้าพิมพ์ แล้วเลือก "บันทึกเป็น PDF" (คณิต/ไทย/รูปครบ)</span></span></label>
+      <label class="em-opt"><input type="radio" name="exp-fmt" value="word"><span><span class="em-opt-title">Word (.doc)</span><br><span class="em-opt-desc">เปิดแก้ไขใน Word ได้ (สมการเป็น MathML)</span></span></label>
+      <label class="em-opt"><input type="radio" name="exp-fmt" value="json"><span><span class="em-opt-title">JSON</span><br><span class="em-opt-desc">ไฟล์ข้อมูลดิบ .json</span></span></label>
+    </div>
+    <div class="em-group">
+      <div class="em-label">เนื้อหา</div>
+      <label class="em-opt"><input type="radio" name="exp-content" value="q" checked><span><span class="em-opt-title">เฉพาะโจทย์</span><br><span class="em-opt-desc">ไม่รวมเฉลย/คำตอบ</span></span></label>
+      <label class="em-opt"><input type="radio" name="exp-content" value="full"><span><span class="em-opt-title">โจทย์ + เฉลย</span><br><span class="em-opt-desc">รวมเฉลยและคำตอบที่ถูก</span></span></label>
+    </div>
+    <div class="em-actions">
+      <button class="em-cancel" onclick="closeExportModal()">ยกเลิก</button>
+      <button class="em-go" onclick="doExport()">ส่งออก</button>
+    </div>
+  </div>
+</div>
 <script>
   // ============ Password gate ============
   const PASSWORD = 'teacher2026';
@@ -1334,6 +1380,7 @@
           ${s.examDate && looksLikeDate(s.examDate) ? ' · สอบ ' + s.examDate : ''}
         </div>
         ${BULK_CONTROLS_HTML}
+        <div class="bulk-controls"><button class="bulk-btn export-set-btn" onclick="openExportModal()" title="ส่งออกชุดนี้เป็น PDF / Word / JSON">⬇ ส่งออกชุดนี้</button></div>
       </div>
       <div class="q-list">
         ${qs.map(renderQCard).join('')}
