@@ -172,7 +172,9 @@ function renderFunctionPlot(spec){const W=spec.width||450,H=spec.height||280,pX=
     if(d.label){const anc=d.labelAnchor||'start',dx=(d.labelDx!==undefined?d.labelDx:6),dy=(d.labelDy!==undefined?d.labelDy:-6);
       svg+=`<text x="${(x2(d.x)+dx).toFixed(2)}" y="${(y2(d.y)+dy).toFixed(2)}" font-size="13" fill="#222" text-anchor="${anc}">${d.label}</text>`;}});
   (spec.annotations||[]).forEach(a=>{const[lx,ly]=a.at,anc=a.anchor||'start';
-    svg+=`<text x="${x2(lx)}" y="${y2(ly)}" font-size="13" fill="#222" text-anchor="${anc}">${a.text}</text>`;
+    if(/\\sqrt/.test(a.text)){const fs=13,lw=_nlLatexW(a.text,fs),ox=(anc==='end'?-lw:anc==='middle'?-lw/2:0);
+      svg+=_ucMathToSvg(a.text,x2(lx)+ox,y2(ly),fs,'#222');}
+    else svg+=`<text x="${x2(lx)}" y="${y2(ly)}" font-size="13" fill="#222" text-anchor="${anc}">${a.text}</text>`;
     if(a.arrowTo){const[ax,ay]=a.arrowTo;
       svg+=`<line x1="${x2(lx)}" y1="${y2(ly)+5}" x2="${x2(ax)}" y2="${y2(ay)}" stroke="#222" stroke-width="1" marker-end="url(#fpArr)"/>`;}});
   return svg+'</svg>';}
