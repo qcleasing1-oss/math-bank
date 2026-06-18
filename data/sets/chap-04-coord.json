@@ -2415,6 +2415,127 @@
       "score": 1,
       "question": "ถ้า $O$ เป็นจุดกำเนิด และ $P$ เป็นจุดศูนย์กลางของวงกลม $x^2 + 4x + y^2 - 8y + 11 = 0$ แล้วสมการของเส้นตรง $OP$ และสมการของวงกลมที่มี $OP$ เป็นเส้นผ่านศูนย์กลาง คือข้อใดต่อไปนี้",
       "hasImage": false,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 380,
+          "height": 364,
+          "xRange": [
+            -6,
+            2
+          ],
+          "yRange": [
+            -1,
+            7
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y"
+          },
+          "functions": [
+            {
+              "kind": "ellipse-arc",
+              "center": [
+                -2.0,
+                4.0
+              ],
+              "a": 3.0,
+              "b": 3.0,
+              "color": "#1565c0",
+              "strokeWidth": 1.8,
+              "half": "upper",
+              "id": "cu0"
+            },
+            {
+              "kind": "ellipse-arc",
+              "center": [
+                -2.0,
+                4.0
+              ],
+              "a": 3.0,
+              "b": 3.0,
+              "color": "#1565c0",
+              "strokeWidth": 1.8,
+              "half": "lower",
+              "id": "cl1"
+            },
+            {
+              "kind": "ellipse-arc",
+              "center": [
+                -1.0,
+                2.0
+              ],
+              "a": 2.236068,
+              "b": 2.236068,
+              "color": "#2e7d32",
+              "strokeWidth": 1.8,
+              "half": "upper",
+              "id": "cu2"
+            },
+            {
+              "kind": "ellipse-arc",
+              "center": [
+                -1.0,
+                2.0
+              ],
+              "a": 2.236068,
+              "b": 2.236068,
+              "color": "#2e7d32",
+              "strokeWidth": 1.8,
+              "half": "lower",
+              "id": "cl3"
+            },
+            {
+              "kind": "polynomial",
+              "coefs": [
+                -2.0,
+                0.0
+              ],
+              "domain": [
+                -3.0,
+                1.0
+              ],
+              "color": "#c62828",
+              "strokeWidth": 1.7,
+              "label": {
+                "at": [
+                  -3.3,
+                  5.2
+                ],
+                "text": "OP",
+                "anchor": "end"
+              }
+            }
+          ],
+          "dots": [
+            {
+              "x": 0,
+              "y": 0,
+              "label": "O",
+              "labelAnchor": "start",
+              "labelDx": 7,
+              "labelDy": 14
+            },
+            {
+              "x": -2,
+              "y": 4,
+              "label": "P(-2,4)",
+              "labelAnchor": "end",
+              "labelDx": -9,
+              "labelDy": -13
+            },
+            {
+              "x": -1,
+              "y": 2,
+              "label": "M",
+              "labelAnchor": "start",
+              "labelDx": 7,
+              "labelDy": 14
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance 2537",
       "choices": [
         "$y = 4x$ และ $x^2 + 2x + y^2 - 4y = 10$",
@@ -2428,6 +2549,7 @@
         "วงกลม $x^2 + y^2 + Dx + Ey + F = 0$ มีจุดศูนย์กลาง $\\left(-\\dfrac{D}{2}, -\\dfrac{E}{2}\\right)$ | วงกลมที่มี $OP$ เป็นเส้นผ่านศูนย์กลาง: ศูนย์กลางคือจุดกึ่งกลาง $OP$ รัศมีคือครึ่งของ $|OP|$",
         "",
         "<b>🎯 เป้าหมาย</b> หา $P$ → เส้น $OP$ → วงกลมเส้นผ่านศูนย์กลาง $OP$",
+        "[IMAGE:0]",
         "",
         "<b>【 วิธีที่ 1 ▸ พื้นฐาน 】</b>",
         "<b>ขั้นที่ 1:</b> วงกลมที่ให้: $D = 4, E = -8$ → $P = (-2, 4)$",
@@ -2471,8 +2593,140 @@
       "type": "mc",
       "level": "medium",
       "score": 1,
-      "question": "สมการของเส้นตรงที่ผ่านจุดศูนย์กลางของวงกลม $x^2 + y^2 + 4x - 6y - 38 = 0$\nและขนานกับเส้นตรงที่สัมผัสวงกลมนี้ที่จุด $(2, 0)$ คือข้อใดต่อไปนี้",
+      "question": "สมการของเส้นตรงที่ผ่านจุดศูนย์กลางของวงกลม $x^2 + y^2 + 4x - 6y - 12 = 0$\nและขนานกับเส้นตรงที่สัมผัสวงกลมนี้ที่จุด $(2, 0)$ คือข้อใดต่อไปนี้",
       "hasImage": false,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 380,
+          "height": 364,
+          "xRange": [
+            -8,
+            4
+          ],
+          "yRange": [
+            -3,
+            9
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y"
+          },
+          "functions": [
+            {
+              "kind": "ellipse-arc",
+              "center": [
+                -2.0,
+                3.0
+              ],
+              "a": 5.0,
+              "b": 5.0,
+              "color": "#1565c0",
+              "strokeWidth": 1.8,
+              "half": "upper",
+              "id": "cu"
+            },
+            {
+              "kind": "ellipse-arc",
+              "center": [
+                -2.0,
+                3.0
+              ],
+              "a": 5.0,
+              "b": 5.0,
+              "color": "#1565c0",
+              "strokeWidth": 1.8,
+              "half": "lower",
+              "id": "cl"
+            },
+            {
+              "kind": "polynomial",
+              "coefs": [
+                1.333333,
+                -2.666667
+              ],
+              "domain": [
+                -0.25,
+                4.0
+              ],
+              "color": "#777",
+              "strokeWidth": 1.5,
+              "dashed": true,
+              "label": {
+                "at": [
+                  3.9,
+                  2.6
+                ],
+                "text": "tangent",
+                "anchor": "end"
+              }
+            },
+            {
+              "kind": "polynomial",
+              "coefs": [
+                1.333333,
+                5.666667
+              ],
+              "domain": [
+                -6.5,
+                2.5
+              ],
+              "color": "#c62828",
+              "strokeWidth": 1.8,
+              "label": {
+                "at": [
+                  1.7,
+                  7.9
+                ],
+                "text": "L",
+                "anchor": "start"
+              }
+            }
+          ],
+          "segments": [
+            {
+              "from": [
+                -2,
+                3
+              ],
+              "to": [
+                2,
+                0
+              ],
+              "dashed": true
+            }
+          ],
+          "dots": [
+            {
+              "x": -2,
+              "y": 3,
+              "label": "C(-2,3)",
+              "labelAnchor": "end",
+              "labelDx": -6,
+              "labelDy": -6
+            },
+            {
+              "x": 2,
+              "y": 0,
+              "label": "P(2,0)",
+              "labelAnchor": "start",
+              "labelDx": 6,
+              "labelDy": 16
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                -0.2,
+                1.9
+              ],
+              "text": "r",
+              "anchor": "end"
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance 2527",
       "choices": [
         "$3x - 4y + 18 = 0$",
@@ -2486,6 +2740,7 @@
         "เส้นสัมผัสวงกลม ณ จุดสัมผัส ตั้งฉากกับรัศมีที่ลากไปยังจุดนั้นเสมอ | เส้นขนานกันมีความชันเท่ากัน",
         "",
         "<b>🎯 เป้าหมาย</b> หาจุดศูนย์กลาง → ความชันรัศมีไป $(2, 0)$ → ความชันเส้นสัมผัส → เส้นขนานผ่านศูนย์กลาง",
+        "[IMAGE:0]",
         "",
         "<b>【 วิธีที่ 1 ▸ พื้นฐาน 】</b>",
         "<b>ขั้นที่ 1:</b> จัดรูป: $(x + 2)^2 + (y - 3)^2 = r^2$ → จุดศูนย์กลาง $C(-2, 3)$",
@@ -4091,6 +4346,124 @@
       "score": 1,
       "question": "กำหนดวงกลม $C$ มีจุดศูนย์กลางที่ $(-1, 2)$ และสัมผัสแกน $x$ ที่จุด $P$\nเส้นตรง $L$ ผ่านจุดศูนย์กลางของวงกลม $C$ และมีความชันเป็น 1\nถ้า $Q$ เป็นจุดตัดของ $C$ และ $L$ ที่อยู่ในควอดรันต์ที่ 2\nแล้ว กำลังสองของระยะ $PQ$ เท่ากับข้อใดต่อไปนี้",
       "hasImage": false,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 380,
+          "height": 364,
+          "xRange": [
+            -4,
+            2
+          ],
+          "yRange": [
+            -1,
+            5
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y"
+          },
+          "functions": [
+            {
+              "kind": "ellipse-arc",
+              "center": [
+                -1.0,
+                2.0
+              ],
+              "a": 2.0,
+              "b": 2.0,
+              "color": "#1565c0",
+              "strokeWidth": 1.8,
+              "half": "upper",
+              "id": "cu"
+            },
+            {
+              "kind": "ellipse-arc",
+              "center": [
+                -1.0,
+                2.0
+              ],
+              "a": 2.0,
+              "b": 2.0,
+              "color": "#1565c0",
+              "strokeWidth": 1.8,
+              "half": "lower",
+              "id": "cl"
+            },
+            {
+              "kind": "polynomial",
+              "coefs": [
+                1.0,
+                3.0
+              ],
+              "domain": [
+                -4.0,
+                2.0
+              ],
+              "color": "#c62828",
+              "strokeWidth": 1.7,
+              "label": {
+                "at": [
+                  1.0,
+                  4.4
+                ],
+                "text": "L",
+                "anchor": "start"
+              }
+            }
+          ],
+          "segments": [
+            {
+              "from": [
+                -1,
+                2
+              ],
+              "to": [
+                -1,
+                0
+              ],
+              "dashed": true
+            },
+            {
+              "from": [
+                -1,
+                0
+              ],
+              "to": [
+                -2.414214,
+                0.585786
+              ]
+            }
+          ],
+          "dots": [
+            {
+              "x": -1,
+              "y": 2,
+              "label": "C(-1,2)",
+              "labelAnchor": "start",
+              "labelDx": 6,
+              "labelDy": -6
+            },
+            {
+              "x": -1,
+              "y": 0,
+              "label": "P",
+              "labelAnchor": "start",
+              "labelDx": 6,
+              "labelDy": 15
+            },
+            {
+              "x": -2.414214,
+              "y": 0.585786,
+              "label": "Q",
+              "labelAnchor": "end",
+              "labelDx": -7,
+              "labelDy": -4
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance ต.ค. 2543",
       "choices": [
         "$6 - 4\\sqrt{2}$ หน่วย",
@@ -4104,6 +4477,7 @@
         "วงกลมสัมผัสแกน $x$ → รัศมี $= |y$ ของศูนย์กลาง$|$ และจุดสัมผัสอยู่ตรงใต้/เหนือศูนย์กลาง",
         "",
         "<b>🎯 เป้าหมาย</b> หา $P$, $Q$ แล้วคำนวณ $PQ^2$",
+        "[IMAGE:0]",
         "",
         "<b>【 วิธีที่ 1 ▸ พื้นฐาน 】</b>",
         "<b>ขั้นที่ 1:</b> ศูนย์กลาง $(-1, 2)$ สัมผัสแกน $x$ → $r = 2$, $P = (-1, 0)$",
@@ -4195,6 +4569,153 @@
       "score": 1,
       "question": "เส้นตรง $AB$ สัมผัสกราฟของความสัมพันธ์ $\\{(x, y) \\in \\mathbf{R} \\times \\mathbf{R} \\mid x^2 + y^2 + 4x - 2y + 1 = 0\\}$\nที่จุด $A(-1, 1 + \\sqrt{3})$ และตัดแกน $x$ ที่จุด $B$ โปรเจคชันของ $AB$ บนแกน $x$ คือข้อใด",
       "hasImage": false,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 380,
+          "height": 236,
+          "xRange": [
+            -5,
+            5
+          ],
+          "yRange": [
+            -2,
+            4
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y"
+          },
+          "functions": [
+            {
+              "kind": "ellipse-arc",
+              "center": [
+                -2.0,
+                1.0
+              ],
+              "a": 2.0,
+              "b": 2.0,
+              "color": "#1565c0",
+              "strokeWidth": 1.8,
+              "half": "upper",
+              "id": "cu"
+            },
+            {
+              "kind": "ellipse-arc",
+              "center": [
+                -2.0,
+                1.0
+              ],
+              "a": 2.0,
+              "b": 2.0,
+              "color": "#1565c0",
+              "strokeWidth": 1.8,
+              "half": "lower",
+              "id": "cl"
+            },
+            {
+              "kind": "polynomial",
+              "coefs": [
+                -0.57735,
+                2.154701
+              ],
+              "domain": [
+                -1.3,
+                3.932051
+              ],
+              "color": "#c62828",
+              "strokeWidth": 1.7,
+              "label": {
+                "at": [
+                  2.4,
+                  1.6
+                ],
+                "text": "tangent",
+                "anchor": "start"
+              }
+            }
+          ],
+          "segments": [
+            {
+              "from": [
+                -2,
+                1
+              ],
+              "to": [
+                -1,
+                2.732051
+              ],
+              "dashed": true
+            },
+            {
+              "from": [
+                -1,
+                2.732051
+              ],
+              "to": [
+                -1,
+                0
+              ],
+              "dashed": true
+            },
+            {
+              "from": [
+                -1,
+                0
+              ],
+              "to": [
+                3.732051,
+                0
+              ]
+            }
+          ],
+          "dots": [
+            {
+              "x": -2,
+              "y": 1,
+              "label": "C",
+              "labelAnchor": "end",
+              "labelDx": -6,
+              "labelDy": -4
+            },
+            {
+              "x": -1,
+              "y": 2.732051,
+              "label": "A",
+              "labelAnchor": "middle",
+              "labelDx": -2,
+              "labelDy": -11
+            },
+            {
+              "x": 3.732051,
+              "y": 0,
+              "label": "B",
+              "labelAnchor": "start",
+              "labelDx": 6,
+              "labelDy": 15
+            },
+            {
+              "x": -1,
+              "y": 0,
+              "label": "A'",
+              "labelAnchor": "end",
+              "labelDx": -6,
+              "labelDy": 15
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                1.366025,
+                -0.45
+              ],
+              "text": "proj",
+              "anchor": "middle"
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance 2524",
       "choices": [
         "$\\sqrt{3} + 1$",
@@ -4209,6 +4730,7 @@
         "เส้นสัมผัส ⊥ รัศมีที่จุดสัมผัส | โปรเจคชันของส่วนเส้นตรงบนแกน $x$ $=$ ผลต่างพิกัด $x$ ของจุดปลาย",
         "",
         "<b>🎯 เป้าหมาย</b> หาเส้นสัมผัสที่ $A$ → จุด $B$ (ตัดแกน $x$) → ผลต่างพิกัด $x$",
+        "[IMAGE:0]",
         "",
         "<b>ขั้นที่ 1:</b> วงกลม: $(x + 2)^2 + (y - 1)^2 = 4$ → ศูนย์กลาง $(-2, 1)$, $r = 2$",
         "เช็ค $A$: $(-1 + 2)^2 + (\\sqrt{3})^2 = 1 + 3 = 4$ ✓ อยู่บนวงกลม",
@@ -4630,6 +5152,164 @@
       "score": 1,
       "question": "วงกลมวงหนึ่งมีจุดศูนย์กลาง $(h, k)$ อยู่บนเส้นตรง $2x + 3y = 6$ โดยที่ $h$, $k$ เป็นจำนวนเต็ม\nถ้าวงกลมวงนี้มีเส้นตรง $2x - y = 1$ และเส้นตรง $2x + y = -3$ เป็นเส้นสัมผัส แล้ว\nความยาวรัศมีของวงกลมนี้อยู่ในช่วงใดต่อไปนี้",
       "hasImage": false,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 380,
+          "height": 364,
+          "xRange": [
+            -1,
+            13
+          ],
+          "yRange": [
+            -9,
+            5
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y"
+          },
+          "functions": [
+            {
+              "kind": "ellipse-arc",
+              "center": [
+                6.0,
+                -2.0
+              ],
+              "a": 5.813777,
+              "b": 5.813777,
+              "color": "#1565c0",
+              "strokeWidth": 1.8,
+              "half": "upper",
+              "id": "cu"
+            },
+            {
+              "kind": "ellipse-arc",
+              "center": [
+                6.0,
+                -2.0
+              ],
+              "a": 5.813777,
+              "b": 5.813777,
+              "color": "#1565c0",
+              "strokeWidth": 1.8,
+              "half": "lower",
+              "id": "cl"
+            },
+            {
+              "kind": "polynomial",
+              "coefs": [
+                -0.666667,
+                2.0
+              ],
+              "domain": [
+                -1.0,
+                13.0
+              ],
+              "color": "#777",
+              "strokeWidth": 1.5,
+              "dashed": true,
+              "label": {
+                "at": [
+                  8.8,
+                  -3.0
+                ],
+                "text": "2x+3y=6",
+                "anchor": "start"
+              }
+            },
+            {
+              "kind": "polynomial",
+              "coefs": [
+                2.0,
+                -1.0
+              ],
+              "domain": [
+                -1.0,
+                3.2
+              ],
+              "color": "#c62828",
+              "strokeWidth": 1.6,
+              "label": {
+                "at": [
+                  3.0,
+                  5.2
+                ],
+                "text": "2x-y=1",
+                "anchor": "end"
+              }
+            },
+            {
+              "kind": "polynomial",
+              "coefs": [
+                -2.0,
+                -3.0
+              ],
+              "domain": [
+                -1.0,
+                3.2
+              ],
+              "color": "#c62828",
+              "strokeWidth": 1.6,
+              "label": {
+                "at": [
+                  1.2,
+                  -5.0
+                ],
+                "text": "2x+y=-3",
+                "anchor": "start"
+              }
+            }
+          ],
+          "segments": [
+            {
+              "from": [
+                6,
+                -2
+              ],
+              "to": [
+                0.8,
+                0.6
+              ],
+              "dashed": true
+            },
+            {
+              "from": [
+                6,
+                -2
+              ],
+              "to": [
+                0.8,
+                -4.6
+              ],
+              "dashed": true
+            }
+          ],
+          "dots": [
+            {
+              "x": 6,
+              "y": -2,
+              "label": "C(6,-2)",
+              "labelAnchor": "start",
+              "labelDx": 7,
+              "labelDy": -6
+            },
+            {
+              "x": 0.8,
+              "y": 0.6,
+              "label": "",
+              "labelAnchor": "start"
+            },
+            {
+              "x": 0.8,
+              "y": -4.6,
+              "label": "",
+              "labelAnchor": "start"
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance มี.ค. 2545",
       "choices": [
         "$[2, 4]$",
@@ -4643,6 +5323,7 @@
         "วงกลมสัมผัสสองเส้น → ศูนย์กลางห่างจากสองเส้นเท่ากัน: $\\dfrac{|2h - k - 1|}{\\sqrt{5}} = \\dfrac{|2h + k + 3|}{\\sqrt{5}}$",
         "",
         "<b>🎯 เป้าหมาย</b> แก้ระบบ (ระยะเท่ากัน + อยู่บนเส้น $2x + 3y = 6$) โดยใช้เงื่อนไขจำนวนเต็มคัดราก",
+        "[IMAGE:0]",
         "",
         "<b>ขั้นที่ 1:</b> $|2h - k - 1| = |2h + k + 3|$ → $2h - k - 1 = \\pm(2h + k + 3)$",
         "กรณีบวก: $-k - 1 = k + 3$ → $k = -2$ | กรณีลบ: $4h = -2$ → $h = -\\dfrac{1}{2}$ (ไม่เป็นจำนวนเต็ม ตัดทิ้ง)",
@@ -4677,6 +5358,146 @@
       "score": 1,
       "question": "กำหนดให้เส้นตรง $3x - 4y - 5 = 0$ ขนานกับเส้นตรง $x + ky + 5 = 0$ เมื่อ $k$ เป็นจำนวนจริง\nถ้าวงกลมซึ่งมีเส้นตรงทั้งสองนี้เป็นเส้นสัมผัส มีจุดศูนย์กลางอยู่บนแกน $y$ และผ่านจุด $\\left(a, \\dfrac{1}{4}\\right)$\nแล้ว $|a|$ เท่ากับข้อใดต่อไปนี้",
       "hasImage": false,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 380,
+          "height": 364,
+          "xRange": [
+            -3,
+            3
+          ],
+          "yRange": [
+            -1.5,
+            4.5
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y"
+          },
+          "functions": [
+            {
+              "kind": "ellipse-arc",
+              "center": [
+                0.0,
+                1.25
+              ],
+              "a": 2.0,
+              "b": 2.0,
+              "color": "#1565c0",
+              "strokeWidth": 1.8,
+              "half": "upper",
+              "id": "cu"
+            },
+            {
+              "kind": "ellipse-arc",
+              "center": [
+                0.0,
+                1.25
+              ],
+              "a": 2.0,
+              "b": 2.0,
+              "color": "#1565c0",
+              "strokeWidth": 1.8,
+              "half": "lower",
+              "id": "cl"
+            },
+            {
+              "kind": "polynomial",
+              "coefs": [
+                0.75,
+                -1.25
+              ],
+              "domain": [
+                -0.4,
+                3.0
+              ],
+              "color": "#c62828",
+              "strokeWidth": 1.6,
+              "label": {
+                "at": [
+                  2.9,
+                  -0.7
+                ],
+                "text": "3x-4y-5=0",
+                "anchor": "end"
+              }
+            },
+            {
+              "kind": "polynomial",
+              "coefs": [
+                0.75,
+                3.75
+              ],
+              "domain": [
+                -3.0,
+                1.0
+              ],
+              "color": "#c62828",
+              "strokeWidth": 1.6,
+              "label": {
+                "at": [
+                  -2.9,
+                  3.3
+                ],
+                "text": "3x-4y+15=0",
+                "anchor": "start"
+              }
+            }
+          ],
+          "segments": [
+            {
+              "from": [
+                0,
+                1.25
+              ],
+              "to": [
+                1.2,
+                -0.35
+              ],
+              "dashed": true
+            },
+            {
+              "from": [
+                0,
+                1.25
+              ],
+              "to": [
+                -1.2,
+                2.85
+              ],
+              "dashed": true
+            }
+          ],
+          "dots": [
+            {
+              "x": 0,
+              "y": 1.25,
+              "label": "C",
+              "labelAnchor": "end",
+              "labelDx": -6,
+              "labelDy": -4
+            },
+            {
+              "x": 1.732051,
+              "y": 0.25,
+              "label": "(a, 1/4)",
+              "labelAnchor": "start",
+              "labelDx": 8,
+              "labelDy": -7
+            },
+            {
+              "x": -1.732051,
+              "y": 0.25,
+              "label": "(-a, 1/4)",
+              "labelAnchor": "end",
+              "labelDx": -8,
+              "labelDy": -7
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance มี.ค. 2543",
       "choices": [
         "$\\dfrac{\\sqrt{6}}{2}$",
@@ -4690,6 +5511,7 @@
         "เส้นขนาน: สัมประสิทธิ์เป็นสัดส่วนกัน | วงกลมสัมผัสเส้นขนานสองเส้น → ศูนย์กลางอยู่กึ่งกลางระหว่างเส้น และเส้นผ่านศูนย์กลาง $=$ ระยะระหว่างเส้นขนาน",
         "",
         "<b>🎯 เป้าหมาย</b> หา $k$ → ระบุสองเส้น → ศูนย์กลาง+รัศมี → แก้หา $a$",
+        "[IMAGE:0]",
         "",
         "<b>ขั้นที่ 1:</b> ขนานกัน: $\\dfrac{1}{3} = \\dfrac{k}{-4}$ → $k = -\\dfrac{4}{3}$ → เส้นที่สอง: $x - \\dfrac{4y}{3} + 5 = 0$ คูณ 3: $3x - 4y + 15 = 0$",
         "",
