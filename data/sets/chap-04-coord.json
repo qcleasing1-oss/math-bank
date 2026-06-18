@@ -6630,7 +6630,104 @@
       "level": "medium",
       "score": 1,
       "question": "รูปที่กำหนดให้คือภาคตัดกรวยซึ่งเป็นรูปวงรี จุดโฟกัสทั้งสองของวงรีนี้คือข้อใด",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": {
+        "type": "function-plot",
+        "width": 380,
+        "height": 364,
+        "xRange": [
+          -6,
+          6
+        ],
+        "yRange": [
+          -6,
+          6
+        ],
+        "axes": {
+          "arrows": true,
+          "xLabel": "x",
+          "yLabel": "y",
+          "originLabel": "O"
+        },
+        "functions": [
+          {
+            "id": "eu",
+            "kind": "ellipse-arc",
+            "center": [
+              0,
+              0
+            ],
+            "a": 2,
+            "b": 5,
+            "half": "upper",
+            "color": "#1565c0",
+            "strokeWidth": 1.8
+          },
+          {
+            "id": "el",
+            "kind": "ellipse-arc",
+            "center": [
+              0,
+              0
+            ],
+            "a": 2,
+            "b": 5,
+            "half": "lower",
+            "color": "#1565c0",
+            "strokeWidth": 1.8
+          }
+        ],
+        "dots": [
+          {
+            "x": 0,
+            "y": 5,
+            "label": "(0, 5)",
+            "labelAnchor": "start",
+            "labelDx": 9,
+            "labelDy": -4
+          },
+          {
+            "x": 0,
+            "y": -5,
+            "label": "(0, −5)",
+            "labelAnchor": "start",
+            "labelDx": 9,
+            "labelDy": 16
+          },
+          {
+            "x": -2,
+            "y": 0,
+            "label": "(−2, 0)",
+            "labelAnchor": "end",
+            "labelDx": -8,
+            "labelDy": 16
+          },
+          {
+            "x": 2,
+            "y": 0,
+            "label": "(2, 0)",
+            "labelAnchor": "start",
+            "labelDx": 8,
+            "labelDy": 16
+          },
+          {
+            "x": 0,
+            "y": 2.7,
+            "label": "F",
+            "labelAnchor": "start",
+            "labelDx": 9,
+            "labelDy": 0
+          },
+          {
+            "x": 0,
+            "y": -2.7,
+            "label": "F′",
+            "labelAnchor": "start",
+            "labelDx": 9,
+            "labelDy": 4
+          }
+        ]
+      },
       "sourceTag": "Entrance 2521",
       "choices": [
         "$F = \\left(0, \\dfrac{5}{2}\\right),\\ F' = \\left(0, -\\dfrac{5}{2}\\right)$",
@@ -6667,9 +6764,7 @@
         "",
         "<b>⚠️ จุดที่เด็กมักผิด:</b> ใช้ $c^2 = a^2 + b^2$ (สูตรของไฮเพอร์โบลา) จะได้ $c = \\sqrt{29}$ ผิดทันที — วงรีต้องลบเสมอ"
       ],
-      "notes": "โจทย์มีรูปประกอบ: วงรีแกนเอกบนแกน y จุดยอด (0,5), (0,-5) ตัดแกน x ที่ (-2,0), (2,0) แสดงจุด F, F' บนแกน y และจุด O | _needsImageSpec: TODO Phase G",
-      "_needsImage": true,
-      "_imageNote": "วงรี (ภาคตัดกรวย) + จุดโฟกัส 2 จุด"
+      "notes": "โจทย์มีรูปประกอบ: วงรีแกนเอกบนแกน y จุดยอด (0,5), (0,-5) ตัดแกน x ที่ (-2,0), (2,0) แสดงจุด F, F' บนแกน y และจุด O | _needsImageSpec: TODO Phase G"
     },
     {
       "id": "chap-04-coord-q72",
@@ -13699,7 +13794,84 @@
       "level": "medium",
       "score": 1,
       "question": "วงรี $25x^2 + 9y^2 = 225$ มี F เป็นจุดโฟกัสจุดหนึ่ง ดังรูป\nสมการของวงกลมที่มีจุดศูนย์กลางอยู่ที่จุด A และสัมผัสกับแกน x คือข้อใด",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": {
+        "type": "function-plot",
+        "width": 380,
+        "height": 364,
+        "xRange": [
+          -6,
+          6
+        ],
+        "yRange": [
+          -6,
+          6
+        ],
+        "axes": {
+          "arrows": true,
+          "xLabel": "x",
+          "yLabel": "y",
+          "originLabel": "O"
+        },
+        "functions": [
+          {
+            "id": "eu",
+            "kind": "ellipse-arc",
+            "center": [
+              0,
+              0
+            ],
+            "a": 3,
+            "b": 5,
+            "half": "upper",
+            "color": "#1565c0",
+            "strokeWidth": 1.8
+          },
+          {
+            "id": "el",
+            "kind": "ellipse-arc",
+            "center": [
+              0,
+              0
+            ],
+            "a": 3,
+            "b": 5,
+            "half": "lower",
+            "color": "#1565c0",
+            "strokeWidth": 1.8
+          }
+        ],
+        "segments": [
+          {
+            "from": [
+              0,
+              2.5
+            ],
+            "to": [
+              2.598076,
+              2.5
+            ]
+          }
+        ],
+        "dots": [
+          {
+            "x": 0,
+            "y": 2.5,
+            "label": "F",
+            "labelAnchor": "end",
+            "labelDx": -8,
+            "labelDy": -2
+          },
+          {
+            "x": 2.598076,
+            "y": 2.5,
+            "label": "A",
+            "labelAnchor": "start",
+            "labelDx": 9,
+            "labelDy": -2
+          }
+        ]
+      },
       "sourceTag": "โควตา มช. 2547",
       "choices": [
         "$\\left(x - \\dfrac{9}{5}\\right)^2 + (y - 4)^2 = 16$",
@@ -13728,9 +13900,7 @@
         "",
         "<b>⚠️ จุดที่เด็กมักผิด:</b> $25x^2$ อยู่หน้า $x^2$ → ตัวส่วนของ $x^2$ คือ 9 (เล็ก) — วงรีนี้แกนเอกแนวดิ่ง อย่าสลับ $a, b$ | รัศมีวงกลมสัมผัสแกน x ใช้พิกัด y ของศูนย์กลาง ไม่ใช่ x"
       ],
-      "notes": "โจทย์มีรูปประกอบ: วงรีแกนเอกแนวดิ่ง จุด F (โฟกัสบน) บนแกน y, จุด A บนวงรีด้านขวาระดับเดียวกับ F (เส้นประเชื่อม F→A แนวนอน), จุด O ที่จุดกำเนิด | _needsImageSpec: TODO Phase G",
-      "_needsImage": true,
-      "_imageNote": "วงรี 25x^2+9y^2=225 จุดโฟกัส F"
+      "notes": "โจทย์มีรูปประกอบ: วงรีแกนเอกแนวดิ่ง จุด F (โฟกัสบน) บนแกน y, จุด A บนวงรีด้านขวาระดับเดียวกับ F (เส้นประเชื่อม F→A แนวนอน), จุด O ที่จุดกำเนิด | _needsImageSpec: TODO Phase G"
     },
     {
       "id": "chap-04-coord-q202",
@@ -14103,7 +14273,170 @@
       "level": "hard",
       "score": 1,
       "question": "จากรูป แกนเอก $\\overline{AB}$ และแกนโท $\\overline{CD}$ ของวงรีตัดกันที่จุด O\nจุด F เป็นโฟกัส และ P เป็นจุดในควอดรันต์ที่หนึ่งและอยู่บนวงรี ที่ทำให้ $\\overline{PF}$ ตั้งฉากกับ $\\overline{AB}$\nถ้า $\\overline{AD}$ ขนานกับ $\\overline{OP}$ แล้ว ความเยื้องศูนย์กลาง (eccentricity)\nของวงรี มีค่าเท่ากับข้อใดต่อไปนี้",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": {
+        "type": "function-plot",
+        "width": 380,
+        "height": 364,
+        "xRange": [
+          -6,
+          6
+        ],
+        "yRange": [
+          -6,
+          6
+        ],
+        "axes": {
+          "arrows": true,
+          "xLabel": "x",
+          "yLabel": "y"
+        },
+        "functions": [
+          {
+            "id": "eu",
+            "kind": "ellipse-arc",
+            "center": [
+              0,
+              0
+            ],
+            "a": 4.242641,
+            "b": 3,
+            "half": "upper",
+            "color": "#1565c0",
+            "strokeWidth": 1.8
+          },
+          {
+            "id": "el",
+            "kind": "ellipse-arc",
+            "center": [
+              0,
+              0
+            ],
+            "a": 4.242641,
+            "b": 3,
+            "half": "lower",
+            "color": "#1565c0",
+            "strokeWidth": 1.8
+          },
+          {
+            "id": "ad",
+            "kind": "polynomial",
+            "coefs": [
+              0.707107,
+              3.0
+            ],
+            "domain": [
+              -4.242641,
+              0
+            ],
+            "color": "#c62828",
+            "strokeWidth": 1.7,
+            "label": {
+              "at": [
+                -3.4,
+                1.7
+              ],
+              "text": "AD",
+              "anchor": "end",
+              "color": "#c62828"
+            }
+          },
+          {
+            "id": "op",
+            "kind": "polynomial",
+            "coefs": [
+              0.707107,
+              0
+            ],
+            "domain": [
+              0,
+              3
+            ],
+            "color": "#2e7d32",
+            "strokeWidth": 1.7,
+            "label": {
+              "at": [
+                2.1,
+                2.0
+              ],
+              "text": "OP",
+              "anchor": "start",
+              "color": "#2e7d32"
+            }
+          }
+        ],
+        "segments": [
+          {
+            "from": [
+              3,
+              2.12132
+            ],
+            "to": [
+              3,
+              0
+            ],
+            "dashed": true
+          }
+        ],
+        "dots": [
+          {
+            "x": -4.242641,
+            "y": 0,
+            "label": "A",
+            "labelAnchor": "end",
+            "labelDx": -6,
+            "labelDy": 16
+          },
+          {
+            "x": 4.242641,
+            "y": 0,
+            "label": "B",
+            "labelAnchor": "start",
+            "labelDx": 6,
+            "labelDy": 16
+          },
+          {
+            "x": 0,
+            "y": 3,
+            "label": "D",
+            "labelAnchor": "end",
+            "labelDx": -8,
+            "labelDy": -4
+          },
+          {
+            "x": 0,
+            "y": -3,
+            "label": "C",
+            "labelAnchor": "middle",
+            "labelDx": 0,
+            "labelDy": 20
+          },
+          {
+            "x": 0,
+            "y": 0,
+            "label": "O",
+            "labelAnchor": "end",
+            "labelDx": -7,
+            "labelDy": 16
+          },
+          {
+            "x": 3,
+            "y": 0,
+            "label": "F",
+            "labelAnchor": "middle",
+            "labelDx": 0,
+            "labelDy": 16
+          },
+          {
+            "x": 3,
+            "y": 2.12132,
+            "label": "P",
+            "labelAnchor": "start",
+            "labelDx": 9,
+            "labelDy": -4
+          }
+        ]
+      },
       "sourceTag": "สมาคมคณิตศาสตร์ฯ 2548",
       "choices": [
         "$\\dfrac{\\sqrt{2}}{2}$",
@@ -14133,9 +14466,7 @@
         "",
         "<b>⚠️ จุดที่เด็กมักผิด:</b> ใช้ A ฝั่งขวา ($a, 0$) ทำให้ความชัน AD ติดลบแล้วสับสน — ดูรูปให้ดี A อยู่ซ้าย D อยู่บน | สรุป $b = c$ แล้วอย่าลืมว่า $a^2 = b^2 + c^2$ (ไม่ใช่ $a = b + c$)"
       ],
-      "notes": "โจทย์มีรูปประกอบ: วงรีแกนเอกแนวนอน A ซ้าย B ขวา D บน C ล่าง O กลาง F โฟกัสขวา จุด P บนวงรีควอดรันต์ 1 เหนือ F มีเส้น AD และ OP (และเส้น PF ตั้งฉากแกน x) | _needsImageSpec: TODO Phase G",
-      "_needsImage": true,
-      "_imageNote": "วงรี แกนเอก AB แกนโท CD"
+      "notes": "โจทย์มีรูปประกอบ: วงรีแกนเอกแนวนอน A ซ้าย B ขวา D บน C ล่าง O กลาง F โฟกัสขวา จุด P บนวงรีควอดรันต์ 1 เหนือ F มีเส้น AD และ OP (และเส้น PF ตั้งฉากแกน x) | _needsImageSpec: TODO Phase G"
     },
     {
       "id": "chap-04-coord-q211",
