@@ -571,7 +571,107 @@
       "level": "easy",
       "score": 1,
       "question": "จากรูป $L_1$ และ $L_2$ เป็นส่วนของเส้นตรงที่ตั้งฉากซึ่งกันและกัน\nถ้า $y = mx + c$ เป็นสมการของเส้นตรง $L_2$ แล้ว ค่าของ $c$ เท่ากับเท่าใด",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 380,
+          "height": 364,
+          "xRange": [
+            -4,
+            4
+          ],
+          "yRange": [
+            -5,
+            3
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y"
+          },
+          "functions": [
+            {
+              "kind": "polynomial",
+              "coefs": [
+                -1.5,
+                -3
+              ],
+              "domain": [
+                -2.6,
+                0.5
+              ],
+              "color": "#c62828",
+              "strokeWidth": 1.7,
+              "label": {
+                "at": [
+                  -3.2,
+                  1.2
+                ],
+                "text": "L₁",
+                "anchor": "start",
+                "color": "#c62828"
+              }
+            },
+            {
+              "kind": "polynomial",
+              "coefs": [
+                0.666667,
+                -0.666667
+              ],
+              "domain": [
+                -1.6,
+                2.9
+              ],
+              "color": "#2e7d32",
+              "strokeWidth": 1.7,
+              "label": {
+                "at": [
+                  3.0,
+                  1.5
+                ],
+                "text": "L₂",
+                "anchor": "start",
+                "color": "#2e7d32"
+              }
+            }
+          ],
+          "dots": [
+            {
+              "x": 0,
+              "y": 0,
+              "label": "O",
+              "labelAnchor": "end",
+              "labelDx": -7,
+              "labelDy": 14
+            },
+            {
+              "x": -2,
+              "y": 0,
+              "label": "(-2,0)",
+              "labelAnchor": "end",
+              "labelDx": -3,
+              "labelDy": 16
+            },
+            {
+              "x": 1,
+              "y": 0,
+              "label": "(1,0)",
+              "labelAnchor": "start",
+              "labelDx": 4,
+              "labelDy": 16
+            },
+            {
+              "x": 0,
+              "y": -3,
+              "label": "(0,-3)",
+              "labelAnchor": "end",
+              "labelDx": -5,
+              "labelDy": 14
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance 2521",
       "choices": [
         "$-\\dfrac{2}{3}$",
@@ -602,9 +702,7 @@
         "",
         "<b>⚠️ จุดที่เด็กมักผิด:</b> ใช้จุด $(-2, 0)$ หรือ $(0, -3)$ ซึ่งเป็นจุดบน $L_1$ มาแทนในสมการ $L_2$ และพลาดเครื่องหมายความชัน (ดูจากรูป: $L_1$ ลาดลง $L_2$ ชันขึ้น)"
       ],
-      "notes": "โจทย์มีรูปประกอบ: ระนาบพิกัด เส้น L1 ลาดลงผ่าน (-2,0) และ (0,-3), เส้น L2 ชันขึ้นผ่าน (1,0), ตั้งฉากกันที่บริเวณใกล้จุด O | _needsImageSpec: TODO Phase G",
-      "_needsImage": true,
-      "_imageNote": "เส้นตรง L1, L2 ตั้งฉากกัน บนระบบแกน"
+      "notes": "โจทย์มีรูปประกอบ: ระนาบพิกัด เส้น L1 ลาดลงผ่าน (-2,0) และ (0,-3), เส้น L2 ชันขึ้นผ่าน (1,0), ตั้งฉากกันที่บริเวณใกล้จุด O | _needsImageSpec: TODO Phase G"
     },
     {
       "id": "chap-04-coord-q11",
