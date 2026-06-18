@@ -2785,6 +2785,146 @@
       "score": 1,
       "question": "ถ้าเส้นตรง $L$ ผ่านจุดศูนย์กลางของวงกลม $x^2 - 2x + y^2 + 10y - 39 = 0$\nและขนานกับเส้นสัมผัสของวงกลมนี้ที่จุด $(2, 3)$ แล้ว จุดในข้อใดต่อไปนี้อยู่บนเส้นตรง $L$",
       "hasImage": false,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 380,
+          "height": 364,
+          "xRange": [
+            -8,
+            10
+          ],
+          "yRange": [
+            -14,
+            4
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y"
+          },
+          "functions": [
+            {
+              "kind": "ellipse-arc",
+              "center": [
+                1.0,
+                -5.0
+              ],
+              "a": 8.062258,
+              "b": 8.062258,
+              "color": "#1565c0",
+              "strokeWidth": 1.8,
+              "half": "upper",
+              "id": "cu"
+            },
+            {
+              "kind": "ellipse-arc",
+              "center": [
+                1.0,
+                -5.0
+              ],
+              "a": 8.062258,
+              "b": 8.062258,
+              "color": "#1565c0",
+              "strokeWidth": 1.8,
+              "half": "lower",
+              "id": "cl"
+            },
+            {
+              "kind": "polynomial",
+              "coefs": [
+                -0.125,
+                3.25
+              ],
+              "domain": [
+                -5.0,
+                9.5
+              ],
+              "color": "#777",
+              "strokeWidth": 1.5,
+              "dashed": true,
+              "label": {
+                "at": [
+                  9.4,
+                  2.0
+                ],
+                "text": "tangent",
+                "anchor": "end"
+              }
+            },
+            {
+              "kind": "polynomial",
+              "coefs": [
+                -0.125,
+                -4.875
+              ],
+              "domain": [
+                -8.0,
+                10.0
+              ],
+              "color": "#c62828",
+              "strokeWidth": 1.8,
+              "label": {
+                "at": [
+                  -7.7,
+                  -3.4
+                ],
+                "text": "L",
+                "anchor": "end"
+              }
+            }
+          ],
+          "segments": [
+            {
+              "from": [
+                1,
+                -5
+              ],
+              "to": [
+                2,
+                3
+              ],
+              "dashed": true
+            }
+          ],
+          "dots": [
+            {
+              "x": 1,
+              "y": -5,
+              "label": "C(1,-5)",
+              "labelAnchor": "end",
+              "labelDx": -6,
+              "labelDy": 18
+            },
+            {
+              "x": 2,
+              "y": 3,
+              "label": "(2,3)",
+              "labelAnchor": "start",
+              "labelDx": 8,
+              "labelDy": -6
+            },
+            {
+              "x": 4,
+              "y": -5.375,
+              "label": "(4,-43/8)",
+              "labelAnchor": "start",
+              "labelDx": 8,
+              "labelDy": 16
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                0.9,
+                -1.2
+              ],
+              "text": "r",
+              "anchor": "end"
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance 2535",
       "choices": [
         "$\\left(4, -\\dfrac{43}{8}\\right)$",
@@ -2798,6 +2938,7 @@
         "เส้นสัมผัสวงกลม ณ จุดสัมผัส ตั้งฉากกับรัศมีที่ลากไปจุดนั้น | เส้นขนานกันมีความชันเท่ากัน",
         "",
         "<b>🎯 เป้าหมาย</b> หาเส้น $L$ แล้วทดสอบว่าจุดใดอยู่บน $L$",
+        "[IMAGE:0]",
         "",
         "<b>ขั้นที่ 1:</b> จัดรูปวงกลม: $(x - 1)^2 + (y + 5)^2 = 65$ → จุดศูนย์กลาง $C(1, -5)$",
         "เช็ค $(2, 3)$ อยู่บนวงกลม: $4 - 4 + 9 + 30 - 39 = 0$ ✓",
@@ -3336,6 +3477,147 @@
       "score": 1,
       "question": "จุดศูนย์กลาง $C(h, k)$ ของวงกลมวงหนึ่งอยู่บนเส้นตรง $2x - y - 1 = 0$\nถ้าวงกลมวงนี้ผ่านจุด $P(2, -1)$ และ $Q(-2, 0)$ ข้อใดต่อไปนี้ถูก",
       "hasImage": false,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 380,
+          "height": 364,
+          "xRange": [
+            -4,
+            4
+          ],
+          "yRange": [
+            -5,
+            3
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y"
+          },
+          "functions": [
+            {
+              "kind": "ellipse-arc",
+              "center": [
+                -0.25,
+                -1.5
+              ],
+              "a": 2.304886,
+              "b": 2.304886,
+              "color": "#1565c0",
+              "strokeWidth": 1.8,
+              "half": "upper",
+              "id": "cu"
+            },
+            {
+              "kind": "ellipse-arc",
+              "center": [
+                -0.25,
+                -1.5
+              ],
+              "a": 2.304886,
+              "b": 2.304886,
+              "color": "#1565c0",
+              "strokeWidth": 1.8,
+              "half": "lower",
+              "id": "cl"
+            },
+            {
+              "kind": "polynomial",
+              "coefs": [
+                2.0,
+                -1.0
+              ],
+              "domain": [
+                -2.0,
+                2.0
+              ],
+              "color": "#777",
+              "strokeWidth": 1.6,
+              "label": {
+                "at": [
+                  2.3,
+                  2.6
+                ],
+                "text": "2x-y-1=0",
+                "anchor": "start"
+              }
+            },
+            {
+              "kind": "polynomial",
+              "coefs": [
+                4.0,
+                -0.5
+              ],
+              "domain": [
+                -1.0,
+                0.72
+              ],
+              "color": "#2e7d32",
+              "strokeWidth": 1.5,
+              "dashed": true,
+              "label": {
+                "at": [
+                  0.5,
+                  2.6
+                ],
+                "text": "bisector PQ",
+                "anchor": "end"
+              }
+            }
+          ],
+          "segments": [
+            {
+              "from": [
+                -0.25,
+                -1.5
+              ],
+              "to": [
+                2,
+                -1
+              ],
+              "dashed": true
+            },
+            {
+              "from": [
+                -0.25,
+                -1.5
+              ],
+              "to": [
+                -2,
+                0
+              ],
+              "dashed": true
+            }
+          ],
+          "dots": [
+            {
+              "x": -0.25,
+              "y": -1.5,
+              "label": "C(-1/4,-3/2)",
+              "labelAnchor": "end",
+              "labelDx": -8,
+              "labelDy": 16
+            },
+            {
+              "x": 2,
+              "y": -1,
+              "label": "P(2,-1)",
+              "labelAnchor": "start",
+              "labelDx": 8,
+              "labelDy": 4
+            },
+            {
+              "x": -2,
+              "y": 0,
+              "label": "Q(-2,0)",
+              "labelAnchor": "end",
+              "labelDx": -6,
+              "labelDy": -4
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance 2529",
       "choices": [
         "$2k - h - 1 = 0$",
@@ -3349,6 +3631,7 @@
         "วงกลมผ่าน $P$ และ $Q$ → ศูนย์กลางห่างจาก $P$ และ $Q$ เท่ากัน (อยู่บนเส้นแบ่งครึ่งตั้งฉากของ $PQ$)",
         "",
         "<b>🎯 เป้าหมาย</b> หา $C(h, k)$ จากสองเงื่อนไข แล้วตรวจตัวเลือก",
+        "[IMAGE:0]",
         "",
         "<b>ขั้นที่ 1:</b> $C$ บนเส้น: $2h - k - 1 = 0$ → $k = 2h - 1$",
         "",
@@ -3399,6 +3682,144 @@
       "score": 1,
       "question": "ถ้า $Q$ เป็นโปรเจคชันของจุด $P(-1, 5)$ บนเส้นตรง $y = x$\nและ $R$ เป็นจุดกึ่งกลางของส่วนของเส้นตรง $PQ$\nแล้ว สมการของวงกลมที่ผ่านจุด $R$ และมีจุดศูนย์กลางอยู่ที่ $\\left(\\dfrac{1}{2}, 1\\right)$ คือข้อใดต่อไปนี้",
       "hasImage": false,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 380,
+          "height": 364,
+          "xRange": [
+            -4,
+            4
+          ],
+          "yRange": [
+            -2,
+            6
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y"
+          },
+          "functions": [
+            {
+              "kind": "ellipse-arc",
+              "center": [
+                0.5,
+                1.0
+              ],
+              "a": 2.5,
+              "b": 2.5,
+              "color": "#1565c0",
+              "strokeWidth": 1.8,
+              "half": "upper",
+              "id": "cu"
+            },
+            {
+              "kind": "ellipse-arc",
+              "center": [
+                0.5,
+                1.0
+              ],
+              "a": 2.5,
+              "b": 2.5,
+              "color": "#1565c0",
+              "strokeWidth": 1.8,
+              "half": "lower",
+              "id": "cl"
+            },
+            {
+              "kind": "polynomial",
+              "coefs": [
+                1.0,
+                0.0
+              ],
+              "domain": [
+                -2.0,
+                4.0
+              ],
+              "color": "#777",
+              "strokeWidth": 1.5,
+              "dashed": true,
+              "label": {
+                "at": [
+                  3.8,
+                  3.6
+                ],
+                "text": "y=x",
+                "anchor": "end"
+              }
+            }
+          ],
+          "segments": [
+            {
+              "from": [
+                -1,
+                5
+              ],
+              "to": [
+                2,
+                2
+              ],
+              "dashed": true
+            },
+            {
+              "from": [
+                0.5,
+                1
+              ],
+              "to": [
+                0.5,
+                3.5
+              ],
+              "dashed": true
+            }
+          ],
+          "dots": [
+            {
+              "x": -1,
+              "y": 5,
+              "label": "P(-1,5)",
+              "labelAnchor": "end",
+              "labelDx": -6,
+              "labelDy": -2
+            },
+            {
+              "x": 2,
+              "y": 2,
+              "label": "Q(2,2)",
+              "labelAnchor": "start",
+              "labelDx": 8,
+              "labelDy": 16
+            },
+            {
+              "x": 0.5,
+              "y": 3.5,
+              "label": "R",
+              "labelAnchor": "start",
+              "labelDx": 8,
+              "labelDy": -4
+            },
+            {
+              "x": 0.5,
+              "y": 1,
+              "label": "C(1/2,1)",
+              "labelAnchor": "start",
+              "labelDx": 8,
+              "labelDy": 16
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                0.75,
+                2.25
+              ],
+              "text": "r",
+              "anchor": "start"
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance 2533",
       "choices": [
         "$4x^2 - 4x + 4y^2 - 8y - 5 = 0$",
@@ -3412,6 +3833,7 @@
         "โปรเจคชันของจุด $(a, b)$ บนเส้น $y = x$ คือ $\\left(\\dfrac{a + b}{2}, \\dfrac{a + b}{2}\\right)$ (เท้าตั้งฉากบนเส้นทแยง 45°)",
         "",
         "<b>🎯 เป้าหมาย</b> หา $Q$ → หา $R$ → รัศมี $=$ ระยะศูนย์กลางถึง $R$ → เขียนสมการ",
+        "[IMAGE:0]",
         "",
         "<b>【 วิธีที่ 1 ▸ พื้นฐาน 】</b>",
         "<b>ขั้นที่ 1:</b>",
@@ -3632,6 +4054,118 @@
       "score": 1,
       "question": "กำหนดให้ $A(1, 2)$ และ $B(-1, 4)$ เป็นจุดสองจุด ที่มีจุด $M$ เป็นจุดกึ่งกลางของส่วนของเส้นตรง $AB$\nถ้าวงกลมซึ่งมีจุดศูนย์กลางที่จุด $M$ รัศมี $\\sqrt{8}$ หน่วย ตัดส่วนของเส้นตรง $AB$ ที่ต่อออกมาทั้งสองข้างที่จุดสองจุด แล้วจุดตัดจุดหนึ่งคือจุดในข้อใดต่อไปนี้",
       "hasImage": false,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 380,
+          "height": 364,
+          "xRange": [
+            -4,
+            4
+          ],
+          "yRange": [
+            -1,
+            7
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y"
+          },
+          "functions": [
+            {
+              "kind": "ellipse-arc",
+              "center": [
+                0.0,
+                3.0
+              ],
+              "a": 2.828427,
+              "b": 2.828427,
+              "color": "#1565c0",
+              "strokeWidth": 1.8,
+              "half": "upper",
+              "id": "cu"
+            },
+            {
+              "kind": "ellipse-arc",
+              "center": [
+                0.0,
+                3.0
+              ],
+              "a": 2.828427,
+              "b": 2.828427,
+              "color": "#1565c0",
+              "strokeWidth": 1.8,
+              "half": "lower",
+              "id": "cl"
+            },
+            {
+              "kind": "polynomial",
+              "coefs": [
+                -1.0,
+                3.0
+              ],
+              "domain": [
+                -2.6,
+                2.6
+              ],
+              "color": "#c62828",
+              "strokeWidth": 1.8,
+              "label": {
+                "at": [
+                  2.6,
+                  0.2
+                ],
+                "text": "AB",
+                "anchor": "start"
+              }
+            }
+          ],
+          "segments": [],
+          "dots": [
+            {
+              "x": 1,
+              "y": 2,
+              "label": "A(1,2)",
+              "labelAnchor": "start",
+              "labelDx": 8,
+              "labelDy": -10
+            },
+            {
+              "x": -1,
+              "y": 4,
+              "label": "B(-1,4)",
+              "labelAnchor": "end",
+              "labelDx": -6,
+              "labelDy": 14
+            },
+            {
+              "x": 0,
+              "y": 3,
+              "label": "M(0,3)",
+              "labelAnchor": "start",
+              "labelDx": 9,
+              "labelDy": 4
+            },
+            {
+              "x": 2,
+              "y": 1,
+              "label": "(2,1)",
+              "labelAnchor": "start",
+              "labelDx": 28,
+              "labelDy": -12
+            },
+            {
+              "x": -2,
+              "y": 5,
+              "label": "(-2,5)",
+              "labelAnchor": "end",
+              "labelDx": -4,
+              "labelDy": -44
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance 2540",
       "choices": [
         "$(2, 1)$",
@@ -3645,6 +4179,7 @@
         "จุดตัดของวงกลมกับเส้นตรง หาจากการแก้ระบบสมการวงกลม–เส้นตรง",
         "",
         "<b>🎯 เป้าหมาย</b> เขียนสมการวงกลมและเส้น $AB$ แล้วแก้หาจุดตัด",
+        "[IMAGE:0]",
         "",
         "<b>【 วิธีที่ 1 ▸ พื้นฐาน 】</b>",
         "<b>ขั้นที่ 1:</b>",
@@ -5546,6 +6081,156 @@
       "score": 1,
       "question": "กำหนดให้ $f_1(x) = -\\dfrac{x}{2} + \\dfrac{3}{2}$ เมื่อ $x \\le 1$ และ $f_2(x) = 3x - 2$ เมื่อ $x \\ge 1$\nถ้า $P(a, b)$ เป็นจุดศูนย์กลางของวงกลมที่มีรัศมียาว $\\dfrac{7}{\\sqrt{5}}$ หน่วย\nและสัมผัสกราฟของ $f_1$ และ $f_2$ แล้ว $a + b$ เท่ากับข้อใดต่อไปนี้",
       "hasImage": false,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 380,
+          "height": 364,
+          "xRange": [
+            -5.5,
+            5.5
+          ],
+          "yRange": [
+            -1,
+            10
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y"
+          },
+          "functions": [
+            {
+              "kind": "ellipse-arc",
+              "center": [
+                -0.828427,
+                5.414214
+              ],
+              "a": 3.130495,
+              "b": 3.130495,
+              "color": "#1565c0",
+              "strokeWidth": 1.8,
+              "half": "upper",
+              "id": "cu"
+            },
+            {
+              "kind": "ellipse-arc",
+              "center": [
+                -0.828427,
+                5.414214
+              ],
+              "a": 3.130495,
+              "b": 3.130495,
+              "color": "#1565c0",
+              "strokeWidth": 1.8,
+              "half": "lower",
+              "id": "cl"
+            },
+            {
+              "kind": "polynomial",
+              "coefs": [
+                -0.5,
+                1.5
+              ],
+              "domain": [
+                -5.5,
+                1.0
+              ],
+              "color": "#c62828",
+              "strokeWidth": 1.8,
+              "label": {
+                "at": [
+                  -4.7,
+                  4.4
+                ],
+                "text": "f1",
+                "anchor": "end"
+              }
+            },
+            {
+              "kind": "polynomial",
+              "coefs": [
+                3.0,
+                -2.0
+              ],
+              "domain": [
+                1.0,
+                3.3
+              ],
+              "color": "#2e7d32",
+              "strokeWidth": 1.8,
+              "label": {
+                "at": [
+                  3.15,
+                  7.3
+                ],
+                "text": "f2",
+                "anchor": "start"
+              }
+            }
+          ],
+          "segments": [
+            {
+              "from": [
+                -0.828427,
+                5.414214
+              ],
+              "to": [
+                -2.22843,
+                2.61421
+              ],
+              "dashed": true
+            },
+            {
+              "from": [
+                -0.828427,
+                5.414214
+              ],
+              "to": [
+                2.14142,
+                4.42426
+              ],
+              "dashed": true
+            }
+          ],
+          "dots": [
+            {
+              "x": -0.828427,
+              "y": 5.414214,
+              "label": "P(a,b)",
+              "labelAnchor": "end",
+              "labelDx": -8,
+              "labelDy": -4
+            },
+            {
+              "x": 1,
+              "y": 1,
+              "label": "(1,1)",
+              "labelAnchor": "start",
+              "labelDx": 8,
+              "labelDy": 16
+            },
+            {
+              "x": -2.22843,
+              "y": 2.61421
+            },
+            {
+              "x": 2.14142,
+              "y": 4.42426
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                0.7,
+                5.0
+              ],
+              "text": "r",
+              "anchor": "start"
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance ต.ค. 2545",
       "choices": [
         "$-2\\sqrt{2}$",
@@ -5559,6 +6244,7 @@
         "สัมผัสเส้นตรง ⟺ ระยะจากศูนย์กลางถึงเส้น $=$ รัศมี — สองเส้นได้สองสมการค่าสัมบูรณ์",
         "",
         "<b>🎯 เป้าหมาย</b> ตั้งสมการระยะกับเส้นทั้งสอง แก้หา $(a, b)$ ที่ทำให้วงกลมสัมผัสกราฟจริง (เหนือมุม V)",
+        "[IMAGE:0]",
         "",
         "<b>ขั้นที่ 1:</b> $f_1$: $x + 2y - 3 = 0$ และ $f_2$: $3x - y - 2 = 0$ (สองกราฟต่อกันที่ $(1, 1)$ เป็นรูปมุม)",
         "",
@@ -5595,6 +6281,118 @@
       "score": 1,
       "question": "เส้นตรง $PQ$ ตัดวงกลม $x^2 + y^2 - 2x + 4y - 20 = 0$ ชนิดที่จุดตัดแบ่ง $PQ$ ออกเป็น 3 ส่วนเท่าๆ กัน ถ้า $PQ$ เป็นส่วนของเส้นตรง $3y = 4x - 10$ จงหาพิกัดของจุด $P$ และ $Q$",
       "hasImage": false,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 380,
+          "height": 364,
+          "xRange": [
+            -13,
+            15
+          ],
+          "yRange": [
+            -16,
+            12
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y"
+          },
+          "functions": [
+            {
+              "kind": "ellipse-arc",
+              "center": [
+                1.0,
+                -2.0
+              ],
+              "a": 5.0,
+              "b": 5.0,
+              "color": "#1565c0",
+              "strokeWidth": 1.8,
+              "half": "upper",
+              "id": "cu"
+            },
+            {
+              "kind": "ellipse-arc",
+              "center": [
+                1.0,
+                -2.0
+              ],
+              "a": 5.0,
+              "b": 5.0,
+              "color": "#1565c0",
+              "strokeWidth": 1.8,
+              "half": "lower",
+              "id": "cl"
+            },
+            {
+              "kind": "polynomial",
+              "coefs": [
+                1.333333,
+                -3.333333
+              ],
+              "domain": [
+                -8.0,
+                10.0
+              ],
+              "color": "#c62828",
+              "strokeWidth": 1.8,
+              "label": {
+                "at": [
+                  5.3,
+                  6.4
+                ],
+                "text": "PQ",
+                "anchor": "end"
+              }
+            }
+          ],
+          "segments": [],
+          "dots": [
+            {
+              "x": -8,
+              "y": -14,
+              "label": "P(-8,-14)",
+              "labelAnchor": "start",
+              "labelDx": 8,
+              "labelDy": 16
+            },
+            {
+              "x": -2,
+              "y": -6,
+              "label": "(-2,-6)",
+              "labelAnchor": "end",
+              "labelDx": -14,
+              "labelDy": 8
+            },
+            {
+              "x": 4,
+              "y": 2,
+              "label": "(4,2)",
+              "labelAnchor": "end",
+              "labelDx": -6,
+              "labelDy": -14
+            },
+            {
+              "x": 10,
+              "y": 10,
+              "label": "Q(10,10)",
+              "labelAnchor": "start",
+              "labelDx": 8,
+              "labelDy": -6
+            },
+            {
+              "x": 1,
+              "y": -2,
+              "label": "C(1,-2)",
+              "labelAnchor": "start",
+              "labelDx": 10,
+              "labelDy": 18
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance 2525",
       "choices": [
         "$(-14, -22), (16, 18)$",
@@ -5609,6 +6407,7 @@
         "ถ้าเส้นผ่านจุดศูนย์กลาง คอร์ดที่ตัดได้คือเส้นผ่านศูนย์กลาง ($2r$) | จุดตัดสองจุดแบ่ง $PQ$ เป็น 3 ส่วนเท่ากัน → คอร์ดคือส่วนตรงกลาง และ $PQ = 3 \\times$ คอร์ด",
         "",
         "<b>🎯 เป้าหมาย</b> เช็คว่าเส้นผ่านศูนย์กลางไหม → หาตำแหน่ง $P, Q$ ที่ห่างศูนย์กลางเท่ากันสองข้าง",
+        "[IMAGE:0]",
         "",
         "<b>ขั้นที่ 1:</b> วงกลม: $(x - 1)^2 + (y + 2)^2 = 25$ → ศูนย์กลาง $(1, -2)$, $r = 5$",
         "เส้น $4x - 3y - 10 = 0$: แทน $(1, -2)$: $4 + 6 - 10 = 0$ ✓ <b>ผ่านศูนย์กลาง</b> → คอร์ด $= 10$",
