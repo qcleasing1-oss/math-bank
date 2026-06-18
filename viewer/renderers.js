@@ -127,7 +127,9 @@ function renderFunctionPlot(spec){const W=spec.width||450,H=spec.height||280,pX=
       svg+=`<polyline points="${pts.join(' ')}" fill="none" stroke="${col}" stroke-width="${sw}"${dashAttr}/>`;
     }else if(fn.kind==='ellipse-arc'){const[cx,cy]=fn.center||[0,0],aa=fn.a,bb=fn.b,half=fn.half||'upper',pts=[];
       if(fn.fullOutline){svg+=`<ellipse cx="${x2(cx).toFixed(2)}" cy="${y2(cy).toFixed(2)}" rx="${Math.abs(x2(cx+aa)-x2(cx)).toFixed(2)}" ry="${Math.abs(y2(cy+bb)-y2(cy)).toFixed(2)}" fill="none" stroke="${col}" stroke-width="${sw}" stroke-dasharray="5 4"/>`;}
-      if(half==='upper'||half==='lower'){const s=half==='upper'?1:-1;
+      if(fn.startAngle!==undefined&&fn.endAngle!==undefined){const a0=fn.startAngle*Math.PI/180,a1=fn.endAngle*Math.PI/180;
+        for(let i=0;i<=N;i++){const th=a0+(a1-a0)*i/N,x=cx+aa*Math.cos(th),y=cy+bb*Math.sin(th);pts.push(`${x2(x).toFixed(2)},${y2(y).toFixed(2)}`);}}
+      else if(half==='upper'||half==='lower'){const s=half==='upper'?1:-1;
         for(let i=0;i<=N;i++){const x=cx-aa+2*aa*i/N,t=1-((x-cx)/aa)**2,y=cy+s*bb*Math.sqrt(Math.max(0,t));pts.push(`${x2(x).toFixed(2)},${y2(y).toFixed(2)}`);}}
       else{const s=half==='right'?1:-1;
         for(let i=0;i<=N;i++){const y=cy-bb+2*bb*i/N,t=1-((y-cy)/bb)**2,x=cx+s*aa*Math.sqrt(Math.max(0,t));pts.push(`${x2(x).toFixed(2)},${y2(y).toFixed(2)}`);}}
