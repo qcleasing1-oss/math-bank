@@ -156,8 +156,10 @@ function renderFunctionPlot(spec){const W=spec.width||450,H=spec.height||280,pX=
       for(let i=0;i<=N;i++){const x=dom[0]+(dom[1]-dom[0])*i/N,y=fnVal(fn,x);
         if(y!==null&&isFinite(y))pts.push(`${x2(x).toFixed(2)},${y2(y).toFixed(2)}`);}
       svg+=`<polyline points="${pts.join(' ')}" fill="none" stroke="${col}" stroke-width="${sw}"${dashAttr}/>`;}
-    if(fn.label){const[lx,ly]=fn.label.at,anc=fn.label.anchor||'start';
-      svg+=`<text x="${x2(lx)}" y="${y2(ly)}" font-size="14" font-style="italic" fill="${fn.label.color||'#222'}" text-anchor="${anc}">${fn.label.text}</text>`;}});
+    if(fn.label){const[lx,ly]=fn.label.at,anc=fn.label.anchor||'start',lcol=fn.label.color||'#222';
+      if(/\\sqrt/.test(fn.label.text)){const fs=14,lw=_nlLatexW(fn.label.text,fs),ox=(anc==='end'?-lw:anc==='middle'?-lw/2:0);
+        svg+=_ucMathToSvg(fn.label.text,x2(lx)+ox,y2(ly),fs,lcol);}
+      else svg+=`<text x="${x2(lx)}" y="${y2(ly)}" font-size="14" font-style="italic" fill="${lcol}" text-anchor="${anc}">${fn.label.text}</text>`;}});
   // straight reference segments (after functions)
   (spec.segments||[]).forEach(s=>{const[fx,fy]=s.from,[tx,ty]=s.to,d=s.dashed?' stroke-dasharray="5 4"':'';
     svg+=`<line x1="${x2(fx).toFixed(2)}" y1="${y2(fy).toFixed(2)}" x2="${x2(tx).toFixed(2)}" y2="${y2(ty).toFixed(2)}" stroke="#222" stroke-width="1.4"${d}/>`;});
@@ -355,8 +357,9 @@ function _ztTableRows(table, x0, y0, w, h) {
 // Supports: \sqrt{X} with vinculum, italic letters, minus sign (-), \ space, \, thin space
 // Used inside SVG context where foreignObject+KaTeX has CSS quirks (Q23 samn-2564-04 case).
 // For complex LaTeX (e.g. \dfrac) — extend this function if needed in future.
-function _ucMathToSvg(latex, x, y, fontSize) {
+function _ucMathToSvg(latex, x, y, fontSize, color) {
   const expr = latex.replace(/^\$|\$$/g, '');
+  const col = color || '#222';
   const ff = "'Cambria Math','Times New Roman',serif";
   let cur = x;
   let out = '';
@@ -370,7 +373,7 @@ function _ucMathToSvg(latex, x, y, fontSize) {
   function emit(text, italic) {
     const it = italic ? ' font-style="italic"' : '';
     out += `<text x="${cur.toFixed(2)}" y="${y.toFixed(2)}" `
-         + `font-family="${ff}" font-size="${fontSize}" fill="#222"${it}>${text}</text>`;
+         + `font-family="${ff}" font-size="${fontSize}" fill="${col}"${it}>${text}</text>`;
     for (const ch of text) cur += chW(ch);
   }
   let i = 0;
@@ -384,7 +387,7 @@ function _ucMathToSvg(latex, x, y, fontSize) {
       const barY = y - fontSize * 0.78;
       out += `<line x1="${(cur - 1).toFixed(2)}" y1="${barY.toFixed(2)}" `
            + `x2="${(cur + radW + 1).toFixed(2)}" y2="${barY.toFixed(2)}" `
-           + `stroke="#222" stroke-width="1"/>`;
+           + `stroke="${col}" stroke-width="1"/>`;
       emit(rad, false);
       i += m[0].length;
       continue;

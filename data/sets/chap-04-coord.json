@@ -12908,10 +12908,10 @@
               "strokeWidth": 1.6,
               "label": {
                 "at": [
-                  -0.6,
+                  0.12,
                   3.25
                 ],
-                "text": "x+2y=3+√5",
+                "text": "x+2y=3+\\ \\sqrt{5}",
                 "anchor": "start",
                 "color": "#2e7d32"
               }
