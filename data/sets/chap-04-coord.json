@@ -2586,6 +2586,109 @@
       "score": 1,
       "question": "ให้ $(1, -3)$ เป็นจุดศูนย์กลางของวงกลมที่สัมผัสกับเส้นตรง $y - x + 6 = 0$ ที่จุด $(2, -4)$\nสมการของวงกลมคือข้อใดต่อไปนี้",
       "hasImage": false,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 380,
+          "height": 364,
+          "xRange": [
+            -2,
+            5
+          ],
+          "yRange": [
+            -7,
+            0
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y"
+          },
+          "functions": [
+            {
+              "id": "c_top",
+              "kind": "ellipse-arc",
+              "center": [
+                1,
+                -3
+              ],
+              "a": 1.414214,
+              "b": 1.414214,
+              "half": "upper",
+              "color": "#1565c0",
+              "strokeWidth": 1.8
+            },
+            {
+              "id": "c_bot",
+              "kind": "ellipse-arc",
+              "center": [
+                1,
+                -3
+              ],
+              "a": 1.414214,
+              "b": 1.414214,
+              "half": "lower",
+              "color": "#1565c0",
+              "strokeWidth": 1.8
+            },
+            {
+              "id": "ln",
+              "kind": "polynomial",
+              "coefs": [
+                1,
+                -6
+              ],
+              "domain": [
+                -1,
+                5
+              ],
+              "color": "#c62828",
+              "strokeWidth": 1.7
+            }
+          ],
+          "segments": [
+            {
+              "from": [
+                1,
+                -3
+              ],
+              "to": [
+                2,
+                -4
+              ],
+              "dashed": true
+            }
+          ],
+          "dots": [
+            {
+              "x": 1,
+              "y": -3,
+              "label": "C(1,−3)",
+              "labelAnchor": "end",
+              "labelDx": -8,
+              "labelDy": -4
+            },
+            {
+              "x": 2,
+              "y": -4,
+              "label": "P(2,−4)",
+              "labelAnchor": "start",
+              "labelDx": 8,
+              "labelDy": 16
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                0.55,
+                -3.6
+              ],
+              "text": "r",
+              "anchor": "end"
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance 2525",
       "choices": [
         "$x^2 + y^2 + 2x - 6y + 8 = 0$",
@@ -2599,6 +2702,7 @@
         "วงกลมศูนย์กลาง $(h, k)$ รัศมี $r$: $(x - h)^2 + (y - k)^2 = r^2$ | รัศมี $=$ ระยะจากศูนย์กลางถึงจุดสัมผัส",
         "",
         "<b>🎯 เป้าหมาย</b> หารัศมีจากจุดสัมผัส แล้วเขียนสมการ",
+        "[IMAGE:0]",
         "",
         "<b>【 วิธีที่ 1 ▸ พื้นฐาน · ระยะศูนย์กลาง→จุดสัมผัส = รัศมี 】</b>",
         "<b>ขั้นที่ 1:</b>",
@@ -2639,6 +2743,109 @@
       "score": 1,
       "question": "สมการใดเป็นสมการของวงกลมที่มีจุดศูนย์กลางอยู่บนแกน $y$\nและสัมผัสเส้นตรง $3y - 4x + 11 = 0$ ที่จุด $(2, -1)$",
       "hasImage": false,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 380,
+          "height": 364,
+          "xRange": [
+            -4,
+            4
+          ],
+          "yRange": [
+            -4.5,
+            3.5
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y"
+          },
+          "functions": [
+            {
+              "id": "c_top",
+              "kind": "ellipse-arc",
+              "center": [
+                0,
+                0.5
+              ],
+              "a": 2.5,
+              "b": 2.5,
+              "half": "upper",
+              "color": "#1565c0",
+              "strokeWidth": 1.8
+            },
+            {
+              "id": "c_bot",
+              "kind": "ellipse-arc",
+              "center": [
+                0,
+                0.5
+              ],
+              "a": 2.5,
+              "b": 2.5,
+              "half": "lower",
+              "color": "#1565c0",
+              "strokeWidth": 1.8
+            },
+            {
+              "id": "ln",
+              "kind": "polynomial",
+              "coefs": [
+                1.333333,
+                -3.666667
+              ],
+              "domain": [
+                -0.5,
+                3.5
+              ],
+              "color": "#c62828",
+              "strokeWidth": 1.7
+            }
+          ],
+          "segments": [
+            {
+              "from": [
+                0,
+                0.5
+              ],
+              "to": [
+                2,
+                -1
+              ],
+              "dashed": true
+            }
+          ],
+          "dots": [
+            {
+              "x": 0,
+              "y": 0.5,
+              "label": "C(0, ½)",
+              "labelAnchor": "end",
+              "labelDx": -8,
+              "labelDy": -4
+            },
+            {
+              "x": 2,
+              "y": -1,
+              "label": "P(2,−1)",
+              "labelAnchor": "start",
+              "labelDx": 8,
+              "labelDy": 16
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                0.7,
+                -0.5
+              ],
+              "text": "r",
+              "anchor": "end"
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance 2528",
       "choices": [
         "$x^2 + y^2 - y = 6$",
@@ -2652,6 +2859,7 @@
         "ศูนย์กลางบนแกน $y$ คือ $(0, k)$ | รัศมีที่ลากไปยังจุดสัมผัส ตั้งฉากกับเส้นสัมผัส",
         "",
         "<b>🎯 เป้าหมาย</b> หา $k$ จากเงื่อนไขตั้งฉาก แล้วประกอบสมการ",
+        "[IMAGE:0]",
         "",
         "<b>ขั้นที่ 1:</b> เส้น $3y - 4x + 11 = 0$ มีความชัน $\\dfrac{4}{3}$ → ความชันรัศมี $= -\\dfrac{3}{4}$",
         "",
@@ -2685,6 +2893,140 @@
       "score": 1,
       "question": "วงกลมวงหนึ่งสัมผัสกับเส้นตรง $2x - y + 1 = 0$ ที่จุด $(2, 5)$\nและจุดศูนย์กลางของวงกลมนี้อยู่บนเส้นตรง $x + y = 9$ วงกลมนี้มีสมการตรงกับข้อใด",
       "hasImage": false,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 380,
+          "height": 364,
+          "xRange": [
+            -1,
+            12
+          ],
+          "yRange": [
+            -3.5,
+            9.5
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y"
+          },
+          "functions": [
+            {
+              "id": "c_top",
+              "kind": "ellipse-arc",
+              "center": [
+                6,
+                3
+              ],
+              "a": 4.472136,
+              "b": 4.472136,
+              "half": "upper",
+              "color": "#1565c0",
+              "strokeWidth": 1.8
+            },
+            {
+              "id": "c_bot",
+              "kind": "ellipse-arc",
+              "center": [
+                6,
+                3
+              ],
+              "a": 4.472136,
+              "b": 4.472136,
+              "half": "lower",
+              "color": "#1565c0",
+              "strokeWidth": 1.8
+            },
+            {
+              "id": "ln",
+              "kind": "polynomial",
+              "coefs": [
+                2,
+                1
+              ],
+              "domain": [
+                0,
+                4
+              ],
+              "color": "#c62828",
+              "strokeWidth": 1.7,
+              "label": {
+                "at": [
+                  3.7,
+                  8.7
+                ],
+                "text": "2x−y+1=0",
+                "anchor": "end"
+              }
+            },
+            {
+              "id": "locus",
+              "kind": "polynomial",
+              "coefs": [
+                -1,
+                9
+              ],
+              "domain": [
+                1,
+                10
+              ],
+              "color": "#2e7d32",
+              "strokeWidth": 1.7,
+              "dashed": true,
+              "label": {
+                "at": [
+                  8.7,
+                  1.5
+                ],
+                "text": "x+y=9",
+                "anchor": "start"
+              }
+            }
+          ],
+          "segments": [
+            {
+              "from": [
+                6,
+                3
+              ],
+              "to": [
+                2,
+                5
+              ],
+              "dashed": true
+            }
+          ],
+          "dots": [
+            {
+              "x": 6,
+              "y": 3,
+              "label": "C(6,3)",
+              "labelAnchor": "start",
+              "labelDx": 8,
+              "labelDy": 16
+            },
+            {
+              "x": 2,
+              "y": 5,
+              "label": "P(2,5)",
+              "labelAnchor": "end",
+              "labelDx": -8,
+              "labelDy": -6
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                3.7,
+                4.3
+              ],
+              "text": "r",
+              "anchor": "start"
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance 2526",
       "choices": [
         "$x^2 + y^2 - 6x - 6y + 25 = 0$",
@@ -2698,6 +3040,7 @@
         "จุดศูนย์กลางอยู่บนเส้นตั้งฉากกับเส้นสัมผัสที่ลากผ่านจุดสัมผัส (แนวรัศมี)",
         "",
         "<b>🎯 เป้าหมาย</b> ตามแนวรัศมีจากจุดสัมผัสไปตัดเส้น $x + y = 9$ ได้ศูนย์กลาง",
+        "[IMAGE:0]",
         "",
         "<b>【 วิธีที่ 1 ▸ พื้นฐาน 】</b>",
         "<b>ขั้นที่ 1:</b> เส้นสัมผัสชัน 2 → แนวรัศมีชัน $-\\dfrac{1}{2}$ ผ่าน $(2, 5)$: $y = -\\dfrac{1}{2}(x - 2) + 5$",
@@ -2856,6 +3199,137 @@
       "score": 1,
       "question": "กำหนดให้ $L$ เป็นเส้นตรงที่ผ่านจุด $(1, 4)$ และมีความชันเท่ากับ $\\dfrac{3}{4}$\nถ้าเส้นตรง $L$ สัมผัสวงกลม $C$ ซึ่งมีจุดศูนย์กลางที่จุด $(1, 2)$ แล้ว จุดใดต่อไปนี้เป็นจุดบนวงกลม $C$",
       "hasImage": false,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 380,
+          "height": 364,
+          "xRange": [
+            -3,
+            4
+          ],
+          "yRange": [
+            -1.5,
+            5.5
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y"
+          },
+          "functions": [
+            {
+              "id": "c_top",
+              "kind": "ellipse-arc",
+              "center": [
+                1,
+                2
+              ],
+              "a": 1.6,
+              "b": 1.6,
+              "half": "upper",
+              "color": "#1565c0",
+              "strokeWidth": 1.8
+            },
+            {
+              "id": "c_bot",
+              "kind": "ellipse-arc",
+              "center": [
+                1,
+                2
+              ],
+              "a": 1.6,
+              "b": 1.6,
+              "half": "lower",
+              "color": "#1565c0",
+              "strokeWidth": 1.8
+            },
+            {
+              "id": "ln",
+              "kind": "polynomial",
+              "coefs": [
+                0.75,
+                3.25
+              ],
+              "domain": [
+                -3,
+                3
+              ],
+              "color": "#c62828",
+              "strokeWidth": 1.7,
+              "label": {
+                "at": [
+                  -2.8,
+                  1
+                ],
+                "text": "L",
+                "anchor": "start"
+              }
+            }
+          ],
+          "segments": [
+            {
+              "from": [
+                1,
+                2
+              ],
+              "to": [
+                0.04,
+                3.28
+              ],
+              "dashed": true
+            },
+            {
+              "from": [
+                1,
+                2
+              ],
+              "to": [
+                1,
+                0.4
+              ],
+              "dashed": true
+            }
+          ],
+          "dots": [
+            {
+              "x": 1,
+              "y": 2,
+              "label": "C(1,2)",
+              "labelAnchor": "end",
+              "labelDx": -8,
+              "labelDy": -4
+            },
+            {
+              "x": 0.04,
+              "y": 3.28,
+              "open": true,
+              "label": "T",
+              "labelAnchor": "end",
+              "labelDx": -6,
+              "labelDy": -4
+            },
+            {
+              "x": 1,
+              "y": 0.4,
+              "label": "(1, ⅖)",
+              "labelAnchor": "start",
+              "labelDx": 8,
+              "labelDy": 14
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                1.15,
+                1.2
+              ],
+              "text": "r",
+              "anchor": "start"
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance มี.ค. 2544",
       "choices": [
         "$\\left(1, \\dfrac{2}{5}\\right)$",
@@ -2869,6 +3343,7 @@
         "วงกลมสัมผัสเส้นตรง → รัศมี $=$ ระยะจากจุดศูนย์กลางถึงเส้นนั้น $= \\dfrac{|Ax_0 + By_0 + C|}{\\sqrt{A^2 + B^2}}$",
         "",
         "<b>🎯 เป้าหมาย</b> หารัศมีของ $C$ แล้วทดสอบจุดใน choices",
+        "[IMAGE:0]",
         "",
         "<b>ขั้นที่ 1:</b> $L$: $y - 4 = \\dfrac{3}{4}(x - 1)$ → $3x - 4y + 13 = 0$",
         "",
@@ -3194,6 +3669,118 @@
       "score": 1,
       "question": "ผลบวกของระยะทางที่ยาวที่สุด และสั้นที่สุดจากจุด $(10, 7)$\nไปยังกราฟซึ่งมีสมการ $5x^2 + 5y^2 - 20x - 10y - 100 = 0$ มีค่าเท่ากับเท่าใด",
       "hasImage": false,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 380,
+          "height": 364,
+          "xRange": [
+            -4,
+            11
+          ],
+          "yRange": [
+            -5,
+            10
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y"
+          },
+          "functions": [
+            {
+              "id": "c_top",
+              "kind": "ellipse-arc",
+              "center": [
+                2,
+                1
+              ],
+              "a": 5,
+              "b": 5,
+              "half": "upper",
+              "color": "#1565c0",
+              "strokeWidth": 1.8
+            },
+            {
+              "id": "c_bot",
+              "kind": "ellipse-arc",
+              "center": [
+                2,
+                1
+              ],
+              "a": 5,
+              "b": 5,
+              "half": "lower",
+              "color": "#1565c0",
+              "strokeWidth": 1.8
+            }
+          ],
+          "segments": [
+            {
+              "from": [
+                10,
+                7
+              ],
+              "to": [
+                -2,
+                -2
+              ]
+            }
+          ],
+          "dots": [
+            {
+              "x": 10,
+              "y": 7,
+              "label": "P(10,7)",
+              "labelAnchor": "start",
+              "labelDx": 8,
+              "labelDy": -6
+            },
+            {
+              "x": 2,
+              "y": 1,
+              "label": "C(2,1)",
+              "labelAnchor": "start",
+              "labelDx": 9,
+              "labelDy": 15
+            },
+            {
+              "x": 6,
+              "y": 4,
+              "label": "N",
+              "labelAnchor": "end",
+              "labelDx": -6,
+              "labelDy": -6
+            },
+            {
+              "x": -2,
+              "y": -2,
+              "label": "F",
+              "labelAnchor": "end",
+              "labelDx": -6,
+              "labelDy": 14
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                -3.8,
+                9.2
+              ],
+              "text": "P→F = d+r = 15",
+              "anchor": "start"
+            },
+            {
+              "at": [
+                6.6,
+                -3.2
+              ],
+              "text": "P→N = d−r = 5",
+              "anchor": "start"
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance 2534",
       "correct": "20",
       "accept": [
@@ -3205,6 +3792,7 @@
         "ผลบวก $= (d + r) + (d - r) = 2d$ — ไม่ขึ้นกับรัศมีเลย",
         "",
         "<b>🎯 เป้าหมาย</b> หาจุดศูนย์กลาง แล้วคูณระยะด้วย 2",
+        "[IMAGE:0]",
         "",
         "<b>ขั้นที่ 1:</b> หาร 5: $x^2 + y^2 - 4x - 2y - 20 = 0$ → $(x - 2)^2 + (y - 1)^2 = 25$",
         "จุดศูนย์กลาง $(2, 1)$, $r = 5$",
@@ -3656,6 +4244,162 @@
       "score": 1,
       "question": "วงกลมวงหนึ่งมีจุดศูนย์กลางอยู่ที่จุด $A(0, 0)$ และมีจุด $B(3, 4)$ อยู่บนเส้นรอบวง\nถ้าวงกลมวงนี้ตัดกับเส้นตรง $x + y = 5$ ที่จุด $C$ และจุด $D$\nแล้ว ผลบวกระหว่างพื้นที่ของ $\\triangle ABC$ กับ $\\triangle ABD$ จะเท่ากับเท่าใด",
       "hasImage": false,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 380,
+          "height": 364,
+          "xRange": [
+            -6,
+            6
+          ],
+          "yRange": [
+            -6,
+            6
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y"
+          },
+          "functions": [
+            {
+              "id": "c_top",
+              "kind": "ellipse-arc",
+              "center": [
+                0,
+                0
+              ],
+              "a": 5,
+              "b": 5,
+              "half": "upper",
+              "color": "#1565c0",
+              "strokeWidth": 1.8
+            },
+            {
+              "id": "c_bot",
+              "kind": "ellipse-arc",
+              "center": [
+                0,
+                0
+              ],
+              "a": 5,
+              "b": 5,
+              "half": "lower",
+              "color": "#1565c0",
+              "strokeWidth": 1.8
+            },
+            {
+              "id": "ln",
+              "kind": "polynomial",
+              "coefs": [
+                -1,
+                5
+              ],
+              "domain": [
+                -1,
+                6
+              ],
+              "color": "#c62828",
+              "strokeWidth": 1.7,
+              "label": {
+                "at": [
+                  4.4,
+                  3.5
+                ],
+                "text": "x+y=5",
+                "anchor": "start"
+              }
+            }
+          ],
+          "segments": [
+            {
+              "from": [
+                0,
+                0
+              ],
+              "to": [
+                3,
+                4
+              ]
+            },
+            {
+              "from": [
+                0,
+                0
+              ],
+              "to": [
+                0,
+                5
+              ]
+            },
+            {
+              "from": [
+                0,
+                5
+              ],
+              "to": [
+                3,
+                4
+              ]
+            },
+            {
+              "from": [
+                0,
+                0
+              ],
+              "to": [
+                5,
+                0
+              ]
+            },
+            {
+              "from": [
+                5,
+                0
+              ],
+              "to": [
+                3,
+                4
+              ]
+            }
+          ],
+          "dots": [
+            {
+              "x": 0,
+              "y": 0,
+              "label": "A",
+              "labelAnchor": "end",
+              "labelDx": -6,
+              "labelDy": 16
+            },
+            {
+              "x": 3,
+              "y": 4,
+              "label": "B(3,4)",
+              "labelAnchor": "start",
+              "labelDx": 8,
+              "labelDy": -6
+            },
+            {
+              "x": 0,
+              "y": 5,
+              "label": "C(0,5)",
+              "labelAnchor": "end",
+              "labelDx": -8,
+              "labelDy": -4
+            },
+            {
+              "x": 5,
+              "y": 0,
+              "label": "D(5,0)",
+              "labelAnchor": "start",
+              "labelDx": 6,
+              "labelDy": 16
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance 2523",
       "choices": [
         "7.5",
@@ -3670,6 +4414,7 @@
         "พื้นที่สามเหลี่ยมจากพิกัดสามจุด $= \\dfrac{1}{2}|x_1(y_2 - y_3) + x_2(y_3 - y_1) + x_3(y_1 - y_2)|$",
         "",
         "<b>🎯 เป้าหมาย</b> หา $C, D$ จากการตัดวงกลมกับเส้น แล้วรวมพื้นที่สองรูป",
+        "[IMAGE:0]",
         "",
         "<b>ขั้นที่ 1:</b> รัศมี $= |AB| = \\sqrt{9 + 16} = 5$ → วงกลม $x^2 + y^2 = 25$",
         "",
@@ -3704,6 +4449,125 @@
       "score": 1,
       "question": "กำหนดให้ $C$ เป็นวงกลมที่บรรจุอยู่ภายในและสัมผัสกับด้านทั้งสามของสามเหลี่ยมที่เกิดจากแกน $x$\nแกน $y$ และเส้นตรง $3x + 4y - 1 = 0$ ข้อใดต่อไปนี้ถูก",
       "hasImage": false,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 380,
+          "height": 364,
+          "xRange": [
+            -0.05,
+            0.38
+          ],
+          "yRange": [
+            -0.05,
+            0.38
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y"
+          },
+          "functions": [
+            {
+              "id": "c_top",
+              "kind": "ellipse-arc",
+              "center": [
+                0.083333,
+                0.083333
+              ],
+              "a": 0.083333,
+              "b": 0.083333,
+              "half": "upper",
+              "color": "#1565c0",
+              "strokeWidth": 1.6
+            },
+            {
+              "id": "c_bot",
+              "kind": "ellipse-arc",
+              "center": [
+                0.083333,
+                0.083333
+              ],
+              "a": 0.083333,
+              "b": 0.083333,
+              "half": "lower",
+              "color": "#1565c0",
+              "strokeWidth": 1.6
+            },
+            {
+              "id": "ln",
+              "kind": "polynomial",
+              "coefs": [
+                -0.75,
+                0.25
+              ],
+              "domain": [
+                0,
+                0.333333
+              ],
+              "color": "#c62828",
+              "strokeWidth": 1.7,
+              "label": {
+                "at": [
+                  0.19,
+                  0.17
+                ],
+                "text": "3x+4y−1=0",
+                "anchor": "start"
+              }
+            }
+          ],
+          "segments": [
+            {
+              "from": [
+                0.083333,
+                0.083333
+              ],
+              "to": [
+                0.083333,
+                0
+              ],
+              "dashed": true
+            }
+          ],
+          "dots": [
+            {
+              "x": 0.083333,
+              "y": 0.083333,
+              "label": "C(1/12, 1/12)",
+              "labelAnchor": "start",
+              "labelDx": 8,
+              "labelDy": -6
+            },
+            {
+              "x": 0.333333,
+              "y": 0,
+              "label": "(⅓, 0)",
+              "labelAnchor": "middle",
+              "labelDx": 4,
+              "labelDy": 16
+            },
+            {
+              "x": 0,
+              "y": 0.25,
+              "label": "(0, ¼)",
+              "labelAnchor": "end",
+              "labelDx": -6,
+              "labelDy": 0
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                0.089333,
+                0.028
+              ],
+              "text": "r",
+              "anchor": "start"
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance 2530",
       "choices": [
         "รัศมีของวงกลม $C$ มีค่ามากกว่า $\\dfrac{1}{6}$",
@@ -3717,6 +4581,7 @@
         "วงกลมแนบในสามเหลี่ยมมุมฉากที่มีด้านประกอบมุมฉากบนแกนทั้งสอง: ศูนย์กลาง $(r, r)$ และ $r = \\dfrac{a + b - c}{2}$ เมื่อ $a, b$ คือด้านประกอบมุมฉาก $c$ คือด้านตรงข้ามมุมฉาก",
         "",
         "<b>🎯 เป้าหมาย</b> หา $r$ กับศูนย์กลาง แล้วไล่ตรวจตัวเลือก",
+        "[IMAGE:0]",
         "",
         "<b>【 วิธีที่ 1 ▸ พื้นฐาน · สูตรรัศมีวงกลมแนบในสามเหลี่ยมมุมฉาก 】</b>",
         "<b>ขั้นที่ 1:</b> เส้น $3x + 4y - 1 = 0$ ตัดแกน $x$ ที่ $\\left(\\dfrac{1}{3}, 0\\right)$ ตัดแกน $y$ ที่ $\\left(0, \\dfrac{1}{4}\\right)$",
