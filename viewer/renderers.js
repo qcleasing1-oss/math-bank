@@ -157,7 +157,7 @@ function renderFunctionPlot(spec){const W=spec.width||450,H=spec.height||280,pX=
         if(y!==null&&isFinite(y))pts.push(`${x2(x).toFixed(2)},${y2(y).toFixed(2)}`);}
       svg+=`<polyline points="${pts.join(' ')}" fill="none" stroke="${col}" stroke-width="${sw}"${dashAttr}/>`;}
     if(fn.label){const[lx,ly]=fn.label.at,anc=fn.label.anchor||'start';
-      svg+=`<text x="${x2(lx)}" y="${y2(ly)}" font-size="14" font-style="italic" fill="#222" text-anchor="${anc}">${fn.label.text}</text>`;}});
+      svg+=`<text x="${x2(lx)}" y="${y2(ly)}" font-size="14" font-style="italic" fill="${fn.label.color||'#222'}" text-anchor="${anc}">${fn.label.text}</text>`;}});
   // straight reference segments (after functions)
   (spec.segments||[]).forEach(s=>{const[fx,fy]=s.from,[tx,ty]=s.to,d=s.dashed?' stroke-dasharray="5 4"':'';
     svg+=`<line x1="${x2(fx).toFixed(2)}" y1="${y2(fy).toFixed(2)}" x2="${x2(tx).toFixed(2)}" y2="${y2(ty).toFixed(2)}" stroke="#222" stroke-width="1.4"${d}/>`;});
