@@ -11842,34 +11842,34 @@
             {
               "x": 3,
               "y": 11,
-              "label": "A",
-              "labelAnchor": "end",
-              "labelDx": -7,
-              "labelDy": -4
+              "label": "A(3,11)",
+              "labelAnchor": "start",
+              "labelDx": 6,
+              "labelDy": -9
             },
             {
               "x": 3,
               "y": -2,
-              "label": "B",
-              "labelAnchor": "end",
-              "labelDx": -6,
-              "labelDy": 16
+              "label": "B(3,−2)",
+              "labelAnchor": "middle",
+              "labelDx": 0,
+              "labelDy": 20
             },
             {
               "x": 16,
               "y": -2,
-              "label": "C",
-              "labelAnchor": "start",
-              "labelDx": 7,
-              "labelDy": 17
+              "label": "C(16,−2)",
+              "labelAnchor": "middle",
+              "labelDx": -6,
+              "labelDy": 20
             },
             {
               "x": 8,
               "y": 10,
-              "label": "D",
+              "label": "D(8,10)",
               "labelAnchor": "start",
-              "labelDx": 8,
-              "labelDy": -6
+              "labelDx": 9,
+              "labelDy": -7
             }
           ]
         }
