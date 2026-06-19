@@ -13296,7 +13296,181 @@
       "level": "medium",
       "score": 1,
       "question": "ให้เส้นตรง $L_1$ ผ่านจุด $(-4, 1)$ และจุด $\\left(0, \\dfrac{8}{3}\\right)$ และเส้นตรง $L_2$ มีสมการเป็น $5x - 12y - 20 = 0$\nแล้ว วงกลมใดต่อไปนี้ที่สัมผัสกับทั้งเส้นตรง $L_1$ และ $L_2$",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 407,
+          "height": 340,
+          "xRange": [
+            -1.5,
+            12
+          ],
+          "yRange": [
+            -3,
+            8.5
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y"
+          },
+          "functions": [
+            {
+              "id": "L1",
+              "kind": "piecewise-linear",
+              "points": [
+                [
+                  -1.5,
+                  2.0416666666666665
+                ],
+                [
+                  12,
+                  7.666666666666667
+                ]
+              ],
+              "color": "#222",
+              "strokeWidth": 1.4,
+              "label": {
+                "at": [
+                  9.6,
+                  7.166666666666667
+                ],
+                "text": "L_1",
+                "anchor": "start"
+              }
+            },
+            {
+              "id": "L2",
+              "kind": "piecewise-linear",
+              "points": [
+                [
+                  -1.5,
+                  -2.2916666666666665
+                ],
+                [
+                  12,
+                  3.3333333333333335
+                ]
+              ],
+              "color": "#222",
+              "strokeWidth": 1.4,
+              "label": {
+                "at": [
+                  10,
+                  1.95
+                ],
+                "text": "L_2",
+                "anchor": "start"
+              }
+            },
+            {
+              "id": "C",
+              "kind": "ellipse-arc",
+              "center": [
+                6,
+                3
+              ],
+              "a": 2,
+              "b": 2,
+              "startAngle": 0,
+              "endAngle": 360,
+              "color": "#1f6feb",
+              "strokeWidth": 1.6
+            }
+          ],
+          "segments": [
+            {
+              "from": [
+                5.231,
+                4.846
+              ],
+              "to": [
+                6,
+                3
+              ]
+            },
+            {
+              "from": [
+                6,
+                3
+              ],
+              "to": [
+                6.769,
+                1.154
+              ]
+            },
+            {
+              "from": [
+                5.442,
+                4.338
+              ],
+              "to": [
+                5.95,
+                4.55
+              ]
+            },
+            {
+              "from": [
+                5.95,
+                4.55
+              ],
+              "to": [
+                5.738,
+                5.058
+              ]
+            },
+            {
+              "from": [
+                6.558,
+                1.662
+              ],
+              "to": [
+                7.065,
+                1.873
+              ]
+            },
+            {
+              "from": [
+                7.065,
+                1.873
+              ],
+              "to": [
+                7.277,
+                1.365
+              ]
+            }
+          ],
+          "dots": [
+            {
+              "x": 6,
+              "y": 3,
+              "label": "O(6,3)",
+              "labelDx": -10,
+              "labelDy": 13,
+              "labelAnchor": "end"
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                6.25,
+                4.05
+              ],
+              "text": "2",
+              "anchor": "start"
+            },
+            {
+              "at": [
+                6.85,
+                2.25
+              ],
+              "text": "2",
+              "anchor": "start"
+            }
+          ]
+        }
+      ],
       "sourceTag": "สมาคมคณิตศาสตร์ฯ 2543",
       "choices": [
         "$x^2 + y^2 - 12x - 6y + 29 = 0$",
@@ -13309,6 +13483,7 @@
         "<b>📐 ความรู้พื้นฐาน</b>",
         "วงกลมสัมผัสเส้นตรง ⟺ ระยะจากศูนย์กลางถึงเส้น = รัศมี | เส้นขนานสองเส้น $Ax + By + C_1 = 0$",
         "และ $Ax + By + C_2 = 0$ ห่างกัน $\\dfrac{|C_1 - C_2|}{\\sqrt{A^2 + B^2}}$",
+        "[IMAGE:0]",
         "",
         "<b>ขั้นที่ 1:</b> หา $L_1$: ความชัน $= \\dfrac{8/3 - 1}{0 - (-4)} = \\dfrac{5/3}{4} = \\dfrac{5}{12}$, ตัดแกน y ที่ $\\dfrac{8}{3}$",
         "$y = \\dfrac{5}{12}x + \\dfrac{8}{3}$ → คูณ 12: $5x - 12y + 32 = 0$",
@@ -13342,7 +13517,144 @@
       "level": "medium",
       "score": 1,
       "question": "เส้นตรง L สัมผัสวงกลม $(x + 2)^2 + (y - 2)^2 = 4$ และขนานกับเส้นตรง $12x - 5y + 21 = 0$\nถ้า L มีระยะห่างจากเส้นตรง $12x - 5y + 21 = 0$ มากกว่า 1 หน่วย\nและตัดแกน y ที่จุด $(0, a)$ แล้ว จงหา $|a|$",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 253,
+          "height": 430,
+          "xRange": [
+            -6,
+            2
+          ],
+          "yRange": [
+            -3,
+            13
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y"
+          },
+          "functions": [
+            {
+              "id": "Lrej",
+              "kind": "piecewise-linear",
+              "points": [
+                [
+                  -6,
+                  -12.8
+                ],
+                [
+                  2,
+                  6.4
+                ]
+              ],
+              "color": "#999",
+              "strokeWidth": 1.2,
+              "dashed": true,
+              "label": {
+                "at": [
+                  1.6,
+                  5.94
+                ],
+                "text": "ตัดทิ้ง",
+                "anchor": "end",
+                "color": "#888"
+              }
+            },
+            {
+              "id": "Lsel",
+              "kind": "piecewise-linear",
+              "points": [
+                [
+                  -6,
+                  -2.4
+                ],
+                [
+                  0.2,
+                  12.48
+                ]
+              ],
+              "color": "#222",
+              "strokeWidth": 1.5,
+              "label": {
+                "at": [
+                  -2.4,
+                  6.84
+                ],
+                "text": "L",
+                "anchor": "end"
+              }
+            },
+            {
+              "id": "C",
+              "kind": "ellipse-arc",
+              "center": [
+                -2,
+                2
+              ],
+              "a": 2,
+              "b": 2,
+              "startAngle": 0,
+              "endAngle": 360,
+              "color": "#1f6feb",
+              "strokeWidth": 1.6
+            }
+          ],
+          "segments": [
+            {
+              "from": [
+                -2,
+                2
+              ],
+              "to": [
+                -3.846,
+                2.769
+              ]
+            },
+            {
+              "from": [
+                -2,
+                2
+              ],
+              "to": [
+                -0.154,
+                1.231
+              ],
+              "dashed": true
+            }
+          ],
+          "dots": [
+            {
+              "x": -2,
+              "y": 2,
+              "label": "(-2,2)",
+              "labelDx": -7,
+              "labelDy": 15,
+              "labelAnchor": "end"
+            },
+            {
+              "x": 0,
+              "y": 12,
+              "label": "(0,12)",
+              "labelDx": 9,
+              "labelDy": 3,
+              "labelAnchor": "start"
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                -2.55,
+                2.9
+              ],
+              "text": "2",
+              "anchor": "middle"
+            }
+          ]
+        }
+      ],
       "sourceTag": "โควตา มช. 2548",
       "correct": "12",
       "accept": [
@@ -13351,6 +13663,7 @@
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
         "เส้นขนานกับ $12x - 5y + 21 = 0$ เขียนเป็น $12x - 5y + c = 0$ | สัมผัสวงกลม ⟺ ระยะจากศูนย์กลาง = รัศมี",
+        "[IMAGE:0]",
         "",
         "<b>ขั้นที่ 1:</b> วงกลมมีศูนย์กลาง $(-2, 2)$ รัศมี 2 | ให้ L: $12x - 5y + c = 0$",
         "$\\dfrac{|12(-2) - 5(2) + c|}{\\sqrt{144 + 25}} = 2$ → $|c - 34| = 26$ → $c = 60$",
@@ -14951,7 +15264,132 @@
       "level": "medium",
       "score": 1,
       "question": "วงกลม C มีจุดศูนย์กลางอยู่ที่จุด $(a, b)$ สัมผัสกับวงกลม $x^2 + y^2 - 2x - 2y - 23 = 0$ ณ จุด $(4, 5)$\nถ้าวงกลมทั้งสองมีรัศมียาวเท่ากัน แล้ว จงหาค่าของ $a + b$",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 346,
+          "height": 362,
+          "xRange": [
+            -5,
+            13
+          ],
+          "yRange": [
+            -5,
+            15
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y"
+          },
+          "functions": [
+            {
+              "id": "Cg",
+              "kind": "ellipse-arc",
+              "center": [
+                1,
+                1
+              ],
+              "a": 5,
+              "b": 5,
+              "startAngle": 0,
+              "endAngle": 360,
+              "color": "#1f6feb",
+              "strokeWidth": 1.6
+            },
+            {
+              "id": "C",
+              "kind": "ellipse-arc",
+              "center": [
+                7,
+                9
+              ],
+              "a": 5,
+              "b": 5,
+              "startAngle": 0,
+              "endAngle": 360,
+              "color": "#1f6feb",
+              "strokeWidth": 1.6,
+              "label": {
+                "at": [
+                  7,
+                  14.4
+                ],
+                "text": "C",
+                "anchor": "middle",
+                "color": "#1f6feb"
+              }
+            }
+          ],
+          "segments": [
+            {
+              "from": [
+                1,
+                1
+              ],
+              "to": [
+                4,
+                5
+              ]
+            },
+            {
+              "from": [
+                4,
+                5
+              ],
+              "to": [
+                7,
+                9
+              ]
+            }
+          ],
+          "dots": [
+            {
+              "x": 1,
+              "y": 1,
+              "label": "P(1,1)",
+              "labelDx": -8,
+              "labelDy": -6,
+              "labelAnchor": "end"
+            },
+            {
+              "x": 4,
+              "y": 5,
+              "label": "Q(4,5)",
+              "labelDx": 11,
+              "labelDy": 5,
+              "labelAnchor": "start"
+            },
+            {
+              "x": 7,
+              "y": 9,
+              "label": "R(a,b)",
+              "labelDx": 10,
+              "labelDy": -5,
+              "labelAnchor": "start"
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                2.0,
+                3.5
+              ],
+              "text": "5",
+              "anchor": "end"
+            },
+            {
+              "at": [
+                5.0,
+                7.5
+              ],
+              "text": "5",
+              "anchor": "end"
+            }
+          ]
+        }
+      ],
       "sourceTag": "โควตา มช. 2541",
       "correct": "16",
       "accept": [
@@ -14960,6 +15398,7 @@
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
         "วงกลมสองวงสัมผัสกัน → จุดสัมผัสอยู่บนเส้นที่เชื่อมจุดศูนย์กลางทั้งสอง | รัศมีเท่ากัน + สัมผัสภายนอก → จุดสัมผัสคือจุดกึ่งกลางระหว่างศูนย์กลางทั้งสอง",
+        "[IMAGE:0]",
         "",
         "<b>ขั้นที่ 1:</b> วงกลมที่ให้: ศูนย์กลาง $P(1, 1)$, $r = \\sqrt{1 + 1 + 23} = 5$",
         "เช็คจุดสัมผัส: $(4, 5)$: $16 + 25 - 8 - 10 - 23 = 0$ ✓ อยู่บนวงกลมจริง",
@@ -14995,7 +15434,185 @@
       "level": "hard",
       "score": 1,
       "question": "วงกลมสองวง มี $O_1$ และ $O_2$ เป็นจุดศูนย์กลาง และรัศมียาว 3 และ 4 หน่วย ตามลำดับ\nถ้า A เป็นจุดตัดจุดหนึ่งของวงกลมทั้งสอง ซึ่งทำให้ $O_1\\hat{A}O_2$ เป็นมุมฉาก\nแล้ว พื้นที่วงกลมที่ใหญ่ที่สุด ซึ่งบรรจุภายในบริเวณส่วนที่ซ้อนกันของวงกลมทั้งสองนั้น เป็นเท่าใด",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 426,
+          "height": 286,
+          "xRange": [
+            -3.5,
+            9.5
+          ],
+          "yRange": [
+            -4.3,
+            4.3
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y"
+          },
+          "functions": [
+            {
+              "id": "C1",
+              "kind": "ellipse-arc",
+              "center": [
+                0,
+                0
+              ],
+              "a": 3,
+              "b": 3,
+              "startAngle": 0,
+              "endAngle": 360,
+              "color": "#1f6feb",
+              "strokeWidth": 1.5
+            },
+            {
+              "id": "C2",
+              "kind": "ellipse-arc",
+              "center": [
+                5,
+                0
+              ],
+              "a": 4,
+              "b": 4,
+              "startAngle": 0,
+              "endAngle": 360,
+              "color": "#1f6feb",
+              "strokeWidth": 1.5
+            },
+            {
+              "id": "Cin",
+              "kind": "ellipse-arc",
+              "center": [
+                2,
+                0
+              ],
+              "a": 1,
+              "b": 1,
+              "startAngle": 0,
+              "endAngle": 360,
+              "color": "#d1242f",
+              "strokeWidth": 1.5
+            }
+          ],
+          "segments": [
+            {
+              "from": [
+                0,
+                0
+              ],
+              "to": [
+                1.8,
+                2.4
+              ]
+            },
+            {
+              "from": [
+                1.8,
+                2.4
+              ],
+              "to": [
+                5,
+                0
+              ]
+            },
+            {
+              "from": [
+                0,
+                0
+              ],
+              "to": [
+                5,
+                0
+              ],
+              "dashed": true
+            },
+            {
+              "from": [
+                1.5,
+                2.0
+              ],
+              "to": [
+                1.9,
+                1.7
+              ]
+            },
+            {
+              "from": [
+                1.9,
+                1.7
+              ],
+              "to": [
+                2.2,
+                2.1
+              ]
+            }
+          ],
+          "dots": [
+            {
+              "x": 0,
+              "y": 0,
+              "label": "O_1",
+              "labelDx": -6,
+              "labelDy": 15,
+              "labelAnchor": "end"
+            },
+            {
+              "x": 5,
+              "y": 0,
+              "label": "O_2",
+              "labelDx": 7,
+              "labelDy": 15,
+              "labelAnchor": "start"
+            },
+            {
+              "x": 1.8,
+              "y": 2.4,
+              "label": "A",
+              "labelDx": 0,
+              "labelDy": -8,
+              "labelAnchor": "middle"
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                0.45,
+                1.5
+              ],
+              "text": "3",
+              "anchor": "end"
+            },
+            {
+              "at": [
+                3.95,
+                1.55
+              ],
+              "text": "4",
+              "anchor": "start"
+            },
+            {
+              "at": [
+                3.8,
+                -0.55
+              ],
+              "text": "5",
+              "anchor": "middle"
+            },
+            {
+              "at": [
+                2,
+                -1.5
+              ],
+              "text": "r=1",
+              "anchor": "middle",
+              "color": "#d1242f"
+            }
+          ]
+        }
+      ],
       "sourceTag": "คัดโอลิมปิก 2539",
       "choices": [
         "$\\dfrac{\\pi}{2}$ ตารางหน่วย",
@@ -15007,6 +15624,7 @@
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
         "มุมฉากที่ A: $O_1O_2 = \\sqrt{O_1A^2 + O_2A^2}$ (พีทาโกรัส) | วงกลมใหญ่สุดในบริเวณซ้อน (รูปเลนส์) มีเส้นผ่านศูนย์กลางอยู่บนแนว $O_1O_2$ ยาวเท่าช่วงที่สองวงซ้อนกันบนแนวนั้น",
+        "[IMAGE:0]",
         "",
         "<b>ขั้นที่ 1:</b> $O_1A = 3$, $O_2A = 4$, มุมฉากที่ A → $O_1O_2 = \\sqrt{9 + 16} = 5$",
         "",
@@ -15038,7 +15656,205 @@
       "level": "medium",
       "score": 1,
       "question": "กำหนดให้ $C_1$ และ $C_2$ เป็นวงกลม ซึ่งมีสมการเป็น $x^2 + y^2 = 2y$ และ $x^2 + y^2 + 2y = 3$ ตามลำดับ\nและ L เป็นเส้นตรงที่มีความชันน้อยกว่า 0 ซึ่งสัมผัสวงกลม $C_1$ และ $C_2$\nข้อใดต่อไปนี้เป็นความชันของ L",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 313,
+          "height": 360,
+          "xRange": [
+            -3,
+            3
+          ],
+          "yRange": [
+            -3.5,
+            4
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y"
+          },
+          "functions": [
+            {
+              "id": "C1",
+              "kind": "ellipse-arc",
+              "center": [
+                0,
+                1
+              ],
+              "a": 1,
+              "b": 1,
+              "startAngle": 0,
+              "endAngle": 360,
+              "color": "#1f6feb",
+              "strokeWidth": 1.6,
+              "label": {
+                "at": [
+                  -1.15,
+                  1.2
+                ],
+                "text": "C_1",
+                "anchor": "end",
+                "color": "#1f6feb"
+              }
+            },
+            {
+              "id": "C2",
+              "kind": "ellipse-arc",
+              "center": [
+                0,
+                -1
+              ],
+              "a": 2,
+              "b": 2,
+              "startAngle": 0,
+              "endAngle": 360,
+              "color": "#1f6feb",
+              "strokeWidth": 1.6,
+              "label": {
+                "at": [
+                  -2.15,
+                  -1
+                ],
+                "text": "C_2",
+                "anchor": "end",
+                "color": "#1f6feb"
+              }
+            },
+            {
+              "id": "L",
+              "kind": "piecewise-linear",
+              "points": [
+                [
+                  -0.6,
+                  4.039230484541326
+                ],
+                [
+                  2.6,
+                  -1.5033320996790804
+                ]
+              ],
+              "color": "#222",
+              "strokeWidth": 1.5,
+              "label": {
+                "at": [
+                  1.45,
+                  1.7
+                ],
+                "text": "L",
+                "anchor": "start"
+              }
+            }
+          ],
+          "segments": [
+            {
+              "from": [
+                0,
+                1
+              ],
+              "to": [
+                0.866,
+                1.5
+              ]
+            },
+            {
+              "from": [
+                0,
+                -1
+              ],
+              "to": [
+                1.732,
+                0.0
+              ]
+            },
+            {
+              "from": [
+                0.624,
+                1.36
+              ],
+              "to": [
+                0.764,
+                1.118
+              ]
+            },
+            {
+              "from": [
+                0.764,
+                1.118
+              ],
+              "to": [
+                1.006,
+                1.258
+              ]
+            },
+            {
+              "from": [
+                1.49,
+                -0.14
+              ],
+              "to": [
+                1.63,
+                -0.382
+              ]
+            },
+            {
+              "from": [
+                1.63,
+                -0.382
+              ],
+              "to": [
+                1.872,
+                -0.242
+              ]
+            }
+          ],
+          "dots": [
+            {
+              "x": 0,
+              "y": 3,
+              "label": "E(0,3)",
+              "labelDx": 9,
+              "labelDy": 3,
+              "labelAnchor": "start"
+            },
+            {
+              "x": 0,
+              "y": 1,
+              "label": "(0,1)",
+              "labelDx": 7,
+              "labelDy": 14,
+              "labelAnchor": "start"
+            },
+            {
+              "x": 0,
+              "y": -1,
+              "label": "(0,-1)",
+              "labelDx": -7,
+              "labelDy": 15,
+              "labelAnchor": "end"
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                0.35,
+                1.7
+              ],
+              "text": "1",
+              "anchor": "end"
+            },
+            {
+              "at": [
+                1.25,
+                -0.7
+              ],
+              "text": "2",
+              "anchor": "start"
+            }
+          ]
+        }
+      ],
       "sourceTag": "สมาคมคณิตศาสตร์ฯ 2549",
       "choices": [
         "$-\\sqrt{2}$",
@@ -15050,6 +15866,7 @@
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
         "เส้นสัมผัสวงกลม: ระยะจากศูนย์กลางถึงเส้น = รัศมี | สมมุติ L: $y = mx + c$ แล้วตั้งเงื่อนไขกับทั้งสองวง",
+        "[IMAGE:0]",
         "",
         "<b>【 วิธีที่ 1 ▸ พื้นฐาน 】</b>",
         "<b>ขั้นที่ 1:</b> จัดรูป: $C_1$: $x^2 + (y - 1)^2 = 1$ ศูนย์กลาง $(0, 1)$, $r_1 = 1$ | $C_2$: $x^2 + (y + 1)^2 = 4$ ศูนย์กลาง $(0, -1)$, $r_2 = 2$",
