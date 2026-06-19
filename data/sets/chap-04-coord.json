@@ -13383,7 +13383,175 @@
       "level": "easy",
       "score": 1,
       "question": "ให้วงกลม C มีจุดศูนย์กลางอยู่ที่ $(2, -3)$ ถ้ากำหนดความยาวของเส้นสัมผัสที่ลากจากจุด $(4, 6)$\nมายังวงกลม C เท่ากับ 5 หน่วย แล้ว วงกลม C จะมีสมการตรงกับข้อใด",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 360,
+          "height": 362,
+          "xRange": [
+            -7,
+            11
+          ],
+          "yRange": [
+            -12,
+            7
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y"
+          },
+          "functions": [
+            {
+              "id": "C",
+              "kind": "ellipse-arc",
+              "center": [
+                2,
+                -3
+              ],
+              "a": 7.745966692414834,
+              "b": 7.745966692414834,
+              "startAngle": 0,
+              "endAngle": 360,
+              "color": "#1f6feb",
+              "strokeWidth": 1.6,
+              "label": {
+                "at": [
+                  2,
+                  5.545966692414834
+                ],
+                "text": "C",
+                "anchor": "middle",
+                "color": "#1f6feb"
+              }
+            }
+          ],
+          "segments": [
+            {
+              "from": [
+                2,
+                -3
+              ],
+              "to": [
+                7.513,
+                2.442
+              ]
+            },
+            {
+              "from": [
+                4,
+                6
+              ],
+              "to": [
+                7.513,
+                2.442
+              ]
+            },
+            {
+              "from": [
+                4,
+                6
+              ],
+              "to": [
+                -0.689,
+                4.264
+              ]
+            },
+            {
+              "from": [
+                2,
+                -3
+              ],
+              "to": [
+                -0.689,
+                4.264
+              ]
+            },
+            {
+              "from": [
+                2,
+                -3
+              ],
+              "to": [
+                4,
+                6
+              ],
+              "dashed": true
+            },
+            {
+              "from": [
+                6.872,
+                1.809
+              ],
+              "to": [
+                6.24,
+                2.45
+              ]
+            },
+            {
+              "from": [
+                6.24,
+                2.45
+              ],
+              "to": [
+                6.88,
+                3.082
+              ]
+            }
+          ],
+          "dots": [
+            {
+              "x": 2,
+              "y": -3,
+              "label": "O(2,-3)",
+              "labelDx": -6,
+              "labelDy": 16,
+              "labelAnchor": "end"
+            },
+            {
+              "x": 4,
+              "y": 6,
+              "label": "P(4,6)",
+              "labelDx": 8,
+              "labelDy": -4
+            },
+            {
+              "x": 7.513,
+              "y": 2.442,
+              "label": "T",
+              "labelDx": 8,
+              "labelDy": 4
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                6.256285300933338,
+                4.82082548868148
+              ],
+              "text": "5",
+              "anchor": "start"
+            },
+            {
+              "at": [
+                4.256285300933338,
+                -0.27917451131851956
+              ],
+              "text": "r",
+              "anchor": "end"
+            },
+            {
+              "at": [
+                2.4,
+                1.5
+              ],
+              "text": "d=\\sqrt{85}",
+              "anchor": "end"
+            }
+          ]
+        }
+      ],
       "sourceTag": "โควตา มช. 2547",
       "choices": [
         "$x^2 + y^2 - 4x + 6y - 12 = 0$",
@@ -13395,6 +13563,7 @@
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
         "ความยาวเส้นสัมผัสจากจุดภายนอก P: $\\ell^2 = d^2 - r^2$ เมื่อ $d$ = ระยะจาก P ถึงศูนย์กลาง (สามเหลี่ยมมุมฉากที่จุดสัมผัส)",
+        "[IMAGE:0]",
         "",
         "<b>ขั้นที่ 1:</b>",
         "$\\begin{aligned} d^2 &= (4 - 2)^2 + (6 - (-3))^2 \\\\ &= 4 + 81 \\\\ &= 85 \\end{aligned}$",
@@ -13425,7 +13594,152 @@
       "level": "medium",
       "score": 1,
       "question": "กำหนดเส้นตรง $3x + 4y = 13$ จงหาระยะทางที่ใกล้ที่สุดของจุดบนวงกลม\n$20x^2 - 28x + 20y^2 - 16y - 7 = 0$ กับเส้นตรงนี้",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 373,
+          "height": 300,
+          "xRange": [
+            -1.5,
+            4
+          ],
+          "yRange": [
+            -1.5,
+            3
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y"
+          },
+          "functions": [
+            {
+              "id": "C",
+              "kind": "ellipse-arc",
+              "center": [
+                0.7,
+                0.4
+              ],
+              "a": 1.0,
+              "b": 1.0,
+              "startAngle": 0,
+              "endAngle": 360,
+              "color": "#1f6feb",
+              "strokeWidth": 1.6
+            },
+            {
+              "id": "L",
+              "kind": "piecewise-linear",
+              "points": [
+                [
+                  -1,
+                  4
+                ],
+                [
+                  3.5,
+                  0.625
+                ]
+              ],
+              "color": "#222",
+              "strokeWidth": 1.4,
+              "label": {
+                "at": [
+                  3.0,
+                  0.45
+                ],
+                "text": "3x+4y=13",
+                "anchor": "end"
+              }
+            }
+          ],
+          "segments": [
+            {
+              "from": [
+                0.7,
+                0.4
+              ],
+              "to": [
+                1.3,
+                1.2
+              ]
+            },
+            {
+              "from": [
+                1.3,
+                1.2
+              ],
+              "to": [
+                1.816,
+                1.888
+              ],
+              "dashed": true
+            },
+            {
+              "from": [
+                1.648,
+                1.664
+              ],
+              "to": [
+                1.872,
+                1.496
+              ]
+            },
+            {
+              "from": [
+                1.872,
+                1.496
+              ],
+              "to": [
+                2.04,
+                1.72
+              ]
+            }
+          ],
+          "dots": [
+            {
+              "x": 0.7,
+              "y": 0.4,
+              "label": "C",
+              "labelDx": -6,
+              "labelDy": -6,
+              "labelAnchor": "end"
+            },
+            {
+              "x": 1.3,
+              "y": 1.2,
+              "label": "",
+              "labelDx": 0,
+              "labelDy": 0
+            },
+            {
+              "x": 1.816,
+              "y": 1.888,
+              "label": "",
+              "labelDx": 0,
+              "labelDy": 0
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                0.9499999999999998,
+                0.7200000000000001
+              ],
+              "text": "r=1",
+              "anchor": "end"
+            },
+            {
+              "at": [
+                1.3,
+                1.66
+              ],
+              "text": "0.86",
+              "anchor": "end"
+            }
+          ]
+        }
+      ],
       "sourceTag": "คัดโอลิมปิก 2534",
       "choices": [
         "0.36 หน่วย",
@@ -13437,6 +13751,7 @@
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
         "ระยะใกล้สุดจากวงกลมถึงเส้นตรง (กรณีเส้นไม่ตัดวงกลม) = ระยะจากศูนย์กลางถึงเส้น − รัศมี",
+        "[IMAGE:0]",
         "",
         "<b>ขั้นที่ 1:</b> หารสมการวงกลมด้วย 20: $x^2 + y^2 - \\dfrac{7}{5}x - \\dfrac{4}{5}y - \\dfrac{7}{20} = 0$",
         "ศูนย์กลาง $\\left(\\dfrac{7}{10}, \\dfrac{2}{5}\\right)$, $r^2 = \\dfrac{49}{100} + \\dfrac{4}{25} + \\dfrac{7}{20} = \\dfrac{49 + 16 + 35}{100} = 1$ → $r = 1$",
@@ -13467,7 +13782,145 @@
       "level": "medium",
       "score": 1,
       "question": "ให้ A คือ จุด $(2, 1)$ และ P เป็นจุดบนวงกลม $x^2 + y^2 = 1$ ที่อยู่ใกล้จุด A มากที่สุด\nระยะห่างระหว่างเส้นตรง $4x - 3y + 12 = 0$ และจุด P เท่ากับข้อใดต่อไปนี้",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 361,
+          "height": 320,
+          "xRange": [
+            -3.5,
+            2.5
+          ],
+          "yRange": [
+            -1,
+            4.5
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y"
+          },
+          "functions": [
+            {
+              "id": "C",
+              "kind": "ellipse-arc",
+              "center": [
+                0,
+                0
+              ],
+              "a": 1,
+              "b": 1,
+              "startAngle": 0,
+              "endAngle": 360,
+              "color": "#1f6feb",
+              "strokeWidth": 1.6
+            },
+            {
+              "id": "L",
+              "kind": "piecewise-linear",
+              "points": [
+                [
+                  -3.5,
+                  -0.667
+                ],
+                [
+                  0.375,
+                  4.5
+                ]
+              ],
+              "color": "#222",
+              "strokeWidth": 1.4,
+              "label": {
+                "at": [
+                  -2.3,
+                  3.6
+                ],
+                "text": "4x-3y+12=0",
+                "anchor": "start"
+              }
+            }
+          ],
+          "segments": [
+            {
+              "from": [
+                0,
+                0
+              ],
+              "to": [
+                2,
+                1
+              ]
+            },
+            {
+              "from": [
+                0.894,
+                0.447
+              ],
+              "to": [
+                -1.383,
+                2.156
+              ],
+              "dashed": true
+            },
+            {
+              "from": [
+                -1.159,
+                1.988
+              ],
+              "to": [
+                -1.327,
+                1.764
+              ]
+            },
+            {
+              "from": [
+                -1.327,
+                1.764
+              ],
+              "to": [
+                -1.551,
+                1.932
+              ]
+            }
+          ],
+          "dots": [
+            {
+              "x": 0,
+              "y": 0,
+              "label": "O",
+              "labelDx": -8,
+              "labelDy": 14,
+              "labelAnchor": "end"
+            },
+            {
+              "x": 2,
+              "y": 1,
+              "label": "A(2,1)",
+              "labelDx": 8,
+              "labelDy": 4
+            },
+            {
+              "x": 0.894,
+              "y": 0.447,
+              "label": "P",
+              "labelDx": 10,
+              "labelDy": 15,
+              "labelAnchor": "start"
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                -1.0,
+                1.55
+              ],
+              "text": "d",
+              "anchor": "middle"
+            }
+          ]
+        }
+      ],
       "sourceTag": "คัดโอลิมปิก 2543",
       "choices": [
         "$\\dfrac{12 + \\sqrt{5}}{\\sqrt{5}}$",
@@ -13479,6 +13932,7 @@
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
         "จุดบนวงกลม (ศูนย์กลาง O) ที่ใกล้จุดภายนอก A ที่สุด คือจุดที่รังสี OA ตัดวงกลม | ระยะจุดถึงเส้น $= \\dfrac{|Ax_0 + By_0 + C|}{\\sqrt{A^2 + B^2}}$",
+        "[IMAGE:0]",
         "",
         "<b>ขั้นที่ 1:</b> วงกลมหนึ่งหน่วยศูนย์กลาง $(0,0)$: P = จุดบนรังสี OA ที่ระยะ 1 จาก O",
         "$|OA| = \\sqrt{4 + 1} = \\sqrt{5}$ → $P = \\dfrac{(2, 1)}{\\sqrt{5}} = \\left(\\dfrac{2}{\\sqrt{5}}, \\dfrac{1}{\\sqrt{5}}\\right)$",
@@ -13689,7 +14143,154 @@
       "level": "medium",
       "score": 1,
       "question": "กำหนดให้ A และ B มีพิกัด $(1, -2)$ และ $(3, 4)$ ตามลำดับ และจุด P เป็นจุด\nบนวงกลม $x^2 + y^2 - 4x - 2y - 5 = 0$ ซึ่งทำให้ $\\overline{AP}$ ยาว 6 หน่วย จะได้ $\\overline{PB}$ ยาวกี่หน่วย",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 336,
+          "height": 320,
+          "xRange": [
+            -2,
+            6
+          ],
+          "yRange": [
+            -3,
+            5
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y"
+          },
+          "functions": [
+            {
+              "id": "C",
+              "kind": "ellipse-arc",
+              "center": [
+                2,
+                1
+              ],
+              "a": 3.1622776601683795,
+              "b": 3.1622776601683795,
+              "startAngle": 0,
+              "endAngle": 360,
+              "color": "#1f6feb",
+              "strokeWidth": 1.6
+            }
+          ],
+          "segments": [
+            {
+              "from": [
+                1,
+                -2
+              ],
+              "to": [
+                3,
+                4
+              ],
+              "dashed": true
+            },
+            {
+              "from": [
+                1,
+                -2
+              ],
+              "to": [
+                4.6,
+                2.8
+              ]
+            },
+            {
+              "from": [
+                4.6,
+                2.8
+              ],
+              "to": [
+                3,
+                4
+              ]
+            },
+            {
+              "from": [
+                4.33,
+                2.44
+              ],
+              "to": [
+                3.97,
+                2.71
+              ]
+            },
+            {
+              "from": [
+                3.97,
+                2.71
+              ],
+              "to": [
+                4.24,
+                3.07
+              ]
+            }
+          ],
+          "dots": [
+            {
+              "x": 1,
+              "y": -2,
+              "label": "A(1,-2)",
+              "labelDx": -6,
+              "labelDy": 14,
+              "labelAnchor": "end"
+            },
+            {
+              "x": 3,
+              "y": 4,
+              "label": "B(3,4)",
+              "labelDx": 8,
+              "labelDy": -4
+            },
+            {
+              "x": 2,
+              "y": 1,
+              "label": "O",
+              "labelDx": 7,
+              "labelDy": 13
+            },
+            {
+              "x": 4.6,
+              "y": 2.8,
+              "label": "P",
+              "labelDx": 9,
+              "labelDy": 7,
+              "labelAnchor": "start"
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                3.0,
+                -0.55
+              ],
+              "text": "6",
+              "anchor": "start"
+            },
+            {
+              "at": [
+                4.35,
+                3.45
+              ],
+              "text": "2",
+              "anchor": "start"
+            },
+            {
+              "at": [
+                0.4,
+                2.0
+              ],
+              "text": "2\\sqrt{10}",
+              "anchor": "start"
+            }
+          ]
+        }
+      ],
       "sourceTag": "คัดโอลิมปิก 2539",
       "choices": [
         "$3\\sqrt{10}$",
@@ -13701,6 +14302,7 @@
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
         "จุดอยู่บนวงกลม ⟺ แทนแล้วสมการเป็นจริง | มุมในครึ่งวงกลม: ถ้า AB เป็นเส้นผ่านศูนย์กลาง แล้วทุกจุด P บนวงกลมให้ $\\angle APB = 90°$",
+        "[IMAGE:0]",
         "",
         "<b>ขั้นที่ 1:</b> เช็ค A, B กับวงกลม: $A(1, -2)$: $1 + 4 - 4 + 4 - 5 = 0$ ✓ | $B(3, 4)$: $9 + 16 - 12 - 8 - 5 = 0$ ✓",
         "ทั้ง A และ B อยู่บนวงกลม!",
