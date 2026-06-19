@@ -15908,7 +15908,176 @@
       "level": "medium",
       "score": 1,
       "question": "ให้ C เป็นวงกลม ซึ่งมีจุดศูนย์กลางร่วมกับวงกลม $x^2 + y^2 - 4x + 6y - 12 = 0$\nถ้า L เป็นเส้นสัมผัสวงกลม C และผ่านจุดโฟกัสของพาราโบลา $x^2 + 2x + 4y - 3 = 0$\nโดยมีความชันเท่ากับ $\\dfrac{2}{3}$ แล้ว รัศมีของวงกลม C มีค่าเท่ากับเท่าใด",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 457,
+          "height": 380,
+          "xRange": [
+            -6,
+            7
+          ],
+          "yRange": [
+            -8,
+            3
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y"
+          },
+          "functions": [
+            {
+              "kind": "parabola",
+              "vertex": [
+                -1,
+                1
+              ],
+              "throughPoint": [
+                1,
+                0
+              ],
+              "color": "#1f6feb",
+              "strokeWidth": 1.6,
+              "domain": [
+                -4.3,
+                2.6
+              ]
+            },
+            {
+              "kind": "piecewise-linear",
+              "points": [
+                [
+                  -6,
+                  -3.3333333333333335
+                ],
+                [
+                  7,
+                  5.333333333333333
+                ]
+              ],
+              "color": "#222",
+              "strokeWidth": 1.4,
+              "label": {
+                "at": [
+                  6.2,
+                  4.1
+                ],
+                "text": "L",
+                "anchor": "start",
+                "color": "#222"
+              }
+            },
+            {
+              "kind": "ellipse-arc",
+              "center": [
+                2,
+                -3
+              ],
+              "a": 4.160251471689219,
+              "b": 4.160251471689219,
+              "startAngle": 0,
+              "endAngle": 360,
+              "color": "#d1242f",
+              "strokeWidth": 1.6,
+              "label": {
+                "at": [
+                  5.6,
+                  -6.0
+                ],
+                "text": "C",
+                "anchor": "start",
+                "color": "#d1242f"
+              }
+            }
+          ],
+          "segments": [
+            {
+              "from": [
+                2,
+                -3
+              ],
+              "to": [
+                -0.3076923076923075,
+                0.4615384615384617
+              ]
+            },
+            {
+              "from": [
+                0.14993535419350662,
+                0.7666235694623378
+              ],
+              "to": [
+                0.4550204621173827,
+                0.3089959075765236
+              ]
+            },
+            {
+              "from": [
+                0.4550204621173827,
+                0.3089959075765236
+              ],
+              "to": [
+                -0.002607199768431434,
+                0.003910799652647512
+              ]
+            }
+          ],
+          "dots": [
+            {
+              "x": -1,
+              "y": 0,
+              "label": "",
+              "labelDx": 0,
+              "labelDy": 0
+            },
+            {
+              "x": 2,
+              "y": -3,
+              "label": "C(2,−3)",
+              "labelDx": 18,
+              "labelDy": 20,
+              "labelAnchor": "start"
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                -2.2,
+                1.5
+              ],
+              "text": "F(−1,0)",
+              "anchor": "end",
+              "arrowTo": [
+                -1,
+                0
+              ]
+            },
+            {
+              "at": [
+                -3.5,
+                -3.5
+              ],
+              "text": "r = 15/\\sqrt{13}",
+              "anchor": "middle"
+            },
+            {
+              "at": [
+                -3.5,
+                -2.95
+              ],
+              "text": "",
+              "anchor": "middle",
+              "arrowTo": [
+                0.3,
+                -0.5
+              ]
+            }
+          ],
+          "lineWidth": 1.4
+        }
+      ],
       "sourceTag": "สมาคมคณิตศาสตร์ฯ 2544",
       "correct": "15/√13",
       "accept": [
@@ -15920,6 +16089,7 @@
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
         "วงกลมศูนย์กลางร่วม (concentric) ใช้ศูนย์กลางเดียวกันแต่รัศมีต่างได้ | เส้นสัมผัส → รัศมี = ระยะจากศูนย์กลางถึงเส้นสัมผัส",
+        "[IMAGE:0]",
         "",
         "<b>ขั้นที่ 1:</b> ศูนย์กลางวงกลมที่ให้ (และของ C): $(2, -3)$",
         "",
@@ -15952,7 +16122,141 @@
       "level": "hard",
       "score": 1,
       "question": "วงกลมวงหนึ่งมีรัศมี 1 หน่วย จุดศูนย์กลางอยู่บนแกน y\nและบรรจุอยู่ในพาราโบลา $y = 2x^2$ จงหาจุดที่วงกลมและพาราโบลาสัมผัสกัน",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 376,
+          "height": 360,
+          "xRange": [
+            -2,
+            2
+          ],
+          "yRange": [
+            -0.5,
+            3.5
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y"
+          },
+          "functions": [
+            {
+              "kind": "parabola",
+              "vertex": [
+                0,
+                0
+              ],
+              "throughPoint": [
+                1,
+                2
+              ],
+              "color": "#1f6feb",
+              "strokeWidth": 1.6,
+              "domain": [
+                -1.34,
+                1.34
+              ],
+              "label": {
+                "at": [
+                  1.18,
+                  3.1
+                ],
+                "text": "y=2x²",
+                "anchor": "start",
+                "color": "#1f6feb"
+              }
+            },
+            {
+              "kind": "ellipse-arc",
+              "center": [
+                0,
+                2.125
+              ],
+              "a": 1,
+              "b": 1,
+              "startAngle": 0,
+              "endAngle": 360,
+              "color": "#1f6feb",
+              "strokeWidth": 1.6
+            }
+          ],
+          "segments": [
+            {
+              "from": [
+                0,
+                2.125
+              ],
+              "to": [
+                0.9682458365518543,
+                1.875
+              ]
+            },
+            {
+              "from": [
+                0,
+                2.125
+              ],
+              "to": [
+                -0.9682458365518543,
+                1.875
+              ]
+            }
+          ],
+          "dots": [
+            {
+              "x": 0,
+              "y": 2.125,
+              "label": "C(0, 17/8)",
+              "labelDx": 10,
+              "labelDy": -2,
+              "labelAnchor": "start"
+            },
+            {
+              "x": 0.9682458365518543,
+              "y": 1.875,
+              "label": "",
+              "labelDx": 0,
+              "labelDy": 0
+            },
+            {
+              "x": -0.9682458365518543,
+              "y": 1.875,
+              "label": "",
+              "labelDx": 0,
+              "labelDy": 0
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                0.62,
+                2.55
+              ],
+              "text": "r=1",
+              "anchor": "start"
+            },
+            {
+              "at": [
+                1.07,
+                1.82
+              ],
+              "text": "(\\sqrt{15}/4, 15/8)",
+              "anchor": "start"
+            },
+            {
+              "at": [
+                -1.07,
+                1.82
+              ],
+              "text": "(−\\sqrt{15}/4, 15/8)",
+              "anchor": "end"
+            }
+          ],
+          "lineWidth": 1.4
+        }
+      ],
       "sourceTag": "ทุนเล่าเรียนหลวง (กพ.) 2542",
       "correct": "(√15/4, 15/8) และ (-√15/4, 15/8)",
       "accept": [
@@ -15963,6 +16267,7 @@
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
         "วงกลมสัมผัสโค้ง (แตะโดยไม่ตัดทะลุ) ⟺ ระบบสมการมีรากซ้ำ → ดิสคริมิแนนต์ = 0",
+        "[IMAGE:0]",
         "",
         "<b>【 วิธีที่ 1 ▸ พื้นฐาน · แทนระบบ → ดิสคริมิแนนต์ = 0 (discriminant = 0) 】</b>",
         "<b>ขั้นที่ 1:</b> ศูนย์กลางบนแกน y: $C(0, a)$ → วงกลม $x^2 + (y - a)^2 = 1$ …(1) | พาราโบลา $y = 2x^2$ → $x^2 = \\dfrac{y}{2}$ …(2)",
@@ -18367,7 +18672,169 @@
       "level": "hard",
       "score": 1,
       "question": "ไฮเพอร์โบลา H มีสมการเป็น $3x^2 - 2y^2 - 6x + 8y + 1 = 0$\nวงรี E มีจุดโฟกัสร่วมกับ H และผ่านจุด $(0, 2)$\nจงหาจุดศูนย์กลางและจุดโฟกัสทั้งสองของ H, หาสมการและความยาวแกนเอกของ E\nและหาสมการของวงกลมที่ใหญ่ที่สุดที่แนบในวงรี E",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 394,
+          "height": 420,
+          "xRange": [
+            -3,
+            5
+          ],
+          "yRange": [
+            -3,
+            6
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y"
+          },
+          "functions": [
+            {
+              "kind": "ellipse-arc",
+              "center": [
+                1,
+                2
+              ],
+              "a": 1.0,
+              "b": 2.449489742783178,
+              "startAngle": 0,
+              "endAngle": 360,
+              "color": "#1f6feb",
+              "strokeWidth": 1.6,
+              "label": {
+                "at": [
+                  -1.7,
+                  3.0
+                ],
+                "text": "E",
+                "anchor": "end",
+                "color": "#1f6feb"
+              }
+            },
+            {
+              "kind": "hyperbola",
+              "center": [
+                1,
+                2
+              ],
+              "a": 1.7320508075688772,
+              "b": 1.4142135623730951,
+              "orientation": "vertical",
+              "branches": "both",
+              "asymptotes": true,
+              "tRange": [
+                -1.5,
+                1.5
+              ],
+              "color": "#1f6feb",
+              "strokeWidth": 1.6,
+              "label": {
+                "at": [
+                  1.0,
+                  5.2
+                ],
+                "text": "H",
+                "anchor": "middle",
+                "color": "#1f6feb"
+              }
+            },
+            {
+              "kind": "ellipse-arc",
+              "center": [
+                1,
+                2
+              ],
+              "a": 1,
+              "b": 1,
+              "startAngle": 0,
+              "endAngle": 360,
+              "color": "#d1242f",
+              "strokeWidth": 1.7
+            }
+          ],
+          "segments": [],
+          "dots": [
+            {
+              "x": 1,
+              "y": 4.23606797749979,
+              "label": "",
+              "labelDx": 0,
+              "labelDy": 0
+            },
+            {
+              "x": 1,
+              "y": -0.2360679774997898,
+              "label": "",
+              "labelDx": 0,
+              "labelDy": 0
+            },
+            {
+              "x": 0,
+              "y": 2,
+              "label": "",
+              "labelDx": 0,
+              "labelDy": 0
+            },
+            {
+              "x": 2,
+              "y": 2,
+              "label": "",
+              "labelDx": 0,
+              "labelDy": 0
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                2.9,
+                1.0
+              ],
+              "text": "วงกลม r=1",
+              "anchor": "start",
+              "arrowTo": [
+                2,
+                2
+              ]
+            },
+            {
+              "at": [
+                1.4,
+                5.8
+              ],
+              "text": "โฟกัสร่วม (1, 2+\\sqrt{5})",
+              "anchor": "middle",
+              "arrowTo": [
+                1,
+                4.23606797749979
+              ]
+            },
+            {
+              "at": [
+                1.0,
+                -2.6
+              ],
+              "text": "โฟกัสร่วม (1, 2−\\sqrt{5})",
+              "anchor": "middle"
+            },
+            {
+              "at": [
+                1.0,
+                -2.05
+              ],
+              "text": "",
+              "anchor": "middle",
+              "arrowTo": [
+                1,
+                -0.2360679774997898
+              ]
+            }
+          ],
+          "lineWidth": 1.4
+        }
+      ],
       "sourceTag": "ทุนเล่าเรียนหลวง (กพ.) 2547",
       "correct": "ศูนย์กลาง (1,2); โฟกัส (1, 2±√5); E: (x-1)^2/1+(y-2)^2/6=1 แกนเอกยาว 2√6; วงกลม (x-1)^2+(y-2)^2=1",
       "accept": [
@@ -18378,6 +18845,7 @@
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
         "ไฮเพอร์โบลา: $c^2 = a^2 + b^2$ | วงรี: $a^2 = b^2 + c^2$ | วงกลมใหญ่สุดแนบในวงรี: ศูนย์กลางร่วม รัศมี = ครึ่งแกนโท",
+        "[IMAGE:0]",
         "",
         "<b>ขั้นที่ 1 (หา H):</b> $3(x - 1)^2 - 2(y - 2)^2 = -1 + 3 - 8 = -6$ → $\\dfrac{(y - 2)^2}{3} - \\dfrac{(x - 1)^2}{2} = 1$",
         "<b>ศูนย์กลาง $(1, 2)$</b>, แกนตามขวางแนวดิ่ง, $c = \\sqrt{3 + 2} = \\sqrt{5}$ → <b>โฟกัส $(1, 2 + \\sqrt{5})$ กับ $(1, 2 - \\sqrt{5})$</b>",
@@ -18524,7 +18992,150 @@
       "level": "hard",
       "score": 1,
       "question": "กำหนดให้ E เป็นวงรีซึ่งมีสมการเป็น $6x^2 + 5y^2 + 12x - 20y - 4 = 0$\nและ H เป็นไฮเพอร์โบลาซึ่งมีจุดศูนย์กลางร่วมกับ E มีจุดยอดทับกับจุดโฟกัสของวงรี E\nและมีความยาวแกนสังยุคเท่ากับความยาวแกนโทของ E\nจงหาสมการไฮเพอร์โบลา H และ หาจำนวนจริง k ทั้งหมด\nที่ทำให้เส้นตรง $y = kx + 2$ ตัดกับไฮเพอร์โบลา H",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 460,
+          "height": 400,
+          "xRange": [
+            -5,
+            4
+          ],
+          "yRange": [
+            -2,
+            6
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y"
+          },
+          "functions": [
+            {
+              "kind": "ellipse-arc",
+              "center": [
+                -1,
+                2
+              ],
+              "a": 2.23606797749979,
+              "b": 2.449489742783178,
+              "startAngle": 0,
+              "endAngle": 360,
+              "color": "#1f6feb",
+              "strokeWidth": 1.6,
+              "label": {
+                "at": [
+                  -3.6,
+                  2.2
+                ],
+                "text": "E",
+                "anchor": "end",
+                "color": "#1f6feb"
+              }
+            },
+            {
+              "kind": "hyperbola",
+              "center": [
+                -1,
+                2
+              ],
+              "a": 1.0,
+              "b": 2.23606797749979,
+              "orientation": "vertical",
+              "branches": "both",
+              "asymptotes": true,
+              "tRange": [
+                -1.5,
+                1.5
+              ],
+              "color": "#1f6feb",
+              "strokeWidth": 1.6,
+              "label": {
+                "at": [
+                  -4.5,
+                  4.4
+                ],
+                "text": "H",
+                "anchor": "start",
+                "color": "#1f6feb"
+              }
+            },
+            {
+              "kind": "piecewise-linear",
+              "points": [
+                [
+                  -2.5,
+                  -1.75
+                ],
+                [
+                  2.6,
+                  5.9
+                ]
+              ],
+              "color": "#d1242f",
+              "strokeWidth": 1.5,
+              "label": {
+                "at": [
+                  2.1,
+                  5.0
+                ],
+                "text": "y=kx+2",
+                "anchor": "start",
+                "color": "#d1242f"
+              }
+            }
+          ],
+          "segments": [],
+          "dots": [
+            {
+              "x": 0,
+              "y": 2,
+              "label": "(0,2)",
+              "labelDx": 8,
+              "labelDy": -6,
+              "labelAnchor": "start"
+            },
+            {
+              "x": -1,
+              "y": 3,
+              "label": "",
+              "labelDx": 0,
+              "labelDy": 0
+            },
+            {
+              "x": -1,
+              "y": 1,
+              "label": "",
+              "labelDx": 0,
+              "labelDy": 0
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                -3.75,
+                -1.6
+              ],
+              "text": "จุดยอด H = โฟกัส E",
+              "anchor": "middle"
+            },
+            {
+              "at": [
+                -3.75,
+                -1.05
+              ],
+              "text": "",
+              "anchor": "middle",
+              "arrowTo": [
+                -1,
+                1
+              ]
+            }
+          ],
+          "lineWidth": 1.4
+        }
+      ],
       "sourceTag": "ทุนเล่าเรียนหลวง (กพ.) 2548",
       "correct": "H: (y-2)^2/1-(x+1)^2/5=1; k ∈ (-∞, -1/√6] ∪ [1/√6, ∞)",
       "accept": [
@@ -18535,6 +19146,7 @@
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
         "จัดรูปวงรีหาโฟกัส/แกนโท → ประกอบไฮเพอร์โบลา | เส้นตรงตัดไฮเพอร์โบลา: แทนแล้วพิจารณาสมการกำลังสอง (แยกกรณีสัมประสิทธิ์นำเป็น 0)",
+        "[IMAGE:0]",
         "",
         "<b>ขั้นที่ 1:</b> E: $6(x + 1)^2 + 5(y - 2)^2 = 4 + 6 + 20 = 30$ → $\\dfrac{(x + 1)^2}{5} + \\dfrac{(y - 2)^2}{6} = 1$",
         "ศูนย์กลาง $(-1, 2)$, $a^2 = 6$ (แกนเอกดิ่ง), $b^2 = 5$, $c = 1$ → โฟกัส E: $(-1, 2 \\pm 1)$ | แกนโทยาว $2\\sqrt{5}$",
