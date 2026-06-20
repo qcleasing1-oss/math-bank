@@ -1527,7 +1527,7 @@
       "totalQuestions": 152,
       "totalScore": 152,
       "structure": {
-        "part1": "ข้อสอบเข้ามหาวิทยาลัย (Q1-Q152) — กำลัง ingest"
+        "part1": "ข้อสอบเข้ามหาวิทยาลัย (Q1-Q152)"
       },
       "topicDistribution": {
         "6": 152
@@ -1541,12 +1541,12 @@
         }
       },
       "snapshot": {
-        "round": 12,
-        "stage": "COMPLETE pending screenshot review (Q1-152)",
+        "round": 13,
+        "stage": "pipeline step 1-8 (number-line Q37/Q41) · screenshot approved · pending push · line-break (step 5) = bank-wide final pass",
         "questionsCompleted": 152,
         "questionsRemaining": 0,
-        "exportedAt": "2026-06-06",
-        "note": "Phase H ครบ 152/152. POST-FLIGHT PASS ทั้งไฟล์ (7 จุด 0/0). mc consistency 0 mismatch (Q16/Q77/Q112 verify ตรง). sympy verify อิสระ 8 ข้อผ่าน. note mismatch เดิม (round 12) แก้หมดแล้ว. ไม่มี PDF answer key (ใช้ internal+sympy). subTopics ขาด 123 ข้อ = Phase A1."
+        "exportedAt": "2026-06-20",
+        "note": "Phase H ครบ 152/152. desc convention 152/152 (multi-method 26 ข้อ). step 4 เพิ่มวิธีต่างมุม 6 ข้อ (Q11/52/90/111/113/144) verify sympy. step 6 number-line Q37/Q41 (อสมการกำลังสอง → ช่วง/นับจำนวนเต็ม). POST-FLIGHT PASS ทั้งไฟล์ (0 fails). ไม่มี PDF answer key (ใช้ internal+sympy). subTopics: 35 ข้อ filled / 117 ข้อ pure-matrix []. เหลือ line-break (step 5) ทำท้ายสุดข้ามทุกชุด."
       }
     },
     "chap-07-trigonometry": {
