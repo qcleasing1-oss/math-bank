@@ -1716,11 +1716,11 @@
       },
       "snapshot": {
         "round": 1,
-        "stage": "ingest complete, pending pipeline",
+        "stage": "pipeline step 0-7 complete, pending line-break sweep",
         "questionsCompleted": 171,
         "questionsRemaining": 0,
-        "exportedAt": "2026-06-14",
-        "note": "ingest จาก Projects วางใน repo (14 มิ.ย.69): 171 ข้อ (mc 138 + fill 33), ช่วง 1-175 (ตัด 4 ข้อ: [157, 161, 163, 166]). format OK (LF, indent=2, ไม่มี BOM/trailing). correct=null=0. difficulty+topicDistribution ครบ. ยังไม่ทำ: pipeline (🔄→วิธีที่N, format ตรีโกณ, เพิ่มวิธี ว.2, เช็คลัด), imageSpec, audit. exported 2026-06-14."
+        "exportedAt": "2026-06-21",
+        "note": "pipeline serial step 0–7 เสร็จ (21 มิ.ย.69): 171 ข้อ (mc 138 + fill 33), ช่วง 1-175 (ตัด 4 ข้อ: [157, 161, 163, 166]). 🎯 เป้าหมาย 171/171. โครงสร้าง 6 องค์ประกอบ (📐🎯✔✅💡⚠️) ครบทุกข้อ. multi-method 【วิธีที่ N ▸ พื้นฐาน/⚡ ประยุกต์】 ที่ Q174 (กฎการคูณ + multinomial) และ Q175 (เลือกแล้วหาร + ตรึงคนอ้างอิง) — screenshot approve แล้ว. correct=null=0, internal consistency 100% (correct↔✅ ตรงทุกข้อ). number-line/imageSpec = ไม่มี (อสมการเป็นขอบเขต, ∪/∩ เป็น event algebra). format OK (LF, indent=2, ไม่มี BOM/trailing). pending: step 5 line-break (กวาดท้ายสุดข้ามทุกชุด). exported 2026-06-21."
       }
     },
     "chap-13-calculus": {
