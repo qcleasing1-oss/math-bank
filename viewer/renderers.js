@@ -422,13 +422,18 @@ function _ucMathToSvg(latex, x, y, fontSize, color) {
 //   showAxes                      - bool (default true)
 //   axisLabels                    - {x: 'X', y: 'Y'}
 //   mainCircleDashed              - bool (Q23 fig 1)
-//   dots[]                        - {id, x, y, label?, labelDx?, labelDy?,
+//   dots[]                        - {id, x, y, label?, labelDx?, labelDy?, open?,
 //                                    showCoord? (supports LaTeX via $..$),
-//                                    coordPos?:{dx,dy}}
+//                                    coordPos?:{dx,dy}}   open→hollow dot (excluded endpoint)
 //   radii[]                       - [{toDot}]
-//   chords[]                      - [{fromDot, toDot}]
+//   chords[]                      - [{fromDot, toDot, extend?, dashed?}]
+//                                   extend→lengthen past both ends (long line); dashed→dashed
 //   rightAngles[]                 - [{at, refs:[ref1, ref2]}]  small square at vertex
-//   perimeterArcs[]               - [{fromDot, toDot, emphasized?}] short arc on circle
+//   perimeterArcs[]               - [{fromDot, toDot, emphasized?, major?, dashed?, arrow?}]
+//                                   short arc on circle; major→long arc (>180°);
+//                                   dashed→dashed stroke; arrow→arrowhead at toDot (dir fromDot→toDot)
+//   shadedSegments[]              - [{fromDot, toDot, major?, fill?, opacity?}]
+//                                   fill circular segment cut by chord; major→larger segment
 //   arcs[]                        - [{fromAngle, toAngle, label?, radius, labelOffset?}]
 //                                   internal angle indicators (math angle convention, Y-up)
 //   internalSpiralArrow           - {innerRadius, outerRadius, numTurns, startAngle, direction}
@@ -470,19 +475,59 @@ function renderUnitCircle(spec){
   const dashed = spec.mainCircleDashed ? ' stroke-dasharray="4 3"' : '';
   svg += `<circle cx="${cx}" cy="${cy}" r="${radius}" fill="none" stroke="#222" stroke-width="1.4"${dashed}/>`;
 
+  // shadedSegments (fill a circular segment cut by chord fromDot→toDot;
+  //   major:true → the larger segment (>half disk). Drawn here so lines/arcs/dots sit on top.
+  //   sampled polyline arc → unambiguous fill region. fill/opacity optional.)
+  (spec.shadedSegments || []).forEach(seg => {
+    const a = dots[seg.fromDot], b = dots[seg.toDot]; if (!a || !b) return;
+    const A = Math.atan2(-(a.py - cy), a.px - cx); // math angle (Y-up) of a
+    const B = Math.atan2(-(b.py - cy), b.px - cx); // math angle (Y-up) of b
+    let d = B - A;
+    while (d <= -Math.PI) d += 2 * Math.PI;
+    while (d > Math.PI) d -= 2 * Math.PI;          // short signed span A→B in (-π, π]
+    if (seg.major) { d = d > 0 ? d - 2 * Math.PI : d + 2 * Math.PI; } // long way round
+    const N = 64;
+    const pts = [`${a.px.toFixed(2)},${a.py.toFixed(2)}`,
+                 `${b.px.toFixed(2)},${b.py.toFixed(2)}`];
+    for (let i = 1; i <= N; i++) {                  // arc from B back to A along chosen span
+      const ang = (A + d) - d * (i / N);
+      const px = cx + radius * Math.cos(ang);
+      const py = cy - radius * Math.sin(ang);
+      pts.push(`${px.toFixed(2)},${py.toFixed(2)}`);
+    }
+    const fill = seg.fill || '#7a6e54';
+    const op = seg.opacity != null ? seg.opacity : 0.20;
+    svg += `<polygon points="${pts.join(' ')}" fill="${fill}" fill-opacity="${op}" stroke="none"/>`;
+  });
+
   // radii (origin → dot)
   (spec.radii || []).forEach(r => {
     const d = dots[r.toDot]; if (!d) return;
     svg += `<line x1="${cx}" y1="${cy}" x2="${d.px}" y2="${d.py}" stroke="#222" stroke-width="1.2"/>`;
   });
 
-  // chords (dot → dot)
+  // chords (dot → dot; extend → lengthen past both ends into a long line;
+  //         dashed → dashed stroke)
   (spec.chords || []).forEach(c => {
     const a = dots[c.fromDot], b = dots[c.toDot]; if (!a || !b) return;
-    svg += `<line x1="${a.px}" y1="${a.py}" x2="${b.px}" y2="${b.py}" stroke="#222" stroke-width="1.2"/>`;
+    if (!c.extend && !c.dashed) {
+      // legacy path (byte-identical to original) for plain chords
+      svg += `<line x1="${a.px}" y1="${a.py}" x2="${b.px}" y2="${b.py}" stroke="#222" stroke-width="1.2"/>`;
+      return;
+    }
+    let x1 = a.px, y1 = a.py, x2 = b.px, y2 = b.py;
+    if (c.extend) {
+      const dx = x2 - x1, dy = y2 - y1, L = Math.sqrt(dx*dx + dy*dy) || 1;
+      const ux = dx/L, uy = dy/L;
+      const e = (typeof c.extend === 'number') ? c.extend : radius * 0.5;
+      x1 -= ux*e; y1 -= uy*e; x2 += ux*e; y2 += uy*e;
+    }
+    const dash = c.dashed ? ' stroke-dasharray="5 4"' : '';
+    svg += `<line x1="${x1.toFixed(2)}" y1="${y1.toFixed(2)}" x2="${x2.toFixed(2)}" y2="${y2.toFixed(2)}" stroke="#222" stroke-width="1.2"${dash}/>`;
   });
 
-  // perimeterArcs (along main circle, short arc, emphasized = thicker)
+  // perimeterArcs (along main circle; emphasized=thicker, major=long arc (>180°),
+  //                dashed=dashed stroke, arrow=arrowhead at toDot end (dir = fromDot→toDot))
   (spec.perimeterArcs || []).forEach(arc => {
     const a = dots[arc.fromDot], b = dots[arc.toDot]; if (!a || !b) return;
     const t1 = Math.atan2(a.py - cy, a.px - cx);
@@ -490,9 +535,14 @@ function renderUnitCircle(spec){
     let dt = t2 - t1;
     while (dt > Math.PI) dt -= 2 * Math.PI;
     while (dt <= -Math.PI) dt += 2 * Math.PI;
-    const sweep = dt > 0 ? 1 : 0;
+    // default = minor arc (<=180°). major:true → complementary long arc (flip sweep + largeArc).
+    let sweep = dt > 0 ? 1 : 0;
+    let largeArc = 0;
+    if (arc.major) { sweep = sweep ? 0 : 1; largeArc = 1; }
     const w = arc.emphasized ? 2.8 : 1.4;
-    svg += `<path d="M ${a.px.toFixed(2)} ${a.py.toFixed(2)} A ${radius} ${radius} 0 0 ${sweep} ${b.px.toFixed(2)} ${b.py.toFixed(2)}" fill="none" stroke="#222" stroke-width="${w}"/>`;
+    const dash = arc.dashed ? ' stroke-dasharray="5 4"' : '';
+    const mk = arc.arrow ? ' marker-end="url(#ucArr)"' : '';
+    svg += `<path d="M ${a.px.toFixed(2)} ${a.py.toFixed(2)} A ${radius} ${radius} 0 ${largeArc} ${sweep} ${b.px.toFixed(2)} ${b.py.toFixed(2)}" fill="none" stroke="#222" stroke-width="${w}"${dash}${mk}/>`;
   });
 
   // rightAngles (small square at vertex, aligned with arms toward refs)
@@ -589,7 +639,12 @@ function renderUnitCircle(spec){
   // dots (drawn last so they're on top of all lines/arcs)
   (spec.dots || []).forEach(d => {
     const dt = dots[d.id];
-    svg += `<circle cx="${dt.px}" cy="${dt.py}" r="3" fill="#222"/>`;
+    if (d.open) {
+      // hollow dot = open/excluded endpoint (e.g. strict inequality boundary)
+      svg += `<circle cx="${dt.px}" cy="${dt.py}" r="3.6" fill="#fff" stroke="#222" stroke-width="1.4"/>`;
+    } else {
+      svg += `<circle cx="${dt.px}" cy="${dt.py}" r="3" fill="#222"/>`;
+    }
     if (d.label) {
       const dx = d.labelDx != null ? d.labelDx : 8;
       const dy = d.labelDy != null ? d.labelDy : -4;
