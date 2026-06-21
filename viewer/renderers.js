@@ -816,6 +816,7 @@ function renderPolygonLabeled(spec){
   const sides = spec.sides || [];
   const angleMarks = spec.angleMarks || [];
   const annotations = spec.annotations || [];
+  const ellipses = spec.ellipses || [];
 
   let svg = `<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" `
           + `xmlns="http://www.w3.org/2000/svg" style="background:#fff;">`;
@@ -839,7 +840,46 @@ function renderPolygonLabeled(spec){
     return [dx/len, dy/len];
   };
 
-  // --- 1. Sides (drawn first, bottom layer) ---
+  // --- (-1) Shade regions (absolute bottom: circle/polygon boundaries, evenodd) ---
+  const shadeRegions = spec.shadeRegions || [];
+  shadeRegions.forEach(sr => {
+    const fill = sr.fill || '#8fb3e0';
+    const op = (sr.op != null) ? sr.op : 0.55;
+    const rule = sr.fillRule || 'evenodd';
+    let d = '';
+    (sr.parts || []).forEach(pt => {
+      if (pt.circle) {
+        const cc = pt.circle.center, cr = pt.circle.r;
+        d += `M ${(cc[0]-cr).toFixed(2)} ${cc[1].toFixed(2)} `
+           + `A ${cr} ${cr} 0 1 0 ${(cc[0]+cr).toFixed(2)} ${cc[1].toFixed(2)} `
+           + `A ${cr} ${cr} 0 1 0 ${(cc[0]-cr).toFixed(2)} ${cc[1].toFixed(2)} Z `;
+      } else if (pt.polygon) {
+        const pts = pt.polygon.map(n => V(n));
+        d += 'M ' + pts.map(p => `${p[0].toFixed(2)} ${p[1].toFixed(2)}`).join(' L ') + ' Z ';
+      }
+    });
+    if (d) svg += `<path d="${d}" fill="${fill}" fill-opacity="${op}" fill-rule="${rule}" stroke="none"/>`;
+  });
+
+  // --- 0. Ellipses (very bottom layer) ---
+  // {from, to, minorRatio, style}: major axis = segment from→to (e.g. two vertices),
+  // minor semi-axis = (major semi-axis) * minorRatio. Drawn rotated to align with from→to.
+  ellipses.forEach(el => {
+    const p1 = V(el.from), p2 = V(el.to);
+    const cx = (p1[0] + p2[0]) / 2, cy = (p1[1] + p2[1]) / 2;
+    const dx = p2[0] - p1[0], dy = p2[1] - p1[1];
+    const a = Math.sqrt(dx*dx + dy*dy) / 2;
+    const ratio = (el.minorRatio != null) ? el.minorRatio : 0.5;
+    const b = a * ratio;
+    const ang = Math.atan2(dy, dx) * 180 / Math.PI;
+    const dash = (el.style === 'dashed') ? ' stroke-dasharray="4 3"' : '';
+    svg += `<ellipse cx="${cx.toFixed(2)}" cy="${cy.toFixed(2)}" `
+         + `rx="${a.toFixed(2)}" ry="${b.toFixed(2)}" fill="none" `
+         + `stroke="#222" stroke-width="1.2"${dash} `
+         + `transform="rotate(${ang.toFixed(2)} ${cx.toFixed(2)} ${cy.toFixed(2)})"/>`;
+  });
+
+  // --- 1. Sides (drawn over ellipses) ---
   sides.forEach(s => {
     const p1 = V(s.from), p2 = V(s.to);
     const dashAttr = (s.style === 'dashed') ? ' stroke-dasharray="4 3"' : '';
@@ -1972,6 +2012,923 @@ function renderDiskShading(spec){
   return svg+'</svg>';
 }
 
+// ----- renderer: intersecting-circles (two equal circles + lens shading) -----
+// schema:
+// { type:"intersecting-circles", width,height, cx,cy, r, d, angle(deg,default0),
+//   shadeLens:bool, lensStyle:"solid"|"dots"(default solid),
+//   perpRadii:{at:"top"|"bottom", rightAngle:bool, dashed:bool},
+//   radiusArrows:[{side:"start"|"end", label}],
+//   labels:[{x,y,text,fontSize,anchor}] }
+function renderIntersectingCircles(spec){
+  const W=spec.width||300, H=spec.height||210;
+  const r=spec.r||85, d=spec.d||r, ang=(spec.angle||0)*Math.PI/180;
+  const cx=(spec.cx!=null)?spec.cx:W/2, cy=(spec.cy!=null)?spec.cy:H/2;
+  const ux=Math.cos(ang), uy=Math.sin(ang);          // axis O1->O2 (screen coords, y down)
+  const nx=-uy, ny=ux;                                // perpendicular (one side)
+  const O1=[cx-(d/2)*ux, cy-(d/2)*uy];
+  const O2=[cx+(d/2)*ux, cy+(d/2)*uy];
+  // intersection points: midpoint ± h along perpendicular
+  const h=Math.sqrt(Math.max(0, r*r-(d/2)*(d/2)));
+  const Ptop=[cx+nx*h, cy+ny*h];                      // "+n" side
+  const Pbot=[cx-nx*h, cy-ny*h];
+  const SHADE='#8fb3e0', SHADE_OP=0.55;
+  const uid=Math.floor(Math.random()*1e6);
+
+  let svg=`<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" xmlns="http://www.w3.org/2000/svg" style="background:#fff;">`;
+  svg+=`<defs>`
+     + `<clipPath id="c1_${uid}"><circle cx="${O1[0].toFixed(2)}" cy="${O1[1].toFixed(2)}" r="${r.toFixed(2)}"/></clipPath>`
+     + `<marker id="icArr_${uid}" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#222"/></marker>`
+     + `</defs>`;
+
+  // --- lens shade (circle2 clipped by circle1) ---
+  if(spec.shadeLens){
+    svg+=`<g clip-path="url(#c1_${uid})"><circle cx="${O2[0].toFixed(2)}" cy="${O2[1].toFixed(2)}" r="${r.toFixed(2)}" fill="${SHADE}" fill-opacity="${SHADE_OP}"/></g>`;
+  }
+  // --- circle outlines ---
+  [O1,O2].forEach(O=>{
+    svg+=`<circle cx="${O[0].toFixed(2)}" cy="${O[1].toFixed(2)}" r="${r.toFixed(2)}" fill="none" stroke="#222" stroke-width="1.5"/>`;
+  });
+
+  // --- center crosses (dashed H+V diameters per circle, extended) ---
+  if(spec.centerCross){
+    const ext=(spec.centerCross.extend!=null)?spec.centerCross.extend:20;
+    const dash=(spec.centerCross.dashed!==false)?' stroke-dasharray="5 4"':'';
+    [O1,O2].forEach(O=>{
+      // horizontal diameter
+      svg+=`<line x1="${(O[0]-r-ext).toFixed(2)}" y1="${O[1].toFixed(2)}" x2="${(O[0]+r+ext).toFixed(2)}" y2="${O[1].toFixed(2)}" stroke="#222" stroke-width="1"${dash}/>`;
+      // vertical diameter
+      svg+=`<line x1="${O[0].toFixed(2)}" y1="${(O[1]-r-ext).toFixed(2)}" x2="${O[0].toFixed(2)}" y2="${(O[1]+r+ext).toFixed(2)}" stroke="#222" stroke-width="1"${dash}/>`;
+    });
+  }
+
+  // --- crosshairs: H+V dashed diameter through each center (extended by ext) ---
+  if(spec.crosshairs){
+    const ext=(spec.crosshairExt!=null)?spec.crosshairExt:12;
+    [O1,O2].forEach(O=>{
+      svg+=`<line x1="${(O[0]-r-ext).toFixed(2)}" y1="${O[1].toFixed(2)}" x2="${(O[0]+r+ext).toFixed(2)}" y2="${O[1].toFixed(2)}" stroke="#222" stroke-width="1.1" stroke-dasharray="5 4"/>`;
+      svg+=`<line x1="${O[0].toFixed(2)}" y1="${(O[1]-r-ext).toFixed(2)}" x2="${O[0].toFixed(2)}" y2="${(O[1]+r+ext).toFixed(2)}" stroke="#222" stroke-width="1.1" stroke-dasharray="5 4"/>`;
+    });
+  }
+
+  // --- perpendicular radii to an intersection point ---
+  if(spec.perpRadii){
+    const P=(spec.perpRadii.at==='bottom')?Pbot:Ptop;
+    const dash=(spec.perpRadii.dashed!==false)?' stroke-dasharray="5 4"':'';
+    svg+=`<line x1="${O1[0].toFixed(2)}" y1="${O1[1].toFixed(2)}" x2="${P[0].toFixed(2)}" y2="${P[1].toFixed(2)}" stroke="#222" stroke-width="1.2"${dash}/>`;
+    svg+=`<line x1="${O2[0].toFixed(2)}" y1="${O2[1].toFixed(2)}" x2="${P[0].toFixed(2)}" y2="${P[1].toFixed(2)}" stroke="#222" stroke-width="1.2"${dash}/>`;
+    if(spec.perpRadii.rightAngle){
+      const a=[(O1[0]-P[0]),(O1[1]-P[1])], b=[(O2[0]-P[0]),(O2[1]-P[1])];
+      const la=Math.hypot(a[0],a[1])||1, lb=Math.hypot(b[0],b[1])||1;
+      const ax=a[0]/la, ay=a[1]/la, bx=b[0]/lb, by=b[1]/lb, s=12;
+      const c1=[P[0]+s*ax,P[1]+s*ay], cr=[P[0]+s*(ax+bx),P[1]+s*(ay+by)], c2=[P[0]+s*bx,P[1]+s*by];
+      svg+=`<path d="M ${c1[0].toFixed(2)} ${c1[1].toFixed(2)} L ${cr[0].toFixed(2)} ${cr[1].toFixed(2)} L ${c2[0].toFixed(2)} ${c2[1].toFixed(2)}" fill="none" stroke="#222" stroke-width="1"/>`;
+    }
+  }
+
+  // --- radius double-arrows (along axis, outward from each center) ---
+  (spec.radiusArrows||[]).forEach(ra=>{
+    let A,B,O;
+    if(ra.side==='end'){ O=O2; A=[O2[0],O2[1]]; B=[O2[0]+r*ux, O2[1]+r*uy]; }
+    else { O=O1; A=[O1[0]-r*ux, O1[1]-r*uy]; B=[O1[0],O1[1]]; }
+    svg+=`<line x1="${A[0].toFixed(2)}" y1="${A[1].toFixed(2)}" x2="${B[0].toFixed(2)}" y2="${B[1].toFixed(2)}" stroke="#222" stroke-width="1.2" marker-start="url(#icArr_${uid})" marker-end="url(#icArr_${uid})"/>`;
+    if(ra.label){
+      const mx=(A[0]+B[0])/2, my=(A[1]+B[1])/2;
+      const lx=mx-nx*14, ly=my-ny*14;   // offset to -n side (above for horizontal)
+      svg+=`<text x="${lx.toFixed(2)}" y="${ly.toFixed(2)}" font-family="'Cambria Math','Times New Roman',serif" font-size="15" fill="#222" text-anchor="middle" dominant-baseline="central">${ra.label}</text>`;
+    }
+  });
+
+  // --- free labels ---
+  (spec.labels||[]).forEach(l=>{
+    svg+=`<text x="${l.x}" y="${l.y}" font-family="'Cambria Math','Times New Roman',serif" font-size="${l.fontSize||14}" fill="#222" text-anchor="${l.anchor||'start'}">${l.text||''}</text>`;
+  });
+
+  return svg+'</svg>';
+}
+
+// ----- renderer: circle-segment (single circle + radii + chord + segment shade + reflex angle mark) -----
+// schema:
+// { type:"circle-segment", width,height, r(px),
+//   radii:[{deg, label, labelDist(0..1, default .6)}, ...],   // each radius center->edge; tips of first two define chord
+//   chord:bool,                                               // draw chord between first two radius tips
+//   shade:"minor"|"major",        shadeStyle:"dots"|"solid",  // shade the segment on minor(short)/major(long) arc side
+//   angleMark:{side:"minor"|"major", label, rArc(px,default 30)} }  // arc on chosen side + label at its mid-angle
+function renderCircleSegment(spec){
+  const W=spec.width||210, H=spec.height||210, r=spec.r||80;
+  const cx=(spec.cx!=null)?spec.cx:W/2, cy=(spec.cy!=null)?spec.cy:H/2;
+  const D2R=Math.PI/180;
+  const ptAt=(deg,rad)=>[cx+rad*Math.cos(deg*D2R), cy-rad*Math.sin(deg*D2R)]; // screen coords (y down)
+  const SHADE='#8fb3e0', SHADE_OP=0.55;
+  const uid=Math.floor(Math.random()*1e6);
+  const radii=spec.radii||[];
+  const a0=(radii[0]?radii[0].deg:60), a1=(radii[1]?radii[1].deg:-60);
+  const spanCCW=((a1-a0)%360+360)%360;          // CCW sweep a0 -> a1, 0..360
+  const minorCCW=spanCCW<=180;                  // minor (<=180) side reached from a0 going CCW?
+  const minorSpan=minorCCW?spanCCW:360-spanCCW;
+  // sampler: from `fromDeg`, direction ccw, total `span` degrees, radius `rad`
+  const samplePts=(fromDeg,ccw,span,rad)=>{
+    const N=Math.max(10,Math.round(span/4)), out=[];
+    for(let i=0;i<=N;i++){ const t=ccw?(fromDeg+span*i/N):(fromDeg-span*i/N); out.push(ptAt(t,rad)); }
+    return out;
+  };
+
+  let svg=`<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" xmlns="http://www.w3.org/2000/svg" style="background:#fff;">`;
+  svg+=`<defs>`;
+  if((spec.shadeStyle||'dots')==='dots'){
+    svg+=`<pattern id="csDots_${uid}" width="6" height="6" patternUnits="userSpaceOnUse"><rect width="6" height="6" fill="#fff"/><circle cx="3" cy="3" r="1.15" fill="#4d75a8"/></pattern>`;
+  }
+  svg+=`<marker id="csArr_${uid}" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#222"/></marker>`;
+  svg+=`</defs>`;
+
+  // --- segment shade (arc on chosen side + chord) ---
+  if(spec.shade){
+    const wantMinor=(spec.shade!=='major');
+    const ccw = wantMinor ? minorCCW : !minorCCW;
+    const span = wantMinor ? minorSpan : 360-minorSpan;
+    const pts=samplePts(a0,ccw,span,r);
+    const d='M '+pts.map(p=>p[0].toFixed(2)+' '+p[1].toFixed(2)).join(' L ')+' Z';
+    const fill=((spec.shadeStyle||'dots')==='dots')?`url(#csDots_${uid})`:SHADE;
+    const op=((spec.shadeStyle||'dots')==='dots')?1:SHADE_OP;
+    svg+=`<path d="${d}" fill="${fill}" fill-opacity="${op}" stroke="none"/>`;
+  }
+
+  // --- circle outline ---
+  svg+=`<circle cx="${cx.toFixed(2)}" cy="${cy.toFixed(2)}" r="${r.toFixed(2)}" fill="none" stroke="#222" stroke-width="1.5"/>`;
+
+  // --- radii (center -> edge) + labels ---
+  radii.forEach(rd=>{
+    const tip=ptAt(rd.deg,r);
+    svg+=`<line x1="${cx.toFixed(2)}" y1="${cy.toFixed(2)}" x2="${tip[0].toFixed(2)}" y2="${tip[1].toFixed(2)}" stroke="#222" stroke-width="1.5"/>`;
+    if(rd.label!=null){
+      const ld=(rd.labelDist!=null?rd.labelDist:0.6);
+      const lp=ptAt(rd.deg, r*ld);
+      // offset perpendicular (outward from sector centre) a touch
+      const off=11, perp=rd.deg+ (minorCCW?90:-90);
+      const lx=lp[0]+off*Math.cos(perp*D2R), ly=lp[1]-off*Math.sin(perp*D2R);
+      svg+=`<text x="${lx.toFixed(2)}" y="${ly.toFixed(2)}" font-family="'Cambria Math','Times New Roman',serif" font-size="15" fill="#222" text-anchor="middle" dominant-baseline="central">${rd.label}</text>`;
+    }
+  });
+
+  // --- chord between first two radius tips ---
+  if(spec.chord && radii.length>=2){
+    const t0=ptAt(a0,r), t1=ptAt(a1,r);
+    svg+=`<line x1="${t0[0].toFixed(2)}" y1="${t0[1].toFixed(2)}" x2="${t1[0].toFixed(2)}" y2="${t1[1].toFixed(2)}" stroke="#222" stroke-width="1.5"/>`;
+  }
+
+  // --- angle mark arc + label (on chosen side) ---
+  if(spec.angleMark){
+    const am=spec.angleMark, rArc=(am.rArc!=null?am.rArc:30);
+    const wantMinor=(am.side==='minor');
+    const ccw = wantMinor ? minorCCW : !minorCCW;
+    const span = wantMinor ? minorSpan : 360-minorSpan;
+    const pts=samplePts(a0,ccw,span,rArc);
+    const d='M '+pts.map(p=>p[0].toFixed(2)+' '+p[1].toFixed(2)).join(' L ');
+    svg+=`<path d="${d}" fill="none" stroke="#222" stroke-width="1.1"/>`;
+    if(am.label!=null){
+      const midDeg = a0 + (ccw?1:-1)*span/2;
+      const lp=ptAt(midDeg, rArc+13);
+      svg+=`<text x="${lp[0].toFixed(2)}" y="${lp[1].toFixed(2)}" font-family="'Cambria Math','Times New Roman',serif" font-size="13" fill="#222" text-anchor="middle" dominant-baseline="central">${am.label}</text>`;
+    }
+  }
+
+  // --- center dot ---
+  svg+=`<circle cx="${cx.toFixed(2)}" cy="${cy.toFixed(2)}" r="1.6" fill="#222"/>`;
+
+  // --- free labels ---
+  (spec.labels||[]).forEach(l=>{
+    svg+=`<text x="${l.x}" y="${l.y}" font-family="'Cambria Math','Times New Roman',serif" font-size="${l.fontSize||14}" fill="#222" text-anchor="${l.anchor||'start'}">${l.text||''}</text>`;
+  });
+
+  return svg+'</svg>';
+}
+
+// ----- renderer: triangle-sector-cut (right triangle with a circular sector removed at its apex) -----
+// schema:
+// { type:"triangle-sector-cut", width,height, unit(px/unit,default 55),
+//   circle:{r}, axes:bool,                         // full circle at apex (origin) + crosshair axes
+//   triangle:{legX, legY},                         // apex 45deg at origin; bottom leg +x len legX, right leg +y len legY; right angle at (legX,0)
+//   sectorCutDeg(default 45),  shadeStyle:"dots"|"solid",
+//   radiusLabel:{deg, text},                       // label along a radius direction
+//   edgeLabels:[{side:"bottom"|"right", text}],
+//   rightAngle:bool }                              // right-angle square at (legX,0)
+function renderTriangleSectorCut(spec){
+  const unit=spec.unit||55, pad=24, lpad=16;
+  const r=(spec.circle&&spec.circle.r!=null)?spec.circle.r:1;
+  const legX=(spec.triangle&&spec.triangle.legX!=null)?spec.triangle.legX:2;
+  const legY=(spec.triangle&&spec.triangle.legY!=null)?spec.triangle.legY:2;
+  const secDeg=(spec.sectorCutDeg!=null)?spec.sectorCutDeg:45;
+  const Ox=pad+r*unit, Oy=pad+legY*unit;
+  const W=spec.width||Math.ceil(Ox+legX*unit+pad+lpad);
+  const H=spec.height||Math.ceil(Oy+r*unit+pad+lpad);
+  const D2R=Math.PI/180;
+  const X=x=>Ox+x*unit, Y=y=>Oy-y*unit;
+  const polar=(deg,rad)=>[Ox+rad*unit*Math.cos(deg*D2R), Oy-rad*unit*Math.sin(deg*D2R)];
+  const SHADE='#8fb3e0', SHADE_OP=0.55;
+  const uid=Math.floor(Math.random()*1e6);
+  const dots=((spec.shadeStyle||'dots')==='dots');
+
+  let svg=`<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" xmlns="http://www.w3.org/2000/svg" style="background:#fff;">`;
+  svg+=`<defs>`;
+  if(dots) svg+=`<pattern id="tscDots_${uid}" width="6" height="6" patternUnits="userSpaceOnUse"><rect width="6" height="6" fill="#fff"/><circle cx="3" cy="3" r="1.15" fill="#4d75a8"/></pattern>`;
+  svg+=`</defs>`;
+
+  // --- shaded region: triangle minus sector (B -> P1 -> arc(0..secDeg) -> C -> Z) ---
+  const B=[X(legX),Y(0)], C=[X(legX),Y(legY)], P1=polar(0,r);
+  const N=Math.max(10,Math.round(secDeg/3)); const arc=[];
+  for(let i=0;i<=N;i++){ arc.push(polar(secDeg*i/N, r)); }
+  let d='M '+B[0].toFixed(2)+' '+B[1].toFixed(2)+' L '+P1[0].toFixed(2)+' '+P1[1].toFixed(2);
+  arc.forEach(p=>{ d+=' L '+p[0].toFixed(2)+' '+p[1].toFixed(2); });
+  d+=' L '+C[0].toFixed(2)+' '+C[1].toFixed(2)+' Z';
+  const fill=dots?`url(#tscDots_${uid})`:SHADE, op=dots?1:SHADE_OP;
+  svg+=`<path d="${d}" fill="${fill}" fill-opacity="${op}" stroke="none"/>`;
+
+  // --- crosshair axes through origin (behind circle/triangle) ---
+  if(spec.axes!==false){
+    const ext=14;
+    svg+=`<line x1="${(Ox-r*unit-ext).toFixed(2)}" y1="${Oy.toFixed(2)}" x2="${(Ox+r*unit+ext).toFixed(2)}" y2="${Oy.toFixed(2)}" stroke="#222" stroke-width="1"/>`;
+    svg+=`<line x1="${Ox.toFixed(2)}" y1="${(Oy-r*unit-ext).toFixed(2)}" x2="${Ox.toFixed(2)}" y2="${(Oy+r*unit+ext).toFixed(2)}" stroke="#222" stroke-width="1"/>`;
+  }
+
+  // --- full circle ---
+  svg+=`<circle cx="${Ox.toFixed(2)}" cy="${Oy.toFixed(2)}" r="${(r*unit).toFixed(2)}" fill="none" stroke="#222" stroke-width="1.5"/>`;
+
+  // --- triangle sides (solid): bottom O->B, right B->C, hypotenuse O->C ---
+  svg+=`<line x1="${Ox.toFixed(2)}" y1="${Oy.toFixed(2)}" x2="${B[0].toFixed(2)}" y2="${B[1].toFixed(2)}" stroke="#222" stroke-width="1.5"/>`;
+  svg+=`<line x1="${B[0].toFixed(2)}" y1="${B[1].toFixed(2)}" x2="${C[0].toFixed(2)}" y2="${C[1].toFixed(2)}" stroke="#222" stroke-width="1.5"/>`;
+  svg+=`<line x1="${Ox.toFixed(2)}" y1="${Oy.toFixed(2)}" x2="${C[0].toFixed(2)}" y2="${C[1].toFixed(2)}" stroke="#222" stroke-width="1.5"/>`;
+
+  // --- right-angle mark at B=(legX,0) ---
+  if(spec.rightAngle!==false){
+    const s=10; // legs from B: toward O (-x) and toward C (+y up => screen -y)
+    const a=[B[0]-s,B[1]], c=[B[0]-s,B[1]-s], b=[B[0],B[1]-s];
+    svg+=`<path d="M ${a[0].toFixed(2)} ${a[1].toFixed(2)} L ${c[0].toFixed(2)} ${c[1].toFixed(2)} L ${b[0].toFixed(2)} ${b[1].toFixed(2)}" fill="none" stroke="#222" stroke-width="1"/>`;
+  }
+
+  // --- radius label (along a direction) ---
+  if(spec.radiusLabel){
+    const rl=spec.radiusLabel, lp=polar((rl.deg!=null?rl.deg:45), r*0.5);
+    // nudge up-left off the line
+    svg+=`<text x="${(lp[0]-9).toFixed(2)}" y="${(lp[1]-2).toFixed(2)}" font-family="'Cambria Math','Times New Roman',serif" font-size="14" fill="#222" text-anchor="middle" dominant-baseline="central">${rl.text}</text>`;
+  }
+
+  // --- edge labels ---
+  (spec.edgeLabels||[]).forEach(e=>{
+    let lx,ly;
+    if(e.side==='right'){ lx=X(legX)+12; ly=Y(legY/2); }
+    else { lx=X((r+legX)/2); ly=Y(0)+16; }  // bottom: midpoint of segment outside circle
+    svg+=`<text x="${lx.toFixed(2)}" y="${ly.toFixed(2)}" font-family="'Cambria Math','Times New Roman',serif" font-size="15" fill="#222" text-anchor="middle" dominant-baseline="central">${e.text}</text>`;
+  });
+
+  // --- free labels ---
+  (spec.labels||[]).forEach(l=>{
+    svg+=`<text x="${l.x}" y="${l.y}" font-family="'Cambria Math','Times New Roman',serif" font-size="${l.fontSize||14}" fill="#222" text-anchor="${l.anchor||'start'}">${l.text||''}</text>`;
+  });
+
+  return svg+'</svg>';
+}
+
+// === pyramid-square: square-base pyramid (oblique projection) =================
+// { type:"pyramid-square", width,height,
+//   baseW(px,default 150), depth(px,default 58), skew(px,default depth*0.5),
+//   apexH(px,default 120),
+//   labels:{apex,frontLeft,frontRight,frontMid,center},  // default A,B,C,D,O
+//   angle:{text:"75°"},          // angle mark at front-left B, between BC and BA
+//   baseLabel, bdLabel, odLabel, // text labels on BC / BD / OD (optional)
+//   showHeight(default true: dashed A-O + right-angle at O),
+//   showApothem(default true: solid O-D), showSlant(default true: solid A-D) }
+// labels are plain text (no √/Thai inside figure) → cairosvg-safe
+function renderPyramidSquare(spec){
+  const pad=24;
+  const baseW=spec.baseW||150, depth=spec.depth||58;
+  const skew=(spec.skew!=null)?spec.skew:depth*0.5;
+  const apexH=spec.apexH||120;
+  const lab=Object.assign({apex:'A',frontLeft:'B',frontRight:'C',frontMid:'D',center:'O'},spec.labels||{});
+
+  const bx=pad+18, by=pad+apexH+depth+16;
+  const B=[bx,by], C=[bx+baseW,by];
+  const BL=[bx+skew,by-depth], BR=[bx+baseW+skew,by-depth];
+  const D=[(B[0]+C[0])/2,(B[1]+C[1])/2];
+  const O=[(B[0]+C[0]+BL[0]+BR[0])/4,(B[1]+C[1]+BL[1]+BR[1])/4];
+  const A=[O[0],O[1]-apexH];
+  const W=spec.width||Math.ceil(BR[0]+pad+20);
+  const H=spec.height||Math.ceil(by+pad);
+
+  const L=(p,q,st)=>`<line x1="${p[0].toFixed(2)}" y1="${p[1].toFixed(2)}" x2="${q[0].toFixed(2)}" y2="${q[1].toFixed(2)}" stroke="#222" stroke-width="${st==='thin'?1:1.5}"${st==='dash'?' stroke-dasharray="5 4"':''}/>`;
+  const T=(x,y,t,fs,anch)=>`<text x="${x.toFixed(2)}" y="${y.toFixed(2)}" font-family="'Cambria Math','Times New Roman',serif" font-size="${fs||15}" fill="#222" text-anchor="${anch||'middle'}" dominant-baseline="central">${t}</text>`;
+
+  let svg=`<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" xmlns="http://www.w3.org/2000/svg" style="background:#fff;">`;
+
+  // hidden (back) edges + height dashed
+  svg+=L(BL,BR,'dash');
+  svg+=L(A,BL,'dash');
+  svg+=L(A,BR,'dash');
+  if(spec.showHeight!==false) svg+=L(A,O,'dash');
+
+  // visible solid edges
+  svg+=L(B,C); svg+=L(B,BL); svg+=L(C,BR); svg+=L(A,B); svg+=L(A,C);
+
+  // apothem O-D + slant A-D solid
+  if(spec.showApothem!==false) svg+=L(O,D);
+  if(spec.showSlant!==false) svg+=L(A,D);
+
+  // right-angle mark at O between O->A and O->D
+  if(spec.showHeight!==false){
+    const u=(p,q)=>{const dx=q[0]-p[0],dy=q[1]-p[1],m=Math.hypot(dx,dy)||1;return [dx/m,dy/m];};
+    const s=11, ua=u(O,A), ud=u(O,D);
+    const p1=[O[0]+ua[0]*s,O[1]+ua[1]*s], p3=[O[0]+ud[0]*s,O[1]+ud[1]*s];
+    const p2=[O[0]+(ua[0]+ud[0])*s,O[1]+(ua[1]+ud[1])*s];
+    svg+=`<path d="M ${p1[0].toFixed(2)} ${p1[1].toFixed(2)} L ${p2[0].toFixed(2)} ${p2[1].toFixed(2)} L ${p3[0].toFixed(2)} ${p3[1].toFixed(2)}" fill="none" stroke="#222" stroke-width="1"/>`;
+  }
+
+  // angle mark at B between B->C and B->A (sampled arc, cairosvg-safe)
+  if(spec.angle){
+    const ang=p=>Math.atan2(p[1]-B[1],p[0]-B[0]);
+    const a1=ang(C); let d=ang(A)-a1; while(d>Math.PI)d-=2*Math.PI; while(d<-Math.PI)d+=2*Math.PI;
+    const rad=26, N=Math.max(8,Math.round(Math.abs(d)/0.12));
+    let dd='';
+    for(let i=0;i<=N;i++){const a=a1+d*i/N;dd+=(i?' L ':'M ')+(B[0]+rad*Math.cos(a)).toFixed(2)+' '+(B[1]+rad*Math.sin(a)).toFixed(2);}
+    svg+=`<path d="${dd}" fill="none" stroke="#222" stroke-width="1"/>`;
+    const am=a1+d/2, lr=rad+14;
+    svg+=T(B[0]+lr*Math.cos(am),B[1]+lr*Math.sin(am),spec.angle.text||'',14);
+  }
+
+  // length labels
+  if(spec.baseLabel) svg+=T((B[0]+C[0])/2,by+30,spec.baseLabel,14);
+  if(spec.bdLabel)   svg+=T((B[0]+D[0])/2,by+15,spec.bdLabel,13);
+  if(spec.odLabel)   svg+=T((O[0]+D[0])/2+11,(O[1]+D[1])/2,spec.odLabel,13);
+
+  // point labels
+  svg+=T(A[0],A[1]-11,lab.apex,15);
+  svg+=T(B[0]-11,B[1]+6,lab.frontLeft,15,'end');
+  svg+=T(C[0]+11,C[1]+6,lab.frontRight,15,'start');
+  svg+=T(D[0],D[1]+15,lab.frontMid,15);
+  svg+=T(O[0]+10,O[1]-5,lab.center,15,'start');
+
+  return svg+'</svg>';
+}
+
+// === tower-two-observers: vertical pole + 2 ground observers w/ elevation angles =
+// pseudo-3D. ground right-triangle ABC (right angle at A): AB horizontal, AC down,
+// CB hypotenuse. pole BT vertical at B (top T). sight lines A->T, C->T with
+// elevation angle marks. flag on top. N arrow.
+// { type:"tower-two-observers", width,height,
+//   legAB(px,default 150), legAC(px,default 88), acSkew(px,default 0),
+//   towerH(px,default 95), flag(default true), hLabel(default "h"),
+//   acLabel(default "10"),
+//   angles:[{at:"A",text:"60°"},{at:"C",text:"45°"}],
+//   labels:{A,B,C}, north(default "right"),
+//   rightAngleA(default true), rightAngleB(default true) }
+// labels plain ascii (A/B/C/h/10/60°/45°/N) → cairosvg-safe
+function renderTowerTwoObservers(spec){
+  const pad=24;
+  const legAB=spec.legAB||150, legAC=spec.legAC||88, acSkew=(spec.acSkew!=null)?spec.acSkew:0;
+  const towerH=spec.towerH||95;
+  const lab=Object.assign({A:'A',B:'B',C:'C'},spec.labels||{});
+  const hLabel=(spec.hLabel!=null)?spec.hLabel:'h';
+  const acLabel=(spec.acLabel!=null)?spec.acLabel:'10';
+
+  const ay=pad+towerH+22;
+  const A=[pad+24,ay], B=[pad+24+legAB,ay];
+  const C=[A[0]+acSkew,ay+legAC];
+  const T=[B[0],B[1]-towerH];
+  const W=spec.width||Math.ceil(B[0]+pad+26);
+  const H=spec.height||Math.ceil(C[1]+pad+18);
+
+  const L=(p,q,st)=>`<line x1="${p[0].toFixed(2)}" y1="${p[1].toFixed(2)}" x2="${q[0].toFixed(2)}" y2="${q[1].toFixed(2)}" stroke="#222" stroke-width="${st==='thin'?1:1.5}"${st==='dash'?' stroke-dasharray="5 4"':''}/>`;
+  const T_=(x,y,t,fs,anch)=>`<text x="${x.toFixed(2)}" y="${y.toFixed(2)}" font-family="'Cambria Math','Times New Roman',serif" font-size="${fs||15}" fill="#222" text-anchor="${anch||'middle'}" dominant-baseline="central">${t}</text>`;
+  const u=(p,q)=>{const dx=q[0]-p[0],dy=q[1]-p[1],m=Math.hypot(dx,dy)||1;return [dx/m,dy/m];};
+  const angArc=(V,P,Q,rad,txt)=>{ // arc at V from V->P to V->Q (shorter dir) + label
+    const a1=Math.atan2(P[1]-V[1],P[0]-V[0]); let d=Math.atan2(Q[1]-V[1],Q[0]-V[0])-a1;
+    while(d>Math.PI)d-=2*Math.PI; while(d<-Math.PI)d+=2*Math.PI;
+    const N=Math.max(8,Math.round(Math.abs(d)/0.12)); let dd='';
+    for(let i=0;i<=N;i++){const a=a1+d*i/N;dd+=(i?' L ':'M ')+(V[0]+rad*Math.cos(a)).toFixed(2)+' '+(V[1]+rad*Math.sin(a)).toFixed(2);}
+    let s=`<path d="${dd}" fill="none" stroke="#222" stroke-width="1"/>`;
+    const am=a1+d/2, lr=rad+13;
+    s+=T_(V[0]+lr*Math.cos(am),V[1]+lr*Math.sin(am),txt,13);
+    return s;
+  };
+  const rAngle=(V,d1,d2,s)=>{ // right-angle square at V along unit dirs d1,d2
+    const p1=[V[0]+d1[0]*s,V[1]+d1[1]*s], p3=[V[0]+d2[0]*s,V[1]+d2[1]*s];
+    const p2=[V[0]+(d1[0]+d2[0])*s,V[1]+(d1[1]+d2[1])*s];
+    return `<path d="M ${p1[0].toFixed(2)} ${p1[1].toFixed(2)} L ${p2[0].toFixed(2)} ${p2[1].toFixed(2)} L ${p3[0].toFixed(2)} ${p3[1].toFixed(2)}" fill="none" stroke="#222" stroke-width="1"/>`;
+  };
+
+  let svg=`<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" xmlns="http://www.w3.org/2000/svg" style="background:#fff;">`;
+
+  // sight lines (thin) A->T, C->T
+  svg+=L(A,T,'thin'); svg+=L(C,T,'thin');
+  // ground triangle ABC solid
+  svg+=L(A,B); svg+=L(A,C); svg+=L(C,B);
+  // pole B->T solid
+  svg+=L(B,T);
+
+  // flag at top T (small right-pointing triangle)
+  if(spec.flag!==false){
+    svg+=`<path d="M ${T[0].toFixed(2)} ${T[1].toFixed(2)} L ${(T[0]+16).toFixed(2)} ${(T[1]+5).toFixed(2)} L ${T[0].toFixed(2)} ${(T[1]+10).toFixed(2)} Z" fill="#222"/>`;
+  }
+
+  // right-angle marks
+  if(spec.rightAngleA!==false) svg+=rAngle(A,u(A,B),u(A,C),11);
+  if(spec.rightAngleB!==false) svg+=rAngle(B,u(B,A),u(B,T),11);
+
+  // elevation angle arcs
+  (spec.angles||[{at:'A',text:'60°'},{at:'C',text:'45°'}]).forEach(an=>{
+    if(an.at==='A') svg+=angArc(A,B,T,30,an.text||'');
+    else if(an.at==='C') svg+=angArc(C,B,T,30,an.text||'');
+  });
+
+  // pole height label "h" (right of pole midpoint)
+  if(hLabel) svg+=T_(B[0]+12,(B[1]+T[1])/2,hLabel,14,'start');
+  // AC label "10" (left of AC midpoint)
+  if(acLabel) svg+=T_((A[0]+C[0])/2-12,(A[1]+C[1])/2,acLabel,13,'end');
+
+  // point labels
+  svg+=T_(A[0]-11,A[1]-2,lab.A,15,'end');
+  svg+=T_(B[0]+11,B[1]-3,lab.B,15,'start');
+  svg+=T_(C[0]-4,C[1]+13,lab.C,15,'end');
+
+  // N arrow (bottom-right by default, pointing right)
+  const nd=spec.north||'right';
+  if(nd){
+    const nx=W-pad-10, ny=H-pad+2;
+    if(nd==='right'){
+      svg+=`<line x1="${(nx-30).toFixed(2)}" y1="${ny.toFixed(2)}" x2="${nx.toFixed(2)}" y2="${ny.toFixed(2)}" stroke="#222" stroke-width="1.2"/>`;
+      svg+=`<path d="M ${nx.toFixed(2)} ${ny.toFixed(2)} L ${(nx-6).toFixed(2)} ${(ny-3.5).toFixed(2)} L ${(nx-6).toFixed(2)} ${(ny+3.5).toFixed(2)} Z" fill="#222"/>`;
+      svg+=T_(nx+8,ny,'N',13,'start');
+    }
+  }
+
+  return svg+'</svg>';
+}
+
+// === roads-tangent-arc: two roads cross at ค; arc tangent to both in 120° wedge ==
+// ค at top. two full lines cross at ค (acute angle = crossDeg). arc (new road) sits
+// in the obtuse wedge (180-crossDeg) opening downward, tangent to both roads.
+// center O on the downward bisector at PO = rPx/sin((180-crossDeg)/2). R arrow O->arc.
+// dashed line ค->nearest arc point = shortest distance. tangent right-angle marks.
+// { type:"roads-tangent-arc", width,height, rPx(default 130), crossDeg(default 60),
+//   apexLabel(default "ค"), angleLabel(default "60°"),
+//   radiusLabel(default "R = 510 เมตร"),
+//   roadLabelLeft, roadLabelRight, roadLabelArc,   // optional (Thai)
+//   showShortest(default true), showTangentMarks(default true) }
+// NOTE: Thai labels (ค / road names / เมตร) → cairosvg renders geometry only;
+//       verify Thai on real viewer.
+function renderRoadsTangentArc(spec){
+  const pad=26;
+  const rPx=spec.rPx||130;
+  const cross=spec.crossDeg||60;
+  const half=(180-cross)/2;            // half of obtuse wedge (=60 when cross=60)
+  const hr=half*Math.PI/180;
+  const PO=rPx/Math.sin(hr);
+
+  // local frame: ค at (0,0), down bisector = +y
+  const dl=[-Math.sin(hr),Math.cos(hr)];   // down-left road dir
+  const dr=[ Math.sin(hr),Math.cos(hr)];   // down-right road dir
+  const O=[0,PO];
+  const t=PO*Math.cos(hr);                  // ค->tangent-point distance along road
+  const Fl=[dl[0]*t,dl[1]*t], Fr=[dr[0]*t,dr[1]*t];
+  const Ldown=t+46, Lup=52;
+  const NA=[0,PO-rPx];                       // nearest arc point to ค
+
+  // extents (local) to size canvas — only actually-drawn points
+  const pts=[O,Fl,Fr,NA,[0,0],
+             [dl[0]*Ldown,dl[1]*Ldown],[dr[0]*Ldown,dr[1]*Ldown],
+             [-dr[0]*Lup,-dr[1]*Lup],[-dl[0]*Lup,-dl[1]*Lup]];
+  let minx=Math.min(...pts.map(p=>p[0])), maxx=Math.max(...pts.map(p=>p[0]));
+  let miny=Math.min(...pts.map(p=>p[1])), maxy=Math.max(...pts.map(p=>p[1]));
+  const rightExtra=20;                       // small room for 60°/road labels
+  maxx+=rightExtra; miny-=18; maxy+=8;        // room for ค label / road labels
+  const ox=pad-minx, oy=pad-miny;            // local->screen offset
+  const W=spec.width||Math.ceil(maxx-minx+2*pad);
+  const H=spec.height||Math.ceil(maxy-miny+2*pad);
+  const P=p=>[p[0]+ox,p[1]+oy];              // to screen
+
+  const L=(p,q,st)=>{const a=P(p),b=P(q);return `<line x1="${a[0].toFixed(2)}" y1="${a[1].toFixed(2)}" x2="${b[0].toFixed(2)}" y2="${b[1].toFixed(2)}" stroke="#222" stroke-width="${st==='thin'?1:1.5}"${st==='dash'?' stroke-dasharray="6 4"':''}/>`;};
+  const TX=(p,t,fs,anch)=>{const a=P(p);return `<text x="${a[0].toFixed(2)}" y="${a[1].toFixed(2)}" font-family="'Cambria Math','Times New Roman',serif" font-size="${fs||14}" fill="#222" text-anchor="${anch||'middle'}" dominant-baseline="central">${t}</text>`;};
+
+  let svg=`<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" xmlns="http://www.w3.org/2000/svg" style="background:#fff;">`;
+
+  // roads (full lines through ค): up-stub + down-segment, each road solid
+  svg+=L([-dr[0]*Lup,-dr[1]*Lup],[dr[0]*Ldown,dr[1]*Ldown]); // road B (up-left .. down-right)
+  svg+=L([-dl[0]*Lup,-dl[1]*Lup],[dl[0]*Ldown,dl[1]*Ldown]); // road A (up-right .. down-left)
+
+  // tangent arc (new road) — upper arc bulging toward ค
+  {
+    let a1=Math.atan2(Fl[1]-O[1],Fl[0]-O[0]), a2=Math.atan2(Fr[1]-O[1],Fr[0]-O[0]);
+    let d=a2-a1; while(d<=-Math.PI)d+=2*Math.PI; while(d>Math.PI)d-=2*Math.PI;
+    const mid=a1+d/2; if(O[1]+rPx*Math.sin(mid) > O[1]) d = d>0?d-2*Math.PI:d+2*Math.PI;
+    const N=Math.max(20,Math.round(Math.abs(d)/0.07)); let dd='';
+    for(let i=0;i<=N;i++){const a=a1+d*i/N; const pp=P([O[0]+rPx*Math.cos(a),O[1]+rPx*Math.sin(a)]); dd+=(i?' L ':'M ')+pp[0].toFixed(2)+' '+pp[1].toFixed(2);}
+    svg+=`<path d="${dd}" fill="none" stroke="#222" stroke-width="2"/>`;
+  }
+
+  // radii O -> Fl, O -> Fr (perpendicular to roads at tangent points)
+  if(spec.showRadii){
+    const rl=(p)=>{const a=P(O),b=P(p);return `<line x1="${a[0].toFixed(2)}" y1="${a[1].toFixed(2)}" x2="${b[0].toFixed(2)}" y2="${b[1].toFixed(2)}" stroke="#222" stroke-width="1"/>`;};
+    svg+=rl(Fl); svg+=rl(Fr);
+  }
+
+  // radius arrow O -> NA (top of arc)
+  {
+    const a=P(O), b=P(NA);
+    svg+=`<line x1="${a[0].toFixed(2)}" y1="${a[1].toFixed(2)}" x2="${b[0].toFixed(2)}" y2="${b[1].toFixed(2)}" stroke="#222" stroke-width="1"/>`;
+    // arrowhead at NA pointing up
+    svg+=`<path d="M ${b[0].toFixed(2)} ${b[1].toFixed(2)} L ${(b[0]-3.5).toFixed(2)} ${(b[1]+6).toFixed(2)} L ${(b[0]+3.5).toFixed(2)} ${(b[1]+6).toFixed(2)} Z" fill="#222"/>`;
+    // center dot
+    svg+=`<circle cx="${a[0].toFixed(2)}" cy="${a[1].toFixed(2)}" r="2" fill="#222"/>`;
+  }
+
+  // dashed shortest distance ค -> NA
+  if(spec.showShortest!==false) svg+=L([0,0],NA,'dash');
+
+  // tangent right-angle marks at Fl, Fr (between road dir and radius F->O)
+  if(spec.showTangentMarks!==false){
+    const mark=(F,roadDir)=>{
+      const u=(v)=>{const m=Math.hypot(v[0],v[1])||1;return [v[0]/m,v[1]/m];};
+      const dRoad=u(roadDir), dRad=u([O[0]-F[0],O[1]-F[1]]); const s=9;
+      const p1=P([F[0]+dRoad[0]*s,F[1]+dRoad[1]*s]);
+      const p3=P([F[0]+dRad[0]*s,F[1]+dRad[1]*s]);
+      const p2=P([F[0]+(dRoad[0]+dRad[0])*s,F[1]+(dRoad[1]+dRad[1])*s]);
+      return `<path d="M ${p1[0].toFixed(2)} ${p1[1].toFixed(2)} L ${p2[0].toFixed(2)} ${p2[1].toFixed(2)} L ${p3[0].toFixed(2)} ${p3[1].toFixed(2)}" fill="none" stroke="#222" stroke-width="1"/>`;
+    };
+    svg+=mark(Fl,dl); svg+=mark(Fr,dr);
+  }
+
+  // 60° angle arc at ค on the right wedge (between up-right ray and down-right ray)
+  {
+    const upR=[-dl[0],-dl[1]];   // up-right = opposite of down-left (road A up)
+    const a1=Math.atan2(upR[1],upR[0]), a2=Math.atan2(dr[1],dr[0]);
+    let d=a2-a1; while(d>Math.PI)d-=2*Math.PI; while(d<-Math.PI)d+=2*Math.PI;
+    const rad=24, N=Math.max(8,Math.round(Math.abs(d)/0.12)); let dd='';
+    for(let i=0;i<=N;i++){const a=a1+d*i/N; const pp=P([rad*Math.cos(a),rad*Math.sin(a)]); dd+=(i?' L ':'M ')+pp[0].toFixed(2)+' '+pp[1].toFixed(2);}
+    svg+=`<path d="${dd}" fill="none" stroke="#222" stroke-width="1"/>`;
+    const am=a1+d/2, lr=rad+13;
+    svg+=TX([lr*Math.cos(am),lr*Math.sin(am)],spec.angleLabel||'60°',13);
+  }
+
+  // labels
+  const PLAB=spec.pointLabels||{};
+  const rtxt=spec.radiusLabel||'510';
+  svg+=TX([0,-Lup-12],spec.apexLabel||'ค',16);                       // ค above
+  svg+=TX([10, PO-rPx/2], rtxt,13,'start');                          // 510 on bisector radius
+  if(spec.showRadii) svg+=TX([(O[0]+Fr[0])/2+9,(O[1]+Fr[1])/2], rtxt,13,'start'); // 510 on right radius
+  if(PLAB.tanL)   svg+=TX([Fl[0]-11,Fl[1]-7],PLAB.tanL,14,'end');    // ฉ
+  if(PLAB.tanR)   svg+=TX([Fr[0]+11,Fr[1]-7],PLAB.tanR,14,'start');  // ง
+  if(PLAB.near)   svg+=TX([-11,PO-rPx+2],PLAB.near,13,'end');        // ข
+  if(PLAB.center) svg+=TX([11,PO+3],PLAB.center,14,'start');         // น
+  if(spec.roadLabelLeft)  svg+=TX([dl[0]*Ldown-2,dl[1]*Ldown+14],spec.roadLabelLeft,12,'end');
+  if(spec.roadLabelRight) svg+=TX([dr[0]*Ldown+2,dr[1]*Ldown+14],spec.roadLabelRight,12,'start');
+  if(spec.roadLabelArc)   svg+=TX([-30,PO-rPx+30],spec.roadLabelArc,12,'end');
+
+  return svg+'</svg>';
+}
+
+// === mirror-reflect-buildings: 2-panel optics figure (Q210) ====================
+// panel1 (scene): sun + vertical incident ray -> mirror at A on roof of bldg A(hA);
+//   reflects up to top of bldg B(hB) at horizontal dist; right-triangle A-C-B
+//   (AC=dist horiz, CB=hB-hA vert, right angle at C, elevation theta at A).
+// panel2 (detail): incident S (vertical) -> tilted mirror(alpha) -> reflect to B;
+//   dashed normal bisects (beta=beta); theta(refl vs horiz) & alpha(mirror vs horiz).
+// { type:'mirror-reflect-buildings', width,height, hA(10),hB(50),dist(30),
+//   labels:{A,B,C}, hALabel('10'),distLabel('30'),cbLabel('40'),hBLabel('50'),
+//   thetaLabel,alphaLabel,betaLabel,sLabel }  geometry+Greek render under cairosvg
+function renderMirrorReflectBuildings(spec){
+  spec=spec||{};
+  const hA=spec.hA||10, hB=spec.hB||50, dist=spec.dist||30;
+  const diff=hB-hA;
+  const pxU=104/hB;
+  const hAp=hA*pxU, hBp=hB*pxU, diffp=diff*pxU, distp=dist*pxU;
+  const lab=Object.assign({A:'A',B:'B',C:'C'},spec.labels||{});
+  const thL=spec.thetaLabel||'\u03b8', alL=spec.alphaLabel||'\u03b1',
+        beL=spec.betaLabel||'\u03b2', sL=spec.sLabel||'S';
+  const hALabel=spec.hALabel||'10', distLabel=spec.distLabel||'30',
+        cbLabel=spec.cbLabel||'40', hBLabel=spec.hBLabel||'50';
+
+  const pad=24, bwA=26, bwB=30, gap=30;
+
+  // ---------- PANEL 1 (scene) ----------
+  const sunRoom=80;
+  const groundY=pad+sunRoom+hBp;
+  const xA0=pad+26;
+  const A=[xA0+bwA, groundY-hAp];
+  const C=[A[0]+distp, A[1]];
+  const B=[C[0], A[1]-diffp];          // = groundY-hBp
+  const bBx=C[0];                       // building B left edge at C
+  const p1Right=bBx+bwB+38;            // room for "50"
+
+  // ---------- PANEL 2 (mirror detail) ----------
+  const sX=p1Right+gap;
+  const thetaRad=Math.atan2(diff,dist);          // elevation
+  const alphaRad=Math.PI/4-0.5*thetaRad;         // mirror angle
+  const cLen=78, bLen=96, mLen=44, nLen=70, sLen=70;
+  const A2=[sX+62, pad+sunRoom+18];
+  const dirRefl=[Math.cos(thetaRad),-Math.sin(thetaRad)];   // up-right
+  const dirMirR=[Math.cos(alphaRad),Math.sin(alphaRad)];    // down-right
+  const dirNorm=[Math.sin(alphaRad),-Math.cos(alphaRad)];   // up (bisector)
+  const B2=[A2[0]+dirRefl[0]*bLen, A2[1]+dirRefl[1]*bLen];
+  const C2=[B2[0], A2[1]];                                   // below B2, on horizontal
+  const S2=[A2[0], A2[1]-sLen];                              // straight above (noon)
+  const mR=[A2[0]+dirMirR[0]*mLen, A2[1]+dirMirR[1]*mLen];
+  const mL=[A2[0]-dirMirR[0]*mLen, A2[1]-dirMirR[1]*mLen];
+  const Ntip=[A2[0]+dirNorm[0]*nLen, A2[1]+dirNorm[1]*nLen];
+
+  const W=spec.width||Math.ceil(Math.max(C2[0],B2[0])+pad+14);
+  const H=spec.height||Math.ceil(groundY+pad+10);
+
+  // ---------- draw helpers ----------
+  const L=(p,q,st)=>`<line x1="${p[0].toFixed(2)}" y1="${p[1].toFixed(2)}" x2="${q[0].toFixed(2)}" y2="${q[1].toFixed(2)}" stroke="#222" stroke-width="${st==='thin'?1:(st==='thick'?2:1.5)}"${st==='dash'?' stroke-dasharray="5 4"':''}/>`;
+  const TX=(x,y,t,fs,anch)=>`<text x="${x.toFixed(2)}" y="${y.toFixed(2)}" font-family="'Cambria Math','Times New Roman',serif" font-size="${fs||14}" fill="#222" text-anchor="${anch||'middle'}" dominant-baseline="central">${t}</text>`;
+  const u=(p,q)=>{const dx=q[0]-p[0],dy=q[1]-p[1],m=Math.hypot(dx,dy)||1;return[dx/m,dy/m];};
+  const arcA=(V,P1,P2,rad,txt,fs,lpush)=>{
+    const a1=Math.atan2(P1[1]-V[1],P1[0]-V[0]); let d=Math.atan2(P2[1]-V[1],P2[0]-V[0])-a1;
+    while(d>Math.PI)d-=2*Math.PI; while(d<-Math.PI)d+=2*Math.PI;
+    const N=Math.max(8,Math.round(Math.abs(d)/0.1)); let dd='';
+    for(let i=0;i<=N;i++){const a=a1+d*i/N;dd+=(i?' L ':'M ')+(V[0]+rad*Math.cos(a)).toFixed(2)+' '+(V[1]+rad*Math.sin(a)).toFixed(2);}
+    let s=`<path d="${dd}" fill="none" stroke="#222" stroke-width="1"/>`;
+    if(txt){const am=a1+d/2,lr=rad+(lpush||12);s+=TX(V[0]+lr*Math.cos(am),V[1]+lr*Math.sin(am),txt,fs||12);}
+    return s;
+  };
+  const rAngle=(V,d1,d2,s)=>{
+    const p1=[V[0]+d1[0]*s,V[1]+d1[1]*s],p3=[V[0]+d2[0]*s,V[1]+d2[1]*s];
+    const p2=[V[0]+(d1[0]+d2[0])*s,V[1]+(d1[1]+d2[1])*s];
+    return `<path d="M ${p1[0].toFixed(2)} ${p1[1].toFixed(2)} L ${p2[0].toFixed(2)} ${p2[1].toFixed(2)} L ${p3[0].toFixed(2)} ${p3[1].toFixed(2)}" fill="none" stroke="#222" stroke-width="1"/>`;
+  };
+  const arrowHead=(tip,dir)=>{ // dir = travel direction (unit)
+    const back=[tip[0]-dir[0]*9,tip[1]-dir[1]*9], pp=[-dir[1],dir[0]];
+    const w1=[back[0]+pp[0]*4,back[1]+pp[1]*4], w2=[back[0]-pp[0]*4,back[1]-pp[1]*4];
+    return `<path d="M ${tip[0].toFixed(2)} ${tip[1].toFixed(2)} L ${w1[0].toFixed(2)} ${w1[1].toFixed(2)} L ${w2[0].toFixed(2)} ${w2[1].toFixed(2)} Z" fill="#222"/>`;
+  };
+
+  let svg=`<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" xmlns="http://www.w3.org/2000/svg" style="background:#fff;">`;
+  svg+=`<defs><pattern id="mrbHatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#222" stroke-width="0.7"/></pattern></defs>`;
+
+  // ground line spanning panel 1
+  svg+=L([pad,groundY],[bBx+bwB+10,groundY],'thin');
+
+  // buildings (hatched)
+  svg+=`<rect x="${xA0.toFixed(2)}" y="${(groundY-hAp).toFixed(2)}" width="${bwA}" height="${hAp.toFixed(2)}" fill="url(#mrbHatch)" stroke="#222" stroke-width="1.5"/>`;
+  svg+=`<rect x="${bBx.toFixed(2)}" y="${B[1].toFixed(2)}" width="${bwB}" height="${(groundY-B[1]).toFixed(2)}" fill="url(#mrbHatch)" stroke="#222" stroke-width="1.5"/>`;
+
+  // triangle A-C-B
+  svg+=L(A,C); svg+=L(C,B); svg+=L(A,B,'thick');     // AB = reflected ray (emphasis)
+  svg+=arrowHead(B,u(A,B));
+  svg+=rAngle(C,u(C,A),u(C,B),10);
+  svg+=arcA(A,C,B,26,thL,13,11);
+
+  // sun + vertical incident arrow to A
+  const sun=[A[0]-30, pad+20];
+  svg+=`<circle cx="${sun[0].toFixed(2)}" cy="${sun[1].toFixed(2)}" r="11" fill="none" stroke="#222" stroke-width="1.3"/>`;
+  for(let k=0;k<8;k++){const a=k*Math.PI/4;const r1=13,r2=18;svg+=`<line x1="${(sun[0]+r1*Math.cos(a)).toFixed(2)}" y1="${(sun[1]+r1*Math.sin(a)).toFixed(2)}" x2="${(sun[0]+r2*Math.cos(a)).toFixed(2)}" y2="${(sun[1]+r2*Math.sin(a)).toFixed(2)}" stroke="#222" stroke-width="1.1"/>`;}
+  const inA=[A[0], A[1]-8];
+  svg+=L([A[0],sun[1]+22],inA);
+  svg+=arrowHead(inA,[0,1]);
+
+  // labels panel1
+  svg+=TX(xA0-7, groundY-hAp/2, hALabel, 12, 'end');          // 10 = height, left side of bldg A
+  svg+=TX((A[0]+C[0])/2, A[1]+13, distLabel, 12);              // 30 below AC
+  svg+=TX(C[0]-11, (C[1]+B[1])/2, cbLabel, 12, 'end');         // 40 left of CB
+  svg+=TX(bBx+bwB+16, (groundY+B[1])/2, hBLabel, 12, 'start'); // 50 right of bldg B
+  svg+=TX(A[0]-10, A[1]-11, lab.A, 14, 'end');                 // A above-left, clear of lines
+  svg+=TX(B[0]-4, B[1]-12, lab.B, 14);
+  svg+=TX(C[0]+10, C[1]+9, lab.C, 14, 'start');
+
+  // ---------- PANEL 2 draw ----------
+  // horizontal AC2, dashed normal & BC2
+  svg+=L(A2,C2);                                  // horizontal AC
+  svg+=L(B2,C2,'dash');                            // vertical BC dashed
+  svg+=L(A2,Ntip,'dash');                          // normal dashed
+  // mirror bar
+  svg+=L(mL,mR,'thick');
+  // incident S -> A2
+  svg+=L(S2,[A2[0],A2[1]-9]);
+  svg+=arrowHead([A2[0],A2[1]-9],[0,1]);
+  // reflected A2 -> B2
+  svg+=L(A2,B2);
+  svg+=arrowHead(B2,dirRefl);
+  // right angle at C2
+  svg+=rAngle(C2,u(C2,A2),u(C2,B2),10);
+  // angle arcs at A2: theta(AC..refl), alpha(AC..mirror down), beta(S..normal), beta(normal..refl)
+  svg+=arcA(A2,C2,B2,30,thL,13,12);
+  svg+=arcA(A2,C2,mR,17,alL,12,10);
+  svg+=arcA(A2,S2,Ntip,22,beL,12,11);
+  svg+=arcA(A2,Ntip,B2,34,beL,12,11);
+  // labels panel2
+  svg+=TX(S2[0]-3,S2[1]-9,sL,14,'end');
+  svg+=TX(B2[0]+4,B2[1]-11,lab.B,14,'start');
+  svg+=TX(C2[0]+10,C2[1]+9,lab.C,14,'start');
+  svg+=TX(A2[0]-7,A2[1]+11,lab.A,14,'end');
+
+  return svg+'</svg>';
+}
+
+// box-space-diagonal: 3D rectangular box (Q200), oblique projection.
+// O front-bottom-left origin, A top vertex above O, B top vertex diagonally opposite A.
+// face diagonal AB (dashed) + space diagonal OB (dotted), angle at B between them.
+// hidden back edges dotted; axes x (down-right), y (depth, from B outward), z (up).
+// spec: type, width, height, labels{O,A,B}, axisLabels{x,y,z},
+//   xLabel('12'), yLabel('9'), angleLabel('30'), showAxes(true).
+// all labels ascii/degree, fully cairosvg-verifiable (no Thai).
+function renderBoxSpaceDiagonal(spec){
+  spec=spec||{};
+  const lab=Object.assign({O:'O',A:'A',B:'B'},spec.labels||{});
+  const ax=Object.assign({x:'x',y:'y',z:'z'},spec.axisLabels||{});
+  const xLabel=spec.xLabel||'12', yLabel=spec.yLabel||'9', angLabel=spec.angleLabel||'30\u00b0';
+
+  // oblique projection basis (screen, y-down)
+  const ex=[122, 20];      // x-axis (=12) right + slightly down
+  const ey=[78, -46];      // y-axis (=9 depth) right + up (back)
+  const ez=[0, -82];       // z-axis (height) up
+
+  // local origin O at [0,0]; vertices a*ex+b*ey+c*ez
+  const V=(a,b,c)=>[a*ex[0]+b*ey[0]+c*ez[0], a*ex[1]+b*ey[1]+c*ez[1]];
+  const O=V(0,0,0), Xr=V(1,0,0), Yb=V(0,1,0), XYb=V(1,1,0);
+  const A=V(0,0,1), AXr=V(1,0,1), AYb=V(0,1,1), B=V(1,1,1);
+
+  // axis arrow ends (beyond box) — y extends outward from B (depth dir), matches source
+  const zEnd=[ez[0]*1.45, ez[1]*1.45];
+  const xEnd=[ex[0]*1.5, ex[1]*1.5];
+  const Bv=[ex[0]+ey[0]+ez[0], ex[1]+ey[1]+ez[1]];
+  const yEnd=[Bv[0]+ey[0]*0.72, Bv[1]+ey[1]*0.72];
+
+  // extents
+  const all=[O,Xr,Yb,XYb,A,AXr,AYb,B,zEnd,xEnd,yEnd];
+  let minx=Math.min(...all.map(p=>p[0])), maxx=Math.max(...all.map(p=>p[0]));
+  let miny=Math.min(...all.map(p=>p[1])), maxy=Math.max(...all.map(p=>p[1]));
+  const pad=26;
+  minx-=14; maxx+=22; miny-=14; maxy+=16;     // label room
+  const ox=pad-minx, oy=pad-miny;
+  const W=spec.width||Math.ceil(maxx-minx+2*pad);
+  const H=spec.height||Math.ceil(maxy-miny+2*pad);
+  const P=p=>[p[0]+ox,p[1]+oy];
+
+  const L=(p,q,st)=>{const a=P(p),b=P(q);let da='';if(st==='dash')da=' stroke-dasharray="6 4"';else if(st==='dot')da=' stroke-dasharray="1.5 3"';return `<line x1="${a[0].toFixed(2)}" y1="${a[1].toFixed(2)}" x2="${b[0].toFixed(2)}" y2="${b[1].toFixed(2)}" stroke="#222" stroke-width="${st==='thin'?1:1.5}"${da}/>`;};
+  const TX=(p,t,fs,anch)=>{const a=P(p);return `<text x="${a[0].toFixed(2)}" y="${a[1].toFixed(2)}" font-family="'Cambria Math','Times New Roman',serif" font-size="${fs||14}" fill="#222" text-anchor="${anch||'middle'}" dominant-baseline="central">${t}</text>`;};
+  const u=(p,q)=>{const dx=q[0]-p[0],dy=q[1]-p[1],m=Math.hypot(dx,dy)||1;return[dx/m,dy/m];};
+  const arrow=(tip,dir)=>{const t=P(tip);const b=[t[0]-dir[0]*9,t[1]-dir[1]*9],pp=[-dir[1],dir[0]];const w1=[b[0]+pp[0]*4,b[1]+pp[1]*4],w2=[b[0]-pp[0]*4,b[1]-pp[1]*4];return `<path d="M ${t[0].toFixed(2)} ${t[1].toFixed(2)} L ${w1[0].toFixed(2)} ${w1[1].toFixed(2)} L ${w2[0].toFixed(2)} ${w2[1].toFixed(2)} Z" fill="#222"/>`;};
+  const arcA=(Vp,P1,P2,rad,txt,fs,lpush)=>{
+    const a1=Math.atan2(P1[1]-Vp[1],P1[0]-Vp[0]); let d=Math.atan2(P2[1]-Vp[1],P2[0]-Vp[0])-a1;
+    while(d>Math.PI)d-=2*Math.PI; while(d<-Math.PI)d+=2*Math.PI;
+    const N=Math.max(8,Math.round(Math.abs(d)/0.1)); let dd='';
+    for(let i=0;i<=N;i++){const a=a1+d*i/N;const pp=P([Vp[0]+rad*Math.cos(a),Vp[1]+rad*Math.sin(a)]);dd+=(i?' L ':'M ')+pp[0].toFixed(2)+' '+pp[1].toFixed(2);}
+    let s=`<path d="${dd}" fill="none" stroke="#222" stroke-width="1"/>`;
+    if(txt){const am=a1+d/2,lr=rad+(lpush||12);s+=TX([Vp[0]+lr*Math.cos(am),Vp[1]+lr*Math.sin(am)],txt,fs||12);}
+    return s;
+  };
+
+  let svg=`<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" xmlns="http://www.w3.org/2000/svg" style="background:#fff;">`;
+
+  // hidden back edges (dotted) — 3 edges at back-bottom-left Yb
+  svg+=L(O,Yb,'dot'); svg+=L(Yb,XYb,'dot'); svg+=L(Yb,AYb,'dot');
+
+  // axes (drawn behind box where relevant)
+  if(spec.showAxes!==false){
+    svg+=L(O,zEnd,'thin'); svg+=arrow(zEnd,u(O,zEnd)); svg+=TX([zEnd[0],zEnd[1]-9],ax.z,13);
+    svg+=L(O,xEnd,'thin'); svg+=arrow(xEnd,u(O,xEnd)); svg+=TX([xEnd[0]+8,xEnd[1]+6],ax.x,13,'start');
+    svg+=L(B,yEnd,'thin'); svg+=arrow(yEnd,u(B,yEnd)); svg+=TX([yEnd[0]+9,yEnd[1]-2],ax.y,13,'start');
+  }
+
+  // visible solid edges
+  svg+=L(O,Xr); svg+=L(O,A); svg+=L(Xr,XYb); svg+=L(Xr,AXr);
+  svg+=L(A,AXr); svg+=L(A,AYb); svg+=L(AXr,B); svg+=L(AYb,B); svg+=L(XYb,B);
+
+  // diagonals: AB (top face, dashed) + OB (space, dotted)
+  svg+=L(A,B,'dash'); svg+=L(O,B,'dot');
+
+  // 30 angle at B between B->A and B->O
+  svg+=arcA(B,A,O,22,angLabel,12,10);
+
+  // edge labels 12 (O-Xr), 9 (A-AYb top y-edge)
+  svg+=TX([(O[0]+Xr[0])/2, (O[1]+Xr[1])/2+13], xLabel, 13);
+  svg+=TX([(A[0]+AYb[0])/2-6, (A[1]+AYb[1])/2-10], yLabel, 13, 'end');
+
+  // vertex labels
+  svg+=TX([O[0]-11,O[1]+2], lab.O, 14, 'end');
+  svg+=TX([A[0]-11,A[1]], lab.A, 14, 'end');
+  svg+=TX([B[0]+11,B[1]], lab.B, 14, 'start');
+
+  return svg+'</svg>';
+}
+
+// === roads-curve-survey: inaccessible-vertex survey + tangent circular curve (Q209) ===
+// Two straight roads meet at inaccessible apex A (in a ravine). Survey points X (on road A-B)
+// and Y (on road A-C); survey line XY. Circular curve radius R tangent to both roads at B,C;
+// centre O on bisector AO. Construction overlay: AO bisector(dashed), OB/OC radii, right
+// angles at X (AXY), B, C, and 30°+30° at A. √/Greek via _ucMathToSvg → full cairosvg verify.
+// { type:'roads-curve-survey', width,height, halfDeg(27), abPx(290), axPx(110), ayPx(150),
+//   roadLen(378), ravineY(18), labels:{A,X,Y,B,C,O,P,Q},
+//   xyLabel('105\\sqrt{3}'), rLabel('R = 200\\sqrt{3}'),
+//   angXLabel('90°'), angYLabel('150°'), angALabel('30°') }  defaults suffice.
+function renderRoadsCurveSurvey(spec){
+  const pad = 26;
+  const half = (spec.halfDeg||27)*Math.PI/180;
+  const uL=[-Math.sin(half),Math.cos(half)], uR=[Math.sin(half),Math.cos(half)], uD=[0,1];
+  const ABd=spec.abPx||290, AOd=ABd/Math.cos(half), Rd=AOd*Math.sin(half);
+  const dX=spec.axPx||110, dY=spec.ayPx||150, dRoad=spec.roadLen||378;
+  const A=[0,0];
+  const sc=(u,d)=>[u[0]*d,u[1]*d];
+  const B=sc(uL,ABd), C=sc(uR,ABd), O=[0,AOd];
+  const X=sc(uL,dX), Y=sc(uR,dY), Pp=sc(uL,dRoad), Qp=sc(uR,dRoad);
+
+  // canvas extents from drawn geometric points (+ ravine)
+  const gpts=[A,Pp,Qp,O,B,C,X,Y];
+  let minx=Math.min(...gpts.map(p=>p[0])), maxx=Math.max(...gpts.map(p=>p[0]));
+  let miny=Math.min(...gpts.map(p=>p[1])), maxy=Math.max(...gpts.map(p=>p[1]));
+  const ravineY=(spec.ravineY!==undefined)?spec.ravineY:18;
+  miny=Math.min(miny,ravineY-20);
+  minx-=24; maxx+=24; miny-=14; maxy+=20;
+  const ox=pad-minx, oy=pad-miny;
+  const W=spec.width||Math.ceil(maxx-minx+2*pad);
+  const H=spec.height||Math.ceil(maxy-miny+2*pad);
+  const P=p=>[p[0]+ox,p[1]+oy];
+  const u=(v)=>{const m=Math.hypot(v[0],v[1])||1;return[v[0]/m,v[1]/m];};
+
+  const L=(p,q,col,dash,w)=>{const a=P(p),b=P(q);return `<line x1="${a[0].toFixed(2)}" y1="${a[1].toFixed(2)}" x2="${b[0].toFixed(2)}" y2="${b[1].toFixed(2)}" stroke="${col||'#222'}" stroke-width="${w||1.5}"${dash?` stroke-dasharray="${dash}"`:''}/>`;};
+  const TX=(p,t,fs,anch,col)=>{const a=P(p);return `<text x="${a[0].toFixed(2)}" y="${a[1].toFixed(2)}" font-family="'Cambria Math','Times New Roman',serif" font-size="${fs||14}" fill="${col||'#222'}" text-anchor="${anch||'middle'}" dominant-baseline="central">${t}</text>`;};
+  const SQ=(p,latex,fs,col)=>{const a=P(p);return _ucMathToSvg(latex,a[0],a[1],fs||16,col||'#222');};
+
+  const lab=Object.assign({A:'A',X:'X',Y:'Y',B:'B',C:'C',O:'O',P:'P',Q:'Q'},spec.labels||{});
+
+  let svg=`<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" xmlns="http://www.w3.org/2000/svg" style="background:#fff;">`;
+
+  // ravine: wavy horizontal line + jagged Z marks at both ends
+  {
+    const wy=ravineY, x0=minx+6, x1=maxx-6, step=27, amp=4;
+    const s0=P([x0,wy]); let d='M '+s0[0].toFixed(2)+' '+s0[1].toFixed(2)+' ';
+    let xx=x0,i=0;
+    while(xx<x1){const x2=Math.min(xx+step,x1);const my=wy+((i%2===0)?amp:-amp);const c=P([xx+step/2,my]),e=P([x2,wy]);d+=`Q ${c[0].toFixed(2)} ${c[1].toFixed(2)} ${e[0].toFixed(2)} ${e[1].toFixed(2)} `;xx=x2;i++;}
+    svg+=`<path d="${d}" fill="none" stroke="#aaa" stroke-width="1.2"/>`;
+    const zz=(zx)=>{const a=P([zx,wy-24]),b=P([zx+22,wy-16]),c=P([zx+4,wy-8]),e=P([zx+26,wy]);return `<polyline points="${a[0].toFixed(2)},${a[1].toFixed(2)} ${b[0].toFixed(2)},${b[1].toFixed(2)} ${c[0].toFixed(2)},${c[1].toFixed(2)} ${e[0].toFixed(2)},${e[1].toFixed(2)}" fill="none" stroke="#aaa" stroke-width="1.2"/>`;};
+    svg+=zz(x0+24); svg+=zz(x1-50);
+  }
+
+  // construction (faint): AO bisector + OC radius (dashed)
+  svg+=L(A,O,'#888','5 4',1.2);
+  svg+=L(O,C,'#888','5 4',1.2);
+
+  // roads A->P (left), A->Q (right)
+  svg+=L(A,Pp,'#222',null,2);
+  svg+=L(A,Qp,'#222',null,2);
+
+  // survey line XY (blue)
+  svg+=L(X,Y,'#1559c4',null,2);
+
+  // tangent arc B..C bulging toward apex A
+  {
+    let a1=Math.atan2(B[1]-O[1],B[0]-O[0]), a2=Math.atan2(C[1]-O[1],C[0]-O[0]);
+    let dd=a2-a1; while(dd<=-Math.PI)dd+=2*Math.PI; while(dd>Math.PI)dd-=2*Math.PI;
+    const mid=a1+dd/2; if(O[1]+Rd*Math.sin(mid) > O[1]) dd = dd>0?dd-2*Math.PI:dd+2*Math.PI;
+    const N=Math.max(24,Math.round(Math.abs(dd)/0.06)); let path='';
+    for(let k=0;k<=N;k++){const a=a1+dd*k/N;const pp=P([O[0]+Rd*Math.cos(a),O[1]+Rd*Math.sin(a)]);path+=(k?' L ':'M ')+pp[0].toFixed(2)+' '+pp[1].toFixed(2);}
+    svg+=`<path d="${path}" fill="none" stroke="#222" stroke-width="2"/>`;
+  }
+
+  // radius arrow O -> B (solid) + arrowhead + centre dot
+  {
+    svg+=L(O,B,'#222',null,1.5);
+    const ad=u([B[0]-O[0],B[1]-O[1]]); const hb=P([B[0]-ad[0]*13,B[1]-ad[1]*13]); const bb=P(B); const pp=[-ad[1],ad[0]];
+    svg+=`<polygon points="${bb[0].toFixed(2)},${bb[1].toFixed(2)} ${(hb[0]+pp[0]*5).toFixed(2)},${(hb[1]+pp[1]*5).toFixed(2)} ${(hb[0]-pp[0]*5).toFixed(2)},${(hb[1]-pp[1]*5).toFixed(2)}" fill="#222"/>`;
+    const o=P(O); svg+=`<circle cx="${o[0].toFixed(2)}" cy="${o[1].toFixed(2)}" r="2" fill="#222"/>`;
+  }
+
+  // right-angle marks: X (AXY), B (OB perp road), C (OC perp road)
+  const raMark=(p,d1,d2,s)=>{s=s||11;const a=P([p[0]+d1[0]*s,p[1]+d1[1]*s]),b=P([p[0]+(d1[0]+d2[0])*s,p[1]+(d1[1]+d2[1])*s]),c=P([p[0]+d2[0]*s,p[1]+d2[1]*s]);return `<polyline points="${a[0].toFixed(2)},${a[1].toFixed(2)} ${b[0].toFixed(2)},${b[1].toFixed(2)} ${c[0].toFixed(2)},${c[1].toFixed(2)}" fill="none" stroke="#222" stroke-width="1.3"/>`;};
+  svg+=raMark(X,u([A[0]-X[0],A[1]-X[1]]),u([Y[0]-X[0],Y[1]-X[1]]));
+  svg+=raMark(B,u([A[0]-B[0],A[1]-B[1]]),u([O[0]-B[0],O[1]-B[1]]));
+  svg+=raMark(C,u([A[0]-C[0],A[1]-C[1]]),u([O[0]-C[0],O[1]-C[1]]));
+
+  // angle arcs at A: 30 (left, BAO) + 30 (right, CAO)
+  const angArc=(center,d1,d2,r,label,loff)=>{
+    const a1=Math.atan2(d1[1],d1[0]),a2=Math.atan2(d2[1],d2[0]);
+    let dd=a2-a1; while(dd>Math.PI)dd-=2*Math.PI; while(dd<-Math.PI)dd+=2*Math.PI;
+    const N=Math.max(8,Math.round(Math.abs(dd)/0.1));let path='';
+    for(let k=0;k<=N;k++){const a=a1+dd*k/N;const pp=P([center[0]+r*Math.cos(a),center[1]+r*Math.sin(a)]);path+=(k?' L ':'M ')+pp[0].toFixed(2)+' '+pp[1].toFixed(2);}
+    const bis=u([d1[0]+d2[0],d1[1]+d2[1]]);const lp=[center[0]+bis[0]*(r+loff),center[1]+bis[1]*(r+loff)];
+    return `<path d="${path}" fill="none" stroke="#b8350e" stroke-width="1.3"/>`+TX(lp,label,14,'middle','#b8350e');
+  };
+  svg+=angArc(A,uL,uD,40,spec.angALabel||'30°',22);
+  svg+=angArc(A,uD,uR,40,spec.angALabel||'30°',22);
+
+  // given-value labels
+  svg+=SQ([(X[0]+Y[0])/2-4,(X[1]+Y[1])/2-9],spec.xyLabel||'105\\sqrt{3}',16,'#1559c4');
+  svg+=SQ([(O[0]+B[0])/2-78,(O[1]+B[1])/2-2],spec.rLabel||'R = 200\\sqrt{3}',16,'#222');
+  svg+=TX([X[0]-13,X[1]+18],spec.angXLabel||'90°',14,'end','#b8350e');
+  svg+=TX([Y[0]-30,Y[1]+17],spec.angYLabel||'150°',14,'start','#b8350e');
+
+  // point dots + labels
+  const dot=p=>{const a=P(p);return `<circle cx="${a[0].toFixed(2)}" cy="${a[1].toFixed(2)}" r="3" fill="#222"/>`;};
+  [A,X,Y,B,C,O].forEach(p=>{svg+=dot(p);});
+  svg+=TX([A[0],A[1]-13],lab.A,16,'middle');
+  svg+=TX([X[0]-15,X[1]-7],lab.X,15,'end');
+  svg+=TX([Y[0]+11,Y[1]+9],lab.Y,15,'start');
+  svg+=TX([B[0]-15,B[1]+4],lab.B,15,'end');
+  svg+=TX([C[0]+12,C[1]+4],lab.C,15,'start');
+  svg+=TX([O[0],O[1]+15],lab.O,15,'middle');
+  svg+=TX([Pp[0]-13,Pp[1]+8],lab.P,15,'end');
+  svg+=TX([Qp[0]+11,Qp[1]+8],lab.Q,15,'start');
+
+  return svg+'</svg>';
+}
+
 function renderImage(spec){
   if(!spec) return null;
   // Array of specs → render each, wrap in horizontal flex container
@@ -2012,6 +2969,24 @@ function renderImage(spec){
       return renderNumberLine(spec);
     case 'disk-shading':
       return renderDiskShading(spec);
+    case 'intersecting-circles':
+      return renderIntersectingCircles(spec);
+    case 'circle-segment':
+      return renderCircleSegment(spec);
+    case 'triangle-sector-cut':
+      return renderTriangleSectorCut(spec);
+    case 'pyramid-square':
+      return renderPyramidSquare(spec);
+    case 'tower-two-observers':
+      return renderTowerTwoObservers(spec);
+    case 'roads-tangent-arc':
+      return renderRoadsTangentArc(spec);
+    case 'mirror-reflect-buildings':
+      return renderMirrorReflectBuildings(spec);
+    case 'box-space-diagonal':
+      return renderBoxSpaceDiagonal(spec);
+    case 'roads-curve-survey':
+      return renderRoadsCurveSurvey(spec);
     // portal convergence (§3): portal เรียกชื่อ type 3set-* → map ไป function เดิม
     //   geometry เดียวกับ venn-c-oval / venn-c-in-a+shade (verify แล้วผ่าน Q33/Q36 chap-01-set)
     case '3set-c-in-aub':
