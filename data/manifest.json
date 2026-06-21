@@ -1774,11 +1774,11 @@
       },
       "snapshot": {
         "round": 1,
-        "stage": "split from chap-11 (INF), pending pipeline",
+        "stage": "imageSpec done (number-line ×4) + STANDARD v2; audit 🔄 ว.2 pending (85 solo header)",
         "questionsCompleted": 91,
         "questionsRemaining": 0,
-        "exportedAt": "2026-06-15",
-        "note": "แยกจาก chap-11-sequence (15 มิ.ย.69): 91 ข้อ (mc 62 + fill 29), topics flip 11→14, renumber q01-q91, เก็บเลข PDF เดิมใน pdfNumber. Q28/Q81/Q154 ย้ายเข้า INF ตามครูชี้ขาด. format OK (LF, indent=2, ไม่มี BOM/trailing). content เทียบ byte ตรงต้นฉบับ. ยังไม่ทำ: pipeline, imageSpec, audit, difficulty tag review."
+        "exportedAt": "2026-06-21",
+        "note": "แยกจาก chap-11-sequence (15 มิ.ย.69): 91 ข้อ (mc 62 + fill 29), topics flip 11→14, renumber q01-q91, เก็บเลข PDF เดิมใน pdfNumber. Q28/Q81/Q154 ย้ายเข้า INF ตามครูชี้ขาด. format OK (LF, indent=2, ไม่มี BOM/trailing). content เทียบ byte ตรงต้นฉบับ. ✅ pipeline: ingest + STANDARD v2 (💡/⚠️ ครบ 91/91) + imageSpec 4 ข้อ (number-line q39/q67/q71/q72; q67 = array 2 panel union/intersect). Q5 verified valid 21 มิ.ย.69 (ไม่ defective — ฐาน 1/a^{2^k} เลขชี้กำลังคู่ → โดเมน a รวมค่าลบ, ตัวเลือก 4 ถูกหนึ่งเดียว, ตัวเลือก 2 นิยามไม่ได้เมื่อ a<0; correct=3 ยืน). ⏳ ค้าง: audit 🔄 ว.2 (85 ข้อ solo 【วิธีที่ 1】 header รอตัดสินใจเพิ่ม ว.2 หรือลบ header) + line-break sweep (รอตอนท้าย bank)."
       }
     },
     "chap-15-statistics": {
