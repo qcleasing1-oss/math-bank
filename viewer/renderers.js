@@ -3109,7 +3109,116 @@ function renderImage(spec){
       return venn3COval(Object.assign({}, spec, {type:'venn-c-oval'}));
     case '3set-c-in-a-shade-ab-minus-c':
       return venn3CinA(Object.assign({}, spec, {type:'venn-c-in-a', shade: spec.shade || ['AB']}));
+    case 'sampled-curve-with-gaps':
+      return renderSampledCurveGaps(spec);
     default:
       return null; // unknown type → admin.html จะ fallback ไปแสดง placeholder
   }
+}
+
+
+// ----- renderer: sampled-curve-with-gaps -----
+// Plots one or more pre-sampled polyline segments (data coords) on labeled axes,
+// leaving gaps between segments (e.g. y = √(cos 2x) half-wave bumps over its domain).
+// Curve points are pre-sampled by the author (no eval); renderer only maps data→px.
+// Spec fields:
+//   width, height
+//   xRange:[xmin,xmax], yRange:[ymin,ymax]              (data coords)
+//   segments: [ [[x,y],...], ... ]                       each = one continuous polyline
+//   xTicks: [ {x, num?,den?,neg?} | {x,text} | {x,latex} (√ via _ucMathToSvg) ]
+//   yTicks: [ {y, text} | {y,num,den,neg} ]   (label placed left of y-axis)
+//   axisLabels: {x:'x', y:'y'}                            (at axis arrow tips)
+//   curveColor (default '#222'), curveWidth (default 1.8)
+//   pad:{l,r,t,b}                                         optional px margins
+function renderSampledCurveGaps(spec){
+  const W = spec.width || 520, H = spec.height || 210;
+  const xr = spec.xRange || [-1, 1], yr = spec.yRange || [0, 1];
+  const pad = spec.pad || {};
+  const pL = (pad.l != null) ? pad.l : 30;
+  const pR = (pad.r != null) ? pad.r : 26;
+  const pT = (pad.t != null) ? pad.t : 18;
+  const pB = (pad.b != null) ? pad.b : 36;
+  const X = v => pL + (v - xr[0]) / (xr[1] - xr[0]) * (W - pL - pR);
+  const Y = v => (H - pB) - (v - yr[0]) / (yr[1] - yr[0]) * (H - pT - pB);
+  const col = spec.curveColor || '#222';
+  const cw  = spec.curveWidth || 1.8;
+  const ff  = "'Cambria Math','Times New Roman',serif";
+
+  let svg = `<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" `
+          + `xmlns="http://www.w3.org/2000/svg" style="background:#fff;">`;
+  svg += `<defs><marker id="scg-arrow" viewBox="0 0 10 10" refX="8" refY="5" `
+       + `markerWidth="7" markerHeight="7" orient="auto-start-reverse">`
+       + `<path d="M0 0 L10 5 L0 10 z" fill="#222"/></marker></defs>`;
+
+  const x0 = X(0), y0 = Y(0);
+
+  // axes: x-axis at data y=0 (arrow →), y-axis at data x=0 (arrow ↑)
+  svg += `<line x1="${(pL - 6).toFixed(2)}" y1="${y0.toFixed(2)}" `
+       + `x2="${(W - pR + 8).toFixed(2)}" y2="${y0.toFixed(2)}" `
+       + `stroke="#222" stroke-width="1.4" marker-end="url(#scg-arrow)"/>`;
+  svg += `<line x1="${x0.toFixed(2)}" y1="${(H - pB + 2).toFixed(2)}" `
+       + `x2="${x0.toFixed(2)}" y2="${(pT - 2).toFixed(2)}" `
+       + `stroke="#222" stroke-width="1.4" marker-end="url(#scg-arrow)"/>`;
+
+  // axis labels at arrow tips
+  const al = spec.axisLabels || {};
+  if (al.x) svg += `<text x="${(W - pR + 11).toFixed(2)}" y="${(y0 + 5).toFixed(2)}" `
+                 + `font-family="${ff}" font-size="15" font-style="italic" fill="#222">${al.x}</text>`;
+  if (al.y) svg += `<text x="${(x0 + 7).toFixed(2)}" y="${(pT + 3).toFixed(2)}" `
+                 + `font-family="${ff}" font-size="15" font-style="italic" fill="#222">${al.y}</text>`;
+
+  // curve segments (gaps = separate paths)
+  (spec.segments || []).forEach(seg => {
+    if (!seg || seg.length < 2) return;
+    const d = 'M ' + seg.map(p => `${X(p[0]).toFixed(2)} ${Y(p[1]).toFixed(2)}`).join(' L ');
+    svg += `<path d="${d}" fill="none" stroke="${col}" stroke-width="${cw}" `
+         + `stroke-linejoin="round" stroke-linecap="round"/>`;
+  });
+
+  // stacked-fraction label, centered at xp, top of numerator at topY
+  const fracLabel = (xp, topY, num, den, neg) => {
+    const fs = 12;
+    const numStr = String(num), denStr = String(den);
+    const halfW = Math.max(numStr.length, denStr.length) * fs * 0.30 + 1;
+    const barY = topY + fs + 1;
+    if (neg) svg += `<text x="${(xp - halfW - 4).toFixed(2)}" y="${(barY + 4).toFixed(2)}" `
+                  + `text-anchor="middle" font-family="${ff}" font-size="${fs}" fill="#222">\u2212</text>`;
+    svg += `<text x="${xp.toFixed(2)}" y="${(barY - 3).toFixed(2)}" text-anchor="middle" `
+         + `font-family="${ff}" font-size="${fs}" fill="#222">${numStr}</text>`;
+    svg += `<line x1="${(xp - halfW).toFixed(2)}" y1="${barY.toFixed(2)}" `
+         + `x2="${(xp + halfW).toFixed(2)}" y2="${barY.toFixed(2)}" stroke="#222" stroke-width="1"/>`;
+    svg += `<text x="${xp.toFixed(2)}" y="${(barY + 12).toFixed(2)}" text-anchor="middle" `
+         + `font-family="${ff}" font-size="${fs}" fill="#222">${denStr}</text>`;
+  };
+
+  // x ticks + labels (below axis)
+  (spec.xTicks || []).forEach(t => {
+    const xp = X(t.x);
+    svg += `<line x1="${xp.toFixed(2)}" y1="${(y0 - 4).toFixed(2)}" `
+         + `x2="${xp.toFixed(2)}" y2="${(y0 + 4).toFixed(2)}" stroke="#222" stroke-width="1"/>`;
+    const topY = y0 + 8;
+    if (t.num !== undefined && t.den !== undefined) {
+      fracLabel(xp, topY, t.num, t.den, t.neg);
+    } else if (t.latex !== undefined) {
+      const fs = 12, w = _nlLatexW(t.latex, fs);
+      svg += _ucMathToSvg(t.latex, xp - w / 2, topY + fs + 2, fs);
+    } else if (t.text !== undefined) {
+      svg += `<text x="${xp.toFixed(2)}" y="${(topY + 12).toFixed(2)}" text-anchor="middle" `
+           + `font-family="${ff}" font-size="12" fill="#222">${t.text}</text>`;
+    }
+  });
+
+  // y ticks + labels (left of y-axis)
+  (spec.yTicks || []).forEach(t => {
+    const yp = Y(t.y);
+    svg += `<line x1="${(x0 - 4).toFixed(2)}" y1="${yp.toFixed(2)}" `
+         + `x2="${(x0 + 4).toFixed(2)}" y2="${yp.toFixed(2)}" stroke="#222" stroke-width="1"/>`;
+    const tx = x0 - 8;
+    if (t.text !== undefined) {
+      svg += `<text x="${tx.toFixed(2)}" y="${(yp + 4).toFixed(2)}" text-anchor="end" `
+           + `font-family="${ff}" font-size="13" fill="#222">${t.text}</text>`;
+    }
+  });
+
+  return svg + '</svg>';
 }
