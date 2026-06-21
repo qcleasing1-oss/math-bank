@@ -2929,6 +2929,65 @@ function renderRoadsCurveSurvey(spec){
   return svg+'</svg>';
 }
 
+function renderQuarterCircleInscribedRect(spec){
+  const Rm=spec.radius||2, ang=(spec.angleDeg||60)*Math.PI/180, s=spec.scale||116, pad=30;
+  const Bx=Rm*Math.cos(ang), By=Rm*Math.sin(ang);
+  const O=[0,0], Pp=[Rm,0], Qp=[0,Rm], A=[0,By], B=[Bx,By], C=[Bx,0];
+  const W=spec.width||Math.ceil(Rm*s+2*pad+16), H=spec.height||Math.ceil(Rm*s+2*pad+16);
+  const ox=pad+8, oy=H-pad-8;
+  const T=p=>[ox+p[0]*s, oy-p[1]*s];
+  const SHADE='#8fb3e0', SHADE_OP=0.55;
+  const TXpx=(x,y,t,fs,anch,col)=>`<text x="${x.toFixed(2)}" y="${y.toFixed(2)}" font-family="'Cambria Math','Times New Roman',serif" font-size="${fs||15}" fill="${col||'#222'}" text-anchor="${anch||'middle'}" dominant-baseline="central">${t}</text>`;
+  const L=(p,q,col,dash,w)=>{const a=T(p),b=T(q);return `<line x1="${a[0].toFixed(2)}" y1="${a[1].toFixed(2)}" x2="${b[0].toFixed(2)}" y2="${b[1].toFixed(2)}" stroke="${col||'#222'}" stroke-width="${w||1.5}"${dash?` stroke-dasharray="${dash}"`:''}/>`;};
+  const lab=Object.assign({O:'O',A:'A',B:'B',C:'C',P:'P',Q:'Q'},spec.labels||{});
+  const aO=T(O),aP=T(Pp),aQ=T(Qp),aA=T(A),aB=T(B),aC=T(C);
+
+  // arc P->Q as polyline (avoids SVG arc-flag ambiguity; robust in cairosvg + browser)
+  const NA=48, arc=[];
+  for(let i=0;i<=NA;i++){const t=(Math.PI/2)*i/NA; arc.push(T([Rm*Math.cos(t),Rm*Math.sin(t)]));}
+  const arcD=arc.map(a=>`${a[0].toFixed(2)} ${a[1].toFixed(2)}`).join(' L ');
+
+  let svg=`<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" xmlns="http://www.w3.org/2000/svg" style="background:#fff;">`;
+
+  // shaded region = quarter disk MINUS rectangle (evenodd)
+  const diskPath=`M ${aO[0].toFixed(2)} ${aO[1].toFixed(2)} L ${arcD} Z`;
+  const rectPath=`M ${aO[0].toFixed(2)} ${aO[1].toFixed(2)} L ${aA[0].toFixed(2)} ${aA[1].toFixed(2)} L ${aB[0].toFixed(2)} ${aB[1].toFixed(2)} L ${aC[0].toFixed(2)} ${aC[1].toFixed(2)} Z`;
+  svg+=`<path d="${diskPath} ${rectPath}" fill="${SHADE}" fill-opacity="${SHADE_OP}" fill-rule="evenodd" stroke="none"/>`;
+
+  // quarter-circle outline: radii OP, OQ + arc
+  svg+=L(O,Pp,'#222',null,1.6);
+  svg+=L(O,Qp,'#222',null,1.6);
+  svg+=`<path d="M ${arcD}" fill="none" stroke="#222" stroke-width="1.6"/>`;
+
+  // rectangle OABC outline
+  svg+=`<path d="${rectPath}" fill="none" stroke="#222" stroke-width="1.4"/>`;
+
+  // OB diagonal + angle marker at O (between +x axis OC and OB)
+  svg+=L(O,B,'#222',null,1.2);
+  {
+    const arr=26, Nm=18, mk=[];
+    for(let i=0;i<=Nm;i++){const t=ang*i/Nm; mk.push([ox+arr*Math.cos(t), oy-arr*Math.sin(t)]);}
+    svg+=`<path d="M ${mk.map(m=>`${m[0].toFixed(2)} ${m[1].toFixed(2)}`).join(' L ')}" fill="none" stroke="#b8350e" stroke-width="1.2"/>`;
+    const ml=ang/2, lr=arr+13;
+    svg+=TXpx(ox+lr*Math.cos(ml), oy-lr*Math.sin(ml), spec.angleLabel||'60\u00b0', 13, 'middle', '#b8350e');
+  }
+
+  // optional radius label on OP
+  if(spec.rLabel){ svg+=TXpx((aO[0]+aP[0])/2, aO[1]+15, spec.rLabel, 13, 'middle', '#555'); }
+
+  // point dots + labels
+  const dot=a=>`<circle cx="${a[0].toFixed(2)}" cy="${a[1].toFixed(2)}" r="2.6" fill="#222"/>`;
+  [aO,aA,aB,aC,aP,aQ].forEach(a=>{svg+=dot(a);});
+  svg+=TXpx(aO[0]-10, aO[1]+13, lab.O, 15, 'middle');
+  svg+=TXpx(aP[0]+11, aP[1]+3,  lab.P, 15, 'start');
+  svg+=TXpx(aQ[0]-3,  aQ[1]-11, lab.Q, 15, 'middle');
+  svg+=TXpx(aA[0]-11, aA[1],    lab.A, 15, 'end');
+  svg+=TXpx(aB[0]+9,  aB[1]-7,  lab.B, 15, 'start');
+  svg+=TXpx(aC[0]+4,  aC[1]+14, lab.C, 15, 'middle');
+
+  return svg+'</svg>';
+}
+
 function renderImage(spec){
   if(!spec) return null;
   // Array of specs → render each, wrap in horizontal flex container
@@ -2987,6 +3046,8 @@ function renderImage(spec){
       return renderBoxSpaceDiagonal(spec);
     case 'roads-curve-survey':
       return renderRoadsCurveSurvey(spec);
+    case 'quarter-circle-inscribed-rect':
+      return renderQuarterCircleInscribedRect(spec);
     // portal convergence (§3): portal เรียกชื่อ type 3set-* → map ไป function เดิม
     //   geometry เดียวกับ venn-c-oval / venn-c-in-a+shade (verify แล้วผ่าน Q33/Q36 chap-01-set)
     case '3set-c-in-aub':
