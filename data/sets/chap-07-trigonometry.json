@@ -5684,8 +5684,163 @@
         "$\\dfrac{z}{2}\\left[\\cot(x - y) - \\cot(x + y)\\right]$",
         "$\\dfrac{z}{2}\\left[\\cot(x + y) - \\cot(x - y)\\right]$"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "sourceTag": "Entrance 2531",
+      "imageSpec": {
+        "type": "polygon-labeled",
+        "width": 440,
+        "height": 300,
+        "vertices": {
+          "A": [
+            60,
+            55
+          ],
+          "B": [
+            60,
+            235
+          ],
+          "C": [
+            210,
+            235
+          ],
+          "D": [
+            380,
+            235
+          ],
+          "PE": [
+            415,
+            55
+          ],
+          "PB": [
+            60,
+            264
+          ],
+          "PC": [
+            210,
+            264
+          ],
+          "PD": [
+            380,
+            264
+          ]
+        },
+        "vertexLabels": {
+          "A": {
+            "dx": -4,
+            "dy": -9
+          },
+          "B": {
+            "dx": -16,
+            "dy": 16
+          },
+          "C": {
+            "dx": -5,
+            "dy": 17
+          },
+          "D": {
+            "dx": 9,
+            "dy": 6
+          },
+          "PE": {
+            "text": " "
+          },
+          "PB": {
+            "text": " "
+          },
+          "PC": {
+            "text": " "
+          },
+          "PD": {
+            "text": " "
+          }
+        },
+        "sides": [
+          {
+            "from": "A",
+            "to": "B",
+            "label": "h",
+            "labelOffset": {
+              "dx": -15
+            }
+          },
+          {
+            "from": "B",
+            "to": "D"
+          },
+          {
+            "from": "A",
+            "to": "C"
+          },
+          {
+            "from": "A",
+            "to": "D"
+          },
+          {
+            "from": "A",
+            "to": "PE",
+            "style": "dashed"
+          },
+          {
+            "from": "PB",
+            "to": "PC",
+            "arrows": "both",
+            "label": "a",
+            "labelOffset": {
+              "dy": -13
+            }
+          },
+          {
+            "from": "PC",
+            "to": "PD",
+            "arrows": "both",
+            "label": "z",
+            "labelOffset": {
+              "dy": -13
+            }
+          }
+        ],
+        "angleMarks": [
+          {
+            "type": "arc",
+            "at": "A",
+            "from": "PE",
+            "to": "C",
+            "radius": 48,
+            "label": "y"
+          },
+          {
+            "type": "arc",
+            "at": "A",
+            "from": "PE",
+            "to": "D",
+            "radius": 24,
+            "label": "x"
+          },
+          {
+            "type": "arc",
+            "at": "C",
+            "from": "B",
+            "to": "A",
+            "radius": 20,
+            "label": "y"
+          },
+          {
+            "type": "arc",
+            "at": "D",
+            "from": "C",
+            "to": "A",
+            "radius": 22,
+            "label": "x"
+          },
+          {
+            "type": "right",
+            "at": "B",
+            "from": "A",
+            "to": "D",
+            "size": 12
+          }
+        ]
+      },
       "correct": 1,
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
@@ -5727,9 +5882,7 @@
         "<b>⚠️ จุดที่เด็กมักผิด</b> เรือใกล้ต้องมุมก้มใหญ่กว่า ($y > x$) — ตั้งสมการสลับลำเครื่องหมายจะพัง",
         "ลืมว่า $\\sin(y - x) = -\\sin(x - y)$ แล้วไปเลือกข้อ 1 ที่วงเล็บกลับด้าน"
       ],
-      "notes": "h = z/(cotx−coty) = z·sinx·siny/sin(y−x) = (z/2)cosec(x−y)[cos(x+y)−cos(x−y)] ; sympy เทียบทั้ง 4 ตัวเลือก เท่าเฉพาะข้อ 2 ; ตรง key footer หน้า 19 (101.2) + เฉลย PDF หน้า 18 ; สองชั้น: M2 กฎของไซน์ใน △ACD (มุม CAD = y−x) ; ตัวลวง: ข้อ 1 สลับเครื่องหมายวงเล็บ (พลาด sin(y−x) = −sin(x−y)), ข้อ 3/4 รูป cot ไม่ equivalent",
-      "_needsImage": true,
-      "_imageNote": "วาดตามรูปโจทย์ PDF หน้า 19 (ข้อ 101): สามเหลี่ยมมุมฉาก — A บนซ้าย (ตาบนดาดฟ้า), B ล่างซ้าย (มุมฉาก), แนวนอนจาก B ไป C (เรือใกล้, ระยะ a) ต่อไป D (เรือไกล, C ถึง D = z) ; เส้นประแนวนอนที่ A (เส้นระดับสายตา) มีมุมก้ม y (ไป C) กับ x (ไป D) ใต้เส้นประ ; มุมที่ C = y, มุมที่ D = x (มุมแย้ง) ; ป้าย h ที่ AB"
+      "notes": "h = z/(cotx−coty) = z·sinx·siny/sin(y−x) = (z/2)cosec(x−y)[cos(x+y)−cos(x−y)] ; sympy เทียบทั้ง 4 ตัวเลือก เท่าเฉพาะข้อ 2 ; ตรง key footer หน้า 19 (101.2) + เฉลย PDF หน้า 18 ; สองชั้น: M2 กฎของไซน์ใน △ACD (มุม CAD = y−x) ; ตัวลวง: ข้อ 1 สลับเครื่องหมายวงเล็บ (พลาด sin(y−x) = −sin(x−y)), ข้อ 3/4 รูป cot ไม่ equivalent"
     },
     {
       "id": "chap-07-trigonometry-q102",
