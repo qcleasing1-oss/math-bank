@@ -3111,6 +3111,8 @@ function renderImage(spec){
       return venn3CinA(Object.assign({}, spec, {type:'venn-c-in-a', shade: spec.shade || ['AB']}));
     case 'sampled-curve-with-gaps':
       return renderSampledCurveGaps(spec);
+    case 'path-with-vertical-angles':
+      return renderPathVerticalAngles(spec);
     default:
       return null; // unknown type → admin.html จะ fallback ไปแสดง placeholder
   }
@@ -3218,6 +3220,119 @@ function renderSampledCurveGaps(spec){
       svg += `<text x="${tx.toFixed(2)}" y="${(yp + 4).toFixed(2)}" text-anchor="end" `
            + `font-family="${ff}" font-size="13" fill="#222">${t.text}</text>`;
     }
+  });
+
+  return svg + '</svg>';
+}
+
+
+// ----- renderer: path-with-vertical-angles -----
+// Draws a connected path (rods laid end-to-end) with a dashed VERTICAL reference ray
+// (arrowhead up) at chosen vertices, and an angle arc between that vertical and the
+// outgoing rod — e.g. q71: rods a,b,c each making angle A,B,C with the vertical.
+// All coordinates are pixel coords (author lays out geometry; renderer only draws).
+// Spec fields:
+//   width, height
+//   points: [[x,y],...]                          path vertices P..Q (px)
+//   pointLabels: [ {text,dx?,dy?} | null, ... ]  optional label per point
+//   dotIndices: [..]                             filled dots (default: all points)
+//   segLabels: [ {text,dx?,dy?} | null, ... ]    label per segment (len = points-1)
+//   verticalLen: px (default 48)                 length of dashed vertical-up ray
+//   verticals: [idx,...]                         points that get a dashed vertical (default: all but last)
+//   arrowOnVertical: bool (default true)
+//   angles: [ {at:idx, to:idx2, radius?, label, labelDx?, labelDy?} ]  arc vertical-up → toward point idx2
+//   color (default '#222'), lineWidth (default 1.7)
+function renderPathVerticalAngles(spec){
+  const W = spec.width || 400, H = spec.height || 230;
+  const pts = spec.points || [];
+  const col = spec.color || '#222';
+  const lw  = spec.lineWidth || 1.7;
+  const ff  = "'Cambria Math','Times New Roman',serif";
+  const vLen = (spec.verticalLen != null) ? spec.verticalLen : 48;
+  const arrowV = (spec.arrowOnVertical !== false);
+  const dotSet = spec.dotIndices ? new Set(spec.dotIndices) : null;
+
+  let svg = `<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" `
+          + `xmlns="http://www.w3.org/2000/svg" style="background:#fff;">`;
+  svg += `<defs><marker id="pva-arrow" viewBox="0 0 10 10" refX="8" refY="5" `
+       + `markerWidth="7" markerHeight="7" orient="auto-start-reverse">`
+       + `<path d="M0 0 L10 5 L0 10 z" fill="${col}"/></marker></defs>`;
+
+  const unit = (p1, p2) => {
+    const dx = p2[0]-p1[0], dy = p2[1]-p1[1];
+    const L = Math.sqrt(dx*dx+dy*dy) || 1;
+    return [dx/L, dy/L];
+  };
+
+  // 1) dashed vertical reference rays (upward), bottom layer
+  const vertIdx = spec.verticals || pts.map((_,i)=>i).slice(0, Math.max(0, pts.length-1));
+  vertIdx.forEach(i => {
+    const p = pts[i]; if(!p) return;
+    const topY = p[1] - vLen;
+    svg += `<line x1="${p[0].toFixed(2)}" y1="${(p[1]+6).toFixed(2)}" `
+         + `x2="${p[0].toFixed(2)}" y2="${topY.toFixed(2)}" `
+         + `stroke="${col}" stroke-width="1" stroke-dasharray="4 3"`
+         + `${arrowV ? ' marker-end="url(#pva-arrow)"' : ''}/>`;
+  });
+
+  // 2) path segments (rods)
+  for(let i=0; i<pts.length-1; i++){
+    const a = pts[i], b = pts[i+1];
+    svg += `<line x1="${a[0].toFixed(2)}" y1="${a[1].toFixed(2)}" `
+         + `x2="${b[0].toFixed(2)}" y2="${b[1].toFixed(2)}" `
+         + `stroke="${col}" stroke-width="${lw}"/>`;
+  }
+
+  // 3) angle arcs (vertical-up → rod toward point idx2)
+  (spec.angles || []).forEach(an => {
+    const center = pts[an.at]; const target = pts[an.to];
+    if(!center || !target) return;
+    const r = an.radius || 20;
+    const uUp = [0, -1];                 // vertical up
+    const uTo = unit(center, target);    // toward rod end
+    const start = [center[0] + r*uUp[0], center[1] + r*uUp[1]];
+    const end   = [center[0] + r*uTo[0], center[1] + r*uTo[1]];
+    const cross = uUp[0]*uTo[1] - uUp[1]*uTo[0];   // y-down screen
+    const sweep = (cross > 0) ? 1 : 0;
+    svg += `<path d="M ${start[0].toFixed(2)} ${start[1].toFixed(2)} `
+         + `A ${r} ${r} 0 0 ${sweep} ${end[0].toFixed(2)} ${end[1].toFixed(2)}" `
+         + `fill="none" stroke="${col}" stroke-width="1"/>`;
+    if(an.label){
+      let bx = uUp[0]+uTo[0], by = uUp[1]+uTo[1];
+      const bl = Math.sqrt(bx*bx+by*by) || 1; bx/=bl; by/=bl;
+      const d = (r + 13);
+      const lx = center[0] + d*bx + (an.labelDx||0);
+      const ly = center[1] + d*by + (an.labelDy||0);
+      svg += `<text x="${lx.toFixed(2)}" y="${ly.toFixed(2)}" `
+           + `font-family="${ff}" font-size="14" font-style="italic" fill="${col}" `
+           + `text-anchor="middle" dominant-baseline="central">${an.label}</text>`;
+    }
+  });
+
+  // 4) segment labels
+  (spec.segLabels || []).forEach((s,i) => {
+    if(!s || s.text===undefined) return;
+    const a = pts[i], b = pts[i+1]; if(!a||!b) return;
+    const mx = (a[0]+b[0])/2 + (s.dx||0);
+    const my = (a[1]+b[1])/2 + (s.dy||0);
+    svg += `<text x="${mx.toFixed(2)}" y="${my.toFixed(2)}" `
+         + `font-family="${ff}" font-size="14" font-style="italic" fill="${col}" `
+         + `text-anchor="middle" dominant-baseline="central">${s.text}</text>`;
+  });
+
+  // 5) dots
+  pts.forEach((p,i) => {
+    if(dotSet && !dotSet.has(i)) return;
+    svg += `<circle cx="${p[0].toFixed(2)}" cy="${p[1].toFixed(2)}" r="3.2" fill="${col}"/>`;
+  });
+
+  // 6) point labels (top layer)
+  (spec.pointLabels || []).forEach((pl,i) => {
+    if(!pl || pl.text===undefined) return;
+    const p = pts[i]; if(!p) return;
+    const lx = p[0] + (pl.dx||0), ly = p[1] + (pl.dy||0);
+    svg += `<text x="${lx.toFixed(2)}" y="${ly.toFixed(2)}" `
+         + `font-family="${ff}" font-size="15" fill="${col}">${pl.text}</text>`;
   });
 
   return svg + '</svg>';
