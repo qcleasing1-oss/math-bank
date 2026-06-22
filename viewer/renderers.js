@@ -1956,9 +1956,10 @@ function renderNumberLine(spec){
   (spec.points||[]).forEach(p=>{const cx=x2(p.at).toFixed(2),col=p.color||'#222',yy=(p.y!==undefined?p.y:solY);
     if(p.open) svg+=`<circle cx="${cx}" cy="${yy}" r="4" fill="#fff" stroke="${col}" stroke-width="1.6"/>`;
     else svg+=`<circle cx="${cx}" cy="${yy}" r="4" fill="${col}"/>`;});
-  // annotations (px coords)
+  // annotations (px coords) — color/fontSize/weight optional (default คงเดิม)
   (spec.annotations||[]).forEach(a=>{
-    svg+=`<text x="${a.x!==undefined?a.x:8}" y="${a.y!==undefined?a.y:14}" font-size="13" fill="#222" text-anchor="${a.anchor||'start'}">${a.text}</text>`;});
+    const fw=a.weight?` font-weight="${a.weight}"`:'';
+    svg+=`<text x="${a.x!==undefined?a.x:8}" y="${a.y!==undefined?a.y:14}" font-size="${a.fontSize||13}" fill="${a.color||'#222'}" text-anchor="${a.anchor||'start'}"${fw}>${a.text}</text>`;});
   return svg+'</svg>';
 }
 
@@ -3282,6 +3283,10 @@ function renderImage(spec){
       return renderSampledCurveGaps(spec);
     case 'path-with-vertical-angles':
       return renderPathVerticalAngles(spec);
+    case 'nested-midpoint-squares':
+      return renderNestedMidpointSquares(spec);
+    case 'nested-circle-square':
+      return renderNestedCircleSquare(spec);
     default:
       return null; // unknown type → admin.html จะ fallback ไปแสดง placeholder
   }
@@ -3502,6 +3507,232 @@ function renderPathVerticalAngles(spec){
     const lx = p[0] + (pl.dx||0), ly = p[1] + (pl.dy||0);
     svg += `<text x="${lx.toFixed(2)}" y="${ly.toFixed(2)}" `
          + `font-family="${ff}" font-size="15" fill="${col}">${pl.text}</text>`;
+  });
+
+  return svg + '</svg>';
+}
+
+
+// ----- helper: _sqMathLabel -----
+// Mini math typesetter for SVG labels (used by the nested-square renderers).
+// Like _ucMathToSvg but draws \sqrt{...} as ONE connected radical path: the √ check
+// sits IN FRONT of the radicand and its top connects to the vinculum bar over it
+// (fixes the detached-√ look of _ucMathToSvg at small sizes — local only, no global change).
+function _sqMathLabel(latex, x, y, fs, color){
+  const expr = latex.replace(/^\$|\$$/g, '');
+  const col = color || '#222';
+  const ff = "'Cambria Math','Times New Roman',serif";
+  let cur = x, out = '';
+  const chW = ch => {
+    if (ch === ',' || ch === ' ') return fs * 0.30;
+    if (ch === '(' || ch === ')') return fs * 0.40;
+    if (ch === '−' || ch === '-') return fs * 0.55;
+    if (ch === '/') return fs * 0.40;
+    return fs * 0.55;
+  };
+  const emit = (text, italic) => {
+    const it = italic ? ' font-style="italic"' : '';
+    out += `<text x="${cur.toFixed(2)}" y="${y.toFixed(2)}" font-family="${ff}" `
+         + `font-size="${fs}" fill="${col}"${it}>${text}</text>`;
+    for (const ch of text) cur += chW(ch);
+  };
+  let i = 0;
+  while (i < expr.length) {
+    const m = /^\\sqrt\s*\{([^}]*)\}/.exec(expr.substring(i));
+    if (m) {
+      const rad = m[1];
+      let radW = 0; for (const ch of rad) radW += chW(ch);
+      // connected radical: down-tick → valley → peak → horizontal bar over radicand
+      const peakY = y - fs * 0.92;
+      const x0 = cur;
+      const xValley = cur + fs * 0.16;
+      const xPeak = cur + fs * 0.34;
+      const xBarEnd = xPeak + radW + fs * 0.20;
+      out += `<path d="M ${x0.toFixed(2)} ${(y - fs * 0.28).toFixed(2)} `
+           + `L ${xValley.toFixed(2)} ${(y + fs * 0.02).toFixed(2)} `
+           + `L ${xPeak.toFixed(2)} ${peakY.toFixed(2)} `
+           + `L ${xBarEnd.toFixed(2)} ${peakY.toFixed(2)}" `
+           + `fill="none" stroke="${col}" stroke-width="1" stroke-linejoin="round"/>`;
+      cur = xPeak + fs * 0.08;          // radicand starts just after the peak
+      emit(rad, false);
+      cur += fs * 0.10;
+      i += m[0].length;
+      continue;
+    }
+    if (expr.substr(i, 2) === '\\ ') { cur += fs * 0.3; i += 2; continue; }
+    if (expr.substr(i, 2) === '\\,') { cur += fs * 0.2; i += 2; continue; }
+    if (expr[i] === '-') { emit('−', false); i += 1; continue; }
+    const isLetter = /[a-zA-Z]/.test(expr[i]);
+    let end = i;
+    while (end < expr.length && expr[end] !== '\\' && expr[end] !== '-'
+           && (/[a-zA-Z]/.test(expr[end]) === isLetter)) end++;
+    emit(expr.substring(i, end), isLetter);
+    i = end;
+  }
+  return out;
+}
+
+
+// ----- renderer: nested-midpoint-squares (Q68) -----
+// Outer axis-aligned square (side label `a`); each inner square's corners sit at the
+// MIDPOINTS of the previous square's sides → rotates 45° and shrinks by 1/√2 each step.
+// Pure geometric construction (vertices = midpoints of previous layer) — self-consistent.
+// Spec fields:
+//   size        canvas px (default 280, square)
+//   margin      px gap from edge to outer square (default 38)
+//   layers      number of squares to draw (default 5)
+//   sideLabel   latex on outer bottom side (e.g. 'a')  [via _ucMathToSvg]
+//   innerLabel  latex near layer-1 edge (e.g. '\\dfrac{a}{\\sqrt{2}}' ⇒ pass 'a/\\sqrt{2}')  optional
+//   showMidDots dots at the midpoints of the outer square (default true)
+//   colors      stroke palette per layer (optional)
+function renderNestedMidpointSquares(spec){
+  const S = spec.size || 280;
+  const cx = S / 2, cy = S / 2;
+  const margin = (spec.margin != null) ? spec.margin : 38;
+  const half = (S / 2) - margin;            // half-side of outer square
+  const layers = spec.layers || 5;
+  const palette = spec.colors ||
+    ['#1565c0', '#d35400', '#2e7d32', '#6a1b9a', '#c62828', '#00838f'];
+
+  let svg = `<svg viewBox="0 0 ${S} ${S}" width="${S}" height="${S}" `
+          + `xmlns="http://www.w3.org/2000/svg" style="background:#fff;">`;
+
+  // layer 0 = axis-aligned outer square; layer k+1 = midpoints of layer k sides
+  let verts = [[cx - half, cy - half], [cx + half, cy - half],
+               [cx + half, cy + half], [cx - half, cy + half]];
+  const allLayers = [];
+  for (let k = 0; k < layers; k++) {
+    allLayers.push(verts);
+    verts = verts.map((v, i) => {
+      const w = verts[(i + 1) % 4];
+      return [(v[0] + w[0]) / 2, (v[1] + w[1]) / 2];
+    });
+  }
+
+  // draw squares: outer thickest → inner thinner
+  allLayers.forEach((vs, k) => {
+    const col = palette[k % palette.length];
+    const sw = Math.max(1.1, 2.2 - k * 0.3);
+    const pts = vs.map(p => `${p[0].toFixed(2)},${p[1].toFixed(2)}`).join(' ');
+    svg += `<polygon points="${pts}" fill="none" stroke="${col}" stroke-width="${sw}"/>`;
+  });
+
+  // dots at midpoints of outer square (= vertices of layer 1) → "มุมที่จุดกึ่งกลางด้าน"
+  if (spec.showMidDots !== false && allLayers.length > 1) {
+    allLayers[1].forEach(p => {
+      svg += `<circle cx="${p[0].toFixed(2)}" cy="${p[1].toFixed(2)}" `
+           + `r="3" fill="${palette[0]}"/>`;
+    });
+  }
+
+  // outer side label `a` below bottom-center
+  if (spec.sideLabel) {
+    const fs = 16;
+    const w = _nlLatexW(spec.sideLabel, fs);
+    svg += _sqMathLabel(spec.sideLabel, cx - w / 2, cy + half + 20, fs, '#222');
+  }
+
+  // optional inner label near layer-1 top-right edge midpoint (outward)
+  if (spec.innerLabel && allLayers.length > 1) {
+    const fs = 13;
+    const lx = cx + half / 2, ly = cy - half / 2;      // midpoint of layer-1 top-right edge
+    svg += _sqMathLabel(spec.innerLabel, lx + 6, ly - 6, fs, palette[1]);
+  }
+
+  return svg + '</svg>';
+}
+
+
+// ----- renderer: nested-circle-square (Q69) -----
+// Concentric alternating figure: circle C1 (diameter d) ⊃ inscribed square ⊃ inscribed
+// circle C2 ⊃ inscribed square ⊃ circle C3 … each step scales by 1/√2.
+// Squares axis-aligned, vertices on the enclosing circle; next circle tangent to the
+// square's sides. All concentric — circle stays a true circle (single px scale).
+// Spec fields:
+//   size           canvas px (default 300, square)
+//   margin         px gap from edge to C1 (default 26)
+//   circles        number of circles C1..Cn to draw (default 3)
+//   circleLabels   ['C_1','C_2','C_3'] (base_sub form) drawn at top gap of each circle
+//   diameterLabel  latex for the C1 diameter (e.g. 'd'); '' ⇒ no diameter line
+//   colors         {circle, square, dim}  stroke colors (optional)
+// subscript label: 'C_1' → italic base + lowered, smaller subscript (no Unicode-subscript
+// glyph dependency). returns {svg, width}. plain text (no '_') → italic base only.
+function _ncsSubLabel(text, x, y, fs, color){
+  const ff = "'Cambria Math','Times New Roman',serif";
+  const m = /^([A-Za-z]+)_\{?([0-9A-Za-z]+)\}?$/.exec(text);
+  if(!m){
+    const w = text.length * fs * 0.58;
+    return { svg: `<text x="${x.toFixed(2)}" y="${y.toFixed(2)}" font-family="${ff}" `
+                + `font-size="${fs}" font-style="italic" fill="${color}">${text}</text>`, width: w };
+  }
+  const base = m[1], sub = m[2];
+  const baseW = base.length * fs * 0.58;
+  const subFs = fs * 0.72;
+  const subW = sub.length * subFs * 0.58;
+  let svg = `<text x="${x.toFixed(2)}" y="${y.toFixed(2)}" font-family="${ff}" `
+          + `font-size="${fs}" font-style="italic" fill="${color}">${base}</text>`;
+  svg += `<text x="${(x + baseW).toFixed(2)}" y="${(y + fs * 0.28).toFixed(2)}" `
+       + `font-family="${ff}" font-size="${subFs.toFixed(1)}" fill="${color}">${sub}</text>`;
+  return { svg, width: baseW + subW };
+}
+function renderNestedCircleSquare(spec){
+  const S = spec.size || 300;
+  const cx = S / 2, cy = S / 2;
+  const margin = (spec.margin != null) ? spec.margin : 26;
+  const R0 = (S / 2) - margin;              // radius of C1
+  const nC = spec.circles || 3;
+  const inv = 1 / Math.sqrt(2);
+  const col = spec.colors || {};
+  const cCirc = col.circle || '#1565c0';
+  const cSq   = col.square || '#d35400';
+  const cDim  = col.dim || '#777';
+
+  // radii: R_i = R0 * (1/√2)^i  for i = 0 .. nC-1
+  const R = [];
+  for (let i = 0; i < nC; i++) R.push(R0 * Math.pow(inv, i));
+
+  let svg = `<svg viewBox="0 0 ${S} ${S}" width="${S}" height="${S}" `
+          + `xmlns="http://www.w3.org/2000/svg" style="background:#fff;">`;
+  svg += `<defs><marker id="ncs-ar" viewBox="0 0 10 10" refX="8" refY="5" `
+       + `markerWidth="7" markerHeight="7" orient="auto-start-reverse">`
+       + `<path d="M0 0 L10 5 L0 10 z" fill="${cDim}"/></marker></defs>`;
+
+  // squares inscribed in C_i (i = 0 .. nC-2): half-side = R_i/√2 = R_{i+1}
+  for (let i = 0; i < nC - 1; i++) {
+    const hs = R[i] * inv;
+    svg += `<rect x="${(cx - hs).toFixed(2)}" y="${(cy - hs).toFixed(2)}" `
+         + `width="${(2 * hs).toFixed(2)}" height="${(2 * hs).toFixed(2)}" `
+         + `fill="none" stroke="${cSq}" stroke-width="1.4"/>`;
+  }
+
+  // circles C1..Cn (outer first)
+  R.forEach((r, i) => {
+    const sw = Math.max(1.2, 2.0 - i * 0.25);
+    svg += `<circle cx="${cx}" cy="${cy}" r="${r.toFixed(2)}" `
+         + `fill="none" stroke="${cCirc}" stroke-width="${sw}"/>`;
+  });
+
+  // diameter line + label d across C1 (dashed, light, arrows both ends)
+  if (spec.diameterLabel !== '') {
+    const dl = spec.diameterLabel || 'd';
+    svg += `<line x1="${(cx - R0).toFixed(2)}" y1="${cy}" `
+         + `x2="${(cx + R0).toFixed(2)}" y2="${cy}" stroke="${cDim}" `
+         + `stroke-width="1" stroke-dasharray="4 3" `
+         + `marker-start="url(#ncs-ar)" marker-end="url(#ncs-ar)"/>`;
+    const fs = 15;
+    const lx = cx + (R0 + R[1]) / 2;          // right gap between C1 and C2
+    svg += _ucMathToSvg(dl, lx - _nlLatexW(dl, fs) / 2, cy - 6, fs, '#222');
+  }
+
+  // circle labels at the top gap of each circle (just inside the top arc)
+  const labels = spec.circleLabels || [];
+  labels.slice(0, nC).forEach((t, i) => {
+    if (!t) return;
+    const fs = 14;
+    const yTop = cy - R[i] + 16;
+    const probe = _ncsSubLabel(t, 0, 0, fs, cCirc);   // measure width
+    const lab = _ncsSubLabel(t, cx - probe.width / 2, yTop, fs, cCirc);
+    svg += lab.svg;
   });
 
   return svg + '</svg>';
