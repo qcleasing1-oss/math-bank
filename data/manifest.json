@@ -1658,11 +1658,11 @@
       },
       "snapshot": {
         "round": 1,
-        "stage": "ingest complete, pending pipeline",
+        "stage": "pipeline complete (steps 0-8); argand-plane renderer deployed",
         "questionsCompleted": 122,
         "questionsRemaining": 0,
-        "exportedAt": "2026-06-14",
-        "note": "ingest จาก Projects วางใน repo (14 มิ.ย.69): 122 ข้อ (mc 86 + fill 36), ช่วง 1-122. format OK (LF, indent=2, ไม่มี BOM/trailing). correct=null=0. difficulty+topicDistribution ครบ. ยังไม่ทำ: pipeline (🔄→วิธีที่N, format ตรีโกณ, เพิ่มวิธี ว.2, เช็คลัด), imageSpec, audit. exported 2026-06-14."
+        "exportedAt": "2026-06-22",
+        "note": "pipeline ครบ steps 0-8 (22 มิ.ย.69): multi-method 56 + single 65 = 121 ข้อ (Q11 ตัด defective เว้นเลข). Step 6 = ไม่มีเส้นจำนวน (บทจำนวนเชิงซ้อนตามธรรมชาติ). Step 7 = deploy renderer ใหม่ argand-plane (viewer/renderers.js: ระนาบเชิงซ้อน equal-aspect — จุด/เวกเตอร์/วงกลม/โลคัส/มุม) + imageSpec 5 ข้อ (Q30/40/41/43/91). format OK (LF, indent=2, no BOM/trailing). ค้าง: step-5 line-break (bank-wide sweep ท้ายสุด), audit ว.2, reconcile manifest count 122→121 (Q11). exported 2026-06-22."
       }
     },
     "chap-11-sequence": {

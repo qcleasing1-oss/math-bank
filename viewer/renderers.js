@@ -3043,6 +3043,173 @@ function renderQuarterCircleInscribedRect(spec){
   return svg+'</svg>';
 }
 
+// ----- renderer: argand-plane -----
+// Complex plane (Argand diagram) with EQUAL aspect ratio so |z|=r circles
+// render as true circles (not ellipses) and loci/perp-bisectors stay correct.
+// One px-per-unit scale for both Re & Im; data box centered in the canvas.
+//
+// Spec fields:
+//   width, height                 - canvas px (default 360 x 320)
+//   pad:{l,r,t,b}                 - optional px margins
+//   reRange:[a,b], imRange:[a,b]  - data window (origin should lie inside)
+//   axes:{ arrows?(default true), reLabel?(default 'Re'), imLabel?(default 'Im'),
+//          originLabel?, reTicks:[...], imTicks:[...] }
+//   circles:[ {center:[re,im], r, dashed?, color?, fill?, label?, labelAt?} ]
+//   lines:[   {through:[[x,y],[x,y]] | point:[x,y],slope:m, dashed?, color?,
+//              label?, labelAt?, labelAnchor?} ]   loci — clipped to data box
+//   segments:[ {from:[re,im], to:[re,im], dashed?, color?} ]   finite guides
+//   vectors:[ {to:[re,im], from?:[re,im](default O), label?, labelAt?,
+//              labelDx?, labelDy?, labelAnchor?, color?} ]   arrow from→to
+//   angleArcs:[ {at:[re,im], from:[re,im], to:[re,im], r?(px), label?, color?} ]
+//   points:[ {re, im, label? | showCoord?, open?, color?,
+//              labelDx?, labelDy?, labelAnchor?, labelFs?} ]   open→hollow dot
+// LaTeX labels ($..$ / \sqrt{}) rendered via _ucMathToSvg (native √ vinculum).
+function renderArgandPlane(spec){
+  const W = spec.width || 360, H = spec.height || 320;
+  const pd = spec.pad || {};
+  const pL = pd.l != null ? pd.l : 28;
+  const pR = pd.r != null ? pd.r : 24;
+  const pT = pd.t != null ? pd.t : 22;
+  const pB = pd.b != null ? pd.b : 26;
+  const reR = spec.reRange || [-1, 1];
+  const imR = spec.imRange || [-1, 1];
+  const reSpan = reR[1] - reR[0], imSpan = imR[1] - imR[0];
+  const pW = W - pL - pR, pH = H - pT - pB;
+  const scale = Math.min(pW / reSpan, pH / imSpan);   // EQUAL aspect
+  const boxW = scale * reSpan, boxH = scale * imSpan;
+  const offX = pL + (pW - boxW) / 2;
+  const offY = pT + (pH - boxH) / 2;
+  const X = re => offX + (re - reR[0]) * scale;
+  const Y = im => offY + (imR[1] - im) * scale;        // Y flipped
+  const ff = "'Cambria Math','Times New Roman',serif";
+
+  const lbl = (text, x, y, fs, color, anchor) => {
+    color = color || '#222'; anchor = anchor || 'start';
+    if(/\\sqrt/.test(text)){
+      const w = _nlLatexW(text, fs), ox = anchor === 'end' ? -w : anchor === 'middle' ? -w/2 : 0;
+      return _ucMathToSvg(text, x + ox, y, fs, color);
+    }
+    return `<text x="${x.toFixed(2)}" y="${y.toFixed(2)}" font-family="${ff}" `
+         + `font-size="${fs}" fill="${color}" text-anchor="${anchor}">${text}</text>`;
+  };
+  const head = (x1, y1, x2, y2, color, size) => {   // filled arrowhead at (x2,y2)
+    size = size || 8;
+    const ang = Math.atan2(y2 - y1, x2 - x1);
+    const xa = x2 + size * Math.cos(ang + Math.PI - 0.42), ya = y2 + size * Math.sin(ang + Math.PI - 0.42);
+    const xb = x2 + size * Math.cos(ang + Math.PI + 0.42), yb = y2 + size * Math.sin(ang + Math.PI + 0.42);
+    return `<path d="M${x2.toFixed(2)} ${y2.toFixed(2)} L${xa.toFixed(2)} ${ya.toFixed(2)} `
+         + `L${xb.toFixed(2)} ${yb.toFixed(2)} z" fill="${color}"/>`;
+  };
+
+  let svg = `<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" `
+          + `xmlns="http://www.w3.org/2000/svg" style="background:#fff;">`;
+  svg += `<defs><marker id="apArr" viewBox="0 0 10 10" refX="9" refY="5" `
+       + `markerWidth="7" markerHeight="7" orient="auto-start-reverse">`
+       + `<path d="M 0 0 L 10 5 L 0 10 z" fill="#222"/></marker></defs>`;
+
+  // ---- axes ----
+  const ax = spec.axes || {};
+  const x0 = X(0), y0 = Y(0);
+  const arr = ax.arrows !== false ? ' marker-end="url(#apArr)"' : '';
+  svg += `<line x1="${(pL - 4).toFixed(2)}" y1="${y0.toFixed(2)}" `
+       + `x2="${(W - pR + 8).toFixed(2)}" y2="${y0.toFixed(2)}" `
+       + `stroke="#222" stroke-width="1.2"${arr}/>`;
+  svg += `<line x1="${x0.toFixed(2)}" y1="${(H - pB + 6).toFixed(2)}" `
+       + `x2="${x0.toFixed(2)}" y2="${(pT - 8).toFixed(2)}" `
+       + `stroke="#222" stroke-width="1.2"${arr}/>`;
+  (ax.reTicks || []).forEach(t => { if(t === 0) return; const xp = X(t);
+    svg += `<line x1="${xp.toFixed(2)}" y1="${(y0 - 3).toFixed(2)}" x2="${xp.toFixed(2)}" y2="${(y0 + 3).toFixed(2)}" stroke="#222"/>`
+         + `<text x="${xp.toFixed(2)}" y="${(y0 + 14).toFixed(2)}" text-anchor="middle" font-size="10" fill="#555">${t}</text>`; });
+  (ax.imTicks || []).forEach(t => { if(t === 0) return; const yp = Y(t);
+    svg += `<line x1="${(x0 - 3).toFixed(2)}" y1="${yp.toFixed(2)}" x2="${(x0 + 3).toFixed(2)}" y2="${yp.toFixed(2)}" stroke="#222"/>`
+         + `<text x="${(x0 - 6).toFixed(2)}" y="${(yp + 3.5).toFixed(2)}" text-anchor="end" font-size="10" fill="#555">${t}</text>`; });
+  const reLab = ax.reLabel !== undefined ? ax.reLabel : 'Re';
+  const imLab = ax.imLabel !== undefined ? ax.imLabel : 'Im';
+  if(reLab) svg += `<text x="${(W - pR + 10).toFixed(2)}" y="${(y0 + 4).toFixed(2)}" font-size="13" fill="#222">${reLab}</text>`;
+  if(imLab) svg += `<text x="${(x0 + 6).toFixed(2)}" y="${(pT - 1).toFixed(2)}" font-size="13" fill="#222">${imLab}</text>`;
+  if(ax.originLabel) svg += `<text x="${(x0 - 7).toFixed(2)}" y="${(y0 + 13).toFixed(2)}" font-size="12" fill="#222" text-anchor="end">${ax.originLabel}</text>`;
+
+  // ---- circles ----
+  (spec.circles || []).forEach(c => {
+    const cx = X(c.center[0]), cy = Y(c.center[1]), rPx = c.r * scale;
+    const dash = c.dashed ? ' stroke-dasharray="5 4"' : '';
+    svg += `<circle cx="${cx.toFixed(2)}" cy="${cy.toFixed(2)}" r="${rPx.toFixed(2)}" `
+         + `fill="${c.fill || 'none'}" stroke="${c.color || '#222'}" stroke-width="1.5"${dash}/>`;
+    if(c.label && c.labelAt) svg += lbl(c.label, X(c.labelAt[0]), Y(c.labelAt[1]), c.labelFs || 12, c.color || '#222', c.labelAnchor || 'start');
+  });
+
+  // ---- loci lines (clipped analytically to data box; no giant coords) ----
+  (spec.lines || []).forEach(L => {
+    let p1, p2;
+    if(L.through){ p1 = L.through[0]; p2 = L.through[1]; }
+    else if(L.point && L.slope !== undefined){ p1 = L.point; p2 = [L.point[0] + 1, L.point[1] + L.slope]; }
+    else return;
+    const dx = p2[0] - p1[0], dy = p2[1] - p1[1];
+    // Liang-Barsky: clip the infinite line to [reR]x[imR] in data coords
+    const pp = [-dx, dx, -dy, dy];
+    const qq = [p1[0] - reR[0], reR[1] - p1[0], p1[1] - imR[0], imR[1] - p1[1]];
+    let t0 = -1e9, t1 = 1e9, ok = true;
+    for(let i = 0; i < 4; i++){
+      if(pp[i] === 0){ if(qq[i] < 0){ ok = false; break; } }
+      else { const r = qq[i] / pp[i]; if(pp[i] < 0){ if(r > t0) t0 = r; } else { if(r < t1) t1 = r; } }
+    }
+    if(!ok || t0 > t1) return;
+    const Ax = p1[0] + t0 * dx, Ay = p1[1] + t0 * dy, Bx = p1[0] + t1 * dx, By = p1[1] + t1 * dy;
+    const dash = L.dashed ? ' stroke-dasharray="5 4"' : '';
+    svg += `<line x1="${X(Ax).toFixed(2)}" y1="${Y(Ay).toFixed(2)}" x2="${X(Bx).toFixed(2)}" y2="${Y(By).toFixed(2)}" `
+         + `stroke="${L.color || '#222'}" stroke-width="1.5"${dash}/>`;
+    if(L.label && L.labelAt) svg += lbl(L.label, X(L.labelAt[0]), Y(L.labelAt[1]), L.labelFs || 12, L.color || '#222', L.labelAnchor || 'start');
+  });
+
+  // ---- finite guide segments ----
+  (spec.segments || []).forEach(s => {
+    const dash = s.dashed !== false ? ' stroke-dasharray="4 3"' : '';
+    svg += `<line x1="${X(s.from[0]).toFixed(2)}" y1="${Y(s.from[1]).toFixed(2)}" `
+         + `x2="${X(s.to[0]).toFixed(2)}" y2="${Y(s.to[1]).toFixed(2)}" `
+         + `stroke="${s.color || '#888'}" stroke-width="1.1"${dash}/>`;
+  });
+
+  // ---- vectors (arrow from→to, manual colored head) ----
+  (spec.vectors || []).forEach(v => {
+    const from = v.from || [0, 0], to = v.to, col = v.color || '#222';
+    const x1 = X(from[0]), y1 = Y(from[1]), x2 = X(to[0]), y2 = Y(to[1]);
+    svg += `<line x1="${x1.toFixed(2)}" y1="${y1.toFixed(2)}" x2="${x2.toFixed(2)}" y2="${y2.toFixed(2)}" stroke="${col}" stroke-width="1.8"/>`;
+    svg += head(x1, y1, x2, y2, col, 8);
+    if(v.label){ const at = v.labelAt || to;
+      svg += lbl(v.label, X(at[0]) + (v.labelDx != null ? v.labelDx : 6), Y(at[1]) + (v.labelDy != null ? v.labelDy : -6), v.labelFs || 14, col, v.labelAnchor || 'start'); }
+  });
+
+  // ---- angle arcs ----
+  (spec.angleArcs || []).forEach(a => {
+    const v = a.at || [0, 0], vx = X(v[0]), vy = Y(v[1]), rPx = a.r || 22;
+    const sa = -Math.atan2(a.from[1] - v[1], a.from[0] - v[0]);   // screen angle (Y flipped)
+    const ea = -Math.atan2(a.to[1] - v[1], a.to[0] - v[0]);
+    const x1 = vx + rPx * Math.cos(sa), y1 = vy + rPx * Math.sin(sa);
+    const x2 = vx + rPx * Math.cos(ea), y2 = vy + rPx * Math.sin(ea);
+    let diff = ea - sa; while(diff <= -Math.PI) diff += 2 * Math.PI; while(diff > Math.PI) diff -= 2 * Math.PI;
+    const sweep = diff > 0 ? 1 : 0;
+    svg += `<path d="M${x1.toFixed(2)} ${y1.toFixed(2)} A${rPx} ${rPx} 0 0 ${sweep} ${x2.toFixed(2)} ${y2.toFixed(2)}" `
+         + `fill="none" stroke="${a.color || '#222'}" stroke-width="1.2"/>`;
+    if(a.label){ const mid = sa + diff / 2, lr = rPx + 11;
+      svg += lbl(a.label, vx + lr * Math.cos(mid), vy + lr * Math.sin(mid) + 4, a.labelFs || 12, a.color || '#222', 'middle'); }
+  });
+
+  // ---- points (top layer) ----
+  (spec.points || []).forEach(p => {
+    const cx = X(p.re), cy = Y(p.im), col = p.color || '#222';
+    if(p.open) svg += `<circle cx="${cx.toFixed(2)}" cy="${cy.toFixed(2)}" r="3.6" fill="#fff" stroke="${col}" stroke-width="1.5"/>`;
+    else svg += `<circle cx="${cx.toFixed(2)}" cy="${cy.toFixed(2)}" r="3.6" fill="${col}"/>`;
+    const txt = p.label !== undefined ? p.label : (p.showCoord !== undefined ? p.showCoord : null);
+    if(txt !== null){
+      const dx = p.labelDx != null ? p.labelDx : 7, dy = p.labelDy != null ? p.labelDy : -7;
+      svg += lbl(txt, cx + dx, cy + dy, p.labelFs || 13, col, p.labelAnchor || 'start');
+    }
+  });
+
+  return svg + '</svg>';
+}
+
+
 function renderImage(spec){
   if(!spec) return null;
   // Array of specs → render each, wrap in horizontal flex container
@@ -3055,6 +3222,8 @@ function renderImage(spec){
   }
   if(!spec.type) return null;
   switch(spec.type){
+    case 'argand-plane':
+      return renderArgandPlane(spec);
     case 'normal-curve':
       return renderNormalCurve(spec);
     case 'function-plot':
