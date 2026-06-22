@@ -1687,11 +1687,11 @@
       },
       "snapshot": {
         "round": 1,
-        "stage": "split done (FIN), pending pipeline",
+        "stage": "pipeline เสร็จ (step 0-8) + imageSpec",
         "questionsCompleted": 71,
         "questionsRemaining": 0,
-        "exportedAt": "2026-06-15",
-        "note": "แยก chap-11 → FIN(71)+chap-14 INF(91) (15 มิ.ย.69). FIN: 71 ข้อ (mc 52 + fill 19), renumber q01-q71, topics คง [11], เก็บเลข PDF เดิมใน pdfNumber. Q6 (ลำดับคอนเวอร์เจนต์/ผลบวกจำกัด) คงไว้ FIN ตามครูชี้ขาด. format OK (LF, indent=2, ไม่มี BOM/trailing). content เทียบ byte ตรงต้นฉบับ. ยังไม่ทำ: pipeline, imageSpec, audit."
+        "exportedAt": "2026-06-22",
+        "note": "แยก chap-11 → FIN(71)+chap-14 INF(91) (15 มิ.ย.69). FIN: 71 ข้อ (mc 52 + fill 19), renumber q01-q71, topics คง [11], เก็บเลข PDF เดิมใน pdfNumber. Q6 (ลำดับคอนเวอร์เจนต์/ผลบวกจำกัด) คงไว้ FIN ตามครูชี้ขาด. format OK (LF, indent=2, ไม่มี BOM/trailing). content เทียบ byte ตรงต้นฉบับ. pipeline step 0-8 เสร็จ (22 มิ.ย.69): imageSpec 5 ข้อ — number-line Q1/Q18/Q59 + จัตุรัสซ้อน Q68 (nested-midpoint-squares)/Q69 (nested-circle-square); renderer ใหม่ 2 ตัว + helper _sqMathLabel deploy ใน renderers.js. correct ไม่ขยับ. Book-error Q63: ตัวเลือก 4 พิมพ์ Σ(2i−1)²=1066 (ค่าจริง 10,660) → โจทย์ถาม 'ข้อที่ผิด' ตัวเลือก 4 ผิดจริง correct=3 (idx) ถูก = typo หนังสือ ไม่ใช่ error เรา. คงเหลือ: line-break sweep (รวบท้ายสุด ข้ามทุกชุด)."
       }
     },
     "chap-12-probability": {
