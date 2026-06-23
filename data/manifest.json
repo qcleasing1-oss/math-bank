@@ -1803,11 +1803,11 @@
       },
       "snapshot": {
         "round": 1,
-        "stage": "ingest complete, pending pipeline",
+        "stage": "step 4 ว.2 done (12 ข้อ), pending step 6 number-line / 7 figures / 8 close",
         "questionsCompleted": 264,
         "questionsRemaining": 0,
         "exportedAt": "2026-06-14",
-        "note": "ingest จาก Projects วางใน repo (14 มิ.ย.69): 264 ข้อ (mc 218 + fill 46), ช่วง 1-287 (ตัด 23 ข้อ: [37, 61, 87, 171, 172, 178, 191, 200, 202, 216, 222, 224, 227, 228, 229, 235, 236, 240, 242, 246, 254, 262, 277]). format OK (LF, indent=2, ไม่มี BOM/trailing). correct=null=0. difficulty+topicDistribution ครบ. ยังไม่ทำ: pipeline (🔄→วิธีที่N, format ตรีโกณ, เพิ่มวิธี ว.2, เช็คลัด), imageSpec, audit. exported 2026-06-14."
+        "note": "ingest จาก Projects วางใน repo (14 มิ.ย.69): 264 ข้อ (mc 218 + fill 46), ช่วง 1-287 (ตัด 23 ข้อ: [37, 61, 87, 171, 172, 178, 191, 200, 202, 216, 222, 224, 227, 228, 229, 235, 236, 240, 242, 246, 254, 262, 277]). format OK (LF, indent=2, ไม่มี BOM/trailing). correct=null=0. difficulty+topicDistribution ครบ. step 4 ว.2 done (23 มิ.ย.69): เพิ่ม ว.2 12 ข้อ (TIER A 7: Q89/98/165/166/168/226/231 · TIER B 5: Q76/84/91/225/233), sympy-verified, format กล่อง 【วิธีที่1/2】+ข้อต่าง. ยังไม่ทำ: step 6 number-line imageSpec, step 7 figures, step 8 close. ⚠️ pre-existing: Q89 มี \\sigma^2_{รวม} ไทยใน math ไม่ห่อ \\text{} (รอ sweep). exported 2026-06-14."
       }
     },
     "chap-16-linearprog": {
