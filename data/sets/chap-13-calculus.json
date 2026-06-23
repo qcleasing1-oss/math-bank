@@ -9481,6 +9481,148 @@
       "question": "กราฟของฟังก์ชัน $f_{1}(x)$ และ $f_{2}(x)$ เป็นเส้นตรงต่อกันเป็นช่วง ๆ ดังแสดงในรูป ค่าอนุพันธ์ของฟังก์ชันทั้งสองเท่ากันเมื่อ $x$ มีค่าเท่าใด",
       "hasImage": true,
       "sourceTag": "ข้อสอบเสริมประสบการณ์ (พื้นฐานวิศวกรรม) — พ.ศ.2533",
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 290,
+          "height": 210,
+          "xRange": [
+            -0.3,
+            9.6
+          ],
+          "yRange": [
+            0,
+            5.8
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "f₁(x)",
+            "originLabel": "O"
+          },
+          "xTicks": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "yTicks": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "grid": true,
+          "functions": [
+            {
+              "id": "f",
+              "kind": "piecewise-linear",
+              "points": [
+                [
+                  0,
+                  0
+                ],
+                [
+                  3,
+                  2
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  5,
+                  3
+                ],
+                [
+                  7,
+                  4
+                ],
+                [
+                  9,
+                  3
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "type": "function-plot",
+          "width": 290,
+          "height": 210,
+          "xRange": [
+            -0.3,
+            9.6
+          ],
+          "yRange": [
+            0,
+            5.8
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "f₂(x)",
+            "originLabel": "O"
+          },
+          "xTicks": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "yTicks": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "grid": true,
+          "functions": [
+            {
+              "id": "f",
+              "kind": "piecewise-linear",
+              "points": [
+                [
+                  0,
+                  0
+                ],
+                [
+                  2,
+                  2
+                ],
+                [
+                  4,
+                  2
+                ],
+                [
+                  6,
+                  3
+                ],
+                [
+                  6,
+                  5
+                ],
+                [
+                  9,
+                  2
+                ]
+              ]
+            }
+          ]
+        }
+      ],
       "correct": 2,
       "choices": [
         "$x=1.5$",
@@ -14786,6 +14928,52 @@
       ],
       "hasImage": true,
       "sourceTag": "ข้อสอบสมาคมคณิตศาสตร์ฯ — พ.ศ.2546",
+      "imageSpec": {
+        "type": "function-plot",
+        "width": 330,
+        "height": 240,
+        "xRange": [
+          -3.7,
+          3.3
+        ],
+        "yRange": [
+          -1.8,
+          3.7
+        ],
+        "axes": {
+          "arrows": true,
+          "xLabel": "x",
+          "yLabel": "y",
+          "originLabel": "O"
+        },
+        "xTicks": [
+          -3,
+          2
+        ],
+        "yTicks": [
+          3
+        ],
+        "functions": [
+          {
+            "id": "g",
+            "kind": "roots-polynomial",
+            "roots": [
+              -3,
+              2,
+              2
+            ],
+            "leadingCoef": 0.162,
+            "label": {
+              "text": "y=g(x)",
+              "at": [
+                2.2,
+                1.7
+              ],
+              "anchor": "start"
+            }
+          }
+        ]
+      },
       "correct": 1,
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
