@@ -160,7 +160,7 @@ function renderFunctionPlot(spec){const W=spec.width||450,H=spec.height||280,pX=
       svg+=`<polyline points="${pts.join(' ')}" fill="none" stroke="${col}" stroke-width="${sw}"${dashAttr}/>`;}
     if(fn.label){const[lx,ly]=fn.label.at,anc=fn.label.anchor||'start',lcol=fn.label.color||'#222';
       if(/\\sqrt/.test(fn.label.text)){const fs=14,lw=_nlLatexW(fn.label.text,fs),ox=(anc==='end'?-lw:anc==='middle'?-lw/2:0);
-        svg+=_ucMathToSvg(fn.label.text,x2(lx)+ox,y2(ly),fs,lcol);}
+        svg+=_sqMathLabel(fn.label.text,x2(lx)+ox,y2(ly),fs,lcol);}
       else svg+=`<text x="${x2(lx)}" y="${y2(ly)}" font-size="14" font-style="italic" fill="${lcol}" text-anchor="${anc}">${fn.label.text}</text>`;}});
   // straight reference segments (after functions)
   (spec.segments||[]).forEach(s=>{const[fx,fy]=s.from,[tx,ty]=s.to,d=s.dashed?' stroke-dasharray="5 4"':'';
@@ -173,7 +173,7 @@ function renderFunctionPlot(spec){const W=spec.width||450,H=spec.height||280,pX=
       svg+=`<text x="${(x2(d.x)+dx).toFixed(2)}" y="${(y2(d.y)+dy).toFixed(2)}" font-size="13" fill="#222" text-anchor="${anc}">${d.label}</text>`;}});
   (spec.annotations||[]).forEach(a=>{const[lx,ly]=a.at,anc=a.anchor||'start';
     if(/\\sqrt/.test(a.text)){const fs=13,lw=_nlLatexW(a.text,fs),ox=(anc==='end'?-lw:anc==='middle'?-lw/2:0);
-      svg+=_ucMathToSvg(a.text,x2(lx)+ox,y2(ly),fs,'#222');}
+      svg+=_sqMathLabel(a.text,x2(lx)+ox,y2(ly),fs,'#222');}
     else svg+=`<text x="${x2(lx)}" y="${y2(ly)}" font-size="13" fill="#222" text-anchor="${anc}">${a.text}</text>`;
     if(a.arrowTo){const[ax,ay]=a.arrowTo;
       svg+=`<line x1="${x2(lx)}" y1="${y2(ly)+5}" x2="${x2(ax)}" y2="${y2(ay)}" stroke="#222" stroke-width="1" marker-end="url(#fpArr)"/>`;}});
