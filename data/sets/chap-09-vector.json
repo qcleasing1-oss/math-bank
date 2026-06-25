@@ -129,6 +129,8 @@
         "",
         "<b>🎯 เป้าหมาย</b> หาเวกเตอร์รัศมีไปยังจุดสัมผัส แล้วหาตัวเลือกที่ตั้งฉากกับรัศมีนั้น",
         "",
+        "<b>【 วิธีที่ 1 ▸ พื้นฐาน · รัศมีตั้งฉากเส้นสัมผัส + คัดตัวเลือก (radius perpendicular to tangent) 】</b>",
+        "",
         "<b>ขั้นที่ 1:</b> หาจุดศูนย์กลางวงกลม",
         "จาก $x^2 + y^2 - 4x + 6y - 12 = 0$ ได้ $D = -4, E = 6$ → ศูนย์กลาง $O(2, -3)$",
         "(ตรวจ: จุด $(6, 0)$ อยู่บนวงกลมจริง เพราะ $36 + 0 - 24 + 0 - 12 = 0$)",
@@ -141,6 +143,13 @@
         "ตัวเลือก 2: $(3)(4) + (-4)(3) = 12 - 12 = 0$ ✓ ตั้งฉาก → ขนานเส้นสัมผัส",
         "ตัวเลือก 3: $(5)(4) + (-3)(3) = 11 \\ne 0$",
         "ตัวเลือก 4: $(5)(4) + (3)(3) = 29 \\ne 0$",
+        "",
+        "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ · สมการเส้นสัมผัสเต็ม (tangent line equation) 】</b>",
+        "",
+        "ใช้กฎ $T = 0$ ที่จุดสัมผัส $(x_1, y_1) = (6, 0)$: แทน $x^2 \\to xx_1 ,\\ y^2 \\to yy_1 ,\\ x \\to \\dfrac{x + x_1}{2} ,\\ y \\to \\dfrac{y + y_1}{2}$",
+        "$6x + 0 - 2(x + 6) + 3(y + 0) - 12 = 0$ → $4x + 3y - 24 = 0$",
+        "เส้นนี้มีเวกเตอร์ตั้งฉาก (normal) $= (4, 3)$ ดังนั้นเวกเตอร์ขนานเส้น $= (3, -4) = 3\\overline{i} - 4\\overline{j}$ → ตัวเลือก 2",
+        "<b>ข้อต่าง:</b> ได้สมการเส้นสัมผัสจริงออกมาก่อน (ใช้ได้เลยถ้าโจทย์ถามสมการเส้น) แล้วอ่านทิศจาก normal — ไม่ต้องไล่ dot ทีละตัวเลือก",
         "",
         "<b>✔ ตรวจคำตอบ</b> numpy: $(4,3)\\cdot(3,-4) = 0$ ส่วนตัวเลือกอื่น dot ไม่เป็นศูนย์ — มีคำตอบเดียว",
         "",
@@ -241,7 +250,8 @@
         "",
         "<b>🎯 เป้าหมาย</b> หา $\\overline{AM}$ ก่อน แล้วย่อให้ยาว 1 หน่วย",
         "",
-        "<b>【 วิธีที่ 1 ▸ พื้นฐาน 】</b>",
+        "<b>【 วิธีที่ 1 ▸ พื้นฐาน · หาจุดกึ่งกลางแล้วทำให้เป็นหนึ่งหน่วย (midpoint + normalize) 】</b>",
+        "",
         "<b>ขั้นที่ 1:</b> หาจุดกึ่งกลาง $M$ ของด้าน $BC$",
         "$M = \\left(\\dfrac{5+3}{2}, \\dfrac{0+4}{2}\\right) = (4, 2)$",
         "",
@@ -252,7 +262,8 @@
         "$|\\overline{AM}| = \\sqrt{3^2 + 2^2} = \\sqrt{13}$",
         "เวกเตอร์หนึ่งหน่วย $= \\dfrac{3}{\\sqrt{13}}\\overline{i} + \\dfrac{2}{\\sqrt{13}}\\overline{j}$",
         "",
-        "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ 】</b>",
+        "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ · เทียบอัตราส่วนทิศ (direction ratio) 】</b>",
+        "",
         "หา $\\overrightarrow{AM} = (3, 2)$ แล้ว \"เทียบอัตราส่วนทิศ\" กับตัวเลือกทันที — เวกเตอร์หนึ่งหน่วยทิศเดียวกันต้องมีส่วนประกอบอัตราส่วน $3 : 2$",
         "ตัวเลือก 1 อัตราส่วน $2:1$ ✗ , ตัวเลือก 2 อัตราส่วน $1:2$ ✗ , ตัวเลือก 4 อัตราส่วน $1:1$ ✗ → เหลือตัวเลือก 3 ข้อเดียว (ตัวหาร $\\sqrt{13} = |(3,2)|$ ยืนยันว่ายาว 1 หน่วยพอดี)",
         "<b>ข้อต่าง:</b> เทียบอัตราส่วนทิศคัดตัวเลือก แทนการ normalize เต็มขั้นตอน",
@@ -398,6 +409,120 @@
         "ข้อ 1, 2 และ 3 ไม่มีข้อใดถูก"
       ],
       "hasImage": false,
+      "imageSpec": {
+        "type": "polygon-labeled",
+        "width": 320,
+        "height": 210,
+        "vertices": {
+          "O": [
+            140,
+            150
+          ],
+          "xL": [
+            35,
+            150
+          ],
+          "xR": [
+            305,
+            150
+          ],
+          "yT": [
+            140,
+            32
+          ],
+          "yB": [
+            140,
+            193
+          ],
+          "wT": [
+            92,
+            98
+          ],
+          "jT": [
+            140,
+            86
+          ],
+          "aT": [
+            248,
+            62
+          ]
+        },
+        "vertexLabels": {
+          "O": {
+            "text": "O",
+            "dx": -15,
+            "dy": 15
+          },
+          "xL": {
+            "text": " "
+          },
+          "xR": {
+            "text": " "
+          },
+          "yT": {
+            "text": " "
+          },
+          "yB": {
+            "text": " "
+          },
+          "wT": {
+            "text": "w̄",
+            "dx": -22,
+            "dy": -4
+          },
+          "jT": {
+            "text": "j̄",
+            "dx": 9,
+            "dy": 2
+          },
+          "aT": {
+            "text": " "
+          }
+        },
+        "sides": [
+          {
+            "from": "xL",
+            "to": "xR",
+            "arrows": "end"
+          },
+          {
+            "from": "yB",
+            "to": "yT",
+            "arrows": "end"
+          },
+          {
+            "from": "O",
+            "to": "wT",
+            "arrows": "end"
+          },
+          {
+            "from": "O",
+            "to": "jT",
+            "arrows": "end"
+          },
+          {
+            "from": "O",
+            "to": "aT",
+            "arrows": "end",
+            "label": "$3\\sqrt{2}$",
+            "labelOffset": {
+              "dx": 20,
+              "dy": 4
+            }
+          }
+        ],
+        "angleMarks": [
+          {
+            "at": "O",
+            "from": "xR",
+            "to": "aT",
+            "type": "arc",
+            "radius": 34,
+            "label": "45°",
+            "labelDistance": 50
+          }
+        ]
+      },
       "sourceTag": "Entrance 2530",
       "correct": 1,
       "explanation": [
@@ -406,6 +531,7 @@
         "ตั้งฉากกัน ⟺ dot product เป็น 0",
         "",
         "<b>🎯 เป้าหมาย</b> เช็คเงื่อนไข 3 ข้อ (ความยาว, มุม 45° กับ $\\overline{j}$, ตั้งฉาก) กับตัวเลือกทีละตัว",
+        "[IMAGE]",
         "",
         "<b>ขั้นที่ 1:</b> เช็คความยาว — ทั้งตัวเลือก 1, 2, 3 มีขนาด $\\sqrt{9+9} = 3\\sqrt{2}$ ✓ ผ่านหมด ต้องใช้เงื่อนไขอื่นแยก",
         "",
@@ -451,6 +577,138 @@
         "ไม่มีคำตอบใดถูก"
       ],
       "hasImage": false,
+      "imageSpec": {
+        "type": "polygon-labeled",
+        "width": 300,
+        "height": 210,
+        "vertices": {
+          "O": [
+            150,
+            165
+          ],
+          "A": [
+            255,
+            55
+          ],
+          "B": [
+            45,
+            55
+          ],
+          "D": [
+            150,
+            55
+          ],
+          "G": [
+            150,
+            92
+          ],
+          "Moa": [
+            202,
+            110
+          ],
+          "Mob": [
+            98,
+            110
+          ],
+          "xL": [
+            20,
+            165
+          ],
+          "xR": [
+            285,
+            165
+          ],
+          "yT": [
+            150,
+            25
+          ],
+          "yB": [
+            150,
+            200
+          ]
+        },
+        "vertexLabels": {
+          "O": {
+            "text": "O",
+            "dx": -3,
+            "dy": 18
+          },
+          "A": {
+            "text": "A",
+            "dx": 7,
+            "dy": -2
+          },
+          "B": {
+            "text": "B",
+            "dx": -17,
+            "dy": -2
+          },
+          "D": {
+            "text": "D",
+            "dx": 5,
+            "dy": -6
+          },
+          "G": {
+            "text": "G",
+            "dx": -15,
+            "dy": 4
+          },
+          "Moa": {
+            "text": " "
+          },
+          "Mob": {
+            "text": " "
+          },
+          "xL": {
+            "text": " "
+          },
+          "xR": {
+            "text": " "
+          },
+          "yT": {
+            "text": " "
+          },
+          "yB": {
+            "text": " "
+          }
+        },
+        "sides": [
+          {
+            "from": "xL",
+            "to": "xR",
+            "arrows": "end"
+          },
+          {
+            "from": "yB",
+            "to": "yT",
+            "arrows": "end"
+          },
+          {
+            "from": "A",
+            "to": "B"
+          },
+          {
+            "from": "B",
+            "to": "Moa",
+            "style": "dashed"
+          },
+          {
+            "from": "A",
+            "to": "Mob",
+            "style": "dashed"
+          },
+          {
+            "from": "O",
+            "to": "A",
+            "arrows": "end"
+          },
+          {
+            "from": "O",
+            "to": "B",
+            "arrows": "end"
+          }
+        ]
+      },
       "sourceTag": "Entrance 2524",
       "correct": 0,
       "explanation": [
@@ -459,15 +717,18 @@
         "ถ้าจุดยอดคือ $P_1, P_2, P_3$ แล้วเซนทรอยด์ $= \\dfrac{P_1 + P_2 + P_3}{3}$ (เฉลี่ยพิกัดทั้งสามจุด)",
         "",
         "<b>🎯 เป้าหมาย</b> หาเซนทรอยด์ของ $\\triangle OAB$ ในรูปเวกเตอร์ตำแหน่ง",
+        "[IMAGE]",
         "",
-        "<b>【 วิธีที่ 1 ▸ พื้นฐาน 】</b>",
+        "<b>【 วิธีที่ 1 ▸ พื้นฐาน · เฉลี่ยพิกัดจุดยอด (centroid average) 】</b>",
+        "",
         "<b>ขั้นที่ 1:</b> เขียนเวกเตอร์ตำแหน่งของจุดยอดทั้งสาม",
         "$O = (0, 0)$ , $A = (1300, 6)$ , $B = (-1300, 6)$",
         "",
         "<b>ขั้นที่ 2:</b> หาเซนทรอยด์",
         "$\\overrightarrow{OC} = \\dfrac{1}{3}\\left(\\overrightarrow{OO} + \\overrightarrow{OA} + \\overrightarrow{OB}\\right) = \\dfrac{1}{3}\\begin{bmatrix} 0 + 1300 - 1300 \\\\ 0 + 6 + 6 \\end{bmatrix} = \\dfrac{1}{3}\\begin{bmatrix} 0 \\\\ 12 \\end{bmatrix} = \\begin{bmatrix} 0 \\\\ 4 \\end{bmatrix}$",
         "",
-        "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ 】</b>",
+        "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ · ใช้สมมาตรรอบแกน (symmetry) 】</b>",
+        "",
         "ใช้สมมาตร: $A(1300, 6)$ กับ $B(-1300, 6)$ สะท้อนกันรอบแกน $y$ และ $O$ อยู่บนแกน $y$ → เซนทรอยด์ต้องอยู่บนแกน $y$ — ตัดตัวเลือก 2 และ 4 (แนว $\\overline{i}$) ทิ้งทันที",
         "เหลือหาแค่พิกัด $y$: เฉลี่ย $= \\dfrac{0 + 6 + 6}{3} = 4$ → $\\overrightarrow{OC} = 4\\overline{j}$ → ตัวเลือก 1",
         "<b>ข้อต่าง:</b> สมมาตรฆ่าแกน $x$ ก่อน เหลือเลขคณิตบรรทัดเดียว ไม่ต้องแตะเลข 1300 เลย",
@@ -501,6 +762,122 @@
         "$7$"
       ],
       "hasImage": false,
+      "imageSpec": {
+        "type": "polygon-labeled",
+        "width": 300,
+        "height": 260,
+        "vertices": {
+          "O": [
+            150,
+            120
+          ],
+          "B": [
+            81,
+            160
+          ],
+          "C": [
+            190,
+            189
+          ],
+          "cL": [
+            70,
+            120
+          ],
+          "cR": [
+            230,
+            120
+          ],
+          "xL": [
+            40,
+            120
+          ],
+          "xR": [
+            272,
+            120
+          ],
+          "yT": [
+            150,
+            28
+          ],
+          "yB": [
+            150,
+            250
+          ]
+        },
+        "vertexLabels": {
+          "O": {
+            "text": "O",
+            "dx": 7,
+            "dy": -6
+          },
+          "B": {
+            "text": "B",
+            "dx": -17,
+            "dy": 4
+          },
+          "C": {
+            "text": "C",
+            "dx": 7,
+            "dy": 9
+          },
+          "cL": {
+            "text": " "
+          },
+          "cR": {
+            "text": " "
+          },
+          "xL": {
+            "text": " "
+          },
+          "xR": {
+            "text": " "
+          },
+          "yT": {
+            "text": " "
+          },
+          "yB": {
+            "text": " "
+          }
+        },
+        "ellipses": [
+          {
+            "from": "cL",
+            "to": "cR",
+            "minorRatio": 1
+          }
+        ],
+        "sides": [
+          {
+            "from": "xL",
+            "to": "xR",
+            "arrows": "end"
+          },
+          {
+            "from": "yB",
+            "to": "yT",
+            "arrows": "end"
+          },
+          {
+            "from": "O",
+            "to": "B",
+            "arrows": "end"
+          },
+          {
+            "from": "O",
+            "to": "C",
+            "arrows": "end"
+          }
+        ],
+        "angleMarks": [
+          {
+            "at": "O",
+            "from": "C",
+            "to": "B",
+            "type": "right",
+            "size": 12
+          }
+        ]
+      },
       "sourceTag": "Entrance 2533",
       "correct": 2,
       "explanation": [
@@ -511,6 +888,9 @@
         "หรือ $A = B + (0, 2)$",
         "",
         "<b>🎯 เป้าหมาย</b> ย้อนการหมุนจาก $C$ กลับไปหา $B$ แล้วเลื่อนขึ้นเหนือ 2 หน่วยได้ $A$",
+        "[IMAGE]",
+        "",
+        "<b>【 วิธีที่ 1 ▸ พื้นฐาน · สูตรหมุน 90° ด้วยมือ (rotation formula) 】</b>",
         "",
         "<b>ขั้นที่ 1:</b> หา $B$ โดยหมุน $C$ ตามเข็ม $90°$ (ย้อนการหมุนทวนเข็มที่โจทย์ทำ)",
         "จาก $C = \\left(\\dfrac{1}{2}, -\\dfrac{\\sqrt{3}}{2}\\right)$ ใช้ $(x, y) \\to (y, -x)$:",
@@ -521,6 +901,13 @@
         "",
         "<b>ขั้นที่ 3:</b> หา $|\\overrightarrow{OA}|^2$",
         "$\\begin{aligned} |\\overrightarrow{OA}|^2 &= \\left(-\\dfrac{\\sqrt{3}}{2}\\right)^2 + \\left(\\dfrac{3}{2}\\right)^2 \\\\ &= \\dfrac{3}{4} + \\dfrac{9}{4} \\\\ &= \\dfrac{12}{4} \\\\ &= 3 \\end{aligned}$",
+        "",
+        "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ · จำนวนเชิงซ้อน (complex number) 】</b>",
+        "",
+        "มองจุดเป็นจำนวนเชิงซ้อน: หมุนทวนเข็ม $90°$ คือคูณด้วย $i$ ดังนั้นย้อนกลับ (ตามเข็ม $90°$) คือคูณด้วย $-i$",
+        "$C = \\dfrac{1}{2} - \\dfrac{\\sqrt{3}}{2}i$ → $B = C\\cdot(-i) = \\left(\\dfrac{1}{2} - \\dfrac{\\sqrt{3}}{2}i\\right)(-i) = -\\dfrac{\\sqrt{3}}{2} - \\dfrac{1}{2}i$",
+        "เลื่อนขึ้นเหนือ 2 หน่วย (บวก $2i$): $A = B + 2i = -\\dfrac{\\sqrt{3}}{2} + \\dfrac{3}{2}i$ → $|\\overrightarrow{OA}|^2 = \\dfrac{3}{4} + \\dfrac{9}{4} = 3$",
+        "<b>ข้อต่าง:</b> ไม่ต้องจำสูตรหมุน $(x,y)\\to(y,-x)$ — การหมุนกลายเป็นการคูณ $-i$ ครั้งเดียว จำผิดทิศได้ยากกว่า",
         "",
         "<b>✔ ตรวจคำตอบ</b> numpy: หมุน $B = \\left(-\\frac{\\sqrt{3}}{2}, -\\frac{1}{2}\\right)$ ทวนเข็ม $90°$ ด้วย $(x,y)\\to(-y,x)$ ได้ $\\left(\\frac{1}{2}, -\\frac{\\sqrt{3}}{2}\\right) = C$ ✓ ตรงโจทย์ และ $|OA|^2 = 3$ ✓",
         "",
@@ -551,6 +938,75 @@
         "$\\pm\\dfrac{1}{\\sqrt{10}}(3\\overline{i} - \\overline{j})$"
       ],
       "hasImage": false,
+      "imageSpec": {
+        "type": "polygon-labeled",
+        "width": 340,
+        "height": 190,
+        "vertices": {
+          "O": [
+            55,
+            95
+          ],
+          "aT": [
+            165,
+            50
+          ],
+          "bT": [
+            165,
+            140
+          ],
+          "sT": [
+            262,
+            95
+          ]
+        },
+        "vertexLabels": {
+          "O": {
+            "text": " "
+          },
+          "aT": {
+            "text": "ā",
+            "dx": 6,
+            "dy": -6
+          },
+          "bT": {
+            "text": "b̄",
+            "dx": 6,
+            "dy": 10
+          },
+          "sT": {
+            "text": "ā + b̄",
+            "dx": 12,
+            "dy": -8
+          }
+        },
+        "sides": [
+          {
+            "from": "O",
+            "to": "aT",
+            "arrows": "end"
+          },
+          {
+            "from": "O",
+            "to": "bT",
+            "arrows": "end"
+          },
+          {
+            "from": "O",
+            "to": "sT",
+            "arrows": "end"
+          }
+        ],
+        "angleMarks": [
+          {
+            "at": "O",
+            "from": "aT",
+            "to": "bT",
+            "type": "arc",
+            "radius": 42
+          }
+        ]
+      },
       "sourceTag": "Entrance 2541",
       "correct": 2,
       "explanation": [
@@ -559,6 +1015,7 @@
         "เงื่อนไขมุมเท่า: $\\dfrac{\\overline{a} \\cdot \\overline{c}}{|\\overline{a}|} = \\dfrac{\\overline{b} \\cdot \\overline{c}}{|\\overline{b}|}$",
         "",
         "<b>🎯 เป้าหมาย</b> สังเกตว่า $|\\overline{a}| = |\\overline{b}|$ แล้วใช้เส้นแบ่งครึ่งมุม",
+        "[IMAGE]",
         "",
         "<b>ขั้นที่ 1:</b> เช็คขนาด",
         "$|\\overline{a}| = \\sqrt{4+1} = \\sqrt{5}$",
@@ -601,6 +1058,126 @@
         "$-\\dfrac{1}{10}(\\overline{u} + 5\\overline{v})$"
       ],
       "hasImage": false,
+      "imageSpec": {
+        "type": "polygon-labeled",
+        "width": 340,
+        "height": 210,
+        "vertices": {
+          "A": [
+            60,
+            150
+          ],
+          "B": [
+            120,
+            55
+          ],
+          "C": [
+            290,
+            55
+          ],
+          "D": [
+            230,
+            150
+          ],
+          "P": [
+            175,
+            103
+          ],
+          "Q": [
+            84,
+            112
+          ]
+        },
+        "vertexLabels": {
+          "A": {
+            "text": "A",
+            "dx": -16,
+            "dy": 7
+          },
+          "B": {
+            "text": "B",
+            "dx": -4,
+            "dy": -8
+          },
+          "C": {
+            "text": "C",
+            "dx": 8,
+            "dy": -2
+          },
+          "D": {
+            "text": "D",
+            "dx": 4,
+            "dy": 17
+          },
+          "P": {
+            "text": "P",
+            "dx": 9,
+            "dy": 8
+          },
+          "Q": {
+            "text": "Q",
+            "dx": -20,
+            "dy": 9
+          }
+        },
+        "sides": [
+          {
+            "from": "A",
+            "to": "B",
+            "label": "ū",
+            "labelOffset": {
+              "dx": -16,
+              "dy": -14
+            },
+            "arrows": "end"
+          },
+          {
+            "from": "B",
+            "to": "C"
+          },
+          {
+            "from": "C",
+            "to": "D"
+          },
+          {
+            "from": "A",
+            "to": "D",
+            "label": "v̄",
+            "labelOffset": {
+              "dx": 0,
+              "dy": 15
+            },
+            "arrows": "end"
+          },
+          {
+            "from": "A",
+            "to": "C"
+          },
+          {
+            "from": "B",
+            "to": "D"
+          },
+          {
+            "from": "P",
+            "to": "Q",
+            "arrows": "end"
+          }
+        ],
+        "annotations": [
+          {
+            "x": 78,
+            "y": 133,
+            "text": "2",
+            "fontSize": 13
+          },
+          {
+            "x": 108,
+            "y": 86,
+            "text": "3",
+            "fontSize": 13
+          }
+        ]
+      },
       "sourceTag": "Entrance 2528",
       "correct": 3,
       "explanation": [
@@ -611,8 +1188,10 @@
         "จุดแบ่งภายใน: $AQ : QB = 2 : 3$ → $\\overrightarrow{AQ} = \\dfrac{2}{5}\\overline{u}$ (สองส่วนจากห้าส่วนของ $AB$)",
         "",
         "<b>🎯 เป้าหมาย</b> เขียน $\\overrightarrow{AP}$ และ $\\overrightarrow{AQ}$ เทียบจุด $A$ แล้วลบกัน",
+        "[IMAGE]",
         "",
-        "<b>【 วิธีที่ 1 ▸ พื้นฐาน 】</b>",
+        "<b>【 วิธีที่ 1 ▸ พื้นฐาน · แตกเวกเตอร์ตามนิยาม (vector decomposition) 】</b>",
+        "",
         "<b>ขั้นที่ 1:</b>",
         "$\\begin{aligned} \\overrightarrow{AP} &= \\dfrac{1}{2}(\\overline{u} + \\overline{v}) \\\\ &= \\dfrac{1}{2}\\overline{u} + \\dfrac{1}{2}\\overline{v} \\end{aligned}$",
         "",
@@ -622,7 +1201,8 @@
         "$\\begin{aligned} \\overrightarrow{PQ} &= \\overrightarrow{AQ} - \\overrightarrow{AP} \\\\ &= \\dfrac{2}{5}\\overline{u} - \\dfrac{1}{2}\\overline{u} - \\dfrac{1}{2}\\overline{v} \\\\ &= -\\dfrac{1}{10}\\overline{u} - \\dfrac{1}{2}\\overline{v} \\end{aligned}$",
         "$= -\\dfrac{1}{10}\\left(\\overline{u} + 5\\overline{v}\\right)$",
         "",
-        "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ 】</b>",
+        "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ · แทนค่าทดสอบจริง (test values) 】</b>",
+        "",
         "เลือกค่าทดสอบ $\\overline{u} = (10, 0) ,\\ \\overline{v} = (0, 10)$ (สี่เหลี่ยมด้านขนานจริงรูปหนึ่ง — คำตอบเป็นสูตรคงตัว ใช้รูปไหนก็ได้)",
         "(หมายเหตุ: \"ค่าทดสอบ/ตัวอย่างทดสอบ\" คือตัวอย่างเฉพาะเจาะจงตัวเดียวที่ยกมาชี้ขาดข้อความ — ใช้<b>หักล้าง</b>ได้เสมอ เพราะตัวอย่างค้านตัวเดียวก็ทำให้ข้อความแบบ \"จริงทุกกรณี\" ผิดทันที ส่วนการใช้<b>ยืนยัน</b>คำตอบ ทำได้เมื่อข้อสอบรับประกันว่ามีคำตอบเดียว)",
         "$P = (5, 5)$ (กึ่งกลางเส้นทแยง) , $Q = (4, 0)$ (สองในห้าของ $AB$) → $\\overrightarrow{PQ} = (-1, -5)$",
@@ -660,6 +1240,77 @@
         "$5$"
       ],
       "hasImage": false,
+      "imageSpec": {
+        "type": "polygon-labeled",
+        "width": 380,
+        "height": 230,
+        "vertices": {
+          "A": [
+            150,
+            95
+          ],
+          "B": [
+            235,
+            55
+          ],
+          "C": [
+            315,
+            110
+          ],
+          "E": [
+            145,
+            190
+          ]
+        },
+        "vertexLabels": {
+          "A": {
+            "text": "A",
+            "dx": -16,
+            "dy": -2
+          },
+          "B": {
+            "text": "B",
+            "dx": -2,
+            "dy": -9
+          },
+          "C": {
+            "text": "C",
+            "dx": 9,
+            "dy": 3
+          },
+          "E": {
+            "text": "E",
+            "dx": 2,
+            "dy": 18
+          }
+        },
+        "sides": [
+          {
+            "from": "A",
+            "to": "B"
+          },
+          {
+            "from": "B",
+            "to": "C"
+          },
+          {
+            "from": "C",
+            "to": "A",
+            "arrows": "end"
+          },
+          {
+            "from": "B",
+            "to": "E",
+            "arrows": "end"
+          },
+          {
+            "from": "C",
+            "to": "E",
+            "arrows": "end",
+            "style": "dashed"
+          }
+        ]
+      },
       "sourceTag": "Entrance มี.ค.2542",
       "correct": 3,
       "explanation": [
@@ -670,8 +1321,10 @@
         "$\\begin{aligned} \\overrightarrow{BA} &= \\overrightarrow{BC} + \\overrightarrow{CA} \\\\ &= -\\overrightarrow{CB} + \\overrightarrow{CA} \\end{aligned}$",
         "",
         "<b>🎯 เป้าหมาย</b> เขียน $\\overrightarrow{BE}$ ให้อยู่ในรูปของ $\\overrightarrow{CB}$ กับ $\\overrightarrow{CA}$ เท่านั้น",
+        "[IMAGE]",
         "",
-        "<b>【 วิธีที่ 1 ▸ พื้นฐาน 】</b>",
+        "<b>【 วิธีที่ 1 ▸ พื้นฐาน · แตกเวกเตอร์ผ่านจุด (vector decomposition) 】</b>",
+        "",
         "<b>ขั้นที่ 1:</b> แตก $\\overrightarrow{BE}$ ผ่านจุด $C$",
         "$\\begin{aligned} \\overrightarrow{BE} &= \\overrightarrow{BC} + \\overrightarrow{CE} \\\\ &= -\\overrightarrow{CB} + 2\\overrightarrow{BA} \\end{aligned}$",
         "(แทน $\\overrightarrow{CE} = 2\\overrightarrow{BA}$)",
@@ -684,7 +1337,8 @@
         "ได้ $a = -3$ , $b = 2$",
         "ดังนั้น $b - a = 2 - (-3) = 5$",
         "",
-        "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ 】</b>",
+        "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ · วางพิกัดเฉพาะ (coordinate placement) 】</b>",
+        "",
         "วางพิกัดเฉพาะ ($a, b$ เป็นค่าคงตัว ไม่ขึ้นกับรูปสามเหลี่ยม): เลือก $C(0,0) ,\\ B(1,0) ,\\ A(0,1)$ เพื่อให้ฐานอ่านง่าย — $\\overrightarrow{CB} = (1, 0) ,\\ \\overrightarrow{CA} = (0, 1)$",
         "$\\overrightarrow{BA} = (-1, 1)$ → $E = C + 2\\overrightarrow{BA} = (-2, 2)$ → $\\overrightarrow{BE} = (-3, 2)$",
         "ฐานเป็นแกนพอดี อ่านสัมประสิทธิ์ได้ทันที: $a = -3 ,\\ b = 2$ → $b - a = 5$",
@@ -719,6 +1373,108 @@
         "$\\dfrac{4}{3}\\overline{u} - \\dfrac{2}{3}\\overline{v}$"
       ],
       "hasImage": false,
+      "imageSpec": {
+        "type": "polygon-labeled",
+        "width": 420,
+        "height": 290,
+        "vertices": {
+          "A": [
+            150,
+            50
+          ],
+          "B": [
+            330,
+            50
+          ],
+          "C": [
+            330,
+            230
+          ],
+          "D": [
+            150,
+            230
+          ],
+          "M": [
+            330,
+            140
+          ],
+          "N": [
+            240,
+            230
+          ]
+        },
+        "vertexLabels": {
+          "A": {
+            "text": "A",
+            "dx": -8,
+            "dy": -9
+          },
+          "B": {
+            "text": "B",
+            "dx": 7,
+            "dy": -7
+          },
+          "C": {
+            "text": "C",
+            "dx": 9,
+            "dy": 8
+          },
+          "D": {
+            "text": "D",
+            "dx": -17,
+            "dy": 10
+          },
+          "M": {
+            "text": "M",
+            "dx": 10,
+            "dy": 4
+          },
+          "N": {
+            "text": "N",
+            "dx": -2,
+            "dy": 19
+          }
+        },
+        "sides": [
+          {
+            "from": "A",
+            "to": "B",
+            "arrows": "end"
+          },
+          {
+            "from": "B",
+            "to": "C"
+          },
+          {
+            "from": "C",
+            "to": "D"
+          },
+          {
+            "from": "D",
+            "to": "A"
+          },
+          {
+            "from": "A",
+            "to": "M",
+            "arrows": "end",
+            "label": "ū",
+            "labelOffset": {
+              "dx": 10,
+              "dy": -6
+            }
+          },
+          {
+            "from": "A",
+            "to": "N",
+            "arrows": "end",
+            "label": "v̄",
+            "labelOffset": {
+              "dx": -12,
+              "dy": -2
+            }
+          }
+        ]
+      },
       "sourceTag": "Entrance 2535",
       "correct": 3,
       "explanation": [
@@ -727,8 +1483,10 @@
         "จุดกึ่งกลางเขียนเป็นเวกเตอร์ได้โดยเดินตามขอบรูป",
         "",
         "<b>🎯 เป้าหมาย</b> เขียน $\\overline{u}, \\overline{v}$ ในรูป $\\overline{p}, \\overline{q}$ แล้วแก้ระบบสมการกลับ",
+        "[IMAGE]",
         "",
-        "<b>【 วิธีที่ 1 ▸ พื้นฐาน 】</b>",
+        "<b>【 วิธีที่ 1 ▸ พื้นฐาน · ตั้งและแก้ระบบสมการเวกเตอร์ (system of equations) 】</b>",
+        "",
         "<b>ขั้นที่ 1:</b> เขียน $\\overline{u} = \\overrightarrow{AM}$ — เดินจาก $A$ ไป $B$ แล้วขึ้นครึ่งด้าน $BC$ (ซึ่งขนานกับ $\\overrightarrow{AD}$)",
         "$\\overline{u} = \\overline{p} + \\dfrac{1}{2}\\overline{q}$",
         "",
@@ -740,7 +1498,8 @@
         "$\\begin{aligned} 2\\overline{u} - \\overline{v} &= 2\\overline{p} + \\overline{q} - \\overline{q} - \\dfrac{1}{2}\\overline{p} \\\\ &= \\dfrac{3}{2}\\overline{p} \\end{aligned}$",
         "$\\begin{aligned} \\overline{p} &= \\dfrac{2}{3}(2\\overline{u} - \\overline{v}) \\\\ &= \\dfrac{4}{3}\\overline{u} - \\dfrac{2}{3}\\overline{v} \\end{aligned}$",
         "",
-        "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ 】</b>",
+        "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ · แทนพิกัดจัตุรัสหน่วย (unit square) 】</b>",
+        "",
         "จัตุรัสหน่วย $A(0,0), B(1,0), C(1,1), D(0,1)$: $\\overline{u} = \\left(1, \\dfrac12\\right) ,\\ \\overline{v} = \\left(\\dfrac12, 1\\right)$ แล้วไล่แทนตัวเลือก (เป้าหมายต้องได้ $\\overrightarrow{AB} = (1, 0)$)",
         "ข้อ 4:",
         "$\\begin{aligned} \\dfrac{4}{3}\\left(1, \\dfrac12\\right) - \\dfrac{2}{3}\\left(\\dfrac12, 1\\right) &= \\left(\\dfrac{4}{3} - \\dfrac{1}{3},\\ \\dfrac{2}{3} - \\dfrac{2}{3}\\right) \\\\ &= (1, 0) \\end{aligned}$",
@@ -807,55 +1566,6 @@
         "<b>⚠️ จุดที่เด็กมักผิด</b> เครื่องหมายลบซ้อน เช่น $-4-(-1) = -3$ (ไม่ใช่ $-5$) และ $-3-(-4) = 1$ (ไม่ใช่ $-7$) — จุดพลาดอันดับหนึ่งของข้อแนวนี้"
       ],
       "notes": "Q = (10,−3), AP·BQ = (1,4)·(5,1) = 9"
-    },
-    {
-      "id": "chap-09-vector-q16",
-      "setId": "chap-09-vector",
-      "questionNumber": 16,
-      "topics": [
-        "9"
-      ],
-      "subTopics": [
-        "4"
-      ],
-      "difficulty": "ปานกลาง",
-      "type": "mc",
-      "level": "medium",
-      "score": 1,
-      "question": "ให้ $\\overline{a} = 2\\overline{i} + 3\\overline{j}$ ถ้า $\\overline{b}$ มีจุดเริ่มต้นที่ $(0, 0)$ และตั้งฉากกับ $\\overline{a}$\nแล้วเส้นตรงที่ลากทับเวกเตอร์ $\\overline{b}$ จะผ่านจุดทุกจุดที่กำหนดให้ในข้อใดต่อไปนี้",
-      "choices": [
-        "$\\{(2, -4), (3, -2), (6, -4)\\}$",
-        "$\\{(-4, 1), (-1, -1), (2, -3)\\}$",
-        "$\\{(-4, -6), (-2, -3), (0, 0)\\}$",
-        "$\\{(-2, 3), (0, 0), (2, -3)\\}$"
-      ],
-      "hasImage": false,
-      "sourceTag": "Entrance 2534",
-      "_noAnswerInKey": true,
-      "correct": null,
-      "explanation": [
-        "<b>📐 ความรู้พื้นฐาน</b>",
-        "เส้นตรงผ่านจุดกำเนิดที่ตั้งฉากกับ $\\overline{a} = (2, 3)$ คือเซตของจุด $(x, y)$ ที่ $(x, y) \\cdot (2, 3) = 0$",
-        "นั่นคือสมการ $2x + 3y = 0$ (ทิศของเส้นคือ $(3, -2)$ หรือ $(-3, 2)$)",
-        "",
-        "<b>🎯 เป้าหมาย</b> เช็คว่าจุดทุกจุดในตัวเลือกใดสอดคล้อง $2x + 3y = 0$ ครบทุกจุด",
-        "",
-        "<b>ขั้นที่ 1:</b> ตัวเลือก 1 — $(2, -4): 4 - 12 = -8 \\ne 0$ ✗ (แม้ $(3, -2)$ กับ $(6, -4)$ จะอยู่บนเส้นจริง: $6-6=0$ ✓ และ $12-12=0$ ✓)",
-        "",
-        "<b>ขั้นที่ 2:</b> ตัวเลือก 2 — $(-4, 1): -8 + 3 = -5 \\ne 0$ ✗",
-        "",
-        "<b>ขั้นที่ 3:</b> ตัวเลือก 3 — $(-4, -6): -8 - 18 = -26 \\ne 0$ ✗ (จุดชุดนี้อยู่บนแนว \"ขนานกับ $\\overline{a}$\" คือ $3x - 2y = 0$ ไม่ใช่ตั้งฉาก)",
-        "",
-        "<b>ขั้นที่ 4:</b> ตัวเลือก 4 — $(2, -3): 4 - 9 = -5 \\ne 0$ ✗",
-        "",
-        "<b>✔ ตรวจคำตอบ</b> numpy เช็คทุกจุดทุกตัวเลือกกับเงื่อนไข $2x + 3y = 0$: ไม่มีตัวเลือกใดที่จุด \"ทุกจุด\" อยู่บนเส้นครบ — ตัวเลือก 1 ใกล้ที่สุด (ผ่าน 2 ใน 3 จุด) แต่ $(2, -4)$ ไม่อยู่บนเส้น",
-        "",
-        "<b>✅ คำตอบ: ไม่มีตัวเลือกที่ถูกต้องครบทุกจุด — เฉลยหนังสือเว้นว่างข้อนี้ไว้ (สอดคล้องกับการตรวจสอบ)</b>",
-        "",
-        "<b>💡 เทคนิคที่ใช้</b> \"ตั้งฉากกับ $(a, b)$ ผ่านจุดกำเนิด\" เขียนเป็นสมการเส้นได้ทันทีว่า $ax + by = 0$ แล้วเช็คจุดโดยการแทนค่า — เร็วและชัวร์กว่าหาทิศเส้นก่อน",
-        "<b>⚠️ จุดที่เด็กมักผิด</b> เห็นจุด $(3, -2), (6, -4)$ ในตัวเลือก 1 ถูกสองจุดแล้วรีบตอบ — โจทย์ย้ำว่า \"ผ่านจุดทุกจุด\" ต้องเช็คให้ครบทั้งเซต และระวังสับสนแนวขนาน $\\overline{a}$ (ตัวเลือก 3) กับแนวตั้งฉาก"
-      ],
-      "notes": "เส้น 2x+3y=0: ไม่มีตัวเลือกที่ถูกครบทุกจุด ((2,−4) ของข้อ 1 ไม่อยู่บนเส้น) — key เว้นขีด"
     },
     {
       "id": "chap-09-vector-q17",
@@ -1136,6 +1846,121 @@
         "$21$"
       ],
       "hasImage": false,
+      "imageSpec": {
+        "type": "polygon-labeled",
+        "width": 300,
+        "height": 200,
+        "vertices": {
+          "O": [
+            150,
+            150
+          ],
+          "P": [
+            240,
+            30
+          ],
+          "F": [
+            240,
+            150
+          ],
+          "xL": [
+            40,
+            150
+          ],
+          "xR": [
+            280,
+            150
+          ],
+          "yT": [
+            150,
+            30
+          ],
+          "yB": [
+            150,
+            195
+          ]
+        },
+        "vertexLabels": {
+          "O": {
+            "text": " "
+          },
+          "P": {
+            "text": " "
+          },
+          "F": {
+            "text": " "
+          },
+          "xL": {
+            "text": " "
+          },
+          "xR": {
+            "text": " "
+          },
+          "yT": {
+            "text": " "
+          },
+          "yB": {
+            "text": " "
+          }
+        },
+        "sides": [
+          {
+            "from": "xL",
+            "to": "xR",
+            "arrows": "end"
+          },
+          {
+            "from": "yB",
+            "to": "yT",
+            "arrows": "end"
+          },
+          {
+            "from": "O",
+            "to": "P",
+            "arrows": "end",
+            "label": "5",
+            "labelOffset": {
+              "dx": -13,
+              "dy": -4
+            }
+          },
+          {
+            "from": "F",
+            "to": "P",
+            "style": "dashed",
+            "label": "4",
+            "labelOffset": {
+              "dx": 13,
+              "dy": 0
+            }
+          }
+        ],
+        "angleMarks": [
+          {
+            "at": "O",
+            "from": "xR",
+            "to": "P",
+            "type": "arc",
+            "radius": 26,
+            "label": "θ",
+            "labelDistance": 40
+          }
+        ],
+        "annotations": [
+          {
+            "x": 195,
+            "y": 168,
+            "text": "3",
+            "fontSize": 13
+          },
+          {
+            "x": 248,
+            "y": 26,
+            "text": "(a, b)",
+            "fontSize": 13
+          }
+        ]
+      },
       "sourceTag": "Entrance มี.ค.2544",
       "correct": 1,
       "explanation": [
@@ -1145,6 +1970,7 @@
         "ถ้า $\\cos\\theta = \\dfrac{3}{5}$ และส่วนประกอบทั้งคู่เป็นบวก แสดงว่า $\\overline{u}$ อยู่ในแนวสามเหลี่ยม $3$-$4$-$5$: $\\overline{u} = k(3, 4)$ , $k > 0$",
         "",
         "<b>🎯 เป้าหมาย</b> ใช้มุมกำหนดแนวของ $\\overline{u}$ แล้วใช้ dot product หาตัวคูณ $k$",
+        "[IMAGE]",
         "",
         "<b>ขั้นที่ 1:</b> จาก $\\cos\\theta = \\dfrac{a}{\\sqrt{a^2+b^2}} = \\dfrac{3}{5}$",
         "และ $a, b > 0$",
@@ -1352,7 +2178,8 @@
         "",
         "<b>🎯 เป้าหมาย</b> ไล่เช็คทีละข้อความ หาข้อที่ผิด",
         "",
-        "<b>【 วิธีที่ 1 ▸ พื้นฐาน 】</b>",
+        "<b>【 วิธีที่ 1 ▸ พื้นฐาน · ตรวจทีละข้อความตามนิยาม (check each claim) 】</b>",
+        "",
         "<b>ขั้นที่ 1:</b> ข้อความ 1 — เช็คมุมฉาก: $\\overrightarrow{AB} \\cdot \\overrightarrow{AC} = (2)(-3) + (2)(3) = 0$ ✓ มุมฉากที่ $A$",
         "พื้นที่ $= \\dfrac{1}{2}|\\overrightarrow{AB}||\\overrightarrow{AC}| = \\dfrac{1}{2}(2\\sqrt{2})(3\\sqrt{2}) = \\dfrac{1}{2}(12) = 6$ ✓ จริง",
         "",
@@ -1371,7 +2198,8 @@
         "$|\\overline{w}| = |(1, 3)| = \\sqrt{10}$",
         "และ $|-3\\overline{i} - \\overline{j}| = \\sqrt{9+1} = \\sqrt{10}$ เท่ากัน ✓ จริง",
         "",
-        "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ 】</b>",
+        "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ · สูตรผลต่างแทนเจนต์ (tangent subtraction) 】</b>",
+        "",
         "เช็คข้อความ 2 เร็วด้วยมุมเอียง: $\\overline{v} = (1, 3)$ ทำมุม $\\arctan 3$ กับแกน $x$ ส่วน $\\overline{u} = (2, a)$ ต้องเบนห่าง $45°$",
         "$\\begin{aligned} \\tan(\\arctan 3 - 45°) &= \\dfrac{3 - 1}{1 + (3)(1)} \\\\ &= \\dfrac{1}{2} \\end{aligned}$",
         "→ $\\dfrac{a}{2} = \\dfrac{1}{2}$ → $a = 1$ (อีกฝั่ง $\\arctan 3 + 45°$ ให้ $a = -4$ แต่ dot $= 2 + 3a < 0$ เป็นมุมป้าน ตัดทิ้ง)",
@@ -1408,9 +2236,92 @@
         "ถ้า $\\overline{u} ,\\ \\overline{v}$ และ $\\overline{w}$ เป็นเวกเตอร์ใดๆ ในระนาบ\nเราสามารถเขียน $\\overline{w}$ ในรูปของ $\\overline{u}$ และ $\\overline{v}$ ได้เสมอ"
       ],
       "hasImage": false,
+      "imageSpec": {
+        "type": "polygon-labeled",
+        "width": 340,
+        "height": 182,
+        "vertices": {
+          "A": [
+            200,
+            38
+          ],
+          "B": [
+            105,
+            152
+          ],
+          "C": [
+            300,
+            152
+          ],
+          "D": [
+            202,
+            152
+          ],
+          "O": [
+            202,
+            114
+          ]
+        },
+        "vertexLabels": {
+          "A": {
+            "text": "A",
+            "dx": -3,
+            "dy": -8
+          },
+          "B": {
+            "text": "B",
+            "dx": -17,
+            "dy": 6
+          },
+          "C": {
+            "text": "C",
+            "dx": 8,
+            "dy": 6
+          },
+          "D": {
+            "text": "D",
+            "dx": -3,
+            "dy": 18
+          },
+          "O": {
+            "text": "O",
+            "dx": -16,
+            "dy": 4
+          }
+        },
+        "sides": [
+          {
+            "from": "A",
+            "to": "B",
+            "label": "c̄",
+            "labelOffset": {
+              "dx": -15,
+              "dy": -2
+            },
+            "arrows": "end"
+          },
+          {
+            "from": "A",
+            "to": "C",
+            "label": "b̄",
+            "labelOffset": {
+              "dx": 15,
+              "dy": -2
+            },
+            "arrows": "end"
+          },
+          {
+            "from": "B",
+            "to": "C"
+          },
+          {
+            "from": "A",
+            "to": "D",
+            "arrows": "end"
+          }
+        ]
+      },
       "sourceTag": "Entrance 2525",
-      "_needsImage": true,
-      "_needsImageReason": "ข้อความ 3 อ้างรูปสามเหลี่ยม ABC มีเวกเตอร์ c̄ (A→B), b̄ (A→C), O เซนทรอยด์ และเส้นจาก A ผ่าน O ไปจุด D บน BC",
       "correct": 4,
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
@@ -1574,9 +2485,66 @@
         "$(\\overrightarrow{A} \\cdot \\overrightarrow{B})^2 \\le (\\overrightarrow{A} \\cdot \\overrightarrow{A})(\\overrightarrow{B} \\cdot \\overrightarrow{B})$ เสมอ"
       ],
       "hasImage": false,
+      "imageSpec": {
+        "type": "polygon-labeled",
+        "width": 320,
+        "height": 230,
+        "vertices": {
+          "A": [
+            70,
+            180
+          ],
+          "B": [
+            225,
+            180
+          ],
+          "C": [
+            260,
+            60
+          ],
+          "D": [
+            105,
+            60
+          ]
+        },
+        "vertexLabels": {
+          "A": {
+            "dx": -16,
+            "dy": 12
+          },
+          "B": {
+            "dx": 10,
+            "dy": 12
+          },
+          "C": {
+            "dx": 12,
+            "dy": -4
+          },
+          "D": {
+            "dx": -16,
+            "dy": -4
+          }
+        },
+        "sides": [
+          {
+            "from": "A",
+            "to": "B"
+          },
+          {
+            "from": "B",
+            "to": "C"
+          },
+          {
+            "from": "C",
+            "to": "D"
+          },
+          {
+            "from": "D",
+            "to": "A"
+          }
+        ]
+      },
       "sourceTag": "Entrance 2522",
-      "_needsImage": true,
-      "_needsImageReason": "ข้อความ 4 อ้างรูปสี่เหลี่ยมด้านขนาน ABCD (A ล่างซ้าย, B ล่างขวา, C บนขวา, D บนซ้าย)",
       "correct": 1,
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
@@ -1630,6 +2598,98 @@
         "$\\overrightarrow{AB} \\cdot \\overrightarrow{BC} = \\dfrac{25\\sqrt{3}}{4}$"
       ],
       "hasImage": false,
+      "imageSpec": {
+        "type": "polygon-labeled",
+        "width": 300,
+        "height": 230,
+        "vertices": {
+          "A": [
+            96,
+            77
+          ],
+          "B": [
+            244,
+            162
+          ],
+          "C": [
+            244,
+            77
+          ],
+          "cL": [
+            85,
+            120
+          ],
+          "cR": [
+            255,
+            120
+          ]
+        },
+        "vertexLabels": {
+          "A": {
+            "text": "A",
+            "dx": -16,
+            "dy": -4
+          },
+          "B": {
+            "text": "B",
+            "dx": 9,
+            "dy": 7
+          },
+          "C": {
+            "text": "C",
+            "dx": 9,
+            "dy": -4
+          },
+          "cL": {
+            "text": " "
+          },
+          "cR": {
+            "text": " "
+          }
+        },
+        "ellipses": [
+          {
+            "from": "cL",
+            "to": "cR",
+            "minorRatio": 1
+          }
+        ],
+        "sides": [
+          {
+            "from": "A",
+            "to": "C",
+            "arrows": "end"
+          },
+          {
+            "from": "A",
+            "to": "B",
+            "arrows": "end"
+          },
+          {
+            "from": "C",
+            "to": "B",
+            "arrows": "end"
+          }
+        ],
+        "angleMarks": [
+          {
+            "at": "A",
+            "from": "C",
+            "to": "B",
+            "type": "arc",
+            "radius": 30,
+            "label": "30°",
+            "labelDistance": 44
+          },
+          {
+            "at": "C",
+            "from": "A",
+            "to": "B",
+            "type": "right",
+            "size": 11
+          }
+        ]
+      },
       "sourceTag": "Entrance 2532",
       "correct": 3,
       "explanation": [
@@ -1638,6 +2698,9 @@
         "มุมระหว่างเวกเตอร์ต้องวัดแบบ \"หางชนหาง\" — $\\overrightarrow{AB}$ กับ $\\overrightarrow{BC}$ หางไม่ชนกัน ต้องเลื่อนก่อน",
         "",
         "<b>🎯 เป้าหมาย</b> หาความยาวด้านทั้งสามของสามเหลี่ยมมุมฉาก แล้วเช็คแต่ละข้อ",
+        "[IMAGE]",
+        "",
+        "<b>【 วิธีที่ 1 ▸ พื้นฐาน · มุมในครึ่งวงกลม (angle in semicircle / Thales) 】</b>",
         "",
         "<b>ขั้นที่ 1:</b> หาเส้นผ่านศูนย์กลาง",
         "$\\begin{aligned} |\\overrightarrow{AB}| &= \\sqrt{(1-(-3))^2 + (2-5)^2} \\\\ &= \\sqrt{16+9} \\\\ &= 5 \\end{aligned}$",
@@ -1654,6 +2717,13 @@
         "<b>ขั้นที่ 4:</b> ข้อ 4 — มุมระหว่าง $\\overrightarrow{AB}$ กับ $\\overrightarrow{BC}$ คือมุมภายนอกที่ $B$ = $180° - 60° = 120°$",
         "$\\begin{aligned} \\overrightarrow{AB} \\cdot \\overrightarrow{BC} &= (5)\\left(\\dfrac{5}{2}\\right)\\cos 120° \\\\ &= \\dfrac{25}{2} \\cdot \\left(-\\dfrac{1}{2}\\right) \\\\ &= -\\dfrac{25}{4} \\ne \\dfrac{25\\sqrt{3}}{4} \\end{aligned}$",
         "→ ข้อ 4 ผิด ✗",
+        "",
+        "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ · หาพิกัด $C$ ตรง (brute-force coordinates) 】</b>",
+        "",
+        "หมุนเวกเตอร์หนึ่งหน่วยของ $\\overrightarrow{AB}$ ไป $30°$ เพื่อหาทิศ $\\overrightarrow{AC}$ แล้วยืดด้วย $|\\overrightarrow{AC}| = \\dfrac{5\\sqrt{3}}{2}$",
+        "$\\overrightarrow{AB} = (4, -3)$ หนึ่งหน่วย $= \\left(\\dfrac{4}{5}, -\\dfrac{3}{5}\\right)$ → หมุน $30°$ → $C = \\left(\\dfrac{3\\sqrt{3}}{4},\\ \\dfrac{11 + 4\\sqrt{3}}{4}\\right)$",
+        "แทนพิกัดตรง: $|\\overrightarrow{AC}| = \\dfrac{5\\sqrt{3}}{2}$ ✓ , $|\\overrightarrow{BC}| = \\dfrac{5}{2}$ ✓ , $\\overrightarrow{AC}\\cdot\\overrightarrow{BC} = 0$ ✓ , $\\overrightarrow{AB}\\cdot\\overrightarrow{BC} = -\\dfrac{25}{4}$ → ข้อ 4 ผิด",
+        "<b>ข้อต่าง:</b> ไม่พึ่งทฤษฎีมุมครึ่งวงกลมเลย — กดพิกัด $C$ จริงแล้วแทนทุกข้อ ได้คำตอบเดียวกัน แต่พิกัดเป็นกรณฑ์ซ้อน คำนวณยาว/เลอะกว่ามาก",
         "",
         "<b>✔ ตรวจคำตอบ</b> numpy สร้างพิกัดจริง (วาง $A$ ที่จุดกำเนิด $B = (5,0)$ มุม $A = 30°$): $\\overrightarrow{AC}\\cdot\\overrightarrow{BC} = 0$ ✓ และ $\\overrightarrow{AB}\\cdot\\overrightarrow{BC} = -6.25 = -\\dfrac{25}{4}$ ✓ ผิดจากที่ข้อ 4 อ้างจริง",
         "",
@@ -1686,21 +2756,276 @@
         "$1.75$"
       ],
       "hasImage": false,
+      "imageSpec": [
+        {
+          "type": "polygon-labeled",
+          "width": 224,
+          "height": 182,
+          "vertices": {
+            "O": [
+              45,
+              165
+            ],
+            "P": [
+              105,
+              61
+            ],
+            "R": [
+              105,
+              165
+            ],
+            "Q": [
+              165,
+              96
+            ],
+            "XT": [
+              210,
+              165
+            ],
+            "YT": [
+              45,
+              16
+            ]
+          },
+          "vertexLabels": {
+            "O": {
+              "text": "O",
+              "dx": -14,
+              "dy": 16
+            },
+            "P": {
+              "text": "P",
+              "dx": -3,
+              "dy": -8
+            },
+            "R": {
+              "text": "R",
+              "dx": -4,
+              "dy": 17
+            },
+            "Q": {
+              "text": "Q",
+              "dx": 8,
+              "dy": 3
+            },
+            "XT": {
+              "text": "x",
+              "dx": 4,
+              "dy": 5
+            },
+            "YT": {
+              "text": "y",
+              "dx": -4,
+              "dy": -3
+            }
+          },
+          "sides": [
+            {
+              "from": "O",
+              "to": "XT",
+              "arrows": "end"
+            },
+            {
+              "from": "O",
+              "to": "YT",
+              "arrows": "end"
+            },
+            {
+              "from": "O",
+              "to": "P",
+              "label": "$\\sqrt{3}$",
+              "labelOffset": {
+                "dx": -15,
+                "dy": 0
+              }
+            },
+            {
+              "from": "P",
+              "to": "R"
+            },
+            {
+              "from": "P",
+              "to": "Q",
+              "label": "1",
+              "labelOffset": {
+                "dx": 6,
+                "dy": -9
+              }
+            }
+          ],
+          "angleMarks": [
+            {
+              "at": "O",
+              "from": "XT",
+              "to": "P",
+              "type": "arc",
+              "radius": 26,
+              "label": "60°",
+              "labelDistance": 40
+            },
+            {
+              "at": "R",
+              "from": "P",
+              "to": "O",
+              "type": "right",
+              "size": 9
+            },
+            {
+              "at": "P",
+              "from": "O",
+              "to": "Q",
+              "type": "right",
+              "size": 9
+            }
+          ]
+        },
+        {
+          "type": "polygon-labeled",
+          "width": 270,
+          "height": 230,
+          "vertices": {
+            "O": [
+              55,
+              200
+            ],
+            "P": [
+              120,
+              87
+            ],
+            "R": [
+              120,
+              200
+            ],
+            "Q": [
+              181,
+              122
+            ],
+            "Pup": [
+              120,
+              30
+            ],
+            "XT": [
+              235,
+              200
+            ],
+            "YT": [
+              55,
+              18
+            ]
+          },
+          "vertexLabels": {
+            "O": {
+              "text": "O",
+              "dx": -14,
+              "dy": 16
+            },
+            "P": {
+              "text": "P",
+              "dx": -13,
+              "dy": 0
+            },
+            "Q": {
+              "text": "Q",
+              "dx": 8,
+              "dy": 4
+            },
+            "R": {
+              "text": "R",
+              "dx": -4,
+              "dy": 18
+            },
+            "Pup": {
+              "text": " "
+            },
+            "XT": {
+              "text": "x",
+              "dx": 4,
+              "dy": 5
+            },
+            "YT": {
+              "text": "y",
+              "dx": -4,
+              "dy": -3
+            }
+          },
+          "sides": [
+            {
+              "from": "O",
+              "to": "XT",
+              "arrows": "end"
+            },
+            {
+              "from": "O",
+              "to": "YT",
+              "arrows": "end"
+            },
+            {
+              "from": "O",
+              "to": "P",
+              "arrows": "end",
+              "label": "$\\sqrt{3}$",
+              "labelOffset": {
+                "dx": -16,
+                "dy": -2
+              }
+            },
+            {
+              "from": "R",
+              "to": "P",
+              "arrows": "end"
+            },
+            {
+              "from": "P",
+              "to": "Pup",
+              "style": "dashed"
+            },
+            {
+              "from": "P",
+              "to": "Q",
+              "arrows": "end",
+              "label": "1",
+              "labelOffset": {
+                "dx": 6,
+                "dy": -10
+              }
+            }
+          ],
+          "angleMarks": [
+            {
+              "at": "P",
+              "from": "Pup",
+              "to": "Q",
+              "type": "arc",
+              "radius": 24,
+              "label": "120°",
+              "labelDistance": 40
+            },
+            {
+              "at": "P",
+              "from": "R",
+              "to": "Q",
+              "type": "arc",
+              "radius": 15,
+              "label": "60°",
+              "labelDistance": 30
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance 2532",
-      "_needsImage": true,
-      "_needsImageReason": "รูปแกน x-y: OP ยาว √3 ทำมุม 60°, R เท้าฉากจาก P บนแกน x (มีเครื่องหมายมุมฉากที่ R), PQ ยาว 1 ตั้งฉากกับ OP ชี้ลงขวา (มีเครื่องหมายมุมฉากที่ P) — จำเป็นต่อการเข้าใจโจทย์",
       "correct": 1,
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
-        "จากรูป: $O$ คือจุดกำเนิด, $\\overrightarrow{OP}$ ยาว $\\sqrt{3}$ ทำมุม $60°$ กับแกน $x$, $R$ คือเท้าของเส้นตั้งฉากจาก $P$ ลงแกน $x$ และ $\\overrightarrow{PQ}$ ยาว $1$ ตั้งฉากกับ $\\overrightarrow{OP}$ (ชี้ลงทางขวา)",
+        "จากรูป: $O$ คือจุดกำเนิด, $\\overrightarrow{OP}$ ยาว $\\sqrt{3}$ ทำมุม $60°$ กับแกน $x$, $R$ คือจุดปลายเส้นตั้งฉากจาก $P$ ลงแกน $x$ และ $\\overrightarrow{PQ}$ ยาว $1$ ตั้งฉากกับ $\\overrightarrow{OP}$ (ชี้ลงทางขวา)",
         "วางพิกัดทุกจุดก่อน แล้วค่อย dot",
         "",
         "<b>🎯 เป้าหมาย</b> หาพิกัด $P, Q, R$ จากรูป แล้วคำนวณ $\\overrightarrow{PQ} \\cdot \\overrightarrow{RQ}$",
+        "[IMAGE:1]",
         "",
         "<b>ขั้นที่ 1:</b> พิกัด $P$ — ยาว $\\sqrt{3}$ มุม $60°$:",
         "$\\begin{aligned} P &= \\left(\\sqrt{3}\\cos 60°, \\sqrt{3}\\sin 60°\\right) \\\\ &= \\left(\\dfrac{\\sqrt{3}}{2}, \\dfrac{3}{2}\\right) \\end{aligned}$",
         "",
-        "<b>ขั้นที่ 2:</b> พิกัด $R$ — เท้าฉากบนแกน $x$: $R = \\left(\\dfrac{\\sqrt{3}}{2}, 0\\right)$",
+        "<b>ขั้นที่ 2:</b> พิกัด $R$ — จุดปลายเส้นตั้งฉากบนแกน $x$: $R = \\left(\\dfrac{\\sqrt{3}}{2}, 0\\right)$",
         "",
         "<b>ขั้นที่ 3:</b> พิกัด $Q$ — $\\overrightarrow{PQ}$ ตั้งฉากกับ $\\overrightarrow{OP}$ ยาว 1 ชี้ลงขวา",
         "ทิศของ $\\overrightarrow{OP}$ คือ $(\\cos 60°, \\sin 60°)$ → ทิศตั้งฉาก (หมุนตามเข็ม $90°$) คือ $(\\sin 60°, -\\cos 60°) = \\left(\\dfrac{\\sqrt{3}}{2}, -\\dfrac{1}{2}\\right)$",
@@ -1791,6 +3116,59 @@
         "ก. ผิด และ ข. ผิด"
       ],
       "hasImage": false,
+      "imageSpec": {
+        "type": "polygon-labeled",
+        "width": 370,
+        "height": 225,
+        "vertices": {
+          "A": [
+            55,
+            180
+          ],
+          "B": [
+            190,
+            45
+          ],
+          "C": [
+            325,
+            150
+          ]
+        },
+        "vertexLabels": {
+          "A": {
+            "text": "A",
+            "dx": -18,
+            "dy": 6
+          },
+          "B": {
+            "text": "B",
+            "dx": -4,
+            "dy": -12
+          },
+          "C": {
+            "text": "C",
+            "dx": 12,
+            "dy": 6
+          }
+        },
+        "sides": [
+          {
+            "from": "A",
+            "to": "B",
+            "arrows": "end"
+          },
+          {
+            "from": "B",
+            "to": "C",
+            "arrows": "end"
+          },
+          {
+            "from": "C",
+            "to": "A",
+            "arrows": "end"
+          }
+        ]
+      },
       "sourceTag": "Entrance ต.ค.2547",
       "correct": 1,
       "explanation": [
@@ -1799,6 +3177,7 @@
         "กฎโคไซน์: $(BC)^2 = (CA)^2 + (AB)^2 - 2(CA)(AB)\\cos A$ — เครื่องหมายของพจน์สุดท้ายขึ้นกับมุม $A$",
         "",
         "<b>🎯 เป้าหมาย</b> เช็ค ก. ด้วยกฎลูกโซ่ และลองหาตัวอย่างค้านของ ข.",
+        "[IMAGE]",
         "",
         "<b>ขั้นที่ 1:</b> ข้อความ ก.",
         "$\\overrightarrow{AB} + \\overrightarrow{BC} + \\overrightarrow{CA}$ คือการเดิน $A \\to B \\to C \\to A$ กลับมาจุดเริ่มต้น = $\\overline{0}$ ✓ ถูกเสมอ",
@@ -1895,13 +3274,16 @@
         "",
         "<b>🎯 เป้าหมาย</b> ใช้กฎสี่เหลี่ยมด้านขนานหา $|\\overline{u}-\\overline{v}|$ ตรง ๆ",
         "",
+        "<b>【 วิธีที่ 1 ▸ พื้นฐาน · กฎสี่เหลี่ยมด้านขนาน (parallelogram law) 】</b>",
+        "",
         "<b>ขั้นที่ 1:</b> แทนค่าที่รู้",
         "$\\begin{aligned} 6^2 + |\\overline{u}-\\overline{v}|^2 &= 2(4^2 + 3^2) \\\\ &= 2(25) \\\\ &= 50 \\end{aligned}$",
         "",
         "<b>ขั้นที่ 2:</b> แก้หา",
         "$|\\overline{u}-\\overline{v}|^2 = 50 - 36 = 14$ → $|\\overline{u}-\\overline{v}| = \\sqrt{14}$",
         "",
-        "<b>🔄 วิธีอื่น: หา dot ก่อน</b>",
+        "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ · หา dot ก่อน (dot product) 】</b>",
+        "",
         "$\\begin{aligned} |\\overline{u}+\\overline{v}|^2 &= 16 + 9 + 2\\,\\overline{u}\\cdot\\overline{v} \\\\ &= 36 \\end{aligned}$",
         "→ $\\overline{u}\\cdot\\overline{v} = \\dfrac{11}{2}$",
         "แล้ว",
@@ -2361,6 +3743,8 @@
         "",
         "<b>🎯 เป้าหมาย</b> หาพิกัด $C$ ก่อน แล้วไล่เช็คตัวเลือก",
         "",
+        "<b>【 วิธีที่ 1 ▸ พื้นฐาน · พารามิเตอร์บนเส้นตรง (parametric form) 】</b>",
+        "",
         "<b>ขั้นที่ 1:</b> เขียน $C$ ในรูปพารามิเตอร์",
         "$\\overrightarrow{AB} = (-4, 2)$ → $C = (3 - 4t,\\ 2 + 2t)$",
         "",
@@ -2379,6 +3763,14 @@
         "✗",
         "ข้อ 3: $|\\overrightarrow{AB}| = \\sqrt{20} \\approx 4.47$ แต่ $|\\overrightarrow{AC}| = \\left|\\left(-\\dfrac{13}{2}, \\dfrac{13}{4}\\right)\\right| = \\dfrac{13\\sqrt{5}}{4} \\approx 7.27$ → ✗",
         "ข้อ 4: $|\\overrightarrow{OA}| = \\sqrt{13} \\approx 3.61$ แต่ $|\\overrightarrow{OC}| = \\sqrt{\\dfrac{49}{4} + \\dfrac{441}{16}} \\approx 6.31$ → ✗",
+        "",
+        "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ · จุดตัดของสองเส้นตรง (intersection of two lines) 】</b>",
+        "",
+        "$C$ คือจุดบนเส้น $AB$ ที่ทำให้ $\\overrightarrow{OC} \\perp \\overrightarrow{OA}$ — มองเป็นจุดตัดของสองเส้นตรง",
+        "เส้น $AB$ (ผ่าน $A(3, 2)$ และ $B(-1, 4)$): $x + 2y = 7$",
+        "เส้นผ่าน $O$ ที่ตั้งฉากกับ $\\overrightarrow{OA} = (3, 2)$: $3x + 2y = 0$",
+        "แก้ระบบ — ลบกัน: $-2x = 7$ → $C = \\left(-\\dfrac{7}{2}, \\dfrac{21}{4}\\right)$ (ตรงกับ ว.1)",
+        "<b>ข้อต่าง:</b> ไม่ใช้พารามิเตอร์ $t$ — แปลงเงื่อนไขเป็นสมการเส้นตรงสองเส้นแล้วหาจุดตัด เห็นภาพเรขาคณิตชัด (เส้น $AB$ พบเส้นตั้งฉาก $OA$) แต่ต้องตั้งสมการเส้นตรงเป็นก่อน",
         "",
         "<b>✔ ตรวจคำตอบ</b> numpy: $\\overrightarrow{OC}\\cdot\\overrightarrow{OA} = 0$ ✓ , $\\overrightarrow{OC}\\cdot\\overrightarrow{AB} = 24.5 = \\dfrac{49}{2}$ ✓",
         "",
@@ -2420,7 +3812,8 @@
         "",
         "<b>🎯 เป้าหมาย</b> หมุน $\\overrightarrow{AB}$ รอบจุด $A$ (ไม่ใช่รอบจุดกำเนิด!) แล้วหาพิกัด $C$",
         "",
-        "<b>【 วิธีที่ 1 ▸ พื้นฐาน 】</b>",
+        "<b>【 วิธีที่ 1 ▸ พื้นฐาน · เมทริกซ์การหมุน (rotation matrix) 】</b>",
+        "",
         "<b>ขั้นที่ 1:</b> หา $\\overrightarrow{AB}$",
         "$\\overrightarrow{AB} = (4-3,\\ 1-0) = (1, 1)$",
         "",
@@ -2433,7 +3826,8 @@
         "<b>ขั้นที่ 4:</b> หา $a + b$ — พจน์ $\\sqrt{3}$ หักล้างกันพอดี:",
         "$\\begin{aligned} a + b &= \\dfrac{5 - \\sqrt{3} + \\sqrt{3} - 1}{2} \\\\ &= \\dfrac{4}{2} \\\\ &= 2 \\end{aligned}$",
         "",
-        "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ 】</b>",
+        "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ · จำนวนเชิงซ้อน cis (complex number) 】</b>",
+        "",
         "<b>ขั้นที่ 1:</b> แทนเวกเตอร์ $\\overrightarrow{AB} = (1, 1)$ ด้วยจำนวนเชิงซ้อน $1 + i$ การหมุนทวนเข็ม $120°$ คือการคูณด้วย $\\cos 120° + i\\sin 120° = -\\dfrac{1}{2} + \\dfrac{\\sqrt{3}}{2}\\,i$",
         "<b>ขั้นที่ 2:</b> คูณจำนวนเชิงซ้อน",
         "$\\begin{aligned} \\overrightarrow{AC} &= (1 + i)\\left(-\\dfrac{1}{2} + \\dfrac{\\sqrt{3}}{2}\\,i\\right) \\\\ &= \\dfrac{-1-\\sqrt{3}}{2} + \\dfrac{\\sqrt{3}-1}{2}\\,i \\end{aligned}$",
@@ -2538,7 +3932,8 @@
         "",
         "<b>🎯 เป้าหมาย</b> คำนวณเวกเตอร์ด้านทั้งหมด แล้วไล่เช็ค 5 ข้อความ",
         "",
-        "<b>【 วิธีที่ 1 ▸ พื้นฐาน 】</b>",
+        "<b>【 วิธีที่ 1 ▸ พื้นฐาน · คำนวณตรวจทุกข้อความ (direct check) 】</b>",
+        "",
         "<b>ขั้นที่ 1:</b> เวกเตอร์ด้าน",
         "$\\overrightarrow{AB} = (4, -6)$ , $\\overrightarrow{AC} = (6, 4)$",
         "ข้อ 1: $\\overrightarrow{AB}\\cdot\\overrightarrow{AC} = 24 - 24 = 0$ → มุมฉากที่ $A$ ✓ จริง",
@@ -2557,7 +3952,8 @@
         "<b>ขั้นที่ 5:</b> ข้อ 5 — $E = \\left(\\dfrac{3+5}{2}, \\dfrac{-4+6}{2}\\right) = (4, 1)$ → $\\overrightarrow{AE} = (5, -1)$ ขนาด $\\sqrt{26}$",
         "หนึ่งหน่วย $= \\left(\\dfrac{5}{\\sqrt{26}}, -\\dfrac{1}{\\sqrt{26}}\\right)$ ✓ จริง",
         "",
-        "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ 】</b>",
+        "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ · ย้อนหาที่มาตัวเลือก (back-solve choices) 】</b>",
+        "",
         "จับที่มาของตัวเลขในข้อ 4:",
         "$\\begin{aligned} \\dfrac{2\\sqrt{13}}{13} &= \\dfrac{2}{\\sqrt{13}} \\\\ &= \\dfrac{4}{\\sqrt{52}} \\end{aligned}$",
         "— นี่คือโคไซน์ของมุมระหว่าง $\\overrightarrow{AB} = (4, -6)$ กับ \"แกน $x$\" (ส่วนประกอบ $x$ หารขนาด)",
@@ -2604,7 +4000,8 @@
         "",
         "<b>🎯 เป้าหมาย</b> หา $\\cos\\hat{A}$ แล้วเทียบกับค่าขอบช่วง",
         "",
-        "<b>【 วิธีที่ 1 ▸ พื้นฐาน 】</b>",
+        "<b>【 วิธีที่ 1 ▸ พื้นฐาน · ผลคูณจุดและขนาด (dot product) 】</b>",
+        "",
         "<b>ขั้นที่ 1:</b> คำนวณ dot และขนาด",
         "$\\begin{aligned} \\overrightarrow{AB}\\cdot\\overrightarrow{AC} &= (3)(4) + (3)(2) \\\\ &= 18 \\end{aligned}$",
         "$\\begin{aligned} |\\overrightarrow{AB}| &= 3\\sqrt{2} ,\\ |\\overrightarrow{AC}| \\\\ &= \\sqrt{20} \\\\ &= 2\\sqrt{5} \\end{aligned}$",
@@ -2616,7 +4013,8 @@
         "$0.9487 > 0.866 = \\cos 30°$ และ $\\cos$ เป็นฟังก์ชันลด → $\\hat{A} < 30°$",
         "(ค่าจริง $\\hat{A} = \\arccos\\dfrac{3}{\\sqrt{10}} \\approx 18.4°$)",
         "",
-        "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ 】</b>",
+        "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ · เทียบมุมเอียงด้วยแทนเจนต์ (slope angle) 】</b>",
+        "",
         "มุมเอียงกับแกน $x$: $\\overrightarrow{AB} = (3, 3)$ ทำมุม $45°$ และ $\\overrightarrow{AC} = (4, 2)$ ทำมุม $\\arctan\\dfrac{1}{2}$",
         "$\\begin{aligned} \\tan\\hat{A} &= \\tan\\left(45° - \\arctan\\dfrac12\\right) \\\\ &= \\dfrac{1 - \\frac12}{1 + \\frac12} \\\\ &= \\dfrac{1}{3} \\end{aligned}$",
         "$\\dfrac{1}{3} < \\dfrac{1}{\\sqrt{3}} = \\tan 30°$ และเป็นบวก → $0° < \\hat{A} < 30°$ → ตัวเลือก 1",
@@ -2663,7 +4061,8 @@
         "",
         "<b>🎯 เป้าหมาย</b> หา $\\cos$ ของมุมระหว่าง $\\overrightarrow{AC}$ กับ $\\overrightarrow{BD}$ แล้วจับคู่กับตัวเลือก",
         "",
-        "<b>【 วิธีที่ 1 ▸ พื้นฐาน 】</b>",
+        "<b>【 วิธีที่ 1 ▸ พื้นฐาน · ผลคูณจุดของทแยงมุม (dot product) 】</b>",
+        "",
         "<b>ขั้นที่ 1:</b> หาเวกเตอร์ทแยงมุม",
         "$\\overrightarrow{AC} = (7-1,\\ 3-1) = (6, 2)$",
         "และ $\\overrightarrow{BD} = (6-(-1),\\ 5-(-2)) = (7, 7)$",
@@ -2677,7 +4076,8 @@
         "ดังนั้น $\\theta = \\arcsin\\dfrac{1}{\\sqrt{5}}$ → ตัวเลือก 1",
         "(ส่วน $\\arccos\\dfrac{1}{\\sqrt{5}}$ คือมุมข้างเคียง $\\approx 63.4°$ ไม่ใช่มุมนี้)",
         "",
-        "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ 】</b>",
+        "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ · ความชัน + ผลต่างแทนเจนต์ (slope / tangent) 】</b>",
+        "",
         "ใช้ความชัน: $\\overrightarrow{BD} = (7, 7)$ ชัน $1$ , $\\overrightarrow{AC} = (6, 2)$ ชัน $\\dfrac{1}{3}$",
         "สูตรมุมระหว่างเส้น:",
         "$\\begin{aligned} \\tan\\theta &= \\left|\\dfrac{1 - \\frac13}{1 + (1)(\\frac13)}\\right| \\\\ &= \\dfrac{1}{2} \\end{aligned}$",
@@ -2811,6 +4211,82 @@
         "$4$"
       ],
       "hasImage": false,
+      "imageSpec": {
+        "type": "polygon-labeled",
+        "width": 360,
+        "height": 210,
+        "vertices": {
+          "L": [
+            60,
+            168
+          ],
+          "R": [
+            300,
+            168
+          ],
+          "T": [
+            300,
+            73
+          ]
+        },
+        "vertexLabels": {
+          "L": {
+            "text": " "
+          },
+          "R": {
+            "text": " "
+          },
+          "T": {
+            "text": " "
+          }
+        },
+        "sides": [
+          {
+            "from": "L",
+            "to": "R",
+            "label": "3",
+            "labelOffset": {
+              "dx": 0,
+              "dy": 16
+            }
+          },
+          {
+            "from": "R",
+            "to": "T",
+            "label": "1",
+            "labelOffset": {
+              "dx": 14
+            }
+          },
+          {
+            "from": "L",
+            "to": "T",
+            "label": "$\\sqrt{10}$",
+            "labelOffset": {
+              "dx": -8,
+              "dy": -12
+            }
+          }
+        ],
+        "angleMarks": [
+          {
+            "at": "L",
+            "from": "R",
+            "to": "T",
+            "type": "arc",
+            "radius": 36,
+            "label": "θ",
+            "labelDistance": 54
+          },
+          {
+            "at": "R",
+            "from": "T",
+            "to": "L",
+            "type": "right",
+            "size": 13
+          }
+        ]
+      },
       "sourceTag": "Entrance 2532",
       "correct": 2,
       "explanation": [
@@ -2819,6 +4295,7 @@
         "หรือหา $\\cos\\theta$ ก่อนแล้วแปลงเป็น $\\tan$ ผ่านสามเหลี่ยมมุมฉาก",
         "",
         "<b>🎯 เป้าหมาย</b> หาแนว $\\overline{u}$ → หา $\\tan\\theta$ → คูณ 9",
+        "[IMAGE]",
         "",
         "<b>ขั้นที่ 1:</b> หาแนว $\\overline{u}$",
         "$\\overline{u} \\perp (1, -2)$: $a - 2b = 0$ → $a = 2b$ → $\\overline{u} = b(2, 1)$ โดย $b > 0$ ใช้ตัวแทน $(2, 1)$",
@@ -2910,6 +4387,79 @@
         "$\\dfrac{\\sqrt{5}}{2\\sqrt{2}}$"
       ],
       "hasImage": false,
+      "imageSpec": {
+        "type": "polygon-labeled",
+        "width": 380,
+        "height": 245,
+        "vertices": {
+          "C": [
+            315,
+            150
+          ],
+          "A": [
+            178,
+            48
+          ],
+          "B": [
+            55,
+            218
+          ]
+        },
+        "vertexLabels": {
+          "A": {
+            "text": "A",
+            "dx": -4,
+            "dy": -10
+          },
+          "B": {
+            "text": "B",
+            "dx": -20,
+            "dy": 6
+          },
+          "C": {
+            "text": "C",
+            "dx": 12,
+            "dy": 6
+          }
+        },
+        "sides": [
+          {
+            "from": "A",
+            "to": "B"
+          },
+          {
+            "from": "C",
+            "to": "A",
+            "arrows": "end",
+            "label": "2",
+            "labelOffset": {
+              "dx": 4,
+              "dy": -12
+            }
+          },
+          {
+            "from": "C",
+            "to": "B",
+            "arrows": "end",
+            "label": "1",
+            "labelOffset": {
+              "dx": 2,
+              "dy": 16
+            }
+          }
+        ],
+        "angleMarks": [
+          {
+            "at": "C",
+            "from": "A",
+            "to": "B",
+            "type": "arc",
+            "radius": 32,
+            "label": "arccos ¼",
+            "labelDistance": 70
+          }
+        ]
+      },
       "sourceTag": "Entrance ต.ค.2545",
       "correct": 3,
       "explanation": [
@@ -2919,8 +4469,10 @@
         "$\\begin{aligned} \\overrightarrow{CA}\\cdot\\overrightarrow{CB} &= |\\overrightarrow{CA}||\\overrightarrow{CB}|\\cos B\\hat{C}A \\\\ &= (2)(1)\\left(\\dfrac{1}{4}\\right) \\\\ &= \\dfrac{1}{2} \\end{aligned}$",
         "",
         "<b>🎯 เป้าหมาย</b> หา $\\overline{u}\\cdot\\overrightarrow{CB}$ และ $|\\overline{u}|$ ด้วยพีชคณิต dot ล้วน ๆ",
+        "[IMAGE]",
         "",
-        "<b>【 วิธีที่ 1 ▸ พื้นฐาน 】</b>",
+        "<b>【 วิธีที่ 1 ▸ พื้นฐาน · ผลคูณจุดตามนิยาม (dot product) 】</b>",
+        "",
         "<b>ขั้นที่ 1:</b> หา $\\overline{u} \\cdot \\overrightarrow{CB}$",
         "$\\begin{aligned} \\overline{u}\\cdot\\overrightarrow{CB} &= \\dfrac{1}{3}\\left(\\overrightarrow{CA}\\cdot\\overrightarrow{CB} + 2|\\overrightarrow{CB}|^2\\right) \\\\ &= \\dfrac{1}{3}\\left(\\dfrac{1}{2} + 2\\right) \\\\ &= \\dfrac{5}{6} \\end{aligned}$",
         "",
@@ -2934,7 +4486,8 @@
         "$\\begin{aligned} \\dfrac{\\sqrt{5}}{2\\sqrt{2}} &= \\dfrac{\\sqrt{5}\\cdot\\sqrt{2}}{4} \\\\ &= \\dfrac{\\sqrt{10}}{4} \\end{aligned}$",
         "ตรงกัน)",
         "",
-        "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ 】</b>",
+        "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ · วางพิกัดจริง (coordinate placement) 】</b>",
+        "",
         "วางพิกัดจริง: $C(0,0) ,\\ B(1,0)$ และ",
         "$\\begin{aligned} A &= 2(\\cos C, \\sin C) \\\\ &= \\left(\\dfrac12, \\dfrac{\\sqrt{15}}{2}\\right) \\end{aligned}$",
         "(จาก $\\cos C = \\frac14$ → $\\sin C = \\frac{\\sqrt{15}}{4}$)",
@@ -3178,7 +4731,8 @@
         "",
         "<b>🎯 เป้าหมาย</b> พิสูจน์สูตรจุดกึ่งกลาง แล้วจัดรูปให้ตรงตัวเลือก",
         "",
-        "<b>【 วิธีที่ 1 ▸ พื้นฐาน 】</b>",
+        "<b>【 วิธีที่ 1 ▸ พื้นฐาน · แตกเวกเตอร์ตามเส้นทาง (path decomposition) 】</b>",
+        "",
         "<b>ขั้นที่ 1:</b> เขียน $C$ ผ่านเส้นทาง $P \\to A \\to C$",
         "$\\begin{aligned} \\overrightarrow{PC} &= \\overrightarrow{PA} + \\overrightarrow{AC} \\\\ &= \\overrightarrow{PA} + \\dfrac{1}{2}\\overrightarrow{AB} \\end{aligned}$",
         "",
@@ -3188,7 +4742,8 @@
         "<b>ขั้นที่ 3:</b> คูณ 2 ทั้งสองข้าง",
         "$2\\overrightarrow{PC} = \\overrightarrow{PA} + \\overrightarrow{PB}$ → ตรงตัวเลือก 3",
         "",
-        "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ 】</b>",
+        "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ · แทนค่าทดสอบจริง (test values) 】</b>",
+        "",
         "เลือกค่าทดสอบ: $A(0,0) ,\\ B(2,0) ,\\ C(1,0)$ และ $P(0,1)$ (จุดนอกเส้นจริงหนึ่งจุด)",
         "(หมายเหตุ: \"ค่าทดสอบ/ตัวอย่างทดสอบ\" คือตัวอย่างเฉพาะเจาะจงตัวเดียวที่ยกมาชี้ขาดข้อความ — ใช้<b>หักล้าง</b>ได้เสมอ เพราะตัวอย่างค้านตัวเดียวก็ทำให้ข้อความแบบ \"จริงทุกกรณี\" ผิดทันที ส่วนการใช้<b>ยืนยัน</b>คำตอบ ทำได้เมื่อข้อสอบรับประกันว่ามีคำตอบเดียว)",
         "$\\overrightarrow{PA} = (0,-1) ,\\ \\overrightarrow{PB} = (2,-1) ,\\ \\overrightarrow{PC} = (1,-1)$ → $\\overrightarrow{PA} + \\overrightarrow{PB} = (2, -2) = 2\\overrightarrow{PC}$ ✓ ตรงข้อ 3 ข้อเดียว",
@@ -3224,6 +4779,86 @@
         "$\\dfrac{14}{5}$"
       ],
       "hasImage": false,
+      "imageSpec": {
+        "type": "polygon-labeled",
+        "width": 385,
+        "height": 245,
+        "vertices": {
+          "C": [
+            55,
+            55
+          ],
+          "B": [
+            338,
+            60
+          ],
+          "A": [
+            285,
+            218
+          ],
+          "D": [
+            317,
+            123
+          ]
+        },
+        "vertexLabels": {
+          "C": {
+            "text": "C",
+            "dx": -20,
+            "dy": 6
+          },
+          "B": {
+            "text": "B",
+            "dx": 10,
+            "dy": 2
+          },
+          "A": {
+            "text": "A",
+            "dx": 4,
+            "dy": 16
+          },
+          "D": {
+            "text": "D",
+            "dx": 12,
+            "dy": 6
+          }
+        },
+        "sides": [
+          {
+            "from": "C",
+            "to": "B",
+            "arrows": "end"
+          },
+          {
+            "from": "C",
+            "to": "D",
+            "arrows": "end"
+          },
+          {
+            "from": "C",
+            "to": "A",
+            "arrows": "end"
+          },
+          {
+            "from": "B",
+            "to": "D",
+            "label": "2",
+            "labelOffset": {
+              "dx": 13,
+              "dy": -2
+            }
+          },
+          {
+            "from": "D",
+            "to": "A",
+            "label": "3",
+            "labelOffset": {
+              "dx": 13,
+              "dy": -2
+            }
+          }
+        ]
+      },
       "sourceTag": "Entrance 2539",
       "correct": 2,
       "explanation": [
@@ -3232,6 +4867,7 @@
         "เส้นทางเวกเตอร์: $\\overrightarrow{CD} = \\overrightarrow{CA} + \\overrightarrow{AD}$",
         "",
         "<b>🎯 เป้าหมาย</b> หา $\\overrightarrow{AB}$ จากเวกเตอร์ที่ให้ แล้วเดินจาก $C$ ผ่าน $A$ ไป $D$",
+        "[IMAGE]",
         "",
         "<b>ขั้นที่ 1:</b> หา $\\overrightarrow{AB}$",
         "$\\begin{aligned} \\overrightarrow{AB} &= \\overrightarrow{CB} - \\overrightarrow{CA} \\\\ &= (2-3,\\ 3-(-2)) \\\\ &= (-1, 5) \\end{aligned}$",
@@ -3271,6 +4907,86 @@
         "$\\dfrac{153}{9}$"
       ],
       "hasImage": false,
+      "imageSpec": {
+        "type": "polygon-labeled",
+        "width": 385,
+        "height": 245,
+        "vertices": {
+          "O": [
+            55,
+            55
+          ],
+          "B": [
+            338,
+            60
+          ],
+          "A": [
+            295,
+            218
+          ],
+          "C": [
+            322,
+            112
+          ]
+        },
+        "vertexLabels": {
+          "O": {
+            "text": "O",
+            "dx": -22,
+            "dy": 5
+          },
+          "B": {
+            "text": "B",
+            "dx": 10,
+            "dy": 2
+          },
+          "A": {
+            "text": "A",
+            "dx": 4,
+            "dy": 16
+          },
+          "C": {
+            "text": "C",
+            "dx": 12,
+            "dy": 6
+          }
+        },
+        "sides": [
+          {
+            "from": "O",
+            "to": "B",
+            "arrows": "end"
+          },
+          {
+            "from": "O",
+            "to": "C",
+            "arrows": "end"
+          },
+          {
+            "from": "O",
+            "to": "A",
+            "arrows": "end"
+          },
+          {
+            "from": "B",
+            "to": "C",
+            "label": "1",
+            "labelOffset": {
+              "dx": 13,
+              "dy": -2
+            }
+          },
+          {
+            "from": "C",
+            "to": "A",
+            "label": "2",
+            "labelOffset": {
+              "dx": 13,
+              "dy": -2
+            }
+          }
+        ]
+      },
       "sourceTag": "Entrance มี.ค.2544",
       "correct": 0,
       "explanation": [
@@ -3279,6 +4995,7 @@
         "$\\overrightarrow{AB} = \\overrightarrow{OB} - \\overrightarrow{OA}$",
         "",
         "<b>🎯 เป้าหมาย</b> หา $\\overrightarrow{AC}$ จากสัดส่วนของ $\\overrightarrow{AB}$ แล้วประกอบเป็น $\\overrightarrow{OC}$",
+        "[IMAGE]",
         "",
         "<b>ขั้นที่ 1:</b> หา $\\overrightarrow{AB}$",
         "$\\overrightarrow{AB} = (2-3,\\ 5-(-2)) = (-1, 7)$",
@@ -3313,6 +5030,86 @@
       "score": 1,
       "question": "กำหนดจุด $A(3, -2) ,\\ B(9, 4)$ และ $O(0, 0)$\nถ้าแบ่งส่วนของเส้นตรง $AB$ เป็น $3$ ส่วนเท่าๆ กันที่จุด $C$ และ $D$\nแล้ว $\\overrightarrow{OC} \\cdot \\overrightarrow{OD}$ มีค่าเท่าใด",
       "hasImage": false,
+      "imageSpec": {
+        "type": "polygon-labeled",
+        "width": 385,
+        "height": 240,
+        "vertices": {
+          "O": [
+            345,
+            55
+          ],
+          "A": [
+            60,
+            90
+          ],
+          "C": [
+            125,
+            132
+          ],
+          "D": [
+            190,
+            173
+          ],
+          "B": [
+            255,
+            215
+          ]
+        },
+        "vertexLabels": {
+          "O": {
+            "text": "O",
+            "dx": 10,
+            "dy": 4
+          },
+          "A": {
+            "text": "A",
+            "dx": -18,
+            "dy": 2
+          },
+          "C": {
+            "text": "C",
+            "dx": -4,
+            "dy": 17
+          },
+          "D": {
+            "text": "D",
+            "dx": -4,
+            "dy": 17
+          },
+          "B": {
+            "text": "B",
+            "dx": 8,
+            "dy": 15
+          }
+        },
+        "sides": [
+          {
+            "from": "A",
+            "to": "B"
+          },
+          {
+            "from": "O",
+            "to": "A",
+            "arrows": "end"
+          },
+          {
+            "from": "O",
+            "to": "C",
+            "arrows": "end"
+          },
+          {
+            "from": "O",
+            "to": "D",
+            "arrows": "end"
+          },
+          {
+            "from": "O",
+            "to": "B",
+            "arrows": "end"
+          }
+        ]
+      },
       "sourceTag": "Entrance ต.ค.2543",
       "correct": "35",
       "accept": [
@@ -3325,8 +5122,10 @@
         "และ $D = A + \\dfrac{2}{3}\\overrightarrow{AB}$",
         "",
         "<b>🎯 เป้าหมาย</b> หาพิกัด $C, D$ แล้ว dot เวกเตอร์ตำแหน่ง",
+        "[IMAGE]",
         "",
-        "<b>【 วิธีที่ 1 ▸ พื้นฐาน 】</b>",
+        "<b>【 วิธีที่ 1 ▸ พื้นฐาน · หาพิกัดแล้วผลคูณจุด (coordinates + dot product) 】</b>",
+        "",
         "<b>ขั้นที่ 1:</b> หา $\\overrightarrow{AB}$",
         "$\\overrightarrow{AB} = (9-3,\\ 4-(-2)) = (6, 6)$ → หนึ่งในสามส่วนคือ $(2, 2)$",
         "",
@@ -3337,7 +5136,8 @@
         "<b>ขั้นที่ 3:</b> dot เวกเตอร์ตำแหน่ง",
         "$\\begin{aligned} \\overrightarrow{OC} \\cdot \\overrightarrow{OD} &= (5)(7) + (0)(2) \\\\ &= 35 \\end{aligned}$",
         "",
-        "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ 】</b>",
+        "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ · ใช้สมมาตรรอบจุดกึ่งกลาง (midpoint symmetry) 】</b>",
+        "",
         "<b>ขั้นที่ 1:</b> $C, D$ สมมาตรรอบจุดกึ่งกลาง $M$ ของ $AB$",
         "• $M = \\dfrac{A+B}{2} = (6, 1)$",
         "และ $\\overrightarrow{MD} = \\dfrac{1}{6}\\overrightarrow{AB} = (1, 1)$ โดยที่ $\\overrightarrow{OC} = \\overrightarrow{OM} - \\overrightarrow{MD},\\ \\overrightarrow{OD} = \\overrightarrow{OM} + \\overrightarrow{MD}$",
@@ -3377,6 +5177,86 @@
         "$\\dfrac{2}{\\sqrt{10}}$"
       ],
       "hasImage": false,
+      "imageSpec": {
+        "type": "polygon-labeled",
+        "width": 385,
+        "height": 245,
+        "vertices": {
+          "C": [
+            60,
+            70
+          ],
+          "B": [
+            335,
+            65
+          ],
+          "A": [
+            245,
+            225
+          ],
+          "D": [
+            305,
+            118
+          ]
+        },
+        "vertexLabels": {
+          "C": {
+            "text": "C",
+            "dx": -20,
+            "dy": 4
+          },
+          "B": {
+            "text": "B",
+            "dx": 10,
+            "dy": 2
+          },
+          "A": {
+            "text": "A",
+            "dx": 2,
+            "dy": 16
+          },
+          "D": {
+            "text": "D",
+            "dx": 12,
+            "dy": 6
+          }
+        },
+        "sides": [
+          {
+            "from": "C",
+            "to": "B",
+            "arrows": "end"
+          },
+          {
+            "from": "C",
+            "to": "D",
+            "arrows": "end"
+          },
+          {
+            "from": "C",
+            "to": "A",
+            "arrows": "end"
+          },
+          {
+            "from": "B",
+            "to": "D",
+            "label": "1",
+            "labelOffset": {
+              "dx": 13,
+              "dy": -2
+            }
+          },
+          {
+            "from": "D",
+            "to": "A",
+            "label": "2",
+            "labelOffset": {
+              "dx": 13,
+              "dy": -2
+            }
+          }
+        ]
+      },
       "sourceTag": "Entrance ต.ค.2544",
       "correct": 0,
       "explanation": [
@@ -3385,6 +5265,7 @@
         "ระวังทิศ: โจทย์ถามมุมระหว่าง $\\overrightarrow{CA}$ (จาก $C$ ไป $A$) กับ $\\overrightarrow{DC}$ (จาก $D$ ไป $C$) — ไม่ใช่คู่ที่ออกจากจุดเดียวกัน",
         "",
         "<b>🎯 เป้าหมาย</b> หาพิกัด $D$ แล้วคำนวณ dot ของคู่เวกเตอร์ตามที่โจทย์ระบุเป๊ะ ๆ",
+        "[IMAGE]",
         "",
         "<b>ขั้นที่ 1:</b> หา $D$",
         "$\\overrightarrow{AB} = (3, 9)$ → $\\overrightarrow{AD} = \\dfrac{2}{3}(3, 9) = (2, 6)$ → $D = (3, 7)$",
@@ -3425,6 +5306,97 @@
         "$\\dfrac{2}{\\sqrt{10}}$"
       ],
       "hasImage": false,
+      "imageSpec": {
+        "type": "polygon-labeled",
+        "width": 380,
+        "height": 245,
+        "vertices": {
+          "O": [
+            60,
+            60
+          ],
+          "A": [
+            330,
+            60
+          ],
+          "C": [
+            292,
+            100
+          ],
+          "B": [
+            180,
+            222
+          ]
+        },
+        "vertexLabels": {
+          "O": {
+            "text": "O",
+            "dx": -20,
+            "dy": 4
+          },
+          "A": {
+            "text": "A",
+            "dx": 10,
+            "dy": 2
+          },
+          "C": {
+            "text": "C",
+            "dx": 12,
+            "dy": 6
+          },
+          "B": {
+            "text": "B",
+            "dx": -6,
+            "dy": 18
+          }
+        },
+        "sides": [
+          {
+            "from": "O",
+            "to": "A",
+            "arrows": "end"
+          },
+          {
+            "from": "O",
+            "to": "C",
+            "arrows": "end"
+          },
+          {
+            "from": "O",
+            "to": "B",
+            "arrows": "end"
+          },
+          {
+            "from": "A",
+            "to": "C",
+            "label": "1",
+            "labelOffset": {
+              "dx": 14,
+              "dy": 2
+            }
+          },
+          {
+            "from": "C",
+            "to": "B",
+            "label": "3",
+            "labelOffset": {
+              "dx": 14,
+              "dy": 2
+            }
+          }
+        ],
+        "angleMarks": [
+          {
+            "at": "O",
+            "from": "C",
+            "to": "B",
+            "type": "arc",
+            "radius": 40,
+            "label": "θ",
+            "labelDistance": 58
+          }
+        ]
+      },
       "sourceTag": "Entrance 2541",
       "correct": 1,
       "explanation": [
@@ -3433,6 +5405,7 @@
         "มุม $COB$ คือมุมที่จุด $O$ ระหว่าง $\\overrightarrow{OC}$ กับ $\\overrightarrow{OB}$",
         "",
         "<b>🎯 เป้าหมาย</b> หาพิกัด $C$ แล้วใช้นิยาม dot หามุมที่ $O$",
+        "[IMAGE]",
         "",
         "<b>ขั้นที่ 1:</b> หา $C$",
         "$\\overrightarrow{AB} = (12, 4)$ → $C = (-10, 0) + \\dfrac{1}{4}(12, 4) = (-7, 1)$",
@@ -3473,6 +5446,86 @@
         "ก. ผิด และ ข. ผิด"
       ],
       "hasImage": false,
+      "imageSpec": {
+        "type": "polygon-labeled",
+        "width": 385,
+        "height": 245,
+        "vertices": {
+          "A": [
+            60,
+            70
+          ],
+          "B": [
+            330,
+            65
+          ],
+          "C": [
+            180,
+            225
+          ],
+          "D": [
+            280,
+            118
+          ]
+        },
+        "vertexLabels": {
+          "A": {
+            "text": "A",
+            "dx": -18,
+            "dy": 2
+          },
+          "B": {
+            "text": "B",
+            "dx": 10,
+            "dy": 2
+          },
+          "C": {
+            "text": "C",
+            "dx": -4,
+            "dy": 18
+          },
+          "D": {
+            "text": "D",
+            "dx": 12,
+            "dy": 6
+          }
+        },
+        "sides": [
+          {
+            "from": "A",
+            "to": "B",
+            "arrows": "end"
+          },
+          {
+            "from": "A",
+            "to": "D",
+            "arrows": "end"
+          },
+          {
+            "from": "A",
+            "to": "C",
+            "arrows": "end"
+          },
+          {
+            "from": "B",
+            "to": "D",
+            "label": "1",
+            "labelOffset": {
+              "dx": 13,
+              "dy": -2
+            }
+          },
+          {
+            "from": "D",
+            "to": "C",
+            "label": "2",
+            "labelOffset": {
+              "dx": 13,
+              "dy": 2
+            }
+          }
+        ]
+      },
       "sourceTag": "Entrance ต.ค.2546",
       "correct": 2,
       "explanation": [
@@ -3481,8 +5534,10 @@
         "สามเหลี่ยมด้านเท่า (ด้านยาว $s$): มุมระหว่างเวกเตอร์ $\\overrightarrow{AB}$ กับ $\\overrightarrow{BC}$ คือ $120°$ (มุมภายนอก) → $\\overrightarrow{AB}\\cdot\\overrightarrow{BC} = -\\dfrac{s^2}{2}$",
         "",
         "<b>🎯 เป้าหมาย</b> เขียน $\\overrightarrow{AD}$ ในรูป $\\overrightarrow{AB}, \\overrightarrow{BC}$ แล้วเช็คทั้งสองข้อความ",
+        "[IMAGE]",
         "",
-        "<b>【 วิธีที่ 1 ▸ พื้นฐาน 】</b>",
+        "<b>【 วิธีที่ 1 ▸ พื้นฐาน · แตกเวกเตอร์ตามด้าน (vector decomposition) 】</b>",
+        "",
         "<b>ขั้นที่ 1:</b> เขียน $\\overrightarrow{AD}$",
         "$\\begin{aligned} \\overrightarrow{AD} &= \\overrightarrow{AB} + \\overrightarrow{BD} \\\\ &= \\overrightarrow{AB} + \\dfrac{1}{3}\\overrightarrow{BC} \\end{aligned}$",
         "",
@@ -3498,7 +5553,8 @@
         "$\\begin{aligned} \\overrightarrow{AD}\\cdot\\overrightarrow{BC} &= -\\dfrac{s^2}{2} + \\dfrac{s^2}{3} \\\\ &= -\\dfrac{s^2}{6} \\\\ &= -\\dfrac{1}{6}|\\overrightarrow{BC}|^2 \\end{aligned}$",
         "✓ ข. ถูก",
         "",
-        "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ 】</b>",
+        "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ · แทนพิกัดด้านเท่าหน่วย (unit triangle) 】</b>",
+        "",
         "วางพิกัดด้านเท่า $s = 1$ (ทุกพจน์สเกลตามขนาดรูปพร้อมกัน จริง/เท็จไม่เปลี่ยน): $B(0,0) ,\\ C(1,0) ,\\ A\\left(\\dfrac12, \\dfrac{\\sqrt3}{2}\\right) ,\\ D\\left(\\dfrac13, 0\\right)$",
         "ก: $3\\overrightarrow{AD} = 3\\left(-\\dfrac16, -\\dfrac{\\sqrt3}{2}\\right) = \\left(-\\dfrac12, -\\dfrac{3\\sqrt3}{2}\\right)$ แต่ $2\\overrightarrow{AB} + \\overrightarrow{BC} = (-1, -\\sqrt3) + (1, 0) = (0, -\\sqrt3)$ → ไม่เท่ากัน ก ผิด ✗",
         "ข:",
@@ -3535,6 +5591,190 @@
         "$\\dfrac{6}{\\sqrt{2}}$"
       ],
       "hasImage": false,
+      "imageSpec": {
+        "type": "polygon-labeled",
+        "width": 400,
+        "height": 250,
+        "vertices": {
+          "O": [
+            215,
+            205
+          ],
+          "A": [
+            37,
+            180
+          ],
+          "Q": [
+            227,
+            121
+          ],
+          "P": [
+            179,
+            133
+          ],
+          "R": [
+            323,
+            97
+          ],
+          "Plo": [
+            145,
+            141
+          ],
+          "Rhi": [
+            357,
+            88
+          ],
+          "XL": [
+            20,
+            205
+          ],
+          "XR": [
+            390,
+            205
+          ],
+          "YB": [
+            215,
+            238
+          ],
+          "YT": [
+            215,
+            30
+          ]
+        },
+        "vertexLabels": {
+          "O": {
+            "text": "O",
+            "dx": -16,
+            "dy": 16
+          },
+          "A": {
+            "text": "A",
+            "dx": -16,
+            "dy": -2
+          },
+          "Q": {
+            "text": "Q",
+            "dx": 8,
+            "dy": -8
+          },
+          "P": {
+            "text": "P",
+            "dx": -14,
+            "dy": -6
+          },
+          "R": {
+            "text": "R",
+            "dx": 10,
+            "dy": 2
+          },
+          "Plo": {
+            "text": " "
+          },
+          "Rhi": {
+            "text": " "
+          },
+          "XL": {
+            "text": " "
+          },
+          "XR": {
+            "text": " "
+          },
+          "YB": {
+            "text": " "
+          },
+          "YT": {
+            "text": " "
+          }
+        },
+        "sides": [
+          {
+            "from": "XL",
+            "to": "XR",
+            "arrows": "end"
+          },
+          {
+            "from": "YB",
+            "to": "YT",
+            "arrows": "end"
+          },
+          {
+            "from": "Plo",
+            "to": "Rhi",
+            "style": "dashed"
+          },
+          {
+            "from": "O",
+            "to": "Q",
+            "arrows": "end"
+          },
+          {
+            "from": "O",
+            "to": "A",
+            "arrows": "end"
+          }
+        ],
+        "angleMarks": [
+          {
+            "at": "O",
+            "from": "A",
+            "to": "Q",
+            "type": "right",
+            "size": 10
+          }
+        ],
+        "shadeRegions": [
+          {
+            "parts": [
+              {
+                "circle": {
+                  "center": [
+                    179,
+                    133
+                  ],
+                  "r": 3.5
+                }
+              },
+              {
+                "circle": {
+                  "center": [
+                    227,
+                    121
+                  ],
+                  "r": 3.5
+                }
+              },
+              {
+                "circle": {
+                  "center": [
+                    323,
+                    97
+                  ],
+                  "r": 3.5
+                }
+              }
+            ],
+            "fill": "#222",
+            "op": 1,
+            "fillRule": "nonzero"
+          }
+        ],
+        "annotations": [
+          {
+            "x": 203,
+            "y": 118,
+            "text": "1",
+            "fontSize": 13,
+            "anchor": "middle"
+          },
+          {
+            "x": 275,
+            "y": 100,
+            "text": "2",
+            "fontSize": 13,
+            "anchor": "middle"
+          }
+        ]
+      },
       "sourceTag": "Entrance มี.ค.2545",
       "correct": 1,
       "explanation": [
@@ -3544,6 +5784,7 @@
         "และ $y > 0$ — เป็นเงื่อนไขเลือกทิศ",
         "",
         "<b>🎯 เป้าหมาย</b> หา $Q$ → หาแนวตั้งฉากกับ $\\overrightarrow{OQ}$ → ปรับขนาดเป็น 5 และเลือกทิศใน Q2",
+        "[IMAGE]",
         "",
         "<b>ขั้นที่ 1:</b> หา $Q$",
         "$\\overrightarrow{PR} = (4, 1)$ →",
@@ -3588,6 +5829,106 @@
         "$\\dfrac{11}{27}$"
       ],
       "hasImage": false,
+      "imageSpec": {
+        "type": "polygon-labeled",
+        "width": 460,
+        "height": 330,
+        "vertices": {
+          "A": [
+            60,
+            55
+          ],
+          "B": [
+            285,
+            295
+          ],
+          "C": [
+            395,
+            50
+          ],
+          "D": [
+            358,
+            132
+          ]
+        },
+        "vertexLabels": {
+          "A": {
+            "dx": -20,
+            "dy": -10,
+            "text": "A"
+          },
+          "B": {
+            "dx": -6,
+            "dy": 22
+          },
+          "C": {
+            "dx": 10,
+            "dy": 2
+          },
+          "D": {
+            "dx": 13,
+            "dy": 10
+          }
+        },
+        "sides": [
+          {
+            "from": "A",
+            "to": "B",
+            "arrows": "end"
+          },
+          {
+            "from": "A",
+            "to": "C",
+            "arrows": "end"
+          },
+          {
+            "from": "A",
+            "to": "D",
+            "arrows": "end"
+          },
+          {
+            "from": "B",
+            "to": "D",
+            "label": "2",
+            "labelOffset": {
+              "dx": 16,
+              "dy": 2
+            }
+          },
+          {
+            "from": "D",
+            "to": "C",
+            "label": "1",
+            "labelOffset": {
+              "dx": 16,
+              "dy": 0
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "x": 150,
+            "y": 150,
+            "text": "AB",
+            "fontSize": 13,
+            "anchor": "middle"
+          },
+          {
+            "x": 235,
+            "y": 78,
+            "text": "AC",
+            "fontSize": 13,
+            "anchor": "middle"
+          },
+          {
+            "x": 215,
+            "y": 120,
+            "text": "AD",
+            "fontSize": 13,
+            "anchor": "middle"
+          }
+        ]
+      },
       "sourceTag": "Entrance มี.ค.2547",
       "correct": 3,
       "explanation": [
@@ -3596,6 +5937,7 @@
         "มองจาก $A$: $\\overrightarrow{AD} = \\dfrac{1\\cdot\\overrightarrow{AB} + 2\\cdot\\overrightarrow{AC}}{3}$ (สูตรจุดแบ่ง สัมประสิทธิ์สลับข้าง)",
         "",
         "<b>🎯 เป้าหมาย</b> กระจาย $|\\overrightarrow{AD}|^2$ แล้วอ่านสัมประสิทธิ์ $a, b, c$",
+        "[IMAGE]",
         "",
         "<b>ขั้นที่ 1:</b> เขียน $\\overrightarrow{AD}$",
         "$\\begin{aligned} \\overrightarrow{AD} &= \\overrightarrow{AB} + \\dfrac{2}{3}(\\overrightarrow{AC} - \\overrightarrow{AB}) \\\\ &= \\dfrac{1}{3}\\overrightarrow{AB} + \\dfrac{2}{3}\\overrightarrow{AC} \\end{aligned}$",
@@ -3637,14 +5979,133 @@
         "$\\dfrac{8}{29}(5\\overline{i} - 2\\overline{j})$"
       ],
       "hasImage": false,
+      "imageSpec": {
+        "type": "polygon-labeled",
+        "width": 360,
+        "height": 290,
+        "vertices": {
+          "O": [
+            90,
+            175
+          ],
+          "A": [
+            204,
+            23
+          ],
+          "B": [
+            280,
+            251
+          ],
+          "D": [
+            136,
+            193
+          ],
+          "xL": [
+            40,
+            175
+          ],
+          "xR": [
+            330,
+            175
+          ],
+          "yT": [
+            90,
+            12
+          ],
+          "yB": [
+            90,
+            265
+          ]
+        },
+        "vertexLabels": {
+          "O": {
+            "dx": -16,
+            "dy": -4,
+            "text": "O"
+          },
+          "A": {
+            "dx": 6,
+            "dy": -4,
+            "text": "A"
+          },
+          "B": {
+            "dx": 10,
+            "dy": 6,
+            "text": "B"
+          },
+          "D": {
+            "dx": -6,
+            "dy": 20,
+            "text": "D"
+          },
+          "xL": {
+            "text": " "
+          },
+          "xR": {
+            "text": " "
+          },
+          "yT": {
+            "text": " "
+          },
+          "yB": {
+            "text": " "
+          }
+        },
+        "sides": [
+          {
+            "from": "xL",
+            "to": "xR",
+            "arrows": "end"
+          },
+          {
+            "from": "yB",
+            "to": "yT",
+            "arrows": "end"
+          },
+          {
+            "from": "O",
+            "to": "A",
+            "arrows": "end"
+          },
+          {
+            "from": "O",
+            "to": "B",
+            "arrows": "end"
+          },
+          {
+            "from": "A",
+            "to": "D",
+            "style": "dashed"
+          }
+        ],
+        "angleMarks": [
+          {
+            "at": "O",
+            "from": "B",
+            "to": "A",
+            "type": "arc",
+            "radius": 26,
+            "label": "θ",
+            "labelDistance": 40
+          },
+          {
+            "at": "D",
+            "from": "A",
+            "to": "B",
+            "type": "right",
+            "size": 9
+          }
+        ]
+      },
       "sourceTag": "Entrance ต.ค.2542",
       "correct": 1,
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
-        "$D$ คือเท้าของเส้นตั้งฉากจาก $A$ ลงแนว $\\overrightarrow{OB}$ — นั่นคือ $\\overrightarrow{OD}$ = ภาพฉาย (projection) ของ $\\overrightarrow{OA}$ บน $\\overrightarrow{OB}$",
+        "$D$ คือจุดปลายเส้นตั้งฉากจาก $A$ ลงแนว $\\overrightarrow{OB}$ — นั่นคือ $\\overrightarrow{OD}$ = ภาพฉาย (projection) ของ $\\overrightarrow{OA}$ บน $\\overrightarrow{OB}$",
         "สูตรภาพฉายแบบเวกเตอร์: $\\text{proj}_{\\overline{b}}\\,\\overline{a} = \\dfrac{\\overline{a}\\cdot\\overline{b}}{|\\overline{b}|^2}\\,\\overline{b}$ (ตัวหารคือขนาดกำลังสอง ไม่ติดราก)",
         "",
         "<b>🎯 เป้าหมาย</b> คำนวณภาพฉายของ $\\overrightarrow{OA}$ บน $\\overrightarrow{OB}$ ตรง ๆ",
+        "[IMAGE]",
         "",
         "<b>ขั้นที่ 1:</b> หา dot และขนาดกำลังสอง",
         "$\\begin{aligned} \\overrightarrow{OA}\\cdot\\overrightarrow{OB} &= (3)(5) + (4)(-2) \\\\ &= 7 \\end{aligned}$",
@@ -3684,16 +6145,98 @@
         "$\\dfrac{25}{16}(3\\overline{i} - 4\\overline{j})$"
       ],
       "hasImage": false,
+      "imageSpec": {
+        "type": "polygon-labeled",
+        "width": 320,
+        "height": 240,
+        "vertices": {
+          "O": [
+            55,
+            130
+          ],
+          "A": [
+            109,
+            202
+          ],
+          "B": [
+            271,
+            40
+          ],
+          "C": [
+            90,
+            176
+          ]
+        },
+        "vertexLabels": {
+          "O": {
+            "dx": -18,
+            "dy": 0,
+            "text": "O"
+          },
+          "A": {
+            "dx": 10,
+            "dy": 10,
+            "text": "A"
+          },
+          "B": {
+            "dx": 2,
+            "dy": -10,
+            "text": "B"
+          },
+          "C": {
+            "dx": -16,
+            "dy": 6,
+            "text": "C"
+          }
+        },
+        "sides": [
+          {
+            "from": "O",
+            "to": "A",
+            "arrows": "end"
+          },
+          {
+            "from": "O",
+            "to": "B",
+            "arrows": "end"
+          },
+          {
+            "from": "B",
+            "to": "C",
+            "style": "dashed"
+          }
+        ],
+        "angleMarks": [
+          {
+            "at": "O",
+            "from": "A",
+            "to": "B",
+            "type": "arc",
+            "radius": 24,
+            "label": "θ",
+            "labelDistance": 38
+          },
+          {
+            "at": "C",
+            "from": "B",
+            "to": "A",
+            "type": "right",
+            "size": 9
+          }
+        ]
+      },
       "sourceTag": "Entrance 2526",
       "correct": 2,
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
-        "$C$ คือเท้าของเส้นตั้งฉากจาก $B$ ลงแนว $\\overrightarrow{OA}$ → $\\overrightarrow{OC}$ คือภาพฉายของ $\\overrightarrow{OB}$ บน $\\overrightarrow{OA}$",
+        "$C$ คือจุดปลายเส้นตั้งฉากจาก $B$ ลงแนว $\\overrightarrow{OA}$ → $\\overrightarrow{OC}$ คือภาพฉายของ $\\overrightarrow{OB}$ บน $\\overrightarrow{OA}$",
         "$\\text{proj}_{\\overline{a}}\\,\\overline{b} = \\dfrac{\\overline{b}\\cdot\\overline{a}}{|\\overline{a}|^2}\\,\\overline{a}$",
         "",
         "<b>🎯 เป้าหมาย</b> คำนวณภาพฉายของ $\\overrightarrow{OB}$ บน $\\overrightarrow{OA}$",
+        "[IMAGE]",
         "",
-        "<b>【 วิธีที่ 1 ▸ พื้นฐาน 】</b>",
+        "<b>【 วิธีที่ 1 ▸ พื้นฐาน · สูตรภาพฉาย (projection formula) 】</b>",
+        "",
         "<b>ขั้นที่ 1:</b> หา dot และขนาดกำลังสอง",
         "$\\begin{aligned} \\overrightarrow{OB}\\cdot\\overrightarrow{OA} &= (12)(3) + (5)(-4) \\\\ &= 36 - 20 \\\\ &= 16 \\end{aligned}$",
         "$|\\overrightarrow{OA}|^2 = 9 + 16 = 25$",
@@ -3701,7 +6244,8 @@
         "<b>ขั้นที่ 2:</b> ภาพฉาย",
         "$\\overrightarrow{OC} = \\dfrac{16}{25}(3\\overline{i} - 4\\overline{j})$",
         "",
-        "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ 】</b>",
+        "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ · วางจุดบนเส้นแล้วบังคับตั้งฉาก (parametric perpendicular) 】</b>",
+        "",
         "<b>ขั้นที่ 1:</b> $C$ อยู่บนแนว $\\overrightarrow{OA}$ จึงเขียน $\\overrightarrow{OC} = t\\,\\overrightarrow{OA} = t(3\\overline{i} - 4\\overline{j})$ สำหรับสเกลาร์ $t$ ค่าหนึ่ง",
         "<b>ขั้นที่ 2:</b> บังคับเงื่อนไขตั้งฉาก $\\overrightarrow{BC} \\perp \\overrightarrow{OA}$",
         "$\\begin{aligned} (\\overrightarrow{OC} - \\overrightarrow{OB}) \\cdot \\overrightarrow{OA} & = 0 \\; \\\\ \\; t\\,|\\overrightarrow{OA}|^2 - \\overrightarrow{OB} \\cdot \\overrightarrow{OA} & = 0 \\end{aligned}$",
@@ -3739,6 +6283,101 @@
         "$\\dfrac{77}{34}$"
       ],
       "hasImage": false,
+      "imageSpec": {
+        "type": "polygon-labeled",
+        "width": 340,
+        "height": 250,
+        "shadeRegions": [
+          {
+            "parts": [
+              {
+                "polygon": [
+                  "O",
+                  "A",
+                  "D"
+                ]
+              }
+            ],
+            "fill": "#9bbfe6",
+            "op": 0.3
+          }
+        ],
+        "vertices": {
+          "O": [
+            70,
+            185
+          ],
+          "A": [
+            118,
+            41
+          ],
+          "B": [
+            262,
+            137
+          ],
+          "D": [
+            149,
+            165
+          ]
+        },
+        "vertexLabels": {
+          "O": {
+            "dx": -18,
+            "dy": 6,
+            "text": "O"
+          },
+          "A": {
+            "dx": -10,
+            "dy": -8,
+            "text": "A(1,3)"
+          },
+          "B": {
+            "dx": 8,
+            "dy": 10,
+            "text": "B(4,1)"
+          },
+          "D": {
+            "dx": -4,
+            "dy": 20,
+            "text": "D"
+          }
+        },
+        "sides": [
+          {
+            "from": "O",
+            "to": "B",
+            "arrows": "end"
+          },
+          {
+            "from": "O",
+            "to": "A",
+            "arrows": "end"
+          },
+          {
+            "from": "A",
+            "to": "D",
+            "style": "dashed"
+          }
+        ],
+        "angleMarks": [
+          {
+            "at": "O",
+            "from": "B",
+            "to": "A",
+            "type": "arc",
+            "radius": 24,
+            "label": "θ",
+            "labelDistance": 38
+          },
+          {
+            "at": "D",
+            "from": "A",
+            "to": "B",
+            "type": "right",
+            "size": 9
+          }
+        ]
+      },
       "sourceTag": "Entrance 2540",
       "correct": 3,
       "explanation": [
@@ -3747,6 +6386,7 @@
         "พื้นที่ $= \\dfrac{1}{2}|OD||AD|$ โดย $\\overrightarrow{OD}$ = ภาพฉายของ $\\overrightarrow{OA}$ บน $\\overrightarrow{OB}$",
         "",
         "<b>🎯 เป้าหมาย</b> หา $|OD|$ และ $|AD|$ จากภาพฉาย แล้วคูณครึ่ง",
+        "[IMAGE]",
         "",
         "<b>ขั้นที่ 1:</b> หา $\\overrightarrow{OD}$",
         "$\\overrightarrow{OA}\\cdot\\overrightarrow{OB} = 4 + 3 = 7$ , $|\\overrightarrow{OB}|^2 = 17$",
@@ -3788,14 +6428,124 @@
         "$(\\overline{u} \\cdot \\overline{v})\\left(\\dfrac{\\overline{u}}{|\\overline{u}|} - \\dfrac{\\overline{v}}{|\\overline{v}|}\\right)$"
       ],
       "hasImage": false,
+      "imageSpec": {
+        "type": "polygon-labeled",
+        "width": 430,
+        "height": 300,
+        "vertices": {
+          "A": [
+            60,
+            250
+          ],
+          "B": [
+            190,
+            55
+          ],
+          "C": [
+            360,
+            150
+          ],
+          "E": [
+            138,
+            133
+          ],
+          "D": [
+            246,
+            188
+          ]
+        },
+        "vertexLabels": {
+          "A": {
+            "dx": -22,
+            "dy": 6,
+            "text": "A"
+          },
+          "B": {
+            "dx": -2,
+            "dy": -10,
+            "text": "B"
+          },
+          "C": {
+            "dx": 10,
+            "dy": 4,
+            "text": "C"
+          },
+          "D": {
+            "dx": 2,
+            "dy": 20,
+            "text": "D"
+          },
+          "E": {
+            "dx": -18,
+            "dy": -2,
+            "text": "E"
+          }
+        },
+        "sides": [
+          {
+            "from": "A",
+            "to": "B",
+            "arrows": "end",
+            "label": "ū",
+            "labelOffset": {
+              "dx": -16,
+              "dy": -2
+            }
+          },
+          {
+            "from": "A",
+            "to": "C",
+            "arrows": "end",
+            "label": "v̄",
+            "labelOffset": {
+              "dx": -4,
+              "dy": 20
+            }
+          },
+          {
+            "from": "B",
+            "to": "D"
+          },
+          {
+            "from": "C",
+            "to": "E"
+          }
+        ],
+        "angleMarks": [
+          {
+            "at": "A",
+            "from": "B",
+            "to": "C",
+            "type": "arc",
+            "radius": 28,
+            "label": "θ",
+            "labelDistance": 44
+          },
+          {
+            "at": "D",
+            "from": "B",
+            "to": "C",
+            "type": "right",
+            "size": 9
+          },
+          {
+            "at": "E",
+            "from": "C",
+            "to": "B",
+            "type": "right",
+            "size": 9
+          }
+        ]
+      },
       "sourceTag": "Entrance 2529",
       "correct": 0,
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
-        "$D$ คือเท้าฉากจาก $B$ ลงด้าน $AC$ → $\\overrightarrow{AD}$ = ภาพฉายของ $\\overrightarrow{AB} = \\overline{u}$ บน $\\overline{v}$",
-        "$E$ คือเท้าฉากจาก $C$ ลงด้าน $AB$ → $\\overrightarrow{AE}$ = ภาพฉายของ $\\overrightarrow{AC} = \\overline{v}$ บน $\\overline{u}$",
+        "$D$ คือจุดปลายเส้นตั้งฉากจาก $B$ ลงด้าน $AC$ → $\\overrightarrow{AD}$ = ภาพฉายของ $\\overrightarrow{AB} = \\overline{u}$ บน $\\overline{v}$",
+        "$E$ คือจุดปลายเส้นตั้งฉากจาก $C$ ลงด้าน $AB$ → $\\overrightarrow{AE}$ = ภาพฉายของ $\\overrightarrow{AC} = \\overline{v}$ บน $\\overline{u}$",
         "",
         "<b>🎯 เป้าหมาย</b> เขียน $\\overrightarrow{AD} ,\\ \\overrightarrow{AE}$ ด้วยสูตรภาพฉาย แล้ว $\\overrightarrow{DE} = \\overrightarrow{AE} - \\overrightarrow{AD}$",
+        "[IMAGE]",
         "",
         "<b>ขั้นที่ 1:</b> ภาพฉายทั้งสอง",
         "$\\overrightarrow{AD} = \\dfrac{\\overline{u}\\cdot\\overline{v}}{|\\overline{v}|^2}\\,\\overline{v}$ (ฉาย $\\overline{u}$ ลงแนว $AC$)",
@@ -3810,7 +6560,7 @@
         "<b>✅ คำตอบ: $(\\overline{u} \\cdot \\overline{v})\\left(\\dfrac{\\overline{u}}{|\\overline{u}|^2} - \\dfrac{\\overline{v}}{|\\overline{v}|^2}\\right)$ → ตัวเลือก 1</b>",
         "",
         "<b>💡 เทคนิคที่ใช้</b> เส้นสูงของสามเหลี่ยม = ภาพฉายเสมอ และจุดทั้งสองวัดจาก $A$ ทำให้ $\\overrightarrow{DE}$ คือผลต่างภาพฉายสองอัน — ดึงตัวร่วมแล้วเทียบรูปแบบตัวเลือกทันที",
-        "<b>⚠️ จุดที่เด็กมักผิด</b> สลับว่า $D$ เป็นภาพฉายของ $\\overline{v}$ (จริง ๆ คือฉาย $\\overline{u}$ ลงแนว $\\overline{v}$ เพราะ $D$ \"อยู่บน\" ด้าน $AC$) — จุดเท้าฉากอยู่บนด้านไหน ตัวฉายคือเวกเตอร์อีกตัว และทิศ $\\overrightarrow{DE}$ กับ $\\overrightarrow{ED}$ ให้เครื่องหมายต่างกัน"
+        "<b>⚠️ จุดที่เด็กมักผิด</b> สลับว่า $D$ เป็นภาพฉายของ $\\overline{v}$ (จริง ๆ คือฉาย $\\overline{u}$ ลงแนว $\\overline{v}$ เพราะ $D$ \"อยู่บน\" ด้าน $AC$) — จุดปลายเส้นตั้งฉากอยู่บนด้านไหน ตัวฉายคือเวกเตอร์อีกตัว และทิศ $\\overrightarrow{DE}$ กับ $\\overrightarrow{ED}$ ให้เครื่องหมายต่างกัน"
       ],
       "notes": "AD = proj_v(u), AE = proj_u(v) → DE = (u·v)(u/|u|² − v/|v|²)"
     },
@@ -3834,6 +6584,85 @@
         "$\\dfrac{1}{2}\\sqrt{(\\overline{u} \\cdot \\overline{v})(\\overline{v} \\cdot \\overline{w}) + (\\overline{u} \\cdot \\overline{w})^2}$"
       ],
       "hasImage": false,
+      "imageSpec": {
+        "type": "polygon-labeled",
+        "width": 420,
+        "height": 235,
+        "vertices": {
+          "A": [
+            55,
+            185
+          ],
+          "B": [
+            180,
+            55
+          ],
+          "C": [
+            355,
+            150
+          ]
+        },
+        "vertexLabels": {
+          "A": {
+            "dx": -20,
+            "dy": 6,
+            "text": "A"
+          },
+          "B": {
+            "dx": -4,
+            "dy": -10,
+            "text": "B"
+          },
+          "C": {
+            "dx": 10,
+            "dy": 4,
+            "text": "C"
+          }
+        },
+        "sides": [
+          {
+            "from": "A",
+            "to": "B",
+            "arrows": "end",
+            "label": "ū",
+            "labelOffset": {
+              "dx": -16,
+              "dy": -2
+            }
+          },
+          {
+            "from": "A",
+            "to": "C",
+            "arrows": "end",
+            "label": "v̄",
+            "labelOffset": {
+              "dx": 0,
+              "dy": 20
+            }
+          },
+          {
+            "from": "B",
+            "to": "C",
+            "arrows": "end",
+            "label": "w̄",
+            "labelOffset": {
+              "dx": 4,
+              "dy": -16
+            }
+          }
+        ],
+        "angleMarks": [
+          {
+            "at": "C",
+            "from": "B",
+            "to": "A",
+            "type": "arc",
+            "radius": 26,
+            "label": "θ",
+            "labelDistance": 42
+          }
+        ]
+      },
       "sourceTag": "Entrance 2527",
       "correct": 0,
       "explanation": [
@@ -3843,8 +6672,10 @@
         "ใช้ได้กับจุดยอดใดก็ได้ — ขอแค่สองเวกเตอร์ออกจากจุดเดียวกัน (หรือเป็นด้านประชิดกันโดยกลับทิศ)",
         "",
         "<b>🎯 เป้าหมาย</b> หาตัวเลือกที่เป็นสูตรพื้นที่ของ \"คู่ด้านที่ถูกต้อง\"",
+        "[IMAGE]",
         "",
-        "<b>【 วิธีที่ 1 ▸ พื้นฐาน 】</b>",
+        "<b>【 วิธีที่ 1 ▸ พื้นฐาน · พิสูจน์สูตรพื้นที่ (area formula) 】</b>",
+        "",
         "<b>ขั้นที่ 1:</b> พิจารณาคู่ $(\\overline{v}, \\overline{w})$ ในตัวเลือก 1",
         "ที่จุดยอด $C$: $\\overrightarrow{CA} = -\\overline{v}$",
         "และ $\\overrightarrow{CB} = -\\overline{w}$ ออกจาก $C$ ทั้งคู่",
@@ -3855,7 +6686,8 @@
         "ตัวเลือก 3: เครื่องหมายเป็นบวก $+(\\overline{u}\\cdot\\overline{v})^2$ — ได้ค่ามากกว่าพื้นที่จริงเสมอ",
         "ตัวเลือก 4: โครงสร้างไม่ใช่สูตรพื้นที่ของคู่ด้านใดเลย",
         "",
-        "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ 】</b>",
+        "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ · แทนสามเหลี่ยมทดสอบ (test triangle) 】</b>",
+        "",
         "เลือกสามเหลี่ยมค่าทดสอบ: $\\overline{u} = (3, 0) ,\\ \\overline{v} = (1, 2)$ → $\\overline{w} = \\overline{v} - \\overline{u} = (-2, 2)$ พื้นที่จริง $= \\dfrac12|{(3)(2) - (0)(1)}| = 3$",
         "(หมายเหตุ: \"ค่าทดสอบ/ตัวอย่างทดสอบ\" คือตัวอย่างเฉพาะเจาะจงตัวเดียวที่ยกมาชี้ขาดข้อความ — ใช้<b>หักล้าง</b>ได้เสมอ เพราะตัวอย่างค้านตัวเดียวก็ทำให้ข้อความแบบ \"จริงทุกกรณี\" ผิดทันที ส่วนการใช้<b>ยืนยัน</b>คำตอบ ทำได้เมื่อข้อสอบรับประกันว่ามีคำตอบเดียว)",
         "แทนค่าในตัวเลือก: ข้อ 1: $\\dfrac12\\sqrt{(5)(8) - 2^2} = \\dfrac12\\sqrt{36} = 3$ ✓ · ข้อ 2: ใต้ราก $= 45 - 64 < 0$ หาค่าไม่ได้ ✗ · ข้อ 3: $\\dfrac12\\sqrt{45 + 9} \\approx 3.67$ ✗ · ข้อ 4: $\\dfrac12\\sqrt{(3)(2) + 36} \\approx 3.24$ ✗",
@@ -3948,6 +6780,143 @@
         "$10$ ตารางหน่วย"
       ],
       "hasImage": false,
+      "imageSpec": {
+        "type": "polygon-labeled",
+        "width": 400,
+        "height": 300,
+        "vertices": {
+          "O": [
+            255,
+            160
+          ],
+          "A": [
+            295,
+            80
+          ],
+          "B": [
+            215,
+            240
+          ],
+          "C": [
+            175,
+            120
+          ],
+          "Llo": [
+            195,
+            280
+          ],
+          "Lhi": [
+            323,
+            24
+          ],
+          "xL": [
+            150,
+            160
+          ],
+          "xR": [
+            375,
+            160
+          ],
+          "yB": [
+            255,
+            272
+          ],
+          "yT": [
+            255,
+            42
+          ]
+        },
+        "vertexLabels": {
+          "O": {
+            "dx": 10,
+            "dy": 14,
+            "text": "O"
+          },
+          "A": {
+            "dx": 8,
+            "dy": -2,
+            "text": "A"
+          },
+          "B": {
+            "dx": -18,
+            "dy": 8,
+            "text": "B"
+          },
+          "C": {
+            "dx": -16,
+            "dy": -2,
+            "text": "C"
+          },
+          "Llo": {
+            "text": " "
+          },
+          "Lhi": {
+            "text": " "
+          },
+          "xL": {
+            "text": " "
+          },
+          "xR": {
+            "text": " "
+          },
+          "yB": {
+            "text": " "
+          },
+          "yT": {
+            "text": " "
+          }
+        },
+        "sides": [
+          {
+            "from": "xL",
+            "to": "xR",
+            "arrows": "end"
+          },
+          {
+            "from": "yB",
+            "to": "yT",
+            "arrows": "end"
+          },
+          {
+            "from": "Llo",
+            "to": "Lhi",
+            "arrows": "end"
+          },
+          {
+            "from": "C",
+            "to": "A",
+            "style": "dashed"
+          },
+          {
+            "from": "C",
+            "to": "B",
+            "style": "dashed"
+          },
+          {
+            "from": "C",
+            "to": "O",
+            "style": "dashed"
+          }
+        ],
+        "angleMarks": [
+          {
+            "at": "O",
+            "from": "C",
+            "to": "A",
+            "type": "right",
+            "size": 9
+          }
+        ],
+        "annotations": [
+          {
+            "x": 332,
+            "y": 52,
+            "text": "y = 2x",
+            "fontSize": 13,
+            "anchor": "start"
+          }
+        ]
+      },
       "sourceTag": "Entrance มี.ค.2546",
       "correct": 2,
       "explanation": [
@@ -3958,17 +6927,27 @@
         "สมบัติมุมฉากหน้าจั่ว: ส่วนสูงจากมุมฉากลงด้านตรงข้าม = ครึ่งหนึ่งของด้านตรงข้าม",
         "",
         "<b>🎯 เป้าหมาย</b> หาระยะจาก $C$ ถึงเส้น (คือส่วนสูง $h$) แล้วใช้สมบัติพิเศษหาพื้นที่",
+        "[IMAGE]",
+        "",
+        "<b>【 วิธีที่ 1 ▸ พื้นฐาน · ส่วนสูงสามเหลี่ยมมุมฉากหน้าจั่ว (altitude shortcut) 】</b>",
         "",
         "<b>ขั้นที่ 1:</b> ระยะจาก $C(-2, 1)$ ถึงเส้น $2x - y = 0$",
         "$\\begin{aligned} h &= \\dfrac{|2(-2) - 1|}{\\sqrt{4+1}} \\\\ &= \\dfrac{5}{\\sqrt{5}} \\\\ &= \\sqrt{5} \\end{aligned}$",
         "",
         "<b>ขั้นที่ 2:</b> ใช้สมบัติมุมฉากหน้าจั่ว — ด้านตรงข้ามมุมฉาก $AB = 2h = 2\\sqrt{5}$",
-        "(เท้าฉากจาก $C$ คือจุดกึ่งกลางของ $AB$ พอดี เพราะหน้าจั่ว)",
+        "(จุดปลายเส้นตั้งฉากจาก $C$ คือจุดกึ่งกลางของ $AB$ พอดี เพราะหน้าจั่ว)",
         "",
         "<b>ขั้นที่ 3:</b> พื้นที่",
         "พื้นที่ $= \\dfrac{1}{2}\\cdot AB \\cdot h = \\dfrac{1}{2}(2\\sqrt{5})(\\sqrt{5}) = 5$",
         "",
-        "<b>✔ ตรวจคำตอบ</b> numpy สร้างจุดจริง: เท้าฉาก $F = (0, 0)$ , $A, B = F \\pm \\sqrt{5}\\,\\hat{d}$ บนเส้น → $\\overrightarrow{CA}\\cdot\\overrightarrow{CB} = 0$ ✓ , $|CA| = |CB|$ ✓ , พื้นที่ $= 5$ ✓",
+        "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ · หาพิกัด $A, B$ จริง + ผลคูณไขว้ (coordinates & cross product) 】</b>",
+        "",
+        "หาจุดปลายเส้นตั้งฉาก $F$ ของ $C(-2, 1)$ บนเส้น $2x - y = 0$ ได้ $F = (0, 0)$ (จุดกำเนิด)",
+        "ทิศเส้นหนึ่งหน่วย $= \\dfrac{(1, 2)}{\\sqrt{5}}$ และขา $= h = \\sqrt{5}$ → $A = F + \\sqrt{5}\\cdot\\dfrac{(1, 2)}{\\sqrt{5}} = (1, 2)$ , $B = (-1, -2)$",
+        "$\\overrightarrow{CA} = (3, 1) ,\\ \\overrightarrow{CB} = (1, -3)$ → พื้นที่ $= \\dfrac{1}{2}\\left|\\overrightarrow{CA}\\times\\overrightarrow{CB}\\right| = \\dfrac{1}{2}\\left|(3)(-3) - (1)(1)\\right| = \\dfrac{1}{2}(10) = 5$",
+        "<b>ข้อต่าง:</b> ไม่ใช้ shortcut $h^2$ — กดพิกัด $A, B$ ออกมาตรง ๆ แล้วใช้ผลคูณไขว้ ยืนยันได้ว่า $\\overrightarrow{CA}\\cdot\\overrightarrow{CB} = 0$ และ $|\\overrightarrow{CA}| = |\\overrightarrow{CB}| = \\sqrt{10}$ จริง",
+        "",
+        "<b>✔ ตรวจคำตอบ</b> numpy สร้างจุดจริง: จุดปลายเส้นตั้งฉาก $F = (0, 0)$ , $A, B = F \\pm \\sqrt{5}\\,\\hat{d}$ บนเส้น → $\\overrightarrow{CA}\\cdot\\overrightarrow{CB} = 0$ ✓ , $|CA| = |CB|$ ✓ , พื้นที่ $= 5$ ✓",
         "",
         "<b>✅ คำตอบ: พื้นที่ $= 5$ ตารางหน่วย → ตัวเลือก 3</b>",
         "",
@@ -3997,6 +6976,74 @@
         "$-\\dfrac{\\sqrt{13}}{3}$"
       ],
       "hasImage": false,
+      "imageSpec": {
+        "type": "polygon-labeled",
+        "width": 420,
+        "height": 215,
+        "vertices": {
+          "A": [
+            60,
+            165
+          ],
+          "B": [
+            180,
+            50
+          ],
+          "C": [
+            350,
+            135
+          ]
+        },
+        "vertexLabels": {
+          "A": {
+            "dx": -18,
+            "dy": 10,
+            "text": "A"
+          },
+          "B": {
+            "dx": -2,
+            "dy": -10,
+            "text": "B"
+          },
+          "C": {
+            "dx": 10,
+            "dy": 4,
+            "text": "C"
+          }
+        },
+        "sides": [
+          {
+            "from": "A",
+            "to": "B",
+            "arrows": "end",
+            "label": "c",
+            "labelOffset": {
+              "dx": -14,
+              "dy": -2
+            }
+          },
+          {
+            "from": "B",
+            "to": "C",
+            "arrows": "end",
+            "label": "a",
+            "labelOffset": {
+              "dx": 6,
+              "dy": -12
+            }
+          },
+          {
+            "from": "C",
+            "to": "A",
+            "arrows": "end",
+            "label": "b",
+            "labelOffset": {
+              "dx": 0,
+              "dy": 20
+            }
+          }
+        ]
+      },
       "sourceTag": "Entrance ต.ค.2545",
       "correct": 1,
       "explanation": [
@@ -4005,8 +7052,10 @@
         "ขนาดกำลังสองของผลรวมสามเวกเตอร์: $|\\overline{p}+\\overline{q}+\\overline{r}|^2 = |\\overline{p}|^2+|\\overline{q}|^2+|\\overline{r}|^2 + 2(\\overline{p}\\cdot\\overline{q}+\\overline{q}\\cdot\\overline{r}+\\overline{r}\\cdot\\overline{p})$",
         "",
         "<b>🎯 เป้าหมาย</b> หาผลรวม dot รอบรูป — ทำได้ทั้งยกกำลังสองสมการเวกเตอร์ (พื้นฐาน) และกระจาย dot เป็นกฎ cosine (ประยุกต์)",
+        "[IMAGE]",
         "",
-        "<b>【 วิธีที่ 1 ▸ พื้นฐาน 】</b>",
+        "<b>【 วิธีที่ 1 ▸ พื้นฐาน · ยกกำลังสองสมการเวกเตอร์ (square the vector sum) 】</b>",
+        "",
         "<b>ขั้นที่ 1:</b> ยกกำลังสองทั้งสองข้างของ $\\overrightarrow{AB} + \\overrightarrow{BC} + \\overrightarrow{CA} = \\overline{0}$",
         "$0 = |\\overrightarrow{AB}|^2 + |\\overrightarrow{BC}|^2 + |\\overrightarrow{CA}|^2 + 2\\left(\\overrightarrow{AB}\\cdot\\overrightarrow{BC} + \\overrightarrow{BC}\\cdot\\overrightarrow{CA} + \\overrightarrow{CA}\\cdot\\overrightarrow{AB}\\right)$",
         "",
@@ -4014,7 +7063,8 @@
         "$0 = (c^2 + a^2 + b^2) + 2S$ โดย $S$ คือผลรวม dot ที่ต้องการ",
         "$0 = \\sqrt{13} + 2S$ → $S = -\\dfrac{\\sqrt{13}}{2}$",
         "",
-        "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ 】</b>",
+        "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ · ใช้กฎโคไซน์ (law of cosines) 】</b>",
+        "",
         "<b>เครื่องมือ:</b>",
         "$\\begin{aligned} \\overrightarrow{AB}\\cdot\\overrightarrow{BC} &= ca\\cos(180^\\circ - B) \\\\ &= -ca\\cos B \\end{aligned}$",
         "(dot ของด้านที่ประชิดในสามเหลี่ยม)",
@@ -4052,6 +7102,78 @@
         "ก. ผิด และ ข. ผิด"
       ],
       "hasImage": false,
+      "imageSpec": {
+        "type": "polygon-labeled",
+        "width": 450,
+        "height": 260,
+        "vertices": {
+          "B": [
+            60,
+            215
+          ],
+          "C": [
+            245,
+            50
+          ],
+          "A": [
+            400,
+            200
+          ],
+          "M": [
+            152,
+            132
+          ],
+          "N": [
+            322,
+            125
+          ]
+        },
+        "vertexLabels": {
+          "B": {
+            "dx": -20,
+            "dy": 8,
+            "text": "B"
+          },
+          "C": {
+            "dx": -4,
+            "dy": -10,
+            "text": "C"
+          },
+          "A": {
+            "dx": 10,
+            "dy": 6,
+            "text": "A"
+          },
+          "M": {
+            "dx": -18,
+            "dy": 2,
+            "text": "M"
+          },
+          "N": {
+            "dx": 8,
+            "dy": -4,
+            "text": "N"
+          }
+        },
+        "sides": [
+          {
+            "from": "B",
+            "to": "C"
+          },
+          {
+            "from": "C",
+            "to": "A"
+          },
+          {
+            "from": "A",
+            "to": "B"
+          },
+          {
+            "from": "M",
+            "to": "N"
+          }
+        ]
+      },
       "sourceTag": "Entrance มี.ค.2545",
       "correct": 1,
       "explanation": [
@@ -4060,6 +7182,7 @@
         "เส้นเชื่อมจุดกึ่งกลางสองด้าน (mid-segment) ขนานกับด้านที่สามและยาวครึ่งหนึ่ง",
         "",
         "<b>🎯 เป้าหมาย</b> พิสูจน์ ก. ด้วยพีชคณิตเวกเตอร์ และทดสอบ ข. ด้วยตัวอย่างที่สอดคล้องเงื่อนไขของโจทย์",
+        "[IMAGE]",
         "",
         "<b>ขั้นที่ 1:</b> ข้อความ ก. — กระจายฝั่งขวา:",
         "$\\begin{aligned} \\dfrac{1}{2}(\\overrightarrow{BC} - \\overrightarrow{AC}) &= \\dfrac{1}{2}\\left[(\\overrightarrow{C} - \\overrightarrow{B}) - (\\overrightarrow{C} - \\overrightarrow{A})\\right] \\\\ &= \\dfrac{1}{2}(\\overrightarrow{A} - \\overrightarrow{B}) \\\\ &= \\dfrac{1}{2}\\overrightarrow{BA} \\end{aligned}$",
@@ -4106,6 +7229,181 @@
         "$(1.6, 1.8)$"
       ],
       "hasImage": false,
+      "imageSpec": {
+        "type": "polygon-labeled",
+        "width": 300,
+        "height": 250,
+        "vertices": {
+          "O": [
+            70,
+            200
+          ],
+          "A": [
+            230,
+            200
+          ],
+          "V2": [
+            201,
+            108
+          ],
+          "V3": [
+            162,
+            69
+          ],
+          "B": [
+            92,
+            42
+          ],
+          "xL": [
+            50,
+            200
+          ],
+          "xR": [
+            252,
+            200
+          ],
+          "yB": [
+            70,
+            212
+          ],
+          "yT": [
+            70,
+            30
+          ]
+        },
+        "vertexLabels": {
+          "O": {
+            "dx": -16,
+            "dy": 16,
+            "text": "O"
+          },
+          "A": {
+            "dx": 8,
+            "dy": 8,
+            "text": "A"
+          },
+          "B": {
+            "dx": -8,
+            "dy": -8,
+            "text": "B"
+          },
+          "V2": {
+            "text": " "
+          },
+          "V3": {
+            "text": " "
+          },
+          "xL": {
+            "text": " "
+          },
+          "xR": {
+            "text": " "
+          },
+          "yB": {
+            "text": " "
+          },
+          "yT": {
+            "text": " "
+          }
+        },
+        "sides": [
+          {
+            "from": "xL",
+            "to": "xR",
+            "arrows": "end"
+          },
+          {
+            "from": "yB",
+            "to": "yT",
+            "arrows": "end"
+          },
+          {
+            "from": "O",
+            "to": "A",
+            "arrows": "end",
+            "label": "v̄₁",
+            "labelOffset": {
+              "dx": -6,
+              "dy": -14
+            }
+          },
+          {
+            "from": "O",
+            "to": "V2",
+            "arrows": "end",
+            "label": "v̄₂",
+            "labelOffset": {
+              "dx": -12,
+              "dy": 6
+            }
+          },
+          {
+            "from": "O",
+            "to": "V3",
+            "arrows": "end",
+            "label": "v̄₃",
+            "labelOffset": {
+              "dx": -14,
+              "dy": 4
+            }
+          },
+          {
+            "from": "O",
+            "to": "B",
+            "arrows": "end",
+            "label": "v̄₉₉",
+            "labelOffset": {
+              "dx": -18,
+              "dy": 2
+            }
+          },
+          {
+            "from": "A",
+            "to": "V2",
+            "style": "dashed",
+            "label": "|v̄₂−v̄₁|",
+            "labelOffset": {
+              "dx": 34,
+              "dy": 2
+            }
+          },
+          {
+            "from": "V2",
+            "to": "V3",
+            "style": "dashed",
+            "label": "|v̄₃−v̄₂|",
+            "labelOffset": {
+              "dx": 40,
+              "dy": -6
+            }
+          }
+        ],
+        "angleMarks": [
+          {
+            "at": "O",
+            "from": "A",
+            "to": "B",
+            "type": "arc",
+            "radius": 160
+          }
+        ],
+        "annotations": [
+          {
+            "x": 150,
+            "y": 224,
+            "text": "1 หน่วย",
+            "fontSize": 12,
+            "anchor": "middle"
+          },
+          {
+            "x": 128,
+            "y": 44,
+            "text": "...",
+            "fontSize": 16,
+            "anchor": "start"
+          }
+        ]
+      },
       "sourceTag": "Entrance ต.ค.2547",
       "correct": 2,
       "explanation": [
@@ -4115,8 +7413,10 @@
         "$|\\overline{v}_{n+1} - \\overline{v}_n|$ คือความยาวคอร์ดระหว่างจุดติดกันบนวงกลม",
         "",
         "<b>🎯 เป้าหมาย</b> ประมาณผลรวมความยาวคอร์ดด้วยความยาวส่วนโค้ง",
+        "[IMAGE]",
         "",
-        "<b>【 วิธีที่ 1 ▸ พื้นฐาน 】</b>",
+        "<b>【 วิธีที่ 1 ▸ พื้นฐาน · ประเมินช่วงผลรวมมุม (angle sum bound) 】</b>",
+        "",
         "<b>ขั้นที่ 1:</b> หาช่วงมุมรวม",
         "เริ่ม: $\\theta_1 = \\arccos(1) = 0$ → $\\overline{v}_1 = (1, 0)$",
         "จบ: $\\theta_{100} = \\arccos\\dfrac{1}{100} \\approx 89.43° \\approx 1.5608$ เรเดียน",
@@ -4126,7 +7426,8 @@
         "ขอบล่าง: ผลรวมคอร์ด $\\ge$ คอร์ดตรงจากจุดแรกถึงจุดสุดท้าย $= |(1,0) - (0.01, 0.99995)| \\approx 1.40$",
         "ดังนั้นผลรวมอยู่ระหว่าง $1.4$ กับ $1.56$ → ช่วง $(1.4, 1.6)$",
         "",
-        "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ 】</b>",
+        "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ · ประกบด้วยคอร์ดเรขาคณิต (chord bounding) 】</b>",
+        "",
         "ประกบสองข้างโดยไม่บวกสักพจน์: เส้นทางคอร์ดวิ่งจาก $\\overline{v}_1 = (1, 0)$ ถึง $\\overline{v}_{100} = (0.01,\\ \\sqrt{1 - 10^{-4}})$ บนวงกลมหนึ่งหน่วย",
         "ขอบล่าง (อสมการสามเหลี่ยม): ผลรวมคอร์ด $\\ge |\\overline{v}_{100} - \\overline{v}_1| = \\sqrt{(0.99)^2 + (0.99995)^2} \\approx 1.407 > 1.4$",
         "ขอบบน (คอร์ดสั้นกว่าส่วนโค้ง): ผลรวมคอร์ด $ < $ ความยาวส่วนโค้ง $= \\arccos(0.01) \\approx 1.561 < 1.6$",
@@ -4156,6 +7457,88 @@
       "score": 1,
       "question": "เรือลำหนึ่งออกเดินทางจากท่าเรือลอยเลยไปทางทิศตะวันตก ด้วยความเร็ว $12$ กิโลเมตรต่อชั่วโมง\nในขณะที่กระแสน้ำไหลจากทิศเหนือไปทางทิศใต้ด้วยความเร็ว $5$ กิโลเมตรต่อชั่วโมง ขณะนี้เรือลำนี้\nเคลื่อนที่ไปทิศใด ด้วยความเร็วเท่าไร",
       "hasImage": false,
+      "imageSpec": {
+        "type": "polygon-labeled",
+        "width": 300,
+        "height": 165,
+        "vertices": {
+          "TL": [
+            80,
+            52
+          ],
+          "TR": [
+            218,
+            52
+          ],
+          "BR": [
+            218,
+            118
+          ],
+          "BL": [
+            80,
+            118
+          ]
+        },
+        "vertexLabels": {
+          "TL": {
+            "text": " "
+          },
+          "TR": {
+            "text": " "
+          },
+          "BR": {
+            "text": " "
+          },
+          "BL": {
+            "text": " "
+          }
+        },
+        "sides": [
+          {
+            "from": "TL",
+            "to": "TR",
+            "label": "12",
+            "labelOffset": {
+              "dx": 0,
+              "dy": -10
+            },
+            "arrows": "both"
+          },
+          {
+            "from": "TR",
+            "to": "BR",
+            "label": "5",
+            "labelOffset": {
+              "dx": 13,
+              "dy": 0
+            }
+          },
+          {
+            "from": "BR",
+            "to": "BL"
+          },
+          {
+            "from": "BL",
+            "to": "TL"
+          },
+          {
+            "from": "TR",
+            "to": "BL",
+            "arrows": "end"
+          }
+        ],
+        "angleMarks": [
+          {
+            "at": "TR",
+            "from": "TL",
+            "to": "BL",
+            "type": "arc",
+            "radius": 24,
+            "label": "θ",
+            "labelDistance": 36
+          }
+        ]
+      },
       "sourceTag": "ทุนเล่าเรียนหลวง (กพ.) 2538",
       "correct": "13",
       "accept": [
@@ -4169,6 +7552,8 @@
         "ตั้งแกน: ทิศตะวันออก $= +x$ , ทิศเหนือ $= +y$",
         "",
         "<b>🎯 เป้าหมาย</b> บวกเวกเตอร์สองตัวที่ตั้งฉากกัน แล้วอ่านขนาดและทิศ",
+        "[IMAGE]",
+        "",
         "",
         "<b>ขั้นที่ 1:</b> เขียนเวกเตอร์ความเร็ว",
         "เรือไปทิศตะวันตก: $\\overline{u} = (-12, 0)$",
@@ -4205,6 +7590,96 @@
       "score": 1,
       "question": "เรือช่วยผู้ประสบอุทกภัยออกเดินทางจากจุดหนึ่งด้วยความเร็ว $12$ กิโลเมตรต่อชั่วโมง ไปทางทิศ\nตะวันตก แต่ขณะที่เรือวิ่งกระแสน้ำไหลจากทิศเหนือไปทิศใต้ด้วยความเร็ว $5$ กิโลเมตรต่อชั่วโมง\nเรือลำนี้จะไปถึงผู้ประสบอุทกภัยซึ่งอยู่ในทิศทาง $\\tan^{-1}\\dfrac{5}{12}$ เป็นระยะทาง $6.5$ กิโลเมตร\nจากจุดที่เรือออกเดินทาง ภายในเวลาครึ่งชั่วโมงหรือไม่",
       "hasImage": false,
+      "imageSpec": {
+        "type": "polygon-labeled",
+        "width": 430,
+        "height": 210,
+        "vertices": {
+          "St": [
+            360,
+            50
+          ],
+          "W": [
+            96,
+            50
+          ],
+          "R": [
+            96,
+            160
+          ],
+          "BR": [
+            360,
+            160
+          ]
+        },
+        "vertexLabels": {
+          "St": {
+            "text": " "
+          },
+          "W": {
+            "text": " "
+          },
+          "R": {
+            "text": " "
+          },
+          "BR": {
+            "text": " "
+          }
+        },
+        "sides": [
+          {
+            "from": "St",
+            "to": "W",
+            "arrows": "end",
+            "label": "12",
+            "labelOffset": {
+              "dx": 0,
+              "dy": -12
+            }
+          },
+          {
+            "from": "St",
+            "to": "BR",
+            "arrows": "end",
+            "label": "5",
+            "labelOffset": {
+              "dx": 14,
+              "dy": 0
+            }
+          },
+          {
+            "from": "St",
+            "to": "R",
+            "arrows": "end",
+            "label": "13",
+            "labelOffset": {
+              "dx": -12,
+              "dy": 12
+            }
+          },
+          {
+            "from": "W",
+            "to": "R",
+            "style": "dashed"
+          },
+          {
+            "from": "BR",
+            "to": "R",
+            "style": "dashed"
+          }
+        ],
+        "angleMarks": [
+          {
+            "at": "St",
+            "from": "W",
+            "to": "R",
+            "type": "arc",
+            "radius": 30,
+            "label": "θ",
+            "labelDistance": 46
+          }
+        ]
+      },
       "sourceTag": "ทุนเล่าเรียนหลวง (กพ.) 2539",
       "correct": "ไปถึงได้",
       "accept": [
@@ -4218,6 +7693,7 @@
         "เวลา = ระยะทาง ÷ อัตราเร็ว (ใช้ได้เมื่อทิศการเคลื่อนที่ตรงไปยังเป้าหมาย)",
         "",
         "<b>🎯 เป้าหมาย</b> เช็คสองอย่าง: (1) ทิศลัพธ์ตรงกับทิศของผู้ประสบภัยหรือไม่ (2) ใช้เวลาเท่าไร",
+        "[IMAGE]",
         "",
         "<b>ขั้นที่ 1:</b> ความเร็วลัพธ์",
         "เรือ $(-12, 0)$ + กระแสน้ำ $(0, -5)$ = $(-12, -5)$ → อัตราเร็ว $= \\sqrt{144+25} = 13$ กม./ชม.",
@@ -4259,9 +7735,168 @@
         "$30$ หน่วย"
       ],
       "hasImage": false,
+      "imageSpec": {
+        "type": "polygon-labeled",
+        "width": 420,
+        "height": 175,
+        "vertices": {
+          "a0": [
+            55,
+            150
+          ],
+          "aTop": [
+            55,
+            72
+          ],
+          "aTip": [
+            140,
+            102
+          ],
+          "b0": [
+            230,
+            88
+          ],
+          "bL": [
+            206,
+            88
+          ],
+          "bR": [
+            256,
+            88
+          ],
+          "bTip": [
+            230,
+            158
+          ],
+          "d0": [
+            345,
+            92
+          ],
+          "dBot": [
+            345,
+            140
+          ],
+          "dTip": [
+            400,
+            182
+          ]
+        },
+        "vertexLabels": {
+          "a0": {
+            "text": " "
+          },
+          "aTop": {
+            "text": " "
+          },
+          "aTip": {
+            "text": " "
+          },
+          "b0": {
+            "text": " "
+          },
+          "bL": {
+            "text": " "
+          },
+          "bR": {
+            "text": " "
+          },
+          "bTip": {
+            "text": " "
+          },
+          "d0": {
+            "text": " "
+          },
+          "dBot": {
+            "text": " "
+          },
+          "dTip": {
+            "text": " "
+          }
+        },
+        "sides": [
+          {
+            "from": "a0",
+            "to": "aTop",
+            "style": "dashed"
+          },
+          {
+            "from": "a0",
+            "to": "aTip",
+            "arrows": "end"
+          },
+          {
+            "from": "bL",
+            "to": "bR",
+            "style": "dashed"
+          },
+          {
+            "from": "b0",
+            "to": "bTip",
+            "arrows": "end"
+          },
+          {
+            "from": "d0",
+            "to": "dBot",
+            "style": "dashed"
+          },
+          {
+            "from": "d0",
+            "to": "dTip",
+            "arrows": "end"
+          }
+        ],
+        "angleMarks": [
+          {
+            "at": "a0",
+            "from": "aTop",
+            "to": "aTip",
+            "type": "arc",
+            "radius": 24,
+            "label": "60°",
+            "labelDistance": 40
+          },
+          {
+            "at": "b0",
+            "from": "bL",
+            "to": "bTip",
+            "type": "right",
+            "size": 9
+          },
+          {
+            "at": "d0",
+            "from": "dBot",
+            "to": "dTip",
+            "type": "arc",
+            "radius": 22,
+            "label": "30°",
+            "labelDistance": 34
+          }
+        ],
+        "annotations": [
+          {
+            "x": 92,
+            "y": 98,
+            "text": "A",
+            "fontSize": 16,
+            "anchor": "middle"
+          },
+          {
+            "x": 243,
+            "y": 128,
+            "text": "B",
+            "fontSize": 16,
+            "anchor": "start"
+          },
+          {
+            "x": 384,
+            "y": 150,
+            "text": "D",
+            "fontSize": 16,
+            "anchor": "start"
+          }
+        ]
+      },
       "sourceTag": "พื้นฐานวิศวะฯ 2533",
-      "_needsImage": true,
-      "_needsImageReason": "รูปเวกเตอร์ 3 ตัว: A ชี้ขึ้นขวาทำมุม 60° กับเส้นประแนวดิ่ง, B ชี้ลงแนวดิ่ง (มีเครื่องหมายมุมฉากกับเส้นประแนวนอน), D ชี้ลงขวาทำมุม 30° กับเส้นประแนวดิ่ง — จำเป็นต่อการอ่านมุม",
       "correct": 3,
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
@@ -4315,9 +7950,134 @@
         "$(2\\sqrt{3})\\overline{i} + 14\\overline{j}$"
       ],
       "hasImage": false,
+      "imageSpec": {
+        "type": "polygon-labeled",
+        "width": 350,
+        "height": 178,
+        "vertices": {
+          "O": [
+            235,
+            88
+          ],
+          "XR": [
+            338,
+            88
+          ],
+          "XL": [
+            150,
+            88
+          ],
+          "YT": [
+            235,
+            16
+          ],
+          "YB": [
+            235,
+            152
+          ],
+          "v1": [
+            309,
+            46
+          ],
+          "v2": [
+            195,
+            157
+          ]
+        },
+        "vertexLabels": {
+          "O": {
+            "text": " "
+          },
+          "XR": {
+            "text": "x",
+            "dx": 4,
+            "dy": 5
+          },
+          "XL": {
+            "text": " "
+          },
+          "YT": {
+            "text": "y",
+            "dx": 4,
+            "dy": -3
+          },
+          "YB": {
+            "text": " "
+          },
+          "v1": {
+            "text": " "
+          },
+          "v2": {
+            "text": " "
+          }
+        },
+        "sides": [
+          {
+            "from": "XL",
+            "to": "XR",
+            "arrows": "end"
+          },
+          {
+            "from": "YB",
+            "to": "YT",
+            "arrows": "end"
+          },
+          {
+            "from": "O",
+            "to": "v1",
+            "arrows": "end"
+          },
+          {
+            "from": "O",
+            "to": "v2",
+            "arrows": "end"
+          }
+        ],
+        "angleMarks": [
+          {
+            "at": "O",
+            "from": "XR",
+            "to": "v1",
+            "type": "arc",
+            "radius": 26,
+            "label": "30°",
+            "labelDistance": 40
+          },
+          {
+            "at": "O",
+            "from": "XL",
+            "to": "v2",
+            "type": "arc",
+            "radius": 30,
+            "label": "60°",
+            "labelDistance": 44
+          }
+        ],
+        "annotations": [
+          {
+            "x": 312,
+            "y": 40,
+            "text": "8 หน่วย",
+            "fontSize": 14,
+            "anchor": "start"
+          },
+          {
+            "x": 104,
+            "y": 152,
+            "text": "$12\\sqrt{3}$",
+            "fontSize": 14,
+            "anchor": "start"
+          },
+          {
+            "x": 150,
+            "y": 152,
+            "text": "หน่วย",
+            "fontSize": 14,
+            "anchor": "start"
+          }
+        ]
+      },
       "sourceTag": "พื้นฐานวิศวะฯ 2535",
-      "_needsImage": true,
-      "_needsImageReason": "รูปแกน x-y: เวกเตอร์ 8 หน่วยชี้ขึ้นขวาทำมุม 30° กับแกน x, เวกเตอร์ 12√3 หน่วยชี้ลงซ้ายในควอดรันต์ 3 ทำมุม 60° กับแกน x — จำเป็นต่อการอ่านทิศ",
       "correct": 3,
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
@@ -4377,6 +8137,8 @@
         "",
         "<b>🎯 เป้าหมาย</b> หาพิกัด $B$ จากระบบสมการ แล้วหามุมระหว่าง $\\overrightarrow{OA}$ กับ $\\overrightarrow{OB}$",
         "",
+        "<b>【 วิธีที่ 1 ▸ พื้นฐาน · มุมกับแกน x แล้วลบกัน (angle with x-axis) 】</b>",
+        "",
         "<b>ขั้นที่ 1:</b> ตั้งระบบสมการ",
         "วงรี: $\\dfrac{x^2}{4} + \\dfrac{y^2}{9} = 1$ → $9x^2 + 4y^2 = 36$",
         "ขนาด: $x^2 + y^2 = \\dfrac{144}{31}$",
@@ -4391,6 +8153,13 @@
         "$\\overrightarrow{OB}$: $\\tan = \\dfrac{-6}{6\\sqrt{3}} = -\\dfrac{1}{\\sqrt{3}}$ → ทำมุม $-30°$ กับแกน $x$",
         "",
         "<b>ขั้นที่ 4:</b> มุมระหว่างกัน $= 45° + 30° = 75°$",
+        "",
+        "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ · ผลคูณเชิงสเกลาร์ (dot product) 】</b>",
+        "",
+        "ไม่ต้องแยกมุมของแต่ละเวกเตอร์ — ใช้ $\\cos\\theta = \\dfrac{\\overrightarrow{OA}\\cdot\\overrightarrow{OB}}{|\\overrightarrow{OA}||\\overrightarrow{OB}|}$ ตรง ๆ จากพิกัด $B$ ที่หาได้",
+        "$\\overrightarrow{OA}\\cdot\\overrightarrow{OB} = \\sqrt{2}\\cdot\\dfrac{6\\sqrt{3}}{\\sqrt{31}} + \\sqrt{2}\\cdot\\left(-\\dfrac{6}{\\sqrt{31}}\\right) = \\dfrac{6\\sqrt{6} - 6\\sqrt{2}}{\\sqrt{31}}$",
+        "$|\\overrightarrow{OA}| = 2 ,\\ |\\overrightarrow{OB}| = \\dfrac{12}{\\sqrt{31}}$ → $\\cos\\theta = \\dfrac{6\\sqrt{6} - 6\\sqrt{2}}{\\sqrt{31}} \\cdot \\dfrac{\\sqrt{31}}{24} = \\dfrac{\\sqrt{6} - \\sqrt{2}}{4} = \\cos 75°$",
+        "<b>ข้อต่าง:</b> ไม่พึ่งว่าเวกเตอร์ทำมุมมาตรฐานกับแกน — dot ใช้ได้กับทุกพิกัดแม้มุมไม่สวย แต่ต้องคำนวณกรณฑ์มากกว่าวิธีลบมุม",
         "",
         "<b>✔ ตรวจคำตอบ</b> sympy แก้ระบบ + numpy หามุมด้วย dot: ได้ $75.0°$ ✓",
         "",
@@ -4421,9 +8190,145 @@
         "$\\overline{A} = \\dfrac{5}{2}(\\overline{i} + \\overline{j}) ,\\ \\overline{B} = -\\dfrac{1}{2}(\\overline{i} - \\overline{j})$"
       ],
       "hasImage": false,
+      "imageSpec": {
+        "type": "polygon-labeled",
+        "width": 360,
+        "height": 255,
+        "vertices": {
+          "O": [
+            170,
+            165
+          ],
+          "R": [
+            245,
+            53
+          ],
+          "At": [
+            275,
+            105
+          ],
+          "LL": [
+            106,
+            229
+          ],
+          "XL": [
+            90,
+            165
+          ],
+          "XR": [
+            330,
+            165
+          ],
+          "YT": [
+            170,
+            40
+          ],
+          "YB": [
+            170,
+            245
+          ]
+        },
+        "vertexLabels": {
+          "O": {
+            "dx": -14,
+            "dy": 14,
+            "text": "O"
+          },
+          "R": {
+            "text": " "
+          },
+          "At": {
+            "text": " "
+          },
+          "LL": {
+            "text": " "
+          },
+          "XL": {
+            "text": " "
+          },
+          "XR": {
+            "text": " "
+          },
+          "YT": {
+            "text": " "
+          },
+          "YB": {
+            "text": " "
+          }
+        },
+        "sides": [
+          {
+            "from": "XL",
+            "to": "XR",
+            "arrows": "end"
+          },
+          {
+            "from": "YB",
+            "to": "YT",
+            "arrows": "end"
+          },
+          {
+            "from": "O",
+            "to": "R",
+            "arrows": "end"
+          },
+          {
+            "from": "O",
+            "to": "At",
+            "arrows": "end"
+          },
+          {
+            "from": "At",
+            "to": "R",
+            "arrows": "end"
+          },
+          {
+            "from": "O",
+            "to": "LL",
+            "arrows": "end"
+          }
+        ],
+        "angleMarks": [
+          {
+            "at": "At",
+            "from": "O",
+            "to": "R",
+            "type": "right",
+            "size": 9
+          }
+        ],
+        "annotations": [
+          {
+            "x": 150,
+            "y": 108,
+            "text": "2ī+3j̄",
+            "fontSize": 14,
+            "anchor": "end"
+          },
+          {
+            "x": 232,
+            "y": 150,
+            "text": "Ā",
+            "fontSize": 16,
+            "anchor": "start"
+          },
+          {
+            "x": 268,
+            "y": 74,
+            "text": "B̄",
+            "fontSize": 16,
+            "anchor": "start"
+          },
+          {
+            "x": 96,
+            "y": 215,
+            "text": "−ī−j̄",
+            "fontSize": 14,
+            "anchor": "end"
+          }
+        ]
+      },
       "sourceTag": "โควตา มช. 2542",
-      "_needsImage": true,
-      "_needsImageReason": "รูปแกน x-y: เวกเตอร์ 2ī+3j̄ ชี้ขึ้นขวา, A อยู่แนวเดียวกับเส้นผ่าน −ī−j̄ (แนว y=x), B ตั้งฉากกับ A ที่ปลาย (มีเครื่องหมายมุมฉาก) — จำเป็นต่อการระบุแนวการแยกเวกเตอร์",
       "correct": 3,
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
@@ -4432,7 +8337,8 @@
         "",
         "<b>🎯 เป้าหมาย</b> ฉาย $2\\overline{i} + 3\\overline{j}$ ลงแนว $(1, 1)$ ได้ $\\overline{A}$ แล้ว $\\overline{B}$ คือส่วนที่เหลือ",
         "",
-        "<b>【 วิธีที่ 1 ▸ พื้นฐาน 】</b>",
+        "<b>【 วิธีที่ 1 ▸ พื้นฐาน · คำนวณภาพฉาย (projection) 】</b>",
+        "",
         "<b>ขั้นที่ 1:</b> หา $\\overline{A}$ = ภาพฉายบนแนว $(1, 1)$",
         "$\\begin{aligned} \\overline{A} &= \\dfrac{(2, 3)\\cdot(1, 1)}{|(1, 1)|^2}(1, 1) \\\\ &= \\dfrac{5}{2}(1, 1) \\\\ &= \\dfrac{5}{2}\\overline{i} + \\dfrac{5}{2}\\overline{j} \\end{aligned}$",
         "",
@@ -4445,7 +8351,8 @@
         "✓ ตั้งฉากจริง , $\\overline{A} + \\overline{B} = (2, 3)$ ✓",
         "(หมายเหตุ: ตัวเลือกทุกข้อบวกกันได้ $(2, 3)$ — ตัวตัดสินคือ \"แนวของ $\\overline{A}$\" ต้องขนาน $\\overline{i} + \\overline{j}$ ตามรูป ซึ่งมีเฉพาะตัวเลือก 4)",
         "",
-        "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ 】</b>",
+        "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ · อ่านเงื่อนไขทิศจากรูป (direction from figure) 】</b>",
+        "",
         "อ่านเงื่อนไขทิศจากรูปอย่างเดียว: $\\overline{A}$ ต้องขนานแนว $\\overline{i} + \\overline{j}$ (เส้นเดียวกับเวกเตอร์ $-\\overline{i} - \\overline{j}$ ในรูป)",
         "สแกนตัวเลือก: ข้อ 1, 2, 3 มี $\\overline{A}$ ทิศ $(2,1), (3,2), (4,3)$ ตามลำดับ — ไม่ขนาน $(1,1)$ สักข้อ → เหลือข้อ 4 ที่ $\\overline{A} = \\dfrac52(\\overline{i} + \\overline{j})$ ข้อเดียว",
         "เช็คปิดท้าย:",
@@ -4484,9 +8391,150 @@
         "$12\\sqrt{5}$ หน่วย"
       ],
       "hasImage": false,
+      "imageSpec": {
+        "type": "polygon-labeled",
+        "width": 420,
+        "height": 195,
+        "vertices": {
+          "O": [
+            230,
+            165
+          ],
+          "XL": [
+            168,
+            165
+          ],
+          "XR": [
+            404,
+            165
+          ],
+          "YT": [
+            230,
+            38
+          ],
+          "YB": [
+            230,
+            184
+          ],
+          "Qt": [
+            188,
+            74
+          ],
+          "Pt": [
+            372,
+            88
+          ]
+        },
+        "vertexLabels": {
+          "O": {
+            "text": "O",
+            "dx": -2,
+            "dy": 17
+          },
+          "XL": {
+            "text": " "
+          },
+          "XR": {
+            "text": "x",
+            "dx": 5,
+            "dy": 5
+          },
+          "YT": {
+            "text": "y",
+            "dx": 4,
+            "dy": -3
+          },
+          "YB": {
+            "text": " "
+          },
+          "Qt": {
+            "text": " "
+          },
+          "Pt": {
+            "text": " "
+          }
+        },
+        "sides": [
+          {
+            "from": "XL",
+            "to": "XR",
+            "arrows": "end"
+          },
+          {
+            "from": "YB",
+            "to": "YT",
+            "arrows": "end"
+          },
+          {
+            "from": "O",
+            "to": "Qt",
+            "arrows": "end"
+          },
+          {
+            "from": "O",
+            "to": "Pt",
+            "arrows": "end"
+          }
+        ],
+        "annotations": [
+          {
+            "x": 158,
+            "y": 120,
+            "text": "(−1,2)",
+            "fontSize": 14,
+            "anchor": "start"
+          },
+          {
+            "x": 312,
+            "y": 100,
+            "text": "(4,2)",
+            "fontSize": 14,
+            "anchor": "start"
+          },
+          {
+            "x": 172,
+            "y": 72,
+            "text": "Q̄",
+            "fontSize": 16,
+            "anchor": "start"
+          },
+          {
+            "x": 356,
+            "y": 84,
+            "text": "P̄",
+            "fontSize": 16,
+            "anchor": "start"
+          }
+        ],
+        "shadeRegions": [
+          {
+            "parts": [
+              {
+                "circle": {
+                  "center": [
+                    372,
+                    88
+                  ],
+                  "r": 4
+                }
+              },
+              {
+                "circle": {
+                  "center": [
+                    188,
+                    74
+                  ],
+                  "r": 4
+                }
+              }
+            ],
+            "fill": "#222",
+            "op": 1,
+            "fillRule": "nonzero"
+          }
+        ]
+      },
       "sourceTag": "พื้นฐานวิศวะฯ 2536",
-      "_needsImage": true,
-      "_needsImageReason": "รูปแกน x-y: Q̄ ชี้ขึ้นซ้ายผ่านจุด (−1,2), P̄ ชี้ขึ้นขวาผ่านจุด (4,2) — จำเป็นต่อการระบุแนวเวกเตอร์",
       "correct": 3,
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
@@ -4688,7 +8736,8 @@
         "",
         "<b>🎯 เป้าหมาย</b> หา dot และขนาดของ $\\overline{u}+\\overline{v}$ , $\\overline{u}-\\overline{v}$ แล้วประกอบเป็น $\\cos$ ของมุมที่ถาม",
         "",
-        "<b>【 วิธีที่ 1 ▸ พื้นฐาน 】</b>",
+        "<b>【 วิธีที่ 1 ▸ พื้นฐาน · ใช้เอกลักษณ์ขนาด (magnitude identity) 】</b>",
+        "",
         "<b>ขั้นที่ 1:</b> หา $\\overline{u}\\cdot\\overline{v}$",
         "$\\begin{aligned} \\overline{u}\\cdot\\overline{v} &= \\sqrt{3}\\cdot 1\\cdot\\cos\\dfrac{\\pi}{6} \\\\ &= \\sqrt{3}\\cdot\\dfrac{\\sqrt{3}}{2} \\\\ &= \\dfrac{3}{2} \\end{aligned}$",
         "",
@@ -4702,7 +8751,8 @@
         "$\\begin{aligned} \\cos\\theta &= \\dfrac{2}{\\sqrt{7}\\cdot 1} \\\\ &= \\dfrac{2}{\\sqrt{7}} \\end{aligned}$",
         "→ $\\theta = \\arccos\\dfrac{2}{\\sqrt{7}}$",
         "",
-        "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ 】</b>",
+        "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ · วางพิกัดจริง (coordinate placement) 】</b>",
+        "",
         "<b>ขั้นที่ 1:</b> วางพิกัดจริง ให้ $\\overline{u} = (\\sqrt{3},\\ 0)$ และ $\\overline{v}$ เป็นเวกเตอร์หนึ่งหน่วยทำมุม $\\dfrac{\\pi}{6}$ กับ $\\overline{u}$",
         "• $\\overline{v} = \\left(\\dfrac{\\sqrt{3}}{2},\\ \\dfrac{1}{2}\\right)$",
         "<b>ขั้นที่ 2:</b> หาผลบวกและผลต่าง",
@@ -5026,6 +9076,89 @@
       "score": 1,
       "question": "$ABC$ เป็นรูปสามเหลี่ยม ซึ่ง $|\\overrightarrow{BC}| = 2$\nถ้าจุด $D$ และ $E$ อยู่บนด้าน $AB$ และ $AC$ โดยที่ $\\overrightarrow{DB} = \\dfrac{1}{3}\\overrightarrow{AB}$ และ $\\overrightarrow{CE} = \\dfrac{1}{3}\\overrightarrow{CA}$\nแล้ว $|\\overrightarrow{BE} + \\overrightarrow{DC}|$ มีค่าเท่ากับเท่าใด",
       "hasImage": false,
+      "imageSpec": {
+        "type": "polygon-labeled",
+        "width": 430,
+        "height": 215,
+        "vertices": {
+          "A": [
+            195,
+            45
+          ],
+          "C": [
+            70,
+            178
+          ],
+          "B": [
+            362,
+            165
+          ],
+          "D": [
+            305,
+            125
+          ],
+          "E": [
+            112,
+            132
+          ]
+        },
+        "vertexLabels": {
+          "A": {
+            "dx": -4,
+            "dy": -8,
+            "text": "A"
+          },
+          "C": {
+            "dx": -22,
+            "dy": 15,
+            "text": "C"
+          },
+          "B": {
+            "dx": 8,
+            "dy": 8,
+            "text": "B"
+          },
+          "D": {
+            "dx": 8,
+            "dy": -2,
+            "text": "D"
+          },
+          "E": {
+            "dx": -18,
+            "dy": -7,
+            "text": "E"
+          }
+        },
+        "sides": [
+          {
+            "from": "A",
+            "to": "C"
+          },
+          {
+            "from": "A",
+            "to": "B"
+          },
+          {
+            "from": "C",
+            "to": "B",
+            "label": "2",
+            "labelOffset": {
+              "dx": 0,
+              "dy": 18
+            }
+          },
+          {
+            "from": "B",
+            "to": "E",
+            "arrows": "end"
+          },
+          {
+            "from": "D",
+            "to": "C",
+            "arrows": "end"
+          }
+        ]
+      },
       "sourceTag": "สมาคมคณิตศาสตร์ฯ 2545",
       "correct": "10/3",
       "accept": [
@@ -5040,6 +9173,7 @@
         "เป้าหมายคือให้ทุกอย่างเหลือแต่ $\\overrightarrow{BC}$ (ตัวเดียวที่รู้ขนาด)",
         "",
         "<b>🎯 เป้าหมาย</b> เขียน $\\overrightarrow{BE} + \\overrightarrow{DC}$ ให้อยู่ในรูปตัวคูณของ $\\overrightarrow{BC}$",
+        "[IMAGE]",
         "",
         "<b>ขั้นที่ 1:</b> แตกทั้งสองเวกเตอร์",
         "$\\begin{aligned} \\overrightarrow{BE} &= \\overrightarrow{BC} + \\overrightarrow{CE} \\\\ &= \\overrightarrow{BC} + \\dfrac{1}{3}\\overrightarrow{CA} \\end{aligned}$",
@@ -5084,9 +9218,173 @@
         "$\\dfrac{3}{4}$"
       ],
       "hasImage": false,
+      "imageSpec": [
+        {
+          "type": "polygon-labeled",
+          "width": 340,
+          "height": 150,
+          "vertices": {
+            "A": [
+              55,
+              88
+            ],
+            "B": [
+              300,
+              88
+            ],
+            "E": [
+              202,
+              88
+            ],
+            "C": [
+              176,
+              72
+            ],
+            "D": [
+              254,
+              120
+            ]
+          },
+          "vertexLabels": {
+            "A": {
+              "text": "A",
+              "dx": -17,
+              "dy": 5
+            },
+            "B": {
+              "text": "B",
+              "dx": 8,
+              "dy": 5
+            },
+            "C": {
+              "text": "C",
+              "dx": -6,
+              "dy": -8
+            },
+            "D": {
+              "text": "D",
+              "dx": 7,
+              "dy": 14
+            },
+            "E": {
+              "text": "E",
+              "dx": 4,
+              "dy": -8
+            }
+          },
+          "sides": [
+            {
+              "from": "A",
+              "to": "B",
+              "arrows": "end"
+            },
+            {
+              "from": "C",
+              "to": "D",
+              "arrows": "end"
+            }
+          ]
+        },
+        {
+          "type": "polygon-labeled",
+          "width": 315,
+          "height": 275,
+          "vertices": {
+            "A": [
+              55,
+              115
+            ],
+            "B": [
+              265,
+              115
+            ],
+            "E": [
+              181,
+              115
+            ],
+            "C": [
+              160,
+              52
+            ],
+            "D": [
+              223,
+              241
+            ]
+          },
+          "vertexLabels": {
+            "A": {
+              "text": "A",
+              "dx": -16,
+              "dy": 4
+            },
+            "B": {
+              "text": "B",
+              "dx": 8,
+              "dy": 4
+            },
+            "C": {
+              "text": "C",
+              "dx": -6,
+              "dy": -8
+            },
+            "D": {
+              "text": "D",
+              "dx": 8,
+              "dy": 14
+            },
+            "E": {
+              "text": "E",
+              "dx": 2,
+              "dy": -9
+            }
+          },
+          "sides": [
+            {
+              "from": "A",
+              "to": "B",
+              "arrows": "end"
+            },
+            {
+              "from": "C",
+              "to": "D"
+            },
+            {
+              "from": "A",
+              "to": "C",
+              "arrows": "end"
+            },
+            {
+              "from": "B",
+              "to": "D",
+              "arrows": "end"
+            },
+            {
+              "from": "A",
+              "to": "D",
+              "arrows": "end"
+            }
+          ],
+          "shadeRegions": [
+            {
+              "parts": [
+                {
+                  "circle": {
+                    "center": [
+                      181,
+                      115
+                    ],
+                    "r": 3.5
+                  }
+                }
+              ],
+              "fill": "#222",
+              "op": 1,
+              "fillRule": "nonzero"
+            }
+          ]
+        }
+      ],
       "sourceTag": "สมาคมคณิตศาสตร์ฯ 2542",
-      "_needsImage": true,
-      "_needsImageReason": "รูปส่วนของเส้นตรง AB (A ซ้าย B ขวา) ตัดกับส่วนของเส้นตรง CD (C บนซ้าย D ล่างขวา) ที่จุด E — ช่วยให้เห็นตำแหน่งจุดตัด",
       "correct": 1,
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
@@ -5094,8 +9392,10 @@
         "เทคนิค: เขียนทุกจุดด้วยเวกเตอร์ตำแหน่ง แล้วเทียบสัมประสิทธิ์ของจุดอิสระ",
         "",
         "<b>🎯 เป้าหมาย</b> ใช้สมการจุด $E$ สองแบบกำจัด $C$ แล้วเทียบสัมประสิทธิ์หา $m, n$",
+        "[IMAGE:1]",
         "",
-        "<b>【 วิธีที่ 1 ▸ พื้นฐาน 】</b>",
+        "<b>【 วิธีที่ 1 ▸ พื้นฐาน · เขียนเวกเตอร์ตำแหน่งสองทาง (position vectors) 】</b>",
+        "",
         "<b>ขั้นที่ 1:</b> เขียน $E$ สองแบบ (ใช้เวกเตอร์ตำแหน่ง $A, B, C, D$)",
         "จาก $\\overrightarrow{AE} = \\dfrac{3}{5}\\overrightarrow{AB}$: $E = \\dfrac{2}{5}A + \\dfrac{3}{5}B$",
         "จาก $\\overrightarrow{CE} = \\dfrac{1}{3}\\overrightarrow{CD}$: $E = \\dfrac{2}{3}C + \\dfrac{1}{3}D$",
@@ -5112,7 +9412,8 @@
         "",
         "<b>ขั้นที่ 4:</b> $m - n = \\dfrac{5}{2} - \\dfrac{9}{4} = \\dfrac{1}{4}$",
         "",
-        "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ 】</b>",
+        "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ · วางพิกัดเฉพาะ (coordinate placement) 】</b>",
+        "",
         "วางพิกัดเฉพาะ ($m, n$ เป็นค่าคงตัว ไม่ขึ้นกับรูป): $A(0,0) ,\\ B(5,0) ,\\ D(4,-3)$",
         "จาก $\\overrightarrow{AE} = \\dfrac35\\overrightarrow{AB}$: $E = (3, 0)$ และจาก $E = \\dfrac23 C + \\dfrac13 D$: $C = \\dfrac{3E - D}{2} = \\left(\\dfrac52, \\dfrac32\\right)$",
         "แก้ $(4, -3) = m\\left(\\dfrac52, \\dfrac32\\right) + n(-1, -3)$ เชิงเลข: แถว $x$: $\\dfrac52 m - n = 4$ , แถว $y$: $\\dfrac32 m - 3n = -3$ → $m = \\dfrac52 ,\\ n = \\dfrac94$ → $m - n = \\dfrac14$",
@@ -5143,6 +9444,86 @@
       "score": 1,
       "question": "ให้ $ABC$ เป็นรูปสามเหลี่ยม ซึ่งมี $AB = \\dfrac{4}{3}$ หน่วย และ $AC = 2$ หน่วย\nให้ $P$ เป็นจุดบนด้าน $BC$ ซึ่ง $BP : PC = 2 : 3$ และ $AP = 1$ หน่วย\nค่าของ $\\cos\\left(\\dfrac{B\\hat{A}C}{2}\\right)$ เท่ากับเท่าใด",
       "hasImage": false,
+      "imageSpec": {
+        "type": "polygon-labeled",
+        "width": 430,
+        "height": 265,
+        "vertices": {
+          "A": [
+            70,
+            55
+          ],
+          "B": [
+            365,
+            50
+          ],
+          "C": [
+            220,
+            235
+          ],
+          "P": [
+            307,
+            124
+          ]
+        },
+        "vertexLabels": {
+          "A": {
+            "dx": -16,
+            "dy": -2,
+            "text": "A"
+          },
+          "B": {
+            "dx": 8,
+            "dy": -2,
+            "text": "B"
+          },
+          "C": {
+            "dx": -2,
+            "dy": 20,
+            "text": "C"
+          },
+          "P": {
+            "dx": 10,
+            "dy": 4,
+            "text": "P"
+          }
+        },
+        "sides": [
+          {
+            "from": "A",
+            "to": "B",
+            "arrows": "end"
+          },
+          {
+            "from": "A",
+            "to": "C",
+            "arrows": "end"
+          },
+          {
+            "from": "A",
+            "to": "P",
+            "arrows": "end"
+          },
+          {
+            "from": "B",
+            "to": "P",
+            "label": "2x",
+            "labelOffset": {
+              "dx": 16,
+              "dy": -2
+            }
+          },
+          {
+            "from": "P",
+            "to": "C",
+            "label": "3x",
+            "labelOffset": {
+              "dx": 16,
+              "dy": 2
+            }
+          }
+        ]
+      },
       "sourceTag": "สมาคมคณิตศาสตร์ฯ 2546",
       "correct": "5/8",
       "accept": [
@@ -5155,6 +9536,7 @@
         "สูตรครึ่งมุม: $\\cos^2\\dfrac{A}{2} = \\dfrac{1 + \\cos A}{2}$",
         "",
         "<b>🎯 เป้าหมาย</b> ใช้ $|\\overrightarrow{AP}| = 1$ แกะหา $\\overrightarrow{AB}\\cdot\\overrightarrow{AC}$ → ได้ $\\cos A$ → สูตรครึ่งมุม",
+        "[IMAGE]",
         "",
         "<b>ขั้นที่ 1:</b> ยกกำลังสองสูตรจุดแบ่ง",
         "$\\begin{aligned} |\\overrightarrow{AP}|^2 &= \\dfrac{1}{25}\\left(9|\\overrightarrow{AB}|^2 + 4|\\overrightarrow{AC}|^2 + 12\\,\\overrightarrow{AB}\\cdot\\overrightarrow{AC}\\right) \\\\ &= 1 \\end{aligned}$",
@@ -5201,9 +9583,157 @@
         "ข้อ ก. และ ข. เป็นเท็จ"
       ],
       "hasImage": false,
+      "imageSpec": [
+        {
+          "type": "unit-circle-figure",
+          "size": 240,
+          "radius": 95,
+          "showAxes": false,
+          "dots": [
+            {
+              "id": "A",
+              "x": -1,
+              "y": 0,
+              "label": "A",
+              "labelDx": -15,
+              "labelDy": 6
+            },
+            {
+              "id": "B",
+              "x": 1,
+              "y": 0,
+              "label": "B",
+              "labelDx": 9,
+              "labelDy": 6
+            },
+            {
+              "id": "E",
+              "x": -0.866,
+              "y": 0.5,
+              "label": "E",
+              "labelDx": -15,
+              "labelDy": 1
+            },
+            {
+              "id": "D",
+              "x": 0.766,
+              "y": 0.643,
+              "label": "D",
+              "labelDx": 9,
+              "labelDy": -3
+            },
+            {
+              "id": "C",
+              "x": -0.152,
+              "y": 0.309,
+              "label": "C",
+              "labelDx": 7,
+              "labelDy": 13
+            }
+          ],
+          "chords": [
+            {
+              "fromDot": "A",
+              "toDot": "B"
+            },
+            {
+              "fromDot": "A",
+              "toDot": "D"
+            },
+            {
+              "fromDot": "B",
+              "toDot": "E"
+            }
+          ]
+        },
+        {
+          "type": "unit-circle-figure",
+          "size": 240,
+          "radius": 95,
+          "showAxes": false,
+          "dots": [
+            {
+              "id": "A",
+              "x": -1,
+              "y": 0,
+              "label": "A",
+              "labelDx": -15,
+              "labelDy": 6
+            },
+            {
+              "id": "B",
+              "x": 1,
+              "y": 0,
+              "label": "B",
+              "labelDx": 9,
+              "labelDy": 6
+            },
+            {
+              "id": "E",
+              "x": -0.866,
+              "y": 0.5,
+              "label": "E",
+              "labelDx": -15,
+              "labelDy": 1
+            },
+            {
+              "id": "D",
+              "x": 0.766,
+              "y": 0.643,
+              "label": "D",
+              "labelDx": 9,
+              "labelDy": -3
+            },
+            {
+              "id": "C",
+              "x": -0.152,
+              "y": 0.309,
+              "label": "C",
+              "labelDx": 7,
+              "labelDy": 13
+            }
+          ],
+          "chords": [
+            {
+              "fromDot": "A",
+              "toDot": "B"
+            },
+            {
+              "fromDot": "A",
+              "toDot": "D"
+            },
+            {
+              "fromDot": "B",
+              "toDot": "E"
+            },
+            {
+              "fromDot": "A",
+              "toDot": "E"
+            },
+            {
+              "fromDot": "D",
+              "toDot": "B"
+            }
+          ],
+          "rightAngles": [
+            {
+              "at": "D",
+              "refs": [
+                "A",
+                "B"
+              ]
+            },
+            {
+              "at": "E",
+              "refs": [
+                "A",
+                "B"
+              ]
+            }
+          ]
+        }
+      ],
       "sourceTag": "สมาคมคณิตศาสตร์ฯ 2546",
-      "_needsImage": true,
-      "_needsImageReason": "รูปครึ่งวงกลมเส้นผ่านศูนย์กลาง AB (A ซ้าย B ขวา) จุด E และ D บนโค้ง คอร์ด AD ตัดคอร์ด BE ที่จุด C ภายใน",
       "correct": 2,
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
@@ -5213,6 +9743,7 @@
         "เคล็ด dot: ถ้า $\\overline{p} \\perp \\overline{q}$ แล้ว $\\overline{p}\\cdot(\\overline{p} + \\overline{q}) = |\\overline{p}|^2$",
         "",
         "<b>🎯 เป้าหมาย</b> เช็ค ก. ด้วยสัดส่วน และพิสูจน์ ข. ด้วยมุมฉากในครึ่งวงกลม",
+        "[IMAGE:1]",
         "",
         "<b>ขั้นที่ 1:</b> ข้อ ก. — จาก $m|\\overrightarrow{AC}| = n|\\overrightarrow{CD}|$ ได้ $\\dfrac{|AC|}{|CD|} = \\dfrac{n}{m}$",
         "ดังนั้น $|AC|$ คิดเป็น $\\dfrac{n}{m+n}$ ของ $|AD|$ → $\\overrightarrow{AC} = \\dfrac{n}{m+n}\\overrightarrow{AD}$",
@@ -5259,9 +9790,81 @@
         "$\\dfrac{n}{m}\\,\\overrightarrow{BP} \\cdot \\overrightarrow{BC}$"
       ],
       "hasImage": false,
+      "imageSpec": {
+        "type": "unit-circle-figure",
+        "size": 230,
+        "radius": 90,
+        "showAxes": false,
+        "dots": [
+          {
+            "id": "A",
+            "x": -0.342,
+            "y": 0.94,
+            "label": "A",
+            "labelDx": -5,
+            "labelDy": -8
+          },
+          {
+            "id": "B",
+            "x": 0.342,
+            "y": 0.94,
+            "label": "B",
+            "labelDx": 8,
+            "labelDy": -6
+          },
+          {
+            "id": "C",
+            "x": 0.643,
+            "y": -0.766,
+            "label": "C",
+            "labelDx": 8,
+            "labelDy": 13
+          },
+          {
+            "id": "D",
+            "x": -0.643,
+            "y": -0.766,
+            "label": "D",
+            "labelDx": -15,
+            "labelDy": 13
+          },
+          {
+            "id": "P",
+            "x": 0.0,
+            "y": 0.348,
+            "label": "P",
+            "labelDx": 7,
+            "labelDy": -3
+          }
+        ],
+        "chords": [
+          {
+            "fromDot": "A",
+            "toDot": "B"
+          },
+          {
+            "fromDot": "B",
+            "toDot": "C"
+          },
+          {
+            "fromDot": "C",
+            "toDot": "D"
+          },
+          {
+            "fromDot": "D",
+            "toDot": "A"
+          },
+          {
+            "fromDot": "A",
+            "toDot": "C"
+          },
+          {
+            "fromDot": "B",
+            "toDot": "D"
+          }
+        ]
+      },
       "sourceTag": "สมาคมคณิตศาสตร์ฯ 2547",
-      "_needsImage": true,
-      "_needsImageReason": "รูปวงกลม จุด A, D บนโค้งด้านบน, B, C ด้านล่าง คอร์ด AC ตัดคอร์ด BD ที่จุด P ภายในวงกลม",
       "correct": 2,
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
@@ -5415,17 +10018,165 @@
         "ข้อ ก. และ ค. เท่านั้นเป็นจริง"
       ],
       "hasImage": false,
+      "imageSpec": [
+        {
+          "type": "polygon-labeled",
+          "width": 240,
+          "height": 178,
+          "vertices": {
+            "O": [
+              45,
+              158
+            ],
+            "A": [
+              195,
+              158
+            ],
+            "B": [
+              120,
+              30
+            ],
+            "XT": [
+              224,
+              158
+            ],
+            "YT": [
+              45,
+              14
+            ]
+          },
+          "vertexLabels": {
+            "O": {
+              "text": "O",
+              "dx": -14,
+              "dy": 15
+            },
+            "A": {
+              "text": "A",
+              "dx": -3,
+              "dy": 18
+            },
+            "B": {
+              "text": "B",
+              "dx": -4,
+              "dy": -7
+            },
+            "XT": {
+              "text": "x",
+              "dx": 4,
+              "dy": 5
+            },
+            "YT": {
+              "text": "y",
+              "dx": -4,
+              "dy": -3
+            }
+          },
+          "sides": [
+            {
+              "from": "O",
+              "to": "XT",
+              "arrows": "end"
+            },
+            {
+              "from": "O",
+              "to": "YT",
+              "arrows": "end"
+            },
+            {
+              "from": "O",
+              "to": "A"
+            },
+            {
+              "from": "A",
+              "to": "B"
+            },
+            {
+              "from": "B",
+              "to": "O"
+            }
+          ]
+        },
+        {
+          "type": "polygon-labeled",
+          "width": 380,
+          "height": 230,
+          "vertices": {
+            "O": [
+              75,
+              185
+            ],
+            "A": [
+              300,
+              180
+            ],
+            "B": [
+              190,
+              50
+            ]
+          },
+          "vertexLabels": {
+            "O": {
+              "dx": -16,
+              "dy": 8,
+              "text": "O"
+            },
+            "A": {
+              "dx": 8,
+              "dy": 8,
+              "text": "A"
+            },
+            "B": {
+              "dx": -4,
+              "dy": -10,
+              "text": "B"
+            }
+          },
+          "sides": [
+            {
+              "from": "O",
+              "to": "A",
+              "arrows": "end",
+              "label": "ū",
+              "labelOffset": {
+                "dx": 0,
+                "dy": 18
+              }
+            },
+            {
+              "from": "O",
+              "to": "B",
+              "arrows": "end",
+              "label": "v̄",
+              "labelOffset": {
+                "dx": -16,
+                "dy": 0
+              }
+            },
+            {
+              "from": "A",
+              "to": "B",
+              "arrows": "end",
+              "label": "w̄",
+              "labelOffset": {
+                "dx": 14,
+                "dy": 0
+              }
+            }
+          ]
+        }
+      ],
       "sourceTag": "สมาคมคณิตศาสตร์ฯ 2547",
-      "_needsImage": true,
-      "_needsImageReason": "รูปสามเหลี่ยมด้านเท่า OAB: O จุดกำเนิด, A บนแกน x, B เหนือแกน — ภาพช่วยยืนยันตำแหน่ง B อยู่ครึ่งบน",
       "correct": 3,
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
         "สามเหลี่ยมด้านเท่าบนแกน $x$ (ตามรูป $B$ อยู่เหนือแกน): $O(0,0) ,\\ A(a, 0) ,\\ B\\left(\\dfrac{a}{2}, \\dfrac{a\\sqrt{3}}{2}\\right)$",
         "",
         "<b>🎯 เป้าหมาย</b> เขียน $\\overline{u}, \\overline{v}, \\overline{w}$ เป็นพิกัด แล้วเช็คทีละข้อความ",
+        "[IMAGE:1]",
         "",
-        "<b>【 วิธีที่ 1 ▸ พื้นฐาน 】</b>",
+        "<b>【 วิธีที่ 1 ▸ พื้นฐาน · ถือพิกัดเชิงสัญลักษณ์ (symbolic coordinates) 】</b>",
+        "",
         "<b>ขั้นที่ 1:</b> เขียนพิกัด",
         "$\\overline{u} = (a, 0)$ , $\\overline{v} = \\left(\\dfrac{a}{2}, \\dfrac{a\\sqrt{3}}{2}\\right)$",
         "",
@@ -5442,7 +10193,8 @@
         "$\\begin{aligned} (\\overline{u}+\\overline{v})\\cdot(\\overline{u}-\\overline{v}) &= |\\overline{u}|^2 - |\\overline{v}|^2 \\\\ &= a^2 - a^2 \\\\ &= 0 \\end{aligned}$",
         "✓ จริง (ด้านเท่า → ขนาดเท่า)",
         "",
-        "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ 】</b>",
+        "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ · แทนค่าทดสอบ (test value) 】</b>",
+        "",
         "แทนค่าทดสอบ $a = 2$ (ทุกข้อความเป็นเอกพันธ์ใน $a$ — จริง/เท็จไม่ขึ้นกับค่า $a$): $\\overline{u} = (2, 0) ,\\ \\overline{v} = (1, \\sqrt3) ,\\ \\overline{w} = (-1, \\sqrt3)$",
         "(หมายเหตุ: \"ค่าทดสอบ/ตัวอย่างทดสอบ\" คือตัวอย่างเฉพาะเจาะจงตัวเดียวที่ยกมาชี้ขาดข้อความ — ใช้<b>หักล้าง</b>ได้เสมอ เพราะตัวอย่างค้านตัวเดียวก็ทำให้ข้อความแบบ \"จริงทุกกรณี\" ผิดทันที ส่วนการใช้<b>ยืนยัน</b>คำตอบ ทำได้เมื่อข้อสอบรับประกันว่ามีคำตอบเดียว)",
         "ก: $\\dfrac{a}{2}(-\\overline{i} + \\sqrt3\\overline{j}) = (-1, \\sqrt3) = \\overline{w}$ ✓ · ข: $\\overline{u}\\cdot\\overline{v} = 2 \\ne a^2 = 4$ ✗ · ค: $(3, \\sqrt3)\\cdot(1, -\\sqrt3) = 3 - 3 = 0$ ✓ → ตัวเลือก 4",
@@ -5636,7 +10388,8 @@
         "",
         "<b>🎯 เป้าหมาย</b> หา $M$ → สร้างเวกเตอร์สองตัว → $\\arccos$",
         "",
-        "<b>【 วิธีที่ 1 ▸ พื้นฐาน 】</b>",
+        "<b>【 วิธีที่ 1 ▸ พื้นฐาน · ผลคูณจุดของเวกเตอร์ (dot product) 】</b>",
+        "",
         "<b>ขั้นที่ 1:</b> หา $M$ จุดกึ่งกลาง $BC$",
         "$M = \\left(\\dfrac{-6+4}{2}, \\dfrac{3-1}{2}\\right) = (-1, 1)$",
         "",
@@ -5648,7 +10401,8 @@
         "$\\begin{aligned} \\cos(A\\hat{M}B) &= \\dfrac{(3)(-5) + (4)(2)}{5\\sqrt{29}} \\\\ &= \\dfrac{-7}{5\\sqrt{29}} \\end{aligned}$",
         "$A\\hat{M}B = \\arccos\\left(\\dfrac{-7}{5\\sqrt{29}}\\right)$",
         "",
-        "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ 】</b>",
+        "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ · ความยาวด้าน + กฎโคไซน์ (law of cosines) 】</b>",
+        "",
         "<b>ขั้นที่ 1:</b> หาความยาวสามด้านของสามเหลี่ยม $AMB$ (เมื่อ $M = (-1, 1)$)",
         "$\\begin{aligned} AM &= 5,\\quad MB \\\\ &= \\sqrt{29},\\quad AB \\\\ &= \\sqrt{(2-(-6))^2 + (5-3)^2} \\\\ &= \\sqrt{68} \\end{aligned}$",
         "<b>ขั้นที่ 2:</b> กฎโคไซน์ที่จุดยอด $M$",
@@ -5686,9 +10440,115 @@
         "$\\cos^{-1}\\dfrac{43}{50}$"
       ],
       "hasImage": false,
+      "imageSpec": {
+        "type": "polygon-labeled",
+        "width": 320,
+        "height": 235,
+        "vertices": {
+          "O": [
+            32,
+            205
+          ],
+          "XT": [
+            305,
+            205
+          ],
+          "YT": [
+            32,
+            22
+          ],
+          "A": [
+            82,
+            160
+          ],
+          "B": [
+            57,
+            70
+          ],
+          "C": [
+            232,
+            40
+          ],
+          "D": [
+            182,
+            115
+          ]
+        },
+        "vertexLabels": {
+          "O": {
+            "text": " "
+          },
+          "XT": {
+            "text": "x",
+            "dx": 4,
+            "dy": 5
+          },
+          "YT": {
+            "text": "y",
+            "dx": -4,
+            "dy": -4
+          },
+          "A": {
+            "text": "A(2,3)",
+            "dx": -12,
+            "dy": 18
+          },
+          "B": {
+            "text": "B(1,9)",
+            "dx": -42,
+            "dy": -2
+          },
+          "C": {
+            "text": "C(8,11)",
+            "dx": 6,
+            "dy": 2
+          },
+          "D": {
+            "text": "D(6,6)",
+            "dx": 8,
+            "dy": 4
+          }
+        },
+        "sides": [
+          {
+            "from": "O",
+            "to": "XT",
+            "arrows": "end"
+          },
+          {
+            "from": "O",
+            "to": "YT",
+            "arrows": "end"
+          },
+          {
+            "from": "A",
+            "to": "B",
+            "arrows": "end"
+          },
+          {
+            "from": "A",
+            "to": "C",
+            "arrows": "end"
+          },
+          {
+            "from": "A",
+            "to": "D",
+            "arrows": "end"
+          }
+        ],
+        "angleMarks": [
+          {
+            "at": "A",
+            "from": "D",
+            "to": "C",
+            "type": "arc",
+            "radius": 24,
+            "label": "θ",
+            "labelDistance": 34
+          }
+        ]
+      },
       "sourceTag": "พื้นฐานวิศวะฯ 2538",
-      "_needsImage": true,
-      "_needsImageReason": "รูปแกน x-y แสดงจุด A(2,3), B(1,9), C(8,11), D(6,6) พร้อมเวกเตอร์และมุม θ ที่ A — พิกัดทั้งหมดอ่านจากรูป",
       "correct": 0,
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
@@ -5730,9 +10590,81 @@
       "score": 1,
       "question": "กำหนดรูปสี่เหลี่ยมด้านขนาน $ABCD$ มีมุม $BAD = \\theta$ ดังรูป\nถ้า $\\overrightarrow{AB} = 6\\overline{i} - 3\\overline{j}$ และ $\\overrightarrow{AC} = 10\\overline{i} - \\overline{j}$ จงหาค่าของ $\\sin\\theta - \\cos\\theta$",
       "hasImage": false,
+      "imageSpec": {
+        "type": "polygon-labeled",
+        "width": 330,
+        "height": 205,
+        "vertices": {
+          "A": [
+            55,
+            168
+          ],
+          "B": [
+            245,
+            168
+          ],
+          "C": [
+            312,
+            52
+          ],
+          "D": [
+            122,
+            52
+          ]
+        },
+        "vertexLabels": {
+          "A": {
+            "text": "A",
+            "dx": -18,
+            "dy": 6
+          },
+          "B": {
+            "text": "B",
+            "dx": 4,
+            "dy": 18
+          },
+          "C": {
+            "text": "C",
+            "dx": 8,
+            "dy": 2
+          },
+          "D": {
+            "text": "D",
+            "dx": -6,
+            "dy": -8
+          }
+        },
+        "sides": [
+          {
+            "from": "A",
+            "to": "B"
+          },
+          {
+            "from": "B",
+            "to": "C"
+          },
+          {
+            "from": "C",
+            "to": "D"
+          },
+          {
+            "from": "D",
+            "to": "A"
+          }
+        ],
+        "angleMarks": [
+          {
+            "at": "A",
+            "from": "B",
+            "to": "D",
+            "type": "arc",
+            "radius": 26,
+            "label": "θ",
+            "labelDistance": 40
+          }
+        ]
+      },
       "sourceTag": "โควตา มช. 2545",
-      "_needsImage": true,
-      "_needsImageReason": "รูปสี่เหลี่ยมด้านขนาน ABCD (A ล่างซ้าย, B ล่างขวา, C บนขวา, D บนซ้าย) มุม θ ที่จุด A",
       "correct": "0.2",
       "accept": [
         "0.2",
@@ -6151,6 +11083,8 @@
         "",
         "<b>🎯 เป้าหมาย</b> อ่านค่า dot และขนาดจากสมาชิกเมทริกซ์ แล้วหามุม",
         "",
+        "<b>【 วิธีที่ 1 ▸ พื้นฐาน · อ่าน cos จากเมทริกซ์แกรม (Gram matrix) 】</b>",
+        "",
         "<b>ขั้นที่ 1:</b> อ่านค่าจาก $A^tA = \\begin{bmatrix} 2 & -\\sqrt{3} \\\\ -\\sqrt{3} & 2 \\end{bmatrix}$",
         "สมาชิกแนวทแยง: $|\\overline{v}_1|^2 = 2$",
         "และ $|\\overline{v}_2|^2 = 2$",
@@ -6159,6 +11093,13 @@
         "<b>ขั้นที่ 2:</b> หามุม",
         "$\\begin{aligned} \\cos\\theta &= \\dfrac{\\overline{v}_1\\cdot\\overline{v}_2}{|\\overline{v}_1||\\overline{v}_2|} \\\\ &= \\dfrac{-\\sqrt{3}}{\\sqrt{2}\\cdot\\sqrt{2}} \\\\ &= -\\dfrac{\\sqrt{3}}{2} \\end{aligned}$",
         "$\\theta = 150°$",
+        "",
+        "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ · ดีเทอร์มิแนนต์ = พื้นที่ยกกำลังสอง (determinant / area) 】</b>",
+        "",
+        "$\\det(A^tA) = (\\det A)^2$ และ $\\det A = |\\overline{v}_1||\\overline{v}_2|\\sin\\theta$ (พื้นที่สี่เหลี่ยมด้านขนาน) → $\\det(A^tA) = |\\overline{v}_1|^2|\\overline{v}_2|^2\\sin^2\\theta$",
+        "$\\det\\begin{bmatrix} 2 & -\\sqrt{3} \\\\ -\\sqrt{3} & 2 \\end{bmatrix} = 4 - 3 = 1$ → $\\sin^2\\theta = \\dfrac{1}{|\\overline{v}_1|^2|\\overline{v}_2|^2} = \\dfrac{1}{4}$ → $\\sin\\theta = \\dfrac{1}{2}$",
+        "ได้ $\\theta = 30°$ หรือ $150°$ — สมาชิกนอกแนวทแยง $\\overline{v}_1\\cdot\\overline{v}_2 = -\\sqrt{3} < 0$ บอกว่า $\\cos\\theta < 0$ → มุมป้าน → $\\theta = 150°$",
+        "<b>ข้อต่าง:</b> ใช้ดีเทอร์มิแนนต์ (พื้นที่) หา $\\sin\\theta$ แทนการอ่าน $\\cos\\theta$ ตรง — เห็นมุมจากอีกด้าน แต่ต้องเช็คเครื่องหมาย dot เพื่อเลือกระหว่าง $30°$ กับ $150°$",
         "",
         "<b>✔ ตรวจคำตอบ</b> ตัวอย่างจริง:",
         "$\\begin{aligned} \\overline{v}_1 &= (\\sqrt{2}, 0) ,\\ \\overline{v}_2 \\\\ &= \\sqrt{2}(\\cos 150°, \\sin 150°) \\end{aligned}$",
@@ -6191,6 +11132,88 @@
         "$2$"
       ],
       "hasImage": false,
+      "imageSpec": {
+        "type": "polygon-labeled",
+        "width": 320,
+        "height": 295,
+        "vertices": {
+          "O": [
+            70,
+            150
+          ],
+          "PAB": [
+            108,
+            36
+          ],
+          "Pu": [
+            184,
+            188
+          ],
+          "PBC": [
+            124,
+            257
+          ]
+        },
+        "vertexLabels": {
+          "O": {
+            "dx": -14,
+            "dy": 4,
+            "text": "O"
+          },
+          "PAB": {
+            "text": " "
+          },
+          "Pu": {
+            "text": " "
+          },
+          "PBC": {
+            "text": " "
+          }
+        },
+        "sides": [
+          {
+            "from": "O",
+            "to": "PAB",
+            "arrows": "end",
+            "label": "ī+3j̄",
+            "labelOffset": {
+              "dx": -26,
+              "dy": -4
+            }
+          },
+          {
+            "from": "O",
+            "to": "Pu",
+            "arrows": "end",
+            "label": "ū",
+            "labelOffset": {
+              "dx": 8,
+              "dy": 12
+            }
+          },
+          {
+            "from": "O",
+            "to": "PBC",
+            "arrows": "end",
+            "label": "ī−2j̄",
+            "labelOffset": {
+              "dx": -30,
+              "dy": 6
+            }
+          }
+        ],
+        "angleMarks": [
+          {
+            "at": "O",
+            "from": "Pu",
+            "to": "PBC",
+            "type": "arc",
+            "radius": 36,
+            "label": "θ",
+            "labelDistance": 54
+          }
+        ]
+      },
       "sourceTag": "โควตา มช. 2546",
       "correct": 1,
       "explanation": [
@@ -6199,8 +11222,10 @@
         "มุมระหว่างเวกเตอร์ไม่ขึ้นกับขนาด — เลือกตัวแทนแนวที่ง่ายได้",
         "",
         "<b>🎯 เป้าหมาย</b> หาแนว $\\overline{u}$ → หา $\\cos\\theta$ กับ $\\overrightarrow{BC}$ → กลับเป็น $\\sec$",
+        "[IMAGE]",
         "",
-        "<b>【 วิธีที่ 1 ▸ พื้นฐาน 】</b>",
+        "<b>【 วิธีที่ 1 ▸ พื้นฐาน · หาแนวตั้งฉากแล้วผลคูณจุด (perpendicular + dot) 】</b>",
+        "",
         "<b>ขั้นที่ 1:</b> หาแนว $\\overline{u}$",
         "$\\overrightarrow{AB} = (1, 3)$ → แนวตั้งฉาก: $(3, -1)$ หรือ $(-3, 1)$ เงื่อนไข $x > 0$ เลือก $(3, -1)$",
         "(ขนาด $3\\sqrt{10}$ ให้ $\\overline{u} = (9, -3)$ แต่มุมไม่สนขนาด ใช้ $(3, -1)$ ได้เลย)",
@@ -6210,7 +11235,8 @@
         "",
         "<b>ขั้นที่ 3:</b> $\\sec\\theta = \\sqrt{2}$",
         "",
-        "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ 】</b>",
+        "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ · หามุมแล้วหัก 90° (angle minus 90°) 】</b>",
+        "",
         "<b>เครื่องมือ:</b> หามุม $\\overrightarrow{AB}$-$\\overrightarrow{BC}$ ก่อน แล้วหักด้วย $90^\\circ$ (ไม่ต้องหา $\\overline{u}$ เต็ม)",
         "$\\begin{aligned} \\cos\\varphi &= \\dfrac{\\overrightarrow{AB}\\cdot\\overrightarrow{BC}}{|\\overrightarrow{AB}||\\overrightarrow{BC}|} \\\\ &= \\dfrac{(1)(1)+(3)(-2)}{\\sqrt{10}\\,\\sqrt{5}} \\\\ &= \\dfrac{-5}{\\sqrt{50}} \\\\ &= -\\dfrac{1}{\\sqrt{2}} \\end{aligned}$",
         "→ $\\varphi = 135^\\circ$",
@@ -6247,13 +11273,94 @@
         "$\\dfrac{140}{45}(12\\overline{i} + \\overline{j})$"
       ],
       "hasImage": false,
+      "imageSpec": {
+        "type": "polygon-labeled",
+        "width": 330,
+        "height": 185,
+        "vertices": {
+          "O": [
+            70,
+            140
+          ],
+          "A": [
+            124,
+            68
+          ],
+          "B": [
+            286,
+            122
+          ],
+          "C": [
+            130,
+            135
+          ]
+        },
+        "vertexLabels": {
+          "O": {
+            "dx": -16,
+            "dy": 8,
+            "text": "O"
+          },
+          "A": {
+            "dx": -2,
+            "dy": -8,
+            "text": "A"
+          },
+          "B": {
+            "dx": 10,
+            "dy": 4,
+            "text": "B"
+          },
+          "C": {
+            "dx": -2,
+            "dy": 20,
+            "text": "C"
+          }
+        },
+        "sides": [
+          {
+            "from": "O",
+            "to": "A",
+            "arrows": "end"
+          },
+          {
+            "from": "O",
+            "to": "B",
+            "arrows": "end"
+          },
+          {
+            "from": "A",
+            "to": "C",
+            "style": "dashed"
+          }
+        ],
+        "angleMarks": [
+          {
+            "at": "O",
+            "from": "B",
+            "to": "A",
+            "type": "arc",
+            "radius": 24,
+            "label": "θ",
+            "labelDistance": 38
+          },
+          {
+            "at": "C",
+            "from": "A",
+            "to": "B",
+            "type": "right",
+            "size": 9
+          }
+        ]
+      },
       "sourceTag": "คัดโอลิมปิก 2538",
       "correct": 2,
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
-        "$C$ คือเท้าฉากจาก $A$ ลงแนว $\\overrightarrow{OB}$ → $\\overrightarrow{OC} = \\text{proj}_{\\overrightarrow{OB}}\\overrightarrow{OA} = \\dfrac{\\overrightarrow{OA}\\cdot\\overrightarrow{OB}}{|\\overrightarrow{OB}|^2}\\overrightarrow{OB}$",
+        "$C$ คือจุดปลายเส้นตั้งฉากจาก $A$ ลงแนว $\\overrightarrow{OB}$ → $\\overrightarrow{OC} = \\text{proj}_{\\overrightarrow{OB}}\\overrightarrow{OA} = \\dfrac{\\overrightarrow{OA}\\cdot\\overrightarrow{OB}}{|\\overrightarrow{OB}|^2}\\overrightarrow{OB}$",
         "",
         "<b>🎯 เป้าหมาย</b> คำนวณภาพฉายตรง ๆ",
+        "[IMAGE]",
         "",
         "<b>ขั้นที่ 1:</b> หา dot และขนาดกำลังสอง",
         "$\\begin{aligned} \\overrightarrow{OA}\\cdot\\overrightarrow{OB} &= (3)(12) + (4)(1) \\\\ &= 40 \\end{aligned}$",
@@ -6298,7 +11405,8 @@
         "",
         "<b>🎯 เป้าหมาย</b> หาพื้นที่ — ไล่ตามนิยามผ่านมุม (พื้นฐาน) หรือใช้สูตรไขว้ตรง ๆ (ประยุกต์)",
         "",
-        "<b>【 วิธีที่ 1 ▸ พื้นฐาน 】</b>",
+        "<b>【 วิธีที่ 1 ▸ พื้นฐาน · ไล่ตามนิยามพื้นที่ (sin area definition) 】</b>",
+        "",
         "<b>ขั้นที่ 1:</b> หา dot และขนาด",
         "$\\overline{A}\\cdot\\overline{B} = (1)(3)+(2)(-1) = 1$ , $|\\overline{A}| = \\sqrt{5}$ , $|\\overline{B}| = \\sqrt{10}$",
         "",
@@ -6308,7 +11416,8 @@
         "",
         "<b>ขั้นที่ 3:</b> พื้นที่ $= |\\overline{A}||\\overline{B}|\\sin\\theta = \\sqrt{5}\\cdot\\sqrt{10}\\cdot\\dfrac{7}{\\sqrt{50}} = 7$ ตารางหน่วย",
         "",
-        "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ 】</b>",
+        "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ · สูตรผลคูณไขว้ในระนาบ (2D cross product) 】</b>",
+        "",
         "<b>เครื่องมือ:</b> พื้นที่ $= |a_1 b_2 - a_2 b_1|$ (ขนาดผลคูณไขว้ในระนาบ — เลี่ยงการหามุม)",
         "$= |(1)(-1) - (2)(3)| = |-1 - 6| = 7$ ตารางหน่วย",
         "<b>ข้อต่าง:</b> วิธีพื้นฐานไล่ตามนิยาม $\\cos\\theta \\to \\sin\\theta \\to |\\overline{A}||\\overline{B}|\\sin\\theta$ เห็นที่มาของพื้นที่ชัด ส่วนวิธีประยุกต์ใช้สูตรไขว้ตรง ๆ เร็วและไม่ผ่านมุม",
@@ -6342,6 +11451,74 @@
         "$-13$"
       ],
       "hasImage": false,
+      "imageSpec": {
+        "type": "polygon-labeled",
+        "width": 420,
+        "height": 215,
+        "vertices": {
+          "A": [
+            60,
+            165
+          ],
+          "B": [
+            180,
+            50
+          ],
+          "C": [
+            350,
+            135
+          ]
+        },
+        "vertexLabels": {
+          "A": {
+            "dx": -18,
+            "dy": 10,
+            "text": "A"
+          },
+          "B": {
+            "dx": -2,
+            "dy": -10,
+            "text": "B"
+          },
+          "C": {
+            "dx": 10,
+            "dy": 4,
+            "text": "C"
+          }
+        },
+        "sides": [
+          {
+            "from": "A",
+            "to": "B",
+            "arrows": "end",
+            "label": "c",
+            "labelOffset": {
+              "dx": -14,
+              "dy": -2
+            }
+          },
+          {
+            "from": "B",
+            "to": "C",
+            "arrows": "end",
+            "label": "a",
+            "labelOffset": {
+              "dx": 6,
+              "dy": -12
+            }
+          },
+          {
+            "from": "C",
+            "to": "A",
+            "arrows": "end",
+            "label": "b",
+            "labelOffset": {
+              "dx": 0,
+              "dy": 20
+            }
+          }
+        ]
+      },
       "sourceTag": "สมาคมคณิตศาสตร์ฯ 2543",
       "correct": 3,
       "explanation": [
@@ -6350,6 +11527,7 @@
         "$|\\overline{a}+\\overline{b}+\\overline{c}|^2 = |\\overline{a}|^2+|\\overline{b}|^2+|\\overline{c}|^2 + 2(\\overline{a}\\cdot\\overline{b}+\\overline{b}\\cdot\\overline{c}+\\overline{c}\\cdot\\overline{a})$",
         "",
         "<b>🎯 เป้าหมาย</b> ใช้เงื่อนไขผลรวมเป็นศูนย์ แก้หาผลรวม dot ในขั้นเดียว",
+        "[IMAGE]",
         "",
         "<b>ขั้นที่ 1:</b> ยกกำลังสองสมการ $\\overline{a}+\\overline{b}+\\overline{c} = \\overline{0}$",
         "$0 = 9 + 1 + 16 + 2S$ โดย $S$ คือผลรวม dot ที่ต้องการ",
@@ -6386,6 +11564,74 @@
         "$-44$"
       ],
       "hasImage": false,
+      "imageSpec": {
+        "type": "polygon-labeled",
+        "width": 420,
+        "height": 215,
+        "vertices": {
+          "A": [
+            60,
+            165
+          ],
+          "B": [
+            180,
+            50
+          ],
+          "C": [
+            350,
+            135
+          ]
+        },
+        "vertexLabels": {
+          "A": {
+            "dx": -18,
+            "dy": 10,
+            "text": "A"
+          },
+          "B": {
+            "dx": -2,
+            "dy": -10,
+            "text": "B"
+          },
+          "C": {
+            "dx": 10,
+            "dy": 4,
+            "text": "C"
+          }
+        },
+        "sides": [
+          {
+            "from": "A",
+            "to": "B",
+            "arrows": "end",
+            "label": "c",
+            "labelOffset": {
+              "dx": -14,
+              "dy": -2
+            }
+          },
+          {
+            "from": "B",
+            "to": "C",
+            "arrows": "end",
+            "label": "a",
+            "labelOffset": {
+              "dx": 6,
+              "dy": -12
+            }
+          },
+          {
+            "from": "C",
+            "to": "A",
+            "arrows": "end",
+            "label": "b",
+            "labelOffset": {
+              "dx": 0,
+              "dy": 20
+            }
+          }
+        ]
+      },
       "sourceTag": "สมาคมคณิตศาสตร์ฯ 2544",
       "correct": 2,
       "explanation": [
@@ -6394,6 +11640,7 @@
         "และ $\\overline{a}+\\overline{c} = -\\overline{b}$ — ขนาดที่โจทย์ให้คือขนาดของ $\\overline{c}$ กับ $\\overline{b}$ ในคราบแฝง!",
         "",
         "<b>🎯 เป้าหมาย</b> ถอดรหัสขนาดทั้งสาม แล้วใช้สูตรผลรวม dot",
+        "[IMAGE]",
         "",
         "<b>ขั้นที่ 1:</b> ถอดขนาด",
         "$\\begin{aligned} |\\overline{c}| &= |-(\\overline{a}+\\overline{b})| \\\\ &= |\\overline{a}+\\overline{b}| \\\\ &= 5 \\end{aligned}$",
@@ -6433,16 +11680,170 @@
         "$50$ ตร.ม."
       ],
       "hasImage": false,
+      "imageSpec": {
+        "type": "polygon-labeled",
+        "width": 380,
+        "height": 215,
+        "vertices": {
+          "O": [
+            183,
+            150
+          ],
+          "XT": [
+            360,
+            150
+          ],
+          "YT": [
+            185,
+            30
+          ],
+          "ZT": [
+            90,
+            205
+          ],
+          "GA": [
+            320,
+            150
+          ],
+          "KHO": [
+            196,
+            54
+          ],
+          "KA": [
+            112,
+            186
+          ],
+          "NG": [
+            181,
+            150
+          ],
+          "JA": [
+            212,
+            168
+          ]
+        },
+        "vertexLabels": {
+          "O": {
+            "text": " "
+          },
+          "XT": {
+            "text": "x",
+            "dx": 6,
+            "dy": 5
+          },
+          "YT": {
+            "text": "y",
+            "dx": 4,
+            "dy": -3
+          },
+          "ZT": {
+            "text": "z",
+            "dx": -2,
+            "dy": 15
+          },
+          "GA": {
+            "text": "ก",
+            "dx": 7,
+            "dy": -6
+          },
+          "KHO": {
+            "text": "ข",
+            "dx": -3,
+            "dy": -8
+          },
+          "KA": {
+            "text": "ค",
+            "dx": -17,
+            "dy": 6
+          },
+          "NG": {
+            "text": "ง",
+            "dx": -15,
+            "dy": 5
+          },
+          "JA": {
+            "text": "จ",
+            "dx": 5,
+            "dy": 15
+          }
+        },
+        "sides": [
+          {
+            "from": "O",
+            "to": "XT",
+            "arrows": "end"
+          },
+          {
+            "from": "O",
+            "to": "YT",
+            "arrows": "end"
+          },
+          {
+            "from": "O",
+            "to": "ZT",
+            "arrows": "end"
+          },
+          {
+            "from": "KA",
+            "to": "GA",
+            "label": "10",
+            "labelOffset": {
+              "dx": 10,
+              "dy": 24
+            }
+          },
+          {
+            "from": "GA",
+            "to": "KHO"
+          },
+          {
+            "from": "KA",
+            "to": "KHO"
+          },
+          {
+            "from": "KHO",
+            "to": "NG",
+            "label": "4",
+            "labelOffset": {
+              "dx": -10,
+              "dy": 0
+            }
+          },
+          {
+            "from": "NG",
+            "to": "JA",
+            "label": "3",
+            "labelOffset": {
+              "dx": 1,
+              "dy": 13
+            }
+          },
+          {
+            "from": "KHO",
+            "to": "JA",
+            "style": "dashed"
+          }
+        ],
+        "angleMarks": [
+          {
+            "at": "JA",
+            "from": "KHO",
+            "to": "GA",
+            "type": "right",
+            "size": 8
+          }
+        ]
+      },
       "sourceTag": "พื้นฐานวิศวะฯ 2532",
-      "_needsImage": true,
-      "_needsImageReason": "รูปสามมิติแกน x,y,z: สามเหลี่ยม กขค มีฐาน กค = 10 บนพื้น, ข บนแกน y สูงจาก ง 4 หน่วย, งจ = 3 ตั้งฉากกับ กค ที่ จ (มีเครื่องหมายมุมฉาก), เส้นประ ขจ — จำเป็นต่อการเข้าใจตำแหน่งจุด",
       "correct": 2,
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
-        "จากรูป: สามเหลี่ยม กขค มีฐาน กค ยาว 10 อยู่บนระนาบ $xz$ จุดยอด ข อยู่สูงขึ้นไปตามแกน $y$ โดย ขง ตั้งฉากกับพื้น (ยาว 4) และ ง อยู่ห่างจากฐาน กค โดยมี จ เป็นเท้าฉากบนฐาน (งจ $= 3$, มีเครื่องหมายมุมฉากที่ จ)",
+        "จากรูป: สามเหลี่ยม กขค มีฐาน กค ยาว 10 อยู่บนระนาบ $xz$ จุดยอด ข อยู่สูงขึ้นไปตามแกน $y$ โดย ขง ตั้งฉากกับพื้น (ยาว 4) และ ง อยู่ห่างจากฐาน กค โดยมี จ เป็นจุดปลายเส้นตั้งฉากบนฐาน (งจ $= 3$, มีเครื่องหมายมุมฉากที่ จ)",
         "พื้นที่สามเหลี่ยม $= \\dfrac{1}{2} \\times \\text{ฐาน} \\times \\text{สูง}$ โดย \"สูง\" ต้องวัดในระนาบของสามเหลี่ยมเอง (คือ ขจ)",
         "",
         "<b>🎯 เป้าหมาย</b> หาความสูงเอียง ขจ ด้วยพีทาโกรัส แล้วคิดพื้นที่",
+        "",
+        "<b>【 วิธีที่ 1 ▸ พื้นฐาน · ส่วนสูงเอียง + พีทาโกรัส (slant height) 】</b>",
         "",
         "<b>ขั้นที่ 1:</b> หา ขจ",
         "ขง ตั้งฉากกับพื้น (แนวดิ่ง) และ งจ นอนบนพื้นตั้งฉากกับ กค → สามเหลี่ยม ขงจ เป็นมุมฉากที่ ง",
@@ -6452,6 +11853,14 @@
         "<b>ขั้นที่ 2:</b> พื้นที่",
         "พื้นที่ $= \\dfrac{1}{2} \\times 10 \\times 5 = 25$ ตารางเมตร",
         "",
+        "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ · ผลคูณไขว้ในสามมิติ (cross product) 】</b>",
+        "",
+        "วางพิกัด: ก$=(0, 0, 0)$ , ค$=(10, 0, 0)$ บนแกน $x$ ; ขง$=4$ แนวแกน $y$ และ งจ$=3$ แนวแกน $z$ → ข$=(t, 4, 3)$ เมื่อ จ$=(t, 0, 0)$ บนฐาน",
+        "ให้ $\\vec{u} = (10, 0, 0)$ (เวกเตอร์ ก→ค) และ $\\vec{v} = (t, 4, 3)$ (เวกเตอร์ ก→ข)",
+        "$\\vec{u} \\times \\vec{v} = (0\\cdot3 - 0\\cdot4 ,\\ 0\\cdot t - 10\\cdot3 ,\\ 10\\cdot4 - 0\\cdot t) = (0, -30, 40)$ (พจน์ $t$ หายหมด)",
+        "พื้นที่ $= \\dfrac{1}{2}\\left|\\vec{u} \\times \\vec{v}\\right| = \\dfrac{1}{2}\\sqrt{0 + 900 + 1600} = \\dfrac{1}{2}(50) = 25$ ตารางเมตร",
+        "<b>ข้อต่าง:</b> ไม่ลดรูปเป็น 2 มิติ — คำนวณในสามมิติด้วยผลคูณไขว้ตรง ๆ ตำแหน่ง จ บนฐาน (ค่า $t$) หายเอง ยืนยันว่าพื้นที่ไม่ขึ้นกับตำแหน่ง จ",
+        "",
         "<b>✔ ตรวจคำตอบ</b> numpy: $\\sqrt{4^2+3^2} = 5$ ✓ (สามเหลี่ยม $3$-$4$-$5$) และ $\\dfrac{1}{2}(10)(5) = 25$ ✓",
         "",
         "<b>✅ คำตอบ: $25$ ตร.ม. → ตัวเลือก 3</b>",
@@ -6460,58 +11869,6 @@
         "<b>⚠️ จุดที่เด็กมักผิด</b> ใช้ความสูงดิ่ง 4 เป็นส่วนสูง (ได้ 20 ตรงตัวเลือก 2) — ส่วนสูงของหน้าสามเหลี่ยมเอียงต้องวัดในระนาบของหน้านั้น ไม่ใช่แนวดิ่ง"
       ],
       "notes": "ขจ = √(4²+3²) = 5 → พื้นที่ = ½·10·5 = 25"
-    },
-    {
-      "id": "chap-09-vector-q124",
-      "setId": "chap-09-vector",
-      "questionNumber": 124,
-      "topics": [
-        "9"
-      ],
-      "subTopics": [],
-      "difficulty": "ยาก",
-      "type": "mc",
-      "level": "hard",
-      "score": 1,
-      "question": "เส้นตรงเส้นหนึ่งผ่านจุด $A(2, 2, 2)$ และ $B(6, 5, 2)$ อยากทราบว่า ถ้าลากเส้นจากจุด $C(-4, 0, -3)$\nไปตั้งฉากกับเส้นตรงที่ลากผ่านจุด $A$ และ $B$ ข้างต้น เส้นตั้งฉากนี้จะมีความยาวเท่าไร",
-      "choices": [
-        "$\\sqrt{\\dfrac{33}{5}}$ หน่วย",
-        "$\\sqrt{\\dfrac{221}{5}}$ หน่วย",
-        "$\\sqrt{61}$ หน่วย",
-        "$\\sqrt{221}$ หน่วย"
-      ],
-      "hasImage": false,
-      "sourceTag": "พื้นฐานวิศวะฯ 2540",
-      "_noAnswerInKey": true,
-      "correct": null,
-      "explanation": [
-        "<b>📐 ความรู้พื้นฐาน</b>",
-        "ระยะจากจุดถึงเส้นตรง (สามมิติ): ใช้พีทาโกรัสของ $|\\overrightarrow{AC}|$ กับภาพฉายบนแนวเส้น",
-        "$d^2 = |\\overrightarrow{AC}|^2 - \\left(\\dfrac{\\overrightarrow{AC}\\cdot\\overrightarrow{AB}}{|\\overrightarrow{AB}|}\\right)^2$",
-        "",
-        "<b>🎯 เป้าหมาย</b> คำนวณระยะตั้งฉากจาก $C$ ถึงเส้น $AB$",
-        "",
-        "<b>ขั้นที่ 1:</b> เวกเตอร์ที่ใช้",
-        "$\\overrightarrow{AB} = (4, 3, 0)$ ขนาด $5$",
-        "$\\overrightarrow{AC} = (-6, -2, -5)$ ขนาดกำลังสอง $= 36 + 4 + 25 = 65$",
-        "",
-        "<b>ขั้นที่ 2:</b> ภาพฉายบนแนวเส้น",
-        "$\\begin{aligned} \\dfrac{\\overrightarrow{AC}\\cdot\\overrightarrow{AB}}{|\\overrightarrow{AB}|} &= \\dfrac{-24 - 6 + 0}{5} \\\\ &= -6 \\end{aligned}$",
-        "",
-        "<b>ขั้นที่ 3:</b> พีทาโกรัส",
-        "$d^2 = 65 - 36 = 29$ → $d = \\sqrt{29}$ หน่วย",
-        "",
-        "<b>ขั้นที่ 4:</b> เทียบตัวเลือก",
-        "$\\sqrt{29} \\approx 5.39$ — ไม่ตรงกับตัวเลือกใดเลย ($\\sqrt{33/5} \\approx 2.57 ,\\ \\sqrt{221/5} \\approx 6.65 ,\\ \\sqrt{61} \\approx 7.81 ,\\ \\sqrt{221} \\approx 14.87$)",
-        "",
-        "<b>✔ ตรวจคำตอบ</b> numpy ตรวจสองวิธี: สูตรภาพฉายได้ $\\sqrt{29}$ และสูตร cross product $d = \\dfrac{|\\overrightarrow{AB}\\times\\overrightarrow{AC}|}{|\\overrightarrow{AB}|} = \\dfrac{\\sqrt{725}}{5} = \\sqrt{29}$ ตรงกัน ✓ มั่นใจว่าคำตอบจริงคือ $\\sqrt{29}$",
-        "",
-        "<b>✅ คำตอบ: ระยะตั้งฉากจริงคือ $\\sqrt{29}$ หน่วย — ไม่มีในตัวเลือก (เฉลยหนังสือเว้นข้อนี้ไว้ สอดคล้องกับการตรวจสอบ)</b>",
-        "",
-        "<b>💡 เทคนิคที่ใช้</b> ระยะจุดถึงเส้นใน 3 มิติ มีสองสูตรเช็คไขว้กันได้: พีทาโกรัสกับภาพฉาย และ $\\dfrac{|cross|}{|\\text{ทิศ}|}$ — ถ้าสองวิธีตรงกันแต่ไม่ตรงตัวเลือก แสดงว่าโจทย์/ตัวเลือกมีปัญหา ไม่ใช่เรา",
-        "<b>⚠️ จุดที่เด็กมักผิด</b> พยายาม \"เลือกข้อที่ใกล้สุด\" เมื่อคำตอบไม่ตรง — ในคลังข้อสอบควรบันทึกว่าโจทย์ผิด ไม่ใช่ฝืนเลือก"
-      ],
-      "notes": "d = √(65−36) = √29 ไม่ตรงตัวเลือกใด — key หนังสือเว้นขีด"
     },
     {
       "id": "chap-09-vector-q125",
