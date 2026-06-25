@@ -1687,11 +1687,11 @@
       },
       "snapshot": {
         "round": 1,
-        "stage": "pipeline เสร็จ (step 0-8) + imageSpec",
+        "stage": "pipeline เสร็จ (step 0-8) + imageSpec + ว.2 + single-method header",
         "questionsCompleted": 71,
         "questionsRemaining": 0,
         "exportedAt": "2026-06-22",
-        "note": "แยก chap-11 → FIN(71)+chap-14 INF(91) (15 มิ.ย.69). FIN: 71 ข้อ (mc 52 + fill 19), renumber q01-q71, topics คง [11], เก็บเลข PDF เดิมใน pdfNumber. Q6 (ลำดับคอนเวอร์เจนต์/ผลบวกจำกัด) คงไว้ FIN ตามครูชี้ขาด. format OK (LF, indent=2, ไม่มี BOM/trailing). content เทียบ byte ตรงต้นฉบับ. pipeline step 0-8 เสร็จ (22 มิ.ย.69): imageSpec 5 ข้อ — number-line Q1/Q18/Q59 + จัตุรัสซ้อน Q68 (nested-midpoint-squares)/Q69 (nested-circle-square); renderer ใหม่ 2 ตัว + helper _sqMathLabel deploy ใน renderers.js. correct ไม่ขยับ. Book-error Q63: ตัวเลือก 4 พิมพ์ Σ(2i−1)²=1066 (ค่าจริง 10,660) → โจทย์ถาม 'ข้อที่ผิด' ตัวเลือก 4 ผิดจริง correct=3 (idx) ถูก = typo หนังสือ ไม่ใช่ error เรา. คงเหลือ: line-break sweep (รวบท้ายสุด ข้ามทุกชุด)."
+        "note": "แยก chap-11 → FIN(71)+chap-14 INF(91) (15 มิ.ย.69). FIN: 71 ข้อ (mc 52 + fill 19), renumber q01-q71, topics คง [11], เก็บเลข PDF เดิมใน pdfNumber. Q6 (ลำดับคอนเวอร์เจนต์/ผลบวกจำกัด) คงไว้ FIN ตามครูชี้ขาด. format OK (LF, indent=2, ไม่มี BOM/trailing). content เทียบ byte ตรงต้นฉบับ. pipeline step 0-8 เสร็จ (22 มิ.ย.69): imageSpec 5 ข้อ — number-line Q1/Q18/Q59 + จัตุรัสซ้อน Q68 (nested-midpoint-squares)/Q69 (nested-circle-square); renderer ใหม่ 2 ตัว + helper _sqMathLabel deploy ใน renderers.js. correct ไม่ขยับ. Book-error Q63: ตัวเลือก 4 พิมพ์ Σ(2i−1)²=1066 (ค่าจริง 10,660) → โจทย์ถาม 'ข้อที่ผิด' ตัวเลือก 4 ผิดจริง correct=3 (idx) ถูก = typo หนังสือ ไม่ใช่ error เรา. คงเหลือ: line-break sweep (รวบท้ายสุด ข้ามทุกชุด). | UPDATE (25 มิ.ย.69): ว.2 เพิ่ม 7 ข้อ multi-method (Q30/36/51/52/64/66/70 = 【วิธีที่ 1/2】) push แล้ว. single-method-header sweep ครบ 64/64 ข้อวิธีเดียว → แทรก <b>【 พื้นฐาน · ไทย (English) 】</b> หลัง 🎯 ก่อน ขั้นที่ 1 (ชื่อจากอ่านเฉลยจริง ไม่ copy subTopics); ข้าม 7 ข้อ multi. correct/choices/imageSpec/[IMAGE] Q1/18/59/68/69 ยืน. POST-FLIGHT สะอาด (Q63 'ไม่ตรง' = false-pos เดิม). chap-11 single-header ครบ 71/71. line-break sweep ยังข้าม (รวบท้ายสุด)."
       }
     },
     "chap-12-probability": {
