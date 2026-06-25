@@ -1582,29 +1582,47 @@
       "source": "ข้อสอบรายบท",
       "subject": "เลขยกกำลังและลอการิทึม",
       "displayName": "บทที่ 8 เลขยกกำลังและลอการิทึม",
-      "totalQuestions": 212,
-      "totalScore": 212,
+      "totalQuestions": 207,
+      "totalScore": 207,
       "structure": {
-        "part1": "ข้อสอบเข้ามหาวิทยาลัย (Q1-Q212) — ทั้งบท 212 ข้อ"
+        "part1": "ข้อสอบเข้ามหาวิทยาลัย (Q1-Q212, ตัด 5 ข้อบกพร่อง) — 207 ข้อ"
       },
       "topicDistribution": {
-        "8": 212
+        "8": 207
       },
       "difficulty": {
         "level": "ยาก",
         "breakdown": {
           "ง่าย": 27,
           "ปานกลาง": 91,
-          "ยาก": 94
+          "ยาก": 89
         }
       },
+      "removedQuestions": {
+        "policy": "chap: ลบ object เว้นเลข ไม่เรียงใหม่ (gap คงไว้)",
+        "gaps": [
+          99,
+          102,
+          106,
+          164,
+          175
+        ],
+        "reasons": {
+          "99": "เฉลยหนังสือ = \"–\" (ไม่มีคำตอบ); ตัวเลือกทั้ง 4 ไม่มีรากตรงสมการต้นฉบับ (verify sympy)",
+          "102": "เฉลยหนังสือ = \"–\" (ไม่มีคำตอบ); รากต้นฉบับ {−2,1}, ตัวเลือก 4 notation กรณฑ์ที่สามกำกวม → หนังสือเว้น",
+          "106": "ไม่มีตัวเลือกใดให้เซตคำตอบ = [0,4] เป๊ะ; เจตนา = ข้อ 2 แต่มีรูโดเมนที่ x=2/3 (|3x−2|=0, log ไม่นิยาม)",
+          "164": "เฉลยหนังสือพิมพ์ 2 คำตอบ \"1, 2\"; ตัวเลือก 1 (2^{log_6 3}) = ตัวเลือก 2 (3^{log_6 2}) เท่ากันด้วยเอกลักษณ์ → กำกวม",
+          "175": "สมการ u²−9u+26=0 (u=2^{x−2}) discriminant=−23 → ไม่มีรากจริง → ไม่มี a,b → log(ab) ไม่นิยาม"
+        },
+        "verifiedAgainst": "PDF answer-key strips (p17: 99=\"–\" 102=\"–\"; p26: 164=\"1,2\") + sympy independent · ครู OFF ยืนยัน 25 มิ.ย.69"
+      },
       "snapshot": {
-        "round": 5,
-        "stage": "VERIFY COMPLETE 212/212 pending screenshot review",
-        "questionsCompleted": 212,
+        "round": 6,
+        "stage": "STEP 8 — CUT 5 done (207) + figures/number-line done · pending preview+push",
+        "questionsCompleted": 207,
         "questionsRemaining": 0,
-        "exportedAt": "2026-06-08",
-        "note": "Verify COMPLETE 8 มิ.ย. 2569: 212/212 sympy/numpy ตรง correct + PDF answer key. flag: _needsImage[71,113,211,212] · _noAnswerInKey[99,102,106,175] · _multiAnswerKey[164] · _bookKeyMismatch[193] · correct=null 5 ข้อ. KaTeX clean (Q195 อักษรไทยใน math ใส่ \\text{}; Q3 ≡ = cosmetic \\ne ของ local preview production render ≠ ถูก). <b> balanced 1723/1723. subTopics ขาดทั้งบท = Phase A1. audit ว.2/multi-method ยังไม่ทำ (1/212)."
+        "exportedAt": "2026-06-25",
+        "note": "Pipeline step 0-8 (25 มิ.ย.69): CUT 5 ข้อบกพร่อง → 207 ข้อ (gap 99/102/106/164/175 ดู removedQuestions). step6 เส้นจำนวน 23 ข้อ (number-line 30 panel: 18·22·26·34·36·68·69·70·88·91·105·107·134·186·187·188·189·191·193·194·195·196·208; Q190 ตัด). step7 figures 6 ข้อ (function-plot 20 panel: Q114 สามเหลี่ยม region · Q122 exp compare a^x/b^x · Q71/113/211/212 รูปโจทย์เดิม; Q40 ข้าม). _bookKeyMismatch[193]: correct=2 (16, ตัวเลือก 3) ถูก — หนังสือ key=4 (17) นับ 20 เข้าผิดทั้งที่โจทย์ 'น้อยกว่า 20'; ครูยืนยัน 16 (ดู notes Q193). อย่าแก้ correct. renderers.js ไม่เปลี่ยนใน step6-7 (ไม่ push). subTopics ขาด = Phase A1 ค้าง. audit ว.2/multi-method ยังไม่ทำ. DEFERRED: line-break sweep bank-wide (ท้ายสุด)."
       }
     },
     "chap-09-vector": {
