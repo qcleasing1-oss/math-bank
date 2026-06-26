@@ -1832,28 +1832,28 @@
       "source": "ข้อสอบรายบท",
       "subject": "กำหนดการเชิงเส้น",
       "displayName": "บทที่ 16 กำหนดการเชิงเส้น",
-      "totalQuestions": 46,
-      "totalScore": 46,
+      "totalQuestions": 45,
+      "totalScore": 45,
       "structure": {
-        "part1": "ข้อสอบเข้ามหาวิทยาลัย + เสริมประสบการณ์ (Q1-Q46) — 46 ข้อ"
+        "part1": "ข้อสอบเข้ามหาวิทยาลัย + เสริมประสบการณ์ (Q1-Q46, เว้น Q6) — 45 ข้อ"
       },
       "topicDistribution": {
-        "16": 46
+        "16": 45
       },
       "difficulty": {
         "level": "ปานกลาง",
         "breakdown": {
           "ปานกลาง": 23,
-          "ยาก": 23
+          "ยาก": 22
         }
       },
       "snapshot": {
-        "round": 1,
-        "stage": "ingest complete, pending pipeline",
-        "questionsCompleted": 46,
+        "round": 2,
+        "stage": "pipeline complete (imageSpec feasible-region inserted)",
+        "questionsCompleted": 45,
         "questionsRemaining": 0,
-        "exportedAt": "2026-06-14",
-        "note": "ingest จาก Projects วางใน repo (14 มิ.ย.69): 46 ข้อ (mc 23 + fill 23), ช่วง 1-46. format OK (LF, indent=2, ไม่มี BOM/trailing). correct=null=0. difficulty+topicDistribution ครบ. ยังไม่ทำ: pipeline (🔄→วิธีที่N, format ตรีโกณ, เพิ่มวิธี ว.2, เช็คลัด), imageSpec, audit. exported 2026-06-14."
+        "exportedAt": "2026-06-26",
+        "note": "Q6 ตัดออก (ข้อบกพร่อง: ค่าสูงสุดจริง 1180 ไม่อยู่ในตัวเลือก, key ไม่มีคำตอบ) → 45 ข้อ ช่วง 1-46 เว้น 6. ใส่ imageSpec รูปอาณาบริเวณ (feasible-region renderer ใหม่) 42 ข้อ region: region ฟ้า + จุดมุม + วงแดง optimum + เส้นจุดประสงค์ประแดง+ลูกศรทิศ P เพิ่ม เฉพาะ 7 ข้อ (1,4,11,22,24,28,29). param 15-19 derive ค่า a → iso+ring. Q14 ไฮไลต์เส้น x-2y=4 ม่วง (ค่าสูงสุดบนเส้น บริเวณไม่จำกัด, ไม่มี ring). Q16 TIE ค่าสูงสุดตลอดขอบ 2 ring. Q44 integer prog ไม่มี ring. unbounded 14/32/33/34/43 มี note. render 42/42 0 null, collision-clean. ยังเหลือ: Q35 number-line (step 6 แยก), audit ทั่วไป. exported 2026-06-26."
       }
     }
   }

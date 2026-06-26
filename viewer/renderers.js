@@ -3287,6 +3287,8 @@ function renderImage(spec){
       return renderNestedMidpointSquares(spec);
     case 'nested-circle-square':
       return renderNestedCircleSquare(spec);
+    case 'feasible-region':
+      return renderFeasibleRegion(spec);
     default:
       return null; // unknown type → admin.html จะ fallback ไปแสดง placeholder
   }
@@ -3736,4 +3738,108 @@ function renderNestedCircleSquare(spec){
   });
 
   return svg + '</svg>';
+}
+
+// ----- renderer: feasible-region (linear programming) -----
+// Spec fields:
+//   width,height            - SVG canvas (default 360 x 330)
+//   xRange,yRange           - [min,max] data ranges
+//   grid                    - bool: faint integer gridlines
+//   xTicks,yTicks           - arrays of tick values on each axis
+//   axes:{arrows,xLabel,yLabel,originLabel}
+//   region:{vertices:[[x,y]...], label:{text,at}}   // frame-clipped polygon (closed)
+//   constraints:[{from:[x,y],to:[x,y],dashed?,color?,label:{text,at,anchor}}]
+//   corners:[{x,y,label,anchor,dx,dy,optimum?}]      // real vertices (not clipped)
+//   objective?:{isoLines:[{from,to}],arrow:{from,to},label:{text,at}}
+//   note                    - caption under the figure
+function renderFeasibleRegion(spec){
+  const W = spec.width || 360, H = spec.height || 330;
+  const xr = spec.xRange || [0,10], yr = spec.yRange || [0,10];
+  const x0=xr[0], x1=xr[1], y0=yr[0], y1=yr[1];
+  const mL=44, mR=18, mT=22, mB=spec.note?52:32;
+  const pW=W-mL-mR, pH=H-mT-mB;
+  const X = x => mL + (x-x0)/(x1-x0)*pW;
+  const Y = y => mT + (1-(y-y0)/(y1-y0))*pH;
+  const INK='#222', REG='#7fb3d5', REGE='#3a6ea5', OPT='#c0392b', AX='#555', GRID='#e6ebf1';
+  function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+  const f=n=>(+n).toFixed(1);
+  let svg = `<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" `
+          + `xmlns="http://www.w3.org/2000/svg" `
+          + `style="background:#fff;font-family:'Sarabun',sans-serif;">`;
+  svg += `<defs>`
+       + `<marker id="frAx" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="${AX}"/></marker>`
+       + `<marker id="frP" markerWidth="10" markerHeight="10" refX="6.5" refY="3" orient="auto"><path d="M0,0 L7.5,3 L0,6 Z" fill="${OPT}"/></marker>`
+       + `</defs>`;
+
+  // --- faint grid ---
+  if(spec.grid){
+    (spec.xTicks||[]).forEach(t=>{ const px=X(t);
+      svg+=`<line x1="${f(px)}" y1="${f(Y(y0))}" x2="${f(px)}" y2="${f(Y(y1))}" stroke="${GRID}" stroke-width="1"/>`; });
+    (spec.yTicks||[]).forEach(t=>{ const py=Y(t);
+      svg+=`<line x1="${f(X(x0))}" y1="${f(py)}" x2="${f(X(x1))}" y2="${f(py)}" stroke="${GRID}" stroke-width="1"/>`; });
+  }
+
+  // --- feasible region polygon ---
+  if(spec.region && spec.region.vertices && spec.region.vertices.length>=3){
+    const pts = spec.region.vertices.map(p=>`${f(X(p[0]))},${f(Y(p[1]))}`).join(' ');
+    svg+=`<polygon points="${pts}" fill="${REG}" fill-opacity="0.42" stroke="${REGE}" stroke-width="1"/>`;
+    if(spec.region.label){const L=spec.region.label;
+      svg+=`<text x="${f(X(L.at[0]))}" y="${f(Y(L.at[1]))}" font-size="13" fill="#2c5f8a" text-anchor="middle">${esc(L.text)}</text>`; }
+  }
+
+  // --- constraint boundary lines ---
+  (spec.constraints||[]).forEach(c=>{
+    const col=c.color||AX, dash=c.dashed?' stroke-dasharray="5 4"':'', cw=c.width||1.3;
+    svg+=`<line x1="${f(X(c.from[0]))}" y1="${f(Y(c.from[1]))}" x2="${f(X(c.to[0]))}" y2="${f(Y(c.to[1]))}" stroke="${col}" stroke-width="${cw}"${dash}/>`;
+    if(c.label){const L=c.label;
+      svg+=`<text x="${f(X(L.at[0]))}" y="${f(Y(L.at[1]))}" font-size="11" fill="${col}" text-anchor="${L.anchor||'middle'}">${esc(L.text)}</text>`; }
+  });
+
+  // --- objective iso-lines + direction arrow ---
+  if(spec.objective){
+    (spec.objective.isoLines||[]).forEach(l=>{
+      svg+=`<line x1="${f(X(l.from[0]))}" y1="${f(Y(l.from[1]))}" x2="${f(X(l.to[0]))}" y2="${f(Y(l.to[1]))}" stroke="${OPT}" stroke-width="1.3" stroke-dasharray="6 4"/>`; });
+    if(spec.objective.arrow){const a=spec.objective.arrow;
+      svg+=`<line x1="${f(X(a.from[0]))}" y1="${f(Y(a.from[1]))}" x2="${f(X(a.to[0]))}" y2="${f(Y(a.to[1]))}" stroke="${OPT}" stroke-width="1.7" marker-end="url(#frP)"/>`; }
+    if(spec.objective.label){const L=spec.objective.label;
+      svg+=`<text x="${f(X(L.at[0]))}" y="${f(Y(L.at[1]))}" font-size="11" fill="${OPT}" text-anchor="middle">${esc(L.text)}</text>`; }
+  }
+
+  // --- axes (over region, under corners) ---
+  svg+=`<line x1="${f(X(x0))}" y1="${f(Y(0))}" x2="${f(X(x1))}" y2="${f(Y(0))}" stroke="${AX}" stroke-width="1.2" marker-end="url(#frAx)"/>`;
+  svg+=`<line x1="${f(X(0))}" y1="${f(Y(y0))}" x2="${f(X(0))}" y2="${f(Y(y1))}" stroke="${AX}" stroke-width="1.2" marker-end="url(#frAx)"/>`;
+  (spec.xTicks||[]).forEach(t=>{ const px=X(t),py=Y(0);
+    svg+=`<line x1="${f(px)}" y1="${f(py-3)}" x2="${f(px)}" y2="${f(py+3)}" stroke="${AX}" stroke-width="1"/>`;
+    svg+=`<text x="${f(px)}" y="${f(py+14)}" font-size="10" fill="#444" text-anchor="middle">${esc(t)}</text>`; });
+  (spec.yTicks||[]).forEach(t=>{ const px=X(0),py=Y(t);
+    svg+=`<line x1="${f(px-3)}" y1="${f(py)}" x2="${f(px+3)}" y2="${f(py)}" stroke="${AX}" stroke-width="1"/>`;
+    svg+=`<text x="${f(px-7)}" y="${f(py+3.5)}" font-size="10" fill="#444" text-anchor="end">${esc(t)}</text>`; });
+  const ax=spec.axes||{};
+  svg+=`<text x="${f(X(0)-9)}" y="${f(Y(0)+14)}" font-size="11" fill="#444" text-anchor="middle">${esc(ax.originLabel||'O')}</text>`;
+  if(ax.xLabel) svg+=`<text x="${f(X(x1))}" y="${f(Y(0)+24)}" font-size="11.5" fill="#333" text-anchor="end" font-style="italic">${esc(ax.xLabel)}</text>`;
+  if(ax.yLabel) svg+=`<text x="${f(X(0)+8)}" y="${f(Y(y1)-6)}" font-size="11.5" fill="#333" text-anchor="start" font-style="italic">${esc(ax.yLabel)}</text>`;
+
+  // --- corner points + optimum marker ---
+  (spec.corners||[]).forEach(c=>{
+    const px=X(c.x),py=Y(c.y);
+    if(c.optimum){
+      svg+=`<circle cx="${f(px)}" cy="${f(py)}" r="5.5" fill="none" stroke="${OPT}" stroke-width="2"/>`;
+      svg+=`<circle cx="${f(px)}" cy="${f(py)}" r="2.3" fill="${OPT}"/>`;
+    } else {
+      svg+=`<circle cx="${f(px)}" cy="${f(py)}" r="2.8" fill="${INK}"/>`;
+    }
+    if(c.label){
+      const anchor=c.anchor||'middle', dx=c.dx||0, dy=c.dy||0;
+      const fill=c.optimum?OPT:'#333', wt=c.optimum?' font-weight="bold"':'';
+      svg+=`<text x="${f(px+dx)}" y="${f(py+dy)}" font-size="11" fill="${fill}" text-anchor="${anchor}"${wt}>${esc(c.label)}</text>`;
+    }
+  });
+
+  // --- note ---
+  if(spec.note){
+    svg+=`<text x="${f(W/2)}" y="${f(H-11)}" font-size="11.5" fill="#555" text-anchor="middle">${esc(spec.note)}</text>`;
+  }
+
+  svg+=`</svg>`;
+  return svg;
 }
