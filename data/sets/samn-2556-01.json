@@ -997,6 +997,117 @@
         "$\\dfrac{24}{5}$ หน่วย"
       ],
       "correct": 4,
+      "imageSpec": {
+        "type": "function-plot",
+        "width": 348,
+        "height": 464,
+        "xRange": [
+          -2,
+          7
+        ],
+        "yRange": [
+          -1,
+          11
+        ],
+        "axes": {
+          "arrows": true,
+          "xLabel": "X",
+          "yLabel": "Y",
+          "originLabel": "O"
+        },
+        "functions": [
+          {
+            "id": "eU",
+            "kind": "ellipse-arc",
+            "center": [
+              3,
+              5
+            ],
+            "a": 3,
+            "b": 5,
+            "half": "upper",
+            "color": "#c0392b",
+            "strokeWidth": 1.7
+          },
+          {
+            "id": "eL",
+            "kind": "ellipse-arc",
+            "center": [
+              3,
+              5
+            ],
+            "a": 3,
+            "b": 5,
+            "half": "lower",
+            "color": "#c0392b",
+            "strokeWidth": 1.7
+          }
+        ],
+        "segments": [
+          {
+            "from": [
+              -1.5,
+              3.0
+            ],
+            "to": [
+              4.0,
+              10.333
+            ]
+          },
+          {
+            "from": [
+              3,
+              1
+            ],
+            "to": [
+              -0.84,
+              3.88
+            ],
+            "dashed": true
+          }
+        ],
+        "dots": [
+          {
+            "x": 3,
+            "y": 9,
+            "label": "F₁",
+            "labelAnchor": "start",
+            "labelDx": 7,
+            "labelDy": -4
+          },
+          {
+            "x": 3,
+            "y": 1,
+            "label": "F₂",
+            "labelAnchor": "start",
+            "labelDx": 7,
+            "labelDy": 4
+          },
+          {
+            "x": 0,
+            "y": 5,
+            "label": "(0, 5)",
+            "labelAnchor": "end",
+            "labelDx": -7,
+            "labelDy": -4
+          },
+          {
+            "x": -0.84,
+            "y": 3.88,
+            "open": true
+          }
+        ],
+        "annotations": [
+          {
+            "text": "d = 24/5",
+            "at": [
+              -1.9,
+              2.0
+            ],
+            "anchor": "start"
+          }
+        ]
+      },
       "explanation": [
         "<b>📐 ความรู้พื้นฐานที่ต้องใช้</b>",
         "• วงรี $\\dfrac{(x-h)^2}{b^2}+\\dfrac{(y-k)^2}{a^2}=1$ (เมื่อ $a^2 > b^2$ ที่ตัวส่วน $y$) เป็นวงรีแนวตั้ง โฟกัสอยู่บนแกนตั้ง ระยะ $c=\\sqrt{a^2-b^2}$",
@@ -1014,6 +1125,7 @@
         "$\\begin{aligned} y-5 & =\\dfrac43(x-0) \\\\ 3y-15 & =4x \\\\ 4x-3y+15 & =0 \\end{aligned}$",
         "<b>ขั้นที่ 4: คำนวณระยะจาก $F_2(3,1)$ ถึงเส้นนี้</b>",
         "$\\begin{aligned} d &= \\dfrac{|4(3)-3(1)+15|}{\\sqrt{4^2+3^2}} \\\\ &= \\dfrac{|12-3+15|}{5} \\\\ &= \\dfrac{24}{5} \\end{aligned}$",
+        "[IMAGE]",
         "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ · พื้นที่สามเหลี่ยมสองวิธี (area computed two ways) 】</b>",
         "ใช้พื้นที่สามเหลี่ยมสองวิธี: $F_1(3, 9), F_2(3, 1)$ อยู่บนเส้นดิ่ง $x = 3$ → ฐาน $F_1F_2 = 8$ สูงจาก $P(0, 5)$ คือระยะแนวนอน $3$ → พื้นที่ $= \\dfrac{1}{2}(8)(3) = 12$",
         "$|F_1P| = \\sqrt{3^2 + 4^2} = 5$ (สามเหลี่ยม 3-4-5) → ระยะจาก $F_2$ ถึงเส้น $F_1P$ $= \\dfrac{2 \\times 12}{5} = \\dfrac{24}{5}$ → ตัวเลือก 5",
