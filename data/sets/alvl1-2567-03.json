@@ -1472,13 +1472,16 @@
       "hasImage": true,
       "imageSpec": {
         "type": "number-line",
-        "width": 400,
-        "height": 120,
-        "xRange": [
-          -0.7,
-          4.7
+        "scale": "even",
+        "criticals": [
+          0,
+          1,
+          4
         ],
-        "axisY": 62,
+        "width": 400,
+        "height": 96,
+        "axisY": 60,
+        "solutionY": 36,
         "labels": [
           {
             "at": 0,
@@ -1493,54 +1496,36 @@
             "text": "4"
           }
         ],
-        "bands": [
+        "rays": [
           {
-            "from": null,
-            "to": 1,
-            "color": "#bfe3c4",
-            "opacity": 0.5,
-            "top": 42,
-            "height": 40
+            "from": 1,
+            "dir": "left",
+            "color": "#2e7d32"
           }
         ],
         "points": [
           {
+            "at": 1,
+            "open": false,
+            "color": "#2e7d32"
+          },
+          {
             "at": 0,
             "open": false,
-            "color": "#1f8a3b",
-            "y": 62
+            "color": "#1565c0"
           },
           {
             "at": 4,
             "open": true,
-            "color": "#c0392b",
-            "y": 62
+            "color": "#d11"
           }
         ],
         "annotations": [
           {
-            "text": "เงื่อนไข  a ≤ 1  (ฝั่งซ้าย ≤ 0)",
-            "x": 24,
-            "y": 22,
-            "color": "#1f8a3b",
-            "weight": "bold",
-            "fontSize": 13
-          },
-          {
-            "text": "a = 0  (ใช้ได้)",
-            "x": 40,
-            "y": 106,
-            "color": "#1f8a3b",
-            "weight": "bold",
-            "fontSize": 12.5
-          },
-          {
-            "text": "a = 4  (รากปลอม ตัดทิ้ง)",
-            "x": 225,
-            "y": 106,
-            "color": "#c0392b",
-            "weight": "bold",
-            "fontSize": 12.5
+            "text": "เงื่อนไข a ≤ 1 → a = 0 ใช้ได้ (a = 4 รากปลอม ตัดทิ้ง)",
+            "x": 200,
+            "y": 15,
+            "anchor": "middle"
           }
         ]
       },

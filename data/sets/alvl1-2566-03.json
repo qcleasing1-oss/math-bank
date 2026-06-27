@@ -67,26 +67,17 @@
       "imageSpec": [
         {
           "type": "number-line",
-          "width": 380,
-          "height": 104,
-          "xRange": [
-            -4.4,
-            5.7
+          "scale": "even",
+          "criticals": [
+            0,
+            1,
+            1.75,
+            5
           ],
-          "axisY": 74,
+          "width": 440,
+          "height": 108,
+          "axisY": 76,
           "labels": [
-            {
-              "at": -3,
-              "text": "−3"
-            },
-            {
-              "at": -2,
-              "text": "−2"
-            },
-            {
-              "at": -1,
-              "text": "−1"
-            },
             {
               "at": 0,
               "text": "0"
@@ -97,97 +88,72 @@
             },
             {
               "at": 1.75,
-              "num": "7",
-              "den": "4"
+              "num": 7,
+              "den": 4
             },
             {
               "at": 5,
               "text": "5"
             }
           ],
-          "rays": [
-            {
-              "from": 1.75,
-              "dir": "left",
-              "color": "#9aa0a6",
-              "y": 30
-            }
-          ],
-          "points": [
-            {
-              "at": 1.75,
-              "open": true,
-              "color": "#9aa0a6",
-              "y": 30
-            },
-            {
-              "at": -3,
-              "open": false,
-              "color": "#1565c0",
-              "y": 30
-            },
-            {
-              "at": -2,
-              "open": false,
-              "color": "#1565c0",
-              "y": 30
-            },
-            {
-              "at": -1,
-              "open": false,
-              "color": "#1565c0",
-              "y": 30
-            },
-            {
-              "at": 0,
-              "open": false,
-              "color": "#1565c0",
-              "y": 30
-            },
-            {
-              "at": 1,
-              "open": false,
-              "color": "#1565c0",
-              "y": 30
-            },
-            {
-              "at": 0,
-              "open": true,
-              "color": "#d35400",
-              "y": 52
-            },
-            {
-              "at": 5,
-              "open": true,
-              "color": "#d35400",
-              "y": 52
-            }
-          ],
           "segments": [
             {
               "from": 0,
               "to": 5,
-              "color": "#d35400",
-              "y": 52
+              "color": "#2e7d32",
+              "y": 54
             }
           ],
-          "bands": [],
-          "annotations": [
+          "points": [
             {
-              "x": 30,
-              "y": 20,
-              "text": "A = จำนวนเต็มที่น้อยกว่า 7/4 (มากสุด = 1)",
-              "anchor": "start",
-              "color": "#1565c0",
-              "weight": "bold"
+              "at": -2,
+              "open": false,
+              "color": "#d11",
+              "y": 32
             },
             {
-              "x": 30,
-              "y": 46,
-              "text": "B = (0, 5)",
-              "anchor": "start",
-              "color": "#d35400",
-              "weight": "bold"
+              "at": -1,
+              "open": false,
+              "color": "#d11",
+              "y": 32
+            },
+            {
+              "at": 0,
+              "open": false,
+              "color": "#d11",
+              "y": 32
+            },
+            {
+              "at": 1,
+              "open": false,
+              "color": "#d11",
+              "y": 32
+            },
+            {
+              "at": 1.75,
+              "open": true,
+              "color": "#d11",
+              "y": 32
+            },
+            {
+              "at": 0,
+              "open": true,
+              "color": "#2e7d32",
+              "y": 54
+            },
+            {
+              "at": 5,
+              "open": true,
+              "color": "#2e7d32",
+              "y": 54
+            }
+          ],
+          "annotations": [
+            {
+              "text": "A = จำนวนเต็มน้อยกว่า 7/4 = {…, −1, 0, 1} · B = (0, 5)",
+              "x": 220,
+              "y": 15,
+              "anchor": "middle"
             }
           ]
         }
@@ -1511,21 +1477,27 @@
       "imageSpec": [
         {
           "type": "number-line",
-          "width": 360,
-          "height": 90,
-          "xRange": [
-            -2.2,
-            3.4
+          "scale": "even",
+          "criticals": [
+            -1.7320508,
+            -1.5,
+            1.7320508,
+            3
           ],
-          "axisY": 54,
+          "width": 440,
+          "height": 96,
+          "axisY": 60,
+          "solutionY": 36,
           "labels": [
             {
               "at": -1.7320508,
               "latex": "-\\sqrt{3}"
             },
             {
-              "at": 0,
-              "text": "0"
+              "at": -1.5,
+              "num": 3,
+              "den": 2,
+              "neg": true
             },
             {
               "at": 1.7320508,
@@ -1536,54 +1508,41 @@
               "text": "3"
             }
           ],
-          "bands": [
+          "segments": [
             {
               "from": -1.7320508,
               "to": 1.7320508,
-              "color": "#cfe8d8",
-              "opacity": 0.7,
-              "top": 41,
-              "height": 26
+              "color": "#2e7d32"
             }
           ],
           "points": [
             {
+              "at": -1.7320508,
+              "open": false,
+              "color": "#2e7d32"
+            },
+            {
+              "at": 1.7320508,
+              "open": false,
+              "color": "#2e7d32"
+            },
+            {
               "at": -1.5,
               "open": false,
-              "color": "#1f6f5c",
-              "y": 54
+              "color": "#1565c0"
             },
             {
               "at": 3,
-              "open": false,
-              "color": "#c0392b",
-              "y": 54
+              "open": true,
+              "color": "#d11"
             }
           ],
           "annotations": [
             {
-              "x": 8,
-              "y": 14,
-              "text": "ช่วงที่วงรีอนุญาต: b ∈ [−√3, √3]",
-              "anchor": "start",
-              "color": "#1f6f5c",
-              "weight": "bold"
-            },
-            {
-              "x": 61.5,
-              "y": 34,
-              "text": "−3/2",
-              "anchor": "middle",
-              "color": "#1f6f5c",
-              "weight": "bold"
-            },
-            {
-              "x": 315.4,
-              "y": 34,
-              "text": "ตัด ✗",
-              "anchor": "middle",
-              "color": "#c0392b",
-              "weight": "bold"
+              "text": "b อยู่ในช่วงที่วงรีอนุญาต · b = −3/2 ใช้ได้ (b = 3 นอกช่วง)",
+              "x": 220,
+              "y": 15,
+              "anchor": "middle"
             }
           ]
         }

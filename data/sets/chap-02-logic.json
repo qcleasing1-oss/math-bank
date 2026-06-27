@@ -3992,14 +3992,15 @@
       "imageSpec": [
         {
           "type": "number-line",
-          "xRange": [
-            -1.9,
-            5.7
+          "scale": "even",
+          "criticals": [
+            -1,
+            0,
+            0.5
           ],
-          "width": 560,
-          "height": 120,
-          "axisY": 94,
-          "solutionY": 94,
+          "width": 400,
+          "height": 96,
+          "axisY": 62,
           "labels": [
             {
               "at": -1,
@@ -4013,109 +4014,47 @@
               "at": 0.5,
               "num": 1,
               "den": 2
-            },
-            {
-              "at": 5,
-              "text": "5"
-            }
-          ],
-          "bands": [
-            {
-              "from": -1,
-              "to": 0.5,
-              "top": 24,
-              "height": 58,
-              "color": "#c8e6c9",
-              "opacity": 0.55
             }
           ],
           "segments": [
             {
               "from": -1,
               "to": 0.5,
-              "color": "#7b1fa2",
-              "y": 34
-            },
-            {
-              "from": -1,
-              "to": 5,
-              "color": "#ef6c00",
-              "y": 54
-            },
-            {
-              "from": -1,
-              "to": 0.5,
               "color": "#d11",
-              "y": 74
+              "y": 42
             }
           ],
           "points": [
             {
               "at": -1,
               "open": false,
-              "color": "#7b1fa2",
-              "y": 34
-            },
-            {
-              "at": 0.5,
-              "open": false,
-              "color": "#7b1fa2",
-              "y": 34
-            },
-            {
-              "at": -1,
-              "open": false,
-              "color": "#ef6c00",
-              "y": 54
-            },
-            {
-              "at": 5,
-              "open": false,
-              "color": "#ef6c00",
-              "y": 54
-            },
-            {
-              "at": -1,
-              "open": false,
               "color": "#d11",
-              "y": 74
+              "y": 42
             },
             {
               "at": 0.5,
               "open": false,
               "color": "#d11",
-              "y": 74
+              "y": 42
             },
             {
               "at": -1,
               "open": false,
-              "color": "#0a7d22",
-              "y": 86
+              "color": "#2e7d32",
+              "y": 26
             },
             {
               "at": 0,
               "open": false,
-              "color": "#0a7d22",
-              "y": 86
+              "color": "#2e7d32",
+              "y": 26
             }
           ],
           "annotations": [
             {
-              "text": "ส่วนร่วม = [−1, ½]   ·   จำนวนเต็มในช่วง: −1, 0",
-              "x": 280,
-              "y": 14,
-              "anchor": "middle"
-            },
-            {
-              "text": "① 2x²+x−1≤0 : [−1, ½]",
-              "x": 196.94736842105263,
-              "y": 38,
-              "anchor": "start"
-            },
-            {
-              "text": "② |x−2|≤3 : [−1, 5]",
-              "x": 313.9473684210526,
-              "y": 50,
+              "text": "ส่วนร่วม [−1, ½] · จำนวนเต็มในช่วง: −1, 0",
+              "x": 200,
+              "y": 15,
               "anchor": "middle"
             }
           ]
@@ -4192,14 +4131,15 @@
       "imageSpec": [
         {
           "type": "number-line",
-          "xRange": [
-            -1,
-            10
+          "scale": "even",
+          "criticals": [
+            0,
+            3,
+            9
           ],
-          "width": 520,
+          "width": 420,
           "height": 100,
-          "axisY": 74,
-          "solutionY": 74,
+          "axisY": 72,
           "labels": [
             {
               "at": 0,
@@ -4219,13 +4159,13 @@
               "from": 0,
               "to": 3,
               "color": "#1565c0",
-              "y": 44
+              "y": 34
             },
             {
               "from": 3,
               "to": 9,
-              "color": "#ef6c00",
-              "y": 60
+              "color": "#2e7d32",
+              "y": 52
             }
           ],
           "points": [
@@ -4233,44 +4173,32 @@
               "at": 0,
               "open": true,
               "color": "#1565c0",
-              "y": 44
+              "y": 34
             },
             {
               "at": 3,
               "open": true,
               "color": "#1565c0",
-              "y": 44
+              "y": 34
             },
             {
               "at": 3,
               "open": true,
-              "color": "#ef6c00",
-              "y": 60
+              "color": "#2e7d32",
+              "y": 52
             },
             {
               "at": 9,
               "open": true,
-              "color": "#ef6c00",
-              "y": 60
+              "color": "#2e7d32",
+              "y": 52
             }
           ],
           "annotations": [
             {
-              "text": "P=(0,3), Q=(3,9) ไม่ทับกัน (คั่นที่ x=3) → P → ∼Q จริงทุก x",
-              "x": 260,
-              "y": 14,
-              "anchor": "middle"
-            },
-            {
-              "text": "P = (0, 3)",
-              "x": 130.1818181818182,
-              "y": 38,
-              "anchor": "middle"
-            },
-            {
-              "text": "Q = (3, 9)",
-              "x": 324.90909090909093,
-              "y": 54,
+              "text": "P = (0, 3) · Q = (3, 9) ไม่ทับกัน (คั่นที่ 3)",
+              "x": 210,
+              "y": 15,
               "anchor": "middle"
             }
           ]
@@ -4334,22 +4262,20 @@
       "imageSpec": [
         {
           "type": "number-line",
-          "xRange": [
-            -4.5,
-            5.5
+          "scale": "even",
+          "criticals": [
+            -2,
+            2,
+            3
           ],
-          "width": 540,
+          "width": 440,
           "height": 96,
-          "axisY": 70,
-          "solutionY": 70,
+          "axisY": 60,
+          "solutionY": 36,
           "labels": [
             {
               "at": -2,
               "text": "−2"
-            },
-            {
-              "at": 0,
-              "text": "0"
             },
             {
               "at": 2,
@@ -4358,16 +4284,6 @@
             {
               "at": 3,
               "text": "3"
-            }
-          ],
-          "bands": [
-            {
-              "from": -2,
-              "to": 2,
-              "top": 50,
-              "height": 16,
-              "color": "#cfe3f5",
-              "opacity": 0.7
             }
           ],
           "signs": [
@@ -4391,61 +4307,31 @@
             {
               "from": -2,
               "dir": "left",
-              "color": "#d11",
-              "y": 42
+              "color": "#d11"
             },
             {
               "from": 3,
               "dir": "right",
-              "color": "#d11",
-              "y": 42
-            }
-          ],
-          "segments": [
-            {
-              "from": -2,
-              "to": 2,
-              "color": "#1565c0",
-              "y": 58
+              "color": "#d11"
             }
           ],
           "points": [
             {
               "at": -2,
               "open": false,
-              "color": "#d11",
-              "y": 42
+              "color": "#d11"
             },
             {
               "at": 3,
               "open": false,
-              "color": "#d11",
-              "y": 42
-            },
-            {
-              "at": -2,
-              "open": true,
-              "color": "#1565c0",
-              "y": 58
-            },
-            {
-              "at": 2,
-              "open": true,
-              "color": "#1565c0",
-              "y": 58
+              "color": "#d11"
             }
           ],
           "annotations": [
             {
-              "text": "ข: (x−3)(x+2) ≥ 0 → (−∞,−2] ∪ [3,∞)",
-              "x": 270,
-              "y": 14,
-              "anchor": "middle"
-            },
-            {
-              "text": "เอกภพ (−2,2) : ∃ เท็จ",
-              "x": 245.2,
-              "y": 36,
+              "text": "(x−3)(x+2) ≥ 0 : (−∞, −2] ∪ [3, ∞) — ไม่แตะเอกภพ (−2, 2)",
+              "x": 220,
+              "y": 15,
               "anchor": "middle"
             }
           ]
@@ -6818,14 +6704,16 @@
       "imageSpec": [
         {
           "type": "number-line",
-          "xRange": [
-            -5,
-            5
+          "scale": "even",
+          "criticals": [
+            -3,
+            -2,
+            2,
+            3
           ],
-          "width": 520,
-          "height": 104,
-          "axisY": 76,
-          "solutionY": 76,
+          "width": 460,
+          "height": 100,
+          "axisY": 72,
           "labels": [
             {
               "at": -3,
@@ -6844,36 +6732,18 @@
               "text": "3"
             }
           ],
-          "bands": [
-            {
-              "from": -3,
-              "to": -2,
-              "top": 40,
-              "height": 24,
-              "color": "#fff3c4",
-              "opacity": 0.8
-            },
-            {
-              "from": 2,
-              "to": 3,
-              "top": 40,
-              "height": 24,
-              "color": "#fff3c4",
-              "opacity": 0.8
-            }
-          ],
           "rays": [
             {
               "from": -2,
               "dir": "left",
               "color": "#d11",
-              "y": 46
+              "y": 34
             },
             {
               "from": 2,
               "dir": "right",
               "color": "#d11",
-              "y": 46
+              "y": 34
             }
           ],
           "segments": [
@@ -6881,7 +6751,7 @@
               "from": -3,
               "to": 3,
               "color": "#1565c0",
-              "y": 60
+              "y": 52
             }
           ],
           "points": [
@@ -6889,45 +6759,33 @@
               "at": -2,
               "open": true,
               "color": "#d11",
-              "y": 46
+              "y": 34
             },
             {
               "at": 2,
               "open": true,
               "color": "#d11",
-              "y": 46
+              "y": 34
             },
             {
               "at": -3,
               "open": true,
               "color": "#1565c0",
-              "y": 60
+              "y": 52
             },
             {
               "at": 3,
               "open": true,
               "color": "#1565c0",
-              "y": 60
+              "y": 52
             }
           ],
           "annotations": [
             {
-              "text": "สองช่วงคาบเกี่ยว คลุม ℝ ทั้งหมด → ข้อ 1 จริง",
-              "x": 260,
-              "y": 14,
+              "text": "|x| > 2  ∪  (−3, 3)  =  ℝ (คาบเกี่ยวคลุมทั้งเส้น)",
+              "x": 230,
+              "y": 15,
               "anchor": "middle"
-            },
-            {
-              "text": "|x| > 2",
-              "x": 55.32000000000001,
-              "y": 40,
-              "anchor": "start"
-            },
-            {
-              "text": "(−3, 3)",
-              "x": 412.8,
-              "y": 64,
-              "anchor": "start"
             }
           ]
         }
@@ -7076,162 +6934,67 @@
       "imageSpec": [
         {
           "type": "number-line",
-          "xRange": [
-            -3.6,
-            2.95
+          "scale": "even",
+          "criticals": [
+            -2,
+            0,
+            2
           ],
-          "width": 620,
-          "height": 124,
-          "axisY": 98,
-          "solutionY": 98,
+          "width": 420,
+          "height": 96,
+          "axisY": 60,
+          "solutionY": 36,
           "labels": [
             {
               "at": -2,
               "text": "−2"
             },
             {
-              "at": -1,
-              "text": "−1"
-            },
-            {
               "at": 0,
               "text": "0"
-            },
-            {
-              "at": 1,
-              "text": "1"
             },
             {
               "at": 2,
               "text": "2"
             }
           ],
-          "bands": [
-            {
-              "from": null,
-              "to": -2,
-              "top": 78,
-              "height": 26,
-              "color": "#fde0dc",
-              "opacity": 0.6
-            },
-            {
-              "from": 0,
-              "to": 2,
-              "top": 78,
-              "height": 26,
-              "color": "#fde0dc",
-              "opacity": 0.6
-            }
-          ],
           "rays": [
             {
               "from": -2,
               "dir": "left",
-              "color": "#1565c0",
-              "y": 26
-            },
-            {
-              "from": -2,
-              "dir": "left",
-              "color": "#d11",
-              "y": 86
+              "color": "#d11"
             }
           ],
           "segments": [
             {
               "from": 0,
-              "to": 1,
-              "color": "#7b1fa2",
-              "y": 48
-            },
-            {
-              "from": 1,
               "to": 2,
-              "color": "#ef6c00",
-              "y": 68
-            },
-            {
-              "from": 0,
-              "to": 2,
-              "color": "#d11",
-              "y": 86
+              "color": "#d11"
             }
           ],
           "points": [
             {
               "at": -2,
               "open": true,
-              "color": "#1565c0",
-              "y": 26
+              "color": "#d11"
             },
             {
               "at": 0,
               "open": true,
-              "color": "#7b1fa2",
-              "y": 48
-            },
-            {
-              "at": 1,
-              "open": true,
-              "color": "#7b1fa2",
-              "y": 48
-            },
-            {
-              "at": 1,
-              "open": false,
-              "color": "#ef6c00",
-              "y": 68
+              "color": "#d11"
             },
             {
               "at": 2,
               "open": true,
-              "color": "#ef6c00",
-              "y": 68
-            },
-            {
-              "at": -2,
-              "open": true,
-              "color": "#d11",
-              "y": 86
-            },
-            {
-              "at": 0,
-              "open": true,
-              "color": "#d11",
-              "y": 86
-            },
-            {
-              "at": 2,
-              "open": true,
-              "color": "#d11",
-              "y": 86
+              "color": "#d11"
             }
           ],
           "annotations": [
             {
               "text": "A = (−∞, −2) ∪ (0, 2)",
-              "x": 310,
-              "y": 14,
+              "x": 210,
+              "y": 15,
               "anchor": "middle"
-            },
-            {
-              "text": "(−∞, −2)",
-              "x": 174.70229007633586,
-              "y": 30,
-              "anchor": "start"
-            },
-            {
-              "text": "(0, 1)",
-              "x": 436.5190839694656,
-              "y": 52,
-              "anchor": "start"
-            },
-            {
-              "text": "[1, 2)",
-              "x": 524.4580152671755,
-              "y": 72,
-              "anchor": "start"
             }
           ]
         }
@@ -7575,155 +7338,51 @@
         },
         {
           "type": "number-line",
-          "xRange": [
-            -1.5,
-            3.4
+          "scale": "even",
+          "criticals": [
+            0.5,
+            2
           ],
-          "width": 620,
-          "height": 134,
-          "axisY": 106,
-          "solutionY": 106,
+          "width": 420,
+          "height": 96,
+          "axisY": 60,
+          "solutionY": 36,
           "labels": [
-            {
-              "at": -1,
-              "text": "−1"
-            },
             {
               "at": 0.5,
               "num": 1,
               "den": 2
             },
             {
-              "at": 1,
-              "text": "1"
-            },
-            {
-              "at": 1.5,
-              "num": 3,
-              "den": 2
-            },
-            {
               "at": 2,
               "text": "2"
-            },
-            {
-              "at": 2.5,
-              "num": 5,
-              "den": 2
-            }
-          ],
-          "bands": [
-            {
-              "from": 0.5,
-              "to": 2,
-              "top": 20,
-              "height": 80,
-              "color": "#efe2a4",
-              "opacity": 0.55
             }
           ],
           "segments": [
             {
-              "from": -1,
-              "to": 1,
-              "color": "#c0392b",
-              "y": 28
-            },
-            {
-              "from": 1,
+              "from": 0.5,
               "to": 2,
-              "color": "#2e7d32",
-              "y": 72
-            },
-            {
-              "from": 1,
-              "to": 2.5,
-              "color": "#c0392b",
-              "y": 94
-            }
-          ],
-          "rays": [
-            {
-              "from": 1.5,
-              "dir": "left",
-              "color": "#c0392b",
-              "y": 50
+              "color": "#d11"
             }
           ],
           "points": [
             {
-              "at": -1,
+              "at": 0.5,
               "open": false,
-              "color": "#c0392b",
-              "y": 28
-            },
-            {
-              "at": 1,
-              "open": false,
-              "color": "#c0392b",
-              "y": 28
-            },
-            {
-              "at": 1.5,
-              "open": false,
-              "color": "#c0392b",
-              "y": 50
-            },
-            {
-              "at": 1,
-              "open": false,
-              "color": "#2e7d32",
-              "y": 72
+              "color": "#d11"
             },
             {
               "at": 2,
               "open": false,
-              "color": "#2e7d32",
-              "y": 72
-            },
-            {
-              "at": 1,
-              "open": false,
-              "color": "#c0392b",
-              "y": 94
-            },
-            {
-              "at": 2.5,
-              "open": false,
-              "color": "#c0392b",
-              "y": 94
+              "color": "#d11"
             }
           ],
           "annotations": [
             {
               "text": "เซตคำตอบ [½, 2]",
-              "x": 345.265306122449,
-              "y": 14,
+              "x": 210,
+              "y": 15,
               "anchor": "middle"
-            },
-            {
-              "text": "[−1, 1] ✗",
-              "x": 323.87755102040813,
-              "y": 32,
-              "anchor": "start"
-            },
-            {
-              "text": "(−∞, 3⁄₂] ✗",
-              "x": 382.65306122448976,
-              "y": 54,
-              "anchor": "start"
-            },
-            {
-              "text": "[1, 2] ✓",
-              "x": 441.4285714285714,
-              "y": 76,
-              "anchor": "start"
-            },
-            {
-              "text": "[1, 5⁄₂] ✗",
-              "x": 500.204081632653,
-              "y": 98,
-              "anchor": "start"
             }
           ]
         }
@@ -7887,23 +7546,17 @@
         },
         {
           "type": "number-line",
-          "xRange": [
-            3.5,
-            9.8
+          "scale": "even",
+          "criticals": [
+            7,
+            8,
+            9
           ],
-          "width": 540,
-          "height": 112,
-          "axisY": 72,
-          "solutionY": 72,
+          "width": 420,
+          "height": 96,
+          "axisY": 60,
+          "solutionY": 36,
           "labels": [
-            {
-              "at": 4,
-              "text": "4"
-            },
-            {
-              "at": 5,
-              "text": "5"
-            },
             {
               "at": 7,
               "text": "7"
@@ -7917,78 +7570,25 @@
               "text": "9"
             }
           ],
-          "bands": [
+          "rays": [
             {
               "from": 8,
-              "to": null,
-              "top": 28,
-              "height": 46,
-              "color": "#f6d2d2",
-              "opacity": 0.5
-            }
-          ],
-          "segments": [
-            {
-              "from": 4,
-              "to": 7,
-              "color": "#2e7d32",
-              "y": 42
-            },
-            {
-              "from": 5,
-              "to": 9,
-              "color": "#1565c0",
-              "y": 58
+              "dir": "right",
+              "color": "#d11"
             }
           ],
           "points": [
             {
-              "at": 4,
-              "open": false,
-              "color": "#2e7d32",
-              "y": 42
-            },
-            {
-              "at": 7,
-              "open": true,
-              "color": "#2e7d32",
-              "y": 42
-            },
-            {
-              "at": 5,
-              "open": false,
-              "color": "#1565c0",
-              "y": 58
-            },
-            {
-              "at": 9,
-              "open": true,
-              "color": "#1565c0",
-              "y": 58
-            },
-            {
               "at": 8,
               "open": true,
-              "color": "#c0392b"
+              "color": "#d11"
             }
           ],
           "annotations": [
             {
-              "text": "โซน x > 8 (ผลจริง)",
-              "x": 443.2063492063492,
-              "y": 17,
-              "anchor": "middle"
-            },
-            {
-              "text": "[4, 7) ผลเท็จ ✓",
-              "x": 179.46031746031747,
-              "y": 38,
-              "anchor": "middle"
-            },
-            {
-              "text": "[5, 9) ผลจริง ✗",
-              "x": 344.7936507936508,
-              "y": 54,
+              "text": "ผล (∃) เป็นจริงเมื่อเอกภพอยู่ในช่วง x > 8",
+              "x": 210,
+              "y": 15,
               "anchor": "middle"
             }
           ]

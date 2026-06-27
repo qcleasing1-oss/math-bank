@@ -2789,14 +2789,17 @@
       "imageSpec": [
         {
           "type": "number-line",
-          "width": 360,
-          "height": 78,
-          "xRange": [
-            -6.5,
-            5
+          "scale": "even",
+          "criticals": [
+            -4,
+            -2,
+            0,
+            3
           ],
-          "axisY": 50,
-          "solutionY": 30,
+          "width": 440,
+          "height": 96,
+          "axisY": 60,
+          "solutionY": 36,
           "labels": [
             {
               "at": -4,
@@ -2813,11 +2816,6 @@
             {
               "at": 3,
               "text": "3"
-            }
-          ],
-          "annotations": [
-            {
-              "text": "(1)"
             }
           ],
           "rays": [
@@ -2843,18 +2841,30 @@
               "open": true,
               "color": "#d11"
             }
+          ],
+          "annotations": [
+            {
+              "text": "(1)",
+              "x": 24,
+              "y": 16,
+              "anchor": "start",
+              "weight": "bold"
+            }
           ]
         },
         {
           "type": "number-line",
-          "width": 360,
-          "height": 78,
-          "xRange": [
-            -6.5,
-            5
+          "scale": "even",
+          "criticals": [
+            -4,
+            -2,
+            0,
+            3
           ],
-          "axisY": 50,
-          "solutionY": 30,
+          "width": 440,
+          "height": 96,
+          "axisY": 60,
+          "solutionY": 36,
           "labels": [
             {
               "at": -4,
@@ -2871,11 +2881,6 @@
             {
               "at": 3,
               "text": "3"
-            }
-          ],
-          "annotations": [
-            {
-              "text": "(2)"
             }
           ],
           "rays": [
@@ -2891,18 +2896,30 @@
               "open": false,
               "color": "#d11"
             }
+          ],
+          "annotations": [
+            {
+              "text": "(2)",
+              "x": 24,
+              "y": 16,
+              "anchor": "start",
+              "weight": "bold"
+            }
           ]
         },
         {
           "type": "number-line",
-          "width": 360,
-          "height": 78,
-          "xRange": [
-            -6.5,
-            5
+          "scale": "even",
+          "criticals": [
+            -4,
+            -2,
+            0,
+            3
           ],
-          "axisY": 50,
-          "solutionY": 30,
+          "width": 440,
+          "height": 96,
+          "axisY": 60,
+          "solutionY": 36,
           "labels": [
             {
               "at": -4,
@@ -2919,11 +2936,6 @@
             {
               "at": 3,
               "text": "3"
-            }
-          ],
-          "annotations": [
-            {
-              "text": "(3)"
             }
           ],
           "rays": [
@@ -2949,18 +2961,30 @@
               "open": true,
               "color": "#d11"
             }
+          ],
+          "annotations": [
+            {
+              "text": "(3)",
+              "x": 24,
+              "y": 16,
+              "anchor": "start",
+              "weight": "bold"
+            }
           ]
         },
         {
           "type": "number-line",
-          "width": 360,
-          "height": 78,
-          "xRange": [
-            -6.5,
-            5
+          "scale": "even",
+          "criticals": [
+            -4,
+            -2,
+            0,
+            3
           ],
-          "axisY": 50,
-          "solutionY": 30,
+          "width": 440,
+          "height": 96,
+          "axisY": 60,
+          "solutionY": 36,
           "labels": [
             {
               "at": -4,
@@ -2977,11 +3001,6 @@
             {
               "at": 3,
               "text": "3"
-            }
-          ],
-          "annotations": [
-            {
-              "text": "(4)"
             }
           ],
           "rays": [
@@ -3001,6 +3020,15 @@
               "at": -2,
               "open": true,
               "color": "#d11"
+            }
+          ],
+          "annotations": [
+            {
+              "text": "(4)",
+              "x": 24,
+              "y": 16,
+              "anchor": "start",
+              "weight": "bold"
             }
           ]
         }
