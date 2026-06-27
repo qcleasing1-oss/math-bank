@@ -3289,6 +3289,10 @@ function renderImage(spec){
       return renderNestedCircleSquare(spec);
     case 'feasible-region':
       return renderFeasibleRegion(spec);
+    case 'box-plot':
+      return renderBoxPlot(spec);
+    case 'matchstick-staircase':
+      return renderMatchstickStaircase(spec);
     default:
       return null; // unknown type → admin.html จะ fallback ไปแสดง placeholder
   }
@@ -3842,4 +3846,139 @@ function renderFeasibleRegion(spec){
 
   svg+=`</svg>`;
   return svg;
+}
+
+
+// ----- renderer: box-plot (vertical, multi-group) -----
+// แผนภาพกล่อง (box-and-whisker) แนวตั้ง หลายกลุ่ม — reusable ทั้ง curriculum สถิติ
+// Spec:
+//   width,height
+//   yRange:[lo,hi]     (default: auto จาก min/max ทุกกลุ่ม + padding 8%)
+//   yTicks:[...]       (ป้าย/ขีดแกน Y)
+//   yLabel?            (ป้ายแกน Y แนวตั้งด้านซ้าย)
+//   boxWidth?          (px ความกว้างกล่อง, default 44)
+//   guides?            (เส้นประแนวนอนจากทุกสถิติ → แกน Y; default false)
+//   groups:[{label,min,q1,median,q3,max}, ...]
+function renderBoxPlot(spec){
+  const W=spec.width||300, H=spec.height||280;
+  const groups=spec.groups||[];
+  function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+  const f=n=>(+n).toFixed(2);
+  let yr=spec.yRange;
+  if(!yr){
+    let lo=Infinity,hi=-Infinity;
+    groups.forEach(g=>{lo=Math.min(lo,g.min);hi=Math.max(hi,g.max);});
+    const pad=(hi-lo)*0.08||1; yr=[Math.floor(lo-pad),Math.ceil(hi+pad)];
+  }
+  const y0=yr[0], y1=yr[1];
+  const pL=spec.yLabel?52:40, pR=18, pT=18, pB=34;
+  const plotW=W-pL-pR, plotH=H-pT-pB;
+  const Y=v=>pT+(1-(v-y0)/(y1-y0))*plotH;
+  const bw=spec.boxWidth||44;
+  const INK='#222', AX='#555', GUIDE='#bbb';
+  let svg=`<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" xmlns="http://www.w3.org/2000/svg" style="background:#fff;font-family:'Sarabun',sans-serif;">`;
+  svg+=`<defs><marker id="bpAx" markerWidth="9" markerHeight="9" refX="5" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="${AX}"/></marker></defs>`;
+  const axX=pL;
+  // Y axis (arrow up)
+  svg+=`<line x1="${f(axX)}" y1="${f(H-pB)}" x2="${f(axX)}" y2="${f(pT-6)}" stroke="${AX}" stroke-width="1.1" marker-end="url(#bpAx)"/>`;
+  // Y ticks + labels
+  (spec.yTicks||[]).forEach(t=>{
+    const yp=Y(t);
+    svg+=`<line x1="${f(axX-4)}" y1="${f(yp)}" x2="${f(axX)}" y2="${f(yp)}" stroke="${AX}"/>`;
+    svg+=`<text x="${f(axX-7)}" y="${f(yp+3.5)}" text-anchor="end" font-size="11" fill="${AX}">${esc(t)}</text>`;
+  });
+  // Y label (rotated)
+  if(spec.yLabel){
+    const my=pT+plotH/2;
+    svg+=`<text x="15" y="${f(my)}" text-anchor="middle" font-size="11.5" fill="${AX}" transform="rotate(-90 15 ${f(my)})">${esc(spec.yLabel)}</text>`;
+  }
+  // groups
+  const n=groups.length||1;
+  groups.forEach((g,k)=>{
+    const cx=pL+plotW*(k+0.5)/n;
+    const lx=cx-bw/2, rx=cx+bw/2;
+    const yq1=Y(g.q1), yq3=Y(g.q3), ymd=Y(g.median), ymin=Y(g.min), ymax=Y(g.max);
+    // guides: dashed axis → box left edge for each statistic
+    if(spec.guides){
+      [g.min,g.q1,g.median,g.q3,g.max].forEach(v=>{
+        const yp=Y(v);
+        svg+=`<line x1="${f(axX)}" y1="${f(yp)}" x2="${f(lx)}" y2="${f(yp)}" stroke="${GUIDE}" stroke-width="0.8" stroke-dasharray="3,3"/>`;
+      });
+    }
+    // upper whisker + cap
+    svg+=`<line x1="${f(cx)}" y1="${f(yq3)}" x2="${f(cx)}" y2="${f(ymax)}" stroke="${INK}" stroke-width="1.2"/>`;
+    svg+=`<line x1="${f(cx-bw*0.28)}" y1="${f(ymax)}" x2="${f(cx+bw*0.28)}" y2="${f(ymax)}" stroke="${INK}" stroke-width="1.2"/>`;
+    // lower whisker + cap
+    svg+=`<line x1="${f(cx)}" y1="${f(yq1)}" x2="${f(cx)}" y2="${f(ymin)}" stroke="${INK}" stroke-width="1.2"/>`;
+    svg+=`<line x1="${f(cx-bw*0.28)}" y1="${f(ymin)}" x2="${f(cx+bw*0.28)}" y2="${f(ymin)}" stroke="${INK}" stroke-width="1.2"/>`;
+    // box (q1..q3)
+    svg+=`<rect x="${f(lx)}" y="${f(yq3)}" width="${f(bw)}" height="${f(yq1-yq3)}" fill="#fff" stroke="${INK}" stroke-width="1.3"/>`;
+    // median line
+    svg+=`<line x1="${f(lx)}" y1="${f(ymd)}" x2="${f(rx)}" y2="${f(ymd)}" stroke="${INK}" stroke-width="1.6"/>`;
+    // group label (below)
+    svg+=`<text x="${f(cx)}" y="${f(H-pB+16)}" text-anchor="middle" font-size="12" fill="${INK}">${esc(g.label)}</text>`;
+  });
+  return svg+'</svg>';
+}
+
+
+// ----- renderer: matchstick-staircase -----
+// Draws a sequence of "matchstick staircase" figures in one SVG (multi-panel).
+// Each figure n = staircase of unit squares: column k (1-indexed, left→right) has
+// height k cells on a shared baseline → total matchsticks = n(n+3) (e.g. 4,10,18,...).
+// Every unit edge is drawn once (shared edges de-duplicated) as a matchstick:
+// a wood-coloured rounded stroke inset from the grid corners + small head dot.
+// Spec fields:
+//   width, height            (optional; auto-computed from figures)
+//   cell                     (px per unit square, default 30)
+//   gap                      (px between panels, default 46)
+//   stickColor, headColor    (optional)
+//   figures: [ { n:Int, caption:[String,...] }, ... ]   caption lines centred below panel
+function renderMatchstickStaircase(spec){
+  function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+  const f=n=>(+n).toFixed(2);
+  const u=spec.cell||30, gap=spec.gap||46;
+  const figs=spec.figures||[];
+  const WOOD=spec.stickColor||'#b88a4a', HEAD=spec.headColor||'#9c3327';
+  const inset=2.4, sw=3.2, headR=2.6;
+  const pL=16, pR=16, pT=14, capTop=12, lineH=16, pB=10;
+  let maxN=1, maxCap=0;
+  figs.forEach(g=>{maxN=Math.max(maxN,g.n); maxCap=Math.max(maxCap,(g.caption||[]).length);});
+  const maxH=maxN*u;
+  // panel left offsets
+  let cur=pL; const lay=[];
+  figs.forEach(g=>{const w=g.n*u; lay.push({left:cur,w}); cur+=w+gap;});
+  const totalW=(lay.length? lay[lay.length-1].left+lay[lay.length-1].w : pL)+pR;
+  const W=spec.width||totalW;
+  const baselineY=pT+maxH;
+  const H=spec.height||(baselineY+capTop+maxCap*lineH+pB);
+  let svg=`<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" xmlns="http://www.w3.org/2000/svg" style="background:#fff;font-family:'Sarabun',sans-serif;">`;
+  function stick(x1,y1,x2,y2){
+    const dx=x2-x1, dy=y2-y1, L=Math.hypot(dx,dy)||1, ux=dx/L, uy=dy/L;
+    const ax=x1+ux*inset, ay=y1+uy*inset, bx=x2-ux*inset, by=y2-uy*inset;
+    const hx=ax+ux*headR*1.2, hy=ay+uy*headR*1.2;
+    return `<line x1="${f(ax)}" y1="${f(ay)}" x2="${f(bx)}" y2="${f(by)}" stroke="${WOOD}" stroke-width="${sw}" stroke-linecap="round"/>`
+         + `<circle cx="${f(hx)}" cy="${f(hy)}" r="${headR}" fill="${HEAD}"/>`;
+  }
+  figs.forEach((g,fi)=>{
+    const n=g.n, lo=lay[fi];
+    const PX=mx=>lo.left+mx*u;
+    const PY=my=>baselineY-my*u;
+    const hset=new Set(), vset=new Set();
+    for(let i=0;i<n;i++){ const ht=i+1;
+      for(let j=0;j<ht;j++){
+        hset.add(i+','+j); hset.add(i+','+(j+1));   // bottom & top edges
+        vset.add(i+','+j); vset.add((i+1)+','+j);   // left & right edges
+      }
+    }
+    hset.forEach(k=>{const p=k.split(',').map(Number);
+      svg+=stick(PX(p[0]),PY(p[1]),PX(p[0]+1),PY(p[1]));});      // head at left
+    vset.forEach(k=>{const p=k.split(',').map(Number);
+      svg+=stick(PX(p[0]),PY(p[1]),PX(p[0]),PY(p[1]+1));});      // head at bottom
+    const cx=lo.left+lo.w/2;
+    (g.caption||[]).forEach((line,li)=>{
+      svg+=`<text x="${f(cx)}" y="${f(baselineY+capTop+li*lineH+4)}" text-anchor="middle" font-size="12.5" fill="#333">${esc(line)}</text>`;
+    });
+  });
+  return svg+'</svg>';
 }
