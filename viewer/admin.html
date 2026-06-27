@@ -1627,12 +1627,13 @@
     const explHasImgMarkers = hasImageMarkers(q.explanation);
     const _markedIdx = getMarkedIndices(q.explanation);
     // รูปที่จะแสดงในโจทย์ = imageSpec index ที่ไม่ถูก mark ใน explanation
+    //   หรือ spec ที่ติด inQuestion:true (รูปเป็นส่วนของโจทย์ + แสดงในเฉลยด้วยผ่าน [IMAGE:N])
     let _questionSpec = null;
     if (q.imageSpec) {
       if (Array.isArray(q.imageSpec)) {
-        const _unmarked = q.imageSpec.filter((_, i) => !_markedIdx.has(i));
-        if (_unmarked.length) _questionSpec = _unmarked;
-      } else if (!_markedIdx.has(0)) {
+        const _forQ = q.imageSpec.filter((s, i) => !_markedIdx.has(i) || (s && s.inQuestion));
+        if (_forQ.length) _questionSpec = _forQ;
+      } else if (!_markedIdx.has(0) || (q.imageSpec && q.imageSpec.inQuestion)) {
         _questionSpec = q.imageSpec;
       }
     }
