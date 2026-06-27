@@ -3293,6 +3293,8 @@ function renderImage(spec){
       return renderBoxPlot(spec);
     case 'matchstick-staircase':
       return renderMatchstickStaircase(spec);
+    case 'circle-on-plane':
+      return renderCircleOnPlane(spec);
     default:
       return null; // unknown type → admin.html จะ fallback ไปแสดง placeholder
   }
@@ -3980,5 +3982,112 @@ function renderMatchstickStaircase(spec){
       svg+=`<text x="${f(cx)}" y="${f(baselineY+capTop+li*lineH+4)}" text-anchor="middle" font-size="12.5" fill="#333">${esc(line)}</text>`;
     });
   });
+  return svg+'</svg>';
+}
+
+// ============================================================
+// circle-on-plane — วงกลม (ศูนย์กลางที่ใดก็ได้) บนระนาบพิกัดจริง
+//   รองรับ: แกน X,Y จริง + grid, วงกลมหลายวง (solid/dashed),
+//   เส้นตรง (เส้นตัด/สัมผัส), แรเงา half-plane ∩ disk, จุด, รัศมี, ป้าย (LaTeX vinculum)
+//   scale เท่ากันทั้งสองแกน → วงกลมกลมเสมอ
+// ============================================================
+function renderCircleOnPlane(spec){
+  const W=spec.width||300, H=spec.height||300, pad=spec.pad||26;
+  const xm=spec.xRange[0], xX=spec.xRange[1], ym=spec.yRange[0], yX=spec.yRange[1];
+  const pW=W-2*pad, pH=H-2*pad;
+  const s=Math.min(pW/(xX-xm), pH/(yX-ym));               // px/หน่วย เท่ากันสองแกน
+  const offX=pad+(pW-(xX-xm)*s)/2, offY=pad+(pH-(yX-ym)*s)/2;
+  const x2=x=>offX+(x-xm)*s;
+  const y2=y=>offY+(yX-y)*s;                              // flip แกน y
+  const uid=Math.floor(Math.random()*1e6);
+  const SHADE=spec.shadeColor||'#9aa0a6', SHADE_OP=(spec.shadeOpacity!=null)?spec.shadeOpacity:0.4;
+  const BIG=(xX-xm+yX-ym)*4;
+  let svg=`<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" xmlns="http://www.w3.org/2000/svg" style="background:#fff;">`;
+
+  // defs: arrow + clipPath ต่อวงกลม (สำหรับ half-plane shade)
+  svg+=`<defs><marker id="copArr_${uid}" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#333"/></marker>`;
+  (spec.circles||[]).forEach((c,i)=>{
+    svg+=`<clipPath id="copC_${uid}_${i}"><circle cx="${x2(c.center[0]).toFixed(2)}" cy="${y2(c.center[1]).toFixed(2)}" r="${(c.r*s).toFixed(2)}"/></clipPath>`;
+  });
+  svg+=`</defs>`;
+
+  // grid (จาง ที่จำนวนเต็ม)
+  if(spec.grid){
+    svg+=`<g stroke="#e8e8e8" stroke-width="1">`;
+    for(let gx=Math.ceil(xm); gx<=Math.floor(xX); gx++) svg+=`<line x1="${x2(gx).toFixed(2)}" y1="${y2(yX).toFixed(2)}" x2="${x2(gx).toFixed(2)}" y2="${y2(ym).toFixed(2)}"/>`;
+    for(let gy=Math.ceil(ym); gy<=Math.floor(yX); gy++) svg+=`<line x1="${x2(xm).toFixed(2)}" y1="${y2(gy).toFixed(2)}" x2="${x2(xX).toFixed(2)}" y2="${y2(gy).toFixed(2)}"/>`;
+    svg+=`</g>`;
+  }
+
+  // แรเงา half-plane ∩ วงกลม (อยู่ล่าง ใต้ขอบวงกลม)
+  (spec.shade||[]).forEach(sh=>{
+    if(sh.kind==='halfplane'){
+      const x1=sh.line[0][0],y1=sh.line[0][1],x2d=sh.line[1][0],y2d=sh.line[1][1];
+      const dx=x2d-x1, dy=y2d-y1, L=Math.hypot(dx,dy)||1, ux=dx/L, uy=dy/L;
+      let nx=-uy, ny=ux;
+      const mx=(x1+x2d)/2, my=(y1+y2d)/2, tx=sh.test[0], ty=sh.test[1];
+      if((tx-mx)*nx+(ty-my)*ny<0){nx=-nx;ny=-ny;}
+      const A=[x1-ux*BIG,y1-uy*BIG], B=[x2d+ux*BIG,y2d+uy*BIG];
+      const C=[B[0]+nx*BIG,B[1]+ny*BIG], D=[A[0]+nx*BIG,A[1]+ny*BIG];
+      const pts=[A,B,C,D].map(p=>`${x2(p[0]).toFixed(2)},${y2(p[1]).toFixed(2)}`).join(' ');
+      const clip=(sh.clipCircle!=null)?` clip-path="url(#copC_${uid}_${sh.clipCircle})"`:'';
+      svg+=`<polygon points="${pts}" fill="${SHADE}" fill-opacity="${SHADE_OP}"${clip}/>`;
+    }
+  });
+
+  // แกน X,Y จริง (วาดที่ x=0 / y=0 ถ้าอยู่ในช่วง)
+  if(spec.axes!==false){
+    const ax=spec.axes||{};
+    const cyA=y2(0), cxA=x2(0);
+    const arr=(ax.arrows!==false)?` marker-end="url(#copArr_${uid})"`:'';
+    if(0>=ym&&0<=yX){ svg+=`<line x1="${x2(xm).toFixed(2)}" y1="${cyA.toFixed(2)}" x2="${(x2(xX)+2).toFixed(2)}" y2="${cyA.toFixed(2)}" stroke="#333" stroke-width="1.2"${arr}/>`;
+      if(ax.xLabel) svg+=`<text x="${(x2(xX)+5).toFixed(2)}" y="${(cyA+4).toFixed(2)}" font-size="13" fill="#333">${ax.xLabel}</text>`; }
+    if(0>=xm&&0<=xX){ svg+=`<line x1="${cxA.toFixed(2)}" y1="${y2(ym).toFixed(2)}" x2="${cxA.toFixed(2)}" y2="${(y2(yX)-2).toFixed(2)}" stroke="#333" stroke-width="1.2"${arr}/>`;
+      if(ax.yLabel) svg+=`<text x="${(cxA-4).toFixed(2)}" y="${(y2(yX)-4).toFixed(2)}" font-size="13" fill="#333" text-anchor="end">${ax.yLabel}</text>`; }
+    if(ax.originLabel&&0>=ym&&0<=yX&&0>=xm&&0<=xX) svg+=`<text x="${(cxA-5).toFixed(2)}" y="${(cyA+13).toFixed(2)}" font-size="12" fill="#333" text-anchor="end">${ax.originLabel}</text>`;
+  }
+
+  // ขีด+เลขแกน
+  (spec.ticks||[]).forEach(t=>{
+    const isX=t.axis!=='y';
+    const px=isX?x2(t.at):x2(0), py=isX?y2(0):y2(t.at);
+    svg+=`<line x1="${(px-(isX?0:4)).toFixed(2)}" y1="${(py-(isX?4:0)).toFixed(2)}" x2="${(px+(isX?0:4)).toFixed(2)}" y2="${(py+(isX?4:0)).toFixed(2)}" stroke="#333" stroke-width="1.2"/>`;
+    if(t.label!=null){ const lx=isX?px:(px-7), ly=isX?(py+13):(py+4);
+      svg+=`<text x="${lx.toFixed(2)}" y="${ly.toFixed(2)}" font-size="11" fill="#333" text-anchor="${isX?'middle':'end'}">${t.label}</text>`; }
+  });
+
+  // วงกลม
+  (spec.circles||[]).forEach(c=>{
+    const dash=c.dashed?' stroke-dasharray="5 4"':'';
+    svg+=`<circle cx="${x2(c.center[0]).toFixed(2)}" cy="${y2(c.center[1]).toFixed(2)}" r="${(c.r*s).toFixed(2)}" fill="none" stroke="${c.color||'#222'}" stroke-width="${c.width||1.6}"${dash}/>`;
+  });
+
+  // เส้นตรง (เส้นตัด/สัมผัส)
+  (spec.lines||[]).forEach(ln=>{
+    const dash=ln.dashed?' stroke-dasharray="6 4"':'';
+    svg+=`<line x1="${x2(ln.from[0]).toFixed(2)}" y1="${y2(ln.from[1]).toFixed(2)}" x2="${x2(ln.to[0]).toFixed(2)}" y2="${y2(ln.to[1]).toFixed(2)}" stroke="${ln.color||'#222'}" stroke-width="${ln.width||1.4}"${dash}/>`;
+  });
+
+  // รัศมี/เส้นเสริม
+  (spec.segments||[]).forEach(sg=>{
+    const dash=sg.dashed?' stroke-dasharray="5 4"':'';
+    svg+=`<line x1="${x2(sg.from[0]).toFixed(2)}" y1="${y2(sg.from[1]).toFixed(2)}" x2="${x2(sg.to[0]).toFixed(2)}" y2="${y2(sg.to[1]).toFixed(2)}" stroke="${sg.color||'#222'}" stroke-width="${sg.width||1.3}"${dash}/>`;
+  });
+
+  // จุด
+  (spec.dots||[]).forEach(d=>{
+    const dx=x2(d.x).toFixed(2), dy=y2(d.y).toFixed(2);
+    if(d.open) svg+=`<circle cx="${dx}" cy="${dy}" r="3" fill="#fff" stroke="${d.color||'#222'}" stroke-width="1.4"/>`;
+    else svg+=`<circle cx="${dx}" cy="${dy}" r="3" fill="${d.color||'#222'}"/>`;
+  });
+
+  // ป้าย (LaTeX vinculum ผ่าน _polyMathToSvg ถ้ามี \sqrt/$, ไม่งั้น plain — ไทยเรนเดอร์ผ่าน Sarabun portal)
+  (spec.labels||[]).forEach(l=>{
+    const lx=x2(l.at[0])+(l.dx||0), ly=y2(l.at[1])+(l.dy||0), anc=l.anchor||'start', fs=l.fontSize||12;
+    const t=(l.text!=null)?l.text:l.latex;
+    if(_polyHasMath(t)) svg+=_polyMathToSvg(t,lx,ly,fs,anc);
+    else svg+=`<text x="${lx.toFixed(2)}" y="${ly.toFixed(2)}" font-size="${fs}" fill="#222" text-anchor="${anc}">${t}</text>`;
+  });
+
   return svg+'</svg>';
 }

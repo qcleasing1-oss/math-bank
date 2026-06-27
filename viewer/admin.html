@@ -684,6 +684,9 @@
   .q-question { font-size: 15px; line-height: 1.7; white-space: pre-line; }
   .choices { margin: 0; padding-left: 22px; }
   .choices li { margin-bottom: 4px; }
+  .choice-img { display: inline-block; vertical-align: top; }
+  .choice-img svg { max-width: 240px; height: auto; border: 1px solid #e0d9c8; border-radius: 4px; background: #fff; }
+  .choice-cap { font-size: 12px; color: var(--ink-soft); margin-top: 2px; }
   .choices li.correct {
     color: var(--ok);
     font-weight: 500;
@@ -1673,9 +1676,18 @@
       out += `<div class="q-section">
         <h4>ตัวเลือก</h4>
         <ol class="choices">
-          ${q.choices.map((c, i) =>
-            `<li class="${i === q.correct ? 'correct' : ''}">${c}</li>`
-          ).join('')}
+          ${q.choices.map((c, i) => {
+            let inner = c || '';
+            // choiceImages: imageSpec ต่อ choice (ตัวเลือกที่เป็นรูป) — render SVG inline
+            if (Array.isArray(q.choiceImages) && q.choiceImages[i]) {
+              const csvg = (typeof renderImage === 'function') ? renderImage(q.choiceImages[i]) : null;
+              if (csvg) {
+                inner = `<div class="choice-img">${csvg}</div>`
+                      + ((c && String(c).trim()) ? `<div class="choice-cap">${c}</div>` : '');
+              }
+            }
+            return `<li class="${i === q.correct ? 'correct' : ''}">${inner}</li>`;
+          }).join('')}
         </ol>
       </div>`;
     } else if (q.type === 'fill') {
