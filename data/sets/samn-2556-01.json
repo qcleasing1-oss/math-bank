@@ -1681,6 +1681,127 @@
         "มากกว่าหรือเท่ากับ $4$"
       ],
       "correct": 3,
+      "imageSpec": {
+        "type": "function-plot",
+        "width": 470,
+        "height": 380,
+        "xRange": [
+          -2.5,
+          10.5
+        ],
+        "yRange": [
+          -3.6,
+          3.6
+        ],
+        "axes": {
+          "arrows": true,
+          "xLabel": "X",
+          "yLabel": "Y",
+          "originLabel": "O"
+        },
+        "labels": [
+          {
+            "x": 2,
+            "text": "2"
+          },
+          {
+            "x": 6,
+            "text": "6"
+          }
+        ],
+        "functions": [
+          {
+            "id": "ellU",
+            "kind": "ellipse-arc",
+            "center": [
+              3,
+              0
+            ],
+            "a": 3,
+            "b": 2.2361,
+            "half": "upper",
+            "color": "#c0392b",
+            "strokeWidth": 1.8
+          },
+          {
+            "id": "ellL",
+            "kind": "ellipse-arc",
+            "center": [
+              3,
+              0
+            ],
+            "a": 3,
+            "b": 2.2361,
+            "half": "lower",
+            "color": "#c0392b",
+            "strokeWidth": 1.8,
+            "label": {
+              "text": "A",
+              "at": [
+                3,
+                2.95
+              ],
+              "anchor": "middle",
+              "color": "#c0392b"
+            }
+          },
+          {
+            "id": "hyp",
+            "kind": "hyperbola",
+            "center": [
+              4,
+              0
+            ],
+            "a": 2,
+            "b": 2.2361,
+            "orientation": "horizontal",
+            "branches": "both",
+            "tRange": [
+              -1.5,
+              1.5
+            ],
+            "color": "#2e7d32",
+            "strokeWidth": 1.8,
+            "label": {
+              "text": "B",
+              "at": [
+                8.4,
+                2.9
+              ],
+              "anchor": "start",
+              "color": "#2e7d32"
+            }
+          }
+        ],
+        "dots": [
+          {
+            "x": 6,
+            "y": 0,
+            "label": "(6, 0)",
+            "labelAnchor": "start",
+            "labelDx": 7,
+            "labelDy": -7
+          },
+          {
+            "x": 1.3846,
+            "y": 1.8842
+          },
+          {
+            "x": 1.3846,
+            "y": -1.8842
+          }
+        ],
+        "annotations": [
+          {
+            "text": "n(A ∩ B) = 3",
+            "at": [
+              3,
+              -3.35
+            ],
+            "anchor": "middle"
+          }
+        ]
+      },
       "explanation": [
         "<b>📐 ความรู้พื้นฐานที่ต้องใช้</b>",
         "• $|z-p|$ เมื่อ $z=x+yi$ คือระยะจากจุด $(x,y)$ ถึง $(p,0)$ บนระนาบเชิงซ้อน",
@@ -1705,6 +1826,7 @@
         "• กิ่งซ้าย (จุดยอด $x=2$) ตัดวงรี 2 จุด (สมมาตรเหนือ-ใต้แกน $x$)",
         "• กิ่งขวา (จุดยอด $x=6$) — จุด $(6,0)$ คือจุดยอดวงรีพอดี → สัมผัส 1 จุด",
         "รวม $2+1=3$ จุด",
+        "[IMAGE]",
         "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ · บวกสองสมการกำจัดตัวแปร (eliminate by adding) 】</b>",
         "<b>บวกสองสมการฆ่า $y^2$:</b> วงรี $\\dfrac{(x-3)^2}{9} + \\dfrac{y^2}{5} = 1$ บวกไฮเพอร์โบลา $\\dfrac{(x-4)^2}{4} - \\dfrac{y^2}{5} = 1$ → ได้สมการตัวแปรเดียว $13x^2 - 96x + 108 = 0$ → $(x - 6)(13x - 18) = 0$ → $x = 6$",
         "หรือ $x = \\dfrac{18}{13}$",
