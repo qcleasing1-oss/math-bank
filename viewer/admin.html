@@ -811,11 +811,16 @@
     border: 1px solid var(--rule);
     padding: 5px 14px;
     text-align: center;
+    min-width: 30px;
+    height: 30px;
   }
   .q-table th {
     background: var(--accent-soft);
     font-weight: 500;
     color: var(--ink);
+  }
+  .q-table td.shade {
+    background: #cfcfcf;
   }
   .table-caption {
     font-size: 12px;
@@ -1611,7 +1616,7 @@
         }
         if (Array.isArray(t.rows) && t.rows.length) {
           tbl += '<tbody>' + t.rows.map(r =>
-            '<tr>' + r.map(c => `<td>${c}</td>`).join('') + '</tr>'
+            '<tr>' + r.map(c => c === '▒' ? '<td class="shade"></td>' : `<td>${c}</td>`).join('') + '</tr>'
           ).join('') + '</tbody>';
         }
         tbl += '</table>';
