@@ -348,7 +348,7 @@
       "structure": {
         "part1": "ตอนที่ 1 ปรนัย 4 ตัวเลือก 25 ข้อ + ตอนที่ 2 เติมคำตอบ 25 ข้อ ข้อละ 6 คะแนน รวม 300 คะแนน"
       },
-      "note": "Q25,Q45,Q46,Q47,Q48,Q50 มีรูป/ตาราง — ใส่ imageNote รอ sweep imageSpec",
+      "note": "imageSpec ครบ (Phase G step 6-7): Q4/Q27 number-line, Q7/Q45 polygon-labeled, Q26 venn 3-set. tables ในโจทย์ (HTML): Q25/Q46/Q47/Q48/Q50 — Q47 ตารางหมากรุกใช้ token ▒ → viewer td.shade (admin.html รองรับ). เฉลย STANDARD v2 ครบ 50; ว.1 = วิธีเฉลยทางการ PDF ที่ Q5 (หา f⁻¹ explicit), Q31 (adjugate expansion). difficulty+topicDistribution verify ตรงค่าจริง. DEFERRED: step 5 line-break sweep (ท้ายสุด bank-wide).",
       "topicDistribution": {
         "1": 2,
         "2": 2,
