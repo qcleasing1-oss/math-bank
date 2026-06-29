@@ -3211,6 +3211,83 @@ function renderArgandPlane(spec){
 }
 
 
+// renderer: conic-ellipse-hyperbola (วงรี + ไฮเพอร์โบลาแกนตั้ง ศูนย์กลางร่วม)
+function renderConicEllipseHyperbola(spec){
+  const W=spec.width||320, H=spec.height||300, pad=20;
+  const xR=spec.xRange||[-8,4], yR=spec.yRange||[-5,7];
+  const xM=xR[0],xX=xR[1],yM=yR[0],yX=yR[1];
+  const pW=W-2*pad, pH=H-2*pad;
+  const s=Math.min(pW/(xX-xM), pH/(yX-yM));        // px/หน่วย เท่ากันสองแกน (ไม่บิด)
+  const offX=pad+(pW-(xX-xM)*s)/2, offY=pad+(pH-(yX-yM)*s)/2;
+  const X=x=>offX+(x-xM)*s, Y=y=>offY+(yX-y)*s;    // flip y
+  const c=spec.center||[0,0], cx=c[0], cy=c[1];
+  let svg=`<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" xmlns="http://www.w3.org/2000/svg" style="background:#fff;">`;
+  svg+=`<defs><marker id="cax" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#888"/></marker></defs>`;
+  // axes
+  svg+=`<line x1="${X(xM).toFixed(1)}" y1="${Y(0).toFixed(1)}" x2="${X(xX).toFixed(1)}" y2="${Y(0).toFixed(1)}" stroke="#aaa" stroke-width="1" marker-end="url(#cax)"/>`;
+  svg+=`<line x1="${X(0).toFixed(1)}" y1="${Y(yM).toFixed(1)}" x2="${X(0).toFixed(1)}" y2="${Y(yX).toFixed(1)}" stroke="#aaa" stroke-width="1" marker-end="url(#cax)"/>`;
+  // asymptotes (dashed) — vertical: slope ±A/B · horizontal: slope ±B/A
+  const hy=spec.hyperbola;
+  const horiz = hy && hy.orientation==='horizontal';
+  if(hy && spec.showAsymptotes!==false){
+    const m = horiz ? hy.B/hy.A : hy.A/hy.B;
+    [m,-m].forEach(slope=>{
+      const x1=xM, y1=cy+slope*(xM-cx), x2=xX, y2=cy+slope*(xX-cx);
+      svg+=`<line x1="${X(x1).toFixed(1)}" y1="${Y(y1).toFixed(1)}" x2="${X(x2).toFixed(1)}" y2="${Y(y2).toFixed(1)}" stroke="#bbb" stroke-width="1" stroke-dasharray="5 4"/>`;
+    });
+  }
+  // ellipse
+  const el=spec.ellipse;
+  if(el){
+    svg+=`<ellipse cx="${X(cx).toFixed(1)}" cy="${Y(cy).toFixed(1)}" rx="${(el.b*s).toFixed(1)}" ry="${(el.a*s).toFixed(1)}" fill="none" stroke="#2e6fb0" stroke-width="1.8"/>`;
+  }
+  // hyperbola — vertical: y=cy±A√(1+(x-cx)²/B²) · horizontal: x=cx±A√(1+(y-cy)²/B²)
+  if(hy){
+    const N=120;
+    if(horiz){
+      ['rt','lf'].forEach(br=>{
+        let pts=[];
+        for(let k=0;k<=N;k++){
+          const y=yM+(yX-yM)*k/N, t=1+Math.pow(y-cy,2)/(hy.B*hy.B);
+          const x=(br==='rt'?cx+hy.A*Math.sqrt(t):cx-hy.A*Math.sqrt(t));
+          if(x>=xM-1 && x<=xX+1) pts.push([X(x),Y(y)]);
+        }
+        if(pts.length>1) svg+=`<polyline points="${pts.map(p=>p[0].toFixed(1)+','+p[1].toFixed(1)).join(' ')}" fill="none" stroke="#c0392b" stroke-width="1.9"/>`;
+      });
+    } else {
+      ['up','dn'].forEach(br=>{
+        let pts=[];
+        for(let k=0;k<=N;k++){
+          const x=xM+(xX-xM)*k/N, t=1+Math.pow(x-cx,2)/(hy.B*hy.B);
+          const y=(br==='up'?cy+hy.A*Math.sqrt(t):cy-hy.A*Math.sqrt(t));
+          if(y>=yM-1 && y<=yX+1) pts.push([X(x),Y(y)]);
+        }
+        if(pts.length>1) svg+=`<polyline points="${pts.map(p=>p[0].toFixed(1)+','+p[1].toFixed(1)).join(' ')}" fill="none" stroke="#c0392b" stroke-width="1.9"/>`;
+      });
+    }
+  }
+  // dots (foci/vertices + marked points) with plain labels
+  (spec.dots||[]).forEach(d=>{
+    svg+=`<circle cx="${X(d.x).toFixed(1)}" cy="${Y(d.y).toFixed(1)}" r="3.2" fill="${d.color||'#222'}"/>`;
+    if(d.label){const dx=d.labelDx!==undefined?d.labelDx:6, dy=d.labelDy!==undefined?d.labelDy:-6;
+      const lx=X(d.x)+dx, ly=Y(d.y)+dy, fs=11;
+      if(/\\sqrt|\$/.test(d.label) && typeof _ucMathToSvg==='function'){
+        // estimate width for anchor (mirror _ucMathToSvg chW)
+        const inner=d.label.replace(/\\sqrt\s*\{([^}]*)\}/g,'√$1').replace(/[\${}]/g,'').replace(/\\[a-zA-Z]+/g,'');
+        let w=0; for(const ch of inner){ w += (ch===','||ch===' ')?fs*0.3:((ch==='('||ch===')')?fs*0.4:(ch==='√'?fs*0.7:fs*0.55)); }
+        const sx=(d.anchor==='end')?lx-w:((d.anchor==='middle')?lx-w/2:lx);
+        svg+=_ucMathToSvg(d.label, sx, ly, fs, d.color||'#222');
+      } else {
+        svg+=`<text x="${lx.toFixed(1)}" y="${ly.toFixed(1)}" font-size="${fs}" fill="${d.color||'#222'}" text-anchor="${d.anchor||'start'}">${d.label}</text>`;
+      }}
+  });
+  // plain annotations
+  (spec.annotations||[]).forEach(a=>{
+    svg+=`<text x="${X(a.at[0]).toFixed(1)}" y="${Y(a.at[1]).toFixed(1)}" font-size="${a.fontSize||11}" fill="${a.color||'#222'}" text-anchor="${a.anchor||'start'}">${a.text}</text>`;
+  });
+  return svg+'</svg>';
+}
+
 function renderImage(spec){
   if(!spec) return null;
   // Array of specs → render each, wrap in horizontal flex container
@@ -3293,6 +3370,8 @@ function renderImage(spec){
       return renderBoxPlot(spec);
     case 'matchstick-staircase':
       return renderMatchstickStaircase(spec);
+    case 'conic-ellipse-hyperbola':
+      return renderConicEllipseHyperbola(spec);
     case 'circle-on-plane':
       return renderCircleOnPlane(spec);
     default:
