@@ -173,48 +173,48 @@
       "hasImage": true,
       "imageSpec": {
         "type": "polygon-labeled",
-        "width": 300,
-        "height": 340,
+        "width": 450,
+        "height": 510,
         "vertices": {
           "T": [
-            150,
-            55
+            225,
+            82.5
           ],
           "Bt": [
-            150,
-            285
+            225,
+            427.5
           ],
           "XL": [
-            30,
-            170
+            45,
+            255
           ],
           "XR": [
-            272,
-            170
+            408,
+            255
           ],
           "YT": [
-            150,
-            30
+            225,
+            45
           ],
           "YB": [
-            150,
-            312
+            225,
+            468
           ],
           "O": [
-            150,
-            170
+            225,
+            255
           ],
           "F1": [
-            150,
-            216
+            225,
+            324
           ],
           "F2": [
-            150,
-            124
+            225,
+            186
           ],
           "P": [
-            207.9,
-            93
+            311.9,
+            139.5
           ]
         },
         "vertexLabels": {
@@ -279,85 +279,85 @@
         "annotations": [
           {
             "text": "●",
-            "x": 150,
-            "y": 174,
+            "x": 225,
+            "y": 261,
             "anchor": "middle",
             "fontSize": 11
           },
           {
             "text": "●",
-            "x": 150,
-            "y": 220,
+            "x": 225,
+            "y": 330,
             "anchor": "middle",
             "fontSize": 11
           },
           {
             "text": "●",
-            "x": 150,
-            "y": 128,
+            "x": 225,
+            "y": 192,
             "anchor": "middle",
             "fontSize": 11
           },
           {
             "text": "●",
-            "x": 207.9,
-            "y": 97,
+            "x": 311.9,
+            "y": 145.5,
             "anchor": "middle",
             "fontSize": 11
           },
           {
             "text": "O",
-            "x": 137,
-            "y": 184,
+            "x": 205.5,
+            "y": 276,
             "anchor": "middle",
             "fontSize": 14
           },
           {
-            "text": "F2(0, 2)",
-            "x": 128,
-            "y": 122,
+            "text": "F₂(0, 2)",
+            "x": 192,
+            "y": 187.3,
             "anchor": "end",
             "fontSize": 13
           },
           {
-            "text": "F1(0, -2)",
-            "x": 128,
-            "y": 224,
+            "text": "F₁(0, −2)",
+            "x": 193.7,
+            "y": 330.8,
             "anchor": "end",
             "fontSize": 13
           },
           {
             "text": "P",
-            "x": 214,
-            "y": 88,
+            "x": 321,
+            "y": 132,
             "anchor": "start",
             "fontSize": 15
           },
           {
-            "text": "PF2 = 3",
-            "x": 214,
-            "y": 120,
+            "text": "PF₂ = 3",
+            "x": 254,
+            "y": 140,
             "anchor": "start",
             "fontSize": 13
           },
           {
-            "text": "PF1 = 7",
-            "x": 192,
-            "y": 158,
+            "text": "PF₁ = 7",
+            "x": 290.6,
+            "y": 239.6,
             "anchor": "start",
             "fontSize": 13
           },
           {
             "text": "X",
-            "x": 268,
-            "y": 186,
+            "x": 402,
+            "y": 279,
             "anchor": "middle",
             "fontSize": 14
           },
           {
             "text": "Y",
-            "x": 162,
-            "y": 40,
+            "x": 243,
+            "y": 60,
             "anchor": "middle",
             "fontSize": 14
           }
@@ -2166,7 +2166,108 @@
       "level": "medium",
       "score": 4,
       "question": "กำหนดให้ $i^2 = -1$ และ $A = \\{1, 2, 3, 4\\}$ ถ้า $S = \\{(a, b, c) \\mid i^a + i^b + i^c = 1$ และ $a, b, c \\in A\\}$ แล้ว $S$ มีจำนวนสมาชิกเท่ากับข้อใดต่อไปนี้",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": {
+        "type": "argand-plane",
+        "width": 350,
+        "height": 330,
+        "reRange": [
+          -1.55,
+          1.55
+        ],
+        "imRange": [
+          -1.55,
+          1.55
+        ],
+        "axes": {
+          "arrows": true,
+          "reLabel": "Re",
+          "imLabel": "Im",
+          "originLabel": "O"
+        },
+        "circles": [
+          {
+            "center": [
+              0,
+              0
+            ],
+            "r": 1,
+            "color": "#bbb",
+            "dashed": true,
+            "label": "|z|=1",
+            "labelAt": [
+              0.74,
+              0.84
+            ],
+            "labelFs": 12,
+            "labelAnchor": "start"
+          }
+        ],
+        "vectors": [
+          {
+            "from": [
+              0,
+              0
+            ],
+            "to": [
+              0,
+              1
+            ],
+            "color": "#c2185b"
+          },
+          {
+            "from": [
+              0,
+              0
+            ],
+            "to": [
+              0,
+              -1
+            ],
+            "color": "#c2185b"
+          }
+        ],
+        "points": [
+          {
+            "re": 1,
+            "im": 0,
+            "color": "#1f5fa0",
+            "label": "1",
+            "labelDx": 7,
+            "labelDy": 17,
+            "labelFs": 16
+          },
+          {
+            "re": 0,
+            "im": 1,
+            "color": "#c2185b",
+            "label": "i",
+            "labelDx": 11,
+            "labelDy": 0,
+            "labelFs": 16
+          },
+          {
+            "re": -1,
+            "im": 0,
+            "color": "#1f5fa0",
+            "label": "-1",
+            "labelDx": -8,
+            "labelDy": 17,
+            "labelFs": 16,
+            "labelAnchor": "end"
+          },
+          {
+            "re": 0,
+            "im": -1,
+            "color": "#c2185b",
+            "label": "-i",
+            "labelDx": 11,
+            "labelDy": 5,
+            "labelFs": 16
+          }
+        ]
+      },
+      "imageNote": "ระนาบเชิงซ้อน (Argand) แสดงค่าของ i ยกกำลัง 1 ถึง 4 เป็นจุด 4 จุดบนวงกลมหนึ่งหน่วย ได้แก่ i (กำลัง 1), -1 (กำลัง 2), -i (กำลัง 3) และ 1 (กำลัง 4) ซึ่งคือรากที่สี่ของหนึ่ง คู่ i กับ -i อยู่ตรงข้ามกันจึงหักล้างกันเป็นศูนย์ ทำให้กลุ่มที่มี i และ -i เหลือผลบวกเป็นจำนวนจริง — รูปสเกลโดยประมาณ",
       "choices": [
         "$3$",
         "$4$",
@@ -2186,6 +2287,7 @@
         "<b>【 วิธีที่ 1 ▸ พื้นฐาน · จัดกลุ่มชุดค่า (grouping values) 】</b>",
         "<b>ขั้นที่ 1: หาว่าค่าใดบ้างที่ $i^a, i^b, i^c$ เป็นได้</b>",
         "• เพราะ $a,b,c \\in \\{1,2,3,4\\}$ ค่าของ $i^a$ (และ $i^b, i^c$) อยู่ในเซต $\\{i, -1, -i, 1\\}$ โดยจับคู่ 1-1 กับเลขชี้กำลัง: $1\\!\\to\\! i,\\ 2\\!\\to\\!-1,\\ 3\\!\\to\\!-i,\\ 4\\!\\to\\! 1$",
+        "[IMAGE]",
         "<b>ขั้นที่ 2: หากลุ่มของ 3 ค่า (จาก $\\{i,-1,-i,1\\}$) ที่บวกกันได้ 1</b>",
         "• ลองรวมกลุ่มที่เป็นไปได้ — กลุ่มที่ผลบวกเป็น 1 มี 2 แบบ:",
         "• แบบ A: $\\{i, -i, 1\\}$ เพราะ $i + (-i) + 1 = 1$ ✓ (สามค่าต่างกันหมด)",
@@ -2278,7 +2380,118 @@
       "level": "medium",
       "score": 4,
       "question": "ถ้า $z_1 = \\sqrt{2}\\!\\left(\\cos\\dfrac{\\pi}{8} + i\\sin\\dfrac{\\pi}{8}\\right)$ และ $z_2 = 3\\!\\left(\\cos\\dfrac{3\\pi}{8} + i\\sin\\dfrac{3\\pi}{8}\\right)$ แล้ว $|z_1 - z_2|$ เท่ากับข้อใดต่อไปนี้",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": {
+        "type": "argand-plane",
+        "width": 400,
+        "height": 400,
+        "reRange": [
+          -0.6,
+          2.2
+        ],
+        "imRange": [
+          -0.5,
+          3.3
+        ],
+        "axes": {
+          "arrows": true,
+          "reLabel": "Re",
+          "imLabel": "Im",
+          "originLabel": "O"
+        },
+        "vectors": [
+          {
+            "from": [
+              0,
+              0
+            ],
+            "to": [
+              1.3066,
+              0.5412
+            ],
+            "color": "#1f5fa0",
+            "label": "z1",
+            "labelAt": [
+              1.3066,
+              0.5412
+            ],
+            "labelDx": 9,
+            "labelDy": 15,
+            "labelFs": 15
+          },
+          {
+            "from": [
+              0,
+              0
+            ],
+            "to": [
+              1.1481,
+              2.7716
+            ],
+            "color": "#c0392b",
+            "label": "z2",
+            "labelAt": [
+              1.1481,
+              2.7716
+            ],
+            "labelDx": 8,
+            "labelDy": -6,
+            "labelFs": 15
+          },
+          {
+            "from": [
+              1.3066,
+              0.5412
+            ],
+            "to": [
+              1.1481,
+              2.7716
+            ],
+            "color": "#2e7d32",
+            "label": "\\sqrt{5}",
+            "labelAt": [
+              1.227,
+              1.66
+            ],
+            "labelDx": 11,
+            "labelDy": 2,
+            "labelFs": 15
+          }
+        ],
+        "angleArcs": [
+          {
+            "at": [
+              0,
+              0
+            ],
+            "from": [
+              1.3066,
+              0.5412
+            ],
+            "to": [
+              1.1481,
+              2.7716
+            ],
+            "r": 38,
+            "color": "#7a5c00",
+            "label": "45°",
+            "labelFs": 12
+          }
+        ],
+        "points": [
+          {
+            "re": 1.3066,
+            "im": 0.5412,
+            "color": "#1f5fa0"
+          },
+          {
+            "re": 1.1481,
+            "im": 2.7716,
+            "color": "#c0392b"
+          }
+        ]
+      },
+      "imageNote": "ระนาบเชิงซ้อน (Argand) แสดง z1 ขนาด √2 ทำมุม π/8 และ z2 ขนาด 3 ทำมุม 3π/8 กับแกนจริง มุมระหว่างเวกเตอร์ทั้งสองเท่ากับ 45 องศา (= π/4) ด้านที่เชื่อมปลาย z1 กับ z2 ในสามเหลี่ยม O z1 z2 คือ |z1 - z2| = √5 ตามกฎของโคไซน์ — รูปสเกลโดยประมาณ",
       "choices": [
         "$\\sqrt{5}$",
         "$\\sqrt{6}$",
@@ -2299,6 +2512,7 @@
         "<b>ขั้นที่ 1: เขียนในรูปเชิงขั้ว</b>",
         "• $z_1 = \\sqrt2\\angle\\dfrac{\\pi}{8}$, $z_2 = 3\\angle\\dfrac{3\\pi}{8}$",
         "$|z_1|^2 = 2$, $|z_2|^2 = 9$",
+        "[IMAGE]",
         "<b>ขั้นที่ 2: หา $z_1\\bar z_2$ ด้วยการคูณเชิงขั้ว</b>",
         "• $\\bar z_2 = 3\\angle\\!\\left(-\\dfrac{3\\pi}{8}\\right)$",
         "$\\begin{aligned} z_1\\bar z_2 &= (\\sqrt2\\cdot 3)\\angle\\!\\left(\\dfrac{\\pi}{8} - \\dfrac{3\\pi}{8}\\right) \\\\ &= 3\\sqrt2\\angle\\!\\left(-\\dfrac{\\pi}{4}\\right) \\end{aligned}$",
