@@ -533,7 +533,86 @@
       "level": "medium",
       "score": 4,
       "question": "กำหนดให้ $z_1, z_2$ และ $z_3$ เป็นรากที่ $3$ ของจำนวนเชิงซ้อนจำนวนหนึ่ง ถ้า $z_1 = \\sqrt{2}(\\cos 15^\\circ + i\\sin 15^\\circ)$ แล้วผลคูณ $z_2 z_3$ มีค่าเท่ากับข้อใดต่อไปนี้",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": {
+        "type": "argand-plane",
+        "width": 300,
+        "height": 300,
+        "reRange": [
+          -1.8,
+          1.8
+        ],
+        "imRange": [
+          -1.8,
+          1.8
+        ],
+        "axes": {
+          "reTicks": [
+            -1,
+            1
+          ],
+          "imTicks": [
+            -1,
+            1
+          ],
+          "arrows": true
+        },
+        "circles": [
+          {
+            "center": [
+              0,
+              0
+            ],
+            "r": 1.4142,
+            "dashed": true,
+            "color": "#aaa"
+          }
+        ],
+        "vectors": [
+          {
+            "from": [
+              0,
+              0
+            ],
+            "to": [
+              1.366,
+              0.366
+            ],
+            "color": "#2e6fb0",
+            "label": "z1",
+            "labelDx": 6,
+            "labelDy": -4
+          },
+          {
+            "from": [
+              0,
+              0
+            ],
+            "to": [
+              -1,
+              1
+            ],
+            "color": "#c0392b",
+            "label": "z2",
+            "labelDx": -22,
+            "labelDy": -6
+          },
+          {
+            "from": [
+              0,
+              0
+            ],
+            "to": [
+              -0.366,
+              -1.366
+            ],
+            "color": "#2e7d32",
+            "label": "z3",
+            "labelDx": -22,
+            "labelDy": 14
+          }
+        ]
+      },
       "choices": [
         "$2$",
         "$\\sqrt{2} - i\\sqrt{2}$",
@@ -552,6 +631,7 @@
         "รากที่ 3 ห่างกันมุมละ $\\dfrac{360^\\circ}{3}=120^\\circ$",
         "$\\begin{aligned} z_2 &= \\sqrt{2}\\angle(15^\\circ+120^\\circ) \\\\ &= \\sqrt{2}\\angle135^\\circ \\end{aligned}$",
         "$\\begin{aligned} z_3 &= \\sqrt{2}\\angle(135^\\circ+120^\\circ) \\\\ &= \\sqrt{2}\\angle255^\\circ \\end{aligned}$",
+        "[IMAGE]",
         "<b>ขั้นที่ 2: คูณ $z_2 z_3$ ในรูปเชิงขั้ว</b>",
         "$\\begin{aligned} z_2 z_3 &= (\\sqrt{2}\\times\\sqrt{2})\\angle(135^\\circ+255^\\circ) \\\\ &= 2\\angle390^\\circ \\end{aligned}$",
         "<b>ขั้นที่ 3: ลดมุมให้อยู่ในช่วงมาตรฐาน</b>",
@@ -1177,7 +1257,561 @@
       "level": "easy",
       "score": 4,
       "question": "กำหนดให้ $S = \\{1, 2, 3, \\dots, 10\\}$ และ $M = \\{\\,(x, y) \\mid x, y \\in S\\,\\}$ ถ้าสุ่มหยิบ $(x, y)$ จาก $M$ มาหนึ่งตัวแล้ว ความน่าจะเป็นที่จะได้ $(x, y)$ ซึ่ง $x^2 + y^2 < 25$ เท่ากับข้อใดต่อไปนี้",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": {
+        "type": "circle-on-plane",
+        "width": 340,
+        "height": 340,
+        "pad": 30,
+        "xRange": [
+          -0.5,
+          10.5
+        ],
+        "yRange": [
+          -0.5,
+          10.5
+        ],
+        "grid": true,
+        "axes": {
+          "xLabel": "x",
+          "yLabel": "y"
+        },
+        "circles": [
+          {
+            "center": [
+              0,
+              0
+            ],
+            "r": 5,
+            "color": "#2e6fb0",
+            "width": 1.8
+          }
+        ],
+        "ticks": [
+          {
+            "axis": "x",
+            "at": 5,
+            "label": "5"
+          },
+          {
+            "axis": "y",
+            "at": 5,
+            "label": "5"
+          },
+          {
+            "axis": "x",
+            "at": 10,
+            "label": "10"
+          },
+          {
+            "axis": "y",
+            "at": 10,
+            "label": "10"
+          }
+        ],
+        "dots": [
+          {
+            "x": 1,
+            "y": 1,
+            "color": "#2e7d32"
+          },
+          {
+            "x": 1,
+            "y": 2,
+            "color": "#2e7d32"
+          },
+          {
+            "x": 1,
+            "y": 3,
+            "color": "#2e7d32"
+          },
+          {
+            "x": 1,
+            "y": 4,
+            "color": "#2e7d32"
+          },
+          {
+            "x": 1,
+            "y": 5,
+            "color": "#cfcfcf"
+          },
+          {
+            "x": 1,
+            "y": 6,
+            "color": "#cfcfcf"
+          },
+          {
+            "x": 1,
+            "y": 7,
+            "color": "#cfcfcf"
+          },
+          {
+            "x": 1,
+            "y": 8,
+            "color": "#cfcfcf"
+          },
+          {
+            "x": 1,
+            "y": 9,
+            "color": "#cfcfcf"
+          },
+          {
+            "x": 1,
+            "y": 10,
+            "color": "#cfcfcf"
+          },
+          {
+            "x": 2,
+            "y": 1,
+            "color": "#2e7d32"
+          },
+          {
+            "x": 2,
+            "y": 2,
+            "color": "#2e7d32"
+          },
+          {
+            "x": 2,
+            "y": 3,
+            "color": "#2e7d32"
+          },
+          {
+            "x": 2,
+            "y": 4,
+            "color": "#2e7d32"
+          },
+          {
+            "x": 2,
+            "y": 5,
+            "color": "#cfcfcf"
+          },
+          {
+            "x": 2,
+            "y": 6,
+            "color": "#cfcfcf"
+          },
+          {
+            "x": 2,
+            "y": 7,
+            "color": "#cfcfcf"
+          },
+          {
+            "x": 2,
+            "y": 8,
+            "color": "#cfcfcf"
+          },
+          {
+            "x": 2,
+            "y": 9,
+            "color": "#cfcfcf"
+          },
+          {
+            "x": 2,
+            "y": 10,
+            "color": "#cfcfcf"
+          },
+          {
+            "x": 3,
+            "y": 1,
+            "color": "#2e7d32"
+          },
+          {
+            "x": 3,
+            "y": 2,
+            "color": "#2e7d32"
+          },
+          {
+            "x": 3,
+            "y": 3,
+            "color": "#2e7d32"
+          },
+          {
+            "x": 3,
+            "y": 4,
+            "color": "#cfcfcf"
+          },
+          {
+            "x": 3,
+            "y": 5,
+            "color": "#cfcfcf"
+          },
+          {
+            "x": 3,
+            "y": 6,
+            "color": "#cfcfcf"
+          },
+          {
+            "x": 3,
+            "y": 7,
+            "color": "#cfcfcf"
+          },
+          {
+            "x": 3,
+            "y": 8,
+            "color": "#cfcfcf"
+          },
+          {
+            "x": 3,
+            "y": 9,
+            "color": "#cfcfcf"
+          },
+          {
+            "x": 3,
+            "y": 10,
+            "color": "#cfcfcf"
+          },
+          {
+            "x": 4,
+            "y": 1,
+            "color": "#2e7d32"
+          },
+          {
+            "x": 4,
+            "y": 2,
+            "color": "#2e7d32"
+          },
+          {
+            "x": 4,
+            "y": 3,
+            "color": "#cfcfcf"
+          },
+          {
+            "x": 4,
+            "y": 4,
+            "color": "#cfcfcf"
+          },
+          {
+            "x": 4,
+            "y": 5,
+            "color": "#cfcfcf"
+          },
+          {
+            "x": 4,
+            "y": 6,
+            "color": "#cfcfcf"
+          },
+          {
+            "x": 4,
+            "y": 7,
+            "color": "#cfcfcf"
+          },
+          {
+            "x": 4,
+            "y": 8,
+            "color": "#cfcfcf"
+          },
+          {
+            "x": 4,
+            "y": 9,
+            "color": "#cfcfcf"
+          },
+          {
+            "x": 4,
+            "y": 10,
+            "color": "#cfcfcf"
+          },
+          {
+            "x": 5,
+            "y": 1,
+            "color": "#cfcfcf"
+          },
+          {
+            "x": 5,
+            "y": 2,
+            "color": "#cfcfcf"
+          },
+          {
+            "x": 5,
+            "y": 3,
+            "color": "#cfcfcf"
+          },
+          {
+            "x": 5,
+            "y": 4,
+            "color": "#cfcfcf"
+          },
+          {
+            "x": 5,
+            "y": 5,
+            "color": "#cfcfcf"
+          },
+          {
+            "x": 5,
+            "y": 6,
+            "color": "#cfcfcf"
+          },
+          {
+            "x": 5,
+            "y": 7,
+            "color": "#cfcfcf"
+          },
+          {
+            "x": 5,
+            "y": 8,
+            "color": "#cfcfcf"
+          },
+          {
+            "x": 5,
+            "y": 9,
+            "color": "#cfcfcf"
+          },
+          {
+            "x": 5,
+            "y": 10,
+            "color": "#cfcfcf"
+          },
+          {
+            "x": 6,
+            "y": 1,
+            "color": "#cfcfcf"
+          },
+          {
+            "x": 6,
+            "y": 2,
+            "color": "#cfcfcf"
+          },
+          {
+            "x": 6,
+            "y": 3,
+            "color": "#cfcfcf"
+          },
+          {
+            "x": 6,
+            "y": 4,
+            "color": "#cfcfcf"
+          },
+          {
+            "x": 6,
+            "y": 5,
+            "color": "#cfcfcf"
+          },
+          {
+            "x": 6,
+            "y": 6,
+            "color": "#cfcfcf"
+          },
+          {
+            "x": 6,
+            "y": 7,
+            "color": "#cfcfcf"
+          },
+          {
+            "x": 6,
+            "y": 8,
+            "color": "#cfcfcf"
+          },
+          {
+            "x": 6,
+            "y": 9,
+            "color": "#cfcfcf"
+          },
+          {
+            "x": 6,
+            "y": 10,
+            "color": "#cfcfcf"
+          },
+          {
+            "x": 7,
+            "y": 1,
+            "color": "#cfcfcf"
+          },
+          {
+            "x": 7,
+            "y": 2,
+            "color": "#cfcfcf"
+          },
+          {
+            "x": 7,
+            "y": 3,
+            "color": "#cfcfcf"
+          },
+          {
+            "x": 7,
+            "y": 4,
+            "color": "#cfcfcf"
+          },
+          {
+            "x": 7,
+            "y": 5,
+            "color": "#cfcfcf"
+          },
+          {
+            "x": 7,
+            "y": 6,
+            "color": "#cfcfcf"
+          },
+          {
+            "x": 7,
+            "y": 7,
+            "color": "#cfcfcf"
+          },
+          {
+            "x": 7,
+            "y": 8,
+            "color": "#cfcfcf"
+          },
+          {
+            "x": 7,
+            "y": 9,
+            "color": "#cfcfcf"
+          },
+          {
+            "x": 7,
+            "y": 10,
+            "color": "#cfcfcf"
+          },
+          {
+            "x": 8,
+            "y": 1,
+            "color": "#cfcfcf"
+          },
+          {
+            "x": 8,
+            "y": 2,
+            "color": "#cfcfcf"
+          },
+          {
+            "x": 8,
+            "y": 3,
+            "color": "#cfcfcf"
+          },
+          {
+            "x": 8,
+            "y": 4,
+            "color": "#cfcfcf"
+          },
+          {
+            "x": 8,
+            "y": 5,
+            "color": "#cfcfcf"
+          },
+          {
+            "x": 8,
+            "y": 6,
+            "color": "#cfcfcf"
+          },
+          {
+            "x": 8,
+            "y": 7,
+            "color": "#cfcfcf"
+          },
+          {
+            "x": 8,
+            "y": 8,
+            "color": "#cfcfcf"
+          },
+          {
+            "x": 8,
+            "y": 9,
+            "color": "#cfcfcf"
+          },
+          {
+            "x": 8,
+            "y": 10,
+            "color": "#cfcfcf"
+          },
+          {
+            "x": 9,
+            "y": 1,
+            "color": "#cfcfcf"
+          },
+          {
+            "x": 9,
+            "y": 2,
+            "color": "#cfcfcf"
+          },
+          {
+            "x": 9,
+            "y": 3,
+            "color": "#cfcfcf"
+          },
+          {
+            "x": 9,
+            "y": 4,
+            "color": "#cfcfcf"
+          },
+          {
+            "x": 9,
+            "y": 5,
+            "color": "#cfcfcf"
+          },
+          {
+            "x": 9,
+            "y": 6,
+            "color": "#cfcfcf"
+          },
+          {
+            "x": 9,
+            "y": 7,
+            "color": "#cfcfcf"
+          },
+          {
+            "x": 9,
+            "y": 8,
+            "color": "#cfcfcf"
+          },
+          {
+            "x": 9,
+            "y": 9,
+            "color": "#cfcfcf"
+          },
+          {
+            "x": 9,
+            "y": 10,
+            "color": "#cfcfcf"
+          },
+          {
+            "x": 10,
+            "y": 1,
+            "color": "#cfcfcf"
+          },
+          {
+            "x": 10,
+            "y": 2,
+            "color": "#cfcfcf"
+          },
+          {
+            "x": 10,
+            "y": 3,
+            "color": "#cfcfcf"
+          },
+          {
+            "x": 10,
+            "y": 4,
+            "color": "#cfcfcf"
+          },
+          {
+            "x": 10,
+            "y": 5,
+            "color": "#cfcfcf"
+          },
+          {
+            "x": 10,
+            "y": 6,
+            "color": "#cfcfcf"
+          },
+          {
+            "x": 10,
+            "y": 7,
+            "color": "#cfcfcf"
+          },
+          {
+            "x": 10,
+            "y": 8,
+            "color": "#cfcfcf"
+          },
+          {
+            "x": 10,
+            "y": 9,
+            "color": "#cfcfcf"
+          },
+          {
+            "x": 10,
+            "y": 10,
+            "color": "#cfcfcf"
+          }
+        ]
+      },
       "choices": [
         "$\\dfrac{13}{100}$",
         "$\\dfrac{15}{100}$",
@@ -1211,6 +1845,7 @@
         "$x\\ge5$: $x^2\\ge25$ แล้ว ไม่มี $y$ ที่ใช้ได้ (เพราะ $y\\ge1$)",
         "<b>ขั้นที่ 3: รวมจำนวนคู่</b>",
         "$4+4+3+2=13$ คู่",
+        "[IMAGE]",
         "<b>ขั้นที่ 4: คำนวณความน่าจะเป็น</b>",
         "$\\dfrac{13}{100}$",
         "<b>✔ ตรวจคำตอบ</b> ตรวจ $x=3,y=4$: $9+16=25$ ไม่น้อยกว่า 25 → ไม่นับ ถูกต้อง; รวม 13 คู่ → $\\dfrac{13}{100}$ ✓",
