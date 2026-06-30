@@ -548,6 +548,76 @@
       "score": 2,
       "question": "สมการของเส้นสัมผัสเส้นโค้ง $y = \\dfrac{6}{x+1}$ ที่จุด $(1, 3)$ ตรงกับข้อใดต่อไปนี้",
       "hasImage": false,
+      "imageSpec": {
+        "type": "function-plot",
+        "width": 380,
+        "height": 300,
+        "xRange": [
+          0,
+          5
+        ],
+        "yRange": [
+          -1,
+          7
+        ],
+        "axes": {
+          "arrows": true,
+          "xLabel": "x",
+          "yLabel": "y"
+        },
+        "functions": [
+          {
+            "id": "curve",
+            "kind": "rational",
+            "a": 6,
+            "b": -1,
+            "c": 0,
+            "domain": [
+              0,
+              5
+            ],
+            "label": {
+              "text": "y = 6/(x+1)",
+              "at": [
+                2.6,
+                2.3
+              ],
+              "anchor": "start"
+            }
+          },
+          {
+            "id": "tan",
+            "kind": "polynomial",
+            "coefs": [
+              -1.5,
+              4.5
+            ],
+            "dashed": true
+          }
+        ],
+        "annotations": [
+          {
+            "text": "(1, 3)",
+            "at": [
+              0.453,
+              2.688
+            ],
+            "anchor": "start"
+          },
+          {
+            "text": "เส้นสัมผัส",
+            "at": [
+              1.094,
+              5.406
+            ],
+            "anchor": "start",
+            "arrowTo": [
+              0.9,
+              3.15
+            ]
+          }
+        ]
+      },
       "choices": [
         "$x + y = 4$",
         "$3x - 2y = -3$",
@@ -573,6 +643,7 @@
         "ใช้จุด $(1,3)$ ความชัน $-\\dfrac{3}{2}$: $\\dfrac{y-3}{x-1} = -\\dfrac{3}{2}$",
         "คูณไขว้:",
         "$\\begin{aligned} 2(y-3) & = -3(x-1) \\\\ 2y - 6 & = -3x + 3 \\\\ 3x + 2y & = 9 \\end{aligned}$",
+        "[IMAGE]",
         "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ · อนุพันธ์โดยปริยาย (implicit differentiation) 】</b>",
         "",
         "<b>ขั้นที่ 1:</b> เขียนเส้นโค้งเป็นรูปผลคูณ (เลี่ยงการดิฟเศษส่วน)",
@@ -947,6 +1018,65 @@
       "score": 4,
       "question": "ให้ $r$ และ $s$ เป็นจำนวนจริงบวก ถ้า $P(2, 2)$ เป็นจุดบนวงรีที่มีสมการเป็น $\\dfrac{(x+2)^2}{r^2} + \\dfrac{(y-2)^2}{s^2} = 1$ ซึ่งมีจุด $F_1$ และ $F_2$ เป็นโฟกัสของวงรี และ $PF_1 + PF_2 = 12$ แล้วระยะห่างระหว่าง $F_1$ และ $F_2$ ตรงกับข้อใดต่อไปนี้",
       "hasImage": false,
+      "imageSpec": {
+        "type": "conic-ellipse-hyperbola",
+        "width": 320,
+        "height": 340,
+        "xRange": [
+          -8,
+          4
+        ],
+        "yRange": [
+          -4.5,
+          8.5
+        ],
+        "center": [
+          -2,
+          2
+        ],
+        "ellipse": {
+          "a": 6,
+          "b": 4
+        },
+        "dots": [
+          {
+            "x": 2,
+            "y": 2,
+            "label": "P(2, 2)",
+            "color": "#1565c0",
+            "anchor": "start",
+            "labelDx": 6,
+            "labelDy": -6
+          },
+          {
+            "x": -2,
+            "y": 6.472,
+            "label": "F1",
+            "color": "#c0392b",
+            "anchor": "start",
+            "labelDx": 7,
+            "labelDy": -3
+          },
+          {
+            "x": -2,
+            "y": -2.472,
+            "label": "F2",
+            "color": "#c0392b",
+            "anchor": "start",
+            "labelDx": 7,
+            "labelDy": 14
+          },
+          {
+            "x": -2,
+            "y": 2,
+            "label": "C",
+            "color": "#555",
+            "anchor": "end",
+            "labelDx": -6,
+            "labelDy": 4
+          }
+        ]
+      },
       "choices": [
         "$4$ หน่วย",
         "$5$ หน่วย",
@@ -969,6 +1099,7 @@
         "$PF_1 + PF_2 = 12$ คือความยาวแกนเอก ถ้าเป็นวงรีแนวนอน แกนเอก $= 2r = 8 \\ne 12$ ขัดแย้ง",
         "ดังนั้นต้องเป็นวงรีแนวตั้ง",
         "แกนเอก $= 2s = 12$ จึงได้ $s = 6$",
+        "[IMAGE]",
         "<b>ขั้นที่ 3: หาระยะโฟกัส $c$</b>",
         "$\\begin{aligned} c &= \\sqrt{s^2 - r^2} \\\\ &= \\sqrt{6^2 - 4^2} \\\\ &= \\sqrt{36-16} \\\\ &= \\sqrt{20} \\\\ &= 2\\sqrt{5} \\end{aligned}$",
         "<b>ขั้นที่ 4: หาระยะระหว่างโฟกัส</b>",
@@ -1396,6 +1527,102 @@
       "score": 4,
       "question": "ให้ $f(x)$ เป็นฟังก์ชันกำลังสอง โดยที่กราฟของ $y = f(x)$ มีจุดต่ำสุดที่ $(0, -9)$ และตัดแกน $x$ ที่จุด $(x_1, 0)$ และ $(x_2, 0)$ ถ้าพื้นที่ซึ่งปิดล้อมด้วยกราฟของ $y = f(x)$ และแกน $x$ จาก $x_1$ ถึง $x_2$ เท่ากับ $18$ ตารางหน่วย แล้ว $f(2)$ มีค่าเท่ากับข้อใดต่อไปนี้",
       "hasImage": false,
+      "imageSpec": {
+        "type": "function-plot",
+        "width": 380,
+        "height": 300,
+        "xRange": [
+          -2.6,
+          2.6
+        ],
+        "yRange": [
+          -10.5,
+          3
+        ],
+        "axes": {
+          "arrows": true,
+          "xLabel": "x",
+          "yLabel": "y"
+        },
+        "functions": [
+          {
+            "id": "parab",
+            "kind": "parabola",
+            "vertex": [
+              0,
+              -9
+            ],
+            "throughPoint": [
+              1.5,
+              0
+            ],
+            "label": {
+              "text": "y = 4x² − 9",
+              "at": [
+                1.75,
+                -3.5
+              ],
+              "anchor": "start"
+            }
+          },
+          {
+            "id": "xaxis",
+            "kind": "polynomial",
+            "coefs": [
+              0
+            ]
+          }
+        ],
+        "shadeBetween": [
+          {
+            "funcA": "parab",
+            "funcB": "xaxis",
+            "xRange": [
+              -1.5,
+              1.5
+            ],
+            "color": "#7d9bbf"
+          }
+        ],
+        "annotations": [
+          {
+            "text": "(0, −9)",
+            "at": [
+              0.13,
+              -9.882
+            ],
+            "anchor": "start"
+          },
+          {
+            "text": "−1.5",
+            "at": [
+              -1.857,
+              0.665
+            ],
+            "anchor": "middle"
+          },
+          {
+            "text": "1.5",
+            "at": [
+              1.801,
+              0.514
+            ],
+            "anchor": "middle"
+          },
+          {
+            "text": "พื้นที่ = 18",
+            "at": [
+              -2.294,
+              -5.844
+            ],
+            "anchor": "middle",
+            "arrowTo": [
+              -0.55,
+              -5.3
+            ]
+          }
+        ]
+      },
       "choices": [
         "$-5$",
         "$-3$",
@@ -1423,6 +1650,7 @@
         "$\\begin{aligned}  & \\left|-\\dfrac{36}{\\sqrt{a}}\\right| = 18 \\\\ \\dfrac{36}{\\sqrt{a}} & = 18 \\\\ \\sqrt{a} & = 2 \\\\ a & = 4 \\end{aligned}$",
         "<b>ขั้นที่ 5: หา $f(2)$</b>",
         "$\\begin{aligned} f(x) & = 4x^2 - 9 \\\\ f(2) & = 4(4) - 9 = 7 \\end{aligned}$",
+        "[IMAGE]",
         "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ · สูตรพื้นที่โดมพาราโบลา (Archimedes 2/3·base·height) 】</b>",
         "",
         "มีสูตรลัด: พื้นที่ที่พาราโบลาปิดล้อมกับเส้นตรง (ส่วนโค้งพาราโบลา) $= \\dfrac{2}{3} \\times \\text{ฐาน} \\times \\text{สูง}$",
