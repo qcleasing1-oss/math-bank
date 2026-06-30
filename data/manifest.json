@@ -428,7 +428,7 @@
       "structure": {
         "part1": "ตอนที่ 1 ปรนัย 4 ตัวเลือก 25 ข้อ ข้อละ 5 คะแนน + ตอนที่ 2 เติมคำตอบ 25 ข้อ ข้อละ 7 คะแนน รวม 300 คะแนน"
       },
-      "note": "Q24,Q25,Q26,Q47 มีรูป/ตาราง — ใส่ imageNote รอ sweep imageSpec ; Q49 เฉลยทางการเว้นว่าง (correct=null)",
+      "note": "Q6,Q8,Q10,Q26,Q38 มี imageSpec (polygon-labeled/circle-on-plane/number-line/3set-labeled/feasible-region) ; Q24,Q25,Q47 มีตารางข้อมูล (tables field) ; Q49 เฉลยทางการเว้นว่าง (correct=null) ; Q22 มีคำตอบครบ (ยืนยันแล้ว correct=0)",
       "topicDistribution": {
         "1": 3,
         "2": 2,
