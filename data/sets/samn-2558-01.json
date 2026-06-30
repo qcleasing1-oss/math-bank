@@ -745,7 +745,162 @@
       "level": "hard",
       "score": 4,
       "question": "ถ้า $A$ และ $B$ เป็นเซตของจำนวนเชิงซ้อน โดยที่ $A = \\{z \\mid z^{12} = 1\\}$ และ $B = \\{z \\mid z^{18} - z^9 - 2 = 0\\}$ แล้ว จำนวนสมาชิกของ $A \\cap B$ เท่ากับข้อใดต่อไปนี้",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": {
+        "type": "argand-plane",
+        "width": 340,
+        "height": 340,
+        "reRange": [
+          -1.4,
+          1.4
+        ],
+        "imRange": [
+          -1.4,
+          1.4
+        ],
+        "axes": {
+          "reTicks": [
+            -1,
+            1
+          ],
+          "imTicks": [
+            -1,
+            1
+          ],
+          "arrows": true
+        },
+        "circles": [
+          {
+            "center": [
+              0,
+              0
+            ],
+            "r": 1,
+            "dashed": true,
+            "color": "#aaa"
+          }
+        ],
+        "points": [
+          {
+            "re": 1.0,
+            "im": 0.0,
+            "color": "#9fb8d9"
+          },
+          {
+            "re": 0.866,
+            "im": 0.5,
+            "color": "#9fb8d9"
+          },
+          {
+            "re": 0.0,
+            "im": 1.0,
+            "color": "#9fb8d9"
+          },
+          {
+            "re": -0.5,
+            "im": 0.866,
+            "color": "#9fb8d9"
+          },
+          {
+            "re": -0.866,
+            "im": 0.5,
+            "color": "#9fb8d9"
+          },
+          {
+            "re": -0.866,
+            "im": -0.5,
+            "color": "#9fb8d9"
+          },
+          {
+            "re": -0.5,
+            "im": -0.866,
+            "color": "#9fb8d9"
+          },
+          {
+            "re": -0.0,
+            "im": -1.0,
+            "color": "#9fb8d9"
+          },
+          {
+            "re": 0.866,
+            "im": -0.5,
+            "color": "#9fb8d9"
+          },
+          {
+            "re": 0.9397,
+            "im": 0.342,
+            "color": "#e8b873"
+          },
+          {
+            "re": -0.1736,
+            "im": 0.9848,
+            "color": "#e8b873"
+          },
+          {
+            "re": -0.766,
+            "im": 0.6428,
+            "color": "#e8b873"
+          },
+          {
+            "re": -0.766,
+            "im": -0.6428,
+            "color": "#e8b873"
+          },
+          {
+            "re": -0.1736,
+            "im": -0.9848,
+            "color": "#e8b873"
+          },
+          {
+            "re": 0.9397,
+            "im": -0.342,
+            "color": "#e8b873"
+          },
+          {
+            "re": 0.5,
+            "im": 0.866,
+            "color": "#c0392b",
+            "label": "60°",
+            "labelDx": 8,
+            "labelDy": -7,
+            "labelAnchor": "start"
+          },
+          {
+            "re": -1.0,
+            "im": 0.0,
+            "color": "#c0392b",
+            "label": "180°",
+            "labelDx": -20,
+            "labelDy": -7,
+            "labelAnchor": "end"
+          },
+          {
+            "re": 0.5,
+            "im": -0.866,
+            "color": "#c0392b",
+            "label": "300°",
+            "labelDx": 8,
+            "labelDy": 14,
+            "labelAnchor": "start"
+          },
+          {
+            "re": 1.0,
+            "im": 0.0,
+            "color": "#9fb8d9",
+            "label": "A",
+            "labelDx": 8,
+            "labelDy": -4
+          },
+          {
+            "re": 0.9397,
+            "im": 0.342,
+            "color": "#e8b873",
+            "label": "B",
+            "labelDx": 8,
+            "labelDy": -10
+          }
+        ]
+      },
       "choices": [
         "$1$",
         "$2$",
@@ -776,6 +931,7 @@
         "ได้มุม $20^\\circ,60^\\circ,100^\\circ,140^\\circ,180^\\circ,220^\\circ,260^\\circ,300^\\circ,340^\\circ$",
         "<b>ขั้นที่ 4: นับมุมที่เป็นพหุคูณของ $30^\\circ$ (ซ้ำกับ $A$)</b>",
         "จากรายการข้างบน หารด้วย $30$ ลงตัวคือ $60^\\circ,180^\\circ,300^\\circ$ &nbsp;รวม $3$ ตัว",
+        "[IMAGE]",
         "",
         "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ · หารเลขชี้กำลังยุบเงื่อนไข (Exponent Division) 】</b>",
         "",
@@ -897,24 +1053,24 @@
           {
             "text": "y = x/2",
             "at": [
-              3.7,
-              2.7
+              3.501,
+              2.831
             ],
             "anchor": "start"
           },
           {
             "text": "y = -x/2",
             "at": [
-              3.7,
-              -2.6
+              3.106,
+              -2.937
             ],
             "anchor": "start"
           },
           {
             "text": "2\\sqrt{2}",
             "at": [
-              3.1,
-              -0.45
+              2.296,
+              -0.493
             ],
             "anchor": "middle"
           }
@@ -1345,12 +1501,12 @@
         ],
         "valueLabels": [
           {
-            "z": 1.05,
-            "yFrac": 0.6,
+            "z": 2.3,
+            "yFrac": 0.55,
             "text": "0.2283",
             "arrowTo": {
-              "z": 1.02,
-              "yFrac": 0.9
+              "z": 1.05,
+              "yFrac": 0.82
             }
           }
         ]
