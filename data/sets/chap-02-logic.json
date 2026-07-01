@@ -2578,7 +2578,7 @@
       "level": "medium",
       "score": 1,
       "question": "ประพจน์ต่อไปนี้เป็นสัจนิรันดร์หรือไม่\n\nก. $[(p \\to q) \\wedge (q \\to r)] \\;\\leftrightarrow\\; (p \\to r)$ เมื่อ $p, q, r$ เป็นประพจน์ใดๆ\n\nข. $\\forall x [\\, x \\geq 0 \\to -x < 0 \\,]$ เมื่อเอกภพสัมพัทธ์คือเซตของจำนวนจริง",
-      "hasImage": false,
+      "hasImage": true,
       "sourceTag": "Entrance 2539",
       "choices": [
         "ก. เป็น ข. เป็น",
@@ -2618,6 +2618,7 @@
         "• ฝั่งซ้าย $= [0, \\infty)$",
         "ฝั่งขวา $\\{x : -x < 0\\} = \\{x : x > 0\\} = (0, \\infty)$",
         "• $0$ อยู่ใน $[0, \\infty)$ แต่ไม่อยู่ใน $(0, \\infty)$ → ไม่เป็นสับเซต → ข. <b>ไม่เป็นสัจนิรันดร์</b> → ตัวเลือก 4",
+        "[IMAGE:0]",
         "<b>ข้อต่าง:</b> วิธีที่ 1 ยิงกรณีค้านใส่ทั้งประพจน์ตรง ๆ",
         "วิธีที่ 2 ข้อ ก. แยก ↔ สองทิศ (ขาไปคือกฎถ่ายทอด เหลือเช็คเฉพาะขากลับ) และข้อ ข. แปลงเป็นการเทียบสับเซตของช่วงบนเส้นจำนวน",
         "",
@@ -2629,6 +2630,76 @@
         "ข้อ ข. <b>อย่าลืมตรวจค่าขอบ $x = 0$</b> ซึ่งเป็นจุดที่ $x \\geq 0$ จริง แต่ $-x < 0$ เท็จ",
         "",
         "<b>⚠️ จุดที่เด็กมักผิด</b> ข้อ ข. เด็กมักลองแต่ $x$ บวก (เช่น $x=2$ ได้ $-2 < 0$ จริง) แล้วสรุปว่าจริง แต่ลืมว่า $x = 0$ ก็เข้าเงื่อนไข $x \\geq 0$ และทำให้ $-x < 0$ เป็นเท็จ จุด $x=0$ คือตัวค้านสำคัญ"
+      ],
+      "imageSpec": [
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
+            -1,
+            0,
+            1
+          ],
+          "width": 460,
+          "height": 110,
+          "axisY": 60,
+          "labels": [
+            {
+              "at": -1,
+              "text": "−1"
+            },
+            {
+              "at": 0,
+              "text": "0"
+            },
+            {
+              "at": 1,
+              "text": "1"
+            }
+          ],
+          "rays": [
+            {
+              "from": 0,
+              "dir": "right",
+              "color": "#d11",
+              "y": 38
+            },
+            {
+              "from": 0,
+              "dir": "right",
+              "color": "#2e7d32",
+              "y": 56
+            }
+          ],
+          "points": [
+            {
+              "at": 0,
+              "open": false,
+              "color": "#d11",
+              "y": 38
+            },
+            {
+              "at": 0,
+              "open": true,
+              "color": "#2e7d32",
+              "y": 56
+            }
+          ],
+          "annotations": [
+            {
+              "text": "A : x ≥ 0  →  [0, ∞)      B : −x < 0  →  (0, ∞)",
+              "x": 230,
+              "y": 15,
+              "anchor": "middle"
+            },
+            {
+              "text": "จุด x = 0 : อยู่ใน A (● ทึบ) แต่ไม่อยู่ใน B (○ โปร่ง) → A ⊄ B",
+              "x": 230,
+              "y": 96,
+              "anchor": "middle"
+            }
+          ]
+        }
       ]
     },
     {
@@ -3318,7 +3389,7 @@
       "level": "hard",
       "score": 1,
       "question": "กำหนดเอกภพสัมพัทธ์ คือ $\\{-2, -1, 0, 1, 2\\}$\n\n$P(x)$ คือ $x$ เป็นจำนวนคี่\n\n$Q(x)$ คือ $\\dfrac{4}{x}$ เป็นจำนวนคู่\n\n$\\;\\;$ประพจน์ A คือ $\\forall x [\\, P(x) \\vee Q(x) \\,]$\n\n$\\;\\;$ประพจน์ B คือ $\\exists x [\\, P(x) \\to Q(0) \\,]$\n\n$\\;\\;$ประพจน์ C คือ $\\forall x [\\, Q(-1) \\to P(x) \\,]$\n\nข้อต่อไปนี้ถูกต้อง",
-      "hasImage": false,
+      "hasImage": true,
       "sourceTag": "Entrance 2524",
       "choices": [
         "ประพจน์ A และประพจน์ B เท่านั้นที่มีค่าความจริงเป็นจริง",
@@ -3351,6 +3422,7 @@
         "$\\dfrac{4}{1}=4$ คู่ → $Q$ จริง",
         "$x=2$: $P$ เท็จ",
         "$\\dfrac{4}{2}=2$ คู่ → $Q$ จริง",
+        "[IMAGE:0]",
         "",
         "<b>ขั้นที่ 2: ตรวจประพจน์ A $= \\forall x[\\, P(x) \\vee Q(x) \\,]$</b>",
         "ที่ $x=0$: $P$ เท็จ, $Q$ เท็จ → $P\\vee Q = $ เท็จ → มีตัวเท็จ <b>→ A เท็จ</b>",
@@ -3382,6 +3454,120 @@
         "<b>💡 เทคนิคที่ใช้</b> เอกภพจำกัด: สร้างตารางค่า $P,Q$ ทุกตัวก่อน แล้วใช้ \"$\\forall$=จริงทุกตัว, $\\exists$=จริงอย่างน้อยหนึ่ง\" + กฎเหตุเท็จ",
         "",
         "<b>⚠️ จุดที่เด็กมักผิด</b> (1) ลืมตรวจ $x=0$ ที่ $\\dfrac{4}{0}$ ไม่นิยาม (ทำให้ A พลาดว่าจริง) (2) $Q(0), Q(-1)$ เป็นค่าคงที่ (แทน $x$ เฉพาะ) ไม่ใช่ตัวแปร (3) $\\dfrac{4}{x}$ ต้องเป็นจำนวนเต็มคู่ — $\\dfrac{4}{3}$ ไม่ใช่จำนวนเต็ม จึงไม่คู่"
+      ],
+      "imageSpec": [
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
+            -2,
+            -1,
+            0,
+            1,
+            2
+          ],
+          "width": 460,
+          "height": 160,
+          "axisY": 90,
+          "labels": [
+            {
+              "at": -2,
+              "text": "−2"
+            },
+            {
+              "at": -1,
+              "text": "−1"
+            },
+            {
+              "at": 0,
+              "text": "0"
+            },
+            {
+              "at": 1,
+              "text": "1"
+            },
+            {
+              "at": 2,
+              "text": "2"
+            }
+          ],
+          "points": [
+            {
+              "at": -2,
+              "open": true,
+              "color": "#c0392b",
+              "y": 38
+            },
+            {
+              "at": -1,
+              "open": false,
+              "color": "#2e7d32",
+              "y": 38
+            },
+            {
+              "at": 0,
+              "open": true,
+              "color": "#c0392b",
+              "y": 38
+            },
+            {
+              "at": 1,
+              "open": false,
+              "color": "#2e7d32",
+              "y": 38
+            },
+            {
+              "at": 2,
+              "open": true,
+              "color": "#c0392b",
+              "y": 38
+            },
+            {
+              "at": -2,
+              "open": false,
+              "color": "#2e7d32",
+              "y": 60
+            },
+            {
+              "at": -1,
+              "open": false,
+              "color": "#2e7d32",
+              "y": 60
+            },
+            {
+              "at": 0,
+              "open": true,
+              "color": "#c0392b",
+              "y": 60
+            },
+            {
+              "at": 1,
+              "open": false,
+              "color": "#2e7d32",
+              "y": 60
+            },
+            {
+              "at": 2,
+              "open": false,
+              "color": "#2e7d32",
+              "y": 60
+            }
+          ],
+          "annotations": [
+            {
+              "text": "P(x): x เป็นจำนวนคี่ — เขียว●จริง แดง○เท็จ",
+              "x": 230,
+              "y": 15,
+              "anchor": "middle"
+            },
+            {
+              "text": "Q(x): 4/x เป็นจำนวนคู่ — เท็จที่ x=0 (4/0 ไม่นิยาม)",
+              "x": 230,
+              "y": 138,
+              "anchor": "middle"
+            }
+          ]
+        }
       ]
     },
     {
@@ -3587,7 +3773,7 @@
       "level": "medium",
       "score": 1,
       "question": "ให้เอกภพสัมพัทธ์ $\\mathcal{U} = \\{ x \\in \\mathbb{R} \\mid |x - 1| \\leq 2 \\}$ ข้อต่อไปนี้มีค่าความจริงเป็นจริง",
-      "hasImage": false,
+      "hasImage": true,
       "sourceTag": "Entrance 2533",
       "choices": [
         "$\\forall x [\\, x^2 - 3 < 6 \\,]$",
@@ -3601,6 +3787,7 @@
         "<b>หาเอกภพจากค่าสัมบูรณ์:</b>",
         "$\\begin{aligned} |x-1| & \\leq 2 \\\\ -2 & \\leq x-1 \\leq 2 \\\\ -1 & \\leq x \\leq 3 \\end{aligned}$",
         "ดังนั้น $\\mathcal{U} = [-1, 3]$",
+        "[IMAGE:0]",
         "<b>$\\exists$ จริง:</b> มี $x$ อย่างน้อยหนึ่งตัวในเอกภพที่เงื่อนไขจริง",
         "<b>$\\forall$ เท็จ:</b> มี $x$ อย่างน้อยหนึ่งตัวที่เงื่อนไขเท็จ (หาตัวค้านได้)",
         "",
@@ -3628,6 +3815,59 @@
         "",
         "<b>⚠️ จุดที่เด็กมักผิด</b> (1) หาเอกภพผิด — $|x-1|\\leq 2$ คือ $[-1,3]$ ไม่ใช่ $[-2,2]$ (2) ตัวเลือก 1, 2 พลาดที่ขอบ ($x=3$",
         "หรือ $x=-1$) ทำให้ $\\forall$ เท็จ (3) ตัวเลือก 4 ลืมว่าเอกภพจำกัดที่ $x\\leq 3$ ทำให้ $\\sqrt{x} > 2$ (ต้อง $x > 4$) เป็นไปไม่ได้"
+      ],
+      "imageSpec": [
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
+            -1,
+            3
+          ],
+          "width": 400,
+          "height": 90,
+          "axisY": 60,
+          "labels": [
+            {
+              "at": -1,
+              "text": "−1"
+            },
+            {
+              "at": 3,
+              "text": "3"
+            }
+          ],
+          "segments": [
+            {
+              "from": -1,
+              "to": 3,
+              "color": "#d11",
+              "y": 40
+            }
+          ],
+          "points": [
+            {
+              "at": -1,
+              "open": false,
+              "color": "#d11",
+              "y": 40
+            },
+            {
+              "at": 3,
+              "open": false,
+              "color": "#d11",
+              "y": 40
+            }
+          ],
+          "annotations": [
+            {
+              "text": "𝒰 = [−1, 3]   (จาก |x − 1| ≤ 2)",
+              "x": 200,
+              "y": 15,
+              "anchor": "middle"
+            }
+          ]
+        }
       ]
     },
     {
@@ -3755,7 +3995,7 @@
       "level": "medium",
       "score": 1,
       "question": "พิจารณาข้อความต่อไปนี้\n\nก. ถ้าเอกภพสัมพัทธ์คือเซต $\\mathcal{U} = (0, 1) \\cup (2, \\infty)$ แล้ว ประพจน์ $\\forall x \\left[ \\left(x - \\dfrac{1}{2}\\right)^2 < \\dfrac{1}{4} \\text{ หรือ } (x - 1)^2 > 1 \\right]$ มีค่าความจริงเป็นจริง\n\nข. ถ้า $p, q, r$ เป็นประพจน์ แล้ว $p \\to (q \\wedge r)$ สมมูลกับ $(p \\to q) \\vee (p \\to r)$\n\nข้อใดต่อไปนี้เป็นจริง",
-      "hasImage": false,
+      "hasImage": true,
       "sourceTag": "Entrance มี.ค. 2545",
       "choices": [
         "ก. ถูก และ ข. ถูก",
@@ -3775,14 +4015,17 @@
         "",
         "<b>【 พื้นฐาน · ตรวจข้อความตัวบ่งปริมาณด้วยช่วงคำตอบและกรณีค้าน (statement verification) 】</b>",
         "<b>ขั้นที่ 1: ตรวจข้อ ก. $\\mathcal{U} = (0,1) \\cup (2,\\infty)$</b>",
+        "[IMAGE:0]",
         "ประพจน์ $\\forall x\\left[\\left(x - \\dfrac{1}{2}\\right)^2 < \\dfrac{1}{4} \\text{ หรือ } (x-1)^2 > 1\\right]$",
         "แปลงเงื่อนไขแรก:",
         "$\\begin{aligned}  & \\left(x-\\dfrac{1}{2}\\right)^2 < \\dfrac{1}{4} \\\\  & \\left|x-\\dfrac{1}{2}\\right| < \\dfrac{1}{2} \\\\ 0 & < x < 1 \\end{aligned}$",
         "แปลงเงื่อนไขสอง:",
         "$\\begin{aligned} (x-1)^2 & > 1 \\\\ |x-1| & > 1 \\\\ x & < 0 \\text{ หรือ } x > 2 \\end{aligned}$",
+        "[IMAGE:1]",
         "ตรวจทุก $x$ ในเอกภพ: ถ้า $x \\in (0,1)$ → เงื่อนไขแรกจริง ✓",
         "ถ้า $x \\in (2,\\infty)$ → $x > 2$ เงื่อนไขสองจริง ✓",
         "ทุก $x$ ในเอกภพทำให้ \"หรือ\" จริง → <b>ก. ถูก</b>",
+        "[IMAGE:2]",
         "",
         "<b>ขั้นที่ 2: ตรวจข้อ ข.</b>",
         "ข. อ้างว่า $p \\to (q \\wedge r)$ สมมูลกับ $(p \\to q) \\vee (p \\to r)$",
@@ -3799,6 +4042,260 @@
         "<b>💡 เทคนิคที่ใช้</b> (ก) แปลงอสมการกำลังสองเป็นค่าสัมบูรณ์/ช่วง แล้วเช็คทุกชิ้นของเอกภพ (ข) ค้านการสมมูลด้วย 1 กรณีที่ค่าต่างกัน",
         "",
         "<b>⚠️ จุดที่เด็กมักผิด</b> (1) ข้อ ข. จำผิดว่า $p\\to(q\\wedge r)$ กระจายเป็น $\\vee$ — ที่ถูกคือ $(p\\to q)\\wedge(p\\to r)$ ใช้ $\\wedge$ (2) ข้อ ก. ลืมตรวจช่วง $(2,\\infty)$ ที่ต้องใช้เงื่อนไขสอง"
+      ],
+      "imageSpec": [
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
+            0,
+            1,
+            2
+          ],
+          "width": 460,
+          "height": 90,
+          "axisY": 60,
+          "labels": [
+            {
+              "at": 0,
+              "text": "0"
+            },
+            {
+              "at": 1,
+              "text": "1"
+            },
+            {
+              "at": 2,
+              "text": "2"
+            }
+          ],
+          "segments": [
+            {
+              "from": 0,
+              "to": 1,
+              "color": "#d11",
+              "y": 40
+            }
+          ],
+          "rays": [
+            {
+              "from": 2,
+              "dir": "right",
+              "color": "#d11",
+              "y": 40
+            }
+          ],
+          "points": [
+            {
+              "at": 0,
+              "open": true,
+              "color": "#d11",
+              "y": 40
+            },
+            {
+              "at": 1,
+              "open": true,
+              "color": "#d11",
+              "y": 40
+            },
+            {
+              "at": 2,
+              "open": true,
+              "color": "#d11",
+              "y": 40
+            }
+          ],
+          "annotations": [
+            {
+              "text": "𝒰 = (0, 1) ∪ (2, ∞)",
+              "x": 230,
+              "y": 15,
+              "anchor": "middle"
+            }
+          ]
+        },
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
+            0,
+            1,
+            2
+          ],
+          "width": 460,
+          "height": 90,
+          "axisY": 60,
+          "labels": [
+            {
+              "at": 0,
+              "text": "0"
+            },
+            {
+              "at": 1,
+              "text": "1"
+            },
+            {
+              "at": 2,
+              "text": "2"
+            }
+          ],
+          "rays": [
+            {
+              "from": 0,
+              "dir": "left",
+              "color": "#2e7d32",
+              "y": 40
+            },
+            {
+              "from": 2,
+              "dir": "right",
+              "color": "#2e7d32",
+              "y": 40
+            }
+          ],
+          "segments": [
+            {
+              "from": 0,
+              "to": 1,
+              "color": "#2e7d32",
+              "y": 40
+            }
+          ],
+          "points": [
+            {
+              "at": 0,
+              "open": true,
+              "color": "#2e7d32",
+              "y": 40
+            },
+            {
+              "at": 1,
+              "open": true,
+              "color": "#2e7d32",
+              "y": 40
+            },
+            {
+              "at": 2,
+              "open": true,
+              "color": "#2e7d32",
+              "y": 40
+            }
+          ],
+          "annotations": [
+            {
+              "text": "B = (x < 0 หรือ 0 < x < 1) ∪ (x > 2)   [เงื่อนไข1 ∪ เงื่อนไข2]",
+              "x": 230,
+              "y": 15,
+              "anchor": "middle"
+            }
+          ]
+        },
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
+            0,
+            1,
+            2
+          ],
+          "width": 460,
+          "height": 110,
+          "axisY": 75,
+          "labels": [
+            {
+              "at": 0,
+              "text": "0"
+            },
+            {
+              "at": 1,
+              "text": "1"
+            },
+            {
+              "at": 2,
+              "text": "2"
+            }
+          ],
+          "rays": [
+            {
+              "from": 0,
+              "dir": "left",
+              "color": "#2e7d32",
+              "y": 58
+            },
+            {
+              "from": 2,
+              "dir": "right",
+              "color": "#2e7d32",
+              "y": 58
+            },
+            {
+              "from": 2,
+              "dir": "right",
+              "color": "#d11",
+              "y": 40
+            }
+          ],
+          "segments": [
+            {
+              "from": 0,
+              "to": 1,
+              "color": "#2e7d32",
+              "y": 58
+            },
+            {
+              "from": 0,
+              "to": 1,
+              "color": "#d11",
+              "y": 40
+            }
+          ],
+          "points": [
+            {
+              "at": 0,
+              "open": true,
+              "color": "#2e7d32",
+              "y": 58
+            },
+            {
+              "at": 1,
+              "open": true,
+              "color": "#2e7d32",
+              "y": 58
+            },
+            {
+              "at": 2,
+              "open": true,
+              "color": "#2e7d32",
+              "y": 58
+            },
+            {
+              "at": 0,
+              "open": true,
+              "color": "#d11",
+              "y": 40
+            },
+            {
+              "at": 1,
+              "open": true,
+              "color": "#d11",
+              "y": 40
+            },
+            {
+              "at": 2,
+              "open": true,
+              "color": "#d11",
+              "y": 40
+            }
+          ],
+          "annotations": [
+            {
+              "text": "𝒰 (แดง) ⊆ B (เขียว) ทุกจุด → ∀x∈𝒰 จริง",
+              "x": 230,
+              "y": 15,
+              "anchor": "middle"
+            }
+          ]
+        }
       ]
     },
     {
@@ -3877,7 +4374,7 @@
       "level": "hard",
       "score": 1,
       "question": "เอกภพสัมพัทธ์ในข้อใดที่ทำให้ข้อความ $\\big( \\forall x [\\, x^2 \\leq 2x + 3 \\,] \\big) \\wedge \\big( \\exists y [\\, y^2 - 4 > 0 \\,] \\big)$ มีค่าความจริงเป็นจริง",
-      "hasImage": false,
+      "hasImage": true,
       "sourceTag": "Entrance มี.ค. 2544",
       "choices": [
         "$[-3,\\, 0]$",
@@ -3898,16 +4395,19 @@
         "<b>ขั้นที่ 1: แก้เงื่อนไขส่วน $\\forall$</b>",
         "$\\begin{aligned} x^2 & \\leq 2x + 3 \\\\ x^2 - 2x - 3 & \\leq 0 \\\\ (x-3)(x+1) & \\leq 0 \\\\ -1 & \\leq x \\leq 3 \\end{aligned}$",
         "$\\forall x$ จริง → เอกภพต้อง $\\subseteq [-1, 3]$ (ทุกสมาชิกอยู่ในช่วงนี้)",
+        "[IMAGE:0]",
         "",
         "<b>ขั้นที่ 2: แก้เงื่อนไขส่วน $\\exists$</b>",
         "$\\begin{aligned} y^2 - 4 & > 0 \\\\ y^2 & > 4 \\\\ |y| & > 2 \\\\ y & < -2 \\text{ หรือ } y > 2 \\end{aligned}$",
         "$\\exists y$ จริง → เอกภพต้องมีสมาชิกอย่างน้อยหนึ่งตัวที่ $|y| > 2$",
+        "[IMAGE:1]",
         "",
         "<b>ขั้นที่ 3: ตรวจแต่ละตัวเลือก (ต้องผ่านทั้ง 2 เงื่อนไข)</b>",
         "ตัวเลือก 1 $[-3, 0]$: $\\subseteq [-1,3]$? ไม่ ($-3 < -1$) → $\\forall$ เท็จ → ตก",
         "ตัวเลือก 2 $[-1.5, 1.5]$: $\\subseteq [-1,3]$? ไม่ ($-1.5 < -1$) → ตก",
         "ตัวเลือก 3 $[-1, 2]$: $\\subseteq [-1,3]$ ✓ แต่ มี $|y| > 2$? ช่วงสูงสุด $2$ ไม่เกิน → $\\exists$ เท็จ → ตก",
         "ตัวเลือก 4 $[-0.5, 2.5]$: $\\subseteq [-1,3]$ ✓ และ มี $y=2.5 > 2$ → $\\exists$ จริง ✓ → <b>ผ่านทั้งสอง</b>",
+        "[IMAGE:2]",
         "",
         "<b>✔ ตรวจคำตอบ:</b> ตัวเลือก 4 อยู่ใน $[-1,3]$ ครบ ($\\forall$ จริง) และมี $2.5 > 2$ ($\\exists$ จริง)",
         "",
@@ -3916,6 +4416,298 @@
         "<b>💡 เทคนิคที่ใช้</b> แยกเงื่อนไข $\\wedge$ สองส่วน: $\\forall$ ต้องการเอกภพ$\\subseteq$เซตคำตอบ; $\\exists$ ต้องการเอกภพแตะเซตคำตอบ แล้วกรองตัวเลือก",
         "",
         "<b>⚠️ จุดที่เด็กมักผิด</b> (1) สับสนเงื่อนไข $\\forall$ (เอกภพต้องอยู่<b>ใน</b>ช่วง $[-1,3]$ ทั้งหมด) กับ $\\exists$ (แค่แตะส่วน $|y| > 2$) (2) ตัวเลือก 3 ผ่าน $\\forall$ แต่ตก $\\exists$ เพราะสูงสุดแค่ 2 ไม่เกิน 2"
+      ],
+      "imageSpec": [
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
+            -1,
+            3
+          ],
+          "width": 400,
+          "height": 90,
+          "axisY": 60,
+          "labels": [
+            {
+              "at": -1,
+              "text": "−1"
+            },
+            {
+              "at": 3,
+              "text": "3"
+            }
+          ],
+          "segments": [
+            {
+              "from": -1,
+              "to": 3,
+              "color": "#d11",
+              "y": 40
+            }
+          ],
+          "points": [
+            {
+              "at": -1,
+              "open": false,
+              "color": "#d11",
+              "y": 40
+            },
+            {
+              "at": 3,
+              "open": false,
+              "color": "#d11",
+              "y": 40
+            }
+          ],
+          "annotations": [
+            {
+              "text": "∀x[x² ≤ 2x+3]  →  x² − 2x − 3 ≤ 0  →  [−1, 3]",
+              "x": 200,
+              "y": 15,
+              "anchor": "middle"
+            }
+          ]
+        },
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
+            -2,
+            2
+          ],
+          "width": 400,
+          "height": 90,
+          "axisY": 60,
+          "labels": [
+            {
+              "at": -2,
+              "text": "−2"
+            },
+            {
+              "at": 2,
+              "text": "2"
+            }
+          ],
+          "rays": [
+            {
+              "from": -2,
+              "dir": "left",
+              "color": "#2e7d32",
+              "y": 40
+            },
+            {
+              "from": 2,
+              "dir": "right",
+              "color": "#2e7d32",
+              "y": 40
+            }
+          ],
+          "points": [
+            {
+              "at": -2,
+              "open": true,
+              "color": "#2e7d32",
+              "y": 40
+            },
+            {
+              "at": 2,
+              "open": true,
+              "color": "#2e7d32",
+              "y": 40
+            }
+          ],
+          "annotations": [
+            {
+              "text": "∃y[y² − 4 > 0]  →  |y| > 2  →  y < −2 หรือ y > 2",
+              "x": 200,
+              "y": 15,
+              "anchor": "middle"
+            }
+          ]
+        },
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
+            -3,
+            -2,
+            -1.5,
+            -1,
+            -0.5,
+            2,
+            2.5,
+            3
+          ],
+          "width": 760,
+          "height": 260,
+          "axisY": 235,
+          "labels": [
+            {
+              "at": -3,
+              "text": "−3"
+            },
+            {
+              "at": -2,
+              "text": "−2"
+            },
+            {
+              "at": -1.5,
+              "num": 3,
+              "den": 2,
+              "neg": true
+            },
+            {
+              "at": -1,
+              "text": "−1"
+            },
+            {
+              "at": -0.5,
+              "num": 1,
+              "den": 2,
+              "neg": true
+            },
+            {
+              "at": 2,
+              "text": "2"
+            },
+            {
+              "at": 2.5,
+              "num": 5,
+              "den": 2
+            },
+            {
+              "at": 3,
+              "text": "3"
+            }
+          ],
+          "bands": [
+            {
+              "from": -1,
+              "to": 3,
+              "top": 24,
+              "height": 200,
+              "color": "#f5e6c8",
+              "opacity": 0.5
+            }
+          ],
+          "segments": [
+            {
+              "from": -3,
+              "to": 0,
+              "color": "#1565c0",
+              "y": 100
+            },
+            {
+              "from": -1.5,
+              "to": 1.5,
+              "color": "#e65100",
+              "y": 142
+            },
+            {
+              "from": -1,
+              "to": 2,
+              "color": "#7b3ba0",
+              "y": 184
+            },
+            {
+              "from": -0.5,
+              "to": 2.5,
+              "color": "#2e7d32",
+              "y": 226
+            }
+          ],
+          "points": [
+            {
+              "at": -3,
+              "open": false,
+              "color": "#1565c0",
+              "y": 100
+            },
+            {
+              "at": 0,
+              "open": false,
+              "color": "#1565c0",
+              "y": 100
+            },
+            {
+              "at": -1.5,
+              "open": false,
+              "color": "#e65100",
+              "y": 142
+            },
+            {
+              "at": 1.5,
+              "open": false,
+              "color": "#e65100",
+              "y": 142
+            },
+            {
+              "at": -1,
+              "open": false,
+              "color": "#7b3ba0",
+              "y": 184
+            },
+            {
+              "at": 2,
+              "open": false,
+              "color": "#7b3ba0",
+              "y": 184
+            },
+            {
+              "at": -0.5,
+              "open": false,
+              "color": "#2e7d32",
+              "y": 226
+            },
+            {
+              "at": 2.5,
+              "open": false,
+              "color": "#2e7d32",
+              "y": 226
+            }
+          ],
+          "annotations": [
+            {
+              "text": "แถบครีม = ต้อง ⊆ [−1, 3]  (เงื่อนไข ∀)",
+              "x": 380,
+              "y": 16,
+              "anchor": "middle"
+            },
+            {
+              "text": "① [−3, 0] — ไม่ ⊆ [−1,3] ✗",
+              "x": 22,
+              "y": 82,
+              "anchor": "start",
+              "color": "#1565c0",
+              "weight": "bold"
+            },
+            {
+              "text": "② [−1.5, 1.5] — ไม่ ⊆ [−1,3] ✗",
+              "x": 22,
+              "y": 124,
+              "anchor": "start",
+              "color": "#e65100",
+              "weight": "bold"
+            },
+            {
+              "text": "③ [−1, 2] — ⊆ ได้ แต่ไม่แตะ |y|>2 ✗",
+              "x": 22,
+              "y": 166,
+              "anchor": "start",
+              "color": "#7b3ba0",
+              "weight": "bold"
+            },
+            {
+              "text": "④ [−0.5, 2.5] — ⊆ ได้ และแตะ |y|>2 ✓",
+              "x": 22,
+              "y": 208,
+              "anchor": "start",
+              "color": "#2e7d32",
+              "weight": "bold"
+            }
+          ]
+        }
       ]
     },
     {
@@ -3933,7 +4725,7 @@
       "level": "hard",
       "score": 1,
       "question": "เอกภพสัมพัทธ์ $\\mathcal{U}$ ที่กำหนดในข้อต่อไปนี้ที่ทำให้ประโยค $\\exists x [\\, 2x^2 + x - 1 \\leq 0 \\;\\wedge\\; \\sqrt{x^2 - 4x + 4} \\leq 3 \\,]$ มีค่าความจริงเป็นจริง",
-      "hasImage": false,
+      "hasImage": true,
       "sourceTag": "Entrance ต.ค. 2542",
       "choices": [
         "$\\mathcal{U} = $ เซตของจำนวนเต็มบวกคู่",
@@ -3995,20 +4787,15 @@
           "scale": "even",
           "criticals": [
             -1,
-            0,
             0.5
           ],
-          "width": 400,
-          "height": 96,
-          "axisY": 62,
+          "width": 460,
+          "height": 90,
+          "axisY": 60,
           "labels": [
             {
               "at": -1,
               "text": "−1"
-            },
-            {
-              "at": 0,
-              "text": "0"
             },
             {
               "at": 0.5,
@@ -4021,7 +4808,7 @@
               "from": -1,
               "to": 0.5,
               "color": "#d11",
-              "y": 42
+              "y": 40
             }
           ],
           "points": [
@@ -4029,31 +4816,169 @@
               "at": -1,
               "open": false,
               "color": "#d11",
-              "y": 42
+              "y": 40
             },
             {
               "at": 0.5,
               "open": false,
               "color": "#d11",
-              "y": 42
+              "y": 40
+            }
+          ],
+          "annotations": [
+            {
+              "text": "A : 2x² + x − 1 ≤ 0   →   [−1, ½]",
+              "x": 230,
+              "y": 15,
+              "anchor": "middle"
+            }
+          ]
+        },
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
+            -1,
+            5
+          ],
+          "width": 460,
+          "height": 90,
+          "axisY": 60,
+          "labels": [
+            {
+              "at": -1,
+              "text": "−1"
+            },
+            {
+              "at": 5,
+              "text": "5"
+            }
+          ],
+          "segments": [
+            {
+              "from": -1,
+              "to": 5,
+              "color": "#2e7d32",
+              "y": 40
+            }
+          ],
+          "points": [
+            {
+              "at": -1,
+              "open": false,
+              "color": "#2e7d32",
+              "y": 40
+            },
+            {
+              "at": 5,
+              "open": false,
+              "color": "#2e7d32",
+              "y": 40
+            }
+          ],
+          "annotations": [
+            {
+              "text": "B : |x − 2| ≤ 3   →   [−1, 5]",
+              "x": 230,
+              "y": 15,
+              "anchor": "middle"
+            }
+          ]
+        },
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
+            -1,
+            0.5,
+            5
+          ],
+          "width": 500,
+          "height": 110,
+          "axisY": 75,
+          "labels": [
+            {
+              "at": -1,
+              "text": "−1"
+            },
+            {
+              "at": 0.5,
+              "num": 1,
+              "den": 2
+            },
+            {
+              "at": 5,
+              "text": "5"
+            }
+          ],
+          "bands": [
+            {
+              "from": -1,
+              "to": 0.5,
+              "top": 26,
+              "height": 44,
+              "color": "#f5e6c8",
+              "opacity": 0.6
+            }
+          ],
+          "segments": [
+            {
+              "from": -1,
+              "to": 0.5,
+              "color": "#d11",
+              "y": 40
+            },
+            {
+              "from": -1,
+              "to": 5,
+              "color": "#2e7d32",
+              "y": 58
+            }
+          ],
+          "points": [
+            {
+              "at": -1,
+              "open": false,
+              "color": "#d11",
+              "y": 40
+            },
+            {
+              "at": 0.5,
+              "open": false,
+              "color": "#d11",
+              "y": 40
             },
             {
               "at": -1,
               "open": false,
               "color": "#2e7d32",
-              "y": 26
+              "y": 58
+            },
+            {
+              "at": 5,
+              "open": false,
+              "color": "#2e7d32",
+              "y": 58
+            },
+            {
+              "at": -1,
+              "open": false,
+              "color": "#1565c0",
+              "y": 75,
+              "r": 3.5
             },
             {
               "at": 0,
               "open": false,
-              "color": "#2e7d32",
-              "y": 26
+              "color": "#1565c0",
+              "y": 75,
+              "r": 3.5
             }
           ],
           "annotations": [
             {
-              "text": "ส่วนร่วม [−1, ½] · จำนวนเต็มในช่วง: −1, 0",
-              "x": 200,
+              "text": "A ∩ B  =  [−1, ½]   ·   จำนวนเต็มในช่วง: −1, 0",
+              "x": 250,
               "y": 15,
               "anchor": "middle"
             }
@@ -4076,7 +5001,7 @@
       "level": "hard",
       "score": 1,
       "question": "ให้เอกภพสัมพัทธ์คือเซตของจำนวนจริง ถ้า $P(x)$ แทนข้อความ $x^2 - 3x < 0$ และ $Q(x)$ แทนข้อความ $-2 < \\log_{1/3} x < -1$ แล้ว ประโยคในข้อต่อไปนี้มีค่าความจริงเป็นจริง",
-      "hasImage": false,
+      "hasImage": true,
       "sourceTag": "Entrance ต.ค. 2546",
       "imageNote": "ข้อนี้อาศัยเนื้อหา \"ลอการิทึม\" ด้วย",
       "choices": [
@@ -4134,12 +5059,114 @@
           "scale": "even",
           "criticals": [
             0,
+            3
+          ],
+          "width": 460,
+          "height": 90,
+          "axisY": 60,
+          "labels": [
+            {
+              "at": 0,
+              "text": "0"
+            },
+            {
+              "at": 3,
+              "text": "3"
+            }
+          ],
+          "segments": [
+            {
+              "from": 0,
+              "to": 3,
+              "color": "#d11",
+              "y": 40
+            }
+          ],
+          "points": [
+            {
+              "at": 0,
+              "open": true,
+              "color": "#d11",
+              "y": 40
+            },
+            {
+              "at": 3,
+              "open": true,
+              "color": "#d11",
+              "y": 40
+            }
+          ],
+          "annotations": [
+            {
+              "text": "P(x) : x² − 3x < 0   →   (0, 3)",
+              "x": 230,
+              "y": 15,
+              "anchor": "middle"
+            }
+          ]
+        },
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
             3,
             9
           ],
-          "width": 420,
-          "height": 100,
-          "axisY": 72,
+          "width": 460,
+          "height": 90,
+          "axisY": 60,
+          "labels": [
+            {
+              "at": 3,
+              "text": "3"
+            },
+            {
+              "at": 9,
+              "text": "9"
+            }
+          ],
+          "segments": [
+            {
+              "from": 3,
+              "to": 9,
+              "color": "#2e7d32",
+              "y": 40
+            }
+          ],
+          "points": [
+            {
+              "at": 3,
+              "open": true,
+              "color": "#2e7d32",
+              "y": 40
+            },
+            {
+              "at": 9,
+              "open": true,
+              "color": "#2e7d32",
+              "y": 40
+            }
+          ],
+          "annotations": [
+            {
+              "text": "Q(x) : −2 < log₁ₐ₃ x < −1   →   (3, 9)",
+              "x": 230,
+              "y": 15,
+              "anchor": "middle"
+            }
+          ]
+        },
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
+            0,
+            3,
+            9
+          ],
+          "width": 500,
+          "height": 110,
+          "axisY": 75,
           "labels": [
             {
               "at": 0,
@@ -4158,46 +5185,46 @@
             {
               "from": 0,
               "to": 3,
-              "color": "#1565c0",
-              "y": 34
+              "color": "#d11",
+              "y": 44
             },
             {
               "from": 3,
               "to": 9,
               "color": "#2e7d32",
-              "y": 52
+              "y": 60
             }
           ],
           "points": [
             {
               "at": 0,
               "open": true,
-              "color": "#1565c0",
-              "y": 34
+              "color": "#d11",
+              "y": 44
             },
             {
               "at": 3,
               "open": true,
-              "color": "#1565c0",
-              "y": 34
+              "color": "#d11",
+              "y": 44
             },
             {
               "at": 3,
               "open": true,
               "color": "#2e7d32",
-              "y": 52
+              "y": 60
             },
             {
               "at": 9,
               "open": true,
               "color": "#2e7d32",
-              "y": 52
+              "y": 60
             }
           ],
           "annotations": [
             {
-              "text": "P = (0, 3) · Q = (3, 9) ไม่ทับกัน (คั่นที่ 3)",
-              "x": 210,
+              "text": "P และ Q ไม่ทับกัน (คั่นที่ x = 3)   →   P ∩ Q = ∅",
+              "x": 250,
               "y": 15,
               "anchor": "middle"
             }
@@ -4220,7 +5247,7 @@
       "level": "medium",
       "score": 1,
       "question": "กำหนดเอกภพสัมพัทธ์คือช่วงเปิด $(-2, 2)$ พิจารณาข้อความต่อไปนี้\n\nก. ประพจน์ $\\forall x [\\, |x + x^2| \\leq |x| + x^2 \\;\\text{และ}\\; x \\leq x^2 \\,]$ มีค่าความจริงเป็นจริง\n\nข. ประพจน์ $\\exists x [\\, x^2 - x - 6 \\geq 0 \\,]$ มีค่าความจริงเป็นจริง\n\nข้อใดต่อไปนี้ถูก",
-      "hasImage": false,
+      "hasImage": true,
       "sourceTag": "Entrance ต.ค. 2547",
       "choices": [
         "ก. ถูก และ ข. ถูก",
@@ -4265,10 +5292,9 @@
           "scale": "even",
           "criticals": [
             -2,
-            2,
             3
           ],
-          "width": 440,
+          "width": 460,
           "height": 96,
           "axisY": 60,
           "solutionY": 36,
@@ -4276,10 +5302,6 @@
             {
               "at": -2,
               "text": "−2"
-            },
-            {
-              "at": 2,
-              "text": "2"
             },
             {
               "at": 3,
@@ -4329,8 +5351,141 @@
           ],
           "annotations": [
             {
-              "text": "(x−3)(x+2) ≥ 0 : (−∞, −2] ∪ [3, ∞) — ไม่แตะเอกภพ (−2, 2)",
-              "x": 220,
+              "text": "เซตคำตอบ : (x − 3)(x + 2) ≥ 0   →   (−∞, −2] ∪ [3, ∞)",
+              "x": 230,
+              "y": 15,
+              "anchor": "middle"
+            }
+          ]
+        },
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
+            -2,
+            2
+          ],
+          "width": 460,
+          "height": 90,
+          "axisY": 60,
+          "labels": [
+            {
+              "at": -2,
+              "text": "−2"
+            },
+            {
+              "at": 2,
+              "text": "2"
+            }
+          ],
+          "segments": [
+            {
+              "from": -2,
+              "to": 2,
+              "color": "#2e7d32",
+              "y": 40
+            }
+          ],
+          "points": [
+            {
+              "at": -2,
+              "open": true,
+              "color": "#2e7d32",
+              "y": 40
+            },
+            {
+              "at": 2,
+              "open": true,
+              "color": "#2e7d32",
+              "y": 40
+            }
+          ],
+          "annotations": [
+            {
+              "text": "เอกภพสัมพัทธ์ U = (−2, 2)",
+              "x": 230,
+              "y": 15,
+              "anchor": "middle"
+            }
+          ]
+        },
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
+            -2,
+            2,
+            3
+          ],
+          "width": 500,
+          "height": 110,
+          "axisY": 75,
+          "labels": [
+            {
+              "at": -2,
+              "text": "−2"
+            },
+            {
+              "at": 2,
+              "text": "2"
+            },
+            {
+              "at": 3,
+              "text": "3"
+            }
+          ],
+          "rays": [
+            {
+              "from": -2,
+              "dir": "left",
+              "color": "#d11",
+              "y": 44
+            },
+            {
+              "from": 3,
+              "dir": "right",
+              "color": "#d11",
+              "y": 44
+            }
+          ],
+          "segments": [
+            {
+              "from": -2,
+              "to": 2,
+              "color": "#2e7d32",
+              "y": 60
+            }
+          ],
+          "points": [
+            {
+              "at": -2,
+              "open": false,
+              "color": "#d11",
+              "y": 44
+            },
+            {
+              "at": 3,
+              "open": false,
+              "color": "#d11",
+              "y": 44
+            },
+            {
+              "at": -2,
+              "open": true,
+              "color": "#2e7d32",
+              "y": 60
+            },
+            {
+              "at": 2,
+              "open": true,
+              "color": "#2e7d32",
+              "y": 60
+            }
+          ],
+          "annotations": [
+            {
+              "text": "เซตคำตอบไม่แตะเอกภพ U   →   ∃x ในเอกภพ = ∅   →   ข. เท็จ",
+              "x": 250,
               "y": 15,
               "anchor": "middle"
             }
@@ -6394,7 +7549,7 @@
       "level": "hard",
       "score": 1,
       "question": "จงพิจารณาข้อความต่อไปนี้\n\nก. ถ้าเอกภพสัมพัทธ์ $\\mathcal{U}$ คือ $(2, 3)$ แล้วประพจน์ $\\forall x[20 - x^2 < x^4 < x + 78]$ มีค่าความจริงเป็นจริง\n\nข. การอ้างเหตุผลต่อไปนี้สมเหตุสมผล\n\nเหตุ:\n(1) $p \\leftrightarrow q$\n(2) $r \\rightarrow (\\sim q \\wedge p)$\n\nผล: $\\sim r \\vee q$\n\nข้อใดต่อไปนี้ถูกต้อง",
-      "hasImage": false,
+      "hasImage": true,
       "choices": [
         "ข้อ ก. และ ข. เป็นจริง",
         "ข้อ ก. เท่านั้นเป็นจริง",
@@ -6418,6 +7573,7 @@
         "<b>$x^4 < x + 78$:</b> ที่ขอบ $x \\to 3$ ได้ $x^4 \\to 81$ และ $x + 78 \\to 81$ แต่ช่วงเปิดไม่รวม $x = 3$ จึง $x^4 < 81$",
         "และ $x + 78 < 81$ โดย $x^4$ เพิ่มช้ากว่าเมื่อเทียบในช่วง ตรวจพบ $x^4 < x + 78$ จริงตลอด $(2,3)$ ✓",
         "ทั้งสองอสมการจริงทุก $x$ → <b>ข้อ ก. จริง</b>",
+        "[IMAGE:0]",
         "",
         "<b>ขั้นที่ 2: ตรวจข้อ ข.</b> — เหตุ $p \\leftrightarrow q$, $r \\to (\\sim q \\wedge p)$",
         "ผล $\\sim r \\vee q$ สมเหตุสมผลหรือไม่",
@@ -6437,6 +7593,59 @@
         "ข้อ ข. ใช้วิธีหาข้อขัดแย้ง สมมติผลเท็จแล้วไล่ค่า",
         "",
         "<b>⚠️ จุดที่เด็กมักผิด</b> (1) ข้อ ก. คิดว่าที่ $x = 3$ ได้ $x^4 = x + 78 = 81$ แล้วสรุปว่าเท็จ ทั้งที่ช่วงเปิด $(2,3)$ ไม่รวม $x = 3$ (2) ข้อ ข. ลืมว่า $p \\leftrightarrow q$ บังคับ $p = q$ (3) ไล่ค่าจาก $\\sim r \\vee q$ เท็จผิด"
+      ],
+      "imageSpec": [
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
+            2,
+            3
+          ],
+          "width": 400,
+          "height": 90,
+          "axisY": 60,
+          "labels": [
+            {
+              "at": 2,
+              "text": "2"
+            },
+            {
+              "at": 3,
+              "text": "3"
+            }
+          ],
+          "segments": [
+            {
+              "from": 2,
+              "to": 3,
+              "color": "#d11",
+              "y": 40
+            }
+          ],
+          "points": [
+            {
+              "at": 2,
+              "open": true,
+              "color": "#d11",
+              "y": 40
+            },
+            {
+              "at": 3,
+              "open": true,
+              "color": "#d11",
+              "y": 40
+            }
+          ],
+          "annotations": [
+            {
+              "text": "𝒰 = (2, 3)  —  ช่วงเปิด (ไม่รวม 2 และ 3)",
+              "x": 200,
+              "y": 15,
+              "anchor": "middle"
+            }
+          ]
+        }
       ],
       "source": "สมาคมคณิตศาสตร์ฯ 2547"
     },
@@ -6510,7 +7719,7 @@
       "level": "hard",
       "score": 1,
       "question": "กำหนดเอกภพสัมพัทธ์ $\\mathcal{U} = \\{-2, -1, 0, 1, 2\\}$\n\nให้ $P(x)$ แทน $|x - 1| < 4$ และ $Q(x)$ แทน $x^2 < 4$\n\nจงหาค่าความจริงของข้อความ $(\\sim \\exists x[P(x) \\wedge \\sim Q(x)]) \\vee (\\forall x[P(x)] \\rightarrow \\forall x[Q(x)])$",
-      "hasImage": false,
+      "hasImage": true,
       "correct": "เท็จ",
       "accept": [
         "เท็จ"
@@ -6537,6 +7746,7 @@
         "$x=0: 0 < 4$ T",
         "$x=1: 1 < 4$ T",
         "$x=2: 4 < 4$ F → $Q$ เท็จที่ $x = -2, 2$",
+        "[IMAGE:0]",
         "",
         "<b>ขั้นที่ 3: หาค่าก้อนแรก $\\sim \\exists x[P(x) \\wedge \\sim Q(x)]$</b>",
         "หาตัวที่ $P(x) \\wedge \\sim Q(x)$ จริง (คือ $P$ จริงและ $Q$ เท็จ): ที่ $x = -2$ ได้ $P=T, \\sim Q=T$ → $P \\wedge \\sim Q = T$",
@@ -6567,6 +7777,120 @@
         "",
         "<b>⚠️ จุดที่เด็กมักผิด</b> (1) ลืมว่า $|x-1| < 4$ ที่ $x=-2$ คือ $|-3|=3 < 4$ จริง (2) คิดว่า $\\sim\\exists$ เป็นจริงโดยไม่ตรวจ ทั้งที่ $x=-2$ ทำให้ $\\exists$ จริง (3) ประเมิน $T \\to F$ ผิดเป็นจริง"
       ],
+      "imageSpec": [
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
+            -2,
+            -1,
+            0,
+            1,
+            2
+          ],
+          "width": 460,
+          "height": 160,
+          "axisY": 90,
+          "labels": [
+            {
+              "at": -2,
+              "text": "−2"
+            },
+            {
+              "at": -1,
+              "text": "−1"
+            },
+            {
+              "at": 0,
+              "text": "0"
+            },
+            {
+              "at": 1,
+              "text": "1"
+            },
+            {
+              "at": 2,
+              "text": "2"
+            }
+          ],
+          "points": [
+            {
+              "at": -2,
+              "open": false,
+              "color": "#1565c0",
+              "y": 38
+            },
+            {
+              "at": -1,
+              "open": false,
+              "color": "#1565c0",
+              "y": 38
+            },
+            {
+              "at": 0,
+              "open": false,
+              "color": "#1565c0",
+              "y": 38
+            },
+            {
+              "at": 1,
+              "open": false,
+              "color": "#1565c0",
+              "y": 38
+            },
+            {
+              "at": 2,
+              "open": false,
+              "color": "#1565c0",
+              "y": 38
+            },
+            {
+              "at": -2,
+              "open": true,
+              "color": "#c0392b",
+              "y": 60
+            },
+            {
+              "at": -1,
+              "open": false,
+              "color": "#2e7d32",
+              "y": 60
+            },
+            {
+              "at": 0,
+              "open": false,
+              "color": "#2e7d32",
+              "y": 60
+            },
+            {
+              "at": 1,
+              "open": false,
+              "color": "#2e7d32",
+              "y": 60
+            },
+            {
+              "at": 2,
+              "open": true,
+              "color": "#c0392b",
+              "y": 60
+            }
+          ],
+          "annotations": [
+            {
+              "text": "P(x)=|x−1|<4 (น้ำเงิน●) — จริงทุกจุด",
+              "x": 230,
+              "y": 15,
+              "anchor": "middle"
+            },
+            {
+              "text": "Q(x)=x²<4 — เขียว●จริง, แดง○เท็จ (ที่ x=−2, 2)",
+              "x": 230,
+              "y": 138,
+              "anchor": "middle"
+            }
+          ]
+        }
+      ],
       "source": "ทุนเล่าเรียนหลวง (กพ.) 2540"
     },
     {
@@ -6584,7 +7908,7 @@
       "level": "hard",
       "score": 1,
       "question": "ให้ $p(x)$ แทนข้อความ \"$\\sin x < 0$\"\n\n$q(x)$ แทนข้อความ \"$x$ หารด้วย 5 ลงตัว\"\n\n$r(x)$ แทนข้อความ \"$(x^2 - 5x + 4)(x^2 + 1) = 0$\"\n\nและเอกภพสัมพัทธ์คือ $\\mathcal{U} = \\{0, 1, 4, 5\\}$\n\nประพจน์ในข้อใดมีค่าความจริงเป็นจริง",
-      "hasImage": false,
+      "hasImage": true,
       "choices": [
         "$\\forall x[r(x) \\rightarrow (p(x) \\wedge q(x))]$",
         "$\\forall x[(p(x) \\wedge q(x)) \\rightarrow r(x)]$",
@@ -6612,6 +7936,7 @@
         "$x=5$: T",
         "<b>$r(x): (x^2 - 5x + 4)(x^2 + 1) = 0$</b> — $x^2+1 > 0$ เสมอ จึงต้อง $x^2-5x+4=0$ คือ $x=1$",
         "หรือ $x=4$ → $r$ จริงที่ $x=1, 4$",
+        "[IMAGE:0]",
         "",
         "<b>ขั้นที่ 2: ตรวจตัวเลือก 3</b> — $\\exists x[(p(x) \\vee r(x)) \\to \\sim q(x)]$",
         "หาตัวที่ $(p \\vee r) \\to \\sim q$ จริง สักตัว:",
@@ -6639,6 +7964,127 @@
         "",
         "<b>⚠️ จุดที่เด็กมักผิด</b> (1) คิดว่า $\\sin x$ เป็นองศา (จริงๆ เป็นเรเดียน) (2) ลืมว่า $0$ หารด้วย $5$ ลงตัว ($q(0)$ จริง) (3) แก้ $r(x)$ ผิด ไม่เห็นว่า $x^2+1 \\neq 0$ จึงดูแค่ $x^2-5x+4=0$"
       ],
+      "imageSpec": [
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
+            0,
+            1,
+            4,
+            5
+          ],
+          "width": 460,
+          "height": 190,
+          "axisY": 120,
+          "labels": [
+            {
+              "at": 0,
+              "text": "0"
+            },
+            {
+              "at": 1,
+              "text": "1"
+            },
+            {
+              "at": 4,
+              "text": "4"
+            },
+            {
+              "at": 5,
+              "text": "5"
+            }
+          ],
+          "points": [
+            {
+              "at": 0,
+              "open": true,
+              "color": "#c0392b",
+              "y": 38
+            },
+            {
+              "at": 1,
+              "open": true,
+              "color": "#c0392b",
+              "y": 38
+            },
+            {
+              "at": 4,
+              "open": false,
+              "color": "#2e7d32",
+              "y": 38
+            },
+            {
+              "at": 5,
+              "open": false,
+              "color": "#2e7d32",
+              "y": 38
+            },
+            {
+              "at": 0,
+              "open": false,
+              "color": "#2e7d32",
+              "y": 60
+            },
+            {
+              "at": 1,
+              "open": true,
+              "color": "#c0392b",
+              "y": 60
+            },
+            {
+              "at": 4,
+              "open": true,
+              "color": "#c0392b",
+              "y": 60
+            },
+            {
+              "at": 5,
+              "open": false,
+              "color": "#2e7d32",
+              "y": 60
+            },
+            {
+              "at": 0,
+              "open": true,
+              "color": "#c0392b",
+              "y": 82
+            },
+            {
+              "at": 1,
+              "open": false,
+              "color": "#2e7d32",
+              "y": 82
+            },
+            {
+              "at": 4,
+              "open": false,
+              "color": "#2e7d32",
+              "y": 82
+            },
+            {
+              "at": 5,
+              "open": true,
+              "color": "#c0392b",
+              "y": 82
+            }
+          ],
+          "annotations": [
+            {
+              "text": "p(x): sin x<0   q(x): หาร5ลงตัว   r(x): x=1 หรือ 4",
+              "x": 230,
+              "y": 15,
+              "anchor": "middle"
+            },
+            {
+              "text": "แถวบน→ล่าง = p, q, r  —  เขียว●จริง แดง○เท็จ",
+              "x": 230,
+              "y": 168,
+              "anchor": "middle"
+            }
+          ]
+        }
+      ],
       "notes": "ข้อนี้อาศัยเนื้อหา ตรีโกณมิติ ด้วย",
       "source": "สมาคมคณิตศาสตร์ฯ 2542"
     },
@@ -6657,7 +8103,7 @@
       "level": "medium",
       "score": 1,
       "question": "กำหนดให้เอกภพสัมพัทธ์เป็นเซตของจำนวนจริง ข้อใดเป็นเท็จ",
-      "hasImage": false,
+      "hasImage": true,
       "choices": [
         "$\\forall x[(|x| > 2) \\vee (|x| < 3)]$",
         "$\\exists x[(x^2 - x - 2 = 0) \\wedge (x^2 + x - 6 = 0)]$",
@@ -6706,13 +8152,121 @@
           "type": "number-line",
           "scale": "even",
           "criticals": [
+            -2,
+            2
+          ],
+          "width": 460,
+          "height": 90,
+          "axisY": 60,
+          "labels": [
+            {
+              "at": -2,
+              "text": "−2"
+            },
+            {
+              "at": 2,
+              "text": "2"
+            }
+          ],
+          "rays": [
+            {
+              "from": -2,
+              "dir": "left",
+              "color": "#d11",
+              "y": 40
+            },
+            {
+              "from": 2,
+              "dir": "right",
+              "color": "#d11",
+              "y": 40
+            }
+          ],
+          "points": [
+            {
+              "at": -2,
+              "open": true,
+              "color": "#d11",
+              "y": 40
+            },
+            {
+              "at": 2,
+              "open": true,
+              "color": "#d11",
+              "y": 40
+            }
+          ],
+          "annotations": [
+            {
+              "text": "|x| > 2  =  (−∞, −2) ∪ (2, ∞)",
+              "x": 230,
+              "y": 15,
+              "anchor": "middle"
+            }
+          ]
+        },
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
+            -3,
+            3
+          ],
+          "width": 460,
+          "height": 90,
+          "axisY": 60,
+          "labels": [
+            {
+              "at": -3,
+              "text": "−3"
+            },
+            {
+              "at": 3,
+              "text": "3"
+            }
+          ],
+          "segments": [
+            {
+              "from": -3,
+              "to": 3,
+              "color": "#2e7d32",
+              "y": 40
+            }
+          ],
+          "points": [
+            {
+              "at": -3,
+              "open": true,
+              "color": "#2e7d32",
+              "y": 40
+            },
+            {
+              "at": 3,
+              "open": true,
+              "color": "#2e7d32",
+              "y": 40
+            }
+          ],
+          "annotations": [
+            {
+              "text": "|x| < 3  =  (−3, 3)",
+              "x": 230,
+              "y": 15,
+              "anchor": "middle"
+            }
+          ]
+        },
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
             -3,
             -2,
             2,
             3
           ],
-          "width": 460,
-          "height": 100,
+          "width": 500,
+          "height": 105,
           "axisY": 72,
           "labels": [
             {
@@ -6732,26 +8286,36 @@
               "text": "3"
             }
           ],
+          "bands": [
+            {
+              "from": null,
+              "to": null,
+              "top": 26,
+              "height": 40,
+              "color": "#f5e6c8",
+              "opacity": 0.5
+            }
+          ],
           "rays": [
             {
               "from": -2,
               "dir": "left",
               "color": "#d11",
-              "y": 34
+              "y": 40
             },
             {
               "from": 2,
               "dir": "right",
               "color": "#d11",
-              "y": 34
+              "y": 40
             }
           ],
           "segments": [
             {
               "from": -3,
               "to": 3,
-              "color": "#1565c0",
-              "y": 52
+              "color": "#2e7d32",
+              "y": 56
             }
           ],
           "points": [
@@ -6759,31 +8323,31 @@
               "at": -2,
               "open": true,
               "color": "#d11",
-              "y": 34
+              "y": 40
             },
             {
               "at": 2,
               "open": true,
               "color": "#d11",
-              "y": 34
+              "y": 40
             },
             {
               "at": -3,
               "open": true,
-              "color": "#1565c0",
-              "y": 52
+              "color": "#2e7d32",
+              "y": 56
             },
             {
               "at": 3,
               "open": true,
-              "color": "#1565c0",
-              "y": 52
+              "color": "#2e7d32",
+              "y": 56
             }
           ],
           "annotations": [
             {
-              "text": "|x| > 2  ∪  (−3, 3)  =  ℝ (คาบเกี่ยวคลุมทั้งเส้น)",
-              "x": 230,
+              "text": "|x| > 2   ∪   |x| < 3   =   ℝ   (คลุมทั้งเส้นจำนวน)",
+              "x": 250,
               "y": 15,
               "anchor": "middle"
             }
@@ -6860,7 +8424,7 @@
       "level": "hard",
       "score": 1,
       "question": "ให้ $A$ เป็นเซตคำตอบของอสมการ $|x + 1| > x + |x - 1|$\n\nข้อความใดต่อไปนี้มีค่าความจริงเป็นจริง ถ้ากำหนดให้เอกภพสัมพัทธ์คือเซต $A$",
-      "hasImage": false,
+      "hasImage": true,
       "choices": [
         "$\\forall x[|x + 3| < 1]$",
         "$\\forall x[x^2 - 4 > 0]$",
@@ -6937,13 +8501,128 @@
           "scale": "even",
           "criticals": [
             -2,
+            -1,
+            0,
+            1,
+            2
+          ],
+          "width": 520,
+          "height": 140,
+          "axisY": 100,
+          "labels": [
+            {
+              "at": -2,
+              "text": "−2"
+            },
+            {
+              "at": -1,
+              "text": "−1"
+            },
+            {
+              "at": 0,
+              "text": "0"
+            },
+            {
+              "at": 1,
+              "text": "1"
+            },
+            {
+              "at": 2,
+              "text": "2"
+            }
+          ],
+          "rays": [
+            {
+              "from": -2,
+              "dir": "left",
+              "color": "#1565c0",
+              "y": 36
+            }
+          ],
+          "segments": [
+            {
+              "from": 0,
+              "to": 1,
+              "color": "#7b3ba0",
+              "y": 56
+            },
+            {
+              "from": 1,
+              "to": 2,
+              "color": "#2e7d32",
+              "y": 76
+            }
+          ],
+          "points": [
+            {
+              "at": -2,
+              "open": true,
+              "color": "#1565c0",
+              "y": 36
+            },
+            {
+              "at": 0,
+              "open": true,
+              "color": "#7b3ba0",
+              "y": 56
+            },
+            {
+              "at": 1,
+              "open": true,
+              "color": "#7b3ba0",
+              "y": 56
+            },
+            {
+              "at": 1,
+              "open": false,
+              "color": "#2e7d32",
+              "y": 76
+            },
+            {
+              "at": 2,
+              "open": true,
+              "color": "#2e7d32",
+              "y": 76
+            }
+          ],
+          "annotations": [
+            {
+              "text": "กรณี x < −1 : x < −2 → (−∞, −2)",
+              "x": 100,
+              "y": 30,
+              "anchor": "start"
+            },
+            {
+              "text": "กรณี −1 ≤ x < 1 : x > 0 → (0, 1)",
+              "x": 260,
+              "y": 50,
+              "anchor": "start"
+            },
+            {
+              "text": "กรณี x ≥ 1 : x < 2 → [1, 2)",
+              "x": 320,
+              "y": 70,
+              "anchor": "start"
+            },
+            {
+              "text": "แยก 3 กรณีตามจุด x = −1 และ x = 1",
+              "x": 260,
+              "y": 14,
+              "anchor": "middle"
+            }
+          ]
+        },
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
+            -2,
             0,
             2
           ],
-          "width": 420,
-          "height": 96,
-          "axisY": 60,
-          "solutionY": 36,
+          "width": 520,
+          "height": 110,
+          "axisY": 72,
           "labels": [
             {
               "at": -2,
@@ -6958,41 +8637,64 @@
               "text": "2"
             }
           ],
+          "bands": [
+            {
+              "from": null,
+              "to": -2,
+              "top": 26,
+              "height": 44,
+              "color": "#f5e6c8",
+              "opacity": 0.55
+            },
+            {
+              "from": 0,
+              "to": 2,
+              "top": 26,
+              "height": 44,
+              "color": "#f5e6c8",
+              "opacity": 0.55
+            }
+          ],
           "rays": [
             {
               "from": -2,
               "dir": "left",
-              "color": "#d11"
+              "color": "#d11",
+              "y": 40
             }
           ],
           "segments": [
             {
               "from": 0,
               "to": 2,
-              "color": "#d11"
+              "color": "#d11",
+              "y": 40
             }
           ],
           "points": [
             {
               "at": -2,
               "open": true,
-              "color": "#d11"
+              "color": "#d11",
+              "y": 40
             },
             {
               "at": 0,
               "open": true,
-              "color": "#d11"
+              "color": "#d11",
+              "y": 40
             },
             {
               "at": 2,
               "open": true,
-              "color": "#d11"
+              "color": "#d11",
+              "y": 40
             }
           ],
           "annotations": [
             {
-              "text": "A = (−∞, −2) ∪ (0, 2)",
-              "x": 210,
+              "text": "A  =  (−∞, −2) ∪ (0, 2)   ·   (0, 1) ต่อสนิทกับ [1, 2) = (0, 2)",
+              "x": 260,
               "y": 15,
               "anchor": "middle"
             }
@@ -7016,7 +8718,7 @@
       "level": "hard",
       "score": 1,
       "question": "กำหนดให้ $\\mathcal{U} = \\left\\{ x \\in \\mathbb{R} \\mid \\dfrac{(x - 1)^2}{x + 5} < 1 \\right\\}$\n\nให้ $P(x)$ แทนประโยคเปิด $|x| < 5$\n\nและ $Q(x)$ แทนประโยคเปิด $1 < x^2 < 16$\n\nถ้า $\\mathcal{U}$ เป็นเอกภพสัมพัทธ์ แล้วข้อความใดต่อไปนี้เป็นเท็จ",
-      "hasImage": false,
+      "hasImage": true,
       "choices": [
         "$\\forall x[P(x)] \\rightarrow \\forall x[Q(x)]$",
         "$\\exists x[P(x)] \\wedge \\exists x[Q(x)]$",
@@ -7088,8 +8790,8 @@
             -1,
             4
           ],
-          "width": 440,
-          "height": 96,
+          "width": 520,
+          "height": 100,
           "axisY": 60,
           "solutionY": 36,
           "labels": [
@@ -7161,8 +8863,96 @@
           ],
           "annotations": [
             {
-              "text": "U = (−∞, −5) ∪ (−1, 4)",
-              "x": 220,
+              "text": "เครื่องหมายของ  (x − 4)(x + 1) / (x + 5)   ·   เลือกช่วงที่  < 0",
+              "x": 260,
+              "y": 15,
+              "anchor": "middle"
+            }
+          ]
+        },
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
+            -5,
+            -1,
+            4
+          ],
+          "width": 520,
+          "height": 110,
+          "axisY": 72,
+          "labels": [
+            {
+              "at": -5,
+              "text": "−5"
+            },
+            {
+              "at": -1,
+              "text": "−1"
+            },
+            {
+              "at": 4,
+              "text": "4"
+            }
+          ],
+          "bands": [
+            {
+              "from": null,
+              "to": -5,
+              "top": 26,
+              "height": 44,
+              "color": "#f5e6c8",
+              "opacity": 0.55
+            },
+            {
+              "from": -1,
+              "to": 4,
+              "top": 26,
+              "height": 44,
+              "color": "#f5e6c8",
+              "opacity": 0.55
+            }
+          ],
+          "rays": [
+            {
+              "from": -5,
+              "dir": "left",
+              "color": "#d11",
+              "y": 40
+            }
+          ],
+          "segments": [
+            {
+              "from": -1,
+              "to": 4,
+              "color": "#d11",
+              "y": 40
+            }
+          ],
+          "points": [
+            {
+              "at": -5,
+              "open": true,
+              "color": "#d11",
+              "y": 40
+            },
+            {
+              "at": -1,
+              "open": true,
+              "color": "#d11",
+              "y": 40
+            },
+            {
+              "at": 4,
+              "open": true,
+              "color": "#d11",
+              "y": 40
+            }
+          ],
+          "annotations": [
+            {
+              "text": "𝒰  =  (−∞, −5) ∪ (−1, 4)",
+              "x": 260,
               "y": 15,
               "anchor": "middle"
             }
@@ -7186,7 +8976,7 @@
       "level": "medium",
       "score": 1,
       "question": "ให้ $\\mathcal{U}$ เป็นเอกภพสัมพัทธ์\n\nประพจน์ $\\forall x\\left[\\left|x^2 - 3x + 2\\right| \\leq 2x - x^2\\right]$ มีค่าความจริงเป็นจริง เมื่อ $\\mathcal{U}$ คือเซตในข้อใดต่อไปนี้",
-      "hasImage": false,
+      "hasImage": true,
       "choices": [
         "$[-1, 1]$",
         "$\\left(-\\infty, \\dfrac{3}{2}\\right]$",
@@ -7340,49 +9130,165 @@
           "type": "number-line",
           "scale": "even",
           "criticals": [
+            -1,
             0.5,
-            2
+            1,
+            1.5,
+            2,
+            2.5
           ],
-          "width": 420,
-          "height": 96,
-          "axisY": 60,
-          "solutionY": 36,
+          "width": 640,
+          "height": 258,
+          "axisY": 224,
           "labels": [
+            {
+              "at": -1,
+              "text": "−1"
+            },
             {
               "at": 0.5,
               "num": 1,
               "den": 2
             },
             {
+              "at": 1,
+              "text": "1"
+            },
+            {
+              "at": 1.5,
+              "num": 3,
+              "den": 2
+            },
+            {
               "at": 2,
               "text": "2"
+            },
+            {
+              "at": 2.5,
+              "num": 5,
+              "den": 2
+            }
+          ],
+          "bands": [
+            {
+              "from": 0.5,
+              "to": 2,
+              "top": 26,
+              "height": 198,
+              "color": "#f5e6c8",
+              "opacity": 0.45
+            }
+          ],
+          "rays": [
+            {
+              "from": 1.5,
+              "dir": "left",
+              "color": "#7b3ba0",
+              "y": 100
             }
           ],
           "segments": [
             {
-              "from": 0.5,
+              "from": -1,
+              "to": 1,
+              "color": "#1565c0",
+              "y": 58
+            },
+            {
+              "from": 1,
               "to": 2,
-              "color": "#d11"
+              "color": "#2e7d32",
+              "y": 142
+            },
+            {
+              "from": 1,
+              "to": 2.5,
+              "color": "#e65100",
+              "y": 184
             }
           ],
           "points": [
             {
-              "at": 0.5,
+              "at": -1,
               "open": false,
-              "color": "#d11"
+              "color": "#1565c0",
+              "y": 58
+            },
+            {
+              "at": 1,
+              "open": false,
+              "color": "#1565c0",
+              "y": 58
+            },
+            {
+              "at": 1.5,
+              "open": false,
+              "color": "#7b3ba0",
+              "y": 100
+            },
+            {
+              "at": 1,
+              "open": false,
+              "color": "#2e7d32",
+              "y": 142
             },
             {
               "at": 2,
               "open": false,
-              "color": "#d11"
+              "color": "#2e7d32",
+              "y": 142
+            },
+            {
+              "at": 1,
+              "open": false,
+              "color": "#e65100",
+              "y": 184
+            },
+            {
+              "at": 2.5,
+              "open": false,
+              "color": "#e65100",
+              "y": 184
             }
           ],
           "annotations": [
             {
-              "text": "เซตคำตอบ [½, 2]",
-              "x": 210,
-              "y": 15,
+              "text": "แถบครีม = เซตคำตอบ [½, 2]   ·   ตรวจว่าตัวเลือกใดเป็นสับเซต",
+              "x": 320,
+              "y": 16,
               "anchor": "middle"
+            },
+            {
+              "text": "① [−1, 1]  —  ไม่ใช่สับเซต ✗",
+              "x": 22,
+              "y": 40,
+              "anchor": "start",
+              "color": "#1565c0",
+              "weight": "bold"
+            },
+            {
+              "text": "② (−∞, 3/2]  —  ไม่ใช่สับเซต ✗",
+              "x": 22,
+              "y": 82,
+              "anchor": "start",
+              "color": "#7b3ba0",
+              "weight": "bold"
+            },
+            {
+              "text": "③ [1, 2]  —  เป็นสับเซต ✓",
+              "x": 22,
+              "y": 124,
+              "anchor": "start",
+              "color": "#2e7d32",
+              "weight": "bold"
+            },
+            {
+              "text": "④ [1, 5/2]  —  ไม่ใช่สับเซต ✗",
+              "x": 22,
+              "y": 166,
+              "anchor": "start",
+              "color": "#e65100",
+              "weight": "bold"
             }
           ]
         }
@@ -7405,7 +9311,7 @@
       "level": "hard",
       "score": 1,
       "question": "เอกภพสัมพัทธ์ในข้อใดที่ทำให้ประพจน์ต่อไปนี้มีค่าความจริงเป็นเท็จ\n\n$\\forall x\\left[\\left|x^2 + 2x + 3\\right| \\geq 5x + 7\\right] \\rightarrow \\exists x\\left[3 + \\log_{1/2} x < 0\\right]$",
-      "hasImage": false,
+      "hasImage": true,
       "choices": [
         "$(0, 3)$",
         "$(-5, 3)$",
@@ -7480,7 +9386,7 @@
             -1,
             4
           ],
-          "width": 440,
+          "width": 460,
           "height": 96,
           "axisY": 60,
           "solutionY": 36,
@@ -7537,7 +9443,7 @@
           ],
           "annotations": [
             {
-              "text": "เหตุจริง: (−∞, −1] ∪ [4, ∞)",
+              "text": "เหตุจริงเมื่อ:  U ⊆ (−∞, −1] ∪ [4, ∞)",
               "x": 220,
               "y": 15,
               "anchor": "middle"
@@ -7574,22 +9480,212 @@
             {
               "from": 8,
               "dir": "right",
-              "color": "#d11"
+              "color": "#2e7d32"
             }
           ],
           "points": [
             {
               "at": 8,
               "open": true,
-              "color": "#d11"
+              "color": "#2e7d32"
             }
           ],
           "annotations": [
             {
-              "text": "ผล (∃) เป็นจริงเมื่อเอกภพอยู่ในช่วง x > 8",
+              "text": "ผลจริงเมื่อมี x > 8   →   ผลเท็จเมื่อ U ไม่มี x > 8 เลย",
               "x": 210,
               "y": 15,
               "anchor": "middle"
+            }
+          ]
+        },
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
+            -5,
+            -1,
+            0,
+            3,
+            4,
+            5,
+            7,
+            8,
+            9
+          ],
+          "width": 700,
+          "height": 258,
+          "axisY": 224,
+          "labels": [
+            {
+              "at": -5,
+              "text": "−5"
+            },
+            {
+              "at": -1,
+              "text": "−1"
+            },
+            {
+              "at": 0,
+              "text": "0"
+            },
+            {
+              "at": 3,
+              "text": "3"
+            },
+            {
+              "at": 4,
+              "text": "4"
+            },
+            {
+              "at": 5,
+              "text": "5"
+            },
+            {
+              "at": 7,
+              "text": "7"
+            },
+            {
+              "at": 8,
+              "text": "8"
+            },
+            {
+              "at": 9,
+              "text": "9"
+            }
+          ],
+          "bands": [
+            {
+              "from": null,
+              "to": -1,
+              "top": 26,
+              "height": 198,
+              "color": "#f5e6c8",
+              "opacity": 0.4
+            },
+            {
+              "from": 4,
+              "to": null,
+              "top": 26,
+              "height": 198,
+              "color": "#f5e6c8",
+              "opacity": 0.4
+            }
+          ],
+          "segments": [
+            {
+              "from": 0,
+              "to": 3,
+              "color": "#1565c0",
+              "y": 58
+            },
+            {
+              "from": -5,
+              "to": 3,
+              "color": "#7b3ba0",
+              "y": 100
+            },
+            {
+              "from": 4,
+              "to": 7,
+              "color": "#2e7d32",
+              "y": 142
+            },
+            {
+              "from": 5,
+              "to": 9,
+              "color": "#e65100",
+              "y": 184
+            }
+          ],
+          "points": [
+            {
+              "at": 0,
+              "open": true,
+              "color": "#1565c0",
+              "y": 58
+            },
+            {
+              "at": 3,
+              "open": true,
+              "color": "#1565c0",
+              "y": 58
+            },
+            {
+              "at": -5,
+              "open": true,
+              "color": "#7b3ba0",
+              "y": 100
+            },
+            {
+              "at": 3,
+              "open": true,
+              "color": "#7b3ba0",
+              "y": 100
+            },
+            {
+              "at": 4,
+              "open": false,
+              "color": "#2e7d32",
+              "y": 142
+            },
+            {
+              "at": 7,
+              "open": true,
+              "color": "#2e7d32",
+              "y": 142
+            },
+            {
+              "at": 5,
+              "open": false,
+              "color": "#e65100",
+              "y": 184
+            },
+            {
+              "at": 9,
+              "open": true,
+              "color": "#e65100",
+              "y": 184
+            }
+          ],
+          "annotations": [
+            {
+              "text": "แถบครีม = ช่วงที่ทำให้ \"เหตุ\" จริง (⊆ (−∞,−1]∪[4,∞))   ·   ผลเท็จเมื่อไม่มี x>8",
+              "x": 350,
+              "y": 16,
+              "anchor": "middle"
+            },
+            {
+              "text": "① (0, 3)  —  เหตุเท็จ (ไม่นับ) ✗",
+              "x": 22,
+              "y": 40,
+              "anchor": "start",
+              "color": "#1565c0",
+              "weight": "bold"
+            },
+            {
+              "text": "② (−5, 3)  —  เหตุเท็จ (ไม่นับ) ✗",
+              "x": 22,
+              "y": 82,
+              "anchor": "start",
+              "color": "#7b3ba0",
+              "weight": "bold"
+            },
+            {
+              "text": "③ [4, 7)  —  เหตุจริง + ผลเท็จ → เท็จ ✓",
+              "x": 22,
+              "y": 124,
+              "anchor": "start",
+              "color": "#2e7d32",
+              "weight": "bold"
+            },
+            {
+              "text": "④ [5, 9)  —  เหตุจริง แต่มี x>8 (ผลจริง) ✗",
+              "x": 22,
+              "y": 166,
+              "anchor": "start",
+              "color": "#e65100",
+              "weight": "bold"
             }
           ]
         }
@@ -7734,7 +9830,7 @@
       "level": "medium",
       "score": 1,
       "question": "จงตรวจสอบว่า ประโยค $\\exists x[P(x) \\wedge Q(x)]$ กับประโยค $\\exists x[P(x)] \\wedge \\exists x[Q(x)]$ สมมูลกันหรือไม่",
-      "hasImage": false,
+      "hasImage": true,
       "correct": "ไม่สมมูล",
       "accept": [
         "ไม่สมมูล",
@@ -7760,6 +9856,7 @@
         "ให้ $P(x)$ แทน \"$x$ เป็นจำนวนเฉพาะ\" และ $Q(x)$ แทน \"$x$ เป็นจำนวนคี่\"",
         "ในเอกภพนี้: จำนวนเฉพาะคือ $\\{2\\}$",
         "จำนวนคี่คือ $\\{1\\}$",
+        "[IMAGE:0]",
         "",
         "<b>ขั้นที่ 3: ประเมินค่าทั้งสองฝั่ง</b>",
         "<b>ฝั่งซ้าย</b> $\\exists x[P(x) \\wedge Q(x)]$ : ต้องการ $x$ ตัวเดียวที่ทั้งเป็นจำนวนเฉพาะ <b>และ</b> เป็นจำนวนคี่ — ตรวจ $x=2$ เฉพาะแต่ไม่คี่",
@@ -7780,6 +9877,103 @@
         "",
         "<b>⚠️ จุดที่เด็กมักผิด</b>",
         "เด็กมักเข้าใจผิดว่า $\\exists x[P \\wedge Q]$ เท่ากับ $\\exists x[P] \\wedge \\exists x[Q]$ เพราะดูคล้ายกฎกระจาย — แต่ตัวบ่งปริมาณ $\\exists$ <b>ไม่กระจาย</b> เข้ากับ $\\wedge$ (ต่างจาก $\\forall$ ที่กระจายกับ $\\wedge$ ได้) เพราะ $\\exists$ ฝั่งขวาอนุญาตให้ใช้ $x$ คนละตัว"
+      ],
+      "imageSpec": [
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
+            0,
+            1,
+            2,
+            4
+          ],
+          "width": 460,
+          "height": 160,
+          "axisY": 90,
+          "labels": [
+            {
+              "at": 0,
+              "text": "0"
+            },
+            {
+              "at": 1,
+              "text": "1"
+            },
+            {
+              "at": 2,
+              "text": "2"
+            },
+            {
+              "at": 4,
+              "text": "4"
+            }
+          ],
+          "points": [
+            {
+              "at": 0,
+              "open": true,
+              "color": "#c0392b",
+              "y": 38
+            },
+            {
+              "at": 1,
+              "open": true,
+              "color": "#c0392b",
+              "y": 38
+            },
+            {
+              "at": 2,
+              "open": false,
+              "color": "#2e7d32",
+              "y": 38
+            },
+            {
+              "at": 4,
+              "open": true,
+              "color": "#c0392b",
+              "y": 38
+            },
+            {
+              "at": 0,
+              "open": true,
+              "color": "#c0392b",
+              "y": 60
+            },
+            {
+              "at": 1,
+              "open": false,
+              "color": "#2e7d32",
+              "y": 60
+            },
+            {
+              "at": 2,
+              "open": true,
+              "color": "#c0392b",
+              "y": 60
+            },
+            {
+              "at": 4,
+              "open": true,
+              "color": "#c0392b",
+              "y": 60
+            }
+          ],
+          "annotations": [
+            {
+              "text": "P(x)=จำนวนเฉพาะ (จริงที่ x=2)   Q(x)=จำนวนคี่ (จริงที่ x=1)",
+              "x": 230,
+              "y": 15,
+              "anchor": "middle"
+            },
+            {
+              "text": "ไม่มีจุดร่วม → ∃x[P∧Q] เท็จ  แต่  ∃x[P]∧∃x[Q] จริง",
+              "x": 230,
+              "y": 138,
+              "anchor": "middle"
+            }
+          ]
+        }
       ],
       "source": "ทุนเล่าเรียนหลวง (กพ.) 2543"
     },
