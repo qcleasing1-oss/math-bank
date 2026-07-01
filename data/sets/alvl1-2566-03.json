@@ -63,7 +63,7 @@
       "level": "hard",
       "score": 3,
       "question": "ให้ $A = \\{ x \\in \\mathbb{Z} \\mid |2x+3| < 2|x-5| \\}$ และ $B = \\{ x \\in \\mathbb{R} \\mid 0 < x < 5 \\}$\n\nพิจารณาข้อความต่อไปนี้\n\n(ก) สมาชิกของเซต $A$ ที่มีค่ามากที่สุด คือ $0$\n\n(ข) $A - B$ เป็นเซตอนันต์\n\n(ค) $\\forall x[x \\in A \\to x \\in B]$ มีค่าความจริงเป็นเท็จ\n\nจากข้อความ (ก) (ข) และ (ค) ข้างต้น ข้อใดถูกต้อง",
-      "hasImage": false,
+      "hasImage": true,
       "imageSpec": [
         {
           "type": "number-line",
@@ -158,6 +158,7 @@
           ]
         }
       ],
+      "imageNote": "number-line: A = จำนวนเต็มน้อยกว่า 7/4 = {…,-1,0,1}; B=(0,5) (ของเดิมในไฟล์)",
       "choices": [
         "ข้อความ (ก) ถูกต้องเพียงข้อเดียวเท่านั้น",
         "ข้อความ (ข) ถูกต้องเพียงข้อเดียวเท่านั้น",
@@ -501,7 +502,7 @@
       "level": "medium",
       "score": 3,
       "question": "$\\tan\\left(\\arccos\\left(\\dfrac{5}{13}\\right) + \\arcsin\\left(\\dfrac{3}{5}\\right)\\right)$ เท่ากับเท่าใด",
-      "hasImage": false,
+      "hasImage": true,
       "imageSpec": [
         {
           "type": "polygon-labeled",
@@ -654,6 +655,7 @@
           ]
         }
       ],
+      "imageNote": "สามเหลี่ยมอ้างอิง 5-12-13 (มุม A) และ 3-4-5 (มุม B) (ของเดิมในไฟล์)",
       "choices": [
         "$-\\dfrac{63}{16}$",
         "$-\\dfrac{7}{40}$",
@@ -1041,20 +1043,20 @@
       "level": "hard",
       "score": 3,
       "question": "ให้ $A$ แทนเซตของจำนวนเชิงซ้อน $z$ ทั้งหมดในระนาบเชิงซ้อน ซึ่งสอดคล้องกับอสมการ $|z - i|^2 + |z + i|^2 < 4$\n\nพิจารณาข้อความต่อไปนี้\n\n(ก) ถ้า $w \\in A$ แล้ว $\\text{Re}(w) \\in A$\n\n(ข) ถ้า $w \\in A$ แล้ว $\\bar{w} \\in A$\n\n(ค) ถ้า $w \\in A$ แล้ว $w^2 \\in A$\n\nจากข้อความ (ก) (ข) และ (ค) ข้างต้น ข้อใดถูกต้อง",
-      "hasImage": false,
+      "hasImage": true,
       "imageSpec": [
         {
           "type": "disk-shading",
-          "width": 300,
-          "height": 300,
+          "width": 220,
+          "height": 220,
           "radius": 1,
           "xRange": [
-            -1.4,
-            1.4
+            -1.5,
+            1.5
           ],
           "yRange": [
-            -1.4,
-            1.4
+            -1.5,
+            1.5
           ],
           "diskDashed": true,
           "shade": [
@@ -1073,56 +1075,25 @@
               ]
             }
           ],
-          "axisTicks": [
+          "dots": [
             {
-              "at": 1,
-              "axis": "x",
-              "latex": "1"
-            },
-            {
-              "at": -1,
-              "axis": "x",
-              "latex": "-1"
-            },
-            {
-              "at": 1,
-              "axis": "y",
-              "latex": "1"
-            },
-            {
-              "at": -1,
-              "axis": "y",
-              "latex": "-1"
+              "x": 0,
+              "y": 0
             }
           ],
           "annotations": [
             {
               "at": [
-                1.18,
-                -0.2
+                -0.35,
+                -1.3
               ],
-              "text": "Re",
+              "text": "A: |z| &lt; 1",
               "anchor": "start"
-            },
-            {
-              "at": [
-                0.1,
-                1.32
-              ],
-              "text": "Im",
-              "anchor": "start"
-            },
-            {
-              "at": [
-                0.42,
-                0.5
-              ],
-              "text": "A",
-              "anchor": "middle"
             }
           ]
         }
       ],
+      "imageNote": "จานวงกลมเปิดรัศมี 1 (|z|<1) ขอบเส้นประ",
       "choices": [
         "ข้อความ (ก) ถูกต้องเพียงข้อเดียวเท่านั้น",
         "ข้อความ (ข) ถูกต้องเพียงข้อเดียวเท่านั้น",
@@ -1473,80 +1444,192 @@
       "level": "hard",
       "score": 3,
       "question": "ให้จุด $(a, b)$ เป็นจุดบนวงรี $\\dfrac{x^2}{2} + \\dfrac{y^2}{3} = 1$ ถ้าระยะห่างระหว่างจุด $(a, b)$ กับจุด $\\left(0, -\\dfrac{5}{4}\\right)$ เท่ากับระยะระหว่างจุด $(a, b)$ กับเส้นตรง $y = -\\dfrac{3}{4}$ แล้วค่าของ $b$ เท่ากับเท่าใด",
-      "hasImage": false,
+      "hasImage": true,
       "imageSpec": [
-        {
-          "type": "number-line",
-          "scale": "even",
-          "criticals": [
-            -1.7320508,
-            -1.5,
-            1.7320508,
-            3
-          ],
-          "width": 440,
-          "height": 96,
-          "axisY": 60,
-          "solutionY": 36,
-          "labels": [
-            {
-              "at": -1.7320508,
-              "latex": "-\\sqrt{3}"
+        [
+          {
+            "type": "number-line",
+            "scale": "even",
+            "criticals": [
+              -1.7320508,
+              -1.5,
+              1.7320508,
+              3
+            ],
+            "width": 440,
+            "height": 96,
+            "axisY": 60,
+            "solutionY": 36,
+            "labels": [
+              {
+                "at": -1.7320508,
+                "latex": "-\\sqrt{3}"
+              },
+              {
+                "at": -1.5,
+                "num": 3,
+                "den": 2,
+                "neg": true
+              },
+              {
+                "at": 1.7320508,
+                "latex": "\\sqrt{3}"
+              },
+              {
+                "at": 3,
+                "text": "3"
+              }
+            ],
+            "segments": [
+              {
+                "from": -1.7320508,
+                "to": 1.7320508,
+                "color": "#2e7d32"
+              }
+            ],
+            "points": [
+              {
+                "at": -1.7320508,
+                "open": false,
+                "color": "#2e7d32"
+              },
+              {
+                "at": 1.7320508,
+                "open": false,
+                "color": "#2e7d32"
+              },
+              {
+                "at": -1.5,
+                "open": false,
+                "color": "#1565c0"
+              },
+              {
+                "at": 3,
+                "open": true,
+                "color": "#d11"
+              }
+            ],
+            "annotations": [
+              {
+                "text": "b อยู่ในช่วงที่วงรีอนุญาต · b = −3/2 ใช้ได้ (b = 3 นอกช่วง)",
+                "x": 220,
+                "y": 15,
+                "anchor": "middle"
+              }
+            ]
+          },
+          {
+            "type": "function-plot",
+            "width": 420,
+            "height": 380,
+            "xRange": [
+              -3,
+              3
+            ],
+            "yRange": [
+              -3.2,
+              2.4
+            ],
+            "grid": true,
+            "xTicks": [
+              -2,
+              -1,
+              1,
+              2
+            ],
+            "yTicks": [
+              -3,
+              -2,
+              -1,
+              1,
+              2
+            ],
+            "axes": {
+              "arrows": true,
+              "xLabel": "x",
+              "yLabel": "y"
             },
-            {
-              "at": -1.5,
-              "num": 3,
-              "den": 2,
-              "neg": true
-            },
-            {
-              "at": 1.7320508,
-              "latex": "\\sqrt{3}"
-            },
-            {
-              "at": 3,
-              "text": "3"
-            }
-          ],
-          "segments": [
-            {
-              "from": -1.7320508,
-              "to": 1.7320508,
-              "color": "#2e7d32"
-            }
-          ],
-          "points": [
-            {
-              "at": -1.7320508,
-              "open": false,
-              "color": "#2e7d32"
-            },
-            {
-              "at": 1.7320508,
-              "open": false,
-              "color": "#2e7d32"
-            },
-            {
-              "at": -1.5,
-              "open": false,
-              "color": "#1565c0"
-            },
-            {
-              "at": 3,
-              "open": true,
-              "color": "#d11"
-            }
-          ],
-          "annotations": [
-            {
-              "text": "b อยู่ในช่วงที่วงรีอนุญาต · b = −3/2 ใช้ได้ (b = 3 นอกช่วง)",
-              "x": 220,
-              "y": 15,
-              "anchor": "middle"
-            }
-          ]
-        }
+            "functions": [
+              {
+                "kind": "ellipse-arc",
+                "center": [
+                  0,
+                  0
+                ],
+                "a": 1.4142135623730951,
+                "b": 1.7320508075688772,
+                "startAngle": 0,
+                "endAngle": 360,
+                "color": "#1a73e8"
+              }
+            ],
+            "segments": [
+              {
+                "from": [
+                  -2.9,
+                  -0.75
+                ],
+                "to": [
+                  2.9,
+                  -0.75
+                ],
+                "color": "#2e7d32",
+                "dashed": true
+              },
+              {
+                "from": [
+                  0.7071,
+                  -1.5
+                ],
+                "to": [
+                  0,
+                  -1.25
+                ],
+                "dashed": true
+              },
+              {
+                "from": [
+                  0.7071,
+                  -1.5
+                ],
+                "to": [
+                  0.7071,
+                  -0.75
+                ],
+                "dashed": true
+              }
+            ],
+            "dots": [
+              {
+                "x": 0,
+                "y": -1.25,
+                "label": "(0, -5/4)",
+                "labelDx": -51,
+                "labelDy": 3
+              },
+              {
+                "x": 0.7071,
+                "y": -1.5,
+                "label": "(a, b)",
+                "labelDx": 9,
+                "labelDy": 15
+              }
+            ],
+            "annotations": [
+              {
+                "at": [
+                  -2.737,
+                  -0.642
+                ],
+                "text": "y = -3/4",
+                "anchor": "start",
+                "color": "#2e7d32"
+              }
+            ]
+          }
+        ]
       ],
+      "imageNote": "panel ซ้าย: number-line ช่วงขอบเขตวงรี [-√3,√3] หัก b=3 ทิ้ง (ของเดิมในไฟล์); panel ขวา: วงรีเรขาคณิต+จุด+เส้นระยะเท่ากัน",
       "choices": [
         "$-3$",
         "$-\\dfrac{3}{2}$",
@@ -2384,7 +2467,7 @@
       "level": "medium",
       "score": 5,
       "question": "กำหนด $U$ แทนเอกภพสัมพัทธ์ และ $A, B$ เป็นสับเซตของ $U$ โดยที่ $n(U) = 100$, $n(A \\cap B) = 35$ และ $n(A' \\cap B') = 9$ ถ้า $n(A) \\geq 61$ แล้ว $n(B)$ ที่มากที่สุดที่เป็นไปได้เท่ากับเท่าใด",
-      "hasImage": false,
+      "hasImage": true,
       "imageSpec": [
         {
           "type": "venn-diagram",
@@ -2408,6 +2491,7 @@
           "universe": true
         }
       ],
+      "imageNote": "Venn 2 เซต: เฉพาะ A=26, ร่วม=35 (แรเงา), เฉพาะ B=30, นอก=9 (ของเดิมในไฟล์)",
       "correct": "65",
       "explanation": [
         "<b>📐 ความรู้พื้นฐานที่ต้องใช้</b>",
@@ -2765,7 +2849,7 @@
       "level": "medium",
       "score": 5,
       "question": "วงกลม $(x-1)^2 + (y-2)^2 = 1$ มีเส้นสัมผัสที่ผ่านจุดกำเนิด $2$ เส้น คือแกน Y และเส้นตรง L ความชันของเส้นตรง L เท่ากับเท่าใด",
-      "hasImage": false,
+      "hasImage": true,
       "imageSpec": [
         {
           "type": "function-plot",
@@ -2879,6 +2963,7 @@
           ]
         }
       ],
+      "imageNote": "วงกลม C(1,2) รัศมี 1 กับเส้นสัมผัสสองเส้น จุดสัมผัส (0,2) และ (1.6,1.2) (ของเดิมในไฟล์)",
       "correct": "0.75",
       "explanation": [
         "<b>📐 ความรู้พื้นฐานที่ต้องใช้</b>",
