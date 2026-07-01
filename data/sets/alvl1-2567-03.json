@@ -117,7 +117,99 @@
       "level": "hard",
       "score": 3,
       "question": "กำหนดให้ $z$ เป็นจำนวนเชิงซ้อน, $\\text{Re}(z) > 0$ และ $\\text{Im}(z) > 0$ ถ้า $z^6 + 1 = 0$ แล้วค่าของ $z^4 + z^2 + 1$ เท่ากับข้อใด",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "argand-plane",
+          "width": 320,
+          "height": 300,
+          "reRange": [
+            -1.4,
+            1.4
+          ],
+          "imRange": [
+            -1.4,
+            1.4
+          ],
+          "axes": {
+            "arrows": true,
+            "reTicks": [
+              -1,
+              1
+            ],
+            "imTicks": [
+              -1,
+              1
+            ],
+            "reLabel": "Re",
+            "imLabel": "Im"
+          },
+          "circles": [
+            {
+              "center": [
+                0,
+                0
+              ],
+              "r": 1,
+              "color": "#999",
+              "dashed": true
+            }
+          ],
+          "points": [
+            {
+              "re": 0.866,
+              "im": 0.5,
+              "color": "#d11",
+              "label": "z (30°)",
+              "labelDx": 6,
+              "labelDy": -6
+            },
+            {
+              "re": 0.0,
+              "im": 1.0,
+              "color": "#888",
+              "label": "90°",
+              "labelDx": 6,
+              "labelDy": -6
+            },
+            {
+              "re": -0.866,
+              "im": 0.5,
+              "color": "#888",
+              "label": "150°",
+              "labelDx": -8,
+              "labelDy": -6,
+              "labelAnchor": "end"
+            },
+            {
+              "re": -0.866,
+              "im": -0.5,
+              "color": "#888",
+              "label": "210°",
+              "labelDx": -8,
+              "labelDy": 14,
+              "labelAnchor": "end"
+            },
+            {
+              "re": 0.0,
+              "im": -1.0,
+              "color": "#888",
+              "label": "270°",
+              "labelDx": 6,
+              "labelDy": 14
+            },
+            {
+              "re": 0.866,
+              "im": -0.5,
+              "color": "#888",
+              "label": "330°",
+              "labelDx": 6,
+              "labelDy": 14
+            }
+          ]
+        }
+      ],
+      "imageNote": "วงกลมหนึ่งหน่วย รากที่ 6 ของ -1 มุม 30°,90°,150°,210°,270°,330° เน้นรากที่ 30° (จตุภาคที่ 1)",
       "choices": [
         "$1 + \\sqrt{3}\\,i$",
         "$1 - \\sqrt{3}\\,i$",
@@ -142,6 +234,7 @@
         "ได้ราก: $\\text{cis}\\,30^\\circ, 90^\\circ, 150^\\circ, 210^\\circ, 270^\\circ, 330^\\circ$",
         "<b>ขั้นที่ 3: เลือกรากในจตุภาคที่ 1</b>",
         "ต้องการ $\\text{Re}(z) > 0,\\ \\text{Im}(z) > 0$ คือมุม $0^\\circ$–$90^\\circ$ → มีตัวเดียวคือ $z = \\text{cis}\\,30^\\circ$",
+        "[IMAGE:0]",
         "<b>ขั้นที่ 4: คำนวณ $z^4 + z^2 + 1$</b>",
         "$z^2 = \\text{cis}\\,60^\\circ = \\dfrac12 + \\dfrac{\\sqrt3}{2}i$",
         "และ",
@@ -785,7 +878,136 @@
       "level": "hard",
       "score": 3,
       "question": "กำหนดให้ $f$ เป็นฟังก์ชันพหุนามกำลังสองที่มีค่าต่ำสุดเป็น $-18$ ถ้าเส้นตรง $4x + y + 12 = 0$ สัมผัสเส้นโค้ง $y = f(x)$ ที่ $x = 1$ แล้วพื้นที่ระหว่างเส้นโค้งนี้กับแกน X เมื่อ $0 \\leq x \\leq 3$ มีค่าเท่ากับข้อใด",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 340,
+          "height": 300,
+          "xRange": [
+            -1.5,
+            5.5
+          ],
+          "yRange": [
+            -20,
+            5
+          ],
+          "grid": true,
+          "xTicks": [
+            -1,
+            1,
+            2,
+            3,
+            5
+          ],
+          "yTicks": [
+            -18,
+            -10,
+            -5
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y"
+          },
+          "functions": [
+            {
+              "id": "f",
+              "kind": "polynomial",
+              "coefs": [
+                2,
+                -8,
+                -10
+              ],
+              "color": "#1a73e8",
+              "domain": [
+                -1.4,
+                5.4
+              ],
+              "label": {
+                "at": [
+                  2.731,
+                  4.609
+                ],
+                "text": "f(x) = 2x²-8x-10",
+                "anchor": "start",
+                "color": "#1a73e8"
+              }
+            },
+            {
+              "id": "zero",
+              "kind": "polynomial",
+              "coefs": [
+                0
+              ],
+              "color": "#222",
+              "domain": [
+                -1.4,
+                5.4
+              ]
+            },
+            {
+              "kind": "polynomial",
+              "coefs": [
+                -4,
+                -12
+              ],
+              "color": "#d11",
+              "domain": [
+                0,
+                2.2
+              ],
+              "dashed": true,
+              "label": {
+                "at": [
+                  0.181,
+                  -21.709
+                ],
+                "text": "4x+y+12=0",
+                "anchor": "start",
+                "color": "#d11"
+              }
+            }
+          ],
+          "shadeBetween": [
+            {
+              "funcA": "zero",
+              "funcB": "f",
+              "xRange": [
+                0,
+                3
+              ],
+              "color": "#a8d4fb"
+            }
+          ],
+          "dots": [
+            {
+              "x": -1,
+              "y": 0
+            },
+            {
+              "x": 5,
+              "y": 0
+            },
+            {
+              "x": 1,
+              "y": -16,
+              "label": "(1, -16)",
+              "labelDx": 43,
+              "labelDy": -7,
+              "labelAnchor": "end"
+            },
+            {
+              "x": 2,
+              "y": -18,
+              "label": "ต่ำสุด (2, -18)",
+              "labelDx": 7,
+              "labelDy": 14
+            }
+          ]
+        }
+      ],
+      "imageNote": "พาราโบลา f(x)=2x²-8x-10 เส้นสัมผัส 4x+y+12=0 ที่ (1,-16) แรเงาพื้นที่ [0,3] จุดต่ำสุด (2,-18)",
       "choices": [
         "$24$ ตารางหน่วย",
         "$32$ ตารางหน่วย",
@@ -818,6 +1040,7 @@
         "$\\begin{aligned} (1-h) & = \\dfrac{2}{-2} = -1 \\\\ h & = 2 \\end{aligned}$",
         "แทนใน (ii): $a = 2$",
         "ได้ $f(x) = 2(x-2)^2 - 18 = 2x^2 - 8x - 10$",
+        "[IMAGE:0]",
         "<b>ขั้นที่ 4: หาจุดตัดแกน X แล้วอินทิเกรต</b>",
         "$\\begin{aligned} 2x^2-8x-10 & = 0 \\\\ 2(x+1)(x-5) & =0 \\\\ x & =-1,5 \\end{aligned}$",
         "→ บนช่วง $[0,3]$ กราฟอยู่ใต้แกน X ทั้งหมด",
@@ -1312,7 +1535,81 @@
       "level": "medium",
       "score": 3,
       "question": "จากสมการ $9x^2 + 18x - 16y^2 + 160y - 247 = 0$ จะได้กราฟตามข้อใด",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 320,
+          "height": 340,
+          "xRange": [
+            -9,
+            7
+          ],
+          "yRange": [
+            -3,
+            13
+          ],
+          "grid": true,
+          "xTicks": [
+            -5,
+            -1,
+            3
+          ],
+          "yTicks": [
+            2,
+            5,
+            8
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y"
+          },
+          "functions": [
+            {
+              "kind": "hyperbola",
+              "center": [
+                -1,
+                5
+              ],
+              "a": 3,
+              "b": 4,
+              "orientation": "vertical",
+              "branches": "both",
+              "asymptotes": true,
+              "tRange": [
+                -1.2,
+                1.2
+              ],
+              "color": "#1a73e8"
+            }
+          ],
+          "dots": [
+            {
+              "x": -1,
+              "y": 5,
+              "label": "C(-1, 5)",
+              "labelDx": -52,
+              "labelDy": 5
+            },
+            {
+              "x": -1,
+              "y": 8,
+              "label": "(-1, 8)",
+              "labelDx": -19,
+              "labelDy": 22
+            },
+            {
+              "x": -1,
+              "y": 2,
+              "label": "(-1, 2)",
+              "labelDx": -20,
+              "labelDy": -9
+            }
+          ]
+        }
+      ],
+      "imageNote": "ไฮเพอร์โบลาแนวตั้ง ศูนย์กลาง C(-1,5) จุดยอด (-1,2) และ (-1,8) พร้อมเส้นกำกับ",
       "choices": [
         "ไฮเพอร์โบลา มีจุดยอด $(-1, -8)$ และ $(-1, -2)$",
         "ไฮเพอร์โบลา มีจุดยอด $(-1, 2)$ และ $(-1, 8)$",
@@ -1338,6 +1635,7 @@
         "เป็นไฮเพอร์โบลาแนวตั้ง (พจน์ $y$ เป็นบวก) ศูนย์กลาง $(-1, 5)$, $a^2=9 \\Rightarrow a=3$",
         "<b>ขั้นที่ 4: หาจุดยอด</b>",
         "จุดยอด $= (h, k\\pm a) = (-1, 5\\pm3) = (-1, 2)$ และ $(-1, 8)$",
+        "[IMAGE:0]",
         "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ · สูตรศูนย์กลาง −B/2A แล้วแทนจุดยอด (center formula) 】</b>",
         "",
         "หาจุดศูนย์กลางเร็ว ๆ จากสูตร: $h = -\\dfrac{18}{2(9)} = -1$, $k = -\\dfrac{160}{2(-16)} = 5$ → จุดกึ่งกลางของจุดยอดทั้งสองต้องเป็น $(-1, 5)$ → ตัดตัวเลือก 1 และ 5",
