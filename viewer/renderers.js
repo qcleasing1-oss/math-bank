@@ -167,10 +167,13 @@ function renderFunctionPlot(spec){const W=spec.width||450,H=spec.height||280,pX=
     svg+=`<line x1="${x2(fx).toFixed(2)}" y1="${y2(fy).toFixed(2)}" x2="${x2(tx).toFixed(2)}" y2="${y2(ty).toFixed(2)}" stroke="#222" stroke-width="1.4"${d}/>`;});
   // dots (after segments)
   (spec.dots||[]).forEach(d=>{const cx=x2(d.x).toFixed(2),cy=y2(d.y).toFixed(2);
+    // leader line จุด→ป้าย (optional: labelLine:true) วาดใต้จุดก่อน
+    if(d.label&&d.labelLine){const dx=(d.labelDx!==undefined?d.labelDx:6),dy=(d.labelDy!==undefined?d.labelDy:-6);
+      svg+=`<line x1="${cx}" y1="${cy}" x2="${(x2(d.x)+dx).toFixed(2)}" y2="${(y2(d.y)+dy).toFixed(2)}" stroke="${d.labelLineColor||'#999'}" stroke-width="0.9" stroke-dasharray="3 2"/>`;}
     if(d.open)svg+=`<circle cx="${cx}" cy="${cy}" r="3.5" fill="#fff" stroke="#222" stroke-width="1.4"/>`;
     else svg+=`<circle cx="${cx}" cy="${cy}" r="3.5" fill="#222"/>`;
     if(d.label){const anc=d.labelAnchor||'start',dx=(d.labelDx!==undefined?d.labelDx:6),dy=(d.labelDy!==undefined?d.labelDy:-6);
-      svg+=`<text x="${(x2(d.x)+dx).toFixed(2)}" y="${(y2(d.y)+dy).toFixed(2)}" font-size="13" fill="#222" text-anchor="${anc}">${d.label}</text>`;}});
+      svg+=`<text x="${(x2(d.x)+dx).toFixed(2)}" y="${(y2(d.y)+dy).toFixed(2)}" font-size="13" fill="${d.labelColor||'#222'}" text-anchor="${anc}">${d.label}</text>`;}});
   (spec.annotations||[]).forEach(a=>{const[lx,ly]=a.at,anc=a.anchor||'start';
     if(/\\sqrt/.test(a.text)){const fs=13,lw=_nlLatexW(a.text,fs),ox=(anc==='end'?-lw:anc==='middle'?-lw/2:0);
       svg+=_sqMathLabel(a.text,x2(lx)+ox,y2(ly),fs,'#222');}
@@ -4161,11 +4164,14 @@ function renderCircleOnPlane(spec){
   });
 
   // ป้าย (LaTeX vinculum ผ่าน _polyMathToSvg ถ้ามี \sqrt/$, ไม่งั้น plain — ไทยเรนเดอร์ผ่าน Sarabun portal)
+  //   optional: leader:true → เส้นประโยงจุด(at)→ป้าย · color → สีข้อความ (เฉพาะ plain text; math label คงดำ)
   (spec.labels||[]).forEach(l=>{
     const lx=x2(l.at[0])+(l.dx||0), ly=y2(l.at[1])+(l.dy||0), anc=l.anchor||'start', fs=l.fontSize||12;
     const t=(l.text!=null)?l.text:l.latex;
+    if(l.leader){const ax=x2(l.at[0]),ay=y2(l.at[1]);
+      svg+=`<line x1="${ax.toFixed(2)}" y1="${ay.toFixed(2)}" x2="${lx.toFixed(2)}" y2="${ly.toFixed(2)}" stroke="${l.leaderColor||l.color||'#999'}" stroke-width="0.9" stroke-dasharray="3 2"/>`;}
     if(_polyHasMath(t)) svg+=_polyMathToSvg(t,lx,ly,fs,anc);
-    else svg+=`<text x="${lx.toFixed(2)}" y="${ly.toFixed(2)}" font-size="${fs}" fill="#222" text-anchor="${anc}">${t}</text>`;
+    else svg+=`<text x="${lx.toFixed(2)}" y="${ly.toFixed(2)}" font-size="${fs}" fill="${l.color||'#222'}" text-anchor="${anc}">${t}</text>`;
   });
 
   return svg+'</svg>';
