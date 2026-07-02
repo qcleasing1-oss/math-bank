@@ -1370,6 +1370,51 @@
         "ถ้า $x^{2} - 7x + 12 = 0$ แล้ว $x = 3$ และ $x = 4$"
       ],
       "correct": 3,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
+            3,
+            4
+          ],
+          "width": 400,
+          "height": 96,
+          "axisY": 60,
+          "solutionY": 36,
+          "labels": [
+            {
+              "at": 3,
+              "text": "3"
+            },
+            {
+              "at": 4,
+              "text": "4"
+            }
+          ],
+          "points": [
+            {
+              "at": 3,
+              "open": false,
+              "color": "#2e7d32"
+            },
+            {
+              "at": 4,
+              "open": false,
+              "color": "#2e7d32"
+            }
+          ],
+          "annotations": [
+            {
+              "text": "x = 3 หรือ x = 4 (ไม่ใช่ทั้งคู่พร้อมกัน)",
+              "x": 200,
+              "y": 15,
+              "anchor": "middle"
+            }
+          ]
+        }
+      ],
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
         "เมื่อสมการกำลังสองมีสองราก คำตอบต้องเชื่อมด้วย \"หรือ\" เพราะ $x$ เป็นค่าใดค่าหนึ่งในขณะเดียวกัน ไม่ใช่ทั้งสองพร้อมกัน",
@@ -1379,6 +1424,8 @@
         "<b>【 พื้นฐาน · แยกตัวประกอบหาราก แล้วเลือกตัวเชื่อมเชิงตรรกศาสตร์ที่ถูกต้อง (factoring; logical connective) 】</b>",
         "<b>ขั้นที่ 1:</b> แยกตัวประกอบ $x^{2} - 7x + 12 = (x - 3)(x - 4) = 0$ ได้ $x = 3$",
         "หรือ $x = 4$",
+        "",
+        "[IMAGE]",
         "",
         "<b>ขั้นที่ 2:</b> ตัวเลือก 1, 2 ระบุค่าเดียวจึงไม่ครบ; ตัวเลือก 3 เขียน $x = 3, 4$ กำกวม",
         "",
@@ -1465,6 +1512,64 @@
         "$\\left\\{-1,\\ \\dfrac{-2}{3},\\ \\dfrac{1}{3}\\right\\}$"
       ],
       "correct": 3,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
+            -1,
+            -0.6666666667,
+            0.3333333333
+          ],
+          "width": 380,
+          "height": 96,
+          "axisY": 60,
+          "solutionY": 36,
+          "labels": [
+            {
+              "at": -1,
+              "text": "−1"
+            },
+            {
+              "at": -0.6666666667,
+              "num": "2",
+              "den": "3",
+              "neg": true
+            },
+            {
+              "at": 0.3333333333,
+              "num": "1",
+              "den": "3"
+            }
+          ],
+          "points": [
+            {
+              "at": -1,
+              "open": false,
+              "color": "#2e7d32"
+            },
+            {
+              "at": -0.6666666667,
+              "open": false,
+              "color": "#2e7d32"
+            },
+            {
+              "at": 0.3333333333,
+              "open": false,
+              "color": "#2e7d32"
+            }
+          ],
+          "annotations": [
+            {
+              "text": "เซตคำตอบ = {−1, −2/3, 1/3}  (สามจุดแยกกัน)",
+              "x": 190,
+              "y": 15,
+              "anchor": "middle"
+            }
+          ]
+        }
+      ],
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
         "ใช้ทฤษฎีบทรากตรรกยะและการหารสังเคราะห์เพื่อแยกตัวประกอบพหุนามกำลังสาม",
@@ -1481,6 +1586,8 @@
         "หรือ $x = \\dfrac{-12}{18} = -\\dfrac{2}{3}$",
         "",
         "<b>ขั้นที่ 4:</b> เซตคำตอบคือ $\\left\\{-1,\\ -\\dfrac{2}{3},\\ \\dfrac{1}{3}\\right\\}$",
+        "",
+        "[IMAGE]",
         "",
         "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ · ผลบวกรากของเวียตา (Vieta’s formulas) 】</b>",
         "ใช้เวียตา: ผลบวกรากทั้งสาม $= -\\dfrac{12}{9} = -\\dfrac{4}{3}$ → บวกสมาชิกของแต่ละตัวเลือกเทียบ:",
@@ -1680,6 +1787,108 @@
         "ถ้า $a > c$ และ $b < d$ แล้ว $b > c$"
       ],
       "correct": 2,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
+            1,
+            2,
+            4,
+            5
+          ],
+          "width": 480,
+          "height": 120,
+          "axisY": 66,
+          "labels": [
+            {
+              "at": 1,
+              "text": "1"
+            },
+            {
+              "at": 2,
+              "text": "2"
+            },
+            {
+              "at": 4,
+              "text": "4"
+            },
+            {
+              "at": 5,
+              "text": "5"
+            }
+          ],
+          "segments": [
+            {
+              "from": 2,
+              "to": 5,
+              "color": "#d11",
+              "y": 32
+            },
+            {
+              "from": 1,
+              "to": 4,
+              "color": "#2e7d32",
+              "y": 46
+            }
+          ],
+          "points": [
+            {
+              "at": 2,
+              "open": true,
+              "color": "#d11",
+              "y": 32
+            },
+            {
+              "at": 5,
+              "open": true,
+              "color": "#d11",
+              "y": 32
+            },
+            {
+              "at": 1,
+              "open": true,
+              "color": "#2e7d32",
+              "y": 46
+            },
+            {
+              "at": 4,
+              "open": true,
+              "color": "#2e7d32",
+              "y": 46
+            }
+          ],
+          "annotations": [
+            {
+              "text": "ตัวอย่างค้าน: (a,b) = (2,5) และ (c,d) = (1,4) — มีจุดร่วม",
+              "x": 240,
+              "y": 15,
+              "anchor": "middle"
+            },
+            {
+              "text": "(a,b)",
+              "x": 6,
+              "y": 35,
+              "anchor": "start",
+              "color": "#d11"
+            },
+            {
+              "text": "(c,d)",
+              "x": 6,
+              "y": 49,
+              "anchor": "start",
+              "color": "#2e7d32"
+            },
+            {
+              "text": "d = 4 ไม่น้อยกว่า a = 2 → ข้อความ \"d น้อยกว่า a\" เป็นเท็จ",
+              "x": 240,
+              "y": 108,
+              "anchor": "middle"
+            }
+          ]
+        }
+      ],
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
         "ช่วงเปิด $(a, b)$ และ $(c, d)$ มีจุดร่วมกัน หมายถึงส่วนที่ทับซ้อนกันไม่ว่าง เขียนรูปเส้นจำนวนช่วยพิจารณาได้",
@@ -1706,6 +1915,8 @@
         "และ $(c, d) = (1, 4)$",
         "<b>ขั้นที่ 2:</b> ตรวจเงื่อนไข: สองช่วงซ้อนกันที่ $(2, 4)$ มีจุดร่วมจริง, $a = 2 > c = 1$ ✓, $b = 5 > c = 1$ ✓",
         "<b>ขั้นที่ 3:</b> แต่ $d = 4$ ไม่น้อยกว่า $a = 2$ ข้อสรุป $d < a$ เป็นเท็จ ทั้งที่เงื่อนไขครบ ตัวเลือก 3 จึงผิด",
+        "",
+        "[IMAGE]",
         "<b>ข้อต่าง:</b> วิธีที่ 1 ใช้เหตุผลบนเส้นจำนวนทั่วไป",
         "วิธีที่ 2 ยกช่วงตัวเลขจำเพาะหนึ่งชุดเป็นตัวอย่างค้าน ทำลายข้อสรุปของตัวเลือก 3 โดยตรง",
         "",
@@ -2926,6 +3137,61 @@
         "$\\dfrac{4}{5}$"
       ],
       "correct": 2,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
+            -0.75,
+            0.75
+          ],
+          "width": 380,
+          "height": 96,
+          "axisY": 60,
+          "solutionY": 36,
+          "labels": [
+            {
+              "at": -0.75,
+              "num": "3",
+              "den": "4",
+              "neg": true
+            },
+            {
+              "at": 0.75,
+              "num": "3",
+              "den": "4"
+            }
+          ],
+          "segments": [
+            {
+              "from": -0.75,
+              "to": 0.75,
+              "color": "#2e7d32"
+            }
+          ],
+          "points": [
+            {
+              "at": -0.75,
+              "open": false,
+              "color": "#2e7d32"
+            },
+            {
+              "at": 0.75,
+              "open": false,
+              "color": "#2e7d32"
+            }
+          ],
+          "annotations": [
+            {
+              "text": "S = [−3/4, 3/4]  (ขอบเขตบนน้อยสุด = 3/4)",
+              "x": 190,
+              "y": 15,
+              "anchor": "middle"
+            }
+          ]
+        }
+      ],
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
         "เส้นตรงตัด (มีจุดร่วมกับ) วงกลม $\\Leftrightarrow$ สมการกำลังสองจากการแทนค่ามีดิสคริมิแนนต์ $\\ge 0$",
@@ -2945,6 +3211,8 @@
         "<b>ขั้นที่ 4:</b>",
         "$\\begin{aligned} |m| & \\le \\dfrac{3}{4} \\\\ -\\dfrac{3}{4} & \\le m \\le \\dfrac{3}{4} \\end{aligned}$",
         "ดังนั้น $S = \\left[ -\\dfrac{3}{4},\\ \\dfrac{3}{4} \\right]$",
+        "",
+        "[IMAGE]",
         "",
         "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ · ระยะศูนย์กลาง-เส้น เทียบรัศมี (distance to line) 】</b>",
         "มองเชิงเรขาคณิต: วงกลม $(x-5)^2 + y^2 = 9$ (ศูนย์กลาง $(5,0)$, $r = 3$) — เส้น $y = mx$ ตัดวงกลม ⟺ ระยะจากศูนย์กลาง $\\le r$:",
@@ -3390,6 +3658,79 @@
         "$x^{2} + 5x + 4 = 0$"
       ],
       "correct": 0,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
+            1.5,
+            2,
+            3,
+            4
+          ],
+          "width": 460,
+          "height": 96,
+          "axisY": 60,
+          "solutionY": 36,
+          "labels": [
+            {
+              "at": 1.5,
+              "num": "3",
+              "den": "2"
+            },
+            {
+              "at": 2,
+              "text": "2"
+            },
+            {
+              "at": 3,
+              "text": "3"
+            },
+            {
+              "at": 4,
+              "text": "4"
+            }
+          ],
+          "segments": [
+            {
+              "from": 1.5,
+              "to": 4,
+              "color": "#2e7d32"
+            }
+          ],
+          "points": [
+            {
+              "at": 1.5,
+              "open": false,
+              "color": "#2e7d32"
+            },
+            {
+              "at": 4,
+              "open": false,
+              "color": "#2e7d32"
+            },
+            {
+              "at": 2,
+              "open": false,
+              "color": "#1565c0"
+            },
+            {
+              "at": 3,
+              "open": false,
+              "color": "#e65100"
+            }
+          ],
+          "annotations": [
+            {
+              "text": "โดเมน [3/2, 4] — จุดยอด x=2, จุดที่ f(x)=0 คือ x=3",
+              "x": 230,
+              "y": 15,
+              "anchor": "middle"
+            }
+          ]
+        }
+      ],
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
         "ค่า $a$ น้อยที่สุดที่ทำให้ $|f(x)| \\le a$ ทุก $x$ ในช่วงหนึ่ง = ค่ามากที่สุดของ $|f(x)|$ บนช่วงนั้น",
@@ -3399,6 +3740,8 @@
         "<b>【 วิธีที่ 1 ▸ พื้นฐาน · กำลังสองสมบูรณ์ + วิเคราะห์ $|(x-2)^{2}-1|$ (completing the square) 】</b>",
         "<b>ขั้นที่ 1:</b> แก้ขอบเขต $x$:",
         "$\\begin{aligned} |4x - 11| & \\le 5 \\\\ -5 & \\le 4x - 11 \\le 5 \\\\ 6 & \\le 4x \\le 16 \\\\ \\dfrac{3}{2} & \\le x \\le 4 \\end{aligned}$",
+        "",
+        "[IMAGE]",
         "",
         "<b>ขั้นที่ 2:</b> จัดรูปกำลังสองสมบูรณ์ $x^{2} - 4x + 3 = (x - 2)^{2} - 1$",
         "ดังนั้น $|x^{2} - 4x + 3| = |(x - 2)^{2} - 1|$",
@@ -3729,6 +4072,210 @@
         "$(0, 1]$"
       ],
       "correct": 0,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
+            -1,
+            1
+          ],
+          "width": 380,
+          "height": 96,
+          "axisY": 60,
+          "solutionY": 36,
+          "labels": [
+            {
+              "at": -1,
+              "text": "−1"
+            },
+            {
+              "at": 1,
+              "text": "1"
+            }
+          ],
+          "segments": [
+            {
+              "from": -1,
+              "to": 1,
+              "color": "#d11"
+            }
+          ],
+          "points": [
+            {
+              "at": -1,
+              "open": true,
+              "color": "#d11"
+            },
+            {
+              "at": 1,
+              "open": true,
+              "color": "#d11"
+            }
+          ],
+          "annotations": [
+            {
+              "text": "A = (−1, 1)",
+              "x": 190,
+              "y": 15,
+              "anchor": "middle"
+            }
+          ]
+        },
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
+            -2,
+            0
+          ],
+          "width": 380,
+          "height": 96,
+          "axisY": 60,
+          "solutionY": 36,
+          "labels": [
+            {
+              "at": -2,
+              "text": "−2"
+            },
+            {
+              "at": 0,
+              "text": "0"
+            }
+          ],
+          "segments": [
+            {
+              "from": -2,
+              "to": 0,
+              "color": "#2e7d32"
+            }
+          ],
+          "points": [
+            {
+              "at": -2,
+              "open": true,
+              "color": "#2e7d32"
+            },
+            {
+              "at": 0,
+              "open": true,
+              "color": "#2e7d32"
+            }
+          ],
+          "annotations": [
+            {
+              "text": "B = (−2, 0)",
+              "x": 190,
+              "y": 15,
+              "anchor": "middle"
+            }
+          ]
+        },
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
+            -2,
+            -1,
+            0,
+            1
+          ],
+          "width": 460,
+          "height": 108,
+          "axisY": 66,
+          "labels": [
+            {
+              "at": -2,
+              "text": "−2"
+            },
+            {
+              "at": -1,
+              "text": "−1"
+            },
+            {
+              "at": 0,
+              "text": "0"
+            },
+            {
+              "at": 1,
+              "text": "1"
+            }
+          ],
+          "bands": [
+            {
+              "from": -1,
+              "to": 0,
+              "color": "#efe2a4",
+              "opacity": 0.7,
+              "top": 24,
+              "height": 60
+            }
+          ],
+          "segments": [
+            {
+              "from": -1,
+              "to": 1,
+              "color": "#d11",
+              "y": 32
+            },
+            {
+              "from": -2,
+              "to": 0,
+              "color": "#2e7d32",
+              "y": 46
+            }
+          ],
+          "points": [
+            {
+              "at": -1,
+              "open": true,
+              "color": "#d11",
+              "y": 32
+            },
+            {
+              "at": 1,
+              "open": true,
+              "color": "#d11",
+              "y": 32
+            },
+            {
+              "at": -2,
+              "open": true,
+              "color": "#2e7d32",
+              "y": 46
+            },
+            {
+              "at": 0,
+              "open": true,
+              "color": "#2e7d32",
+              "y": 46
+            }
+          ],
+          "annotations": [
+            {
+              "text": "A ∩ B = (−1, 0)",
+              "x": 230,
+              "y": 15,
+              "anchor": "middle"
+            },
+            {
+              "text": "A",
+              "x": 6,
+              "y": 35,
+              "anchor": "start",
+              "color": "#d11"
+            },
+            {
+              "text": "B",
+              "x": 6,
+              "y": 49,
+              "anchor": "start",
+              "color": "#2e7d32"
+            }
+          ]
+        }
+      ],
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
         "$\\begin{aligned} |x - 1| & \\le 2 \\\\ -2 & \\le x - 1 \\le 2 \\end{aligned}$",
@@ -3747,11 +4294,17 @@
         "",
         "<b>ขั้นที่ 3:</b> รวมเงื่อนไขของ $A$ — $[-1, 3] \\cap (-3, 1) = [-1, 1)$ แล้วตัด $x = -1$ ทิ้ง ได้ $A = (-1, 1)$",
         "",
+        "[IMAGE:0]",
+        "",
         "<b>ขั้นที่ 4:</b> หาเซต $B$ —",
         "$\\begin{aligned} x^{2} + 2x & < 0 \\\\ x(x + 2) & < 0 \\\\ -2 & < x < 0 \\end{aligned}$",
         "ดังนั้น $B = (-2, 0)$",
         "",
+        "[IMAGE:1]",
+        "",
         "<b>ขั้นที่ 5:</b> หา $A \\cap B = (-1, 1) \\cap (-2, 0) = (-1, 0)$",
+        "",
+        "[IMAGE:2]",
         "",
         "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ · ค่าทดสอบตัดตัวเลือก (test values) 】</b>",
         "<b>ขั้นที่ 1:</b> ตัวเลือกต่างกันที่ปลาย $-1$ และว่าช่วงอยู่ฝั่ง $(-1, 0)$ หรือ $(0, 1)$ — ทดสอบสองค่าก็ตัดสินได้",
@@ -3795,6 +4348,141 @@
         "$A - B = (-\\infty, -1)$"
       ],
       "correct": 3,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
+            -1,
+            9
+          ],
+          "width": 420,
+          "height": 96,
+          "axisY": 60,
+          "solutionY": 36,
+          "labels": [
+            {
+              "at": -1,
+              "text": "−1"
+            },
+            {
+              "at": 9,
+              "text": "9"
+            }
+          ],
+          "rays": [
+            {
+              "from": -1,
+              "dir": "left",
+              "color": "#d11"
+            },
+            {
+              "from": 9,
+              "dir": "right",
+              "color": "#d11"
+            }
+          ],
+          "points": [
+            {
+              "at": -1,
+              "open": true,
+              "color": "#d11"
+            },
+            {
+              "at": 9,
+              "open": true,
+              "color": "#d11"
+            }
+          ],
+          "annotations": [
+            {
+              "text": "A = (−∞, −1) ∪ (9, ∞)",
+              "x": 210,
+              "y": 15,
+              "anchor": "middle"
+            }
+          ]
+        },
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
+            1
+          ],
+          "width": 340,
+          "height": 96,
+          "axisY": 60,
+          "solutionY": 36,
+          "labels": [
+            {
+              "at": 1,
+              "text": "1"
+            }
+          ],
+          "rays": [
+            {
+              "from": 1,
+              "dir": "right",
+              "color": "#2e7d32"
+            }
+          ],
+          "points": [
+            {
+              "at": 1,
+              "open": false,
+              "color": "#2e7d32"
+            }
+          ],
+          "annotations": [
+            {
+              "text": "B = [1, ∞)",
+              "x": 170,
+              "y": 15,
+              "anchor": "middle"
+            }
+          ]
+        },
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
+            -1
+          ],
+          "width": 340,
+          "height": 96,
+          "axisY": 60,
+          "solutionY": 36,
+          "labels": [
+            {
+              "at": -1,
+              "text": "−1"
+            }
+          ],
+          "rays": [
+            {
+              "from": -1,
+              "dir": "left",
+              "color": "#d11"
+            }
+          ],
+          "points": [
+            {
+              "at": -1,
+              "open": true,
+              "color": "#d11"
+            }
+          ],
+          "annotations": [
+            {
+              "text": "A − B = (−∞, −1)",
+              "x": 170,
+              "y": 15,
+              "anchor": "middle"
+            }
+          ]
+        }
+      ],
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
         "$\\begin{aligned} |x - 4| & > 5 \\\\ x - 4 & > 5 \\end{aligned}$",
@@ -3810,11 +4498,15 @@
         "หรือ $x < -1$",
         "ดังนั้น $A = (-\\infty, -1) \\cup (9, \\infty)$",
         "",
+        "[IMAGE:0]",
+        "",
         "<b>ขั้นที่ 2:</b> หาเซต $B$ — โดเมนต้องมี $x \\ge 0$",
         "จาก $\\sqrt{x + 3} - \\sqrt{x} \\le 1$ จัดได้ $\\sqrt{x + 3} \\le 1 + \\sqrt{x}$",
         "ยกกำลังสองทั้งสองข้าง (ทั้งคู่ไม่เป็นลบ) ได้",
         "$\\begin{aligned} x + 3 & \\le 1 + 2\\sqrt{x} + x \\\\ 2 & \\le 2\\sqrt{x} \\\\ \\sqrt{x} & \\ge 1 \\\\ x & \\ge 1 \\end{aligned}$",
         "(สอดคล้องโดเมนทั้งช่วง) ดังนั้น $B = [1, \\infty)$",
+        "",
+        "[IMAGE:1]",
         "",
         "<b>ขั้นที่ 3:</b> ตรวจแต่ละตัวเลือก",
         "ข้อ 1: $A \\cup B = (-\\infty, -1) \\cup [1, \\infty)$ (ปิดที่ $1$) ไม่ใช่ $(-\\infty, -1) \\cup (1, \\infty)$ จึง <b>ผิด</b>",
@@ -3826,6 +4518,8 @@
         "ข้อ 4:",
         "$\\begin{aligned} A - B &= A \\cap B' \\\\ &= [(-\\infty, -1) \\cup (9, \\infty)] \\cap (-\\infty, 1) \\\\ &= (-\\infty, -1) \\end{aligned}$",
         "นั่นคือ <b>ถูก</b>",
+        "",
+        "[IMAGE:2]",
         "",
         "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ · จุดทดสอบขอบตัวเลือก (boundary testing) 】</b>",
         "<b>ขั้นที่ 1:</b> แต่ละตัวเลือกผิดที่ \"จุดขอบ\" จุดเดียว — แทนค่าตรวจสมาชิกตรง ๆ โดยไม่ต้องแก้เซต $B$ เต็มรูป",
@@ -9556,6 +10250,86 @@
         "ก. ผิด และ ข. ผิด"
       ],
       "correct": 1,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
+            0,
+            2
+          ],
+          "width": 420,
+          "height": 140,
+          "axisY": 96,
+          "labels": [
+            {
+              "at": 0,
+              "text": "0"
+            },
+            {
+              "at": 2,
+              "text": "2"
+            }
+          ],
+          "rays": [
+            {
+              "from": 2,
+              "dir": "left",
+              "color": "#d11",
+              "y": 30
+            },
+            {
+              "from": 2,
+              "dir": "left",
+              "color": "#2e7d32",
+              "y": 58
+            }
+          ],
+          "points": [
+            {
+              "at": 2,
+              "open": true,
+              "color": "#d11",
+              "y": 30
+            },
+            {
+              "at": 2,
+              "open": true,
+              "color": "#2e7d32",
+              "y": 58
+            },
+            {
+              "at": 0,
+              "open": true,
+              "color": "#2e7d32",
+              "y": 58
+            }
+          ],
+          "annotations": [
+            {
+              "text": "A=(−∞,2)  ,  B=(−∞,2)−{0}  — ต่างกันจุดเดียว",
+              "x": 210,
+              "y": 15,
+              "anchor": "middle"
+            },
+            {
+              "text": "A",
+              "x": 6,
+              "y": 33,
+              "anchor": "start",
+              "color": "#d11"
+            },
+            {
+              "text": "B",
+              "x": 6,
+              "y": 61,
+              "anchor": "start",
+              "color": "#2e7d32"
+            }
+          ]
+        }
+      ],
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
         "ก. สมบัติการหารลงตัว: ถ้า $a \\mid m$ และ $a \\mid n$ แล้ว $a \\mid (km+ln)$ ทุกจำนวนเต็ม $k, l$",
@@ -9575,6 +10349,8 @@
         "เพราะ $x^{2} \\ge 0$ เสมอ จึงต้องมี $x \\ne 0$",
         "และ $x-2 < 0$ ได้ $B = (-\\infty,\\, 2) - \\{0\\}$",
         "<b>ขั้นที่ 5 (ข. เทียบ):</b> $A = (-\\infty,\\, 2)$ แต่ $B = (-\\infty,\\, 2) - \\{0\\}$ ต่างกันที่จุด $x = 0$ (อยู่ใน $A$ แต่ไม่อยู่ใน $B$) ดังนั้น $A \\ne B$ นั่นคือ ข. <b>ผิด</b>",
+        "",
+        "[IMAGE]",
         "",
         "<b>✔ ตรวจคำตอบ:</b> แทน $x = 0$ — ข้าง $A$ ได้ $\\dfrac{2}{-2} = -1 < 1$ จริง (อยู่ใน $A$)",
         "ข้าง $B$ ได้ $0 < 0$ เท็จ (ไม่อยู่ใน $B$) ยืนยันว่าสองเซตต่างกันที่ $0$",
@@ -10821,6 +11597,97 @@
         "$[4, 6] \\cup (6, 7)$"
       ],
       "correct": 0,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
+            2,
+            3,
+            4
+          ],
+          "width": 380,
+          "height": 120,
+          "axisY": 66,
+          "labels": [
+            {
+              "at": 2,
+              "text": "2"
+            },
+            {
+              "at": 3,
+              "text": "3"
+            },
+            {
+              "at": 4,
+              "text": "4"
+            }
+          ],
+          "segments": [
+            {
+              "from": 2,
+              "to": 3,
+              "color": "#d11",
+              "y": 32
+            },
+            {
+              "from": 3,
+              "to": 4,
+              "color": "#2e7d32",
+              "y": 46
+            }
+          ],
+          "points": [
+            {
+              "at": 2,
+              "open": true,
+              "color": "#d11",
+              "y": 32
+            },
+            {
+              "at": 3,
+              "open": false,
+              "color": "#d11",
+              "y": 32
+            },
+            {
+              "at": 3,
+              "open": false,
+              "color": "#2e7d32",
+              "y": 46
+            },
+            {
+              "at": 4,
+              "open": true,
+              "color": "#2e7d32",
+              "y": 46
+            }
+          ],
+          "annotations": [
+            {
+              "text": "(2, 3] ∩ [3, 4) = {3}  (จุดร่วมเดียว)",
+              "x": 190,
+              "y": 15,
+              "anchor": "middle"
+            },
+            {
+              "text": "(2, 3]",
+              "x": 6,
+              "y": 35,
+              "anchor": "start",
+              "color": "#d11"
+            },
+            {
+              "text": "[3, 4)",
+              "x": 6,
+              "y": 49,
+              "anchor": "start",
+              "color": "#2e7d32"
+            }
+          ]
+        }
+      ],
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
         "ทฤษฎีบทของ Vieta ในสมการกำลังสอง: ถ้า $A + B = S$",
@@ -10852,6 +11719,8 @@
         "",
         "<b>ขั้นที่ 6:</b> ตรวจตัวเลือกที่บรรจุค่า $3$",
         "ตัวเลือก 1: $(2, 3] \\cap [3, 4)$ — ตัด open ที่ $3$ ในฝั่งซ้ายแต่ $3 \\in (2,3]$ และ $3 \\in [3,4)$ ได้ $= \\{3\\}$ — บรรจุ $3$ ✓",
+        "",
+        "[IMAGE]",
         "ตัวเลือก 2: $[2, 3) \\cap [3, 4)$ — $3 \\notin [2,3)$ จึง intersection ว่าง ✗",
         "ตัวเลือก 3: $(3, 4) \\cup (4, 6]$ — ไม่บรรจุ $3$ (open ที่ $3$) ✗",
         "ตัวเลือก 4: $[4, 6] \\cup (6, 7)$ — ไม่บรรจุ $3$ ✗",
@@ -10943,6 +11812,58 @@
         "$A \\cup B = \\mathbb{R}$"
       ],
       "correct": 1,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
+            -1,
+            5
+          ],
+          "width": 380,
+          "height": 96,
+          "axisY": 60,
+          "solutionY": 36,
+          "labels": [
+            {
+              "at": -1,
+              "text": "−1"
+            },
+            {
+              "at": 5,
+              "text": "5"
+            }
+          ],
+          "rays": [
+            {
+              "from": -1,
+              "dir": "right",
+              "color": "#2e7d32"
+            }
+          ],
+          "points": [
+            {
+              "at": -1,
+              "open": false,
+              "color": "#2e7d32"
+            },
+            {
+              "at": 5,
+              "open": false,
+              "color": "#1565c0"
+            }
+          ],
+          "annotations": [
+            {
+              "text": "B=(−1,∞) , A={5} ⊆ B",
+              "x": 190,
+              "y": 15,
+              "anchor": "middle"
+            }
+          ]
+        }
+      ],
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
         "สมการรากกำลังสอง $\\sqrt{f(x)} = g(x)$ มีเงื่อนไข $g(x) \\ge 0$ (เพราะรากต้องไม่เป็นลบ) แล้วยกกำลังสอง $f(x) = g(x)^2$",
@@ -10967,6 +11888,8 @@
         "<b>ขั้นที่ 3:</b> ตรวจความสัมพันธ์ — $5 \\in B$ (เพราะ $5 > -1$) นั่นคือ $A = \\{5\\} \\subseteq B$",
         "ดังนั้น $A \\cap B = A = \\{5\\}$ ✓",
         "และ $A \\cup B = B = (-1, \\infty) \\ne A$",
+        "",
+        "[IMAGE]",
         "และ $\\ne \\mathbb{R}$",
         "",
         "<b>ขั้นที่ 4:</b> ตรวจตัวเลือกทีละข้อ",
@@ -12308,6 +13231,58 @@
       "accept": [
         "-5"
       ],
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
+            -5,
+            5
+          ],
+          "width": 380,
+          "height": 96,
+          "axisY": 60,
+          "solutionY": 36,
+          "labels": [
+            {
+              "at": -5,
+              "text": "−5"
+            },
+            {
+              "at": 5,
+              "text": "5"
+            }
+          ],
+          "segments": [
+            {
+              "from": -5,
+              "to": 5,
+              "color": "#2e7d32"
+            }
+          ],
+          "points": [
+            {
+              "at": -5,
+              "open": false,
+              "color": "#d11"
+            },
+            {
+              "at": 5,
+              "open": false,
+              "color": "#2e7d32"
+            }
+          ],
+          "annotations": [
+            {
+              "text": "S = [−5, 5]  (ขอบเขตล่างมากที่สุด / infimum = −5)",
+              "x": 190,
+              "y": 15,
+              "anchor": "middle"
+            }
+          ]
+        }
+      ],
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
         "<b>ขอบเขตล่าง (lower bound)</b> ของเซต $S$ คือจำนวนจริง $L$ ที่ $L \\le x$ สำหรับทุก $x \\in S$",
@@ -12321,6 +13296,8 @@
         "<b>ขั้นที่ 2:</b> วิเคราะห์ขอบเขตล่าง",
         "ขอบเขตล่างคือค่าที่ $\\le -5$ ทุกค่า เช่น $-10, -7, -5.0001, -5, \\ldots$",
         "ขอบเขตล่างที่ <b>มากที่สุด</b> คือ $-5$ (เพราะถ้ามากกว่า $-5$ จะไม่ครอบทุกสมาชิก)",
+        "",
+        "[IMAGE]",
         "",
         "<b>✔ ตรวจคำตอบ:</b> $-5 \\in S$ และ $-5 \\le x$ สำหรับทุก $x \\in [-5,5]$ ✓",
         "ถ้าลองค่ามากกว่า เช่น $-4.99$ จะไม่ใช่ขอบเขตล่าง เพราะ $-4.99 > -5 \\in S$",
@@ -12355,6 +13332,211 @@
         "2"
       ],
       "correct": 3,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
+            -1,
+            1,
+            8
+          ],
+          "width": 460,
+          "height": 150,
+          "axisY": 108,
+          "labels": [
+            {
+              "at": -1,
+              "text": "−1"
+            },
+            {
+              "at": 1,
+              "text": "1"
+            },
+            {
+              "at": 8,
+              "text": "8"
+            }
+          ],
+          "segments": [
+            {
+              "from": -1,
+              "to": 8,
+              "color": "#555",
+              "y": 38
+            },
+            {
+              "from": -1,
+              "to": 1,
+              "color": "#d11",
+              "y": 60
+            }
+          ],
+          "points": [
+            {
+              "at": -1,
+              "open": false,
+              "color": "#555",
+              "y": 38
+            },
+            {
+              "at": 8,
+              "open": false,
+              "color": "#555",
+              "y": 38
+            },
+            {
+              "at": -1,
+              "open": false,
+              "color": "#d11",
+              "y": 60
+            },
+            {
+              "at": 1,
+              "open": true,
+              "color": "#d11",
+              "y": 60
+            }
+          ],
+          "rays": [],
+          "annotations": [
+            {
+              "text": "หา B = (A ∪ B) − (A − B)",
+              "x": 230,
+              "y": 15,
+              "anchor": "middle"
+            },
+            {
+              "text": "A ∪ B = [−1,8]",
+              "x": 6,
+              "y": 33,
+              "anchor": "start",
+              "color": "#555"
+            },
+            {
+              "text": "A − B = [−1,1)",
+              "x": 6,
+              "y": 55,
+              "anchor": "start",
+              "color": "#d11"
+            }
+          ]
+        },
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
+            1,
+            3,
+            8
+          ],
+          "width": 460,
+          "height": 150,
+          "axisY": 108,
+          "labels": [
+            {
+              "at": 1,
+              "text": "1"
+            },
+            {
+              "at": 3,
+              "text": "3"
+            },
+            {
+              "at": 8,
+              "text": "8"
+            }
+          ],
+          "segments": [
+            {
+              "from": 1,
+              "to": 8,
+              "color": "#555",
+              "y": 38
+            },
+            {
+              "from": 3,
+              "to": 8,
+              "color": "#d11",
+              "y": 60
+            },
+            {
+              "from": 1,
+              "to": 3,
+              "color": "#2e7d32",
+              "y": 82
+            }
+          ],
+          "points": [
+            {
+              "at": 1,
+              "open": false,
+              "color": "#555",
+              "y": 38
+            },
+            {
+              "at": 8,
+              "open": false,
+              "color": "#555",
+              "y": 38
+            },
+            {
+              "at": 3,
+              "open": true,
+              "color": "#d11",
+              "y": 60
+            },
+            {
+              "at": 8,
+              "open": false,
+              "color": "#d11",
+              "y": 60
+            },
+            {
+              "at": 1,
+              "open": false,
+              "color": "#2e7d32",
+              "y": 82
+            },
+            {
+              "at": 3,
+              "open": false,
+              "color": "#2e7d32",
+              "y": 82
+            }
+          ],
+          "annotations": [
+            {
+              "text": "หา B ∩ C = B − (B − C)",
+              "x": 230,
+              "y": 15,
+              "anchor": "middle"
+            },
+            {
+              "text": "B = [1,8]",
+              "x": 6,
+              "y": 33,
+              "anchor": "start",
+              "color": "#555"
+            },
+            {
+              "text": "B − C = (3,8]",
+              "x": 6,
+              "y": 55,
+              "anchor": "start",
+              "color": "#d11"
+            },
+            {
+              "text": "B∩C = [1,3]",
+              "x": 6,
+              "y": 77,
+              "anchor": "start",
+              "color": "#2e7d32"
+            }
+          ]
+        }
+      ],
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
         "เอกลักษณ์เซต: $A \\cup B = (A - B) \\cup B$ (เพราะ $A-B$ และ $B$ ไม่ทับซ้อนกัน)",
@@ -12368,11 +13550,15 @@
         "เหลือ $[1, 8]$ (เพราะ $1 \\in [-1,8]$ แต่ $1 \\notin [-1,1)$)",
         "ดังนั้น $B = [1, 8]$",
         "",
+        "[IMAGE:0]",
+        "",
         "<b>ขั้นที่ 2:</b> หา $B \\cap C$",
         "$B \\cap C = B - (B - C) = [1, 8] - (3, 8]$",
         "ตัด $(3, 8]$ ออกจาก $[1, 8]$:",
         "เหลือ $[1, 3]$ (เพราะ $3 \\in [1,8]$ แต่ $3 \\notin (3,8]$)",
         "ดังนั้น $B \\cap C = [1, 3]$",
+        "",
+        "[IMAGE:1]",
         "",
         "<b>ขั้นที่ 3:</b> หา $b - a$",
         "$\\begin{aligned} a & = 1, b = 3 \\\\ b - a & = 2 \\end{aligned}$",
@@ -12581,6 +13767,99 @@
         "$D_t'$"
       ],
       "correct": 1,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
+            0,
+            0.3333333333,
+            0.5
+          ],
+          "width": 380,
+          "height": 120,
+          "axisY": 66,
+          "labels": [
+            {
+              "at": 0,
+              "text": "0"
+            },
+            {
+              "at": 0.3333333333,
+              "num": "1",
+              "den": "3"
+            },
+            {
+              "at": 0.5,
+              "num": "1",
+              "den": "2"
+            }
+          ],
+          "segments": [
+            {
+              "from": 0,
+              "to": 0.5,
+              "color": "#d11",
+              "y": 32
+            },
+            {
+              "from": 0,
+              "to": 0.3333333333,
+              "color": "#2e7d32",
+              "y": 46
+            }
+          ],
+          "points": [
+            {
+              "at": 0,
+              "open": true,
+              "color": "#d11",
+              "y": 32
+            },
+            {
+              "at": 0.5,
+              "open": true,
+              "color": "#d11",
+              "y": 32
+            },
+            {
+              "at": 0,
+              "open": true,
+              "color": "#2e7d32",
+              "y": 46
+            },
+            {
+              "at": 0.3333333333,
+              "open": true,
+              "color": "#2e7d32",
+              "y": 46
+            }
+          ],
+          "annotations": [
+            {
+              "text": "ตัวอย่าง s=2, t=3: D_t ⊂ D_s → D_s ∪ D_t = D_s",
+              "x": 190,
+              "y": 15,
+              "anchor": "middle"
+            },
+            {
+              "text": "D_s=(0,1/2)",
+              "x": 6,
+              "y": 35,
+              "anchor": "start",
+              "color": "#d11"
+            },
+            {
+              "text": "D_t=(0,1/3)",
+              "x": 6,
+              "y": 49,
+              "anchor": "start",
+              "color": "#2e7d32"
+            }
+          ]
+        }
+      ],
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
         "• ถ้า $X\\subset Y$ แล้ว $X\\cup Y = Y$",
@@ -12601,6 +13880,8 @@
         "<b>✔ ตรวจคำตอบ:</b> ทดลอง $s=2, t=3$ → $D_2=(0,\\frac{1}{2}), D_3=(0,\\frac{1}{3})$",
         "$\\begin{aligned} D_2\\cup D_3 &= (0,\\frac{1}{2}) \\\\ &= D_2 \\\\ &= D_s \\end{aligned}$",
         "✓",
+        "",
+        "[IMAGE]",
         "",
         "<b>✅ คำตอบ: $D_s$ → ตัวเลือก 2</b>",
         "",
@@ -12629,6 +13910,59 @@
         "(2, 9/2)",
         "(2,4.5)"
       ],
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
+            2,
+            4.5
+          ],
+          "width": 300,
+          "height": 96,
+          "axisY": 60,
+          "solutionY": 36,
+          "labels": [
+            {
+              "at": 2,
+              "text": "2"
+            },
+            {
+              "at": 4.5,
+              "num": "9",
+              "den": "2"
+            }
+          ],
+          "segments": [
+            {
+              "from": 2,
+              "to": 4.5,
+              "color": "#2e7d32"
+            }
+          ],
+          "points": [
+            {
+              "at": 2,
+              "open": true,
+              "color": "#2e7d32"
+            },
+            {
+              "at": 4.5,
+              "open": true,
+              "color": "#2e7d32"
+            }
+          ],
+          "annotations": [
+            {
+              "text": "A = (2, 4.5)",
+              "x": 150,
+              "y": 15,
+              "anchor": "middle"
+            }
+          ]
+        }
+      ],
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
         "• เส้นรอบรูปสี่เหลี่ยมผืนผ้า $= 2(a+b)$ (เมื่อ $a,b$ เป็นด้านกว้างและยาว)",
@@ -12653,6 +13987,8 @@
         "<b>ขั้นที่ 3:</b> ใช้เงื่อนไข \"ด้านสั้นกว่า\"",
         "ต้องการ $a < b$ → $a < 9-a$ → $a < \\frac{9}{2}=4.5$",
         "รวมกับ $2 < a < 7$ ได้ $2 < a < 4.5$",
+        "",
+        "[IMAGE]",
         "",
         "<b>✔ ตรวจคำตอบ:</b> ลอง $a=3$ → $b=6$ → เส้นทแยง $=\\sqrt{9+36}=\\sqrt{45} < \\sqrt{53}$ ✓",
         "ลอง $a=4$ → $b=5$ → เส้นทแยง $=\\sqrt{16+25}=\\sqrt{41} < \\sqrt{53}$ ✓",
@@ -13756,6 +15092,142 @@
         "ก. ผิด และ ข. ผิด"
       ],
       "correct": 2,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
+            1,
+            2,
+            3
+          ],
+          "width": 380,
+          "height": 96,
+          "axisY": 60,
+          "solutionY": 36,
+          "labels": [
+            {
+              "at": 1,
+              "text": "1"
+            },
+            {
+              "at": 2,
+              "text": "2"
+            },
+            {
+              "at": 3,
+              "text": "3"
+            }
+          ],
+          "segments": [
+            {
+              "from": 2,
+              "to": 3,
+              "color": "#2e7d32"
+            }
+          ],
+          "points": [
+            {
+              "at": 2,
+              "open": false,
+              "color": "#2e7d32"
+            },
+            {
+              "at": 3,
+              "open": false,
+              "color": "#2e7d32"
+            },
+            {
+              "at": 1,
+              "open": true,
+              "color": "#1565c0"
+            }
+          ],
+          "annotations": [
+            {
+              "text": "ก. [2, 3] — t=1 อยู่นอกช่วง → ก. ผิด",
+              "x": 190,
+              "y": 15,
+              "anchor": "middle"
+            }
+          ]
+        },
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
+            -1,
+            1,
+            2,
+            3
+          ],
+          "width": 420,
+          "height": 96,
+          "axisY": 60,
+          "solutionY": 36,
+          "labels": [
+            {
+              "at": -1,
+              "text": "−1"
+            },
+            {
+              "at": 1,
+              "text": "1"
+            },
+            {
+              "at": 2,
+              "text": "2"
+            },
+            {
+              "at": 3,
+              "text": "3"
+            }
+          ],
+          "segments": [
+            {
+              "from": -1,
+              "to": 2,
+              "color": "#2e7d32"
+            },
+            {
+              "from": 2,
+              "to": 3,
+              "color": "#2e7d32"
+            }
+          ],
+          "points": [
+            {
+              "at": -1,
+              "open": false,
+              "color": "#2e7d32"
+            },
+            {
+              "at": 2,
+              "open": true,
+              "color": "#2e7d32"
+            },
+            {
+              "at": 3,
+              "open": false,
+              "color": "#2e7d32"
+            },
+            {
+              "at": 1,
+              "open": false,
+              "color": "#1565c0"
+            }
+          ],
+          "annotations": [
+            {
+              "text": "ข. [−1,2) ∪ (2,3] — t=1 อยู่ในช่วง → ข. ถูก",
+              "x": 210,
+              "y": 15,
+              "anchor": "middle"
+            }
+          ]
+        }
+      ],
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
         "• <b>ทฤษฎีบทเศษเหลือ:</b> ถ้า $(x-a)$ หาร $P(x)$ ลงตัว แล้ว $P(a)=0$",
@@ -13781,6 +15253,8 @@
         "เซตคำตอบ: $[2, 3]$ (เพราะ $-1$ ไม่อยู่ในช่วงนี้อยู่แล้ว)",
         "ตรวจว่า $t=1 \\in [2,3]$ หรือไม่: $1 < 2$ → ไม่อยู่ → <b>ก. ผิด</b>",
         "",
+        "[IMAGE:0]",
+        "",
         "<b>ขั้นที่ 4:</b> ตรวจข้อ ข.",
         "อสมการ: $\\dfrac{(x-3)(x-2)(x+1)}{x-2}\\le 0$",
         "และ $x\\ne 2$",
@@ -13790,6 +15264,8 @@
         "$(x-3)(x+1)\\le 0$ → $-1\\le x\\le 3$",
         "ตัด $x=2$: $[-1, 2)\\cup(2, 3]$",
         "ตรวจว่า $t=1$ อยู่หรือไม่: $1\\in[-1,2)$ → อยู่ → <b>ข. ถูก</b>",
+        "",
+        "[IMAGE:1]",
         "",
         "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ · แทนค่าตรง (substitution) 】</b>",
         "<b>ขั้นที่ 1:</b> หา $t$ เหมือน วิธีที่ 1: $P(3) = 0$ → $27 - 36 + 3t + 6 = 0$ → $t = 1$",
@@ -14528,6 +16004,81 @@
         "ถ้าให้ $n$ เป็นจำนวนเต็มบวกแล้ว $\\dfrac{c^n}{c^n} = 1$"
       ],
       "correct": 2,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
+            0,
+            1,
+            2
+          ],
+          "width": 460,
+          "height": 96,
+          "axisY": 60,
+          "solutionY": 36,
+          "labels": [
+            {
+              "at": 0,
+              "text": "0"
+            },
+            {
+              "at": 1,
+              "text": "1"
+            },
+            {
+              "at": 2,
+              "text": "2"
+            }
+          ],
+          "points": [
+            {
+              "at": 1,
+              "open": false,
+              "color": "#2e7d32"
+            },
+            {
+              "at": 1.5,
+              "open": false,
+              "color": "#2e7d32"
+            },
+            {
+              "at": 1.75,
+              "open": false,
+              "color": "#2e7d32"
+            },
+            {
+              "at": 1.875,
+              "open": false,
+              "color": "#2e7d32"
+            },
+            {
+              "at": 1.9375,
+              "open": false,
+              "color": "#2e7d32"
+            },
+            {
+              "at": 1.96875,
+              "open": false,
+              "color": "#2e7d32"
+            },
+            {
+              "at": 2,
+              "open": true,
+              "color": "#d11"
+            }
+          ],
+          "annotations": [
+            {
+              "text": "X = {2 − 1/2^k : k=0,1,2,...} ลู่เข้าหา 2 แต่ไม่ถึง → sup X = 2",
+              "x": 230,
+              "y": 15,
+              "anchor": "middle"
+            }
+          ]
+        }
+      ],
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
         "ตรวจแต่ละข้อย่อยทีละข้อ",
@@ -14562,6 +16113,8 @@
         "และเนื่องจากค่า $b$ ลู่เข้า 2 ได้ใกล้ที่สุดเท่าที่ต้องการ จึงไม่มีขอบบนใดน้อยกว่า 2",
         "→ <b>$2$ คือขอบเขตบนน้อยสุด (supremum)</b> ของ $X$",
         "→ ข้อ 3 <b>ถูก</b> ✓",
+        "",
+        "[IMAGE]",
         "",
         "<b>ขั้นที่ 4:</b> วิเคราะห์ข้อ 4",
         "$\\dfrac{c^n}{c^n}$ ไม่เท่ากับ 1 เสมอไป",
@@ -14950,6 +16503,173 @@
         "$5$"
       ],
       "correct": 0,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
+            -2,
+            8
+          ],
+          "width": 340,
+          "height": 96,
+          "axisY": 60,
+          "solutionY": 36,
+          "labels": [
+            {
+              "at": -2,
+              "text": "−2"
+            },
+            {
+              "at": 8,
+              "text": "8"
+            }
+          ],
+          "segments": [
+            {
+              "from": -2,
+              "to": 8,
+              "color": "#d11"
+            }
+          ],
+          "points": [
+            {
+              "at": -2,
+              "open": true,
+              "color": "#d11"
+            },
+            {
+              "at": 8,
+              "open": true,
+              "color": "#d11"
+            }
+          ],
+          "annotations": [
+            {
+              "text": "A = (−2, 8)",
+              "x": 170,
+              "y": 15,
+              "anchor": "middle"
+            }
+          ]
+        },
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
+            -7,
+            -3,
+            2
+          ],
+          "width": 420,
+          "height": 96,
+          "axisY": 60,
+          "solutionY": 36,
+          "labels": [
+            {
+              "at": -7,
+              "text": "−7"
+            },
+            {
+              "at": -3,
+              "text": "−3"
+            },
+            {
+              "at": 2,
+              "text": "2"
+            }
+          ],
+          "segments": [
+            {
+              "from": -7,
+              "to": -3,
+              "color": "#2e7d32"
+            }
+          ],
+          "rays": [
+            {
+              "from": 2,
+              "dir": "right",
+              "color": "#2e7d32"
+            }
+          ],
+          "points": [
+            {
+              "at": -7,
+              "open": false,
+              "color": "#2e7d32"
+            },
+            {
+              "at": -3,
+              "open": true,
+              "color": "#2e7d32"
+            },
+            {
+              "at": 2,
+              "open": true,
+              "color": "#2e7d32"
+            }
+          ],
+          "annotations": [
+            {
+              "text": "B = [−7, −3) ∪ (2, ∞)",
+              "x": 210,
+              "y": 15,
+              "anchor": "middle"
+            }
+          ]
+        },
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
+            -2,
+            2
+          ],
+          "width": 340,
+          "height": 96,
+          "axisY": 60,
+          "solutionY": 36,
+          "labels": [
+            {
+              "at": -2,
+              "text": "−2"
+            },
+            {
+              "at": 2,
+              "text": "2"
+            }
+          ],
+          "segments": [
+            {
+              "from": -2,
+              "to": 2,
+              "color": "#d11"
+            }
+          ],
+          "points": [
+            {
+              "at": -2,
+              "open": true,
+              "color": "#d11"
+            },
+            {
+              "at": 2,
+              "open": false,
+              "color": "#d11"
+            }
+          ],
+          "annotations": [
+            {
+              "text": "A − B = (−2, 2]  (ขอบเขตบนน้อยสุด = 2)",
+              "x": 170,
+              "y": 15,
+              "anchor": "middle"
+            }
+          ]
+        }
+      ],
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
         "$A - B = A \\cap B^c$",
@@ -14960,6 +16680,8 @@
         "$\\begin{aligned} |x - 3| & < 5 \\; \\\\ \\; -5 & < x - 3 < 5 \\; \\\\ \\; -2 & < x < 8 \\end{aligned}$",
         "$A = (-2, 8)$",
         "",
+        "[IMAGE:0]",
+        "",
         "<b>ขั้นที่ 2:</b> หาเซต $B$",
         "เงื่อนไข domain: $x + 7 \\ge 0$ → $x \\ge -7$",
         "เนื่องจาก $\\sqrt{x+7} \\ge 0$",
@@ -14969,6 +16691,8 @@
         "ค่า $ > 0$ คือ $x < -3$",
         "หรือ $x > 2$",
         "รวมกับ $x \\ge -7$: $B = [-7, -3) \\cup (2, \\infty)$",
+        "",
+        "[IMAGE:1]",
         "(หมายเหตุ: ที่ $x = -1$ จะมี $\\sqrt{6} < 0$ false ดังนั้น $-1 \\notin B$ ตรงตามที่ได้)",
         "",
         "<b>ขั้นที่ 3:</b> หา $A - B$",
@@ -14982,6 +16706,8 @@
         "ค่าทุกตัวใน $(-2, 2]$ มี $x \\le 2$ ดังนั้น $2$ เป็นขอบบน",
         "ค่าใดที่น้อยกว่า $2$ จะมีสมาชิกใน $A - B$ ที่เกิน เช่น $1.5 < 2$ แต่ $2 \\in A-B$ ทำให้ $1.5$ ไม่ใช่ขอบบน",
         "$\\therefore$ ขอบบนน้อยสุด $= 2$",
+        "",
+        "[IMAGE:2]",
         "",
         "<b>✔ ตรวจคำตอบ:</b> $2 \\in A-B$ เพราะ $|2-3|=1 < 5$ (ใน $A$) และ $\\sqrt{9}=3 = |3| = |2+1|$ — equal ไม่ใช่ less than ดังนั้น $2 \\notin B$ ✓",
         "",
