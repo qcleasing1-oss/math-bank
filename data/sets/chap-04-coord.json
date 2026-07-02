@@ -247,7 +247,107 @@
       "level": "easy",
       "score": 1,
       "question": "กำหนดให้ $L$ เป็นเส้นตรงที่ผ่านจุด $(1, 6)$ และตั้งฉากกับเส้นตรง $2x + 3y - 7 = 0$\nผลบวกของระยะตัดแกน $x$ กับระยะตัดแกน $y$ ของ $L$ จะมีค่าเท่ากับเท่าใด",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 360,
+          "height": 320,
+          "xRange": [
+            -4,
+            2
+          ],
+          "yRange": [
+            -2,
+            8
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "given",
+              "kind": "piecewise-linear",
+              "points": [
+                [
+                  -4,
+                  5
+                ],
+                [
+                  2,
+                  1
+                ]
+              ],
+              "color": "#999",
+              "strokeWidth": 1,
+              "dashed": true,
+              "label": {
+                "at": [
+                  -3.4,
+                  5.126
+                ],
+                "text": "2x+3y-7=0",
+                "anchor": "start",
+                "color": "#999"
+              }
+            },
+            {
+              "id": "L",
+              "kind": "piecewise-linear",
+              "points": [
+                [
+                  -4,
+                  -1.5
+                ],
+                [
+                  2,
+                  7.5
+                ]
+              ],
+              "color": "#1f6feb",
+              "strokeWidth": 1.6,
+              "label": {
+                "at": [
+                  1.36,
+                  7.3
+                ],
+                "text": "L",
+                "anchor": "start",
+                "color": "#1f6feb"
+              }
+            }
+          ],
+          "dots": [
+            {
+              "x": 1,
+              "y": 6,
+              "label": "(1,6)",
+              "labelDx": 14,
+              "labelDy": 10,
+              "labelAnchor": "start"
+            },
+            {
+              "x": -3,
+              "y": 0,
+              "label": "(-3,0)",
+              "labelDx": -7,
+              "labelDy": -11,
+              "labelAnchor": "end"
+            },
+            {
+              "x": 0,
+              "y": 4.5,
+              "label": "(0,9/2)",
+              "labelDx": 14,
+              "labelDy": 10,
+              "labelAnchor": "start"
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance 2529",
       "choices": [
         "$-\\dfrac{5}{3}$",
@@ -271,6 +371,8 @@
         "ระยะตัดแกน $x$: แทน $y = 0$ ได้ $0 = \\dfrac{3}{2}x + \\dfrac{9}{2}$ → $x = -3$",
         "",
         "<b>ขั้นที่ 4:</b> ผลบวก $= \\dfrac{9}{2} + (-3) = \\dfrac{3}{2}$",
+        "",
+        "[IMAGE]",
         "",
         "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ · สลับสัมประสิทธิ์รูปทั่วไป (general form) 】</b>",
         "• เส้น $2x + 3y - 7 = 0$ มีสัมประสิทธิ์ $A=2$, $B=3$ → เส้นที่ตั้งฉากจะมีรูป $Bx - Ay + k = 0$",
@@ -305,7 +407,121 @@
       "level": "easy",
       "score": 1,
       "question": "ให้ $A(-1, 2)$, $B(3, 0)$ และ $C(5, 4)$ เป็นจุดยอดทั้งสามของสามเหลี่ยม $ABC$\nสมการของเส้นตรงที่มีความชันเท่ากับ 1 และผ่านจุดตัดกันของเส้นมัธยฐานของสามเหลี่ยม $ABC$ ตรงกับสมการในข้อใดต่อไปนี้",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 380,
+          "height": 320,
+          "xRange": [
+            -2.5,
+            6.5
+          ],
+          "yRange": [
+            -1.5,
+            5.5
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "segments": [
+            {
+              "from": [
+                -1,
+                2
+              ],
+              "to": [
+                3,
+                0
+              ]
+            },
+            {
+              "from": [
+                3,
+                0
+              ],
+              "to": [
+                5,
+                4
+              ]
+            },
+            {
+              "from": [
+                5,
+                4
+              ],
+              "to": [
+                -1,
+                2
+              ]
+            }
+          ],
+          "functions": [
+            {
+              "id": "L",
+              "kind": "piecewise-linear",
+              "points": [
+                [
+                  -0.5,
+                  -0.833
+                ],
+                [
+                  5.5,
+                  5.167
+                ]
+              ],
+              "color": "#1f6feb",
+              "strokeWidth": 1.6,
+              "label": {
+                "at": [
+                  3.631,
+                  4.841
+                ],
+                "text": "L (m=1)",
+                "anchor": "start",
+                "color": "#1f6feb"
+              }
+            }
+          ],
+          "dots": [
+            {
+              "x": -1,
+              "y": 2,
+              "label": "A(-1,2)",
+              "labelDx": -8,
+              "labelDy": -8,
+              "labelAnchor": "end"
+            },
+            {
+              "x": 3,
+              "y": 0,
+              "label": "B(3,0)",
+              "labelDx": 6,
+              "labelDy": 16,
+              "labelAnchor": "start"
+            },
+            {
+              "x": 5,
+              "y": 4,
+              "label": "C(5,4)",
+              "labelDx": 13,
+              "labelDy": -1,
+              "labelAnchor": "start"
+            },
+            {
+              "x": 2.333,
+              "y": 2,
+              "label": "G(7/3,2)",
+              "labelDx": 5,
+              "labelDy": 15,
+              "labelAnchor": "start"
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance 2538",
       "choices": [
         "$3x - 3y - 1 = 0$",
@@ -326,6 +542,8 @@
         "",
         "<b>ขั้นที่ 2:</b> เส้นความชัน 1 ผ่าน $\\left(\\dfrac{7}{3}, 2\\right)$: $y - 2 = 1\\left(x - \\dfrac{7}{3}\\right)$",
         "คูณ 3 ตลอด: $3y - 6 = 3x - 7$ จัดรูปได้ $3x - 3y - 1 = 0$",
+        "",
+        "[IMAGE]",
         "",
         "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ · ตัดมัธยฐาน 2 เส้น (median intersection) 】</b>",
         "• จุดกึ่งกลาง $BC = \\left(\\dfrac{3+5}{2}, \\dfrac{0+4}{2}\\right) = (4, 2)$",
@@ -359,7 +577,97 @@
       "level": "easy",
       "score": 1,
       "question": "เส้นตรงซึ่งตั้งฉากและแบ่งครึ่งส่วนของเส้นตรงที่เชื่อมระหว่างจุด $(-1, 3)$ และจุด $(5, 7)$ คือกราฟของสมการในข้อใดต่อไปนี้",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 360,
+          "height": 380,
+          "xRange": [
+            -2.5,
+            6
+          ],
+          "yRange": [
+            -0.5,
+            10.5
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "segments": [
+            {
+              "from": [
+                -1,
+                3
+              ],
+              "to": [
+                5,
+                7
+              ]
+            }
+          ],
+          "functions": [
+            {
+              "id": "L",
+              "kind": "piecewise-linear",
+              "points": [
+                [
+                  0,
+                  8
+                ],
+                [
+                  4,
+                  2
+                ]
+              ],
+              "domain": [
+                0,
+                4
+              ],
+              "color": "#1f6feb",
+              "strokeWidth": 1.6,
+              "label": {
+                "at": [
+                  2.77,
+                  7.728
+                ],
+                "text": "L (⊥ bisector)",
+                "anchor": "end",
+                "color": "#1f6feb"
+              }
+            }
+          ],
+          "dots": [
+            {
+              "x": -1,
+              "y": 3,
+              "label": "A(-1,3)",
+              "labelDx": -2,
+              "labelDy": -14,
+              "labelAnchor": "end"
+            },
+            {
+              "x": 5,
+              "y": 7,
+              "label": "B(5,7)",
+              "labelDx": 12,
+              "labelDy": 4,
+              "labelAnchor": "start"
+            },
+            {
+              "x": 2,
+              "y": 5,
+              "label": "M(2,5)",
+              "labelDx": 18,
+              "labelDy": 7,
+              "labelAnchor": "start"
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance 2526",
       "choices": [
         "$2y + 3x - 8 = 0$",
@@ -382,6 +690,8 @@
         "",
         "<b>ขั้นที่ 3:</b> สมการ: $y - 5 = -\\dfrac{3}{2}(x - 2)$ คูณ 2 ตลอด: $2y - 10 = -3x + 6$",
         "จัดรูปได้ $2y + 3x - 16 = 0$",
+        "",
+        "[IMAGE]",
         "",
         "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ · locus ระยะเท่ากัน (equidistant locus) 】</b>",
         "• ให้ $P(x, y)$ อยู่บนเส้นที่ต้องหา ระยะถึง $(-1, 3)$ ต้องเท่ากับระยะถึง $(5, 7)$ — ยกกำลังสองทั้งสองข้างเพื่อตัดราก:",
@@ -414,7 +724,122 @@
       "level": "easy",
       "score": 1,
       "question": "ให้เส้นตรง $L_1$ ผ่านจุด $(5, 2)$ และ $(1, -6)$, เส้นตรง $L_2$ ผ่านจุด $(3, -1)$ และมีความชัน $-1$\nถ้า $(a, b)$ เป็นจุดตัดของเส้นตรงทั้งสอง แล้ว $a + b$ มีค่าเท่ากับข้อใดต่อไปนี้",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 380,
+          "height": 340,
+          "xRange": [
+            0,
+            6
+          ],
+          "yRange": [
+            -7,
+            3
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "L1",
+              "kind": "piecewise-linear",
+              "points": [
+                [
+                  0.5,
+                  -7
+                ],
+                [
+                  5.5,
+                  3
+                ]
+              ],
+              "domain": [
+                0.5,
+                5.5
+              ],
+              "color": "#1f6feb",
+              "strokeWidth": 1.6,
+              "label": {
+                "at": [
+                  3.925,
+                  1.041
+                ],
+                "text": "L_1",
+                "anchor": "start",
+                "color": "#1f6feb"
+              }
+            },
+            {
+              "id": "L2",
+              "kind": "piecewise-linear",
+              "points": [
+                [
+                  0,
+                  2
+                ],
+                [
+                  6,
+                  -4
+                ]
+              ],
+              "domain": [
+                0,
+                6
+              ],
+              "color": "#d11",
+              "strokeWidth": 1.6,
+              "label": {
+                "at": [
+                  0.712,
+                  1.851
+                ],
+                "text": "L_2",
+                "anchor": "start",
+                "color": "#d11"
+              }
+            }
+          ],
+          "dots": [
+            {
+              "x": 5,
+              "y": 2,
+              "label": "(5,2)",
+              "labelDx": 15,
+              "labelDy": 10,
+              "labelAnchor": "start"
+            },
+            {
+              "x": 1,
+              "y": -6,
+              "label": "(1,-6)",
+              "labelDx": 41,
+              "labelDy": 10,
+              "labelAnchor": "end"
+            },
+            {
+              "x": 3,
+              "y": -1,
+              "label": "(3,-1)",
+              "labelDx": -13,
+              "labelDy": 8,
+              "labelAnchor": "end"
+            },
+            {
+              "x": 3.333,
+              "y": -1.333,
+              "label": "(10/3,-4/3)",
+              "labelDx": 19,
+              "labelDy": 1,
+              "labelAnchor": "start"
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance 2540",
       "choices": [
         "$-2$",
@@ -441,6 +866,8 @@
         "",
         "<b>ขั้นที่ 4:</b>",
         "$\\begin{aligned} a + b &= \\dfrac{10}{3} - \\dfrac{4}{3} \\\\ &= \\dfrac{6}{3} \\\\ &= 2 \\end{aligned}$",
+        "",
+        "[IMAGE]",
         "",
         "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ · นิพจน์ที่ถามตรงกับสมการ $L_2$ → อ่านทันที (read off line equation) 】</b>",
         "สังเกตว่า $L_2$ คือเส้น $y = -x + 2$ ซึ่งเขียนได้เป็น $x + y = 2$ — <b>ทุกจุดบน $L_2$ มีผลบวกพิกัดเท่ากับ $2$ อยู่แล้ว</b>",
@@ -469,7 +896,129 @@
       "level": "medium",
       "score": 1,
       "question": "กำหนดจุด $P(-7, 6)$ และจุด $Q(4, 9)$\nให้ $R$ เป็นจุดกึ่งกลางของส่วนของเส้นตรง $PQ$ และ $S$ เป็นโปรเจคชันของจุด $R$ บนเส้นตรง $y = 4$\nสมการของเส้นตรงที่ผ่านจุด $S$ และขนานกับเส้นตรง $PQ$ คือข้อใดต่อไปนี้",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 400,
+          "height": 320,
+          "xRange": [
+            -9,
+            6
+          ],
+          "yRange": [
+            1,
+            10.5
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "segments": [
+            {
+              "from": [
+                -7,
+                6
+              ],
+              "to": [
+                4,
+                9
+              ]
+            },
+            {
+              "from": [
+                -1.5,
+                7.5
+              ],
+              "to": [
+                -1.5,
+                4
+              ],
+              "dashed": true
+            }
+          ],
+          "functions": [
+            {
+              "id": "y4",
+              "kind": "piecewise-linear",
+              "points": [
+                [
+                  -9,
+                  4
+                ],
+                [
+                  6,
+                  4
+                ]
+              ],
+              "color": "#999",
+              "strokeWidth": 1,
+              "dashed": true
+            },
+            {
+              "id": "PAR",
+              "kind": "piecewise-linear",
+              "points": [
+                [
+                  -9,
+                  2.045
+                ],
+                [
+                  6,
+                  5.864
+                ]
+              ],
+              "color": "#1f6feb",
+              "strokeWidth": 1.6,
+              "label": {
+                "at": [
+                  -8.941,
+                  3.341
+                ],
+                "text": "ผ่าน S ขนาน PQ",
+                "anchor": "start",
+                "color": "#1f6feb"
+              }
+            }
+          ],
+          "dots": [
+            {
+              "x": -7,
+              "y": 6,
+              "label": "P(-7,6)",
+              "labelDx": -8,
+              "labelDy": -8,
+              "labelAnchor": "end"
+            },
+            {
+              "x": 4,
+              "y": 9,
+              "label": "Q(4,9)",
+              "labelDx": 6,
+              "labelDy": -8,
+              "labelAnchor": "start"
+            },
+            {
+              "x": -1.5,
+              "y": 7.5,
+              "label": "R(-3/2,15/2)",
+              "labelDx": -45,
+              "labelDy": -16,
+              "labelAnchor": "start"
+            },
+            {
+              "x": -1.5,
+              "y": 4,
+              "label": "S(-3/2,4)",
+              "labelDx": -17,
+              "labelDy": 28,
+              "labelAnchor": "start"
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance 2531",
       "choices": [
         "$11y - 3x - 53 = 0$",
@@ -496,6 +1045,8 @@
         "<b>ขั้นที่ 4:</b> เส้นผ่าน $S$ ชัน $\\dfrac{3}{11}$: $y - 4 = \\dfrac{3}{11}\\left(x + \\dfrac{3}{2}\\right)$",
         "คูณ 11: $11y - 44 = 3x + \\dfrac{9}{2}$ คูณ 2 อีกที: $22y - 88 = 6x + 9$",
         "จัดรูปได้ $22y - 6x - 97 = 0$",
+        "",
+        "[IMAGE]",
         "",
         "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ · คงสัมประสิทธิ์เส้นขนาน หาค่าคงที่ (parallel line, fixed coefficients) 】</b>",
         "เส้นขนานกัน<b>คงสัมประสิทธิ์ $x, y$ เดิม</b>: เส้นที่ขนานกับแนว $3x - 11y = $ ค่าคงที่ คือ $3x - 11y + c = 0$ → แทน $S\\left(-\\dfrac32, 4\\right)$: $-\\dfrac92 - 44 + c = 0$ → $c = \\dfrac{97}{2}$",
@@ -524,7 +1075,138 @@
       "level": "medium",
       "score": 1,
       "question": "ถ้า $L_1$ เป็นเส้นตรงที่ผ่านจุด $(-2, 0)$ และ $(-1, 2)$\nและ $L_2$ เป็นเส้นตรงที่ผ่านจุดกำเนิดและตั้งฉากกับ $L_1$ แล้ว\nพื้นที่ของรูปสามเหลี่ยมที่ล้อมรอบด้วยแกน $x$ เส้นตรง $L_1$ และเส้นตรง $L_2$ เท่ากับกี่ตารางหน่วย",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 360,
+          "height": 300,
+          "xRange": [
+            -3,
+            1
+          ],
+          "yRange": [
+            -0.6,
+            2
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "L1",
+              "kind": "piecewise-linear",
+              "points": [
+                [
+                  -3,
+                  -2
+                ],
+                [
+                  1,
+                  6
+                ]
+              ],
+              "color": "#d11",
+              "strokeWidth": 1.6,
+              "label": {
+                "at": [
+                  -1.453,
+                  1.824
+                ],
+                "text": "L_1",
+                "anchor": "start",
+                "color": "#d11"
+              }
+            },
+            {
+              "id": "L2",
+              "kind": "piecewise-linear",
+              "points": [
+                [
+                  -3,
+                  1.5
+                ],
+                [
+                  1,
+                  -0.5
+                ]
+              ],
+              "color": "#2e7d32",
+              "strokeWidth": 1.6,
+              "label": {
+                "at": [
+                  -2.9,
+                  1.55
+                ],
+                "text": "L_2",
+                "anchor": "start",
+                "color": "#2e7d32"
+              }
+            }
+          ],
+          "segments": [
+            {
+              "from": [
+                -2,
+                0
+              ],
+              "to": [
+                0,
+                0
+              ]
+            },
+            {
+              "from": [
+                0,
+                0
+              ],
+              "to": [
+                -1.6,
+                0.8
+              ]
+            },
+            {
+              "from": [
+                -1.6,
+                0.8
+              ],
+              "to": [
+                -2,
+                0
+              ]
+            }
+          ],
+          "dots": [
+            {
+              "x": -2,
+              "y": 0,
+              "label": "(-2,0)",
+              "labelDx": -10,
+              "labelDy": 14,
+              "labelAnchor": "end"
+            },
+            {
+              "x": 0,
+              "y": 0,
+              "label": "(0,0)",
+              "labelDx": 7,
+              "labelDy": -9,
+              "labelAnchor": "start"
+            },
+            {
+              "x": -1.6,
+              "y": 0.8,
+              "label": "(-8/5,4/5)",
+              "labelDx": -13,
+              "labelDy": 11,
+              "labelAnchor": "end"
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance ต.ค. 2541",
       "correct": "0.8",
       "accept": [
@@ -549,6 +1231,8 @@
         "",
         "<b>ขั้นที่ 4:</b> ฐานบนแกน $x$ จาก $(-2, 0)$ ถึง $(0, 0)$ ยาว 2 หน่วย ความสูง $= \\dfrac{4}{5}$",
         "พื้นที่ $= \\dfrac{1}{2} \\times 2 \\times \\dfrac{4}{5} = \\dfrac{4}{5} = 0.8$ ตารางหน่วย",
+        "",
+        "[IMAGE]",
         "",
         "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ · ขาตั้งฉาก = ระยะจุด–เส้นสองค่า (legs as point-line distances) 】</b>",
         "มุมฉากอยู่ที่จุดตัด $P$ → สองขาของสามเหลี่ยมคือ<b>ระยะจากจุดถึงเส้น</b>โดยตรง ไม่ต้องหา $P$: ขา 1 $= d\\big((-2,0) \\to L_2: x + 2y = 0\\big) = \\dfrac{|-2|}{\\sqrt{5}} = \\dfrac{2}{\\sqrt{5}}$",
@@ -724,7 +1408,123 @@
       "level": "medium",
       "score": 1,
       "question": "เส้นตรง $L$ มีความชันเท่ากับ $\\dfrac{1}{2}$ ผ่านจุด $C(-3, 0)$ และตัดแกน $y$ ที่จุด $A$\nเส้นตรง $AB$ ตั้งฉากกับเส้นตรง $L$ โดยที่มีเส้นตรงผ่านจุด $B$ ขนานกับแกน $y$ และตัดแกน $x$ ที่จุด $C$\nเส้นตรง $BC$ มีความยาวเท่าใด",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 340,
+          "height": 340,
+          "xRange": [
+            -4.5,
+            1.5
+          ],
+          "yRange": [
+            -1,
+            8.5
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "L",
+              "kind": "piecewise-linear",
+              "points": [
+                [
+                  -4.5,
+                  -0.75
+                ],
+                [
+                  1.5,
+                  2.25
+                ]
+              ],
+              "color": "#1f6feb",
+              "strokeWidth": 1.6,
+              "label": {
+                "at": [
+                  0.414,
+                  2.466
+                ],
+                "text": "L (m=1/2)",
+                "anchor": "start",
+                "color": "#1f6feb"
+              }
+            },
+            {
+              "id": "AB",
+              "kind": "piecewise-linear",
+              "points": [
+                [
+                  -3,
+                  7.5
+                ],
+                [
+                  1.5,
+                  -1.5
+                ]
+              ],
+              "color": "#d11",
+              "strokeWidth": 1.6,
+              "label": {
+                "at": [
+                  -1.486,
+                  5.569
+                ],
+                "text": "AB (⊥L)",
+                "anchor": "start",
+                "color": "#d11"
+              }
+            },
+            {
+              "id": "vert",
+              "kind": "piecewise-linear",
+              "points": [
+                [
+                  -3,
+                  -1
+                ],
+                [
+                  -3,
+                  8.5
+                ]
+              ],
+              "color": "#999",
+              "strokeWidth": 1,
+              "dashed": true
+            }
+          ],
+          "dots": [
+            {
+              "x": -3,
+              "y": 0,
+              "label": "C(-3,0)",
+              "labelDx": 15,
+              "labelDy": 19,
+              "labelAnchor": "end"
+            },
+            {
+              "x": 0,
+              "y": 1.5,
+              "label": "A(0,3/2)",
+              "labelDx": -59,
+              "labelDy": -3,
+              "labelAnchor": "start"
+            },
+            {
+              "x": -3,
+              "y": 7.5,
+              "label": "B(-3,15/2)",
+              "labelDx": 16,
+              "labelDy": -12,
+              "labelAnchor": "end"
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance 2524",
       "choices": [
         "4.5",
@@ -752,6 +1552,8 @@
         "",
         "<b>ขั้นที่ 4:</b> $B$ กับ $C(-3, 0)$ มีพิกัด $x$ เท่ากัน → $BC = \\left|\\dfrac{15}{2} - 0\\right| = 7.5$ หน่วย",
         "",
+        "[IMAGE]",
+        "",
         "<b>✔ ตรวจคำตอบ:</b> $B\\left(-3, \\dfrac{15}{2}\\right)$ อยู่บนเส้น $AB$: $-2(-3) + \\dfrac{3}{2} = \\dfrac{15}{2}$ ✓ และอยู่บน $x = -3$ ✓",
         "",
         "<b>✅ คำตอบ: 7.5 → ตัวเลือก 4</b>",
@@ -774,7 +1576,150 @@
       "level": "medium",
       "score": 1,
       "question": "กำหนดให้ $a$ เป็นจำนวนจริง และ $A(a, 1)$, $B(-5, -4)$, $C(1, -2)$, $D(2, 3)$ เป็นจุดยอดของรูปสี่เหลี่ยมด้านขนาน $ABCD$ ถ้า $L$ เป็นเส้นตรงที่ตั้งฉากกับ $AC$ และผ่านจุดกึ่งกลางของด้าน $AC$ แล้ว\nสมการของเส้นตรง $L$ คือสมการในข้อใดต่อไปนี้",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 380,
+          "height": 340,
+          "xRange": [
+            -6.5,
+            3
+          ],
+          "yRange": [
+            -5.5,
+            4
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "segments": [
+            {
+              "from": [
+                -4,
+                1
+              ],
+              "to": [
+                -5,
+                -4
+              ]
+            },
+            {
+              "from": [
+                -5,
+                -4
+              ],
+              "to": [
+                1,
+                -2
+              ]
+            },
+            {
+              "from": [
+                1,
+                -2
+              ],
+              "to": [
+                2,
+                3
+              ]
+            },
+            {
+              "from": [
+                2,
+                3
+              ],
+              "to": [
+                -4,
+                1
+              ]
+            },
+            {
+              "from": [
+                -4,
+                1
+              ],
+              "to": [
+                1,
+                -2
+              ],
+              "dashed": true
+            }
+          ],
+          "functions": [
+            {
+              "id": "L",
+              "kind": "piecewise-linear",
+              "points": [
+                [
+                  -3.5,
+                  -1.667
+                ],
+                [
+                  1,
+                  4.833
+                ]
+              ],
+              "color": "#1f6feb",
+              "strokeWidth": 1.6,
+              "label": {
+                "at": [
+                  -3.977,
+                  -2.419
+                ],
+                "text": "L (⊥ AC)",
+                "anchor": "start",
+                "color": "#1f6feb"
+              }
+            }
+          ],
+          "dots": [
+            {
+              "x": -4,
+              "y": 1,
+              "label": "A(-4,1)",
+              "labelDx": -8,
+              "labelDy": -6,
+              "labelAnchor": "end"
+            },
+            {
+              "x": -5,
+              "y": -4,
+              "label": "B(-5,-4)",
+              "labelDx": -8,
+              "labelDy": 4,
+              "labelAnchor": "end"
+            },
+            {
+              "x": 1,
+              "y": -2,
+              "label": "C(1,-2)",
+              "labelDx": 6,
+              "labelDy": 16,
+              "labelAnchor": "start"
+            },
+            {
+              "x": 2,
+              "y": 3,
+              "label": "D(2,3)",
+              "labelDx": 6,
+              "labelDy": -6,
+              "labelAnchor": "start"
+            },
+            {
+              "x": -1.5,
+              "y": -0.5,
+              "label": "จุดกึ่งกลาง",
+              "labelDx": -30,
+              "labelDy": 23,
+              "labelAnchor": "start"
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance มี.ค. 2546",
       "choices": [
         "$5x - 3y + 6 = 0$",
@@ -800,6 +1745,8 @@
         "",
         "<b>ขั้นที่ 4:</b> $L$ ผ่าน $\\left(-\\dfrac{3}{2}, -\\dfrac{1}{2}\\right)$: $y + \\dfrac{1}{2} = \\dfrac{5}{3}\\left(x + \\dfrac{3}{2}\\right)$",
         "คูณ 6: $6y + 3 = 10x + 15$ → $10x - 6y + 12 = 0$ หาร 2: $5x - 3y + 6 = 0$",
+        "",
+        "[IMAGE]",
         "",
         "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ · ด้านตรงข้ามขนานเท่ากัน (equal & parallel opposite sides) 】</b>",
         "• ในรูปสี่เหลี่ยมด้านขนาน $ABCD$ ด้าน $\\overline{AB}$ ขนานและยาวเท่ากับด้าน $\\overline{DC}$ → เวกเตอร์ $\\vec{AB} = \\vec{DC}$",
@@ -833,7 +1780,135 @@
       "level": "medium",
       "score": 1,
       "question": "สี่เหลี่ยมขนมเปียกปูนรูปหนึ่งยาวด้านละ 5 หน่วย อยู่เหนือแกน $x$, มีจุดยอดสองจุดอยู่บนแกน $y$\nโดยจุดยอดจุดหนึ่งคือ $(0, 0)$ และมีด้านๆ หนึ่งอยู่บนเส้นตรง $y = 2x$\nดังนั้น จุดยอดอีก 3 จุด คือข้อใดต่อไปนี้",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 340,
+          "height": 380,
+          "xRange": [
+            -3.2,
+            3.2
+          ],
+          "yRange": [
+            -1,
+            10
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y"
+          },
+          "functions": [
+            {
+              "id": "ref",
+              "kind": "piecewise-linear",
+              "points": [
+                [
+                  -0.3,
+                  -0.6
+                ],
+                [
+                  2.236,
+                  4.472
+                ]
+              ],
+              "domain": [
+                -0.3,
+                2.236
+              ],
+              "color": "#999",
+              "strokeWidth": 1,
+              "dashed": true,
+              "label": {
+                "at": [
+                  1.707,
+                  2.492
+                ],
+                "text": "y=2x",
+                "anchor": "start",
+                "color": "#999"
+              }
+            }
+          ],
+          "segments": [
+            {
+              "from": [
+                0,
+                0
+              ],
+              "to": [
+                2.236,
+                4.472
+              ]
+            },
+            {
+              "from": [
+                2.236,
+                4.472
+              ],
+              "to": [
+                0,
+                8.944
+              ]
+            },
+            {
+              "from": [
+                0,
+                8.944
+              ],
+              "to": [
+                -2.236,
+                4.472
+              ]
+            },
+            {
+              "from": [
+                -2.236,
+                4.472
+              ],
+              "to": [
+                0,
+                0
+              ]
+            }
+          ],
+          "dots": [
+            {
+              "x": 0,
+              "y": 0,
+              "label": "O(0,0)",
+              "labelDx": 12,
+              "labelDy": 20,
+              "labelAnchor": "start"
+            },
+            {
+              "x": 2.236,
+              "y": 4.472,
+              "label": "(√5,2√5)",
+              "labelDx": 14,
+              "labelDy": -8,
+              "labelAnchor": "start"
+            },
+            {
+              "x": 0,
+              "y": 8.944,
+              "label": "(0,4√5)",
+              "labelDx": 8,
+              "labelDy": -8,
+              "labelAnchor": "start"
+            },
+            {
+              "x": -2.236,
+              "y": 4.472,
+              "label": "(-√5,2√5)",
+              "labelDx": -8,
+              "labelDy": -4,
+              "labelAnchor": "end"
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance 2527",
       "choices": [
         "$(-\\sqrt{5}, 2\\sqrt{5})$, $(\\sqrt{5}, 2\\sqrt{5})$, $(0, 4\\sqrt{5})$",
@@ -859,6 +1934,8 @@
         "<b>ขั้นที่ 3:</b> ยอดบนสุด $= (\\sqrt{5}, 2\\sqrt{5}) + (-\\sqrt{5}, 2\\sqrt{5}) = (0, 4\\sqrt{5})$ อยู่บนแกน $y$ ✓",
         "สรุปจุดยอดทั้งสี่: $(0,0)$, $(\\sqrt{5}, 2\\sqrt{5})$, $(0, 4\\sqrt{5})$, $(-\\sqrt{5}, 2\\sqrt{5})$",
         "",
+        "[IMAGE]",
+        "",
         "<b>✔ ตรวจคำตอบ:</b> ตรวจด้าน $(\\sqrt{5}, 2\\sqrt{5})$ ถึง $(0, 4\\sqrt{5})$: $\\sqrt{5 + (2\\sqrt{5})^2 - ...}$ คิดตรง ๆ $= \\sqrt{(\\sqrt{5})^2 + (2\\sqrt{5})^2} = \\sqrt{25} = 5$ ✓ ทุกด้านยาว 5 ทุกจุดมี $y \\ge 0$ ✓ ด้านล่างขวาอยู่บน $y = 2x$ ✓",
         "",
         "<b>✅ คำตอบ: $(-\\sqrt{5}, 2\\sqrt{5})$, $(\\sqrt{5}, 2\\sqrt{5})$, $(0, 4\\sqrt{5})$ → ตัวเลือก 1</b>",
@@ -881,7 +1958,152 @@
       "level": "easy",
       "score": 1,
       "question": "กำหนดให้ $N$ เป็นเส้นตรง $2x + 3y - 8 = 0$ ซึ่งตัดแกน $x$ ที่จุด $A$\n$M$ เป็นเส้นตรงที่ลากผ่านจุด $(1, 3)$ และ $(2, -1)$\n$L$ เป็นเส้นตรงที่ลากผ่านจุด $A$ และตั้งฉากกับเส้นตรง $M$\nข้อใดต่อไปนี้ถูก",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 380,
+          "height": 340,
+          "xRange": [
+            -1.5,
+            5.5
+          ],
+          "yRange": [
+            -2.5,
+            4.5
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "M",
+              "kind": "piecewise-linear",
+              "points": [
+                [
+                  0.75,
+                  4
+                ],
+                [
+                  2.25,
+                  -2
+                ]
+              ],
+              "domain": [
+                0.75,
+                2.25
+              ],
+              "color": "#d11",
+              "strokeWidth": 1.6,
+              "label": {
+                "at": [
+                  0.8,
+                  4.2
+                ],
+                "text": "M",
+                "anchor": "start",
+                "color": "#d11"
+              }
+            },
+            {
+              "id": "N",
+              "kind": "piecewise-linear",
+              "points": [
+                [
+                  0,
+                  2.667
+                ],
+                [
+                  5,
+                  -0.667
+                ]
+              ],
+              "domain": [
+                0,
+                5
+              ],
+              "color": "#999",
+              "strokeWidth": 1,
+              "dashed": true,
+              "label": {
+                "at": [
+                  2.262,
+                  1.52
+                ],
+                "text": "N",
+                "anchor": "end",
+                "color": "#999"
+              }
+            },
+            {
+              "id": "L",
+              "kind": "piecewise-linear",
+              "points": [
+                [
+                  -1,
+                  -1.25
+                ],
+                [
+                  5,
+                  0.25
+                ]
+              ],
+              "domain": [
+                -1,
+                5
+              ],
+              "color": "#1f6feb",
+              "strokeWidth": 1.6,
+              "label": {
+                "at": [
+                  3.152,
+                  -0.561
+                ],
+                "text": "L",
+                "anchor": "middle",
+                "color": "#1f6feb"
+              }
+            }
+          ],
+          "dots": [
+            {
+              "x": 1,
+              "y": 3,
+              "label": "(1,3)",
+              "labelDx": -9,
+              "labelDy": 3,
+              "labelAnchor": "end"
+            },
+            {
+              "x": 2,
+              "y": -1,
+              "label": "(2,-1)",
+              "labelDx": -40,
+              "labelDy": 10,
+              "labelAnchor": "start"
+            },
+            {
+              "x": 4,
+              "y": 0,
+              "label": "A(4,0)",
+              "labelDx": -1,
+              "labelDy": -15,
+              "labelAnchor": "start"
+            },
+            {
+              "x": 0,
+              "y": -1,
+              "label": "(0,-1)",
+              "labelDx": -14,
+              "labelDy": -6,
+              "labelAnchor": "end"
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance 2530",
       "choices": [
         "ระยะตัดแกน $x$ ของเส้นตรง $L$ คือ $-4$",
@@ -908,6 +2130,8 @@
         "ตัวเลือก 2: ความชัน $L = \\dfrac{1}{4}$ มากกว่าความชัน $M = -4$ ✗",
         "ตัวเลือก 3: $L$ คือ $x - 4y - 4 = 0$ ไม่ใช่ $y + 4x - 7 = 0$ ✗",
         "ตัวเลือก 4: ระยะตัดแกน $y$: แทน $x = 0$ ได้ $y = -1$ ✓",
+        "",
+        "[IMAGE]",
         "",
         "<b>✔ ตรวจคำตอบ:</b> $L$: $y = \\dfrac{x}{4} - 1$ ผ่าน $(4, 0)$: $\\dfrac{4}{4} - 1 = 0$ ✓ และ $\\dfrac{1}{4} \\cdot (-4) = -1$ ✓ ตั้งฉากกับ $M$ จริง",
         "",
@@ -983,7 +2207,121 @@
       "level": "medium",
       "score": 1,
       "question": "กำหนดให้เส้นตรง $L_1$ ลากผ่านจุดกำเนิด และทำมุม $60°$ กับแกน $x$ ทางด้านบวก\nถ้าเส้นตรง $L_2$ ห่างจากจุดกำเนิด 6 หน่วย และตั้งฉากกับเส้นตรง $L_1$ ในควอดรันต์ที่หนึ่ง\nแล้วสมการของเส้นตรง $L_2$ คือสมการในข้อใดต่อไปนี้",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 380,
+          "height": 340,
+          "xRange": [
+            -1,
+            13.5
+          ],
+          "yRange": [
+            -1,
+            8
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y"
+          },
+          "functions": [
+            {
+              "id": "L1",
+              "kind": "piecewise-linear",
+              "points": [
+                [
+                  0,
+                  0
+                ],
+                [
+                  4.3,
+                  7.448
+                ]
+              ],
+              "domain": [
+                0,
+                4.3
+              ],
+              "color": "#1f6feb",
+              "strokeWidth": 1.6,
+              "label": {
+                "at": [
+                  4.4,
+                  7.548
+                ],
+                "text": "L_1 (60°)",
+                "anchor": "start",
+                "color": "#1f6feb"
+              }
+            },
+            {
+              "id": "L2",
+              "kind": "piecewise-linear",
+              "points": [
+                [
+                  0,
+                  6.928
+                ],
+                [
+                  12,
+                  0
+                ]
+              ],
+              "domain": [
+                0,
+                12
+              ],
+              "color": "#d11",
+              "strokeWidth": 1.6,
+              "label": {
+                "at": [
+                  9,
+                  1.6
+                ],
+                "text": "L_2",
+                "anchor": "start",
+                "color": "#d11"
+              }
+            }
+          ],
+          "dots": [
+            {
+              "x": 0,
+              "y": 0,
+              "label": "O",
+              "labelDx": 8,
+              "labelDy": 16,
+              "labelAnchor": "start"
+            },
+            {
+              "x": 3,
+              "y": 5.196,
+              "label": "F(3,3√3)",
+              "labelDx": -10,
+              "labelDy": -12,
+              "labelAnchor": "end"
+            },
+            {
+              "x": 12,
+              "y": 0,
+              "label": "(12,0)",
+              "labelDx": 6,
+              "labelDy": 16,
+              "labelAnchor": "start"
+            },
+            {
+              "x": 0,
+              "y": 6.928,
+              "label": "(0,4√3)",
+              "labelDx": 10,
+              "labelDy": -6,
+              "labelAnchor": "start"
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance 2534",
       "choices": [
         "$x + \\sqrt{3}y + 12 = 0$",
@@ -1007,6 +2345,8 @@
         "",
         "<b>ขั้นที่ 4:</b> ตั้งฉากกันในควอดรันต์ที่หนึ่ง → $L_2$ ต้องตัดผ่านบริเวณ $x > 0, y > 0$ → ระยะตัดแกนเป็นบวก → $C = -12$",
         "(เช็ค: $x + \\sqrt{3}y - 12 = 0$ ตัดแกน $x$ ที่ 12 และแกน $y$ ที่ $\\dfrac{12}{\\sqrt{3}} = 4\\sqrt{3}$ — บวกทั้งคู่ ✓)",
+        "",
+        "[IMAGE]",
         "",
         "<b>✔ ตรวจคำตอบ:</b> จุดตัด $L_1$ กับ $L_2$: แก้ $y = \\sqrt{3}x$ กับ $x + \\sqrt{3}y = 12$ ได้ $x = 3, y = 3\\sqrt{3}$ — อยู่ควอดรันต์ 1 ✓ และระยะ $O$ ถึงจุดนี้ $= \\sqrt{9 + 27} = 6$ ✓",
         "",
@@ -1081,7 +2421,118 @@
       "level": "medium",
       "score": 1,
       "question": "จุดยอดของรูปสามเหลี่ยมด้านเท่าสองจุดคือ $(1, 3)$ และ $(4, -1)$\nดังนั้น จุดยอดอีกจุดที่เหลืออยู่ในควอดรันต์ใดได้บ้าง",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 440,
+          "height": 380,
+          "xRange": [
+            -3.5,
+            8.2
+          ],
+          "yRange": [
+            -3,
+            5
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "segments": [
+            {
+              "from": [
+                1,
+                3
+              ],
+              "to": [
+                4,
+                -1
+              ]
+            },
+            {
+              "from": [
+                1,
+                3
+              ],
+              "to": [
+                5.964,
+                3.598
+              ],
+              "dashed": true
+            },
+            {
+              "from": [
+                4,
+                -1
+              ],
+              "to": [
+                5.964,
+                3.598
+              ],
+              "dashed": true
+            },
+            {
+              "from": [
+                1,
+                3
+              ],
+              "to": [
+                -0.964,
+                -1.598
+              ],
+              "dashed": true
+            },
+            {
+              "from": [
+                4,
+                -1
+              ],
+              "to": [
+                -0.964,
+                -1.598
+              ],
+              "dashed": true
+            }
+          ],
+          "dots": [
+            {
+              "x": 1,
+              "y": 3,
+              "label": "(1,3)",
+              "labelDx": -8,
+              "labelDy": -8,
+              "labelAnchor": "end"
+            },
+            {
+              "x": 4,
+              "y": -1,
+              "label": "(4,-1)",
+              "labelDx": 8,
+              "labelDy": 14,
+              "labelAnchor": "start"
+            },
+            {
+              "x": 5.964,
+              "y": 3.598,
+              "label": "(5.96,3.60) Q1",
+              "labelDx": 8,
+              "labelDy": -8,
+              "labelAnchor": "start"
+            },
+            {
+              "x": -0.964,
+              "y": -1.598,
+              "label": "(-0.96,-1.60) Q3",
+              "labelDx": 10,
+              "labelDy": 18,
+              "labelAnchor": "start"
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance 2524",
       "choices": [
         "ควอดรันต์ที่ 1 และ 2",
@@ -1108,6 +2559,8 @@
         "<b>ขั้นที่ 4:</b> คิดค่าประมาณ ($\\sqrt{3} \\approx 1.732$):",
         "จุดแรก $\\approx (2.5 + 3.46,\\ 1 + 2.60) = (5.96, 3.60)$ → ควอดรันต์ที่ 1",
         "จุดที่สอง $\\approx (2.5 - 3.46,\\ 1 - 2.60) = (-0.96, -1.60)$ → ควอดรันต์ที่ 3",
+        "",
+        "[IMAGE]",
         "",
         "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ · หมุนจุดยอด ±60° (rotation transformation) 】</b>",
         "• จุดยอดที่สามคือภาพการหมุนของ $B(4, -1)$ รอบจุด $A(1, 3)$ ด้วยมุม $\\pm 60°$ (เลือกเครื่องหมายตามทิศการหมุน)",
@@ -1140,7 +2593,90 @@
       "level": "medium",
       "score": 1,
       "question": "ถ้า $(a, b)$ เป็นจุดบนเส้นตรง $y = 2x - 4$ ที่อยู่ใกล้จุด $(1, 3)$ มากที่สุด\nแล้ว $b(a + b)$ เท่ากับเท่าใด",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 360,
+          "height": 340,
+          "xRange": [
+            -1,
+            5
+          ],
+          "yRange": [
+            -5,
+            4
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "line",
+              "kind": "piecewise-linear",
+              "points": [
+                [
+                  -0.5,
+                  -5.0
+                ],
+                [
+                  4,
+                  4
+                ]
+              ],
+              "domain": [
+                -0.5,
+                4
+              ],
+              "color": "#1f6feb",
+              "strokeWidth": 1.6,
+              "label": {
+                "at": [
+                  -0.4,
+                  -4.5
+                ],
+                "text": "y=2x-4",
+                "anchor": "start",
+                "color": "#1f6feb"
+              }
+            }
+          ],
+          "segments": [
+            {
+              "from": [
+                1,
+                3
+              ],
+              "to": [
+                3,
+                2
+              ],
+              "dashed": true
+            }
+          ],
+          "dots": [
+            {
+              "x": 1,
+              "y": 3,
+              "label": "(1,3)",
+              "labelDx": -10,
+              "labelDy": -8,
+              "labelAnchor": "end"
+            },
+            {
+              "x": 3,
+              "y": 2,
+              "label": "(a,b)=(3,2)",
+              "labelDx": 10,
+              "labelDy": 8,
+              "labelAnchor": "start"
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance 2532",
       "correct": "10",
       "accept": [
@@ -1162,6 +2698,8 @@
         "ดังนั้น $(a, b) = (3, 2)$",
         "",
         "<b>ขั้นที่ 4:</b> $b(a + b) = 2(3 + 2) = 10$",
+        "",
+        "[IMAGE]",
         "",
         "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ · minimize ระยะกำลังสอง (calculus optimization) 】</b>",
         "• จุดบนเส้น $y = 2x - 4$ คือ $(x, \\, 2x - 4)$ → ระยะกำลังสองถึง $(1, 3)$ คือ",
@@ -1196,7 +2734,127 @@
       "level": "medium",
       "score": 1,
       "question": "กำหนดให้ $A(a, 3)$, $B(7, -3)$ และ $C(-4, -2)$ เป็นจุดยอดของสามเหลี่ยมที่มีมุม $A$ เป็นมุมฉาก\nถ้า $a > \\tan 60°$ แล้ว สมการเส้นตรงที่ผ่านจุด $A$ และ $C$ คือข้อใดต่อไปนี้",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 400,
+          "height": 360,
+          "xRange": [
+            -6,
+            8.5
+          ],
+          "yRange": [
+            -4.5,
+            4
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "segments": [
+            {
+              "from": [
+                2,
+                3
+              ],
+              "to": [
+                7,
+                -3
+              ]
+            },
+            {
+              "from": [
+                7,
+                -3
+              ],
+              "to": [
+                -4,
+                -2
+              ]
+            },
+            {
+              "from": [
+                2.224,
+                2.731
+              ],
+              "to": [
+                1.955,
+                2.507
+              ]
+            },
+            {
+              "from": [
+                1.955,
+                2.507
+              ],
+              "to": [
+                1.731,
+                2.776
+              ]
+            }
+          ],
+          "dots": [
+            {
+              "x": 2,
+              "y": 3,
+              "label": "A(2,3)",
+              "labelDx": 4,
+              "labelDy": -14,
+              "labelAnchor": "start"
+            },
+            {
+              "x": 7,
+              "y": -3,
+              "label": "B(7,-3)",
+              "labelDx": 8,
+              "labelDy": 10,
+              "labelAnchor": "start"
+            },
+            {
+              "x": -4,
+              "y": -2,
+              "label": "C(-4,-2)",
+              "labelDx": -8,
+              "labelDy": -8,
+              "labelAnchor": "end"
+            }
+          ],
+          "functions": [
+            {
+              "id": "AC",
+              "kind": "piecewise-linear",
+              "points": [
+                [
+                  -4,
+                  -2
+                ],
+                [
+                  2,
+                  3
+                ]
+              ],
+              "domain": [
+                -4,
+                2
+              ],
+              "color": "#1f6feb",
+              "strokeWidth": 1.8,
+              "label": {
+                "at": [
+                  -3.5,
+                  -1.3
+                ],
+                "text": "AC (คำตอบ)",
+                "anchor": "start",
+                "color": "#1f6feb"
+              }
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance 2536",
       "choices": [
         "$x - y + 2 = 0$",
@@ -1224,6 +2882,8 @@
         "",
         "<b>ขั้นที่ 4:</b> เส้นผ่าน $A(2, 3)$ และ $C(-4, -2)$: ความชัน $= \\dfrac{3 - (-2)}{2 - (-4)} = \\dfrac{5}{6}$",
         "$y - 3 = \\dfrac{5}{6}(x - 2)$ → $6y - 18 = 5x - 10$ → $5x - 6y + 8 = 0$",
+        "",
+        "[IMAGE]",
         "",
         "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ · ทฤษฎีบทเทลีส (Thales' theorem) 】</b>",
         "• มุม $A$ เป็นมุมฉากในสามเหลี่ยม $ABC$ ⟺ จุด $A$ อยู่บนวงกลมที่มี $\\overline{BC}$ เป็นเส้นผ่านศูนย์กลาง",
@@ -10055,7 +11715,143 @@
       "level": "medium",
       "score": 1,
       "question": "กำหนด $P(1, 0)$, $Q(2, -1)$ และ $R(-1, -2)$ เป็นจุดสามจุดในระนาบพิกัดฉาก\nถ้า A, B และ C เป็นจุดอีกสามจุดในระนาบเดียวกัน ที่ทำให้รูปสี่เหลี่ยม AQPR, BRQP และ CPRQ\nเป็นรูปสี่เหลี่ยมด้านขนาน แล้ว ความยาวรอบรูปของสามเหลี่ยม ABC เป็นกี่หน่วย",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 380,
+          "height": 380,
+          "xRange": [
+            -4,
+            6
+          ],
+          "yRange": [
+            -5,
+            3
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "segments": [
+            {
+              "from": [
+                0,
+                -3
+              ],
+              "to": [
+                -2,
+                -1
+              ]
+            },
+            {
+              "from": [
+                -2,
+                -1
+              ],
+              "to": [
+                4,
+                1
+              ]
+            },
+            {
+              "from": [
+                4,
+                1
+              ],
+              "to": [
+                0,
+                -3
+              ]
+            },
+            {
+              "from": [
+                1,
+                0
+              ],
+              "to": [
+                2,
+                -1
+              ],
+              "dashed": true
+            },
+            {
+              "from": [
+                2,
+                -1
+              ],
+              "to": [
+                -1,
+                -2
+              ],
+              "dashed": true
+            },
+            {
+              "from": [
+                -1,
+                -2
+              ],
+              "to": [
+                1,
+                0
+              ],
+              "dashed": true
+            }
+          ],
+          "dots": [
+            {
+              "x": 1,
+              "y": 0,
+              "label": "P(1,0)",
+              "labelDx": 8,
+              "labelDy": -8,
+              "labelAnchor": "start"
+            },
+            {
+              "x": 2,
+              "y": -1,
+              "label": "Q(2,-1)",
+              "labelDx": 8,
+              "labelDy": 10,
+              "labelAnchor": "start"
+            },
+            {
+              "x": -1,
+              "y": -2,
+              "label": "R(-1,-2)",
+              "labelDx": -8,
+              "labelDy": 14,
+              "labelAnchor": "end"
+            },
+            {
+              "x": 0,
+              "y": -3,
+              "label": "A(0,-3)",
+              "labelDx": 8,
+              "labelDy": 14,
+              "labelAnchor": "start"
+            },
+            {
+              "x": -2,
+              "y": -1,
+              "label": "B(-2,-1)",
+              "labelDx": -8,
+              "labelDy": -8,
+              "labelAnchor": "end"
+            },
+            {
+              "x": 4,
+              "y": 1,
+              "label": "C(4,1)",
+              "labelDx": 8,
+              "labelDy": -8,
+              "labelAnchor": "start"
+            }
+          ]
+        }
+      ],
       "sourceTag": "คัดโอลิมปิก 2535",
       "choices": [
         "$8\\sqrt{2} + 4\\sqrt{10}$",
@@ -10077,6 +11873,8 @@
         "",
         "<b>ขั้นที่ 4:</b> $AB = \\sqrt{4 + 4} = 2\\sqrt{2}$ | $BC = \\sqrt{36 + 4} = 2\\sqrt{10}$ | $CA = \\sqrt{16 + 16} = 4\\sqrt{2}$",
         "ความยาวรอบรูป $= 2\\sqrt{2} + 2\\sqrt{10} + 4\\sqrt{2} = 6\\sqrt{2} + 2\\sqrt{10}$",
+        "",
+        "[IMAGE]",
         "",
         "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ · $P, Q, R$ เป็นจุดกึ่งกลางด้าน → รอบรูปครึ่งหนึ่ง (medial triangle) 】</b>",
         "ใช้โครงสร้างจุดกึ่งกลาง: จากเงื่อนไขด้านขนาน $B = R + P - Q$",
@@ -10149,7 +11947,122 @@
       "level": "easy",
       "score": 1,
       "question": "เส้นตรง $x + y = 3$ ตัดแกน x และแกน y ที่จุด A และ B ตามลำดับ\nถ้า P เป็นจุดซึ่งแบ่งส่วนของเส้นตรง AB ออกเป็นอัตราส่วน $3 : 1$\nและอยู่บนเส้นตรง $y - m(x - 1) - 3 = 0$ แล้ว m มีค่าเท่าใด",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 360,
+          "height": 340,
+          "xRange": [
+            -0.5,
+            3.5
+          ],
+          "yRange": [
+            -0.5,
+            4.2
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "AB",
+              "kind": "piecewise-linear",
+              "points": [
+                [
+                  0,
+                  3
+                ],
+                [
+                  3,
+                  0
+                ]
+              ],
+              "domain": [
+                0,
+                3
+              ],
+              "color": "#999",
+              "strokeWidth": 1.2,
+              "label": {
+                "at": [
+                  1.9,
+                  1.3
+                ],
+                "text": "x+y=3",
+                "anchor": "start",
+                "color": "#999"
+              }
+            },
+            {
+              "id": "L",
+              "kind": "piecewise-linear",
+              "points": [
+                [
+                  0.3,
+                  0.9
+                ],
+                [
+                  1.3,
+                  3.9
+                ]
+              ],
+              "domain": [
+                0.3,
+                1.3
+              ],
+              "color": "#1f6feb",
+              "strokeWidth": 1.6,
+              "label": {
+                "at": [
+                  1.35,
+                  3.7
+                ],
+                "text": "L (m=3)",
+                "anchor": "start",
+                "color": "#1f6feb"
+              }
+            }
+          ],
+          "dots": [
+            {
+              "x": 3,
+              "y": 0,
+              "label": "A(3,0)",
+              "labelDx": 6,
+              "labelDy": 16,
+              "labelAnchor": "start"
+            },
+            {
+              "x": 0,
+              "y": 3,
+              "label": "B(0,3)",
+              "labelDx": -8,
+              "labelDy": -6,
+              "labelAnchor": "end"
+            },
+            {
+              "x": 0.75,
+              "y": 2.25,
+              "label": "P(3/4,9/4)",
+              "labelDx": 10,
+              "labelDy": 6,
+              "labelAnchor": "start"
+            },
+            {
+              "x": 1,
+              "y": 3,
+              "label": "(1,3)",
+              "labelDx": -8,
+              "labelDy": -8,
+              "labelAnchor": "end"
+            }
+          ]
+        }
+      ],
       "sourceTag": "คัดโอลิมปิก 2545",
       "choices": [
         "$-5$",
@@ -10169,6 +12082,8 @@
         "$\\begin{aligned} P &= \\dfrac{1 \\cdot A + 3 \\cdot B}{4} \\\\ &= \\left(\\dfrac{3}{4}, \\dfrac{9}{4}\\right) \\end{aligned}$",
         "",
         "<b>ขั้นที่ 3:</b> แทนในเส้น $y = m(x - 1) + 3$: $\\dfrac{9}{4} = m\\left(\\dfrac{3}{4} - 1\\right) + 3$ → $-\\dfrac{3}{4} = -\\dfrac{m}{4}$ → $m = 3$",
+        "",
+        "[IMAGE]",
         "",
         "<b>✔ ตรวจคำตอบ:</b> P อยู่บน AB จริง: $\\dfrac{3}{4} + \\dfrac{9}{4} = 3$ ✓",
         "",
@@ -10192,7 +12107,114 @@
       "level": "medium",
       "score": 1,
       "question": "ให้ A, B, C เป็นจุดยอดของสามเหลี่ยมรูปหนึ่ง ซึ่งมีพิกัดเป็น $(1, 3)$, $(-1, 1)$ และ $(1, -1)$ ตามลำดับ\nข้อใดต่อไปนี้ถูก",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 340,
+          "height": 380,
+          "xRange": [
+            -2.3,
+            2.3
+          ],
+          "yRange": [
+            -2.3,
+            4
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "segments": [
+            {
+              "from": [
+                1,
+                3
+              ],
+              "to": [
+                -1,
+                1
+              ]
+            },
+            {
+              "from": [
+                -1,
+                1
+              ],
+              "to": [
+                1,
+                -1
+              ]
+            },
+            {
+              "from": [
+                1,
+                -1
+              ],
+              "to": [
+                1,
+                3
+              ]
+            },
+            {
+              "from": [
+                -0.802,
+                1.198
+              ],
+              "to": [
+                -0.604,
+                1.0
+              ]
+            },
+            {
+              "from": [
+                -0.604,
+                1.0
+              ],
+              "to": [
+                -0.802,
+                0.802
+              ]
+            }
+          ],
+          "dots": [
+            {
+              "x": 1,
+              "y": 3,
+              "label": "A(1,3)",
+              "labelDx": 6,
+              "labelDy": -10,
+              "labelAnchor": "start"
+            },
+            {
+              "x": -1,
+              "y": 1,
+              "label": "B(-1,1)",
+              "labelDx": -8,
+              "labelDy": 4,
+              "labelAnchor": "end"
+            },
+            {
+              "x": 1,
+              "y": -1,
+              "label": "C(1,-1)",
+              "labelDx": 8,
+              "labelDy": 14,
+              "labelAnchor": "start"
+            },
+            {
+              "x": 0,
+              "y": 2,
+              "label": "mid AB=(0,2)",
+              "labelDx": -10,
+              "labelDy": -4,
+              "labelAnchor": "end"
+            }
+          ]
+        }
+      ],
       "sourceTag": "คัดโอลิมปิก 2545",
       "choices": [
         "จุดกึ่งกลางของด้าน AB คือ $(0, 2)$",
@@ -10217,6 +12239,8 @@
         "$a - b = -1 - 1 = -2$ ✓ ถูก (D บังเอิญทับจุด B พอดี — มุม B เป็นมุมฉาก)",
         "",
         "<b>ขั้นที่ 4:</b> ทั้งสามข้อถูก → ตอบข้อ 4",
+        "",
+        "[IMAGE]",
         "",
         "<b>✔ ตรวจคำตอบ:</b> มุม B ฉากจริง: $\\vec{BA} = (2, 2)$, $\\vec{BC} = (2, -2)$ ผลคูณจุด $= 4 - 4 = 0$ ✓ สอดคล้องกับ D = B",
         "",
@@ -10563,7 +12587,155 @@
       "level": "medium",
       "score": 1,
       "question": "กำหนดให้ $A(4, 3)$, $B(10, -5)$, $C(3, -4)$ และ $P(u, v)$ เป็นจุดในระนาบ\nโดยที่ CP ตั้งฉากกับ AB ที่จุด P แล้ว\nระยะจากจุด P ไปยังเส้นตรงซึ่งมีสมการ $3x + 4y + 8 = 0$ เท่ากับข้อใดต่อไปนี้",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 400,
+          "height": 360,
+          "xRange": [
+            2,
+            11
+          ],
+          "yRange": [
+            -6,
+            4
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "AB",
+              "kind": "piecewise-linear",
+              "points": [
+                [
+                  3.25,
+                  4.0
+                ],
+                [
+                  10.5,
+                  -5.667
+                ]
+              ],
+              "domain": [
+                3.25,
+                10.5
+              ],
+              "color": "#1f6feb",
+              "strokeWidth": 1.6,
+              "label": {
+                "at": [
+                  8.6,
+                  -2.633
+                ],
+                "text": "AB",
+                "anchor": "start",
+                "color": "#1f6feb"
+              }
+            },
+            {
+              "id": "target",
+              "kind": "piecewise-linear",
+              "points": [
+                [
+                  2,
+                  -3.5
+                ],
+                [
+                  5.3,
+                  -5.975
+                ]
+              ],
+              "domain": [
+                2,
+                5.3
+              ],
+              "color": "#999",
+              "strokeWidth": 1.2,
+              "dashed": true,
+              "label": {
+                "at": [
+                  2.2,
+                  -3.25
+                ],
+                "text": "3x+4y+8=0",
+                "anchor": "start",
+                "color": "#999"
+              }
+            }
+          ],
+          "segments": [
+            {
+              "from": [
+                3,
+                -4
+              ],
+              "to": [
+                7,
+                -1
+              ],
+              "dashed": true
+            },
+            {
+              "from": [
+                7,
+                -1
+              ],
+              "to": [
+                4,
+                -5
+              ],
+              "dashed": true
+            }
+          ],
+          "dots": [
+            {
+              "x": 4,
+              "y": 3,
+              "label": "A(4,3)",
+              "labelDx": 6,
+              "labelDy": -10,
+              "labelAnchor": "start"
+            },
+            {
+              "x": 10,
+              "y": -5,
+              "label": "B(10,-5)",
+              "labelDx": 8,
+              "labelDy": 14,
+              "labelAnchor": "start"
+            },
+            {
+              "x": 3,
+              "y": -4,
+              "label": "C(3,-4)",
+              "labelDx": -8,
+              "labelDy": -8,
+              "labelAnchor": "end"
+            },
+            {
+              "x": 7,
+              "y": -1,
+              "label": "P(7,-1)",
+              "labelDx": 8,
+              "labelDy": -8,
+              "labelAnchor": "start"
+            },
+            {
+              "x": 4,
+              "y": -5,
+              "label": "ระยะ=5",
+              "labelDx": -10,
+              "labelDy": 16,
+              "labelAnchor": "end"
+            }
+          ]
+        }
+      ],
       "sourceTag": "คัดโอลิมปิก 2547",
       "choices": [
         "$\\dfrac{18}{5}$",
@@ -10583,6 +12755,8 @@
         "$\\begin{aligned} P &= C - \\dfrac{-25}{4^2 + 3^2}(4, 3) \\\\ &= (3, -4) + (4, 3) \\\\ &= (7, -1) \\end{aligned}$",
         "",
         "<b>ขั้นที่ 3:</b> ระยะจาก $P(7, -1)$ ถึง $3x + 4y + 8 = 0$: $\\dfrac{|21 - 4 + 8|}{5} = \\dfrac{25}{5} = 5$",
+        "",
+        "[IMAGE]",
         "",
         "<b>✔ ตรวจคำตอบ:</b> P อยู่บน AB: $4(7) + 3(-1) - 25 = 0$ ✓ และ $\\vec{CP} = (4, 3)$ ขนานเวกเตอร์แนวฉากของ AB → ตั้งฉากกับ AB จริง ✓",
         "",
@@ -10606,7 +12780,129 @@
       "level": "medium",
       "score": 1,
       "question": "ให้ $A(a, b)$ เป็นจุดที่อยู่บนเส้นตรง $2x + y = 1$ โดยที่ $a \\ne 0$\nและระยะห่างระหว่างเส้นตรง $3x + 4y + 1 = 0$ กับจุด A เท่ากับ 1 หน่วย\nดังนั้น $a + b$ มีค่าเท่ากับข้อใดต่อไปนี้",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 380,
+          "height": 360,
+          "xRange": [
+            -1.5,
+            4
+          ],
+          "yRange": [
+            -5,
+            2.5
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "line1",
+              "kind": "piecewise-linear",
+              "points": [
+                [
+                  -1.5,
+                  4.0
+                ],
+                [
+                  4,
+                  -7
+                ]
+              ],
+              "domain": [
+                -1.5,
+                4
+              ],
+              "color": "#1f6feb",
+              "strokeWidth": 1.6,
+              "label": {
+                "at": [
+                  1.3,
+                  -1.3
+                ],
+                "text": "2x+y=1",
+                "anchor": "start",
+                "color": "#1f6feb"
+              }
+            },
+            {
+              "id": "line2",
+              "kind": "piecewise-linear",
+              "points": [
+                [
+                  -1.5,
+                  0.875
+                ],
+                [
+                  4,
+                  -3.25
+                ]
+              ],
+              "domain": [
+                -1.5,
+                4
+              ],
+              "color": "#999",
+              "strokeWidth": 1.2,
+              "dashed": true,
+              "label": {
+                "at": [
+                  -1.45,
+                  0.3
+                ],
+                "text": "3x+4y+1=0",
+                "anchor": "start",
+                "color": "#999"
+              }
+            }
+          ],
+          "segments": [
+            {
+              "from": [
+                2,
+                -3
+              ],
+              "to": [
+                2.6,
+                -2.2
+              ],
+              "dashed": true
+            }
+          ],
+          "dots": [
+            {
+              "x": 2,
+              "y": -3,
+              "label": "(2,-3) เลือก (a=2)",
+              "labelDx": 8,
+              "labelDy": 14,
+              "labelAnchor": "start"
+            },
+            {
+              "x": 0,
+              "y": 1,
+              "label": "(0,1) ตัด (a=0)",
+              "labelDx": 8,
+              "labelDy": -10,
+              "labelAnchor": "start",
+              "open": true
+            },
+            {
+              "x": 2.6,
+              "y": -2.2,
+              "label": "ระยะ=1",
+              "labelDx": 10,
+              "labelDy": -6,
+              "labelAnchor": "start"
+            }
+          ]
+        }
+      ],
       "sourceTag": "สมาคมคณิตศาสตร์ฯ 2548",
       "choices": [
         "$-3$",
@@ -10626,6 +12922,8 @@
         "",
         "<b>ขั้นที่ 3:</b> $-5a + 5 = \\pm 5$ → $a = 0$ (ตัดทิ้งตามเงื่อนไข $a \\ne 0$) หรือ $a = 2$",
         "$a = 2$ → $b = 1 - 4 = -3$ → $a + b = -1$",
+        "",
+        "[IMAGE]",
         "",
         "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ · ตัดกับเส้นขนาน 2 เส้น (parallel-line intersection) 】</b>",
         "• $d(A, L_2) = 1$ แปลว่า A อยู่บนเส้นขนานกับ $3x + 4y + 1 = 0$ ที่ระยะ 1 หน่วย",
@@ -10807,7 +13105,137 @@
       "level": "medium",
       "score": 1,
       "question": "กำหนดให้จุด B และ C มีพิกัด $(2, 1)$ และ $(-5, 3)$\nและ $r = \\{(x, y) \\mid (x, y)$ เป็นพิกัดของจุด ซึ่งเมื่อประกอบกับจุด B และ C แล้ว\nจะได้จุดยอดของรูปสามเหลี่ยมที่มีพื้นที่ 5 ตารางหน่วย$\\}$\nข้อใดต่อไปนี้ถูกต้อง",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 380,
+          "height": 360,
+          "xRange": [
+            -8,
+            4
+          ],
+          "yRange": [
+            -1.5,
+            6
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "BC",
+              "kind": "piecewise-linear",
+              "points": [
+                [
+                  -8,
+                  3.857
+                ],
+                [
+                  4,
+                  0.429
+                ]
+              ],
+              "domain": [
+                -8,
+                4
+              ],
+              "color": "#1f6feb",
+              "strokeWidth": 1.6,
+              "label": {
+                "at": [
+                  -1.5,
+                  2.157
+                ],
+                "text": "BC",
+                "anchor": "start",
+                "color": "#1f6feb"
+              }
+            },
+            {
+              "id": "r1",
+              "kind": "piecewise-linear",
+              "points": [
+                [
+                  -8,
+                  5.286
+                ],
+                [
+                  4,
+                  1.857
+                ]
+              ],
+              "domain": [
+                -8,
+                4
+              ],
+              "color": "#d11",
+              "strokeWidth": 1.4,
+              "dashed": true,
+              "label": {
+                "at": [
+                  -4.8,
+                  5.543
+                ],
+                "text": "2x+7y=21",
+                "anchor": "start",
+                "color": "#d11"
+              }
+            },
+            {
+              "id": "r2",
+              "kind": "piecewise-linear",
+              "points": [
+                [
+                  -8,
+                  2.429
+                ],
+                [
+                  4,
+                  -1.0
+                ]
+              ],
+              "domain": [
+                -8,
+                4
+              ],
+              "color": "#d11",
+              "strokeWidth": 1.4,
+              "dashed": true,
+              "label": {
+                "at": [
+                  -2.5,
+                  1.2069999999999999
+                ],
+                "text": "2x+7y=1",
+                "anchor": "start",
+                "color": "#d11"
+              }
+            }
+          ],
+          "dots": [
+            {
+              "x": 2,
+              "y": 1,
+              "label": "B(2,1)",
+              "labelDx": 8,
+              "labelDy": 14,
+              "labelAnchor": "start"
+            },
+            {
+              "x": -5,
+              "y": 3,
+              "label": "C(-5,3)",
+              "labelDx": -8,
+              "labelDy": -8,
+              "labelAnchor": "end"
+            }
+          ]
+        }
+      ],
       "sourceTag": "คัดโอลิมปิก 2535",
       "choices": [
         "$(0, -6) \\in r$",
@@ -10829,6 +13257,8 @@
         "",
         "<b>ขั้นที่ 4 (ตัดข้ออื่น):</b> เส้น BC: ความชัน $-\\dfrac{2}{7}$ → $2x + 7y - 11 = 0$",
         "ข้อ 1: จุด $(0, -6)$ ห่าง BC $= \\dfrac{|0 - 42 - 11|}{\\sqrt{53}} = \\sqrt{53} \\ne \\dfrac{10}{\\sqrt{53}}$ ✗ | ข้อ 2: เส้นตรงมีจุดอนันต์ → ไม่จำกัด ✗ | ข้อ 3: มีสองเส้น ไม่ใช่เส้นเดียว ✗",
+        "",
+        "[IMAGE]",
         "",
         "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ · ตั้งสมการพื้นที่ shoelace โดยตรง (shoelace formula) 】</b>",
         "• สูตร shoelace กับ B, C, $(x, y)$: $2 \\cdot$ พื้นที่ $= |x(1 - 3) + 2(3 - y) + (-5)(y - 1)| = |-2x - 7y + 11|$",
@@ -10860,7 +13290,170 @@
       "level": "medium",
       "score": 1,
       "question": "จุด $A(-3, 2)$, $B(5, 3)$, $C(5, -5)$ และ $D(-3, -10)$ เป็นจุดยอดมุมของรูปสี่เหลี่ยม ABCD\nจุด $P\\left(0, -\\dfrac{7}{2}\\right)$, $Q(2, 1)$ และ $R\\left(0, \\dfrac{3}{2}\\right)$ เป็นจุดยอดมุมของรูปสามเหลี่ยม PQR\nบริเวณที่อยู่ภายในรูปสี่เหลี่ยม ABCD แต่อยู่ภายนอกรูปสามเหลี่ยม PQR มีพื้นที่กี่ตารางหน่วย",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 420,
+          "height": 460,
+          "xRange": [
+            -4.5,
+            6.5
+          ],
+          "yRange": [
+            -11.5,
+            4
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "segments": [
+            {
+              "from": [
+                -3,
+                2
+              ],
+              "to": [
+                5,
+                3
+              ]
+            },
+            {
+              "from": [
+                5,
+                3
+              ],
+              "to": [
+                5,
+                -5
+              ]
+            },
+            {
+              "from": [
+                5,
+                -5
+              ],
+              "to": [
+                -3,
+                -10
+              ]
+            },
+            {
+              "from": [
+                -3,
+                -10
+              ],
+              "to": [
+                -3,
+                2
+              ]
+            },
+            {
+              "from": [
+                0,
+                -3.5
+              ],
+              "to": [
+                2,
+                1
+              ],
+              "dashed": true
+            },
+            {
+              "from": [
+                2,
+                1
+              ],
+              "to": [
+                0,
+                1.5
+              ],
+              "dashed": true
+            },
+            {
+              "from": [
+                0,
+                1.5
+              ],
+              "to": [
+                0,
+                -3.5
+              ],
+              "dashed": true
+            }
+          ],
+          "dots": [
+            {
+              "x": -3,
+              "y": 2,
+              "label": "A(-3,2)",
+              "labelDx": -8,
+              "labelDy": -6,
+              "labelAnchor": "end"
+            },
+            {
+              "x": 5,
+              "y": 3,
+              "label": "B(5,3)",
+              "labelDx": 8,
+              "labelDy": -6,
+              "labelAnchor": "start"
+            },
+            {
+              "x": 5,
+              "y": -5,
+              "label": "C(5,-5)",
+              "labelDx": 8,
+              "labelDy": 14,
+              "labelAnchor": "start"
+            },
+            {
+              "x": -3,
+              "y": -10,
+              "label": "D(-3,-10)",
+              "labelDx": -8,
+              "labelDy": 16,
+              "labelAnchor": "end"
+            },
+            {
+              "x": 0,
+              "y": -3.5,
+              "label": "P(0,-7/2)",
+              "labelDx": 19,
+              "labelDy": 4,
+              "labelLine": true,
+              "labelLineColor": "#e99",
+              "labelColor": "#c33",
+              "labelAnchor": "start"
+            },
+            {
+              "x": 2,
+              "y": 1,
+              "label": "Q(2,1)",
+              "labelDx": 18,
+              "labelDy": -4,
+              "labelLine": true,
+              "labelLineColor": "#e99",
+              "labelColor": "#c33",
+              "labelAnchor": "start"
+            },
+            {
+              "x": 0,
+              "y": 1.5,
+              "label": "R(0,3/2)",
+              "labelDx": 12,
+              "labelDy": -8,
+              "labelLine": true,
+              "labelLineColor": "#e99",
+              "labelColor": "#c33",
+              "labelAnchor": "start"
+            }
+          ]
+        }
+      ],
       "sourceTag": "ทุนเล่าเรียนหลวง (กพ.) 2538",
       "correct": "75",
       "accept": [
@@ -10880,6 +13473,8 @@
         "",
         "<b>ขั้นที่ 3:</b> สามเหลี่ยม PQR อยู่ภายใน ABCD ทั้งรูป (พิกัดทุกจุดอยู่ในช่วง $-3 \\le x \\le 5$ และอยู่เหนือด้านล่างของรูป)",
         "พื้นที่ที่ต้องการ $= 80 - 5 = 75$ ตารางหน่วย",
+        "",
+        "[IMAGE]",
         "",
         "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ · แยกเป็นคางหมูด้านดิ่ง + สามเหลี่ยมเล็ก (trapezoid + triangle decomposition) 】</b>",
         "สังเกตด้านดิ่งขนานกัน: $BC$ อยู่บน $x = 5$ (ยาว $8$) และ $AD$ อยู่บน $x = -3$ (ยาว $12$) ห่างกัน $8$ → คางหมูพื้นที่ $\\dfrac{1}{2}(8 + 12)(8) = 80$",
@@ -10908,7 +13503,86 @@
       "level": "easy",
       "score": 1,
       "question": "จุดยอดของรูปสามเหลี่ยมอยู่ที่ $(1, 1)$, $(-1, -1)$ และ $(-4, 2)$ บนระนาบ x และ y\nจงหาพื้นที่ของสามเหลี่ยมนี้",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 360,
+          "height": 360,
+          "xRange": [
+            -5.5,
+            2.5
+          ],
+          "yRange": [
+            -2.5,
+            3.5
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "segments": [
+            {
+              "from": [
+                1,
+                1
+              ],
+              "to": [
+                -1,
+                -1
+              ]
+            },
+            {
+              "from": [
+                -1,
+                -1
+              ],
+              "to": [
+                -4,
+                2
+              ]
+            },
+            {
+              "from": [
+                -4,
+                2
+              ],
+              "to": [
+                1,
+                1
+              ]
+            }
+          ],
+          "dots": [
+            {
+              "x": 1,
+              "y": 1,
+              "label": "(1,1)",
+              "labelDx": 8,
+              "labelDy": -6,
+              "labelAnchor": "start"
+            },
+            {
+              "x": -1,
+              "y": -1,
+              "label": "(-1,-1)",
+              "labelDx": -9,
+              "labelDy": 19,
+              "labelAnchor": "start"
+            },
+            {
+              "x": -4,
+              "y": 2,
+              "label": "(-4,2)",
+              "labelDx": -8,
+              "labelDy": -6,
+              "labelAnchor": "end"
+            }
+          ]
+        }
+      ],
       "sourceTag": "พื้นฐานวิศวะฯ 2534",
       "choices": [
         "6.5 ตารางหน่วย",
@@ -10926,6 +13600,8 @@
         "$= \\dfrac{1}{2}|1(-1 - 2) + (-1)(2 - 1) + (-4)(1 - (-1))|$",
         "",
         "<b>ขั้นที่ 2:</b> $= \\dfrac{1}{2}|-3 - 1 - 8| = \\dfrac{12}{2} = 6$ ตารางหน่วย",
+        "",
+        "[IMAGE]",
         "",
         "<b>✔ ตรวจคำตอบ:</b> วิธีฐาน-สูง: ฐานจาก $(1,1)$ ถึง $(-1,-1)$ ยาว $2\\sqrt{2}$ อยู่บนเส้น $x - y = 0$; สูงจาก $(-4, 2)$: $\\dfrac{|-4 - 2|}{\\sqrt{2}} = \\dfrac{6}{\\sqrt{2}}$ → พื้นที่ $= \\dfrac{1}{2} \\cdot 2\\sqrt{2} \\cdot \\dfrac{6}{\\sqrt{2}} = 6$ ✓",
         "",
@@ -11124,7 +13800,122 @@
       "level": "medium",
       "score": 1,
       "question": "ให้เส้นตรง $L_1$ ตัดแกน x ที่จุด A และตัดแกน y ที่จุด B\nโดยมีระยะตัดแกน x เท่ากับ 4 หน่วย และระยะตัดแกน y เท่ากับ 8 หน่วย\nถ้าเส้นตรง $L_2$ แบ่งครึ่งและตั้งฉากกับเส้นตรง AB และตัดแกน y ที่จุด C แล้ว จงหาความยาว AC",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 360,
+          "height": 360,
+          "xRange": [
+            -1.5,
+            5.5
+          ],
+          "yRange": [
+            -1,
+            9.5
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "AB",
+              "kind": "piecewise-linear",
+              "points": [
+                [
+                  4,
+                  0
+                ],
+                [
+                  0,
+                  8
+                ]
+              ],
+              "domain": [
+                0,
+                4
+              ],
+              "color": "#999",
+              "strokeWidth": 1.2,
+              "label": {
+                "at": [
+                  1.409,
+                  6.332
+                ],
+                "text": "AB",
+                "anchor": "start",
+                "color": "#999"
+              }
+            },
+            {
+              "id": "L2",
+              "kind": "piecewise-linear",
+              "points": [
+                [
+                  -1.2,
+                  2.4
+                ],
+                [
+                  5.2,
+                  5.6
+                ]
+              ],
+              "domain": [
+                -1.2,
+                5.2
+              ],
+              "color": "#1f6feb",
+              "strokeWidth": 1.6,
+              "label": {
+                "at": [
+                  4.123,
+                  5.524
+                ],
+                "text": "L_2",
+                "anchor": "start",
+                "color": "#1f6feb"
+              }
+            }
+          ],
+          "dots": [
+            {
+              "x": 4,
+              "y": 0,
+              "label": "A(4,0)",
+              "labelDx": -9,
+              "labelDy": 18,
+              "labelAnchor": "start"
+            },
+            {
+              "x": 0,
+              "y": 8,
+              "label": "B(0,8)",
+              "labelDx": -8,
+              "labelDy": -6,
+              "labelAnchor": "end"
+            },
+            {
+              "x": 2,
+              "y": 4,
+              "label": "M(2,4)",
+              "labelDx": 16,
+              "labelDy": 9,
+              "labelAnchor": "start"
+            },
+            {
+              "x": 0,
+              "y": 3,
+              "label": "C(0,3)",
+              "labelDx": -11,
+              "labelDy": -5,
+              "labelAnchor": "end"
+            }
+          ]
+        }
+      ],
       "sourceTag": "โควตา มช. 2541",
       "correct": "5",
       "accept": [
@@ -11145,6 +13936,8 @@
         "<b>ขั้นที่ 4:</b>",
         "$\\begin{aligned} AC &= \\sqrt{(4 - 0)^2 + (0 - 3)^2} \\\\ &= \\sqrt{25} \\\\ &= 5 \\end{aligned}$",
         "หน่วย",
+        "",
+        "[IMAGE]",
         "",
         "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ · $C$ บนเส้นแบ่งครึ่งตั้งฉาก ⟺ $CA = CB$ (equidistance condition) 】</b>",
         "$C(0, c)$ อยู่บนเส้นแบ่งครึ่งตั้งฉากของ $AB$ ⟺ <b>$CA = CB$</b> — ใช้นิยามตรงโดยไม่ต้องสร้างสมการเส้น: $16 + c^2 = (8 - c)^2$",
@@ -11175,7 +13968,99 @@
       "level": "easy",
       "score": 1,
       "question": "กำหนดให้จุด $(4, m)$ เป็นจุดอยู่บนเส้นตรง $2x - 3y = 5$\nจงหาสมการของเส้นตรงซึ่งผ่านจุด $(4, m)$ และตั้งฉากกับเส้นตรง $5x + 2y = 6$",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 360,
+          "height": 340,
+          "xRange": [
+            -1,
+            6.5
+          ],
+          "yRange": [
+            -2,
+            4
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "given",
+              "kind": "piecewise-linear",
+              "points": [
+                [
+                  -0.5,
+                  -2
+                ],
+                [
+                  6.5,
+                  2.667
+                ]
+              ],
+              "domain": [
+                -0.5,
+                6.5
+              ],
+              "color": "#999",
+              "strokeWidth": 1.2,
+              "dashed": true,
+              "label": {
+                "at": [
+                  4.817,
+                  2.527
+                ],
+                "text": "2x-3y=5",
+                "anchor": "start",
+                "color": "#999"
+              }
+            },
+            {
+              "id": "L",
+              "kind": "piecewise-linear",
+              "points": [
+                [
+                  1.9,
+                  0.16
+                ],
+                [
+                  6.4,
+                  1.96
+                ]
+              ],
+              "domain": [
+                1.9,
+                6.4
+              ],
+              "color": "#1f6feb",
+              "strokeWidth": 1.6,
+              "label": {
+                "at": [
+                  5.217,
+                  1.203
+                ],
+                "text": "2x-5y-3=0",
+                "anchor": "start",
+                "color": "#1f6feb"
+              }
+            }
+          ],
+          "dots": [
+            {
+              "x": 4,
+              "y": 1,
+              "label": "(4,1)",
+              "labelDx": -24,
+              "labelDy": -8,
+              "labelAnchor": "start"
+            }
+          ]
+        }
+      ],
       "sourceTag": "ทุนเล่าเรียนหลวง (กพ.) 2540",
       "correct": "2x-5y-3=0",
       "accept": [
@@ -11194,6 +14079,8 @@
         "<b>ขั้นที่ 2:</b> เส้น $5x + 2y = 6$ มีความชัน $-\\dfrac{5}{2}$ → เส้นที่ต้องการมีความชัน $\\dfrac{2}{5}$",
         "",
         "<b>ขั้นที่ 3:</b> $y - 1 = \\dfrac{2}{5}(x - 4)$ → $5y - 5 = 2x - 8$ → $2x - 5y - 3 = 0$",
+        "",
+        "[IMAGE]",
         "",
         "<b>✔ ตรวจคำตอบ:</b> แทน $(4, 1)$: $8 - 5 - 3 = 0$ ✓ และ $\\dfrac{2}{5} \\times \\left(-\\dfrac{5}{2}\\right) = -1$ ✓",
         "",
@@ -11268,7 +14155,129 @@
       "level": "medium",
       "score": 1,
       "question": "ถ้า L เป็นสมการเส้นตรงที่ผ่านจุดตัดของเส้นตรง $3x + 4y - 7 = 0$ และ $5x + 12y - 15 = 0$\nและตั้งฉากกับเส้นตรง $3x + y - 5 = 0$ แล้ว สมการเส้นตรง L เท่ากับข้อใด",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 380,
+          "height": 360,
+          "xRange": [
+            -1,
+            4
+          ],
+          "yRange": [
+            -2.5,
+            3
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "l1",
+              "kind": "piecewise-linear",
+              "points": [
+                [
+                  -1,
+                  3.667
+                ],
+                [
+                  4,
+                  -3
+                ]
+              ],
+              "domain": [
+                -1,
+                4
+              ],
+              "color": "#999",
+              "strokeWidth": 1,
+              "dashed": true,
+              "label": {
+                "at": [
+                  0.302,
+                  2.136
+                ],
+                "text": "3x+4y-7=0",
+                "anchor": "start",
+                "color": "#999"
+              }
+            },
+            {
+              "id": "l2",
+              "kind": "piecewise-linear",
+              "points": [
+                [
+                  -1,
+                  1.667
+                ],
+                [
+                  4,
+                  -0.417
+                ]
+              ],
+              "domain": [
+                -1,
+                4
+              ],
+              "color": "#aaa",
+              "strokeWidth": 1,
+              "dashed": true,
+              "label": {
+                "at": [
+                  2.734,
+                  0.291
+                ],
+                "text": "5x+12y-15=0",
+                "anchor": "start",
+                "color": "#aaa"
+              }
+            },
+            {
+              "id": "L",
+              "kind": "piecewise-linear",
+              "points": [
+                [
+                  0.3,
+                  0.225
+                ],
+                [
+                  3.7,
+                  1.358
+                ]
+              ],
+              "domain": [
+                0.3,
+                3.7
+              ],
+              "color": "#1f6feb",
+              "strokeWidth": 1.6,
+              "label": {
+                "at": [
+                  3.042,
+                  1.37
+                ],
+                "text": "L",
+                "anchor": "start",
+                "color": "#1f6feb"
+              }
+            }
+          ],
+          "dots": [
+            {
+              "x": 1.5,
+              "y": 0.625,
+              "label": "(3/2,5/8)",
+              "labelDx": -11,
+              "labelDy": -19,
+              "labelAnchor": "start"
+            }
+          ]
+        }
+      ],
       "sourceTag": "โควตา มช. 2545",
       "choices": [
         "$24y - 8x - 3 = 0$",
@@ -11288,6 +14297,8 @@
         "<b>ขั้นที่ 2:</b> เส้น $3x + y - 5 = 0$ ชัน $-3$ → L ชัน $\\dfrac{1}{3}$",
         "",
         "<b>ขั้นที่ 3:</b> $y - \\dfrac{5}{8} = \\dfrac{1}{3}\\left(x - \\dfrac{3}{2}\\right)$ คูณ 24: $24y - 15 = 8x - 12$ → $24y - 8x - 3 = 0$",
+        "",
+        "[IMAGE]",
         "",
         "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ · เงื่อนไขตั้งฉาก คัดตัวเลือกด้วยความชัน (perpendicular slope elimination) 】</b>",
         "$L \\perp 3x + y - 5 = 0$ (ชัน $-3$) → $L$ ต้องชัน $\\dfrac{1}{3}$ — เช็คความชันของตัวเลือก: $\\dfrac13, -3, -\\dfrac13, 3$ <b>ต่างกันหมด</b>",
@@ -11316,7 +14327,97 @@
       "level": "easy",
       "score": 1,
       "question": "สมการเส้นตรงซึ่งแบ่งครึ่งและตั้งฉากกับส่วนของเส้นตรง ที่เชื่อมระหว่างจุด $(9, 1)$ และ $(-3, 4)$\nคือข้อใดต่อไปนี้",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 380,
+          "height": 400,
+          "xRange": [
+            -5,
+            11
+          ],
+          "yRange": [
+            -11.5,
+            5.5
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "segments": [
+            {
+              "from": [
+                9,
+                1
+              ],
+              "to": [
+                -3,
+                4
+              ]
+            }
+          ],
+          "functions": [
+            {
+              "id": "L",
+              "kind": "piecewise-linear",
+              "points": [
+                [
+                  -0.5,
+                  -11.5
+                ],
+                [
+                  3.8,
+                  5.7
+                ]
+              ],
+              "domain": [
+                -0.5,
+                3.8
+              ],
+              "color": "#1f6feb",
+              "strokeWidth": 1.6,
+              "label": {
+                "at": [
+                  2.1,
+                  -3.923
+                ],
+                "text": "L",
+                "anchor": "start",
+                "color": "#1f6feb"
+              }
+            }
+          ],
+          "dots": [
+            {
+              "x": 9,
+              "y": 1,
+              "label": "(9,1)",
+              "labelDx": 8,
+              "labelDy": -8,
+              "labelAnchor": "start"
+            },
+            {
+              "x": -3,
+              "y": 4,
+              "label": "(-3,4)",
+              "labelDx": 7,
+              "labelDy": -13,
+              "labelAnchor": "end"
+            },
+            {
+              "x": 3,
+              "y": 2.5,
+              "label": "M(3,5/2)",
+              "labelDx": 13,
+              "labelDy": -5,
+              "labelAnchor": "start"
+            }
+          ]
+        }
+      ],
       "sourceTag": "คัดโอลิมปิก 2546",
       "choices": [
         "$8x + 2y - 29 = 0$",
@@ -11335,6 +14436,8 @@
         "<b>ขั้นที่ 2:</b> ความชันส่วนของเส้นตรง $= \\dfrac{4 - 1}{-3 - 9} = -\\dfrac{1}{4}$ → ความชันเส้นที่ต้องการ $= 4$",
         "",
         "<b>ขั้นที่ 3:</b> $y - \\dfrac{5}{2} = 4(x - 3)$ → คูณ 2: $2y - 5 = 8x - 24$ → $8x - 2y - 19 = 0$",
+        "",
+        "[IMAGE]",
         "",
         "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ · นิยาม locus ระยะเท่ากัน (equidistant locus) 】</b>",
         "• เส้นแบ่งครึ่งตั้งฉาก = เซตของจุดที่ห่างจากปลายทั้งสองเท่ากัน → $(x - 9)^2 + (y - 1)^2 = (x + 3)^2 + (y - 4)^2$",
@@ -11364,7 +14467,180 @@
       "level": "medium",
       "score": 1,
       "question": "กำหนดสมการเส้นตรงต่อไปนี้\n$2x + y - 1 = 0$, $\\ 2x + y - 5 = 0$, $\\ x - 2y + 4 = 0$ และ $x - 2y - 7 = 0$\nจงหาพื้นที่ของสี่เหลี่ยมที่ล้อมรอบด้วยเส้นตรงทั้งสี่นี้",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 380,
+          "height": 400,
+          "xRange": [
+            -2.3,
+            4
+          ],
+          "yRange": [
+            -2.3,
+            5
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "a1",
+              "kind": "piecewise-linear",
+              "points": [
+                [
+                  -2.3,
+                  5.6
+                ],
+                [
+                  4,
+                  -7
+                ]
+              ],
+              "domain": [
+                -2.3,
+                4
+              ],
+              "color": "#1f6feb",
+              "strokeWidth": 1.4,
+              "label": {
+                "at": [
+                  -1.342,
+                  1.09
+                ],
+                "text": "2x+y=1",
+                "anchor": "start",
+                "color": "#1f6feb"
+              }
+            },
+            {
+              "id": "a2",
+              "kind": "piecewise-linear",
+              "points": [
+                [
+                  -2.3,
+                  9.6
+                ],
+                [
+                  4,
+                  -3
+                ]
+              ],
+              "domain": [
+                -2.3,
+                4
+              ],
+              "color": "#1f6feb",
+              "strokeWidth": 1.4,
+              "label": {
+                "at": [
+                  1.729,
+                  2.416
+                ],
+                "text": "2x+y=5",
+                "anchor": "start",
+                "color": "#1f6feb"
+              }
+            },
+            {
+              "id": "b1",
+              "kind": "piecewise-linear",
+              "points": [
+                [
+                  -2.3,
+                  3.15
+                ],
+                [
+                  4,
+                  0
+                ]
+              ],
+              "domain": [
+                -2.3,
+                4
+              ],
+              "color": "#d11",
+              "strokeWidth": 1.4,
+              "label": {
+                "at": [
+                  3.803,
+                  0.79
+                ],
+                "text": "x-2y+4=0",
+                "anchor": "end",
+                "color": "#d11"
+              }
+            },
+            {
+              "id": "b2",
+              "kind": "piecewise-linear",
+              "points": [
+                [
+                  -2.3,
+                  2.35
+                ],
+                [
+                  4,
+                  5.5
+                ]
+              ],
+              "domain": [
+                -2.3,
+                4
+              ],
+              "color": "#d11",
+              "strokeWidth": 1.4,
+              "label": {
+                "at": [
+                  1.113,
+                  4.74
+                ],
+                "text": "x-2y-7=0",
+                "anchor": "start",
+                "color": "#d11"
+              }
+            }
+          ],
+          "dots": [
+            {
+              "x": 1.2,
+              "y": -1.4,
+              "label": "(6/5,-7/5)",
+              "labelDx": 12,
+              "labelDy": -9,
+              "labelAnchor": "start"
+            },
+            {
+              "x": -1,
+              "y": 3,
+              "label": "(-1,3)",
+              "labelDx": -16,
+              "labelDy": -3,
+              "labelAnchor": "end"
+            },
+            {
+              "x": 2.8,
+              "y": -0.6,
+              "label": "(14/5,-3/5)",
+              "labelDx": 19,
+              "labelDy": 0,
+              "labelAnchor": "start"
+            },
+            {
+              "x": 0.6,
+              "y": 3.8,
+              "label": "(3/5,19/5)",
+              "labelDx": 17,
+              "labelDy": 8,
+              "labelAnchor": "start"
+            }
+          ]
+        }
+      ],
       "sourceTag": "โควตา มช. 2543",
       "correct": "8.8",
       "accept": [
@@ -11382,6 +14658,8 @@
         "<b>ขั้นที่ 2:</b> กว้าง $= \\dfrac{|-1 - (-5)|}{\\sqrt{4 + 1}} = \\dfrac{4}{\\sqrt{5}}$ | ยาว $= \\dfrac{|4 - (-7)|}{\\sqrt{1 + 4}} = \\dfrac{11}{\\sqrt{5}}$",
         "",
         "<b>ขั้นที่ 3:</b> พื้นที่ $= \\dfrac{4}{\\sqrt{5}} \\cdot \\dfrac{11}{\\sqrt{5}} = \\dfrac{44}{5} = 8.8$ ตารางหน่วย",
+        "",
+        "[IMAGE]",
         "",
         "<b>✔ ตรวจคำตอบ:</b> ตัวหารทั้งคู่คือ $\\sqrt{5}$ → ผลคูณคือ 5 พอดี เศษ $4 \\times 11 = 44$ ✓",
         "",
@@ -11498,7 +14776,132 @@
       "level": "medium",
       "score": 1,
       "question": "จุด P เคลื่อนที่ไป โดยมีระยะทางห่างจากเส้นตรง $y = 2$ เท่ากับระยะทาง\nระหว่างจุด P กับจุด $(2, 4)$ จงหาสมการของเส้นโค้งซึ่งเป็นเส้นทางเคลื่อนที่ของจุด P",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 360,
+          "height": 380,
+          "xRange": [
+            -1.5,
+            5.5
+          ],
+          "yRange": [
+            0,
+            6.5
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "directrix",
+              "kind": "piecewise-linear",
+              "points": [
+                [
+                  -1.5,
+                  2
+                ],
+                [
+                  5.5,
+                  2
+                ]
+              ],
+              "domain": [
+                -1.5,
+                5.5
+              ],
+              "color": "#999",
+              "strokeWidth": 1.2,
+              "dashed": true,
+              "label": {
+                "at": [
+                  -1.4,
+                  1.7
+                ],
+                "text": "y=2 (directrix)",
+                "anchor": "start",
+                "color": "#999"
+              }
+            },
+            {
+              "id": "parab",
+              "kind": "parabola",
+              "vertex": [
+                2,
+                3
+              ],
+              "domain": [
+                -1.5,
+                5.5
+              ],
+              "color": "#1f6feb",
+              "strokeWidth": 1.6,
+              "throughPoint": [
+                0,
+                4
+              ]
+            }
+          ],
+          "segments": [
+            {
+              "from": [
+                0,
+                4
+              ],
+              "to": [
+                2,
+                4
+              ],
+              "dashed": true
+            },
+            {
+              "from": [
+                0,
+                4
+              ],
+              "to": [
+                0,
+                2
+              ],
+              "dashed": true
+            }
+          ],
+          "dots": [
+            {
+              "x": 2,
+              "y": 4,
+              "label": "F(2,4)",
+              "labelDx": 1,
+              "labelDy": -15,
+              "labelAnchor": "start"
+            },
+            {
+              "x": 2,
+              "y": 3,
+              "label": "จุดยอด(2,3)",
+              "labelDx": -25,
+              "labelDy": 20,
+              "labelAnchor": "start"
+            },
+            {
+              "x": 0,
+              "y": 4,
+              "label": "P(0,4)",
+              "labelDx": -14,
+              "labelDy": 6,
+              "labelAnchor": "end"
+            },
+            {
+              "x": 0,
+              "y": 2
+            }
+          ]
+        }
+      ],
       "sourceTag": "ทุนเล่าเรียนหลวง (กพ.) 2541",
       "correct": "x^2-4x-4y+16=0",
       "accept": [
@@ -11517,6 +14920,8 @@
         "<b>ขั้นที่ 2:</b> สมการ: $(x - 2)^2 = 4(1)(y - 3) = 4(y - 3)$",
         "",
         "<b>ขั้นที่ 3:</b> กระจาย: $x^2 - 4x + 4 = 4y - 12$ → $x^2 - 4x - 4y + 16 = 0$",
+        "",
+        "[IMAGE]",
         "",
         "<b>✔ ตรวจคำตอบ:</b> จุดยอด $(2, 3)$: ห่างโฟกัส 1 และห่างเส้น $y = 2$ เท่ากับ 1 ✓ | เช็คสมการ: $4 - 8 - 12 + 16 = 0$ ✓",
         "",
@@ -18357,7 +21762,106 @@
       "level": "medium",
       "score": 1,
       "question": "ให้ F เป็นโฟกัสของกราฟ $9x^2 + 54x - 16y^2 + 64y + 161 = 0$ ที่อยู่ในควอดรันต์ที่สอง\nB เป็นจุดปลายแกนสังยุค ซึ่งอยู่ในควอดรันต์ที่หนึ่ง\nถ้าเส้นตรง L ตั้งฉากกับ FB และผ่านจุด $(4, 6)$ แล้ว สมการของเส้นตรง L คือข้อใดต่อไปนี้",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 400,
+          "height": 400,
+          "xRange": [
+            -8,
+            6.5
+          ],
+          "yRange": [
+            -1,
+            9
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "segments": [
+            {
+              "from": [
+                -3,
+                7
+              ],
+              "to": [
+                1,
+                2
+              ],
+              "dashed": true
+            }
+          ],
+          "functions": [
+            {
+              "id": "L",
+              "kind": "piecewise-linear",
+              "points": [
+                [
+                  -1.5,
+                  1.6
+                ],
+                [
+                  6.2,
+                  7.76
+                ]
+              ],
+              "domain": [
+                -1.5,
+                6.2
+              ],
+              "color": "#1f6feb",
+              "strokeWidth": 1.6,
+              "label": {
+                "at": [
+                  1.354,
+                  4.712
+                ],
+                "text": "L",
+                "anchor": "start",
+                "color": "#1f6feb"
+              }
+            }
+          ],
+          "dots": [
+            {
+              "x": -3,
+              "y": 7,
+              "label": "F(-3,7)",
+              "labelDx": 9,
+              "labelDy": -13,
+              "labelAnchor": "end"
+            },
+            {
+              "x": 1,
+              "y": 2,
+              "label": "B(1,2)",
+              "labelDx": 8,
+              "labelDy": 14,
+              "labelAnchor": "start"
+            },
+            {
+              "x": -3,
+              "y": 2,
+              "label": "ศูนย์กลาง(-3,2)",
+              "labelDx": 11,
+              "labelDy": 29,
+              "labelAnchor": "end"
+            },
+            {
+              "x": 4,
+              "y": 6,
+              "label": "(4,6)",
+              "labelDx": 9,
+              "labelDy": 9,
+              "labelAnchor": "start"
+            }
+          ]
+        }
+      ],
       "sourceTag": "สมาคมคณิตศาสตร์ฯ 2545",
       "choices": [
         "$2x - 3y + 10 = 0$",
@@ -18379,6 +21883,8 @@
         "",
         "<b>ขั้นที่ 3:</b> ความชัน FB $= \\dfrac{2 - 7}{1 - (-3)} = -\\dfrac{5}{4}$ → L มีความชัน $\\dfrac{4}{5}$",
         "L: $y - 6 = \\dfrac{4}{5}(x - 4)$ → $5y - 30 = 4x - 16$ → $4x - 5y + 14 = 0$",
+        "",
+        "[IMAGE]",
         "",
         "<b>✔ ตรวจคำตอบ:</b> แทน $(4, 6)$: $16 - 30 + 14 = 0$ ✓ ผลคูณความชัน $\\left(-\\dfrac{5}{4}\\right)\\left(\\dfrac{4}{5}\\right) = -1$ ✓",
         "",
@@ -18608,7 +22114,83 @@
       "level": "medium",
       "score": 1,
       "question": "กำหนดให้ P และ Q เป็นจุดยอดของกราฟของสมการ $9x^2 - 4y^2 - 18x + 16y - 43 = 0$\nถ้า O เป็นจุดกำเนิดแล้ว $\\tan P\\hat{O}Q$ มีค่าเท่าใด",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 360,
+          "height": 340,
+          "xRange": [
+            -2.5,
+            4
+          ],
+          "yRange": [
+            -1,
+            3.5
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "segments": [
+            {
+              "from": [
+                0,
+                0
+              ],
+              "to": [
+                3,
+                2
+              ]
+            },
+            {
+              "from": [
+                0,
+                0
+              ],
+              "to": [
+                -1,
+                2
+              ]
+            },
+            {
+              "from": [
+                3,
+                2
+              ],
+              "to": [
+                -1,
+                2
+              ],
+              "dashed": true
+            }
+          ],
+          "dots": [
+            {
+              "x": 0,
+              "y": 0
+            },
+            {
+              "x": 3,
+              "y": 2,
+              "label": "P(3,2)",
+              "labelDx": 8,
+              "labelDy": -8,
+              "labelAnchor": "start"
+            },
+            {
+              "x": -1,
+              "y": 2,
+              "label": "Q(-1,2)",
+              "labelDx": -8,
+              "labelDy": -8,
+              "labelAnchor": "end"
+            }
+          ]
+        }
+      ],
       "sourceTag": "คัดโอลิมปิก 2539",
       "choices": [
         "5",
@@ -18629,6 +22211,8 @@
         "ผลคูณไขว้ $= 3(2) - 2(-1) = 8$ | ผลคูณจุด $= (3)(-1) + (2)(2) = 1$",
         "",
         "<b>ขั้นที่ 3:</b> $\\tan P\\hat{O}Q = \\dfrac{|8|}{1} = 8$",
+        "",
+        "[IMAGE]",
         "",
         "<b>✔ ตรวจคำตอบ:</b> ผลคูณจุด $= 1 > 0$ มุมแหลม และ $\\tan\\theta = 8$ → $\\theta \\approx 82.9°$ สมเหตุสมผลกับภาพ ($|OP| = \\sqrt{13}, |OQ| = \\sqrt{5}$, ด้าน PQ ยาว 4) ✓ (เฉลยเล่มวาดสามเหลี่ยมมุมฉากได้ $\\tan\\hat{O} = 8$ ตรงกัน)",
         "",
