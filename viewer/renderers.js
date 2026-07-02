@@ -839,18 +839,21 @@ function _polyMathToSvg(latex, x, y, fontSize, anchor){
   while(i < expr.length){
     const m = /^\\sqrt\s*\{([^}]*)\}/.exec(expr.substring(i));
     if(m){ toks.push({t:'sqrt', rad:m[1]}); i += m[0].length; continue; }
+    const supM = /^\^\{([^}]*)\}/.exec(expr.substring(i)) || /^\^(.)/.exec(expr.substring(i));
+    if(supM){ toks.push({t:'sup', s:supM[1]}); i += supM[0].length; continue; }
     if(expr.substr(i,2) === '\\ '){ toks.push({t:'sp', w:fontSize*0.3}); i += 2; continue; }
     if(expr.substr(i,2) === '\\,'){ toks.push({t:'sp', w:fontSize*0.2}); i += 2; continue; }
     if(expr[i] === '-'){ toks.push({t:'txt', s:'−', italic:false}); i += 1; continue; }
     const isLetter = /[a-zA-Z]/.test(expr[i]);
     let end = i;
-    while(end < expr.length && expr[end] !== '\\' && expr[end] !== '-'
+    while(end < expr.length && expr[end] !== '\\' && expr[end] !== '-' && expr[end] !== '^'
           && (/[a-zA-Z]/.test(expr[end]) === isLetter)) end++;
     toks.push({t:'txt', s:expr.substring(i,end), italic:isLetter}); i = end;
   }
   function tokW(tk){
     if(tk.t === 'sp') return tk.w;
     if(tk.t === 'sqrt'){ let w = chW('√'); for(const c of tk.rad) w += chW(c); return w; }
+    if(tk.t === 'sup'){ let w = 0; for(const c of tk.s) w += chW(c)*0.7; return w; }
     let w = 0; for(const c of tk.s) w += chW(c); return w;
   }
   let total = 0; for(const tk of toks) total += tokW(tk);
@@ -870,6 +873,12 @@ function _polyMathToSvg(latex, x, y, fontSize, anchor){
       out += `<line x1="${(cur-1).toFixed(2)}" y1="${barY.toFixed(2)}" `
            + `x2="${(cur+radW+1).toFixed(2)}" y2="${barY.toFixed(2)}" stroke="#222" stroke-width="1"/>`;
       emit(tk.rad, false); cur += radW; continue;
+    }
+    if(tk.t === 'sup'){
+      const supFs = fontSize * 0.7, supY = y - fontSize * 0.35;
+      out += `<text x="${cur.toFixed(2)}" y="${supY.toFixed(2)}" font-family="${ff}" `
+           + `font-size="${supFs}" fill="#222" dominant-baseline="central">${tk.s}</text>`;
+      cur += tokW(tk); continue;
     }
     emit(tk.s, tk.italic); cur += tokW(tk);
   }

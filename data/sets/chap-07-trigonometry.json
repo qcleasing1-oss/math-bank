@@ -4292,8 +4292,86 @@
         "$\\dfrac{3}{2}$",
         "$2$"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "sourceTag": "Entrance 2536",
+      "imageSpec": {
+        "type": "polygon-labeled",
+        "width": 320,
+        "height": 280,
+        "vertices": {
+          "O": [
+            70,
+            230
+          ],
+          "P": [
+            250,
+            230
+          ],
+          "Q": [
+            250,
+            60
+          ]
+        },
+        "vertexLabels": {
+          "O": {
+            "text": "B",
+            "dx": -20,
+            "dy": 5
+          },
+          "P": {
+            "text": " "
+          },
+          "Q": {
+            "text": " "
+          }
+        },
+        "sides": [
+          {
+            "from": "O",
+            "to": "P",
+            "label": "3",
+            "labelOffset": {
+              "dx": 0,
+              "dy": 18
+            }
+          },
+          {
+            "from": "P",
+            "to": "Q",
+            "label": "1",
+            "labelOffset": {
+              "dx": 18,
+              "dy": 0
+            }
+          },
+          {
+            "from": "O",
+            "to": "Q",
+            "label": "$\\sqrt{10}$",
+            "labelOffset": {
+              "dx": -14,
+              "dy": -14
+            }
+          }
+        ],
+        "angleMarks": [
+          {
+            "at": "P",
+            "from": "O",
+            "to": "Q",
+            "type": "right",
+            "size": 12
+          },
+          {
+            "at": "O",
+            "from": "P",
+            "to": "Q",
+            "type": "arc",
+            "radius": 24,
+            "label": "B"
+          }
+        ]
+      },
       "correct": 1,
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
@@ -4304,6 +4382,7 @@
         "<b>🎯 เป้าหมาย</b> ทุกอย่างต้องเป็น $\\tan$ ก่อน — แปลง $\\sin B \\to \\tan B \\to \\tan 2B$ แล้วค่อยรวมกับ $\\tan A$",
         "",
         "<b>【 พื้นฐาน · แปลงทุกค่าเป็น tan แล้วใช้สูตรมุมสองเท่าและผลบวกมุม (reduce to tan, double-angle and addition) 】</b>",
+        "[IMAGE]",
         "<b>ขั้นที่ 1:</b> วาดสามเหลี่ยมมุมฉากของมุม $B$: $\\sin B = \\dfrac{1}{\\sqrt{10}}$",
         "→ ด้านตรงข้าม $= 1$, ด้านตรงข้ามมุมฉาก $= \\sqrt{10}$, ด้านประชิด $= \\sqrt{10 - 1} = 3$",
         "ดังนั้น $\\tan B = \\dfrac{1}{3}$ ($B$ แหลม ทุกค่าเป็นบวก)",
@@ -4323,8 +4402,7 @@
         "ตัวส่วนขั้นมุมสองเท่า $1 - \\tan^2 B = 1 - \\dfrac{1}{9} = \\dfrac{8}{9}$ (ไม่ใช่ $\\dfrac{8}{10}$)",
         "โจทย์ถาม $A + 2B$ ไม่ใช่ $A + B$ — อ่านพลาดจะได้ $\\dfrac{1}{2}$ ซึ่งคือตัวลวงข้อ 1 พอดี"
       ],
-      "notes": "tanB=1/3 → tan2B=3/4 → tan(A+2B)=(1/7+3/4)/(1−3/28)=1 (A+2B=45° พอดี) ; verify sympy ตรง key footer หน้า 9 (39.2) และเฉลย PDF หน้า 7 ; ชั้นเดียว ; ตัวลวงข้อ 1 = tan(A+B)=1/2",
-      "_imageNote": "สามเหลี่ยมมุมฉากประกอบมุม B ตามรูปเฉลย PDF หน้า 7: มุม B อยู่มุมซ้ายล่าง ด้านตรงข้าม = 1 (แนวตั้งขวา) ด้านประชิด = 3 (แนวนอนล่าง) ด้านตรงข้ามมุมฉาก = √10 — ช่วยให้เห็นที่มา tan B = 1/3 จาก sin B = 1/√10"
+      "notes": "tanB=1/3 → tan2B=3/4 → tan(A+2B)=(1/7+3/4)/(1−3/28)=1 (A+2B=45° พอดี) ; verify sympy ตรง key footer หน้า 9 (39.2) และเฉลย PDF หน้า 7 ; ชั้นเดียว ; ตัวลวงข้อ 1 = tan(A+B)=1/2"
     },
     {
       "id": "chap-07-trigonometry-q40",
@@ -4456,8 +4534,86 @@
         "$\\dfrac{4t^2}{\\sqrt{1+t^2}}$",
         "$\\dfrac{2t}{\\sqrt{1+t^2}} + 2t$"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "sourceTag": "Entrance 2520",
+      "imageSpec": {
+        "type": "polygon-labeled",
+        "width": 340,
+        "height": 280,
+        "vertices": {
+          "O": [
+            70,
+            230
+          ],
+          "P": [
+            250,
+            230
+          ],
+          "Q": [
+            250,
+            60
+          ]
+        },
+        "vertexLabels": {
+          "O": {
+            "text": "A",
+            "dx": -20,
+            "dy": 5
+          },
+          "P": {
+            "text": " "
+          },
+          "Q": {
+            "text": " "
+          }
+        },
+        "sides": [
+          {
+            "from": "O",
+            "to": "P",
+            "label": "$1-t^2$",
+            "labelOffset": {
+              "dx": 0,
+              "dy": 18
+            }
+          },
+          {
+            "from": "P",
+            "to": "Q",
+            "label": "$2t$",
+            "labelOffset": {
+              "dx": 18,
+              "dy": 0
+            }
+          },
+          {
+            "from": "O",
+            "to": "Q",
+            "label": "$1+t^2$",
+            "labelOffset": {
+              "dx": -14,
+              "dy": -14
+            }
+          }
+        ],
+        "angleMarks": [
+          {
+            "at": "P",
+            "from": "O",
+            "to": "Q",
+            "type": "right",
+            "size": 12
+          },
+          {
+            "at": "O",
+            "from": "P",
+            "to": "Q",
+            "type": "arc",
+            "radius": 24,
+            "label": "A"
+          }
+        ]
+      },
       "correct": 0,
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
@@ -4468,6 +4624,7 @@
         "<b>🎯 เป้าหมาย</b> เขียนทั้ง $\\sin A$ และ $\\tan A$ ให้อยู่ในรูปของ $t$ แล้วบวกกัน",
         "",
         "<b>【 วิธีที่ 1 ▸ พื้นฐาน · วาดสามเหลี่ยมมุมฉากหา $\\sin A$ แล้วบวกเศษส่วน (right-triangle construction) 】</b>",
+        "[IMAGE]",
         "<b>เครื่องมือ:</b> สามเหลี่ยมมุมฉากช่วยแปลง $\\tan A \\to \\sin A$ (ด้านตรงข้าม : ประชิด $= 2t : 1-t^2$)",
         "<b>ขั้นที่ 1:</b> จากสูตรมุมสองเท่า: $\\tan A = \\dfrac{2t}{1-t^2}$",
         "<b>ขั้นที่ 2:</b> วาดสามเหลี่ยมมุมฉากให้มุม $A$: ด้านตรงข้าม $= 2t$, ด้านประชิด $= 1-t^2$",
@@ -4495,8 +4652,7 @@
         "<b>⚠️ จุดที่เด็กมักผิด</b> เขียนสลับเป็น $\\tan A = \\dfrac{2t}{1+t^2}$ (นั่นคือ $\\sin A$ — ตัวส่วนของ $\\tan$ ต้องเป็น $1-t^2$)",
         "ลืมว่า $(1-t^2)(1+t^2) = 1-t^4$ จะหลงไปตัวเลือก 2 หรือ 3"
       ],
-      "notes": "sinA+tanA = 4t/(1−t⁴) (t-formulas) ; verify sympy (numeric A=0.7 + symbolic M2 = 0) ตรง key footer หน้า 9 (42.1) และเฉลย PDF หน้า 7-8 ; เฉลยสองชั้น (ลัด = ดึง tanA(1+cosA)) ; 5 ตัวเลือก",
-      "_imageNote": "สามเหลี่ยมมุมฉากตามเฉลย PDF หน้า 7 ล่าง: มุม A อยู่มุมซ้ายล่าง ด้านตรงข้าม = 2t (แนวตั้งขวา) ด้านประชิด = 1−t² (แนวนอนล่าง) ด้านตรงข้ามมุมฉาก x = 1+t² — ช่วยให้เห็นการแปลง tanA = 2t/(1−t²) ไปเป็น sinA = 2t/(1+t²)"
+      "notes": "sinA+tanA = 4t/(1−t⁴) (t-formulas) ; verify sympy (numeric A=0.7 + symbolic M2 = 0) ตรง key footer หน้า 9 (42.1) และเฉลย PDF หน้า 7-8 ; เฉลยสองชั้น (ลัด = ดึง tanA(1+cosA)) ; 5 ตัวเลือก"
     },
     {
       "id": "chap-07-trigonometry-q43",
@@ -5323,8 +5479,101 @@
         "$\\dfrac{\\sqrt{3} + 1}{2\\sqrt{2}}$",
         "$1$"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "sourceTag": "Entrance 2538",
+      "imageSpec": {
+        "type": "polygon-labeled",
+        "width": 320,
+        "height": 280,
+        "vertices": {
+          "O": [
+            70,
+            230
+          ],
+          "P": [
+            250,
+            230
+          ],
+          "Q": [
+            250,
+            60
+          ]
+        },
+        "vertexLabels": {
+          "O": {
+            "text": " "
+          },
+          "P": {
+            "text": " "
+          },
+          "Q": {
+            "text": " "
+          }
+        },
+        "sides": [
+          {
+            "from": "O",
+            "to": "P",
+            "label": "2",
+            "labelOffset": {
+              "dx": 0,
+              "dy": 18
+            }
+          },
+          {
+            "from": "P",
+            "to": "Q",
+            "label": "1",
+            "labelOffset": {
+              "dx": 18,
+              "dy": 0
+            }
+          },
+          {
+            "from": "O",
+            "to": "Q",
+            "label": "$\\sqrt{5}$",
+            "labelOffset": {
+              "dx": -14,
+              "dy": -14
+            }
+          }
+        ],
+        "angleMarks": [
+          {
+            "at": "P",
+            "from": "O",
+            "to": "Q",
+            "type": "right",
+            "size": 12
+          },
+          {
+            "at": "O",
+            "from": "P",
+            "to": "Q",
+            "type": "arc",
+            "radius": 24,
+            "label": "β"
+          },
+          {
+            "at": "Q",
+            "from": "O",
+            "to": "P",
+            "type": "arc",
+            "radius": 24,
+            "label": "α"
+          }
+        ],
+        "annotations": [
+          {
+            "x": 160,
+            "y": 260,
+            "text": "α + β = 90°",
+            "anchor": "middle",
+            "fontSize": 13
+          }
+        ]
+      },
       "correct": 3,
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
@@ -5334,6 +5583,7 @@
         "<b>🎯 เป้าหมาย</b> ใช้สมการสองอันหาค่า $\\sin\\alpha, \\sin\\beta$ ให้ได้ก่อน แล้วประกอบเป็น $\\sin(\\alpha + \\beta)$",
         "",
         "<b>【 วิธีที่ 1 ▸ พื้นฐาน · กระจายสูตรผลบวกมุมตรง ๆ (sum formula) 】</b>",
+        "[IMAGE]",
         "<b>เครื่องมือ:</b> สูตรผลบวกมุม $\\sin(\\alpha + \\beta) = \\sin\\alpha\\cos\\beta + \\cos\\alpha\\sin\\beta$",
         "<b>ขั้นที่ 1:</b> จากสมการที่สอง $\\sin\\alpha = 2\\sin\\beta$ — ให้ $s = \\sin\\beta$",
         "จะได้ $\\sin\\alpha = 2s$",
@@ -5371,8 +5621,7 @@
         "ลืมว่าโจทย์ให้ช่วง $\\left[0, \\dfrac{\\pi}{2}\\right]$ — รากลบของ $s^2 = \\dfrac{1}{5}$ ใช้ไม่ได้ และ $\\cos$ ทั้งคู่ต้องเป็นบวก",
         "คิดเลข $3(1 - 8s^2)$ ผิดเป็น $3 - 8s^2$ (ลืมคูณ $24s^2$)"
       ],
-      "notes": "3(1−8s²)−2(1−2s²)=−3 → s²=1/5 → sinβ=1/√5, sinα=2/√5 → sin(α+β)=4/5+1/5=1 (α+β=π/2 พอดี) ; sympy ยืนยัน + เช็คสมการแรก ; ตรง key footer หน้า 11 (56.4) และเฉลย PDF หน้า 10 ; สองชั้น (ลัด=โคฟังก์ชัน/สามเหลี่ยม 1-2-√5)",
-      "_imageNote": "สามเหลี่ยมมุมฉากด้าน 1, 2, ด้านตรงข้ามมุมฉาก √5 ตามรูปเฉลย PDF หน้า 10: มุม α อยู่ยอดบน (ด้านตรงข้าม = 2) มุม β อยู่มุมซ้ายล่าง (ด้านตรงข้าม = 1) มุมฉากขวาล่าง — ใช้แสดงว่า α กับ β เป็นมุมแหลมสองมุมของสามเหลี่ยมเดียวกัน จึง α+β = 90°"
+      "notes": "3(1−8s²)−2(1−2s²)=−3 → s²=1/5 → sinβ=1/√5, sinα=2/√5 → sin(α+β)=4/5+1/5=1 (α+β=π/2 พอดี) ; sympy ยืนยัน + เช็คสมการแรก ; ตรง key footer หน้า 11 (56.4) และเฉลย PDF หน้า 10 ; สองชั้น (ลัด=โคฟังก์ชัน/สามเหลี่ยม 1-2-√5)"
     },
     {
       "id": "chap-07-trigonometry-q57",
@@ -6999,8 +7248,86 @@
         "$\\dfrac{120}{144}$",
         "$\\dfrac{120}{121}$"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "sourceTag": "Entrance 2526",
+      "imageSpec": {
+        "type": "polygon-labeled",
+        "width": 320,
+        "height": 280,
+        "vertices": {
+          "O": [
+            70,
+            230
+          ],
+          "P": [
+            250,
+            230
+          ],
+          "Q": [
+            250,
+            60
+          ]
+        },
+        "vertexLabels": {
+          "O": {
+            "text": "A",
+            "dx": -20,
+            "dy": 5
+          },
+          "P": {
+            "text": " "
+          },
+          "Q": {
+            "text": " "
+          }
+        },
+        "sides": [
+          {
+            "from": "O",
+            "to": "P",
+            "label": "119",
+            "labelOffset": {
+              "dx": 0,
+              "dy": 18
+            }
+          },
+          {
+            "from": "P",
+            "to": "Q",
+            "label": "120",
+            "labelOffset": {
+              "dx": 18,
+              "dy": 0
+            }
+          },
+          {
+            "from": "O",
+            "to": "Q",
+            "label": "169",
+            "labelOffset": {
+              "dx": -14,
+              "dy": -14
+            }
+          }
+        ],
+        "angleMarks": [
+          {
+            "at": "P",
+            "from": "O",
+            "to": "Q",
+            "type": "right",
+            "size": 12
+          },
+          {
+            "at": "O",
+            "from": "P",
+            "to": "Q",
+            "type": "arc",
+            "radius": 24,
+            "label": "A"
+          }
+        ]
+      },
       "correct": 1,
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
@@ -7010,6 +7337,7 @@
         "<b>🎯 เป้าหมาย</b> หาด้านตรงข้ามมุมฉาก แล้วอ่านค่า $\\sin$ จากสามเหลี่ยม",
         "",
         "<b>【 พื้นฐาน · วาดสามเหลี่ยมมุมฉากจาก arctan แล้วอ่านค่า sin (right triangle from arctan, read sin) 】</b>",
+        "[IMAGE]",
         "<b>ขั้นที่ 1:</b> ให้ $A = \\arctan\\dfrac{120}{119}$",
         "→ $\\tan A = \\dfrac{120}{119}$ และ $A$ เป็นมุมแหลม (ค่า $\\arctan$ ของจำนวนบวก)",
         "<b>ขั้นที่ 2:</b> ด้านตรงข้ามมุมฉาก:",
@@ -7639,8 +7967,114 @@
         "$\\dfrac{-13}{5\\sqrt{17}}$",
         "$\\dfrac{-16}{5\\sqrt{17}}$"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "sourceTag": "Entrance ต.ค.2543",
+      "imageSpec": {
+        "type": "polygon-labeled",
+        "width": 340,
+        "height": 300,
+        "vertices": {
+          "O": [
+            60,
+            150
+          ],
+          "F": [
+            230,
+            150
+          ],
+          "P": [
+            230,
+            255
+          ],
+          "Xneg": [
+            20,
+            150
+          ],
+          "Xpos": [
+            300,
+            150
+          ]
+        },
+        "vertexLabels": {
+          "O": {
+            "text": " "
+          },
+          "F": {
+            "text": " "
+          },
+          "P": {
+            "text": " "
+          },
+          "Xneg": {
+            "text": " "
+          },
+          "Xpos": {
+            "text": "x",
+            "dx": 8,
+            "dy": 4
+          }
+        },
+        "sides": [
+          {
+            "from": "Xneg",
+            "to": "Xpos",
+            "style": "dashed"
+          },
+          {
+            "from": "O",
+            "to": "F",
+            "label": "16",
+            "labelOffset": {
+              "dx": 0,
+              "dy": -14
+            }
+          },
+          {
+            "from": "F",
+            "to": "P",
+            "label": "13",
+            "labelOffset": {
+              "dx": 18,
+              "dy": 0
+            }
+          },
+          {
+            "from": "O",
+            "to": "P",
+            "label": "$5\\sqrt{17}$",
+            "labelOffset": {
+              "dx": -16,
+              "dy": 18
+            }
+          }
+        ],
+        "angleMarks": [
+          {
+            "at": "F",
+            "from": "O",
+            "to": "P",
+            "type": "right",
+            "size": 11
+          },
+          {
+            "at": "O",
+            "from": "Xpos",
+            "to": "P",
+            "type": "arc",
+            "radius": 30,
+            "label": "θ"
+          }
+        ],
+        "annotations": [
+          {
+            "x": 170,
+            "y": 280,
+            "text": "θ อยู่ควอดรันต์ 4 → sin θ เป็นลบ",
+            "anchor": "middle",
+            "fontSize": 11
+          }
+        ]
+      },
       "correct": 0,
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
@@ -7651,6 +8085,7 @@
         "<b>🎯 เป้าหมาย</b> ยุบฝั่งขวาให้เหลือ $\\arctan$ ตัวเดียวเพื่อหา $x$ แล้วใช้สามเหลี่ยมอ่านค่า $\\sin$",
         "",
         "<b>【 พื้นฐาน · ยุบฝั่งขวาเป็น arctan เดียว แก้หา x แล้วอ่าน sin จากสามเหลี่ยม (collapse to one arctan, read sin) 】</b>",
+        "[IMAGE]",
         "<b>ขั้นที่ 1:</b> ยุบ $2\\arctan\\dfrac{1}{2}$: $\\tan\\left(2\\arctan\\dfrac{1}{2}\\right) = \\dfrac{2\\cdot\\frac{1}{2}}{1 - \\frac{1}{4}} = \\dfrac{1}{3/4} = \\dfrac{4}{3}$",
         "→ $2\\arctan\\dfrac{1}{2} = \\arctan\\dfrac{4}{3}$",
         "<b>ขั้นที่ 2:</b> $\\arctan x = \\arctan\\dfrac{1}{4} - \\arctan\\dfrac{4}{3}$",
@@ -7676,8 +8111,7 @@
         "จำสูตรผิดเป็น $\\sin(180^\\circ + \\theta) = \\sin\\theta$ ก็เครื่องหมายพลิกเช่นกัน",
         "ตัวลวง $\\dfrac{16}{5\\sqrt{17}}$ คือเผลอใช้ $\\cos$ แทน $\\sin$"
       ],
-      "notes": "2arctan(1/2) = arctan(4/3) → x = (1/4−4/3)/(1+1/3) = −13/16 ; sin(180°+θ) = −sinθ = 13/(5√17) ; ตรง key footer หน้า 17 (88.1) + เฉลย PDF หน้า 16 (มีรูปสามเหลี่ยม 16-13-5√17 ใน Q4) ; sympy ยืนยัน ; ตัวลวงข้อ 3 = ลืมลบ, ข้อ 2 = ใช้ cos ; ชั้นเดียว",
-      "_imageNote": "สามเหลี่ยมมุมฉากช่วยอ่านค่า sin จาก tan θ = −13/16 ตามรูปในเฉลย PDF หน้า 16: ด้านประชิด 16 (แนวนอน) ด้านตรงข้าม 13 (แนวตั้ง) ด้านตรงข้ามมุมฉาก 5√17 + แกนพิกัดแสดงมุม θ อยู่ควอดรันต์ 4 (sin เป็นลบ)"
+      "notes": "2arctan(1/2) = arctan(4/3) → x = (1/4−4/3)/(1+1/3) = −13/16 ; sin(180°+θ) = −sinθ = 13/(5√17) ; ตรง key footer หน้า 17 (88.1) + เฉลย PDF หน้า 16 (มีรูปสามเหลี่ยม 16-13-5√17 ใน Q4) ; sympy ยืนยัน ; ตัวลวงข้อ 3 = ลืมลบ, ข้อ 2 = ใช้ cos ; ชั้นเดียว"
     },
     {
       "id": "chap-07-trigonometry-q89",
@@ -7698,8 +8132,166 @@
         "$-\\dfrac{16}{63}$",
         "$-\\dfrac{6}{63}$"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "sourceTag": "Entrance 2541",
+      "imageSpec": [
+        {
+          "type": "polygon-labeled",
+          "width": 300,
+          "height": 260,
+          "vertices": {
+            "O": [
+              65,
+              210
+            ],
+            "P": [
+              230,
+              210
+            ],
+            "Q": [
+              230,
+              50
+            ]
+          },
+          "vertexLabels": {
+            "O": {
+              "text": "A",
+              "dx": -20,
+              "dy": 5
+            },
+            "P": {
+              "text": " "
+            },
+            "Q": {
+              "text": " "
+            }
+          },
+          "sides": [
+            {
+              "from": "O",
+              "to": "P",
+              "label": "4",
+              "labelOffset": {
+                "dx": 0,
+                "dy": 17
+              }
+            },
+            {
+              "from": "P",
+              "to": "Q",
+              "label": "3",
+              "labelOffset": {
+                "dx": 17,
+                "dy": 0
+              }
+            },
+            {
+              "from": "O",
+              "to": "Q",
+              "label": "5",
+              "labelOffset": {
+                "dx": -13,
+                "dy": -13
+              }
+            }
+          ],
+          "angleMarks": [
+            {
+              "at": "P",
+              "from": "O",
+              "to": "Q",
+              "type": "right",
+              "size": 11
+            },
+            {
+              "at": "O",
+              "from": "P",
+              "to": "Q",
+              "type": "arc",
+              "radius": 22,
+              "label": "A"
+            }
+          ]
+        },
+        {
+          "type": "polygon-labeled",
+          "width": 300,
+          "height": 260,
+          "vertices": {
+            "O": [
+              65,
+              210
+            ],
+            "P": [
+              230,
+              210
+            ],
+            "Q": [
+              230,
+              50
+            ]
+          },
+          "vertexLabels": {
+            "O": {
+              "text": "B",
+              "dx": -20,
+              "dy": 5
+            },
+            "P": {
+              "text": " "
+            },
+            "Q": {
+              "text": " "
+            }
+          },
+          "sides": [
+            {
+              "from": "O",
+              "to": "P",
+              "label": "5",
+              "labelOffset": {
+                "dx": 0,
+                "dy": 17
+              }
+            },
+            {
+              "from": "P",
+              "to": "Q",
+              "label": "12",
+              "labelOffset": {
+                "dx": 17,
+                "dy": 0
+              }
+            },
+            {
+              "from": "O",
+              "to": "Q",
+              "label": "13",
+              "labelOffset": {
+                "dx": -13,
+                "dy": -13
+              }
+            }
+          ],
+          "angleMarks": [
+            {
+              "at": "P",
+              "from": "O",
+              "to": "Q",
+              "type": "right",
+              "size": 11
+            },
+            {
+              "at": "O",
+              "from": "P",
+              "to": "Q",
+              "type": "arc",
+              "radius": 22,
+              "label": "B"
+            }
+          ]
+        }
+      ],
       "correct": 2,
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
@@ -7711,9 +8303,11 @@
         "<b>🎯 เป้าหมาย</b> เขียน $X = \\dfrac{\\pi}{2} - (A + B)$ แล้วใช้โคฟังก์ชันเปลี่ยน $\\tan X$ เป็น $\\cot(A+B)$ — ไม่ต้องถอดค่า $X$ จริง",
         "",
         "<b>【 พื้นฐาน · เขียน X เป็นมุมประกอบ ใช้โคฟังก์ชันเปลี่ยน tan เป็น cot (complementary angle, cofunction) 】</b>",
+        "[IMAGE:0]",
         "<b>ขั้นที่ 1:</b> ให้ $A = \\arccos\\dfrac{4}{5}, B = \\arcsin\\dfrac{12}{13}$",
         "→ $X = \\dfrac{\\pi}{2} - (A+B)$",
         "→ $\\tan X = \\cot(A+B)$",
+        "[IMAGE:1]",
         "<b>ขั้นที่ 2:</b> จากสามเหลี่ยม: $\\cos A = \\dfrac{4}{5}$",
         "→ $\\sin A = \\dfrac{3}{5}, \\tan A = \\dfrac{3}{4}$",
         "$\\sin B = \\dfrac{12}{13}$",
@@ -7735,8 +8329,7 @@
         "คิดว่า $\\arcsin\\dfrac{12}{13}$ ให้ $\\tan B = \\dfrac{12}{13}$ ทันที (ต้องสร้างสามเหลี่ยมหาด้านประชิด $= 5$ ก่อน)",
         "เครื่องหมายลบหลุดที่ $1 - \\dfrac{9}{5}$ → ได้ $\\dfrac{16}{63}$ (ตัวลวงข้อ 1)"
       ],
-      "notes": "tan X = cot(arccos 4/5 + arcsin 12/13) = (1−(3/4)(12/5))/((3/4)+(12/5)) = (20−36)/(15+48) = −16/63 ; ตรง key footer หน้า 17 (89.3) + เฉลย PDF หน้า 16 (มีรูปสามเหลี่ยม 3-4-5 และ 5-12-13) ; sympy ยืนยัน ; ตัวลวงข้อ 1 = เครื่องหมายหลุด ; ชั้นเดียว",
-      "_imageNote": "สามเหลี่ยมมุมฉากสองรูปตามรูปในเฉลย PDF หน้า 16: รูปแรกมุม A — ด้านประชิด 4 (แนวนอน), ด้านตรงข้าม 3 (แนวตั้ง), ด้านตรงข้ามมุมฉาก 5 (จาก arccos 4/5) ; รูปสองมุม B — ด้านตรงข้าม 12, ด้านประชิด 5, ด้านตรงข้ามมุมฉาก 13 (จาก arcsin 12/13) — ช่วยให้เห็นที่มา tan A = 3/4, tan B = 12/5"
+      "notes": "tan X = cot(arccos 4/5 + arcsin 12/13) = (1−(3/4)(12/5))/((3/4)+(12/5)) = (20−36)/(15+48) = −16/63 ; ตรง key footer หน้า 17 (89.3) + เฉลย PDF หน้า 16 (มีรูปสามเหลี่ยม 3-4-5 และ 5-12-13) ; sympy ยืนยัน ; ตัวลวงข้อ 1 = เครื่องหมายหลุด ; ชั้นเดียว"
     },
     {
       "id": "chap-07-trigonometry-q90",
@@ -14389,14 +14982,87 @@
       "level": "medium",
       "score": 1,
       "question": "ถ้า $\\tan\\theta = \\dfrac{4}{3}$ และ $0^\\circ < \\theta < 360^\\circ$\nจงหาค่าที่เป็นไปได้ของ $\\tan\\dfrac{\\theta}{2}$ และ $\\sin\\dfrac{\\theta}{2}$",
-      "hasImage": false,
+      "hasImage": true,
       "sourceTag": "ทุนเล่าเรียนหลวง (กพ.) 2541",
+      "imageSpec": {
+        "type": "polygon-labeled",
+        "width": 320,
+        "height": 280,
+        "vertices": {
+          "O": [
+            70,
+            230
+          ],
+          "P": [
+            250,
+            230
+          ],
+          "Q": [
+            250,
+            60
+          ]
+        },
+        "vertexLabels": {
+          "O": {
+            "text": "θ/2",
+            "dx": -20,
+            "dy": 5
+          },
+          "P": {
+            "text": " "
+          },
+          "Q": {
+            "text": " "
+          }
+        },
+        "sides": [
+          {
+            "from": "O",
+            "to": "P",
+            "label": "2",
+            "labelOffset": {
+              "dx": 0,
+              "dy": 18
+            }
+          },
+          {
+            "from": "P",
+            "to": "Q",
+            "label": "1",
+            "labelOffset": {
+              "dx": 18,
+              "dy": 0
+            }
+          },
+          {
+            "from": "O",
+            "to": "Q",
+            "label": "$\\sqrt{5}$",
+            "labelOffset": {
+              "dx": -14,
+              "dy": -14
+            }
+          }
+        ],
+        "angleMarks": [
+          {
+            "at": "P",
+            "from": "O",
+            "to": "Q",
+            "type": "right",
+            "size": 12
+          },
+          {
+            "at": "O",
+            "from": "P",
+            "to": "Q",
+            "type": "arc",
+            "radius": 24,
+            "label": "θ/2"
+          }
+        ]
+      },
       "correct": "$\\tan\\dfrac{\\theta}{2} = \\dfrac{1}{2},\\ \\sin\\dfrac{\\theta}{2} = \\dfrac{1}{\\sqrt{5}}$ หรือ $\\tan\\dfrac{\\theta}{2} = -2,\\ \\sin\\dfrac{\\theta}{2} = \\dfrac{2}{\\sqrt{5}}$",
-      "accept": [
-        "tan = 1/2, sin = 1/sqrt(5) หรือ tan = -2, sin = 2/sqrt(5)",
-        "1/2 กับ 1/sqrt5 หรือ -2 กับ 2/sqrt5",
-        "0.5, 0.447 หรือ -2, 0.894"
-      ],
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
         "สูตรมุมสองเท่าของแทนเจนต์: $\\tan\\theta = \\dfrac{2t}{1 - t^2}$ เมื่อ $t = \\tan\\dfrac{\\theta}{2}$",
@@ -14408,6 +15074,7 @@
         "<b>🎯 เป้าหมาย</b> หา $\\tan\\dfrac{\\theta}{2}$ กับ $\\sin\\dfrac{\\theta}{2}$ ให้ครบทุกกรณีของ $\\theta$",
         "",
         "<b>【 วิธีที่ 1 ▸ พื้นฐาน · แก้สมการมุมสองเท่าหา $t$ (solve double-angle equation) 】</b>",
+        "[IMAGE]",
         "<b>เครื่องมือ:</b> ตั้ง $t = \\tan\\dfrac{\\theta}{2}$ แทนในสูตร $\\tan\\theta = \\dfrac{2t}{1 - t^2}$ แก้สมการกำลังสองหา $t$ แล้วคัดเครื่องหมายตามควอดรันต์ของ $\\dfrac{\\theta}{2}$",
         "<b>ขั้นที่ 1:</b> ให้ $t = \\tan\\dfrac{\\theta}{2}$ แทนในสูตรมุมสองเท่า: $\\dfrac{4}{3} = \\dfrac{2t}{1 - t^2}$ คูณไขว้: $4 - 4t^2 = 6t$",
         "→ $2t^2 + 3t - 2 = 0$",
@@ -14452,7 +15119,12 @@
         "คิดว่า $\\sin\\dfrac{\\theta}{2}$ ของกรณี $t = -2$ ติดลบ (จริง ๆ $\\dfrac{\\theta}{2}$ อยู่ Q2 ไซน์บวก)",
         "จับคู่คำตอบสลับชุด ($t = \\dfrac{1}{2}$ ต้องคู่ $\\sin = \\dfrac{1}{\\sqrt{5}}$)"
       ],
-      "notes": "สองชั้น: M1 = t-formula ตามเฉลย PDF (2t²+3t−2=0 → t=1/2, −2 แล้วคัดกรณีตามควอดรันต์) ; M2 ⚡ = สามเหลี่ยม 3-4-5 + tan(θ/2)=sinθ/(1+cosθ) เครื่องหมายมาเอง ; sympy ✓ ทั้งสองวิธี ; fill สองกรณี (เฉลยใน PDF เฉลย ไม่อยู่ใน key footer) ; จุดหลอก: ลืมกรณี Q3 / เครื่องหมาย sin ใน Q2"
+      "notes": "สองชั้น: M1 = t-formula ตามเฉลย PDF (2t²+3t−2=0 → t=1/2, −2 แล้วคัดกรณีตามควอดรันต์) ; M2 ⚡ = สามเหลี่ยม 3-4-5 + tan(θ/2)=sinθ/(1+cosθ) เครื่องหมายมาเอง ; sympy ✓ ทั้งสองวิธี ; fill สองกรณี (เฉลยใน PDF เฉลย ไม่อยู่ใน key footer) ; จุดหลอก: ลืมกรณี Q3 / เครื่องหมาย sin ใน Q2",
+      "accept": [
+        "tan = 1/2, sin = 1/sqrt(5) หรือ tan = -2, sin = 2/sqrt(5)",
+        "1/2 กับ 1/sqrt5 หรือ -2 กับ 2/sqrt5",
+        "0.5, 0.447 หรือ -2, 0.894"
+      ]
     },
     {
       "id": "chap-07-trigonometry-q162",
@@ -14711,8 +15383,86 @@
         "$0.75$",
         "$1.00$"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "sourceTag": "โควตา มช. 2545",
+      "imageSpec": {
+        "type": "polygon-labeled",
+        "width": 340,
+        "height": 280,
+        "vertices": {
+          "O": [
+            70,
+            230
+          ],
+          "P": [
+            250,
+            230
+          ],
+          "Q": [
+            250,
+            60
+          ]
+        },
+        "vertexLabels": {
+          "O": {
+            "text": "θ",
+            "dx": -20,
+            "dy": 5
+          },
+          "P": {
+            "text": " "
+          },
+          "Q": {
+            "text": " "
+          }
+        },
+        "sides": [
+          {
+            "from": "O",
+            "to": "P",
+            "label": "1",
+            "labelOffset": {
+              "dx": 0,
+              "dy": 18
+            }
+          },
+          {
+            "from": "P",
+            "to": "Q",
+            "label": "$2-\\sqrt{3}$",
+            "labelOffset": {
+              "dx": 18,
+              "dy": 0
+            }
+          },
+          {
+            "from": "O",
+            "to": "Q",
+            "label": "$\\sqrt{6}-\\sqrt{2}$",
+            "labelOffset": {
+              "dx": -14,
+              "dy": -14
+            }
+          }
+        ],
+        "angleMarks": [
+          {
+            "at": "P",
+            "from": "O",
+            "to": "Q",
+            "type": "right",
+            "size": 12
+          },
+          {
+            "at": "O",
+            "from": "P",
+            "to": "Q",
+            "type": "arc",
+            "radius": 24,
+            "label": "θ"
+          }
+        ]
+      },
       "correct": 1,
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
@@ -14725,6 +15475,7 @@
         "<b>🎯 เป้าหมาย</b> หา $\\sin 2\\theta$ จากเงื่อนไขสมการกำลังสองของ $\\tan\\theta$",
         "",
         "<b>【 วิธีที่ 1 ▸ พื้นฐาน · แก้รากกำลังสอง + สามเหลี่ยมมุมฉาก (square root + right triangle) 】</b>",
+        "[IMAGE]",
         "<b>เครื่องมือ:</b> แก้สมการหา $\\tan\\theta = 2 \\pm \\sqrt{3}$ คัดรากด้วย $0 < \\tan\\theta < 1$ แล้ววาดสามเหลี่ยมมุมฉากหา $\\sin 2\\theta = 2\\sin\\theta\\cos\\theta$",
         "<b>ขั้นที่ 1:</b> แก้สมการกำลังสอง:",
         "$\\begin{aligned} \\tan\\theta &= \\dfrac{4 \\pm \\sqrt{16 - 4}}{2} \\\\ &= 2 \\pm \\sqrt{3} \\end{aligned}$",
@@ -15980,8 +16731,166 @@
         "$\\dfrac{8}{\\sqrt{65}}$",
         "$\\dfrac{8}{65}$"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "sourceTag": "คัดโอลิมปิก 2543",
+      "imageSpec": [
+        {
+          "type": "polygon-labeled",
+          "width": 300,
+          "height": 260,
+          "vertices": {
+            "O": [
+              65,
+              210
+            ],
+            "P": [
+              230,
+              210
+            ],
+            "Q": [
+              230,
+              50
+            ]
+          },
+          "vertexLabels": {
+            "O": {
+              "text": "A",
+              "dx": -20,
+              "dy": 5
+            },
+            "P": {
+              "text": " "
+            },
+            "Q": {
+              "text": " "
+            }
+          },
+          "sides": [
+            {
+              "from": "O",
+              "to": "P",
+              "label": "$\\sqrt{7}$",
+              "labelOffset": {
+                "dx": 0,
+                "dy": 17
+              }
+            },
+            {
+              "from": "P",
+              "to": "Q",
+              "label": "1",
+              "labelOffset": {
+                "dx": 17,
+                "dy": 0
+              }
+            },
+            {
+              "from": "O",
+              "to": "Q",
+              "label": "$\\sqrt{8}$",
+              "labelOffset": {
+                "dx": -13,
+                "dy": -13
+              }
+            }
+          ],
+          "angleMarks": [
+            {
+              "at": "P",
+              "from": "O",
+              "to": "Q",
+              "type": "right",
+              "size": 11
+            },
+            {
+              "at": "O",
+              "from": "P",
+              "to": "Q",
+              "type": "arc",
+              "radius": 22,
+              "label": "A"
+            }
+          ]
+        },
+        {
+          "type": "polygon-labeled",
+          "width": 300,
+          "height": 260,
+          "vertices": {
+            "O": [
+              65,
+              210
+            ],
+            "P": [
+              230,
+              210
+            ],
+            "Q": [
+              230,
+              50
+            ]
+          },
+          "vertexLabels": {
+            "O": {
+              "text": "B",
+              "dx": -20,
+              "dy": 5
+            },
+            "P": {
+              "text": " "
+            },
+            "Q": {
+              "text": " "
+            }
+          },
+          "sides": [
+            {
+              "from": "O",
+              "to": "P",
+              "label": "$\\sqrt{8}$",
+              "labelOffset": {
+                "dx": 0,
+                "dy": 17
+              }
+            },
+            {
+              "from": "P",
+              "to": "Q",
+              "label": "1",
+              "labelOffset": {
+                "dx": 17,
+                "dy": 0
+              }
+            },
+            {
+              "from": "O",
+              "to": "Q",
+              "label": "3",
+              "labelOffset": {
+                "dx": -13,
+                "dy": -13
+              }
+            }
+          ],
+          "angleMarks": [
+            {
+              "at": "P",
+              "from": "O",
+              "to": "Q",
+              "type": "right",
+              "size": 11
+            },
+            {
+              "at": "O",
+              "from": "P",
+              "to": "Q",
+              "type": "arc",
+              "radius": 22,
+              "label": "B"
+            }
+          ]
+        }
+      ],
       "correct": 0,
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
@@ -15991,11 +16900,13 @@
         "<b>🎯 เป้าหมาย</b> แกะสองชั้น: หา $\\sin$ ของมุมชั้นใน แล้วหา $\\cos$ ของมุมชั้นนอก",
         "",
         "<b>【 พื้นฐาน · แกะฟังก์ชันผกผันทีละชั้น (peel inverse functions layer by layer) 】</b>",
+        "[IMAGE:0]",
         "<b>ขั้นที่ 1 (ชั้นใน):</b> ให้ $A = \\cot^{-1}\\sqrt{7}$",
         "→ $\\cot A = \\sqrt{7}$",
         "→ สามเหลี่ยมด้านประชิด $\\sqrt{7}$ ด้านตรงข้าม $1$",
         "→ ด้านตรงข้ามมุมฉาก $= \\sqrt{7 + 1} = \\sqrt{8}$",
         "→ $\\sin A = \\dfrac{1}{\\sqrt{8}}$",
+        "[IMAGE:1]",
         "<b>ขั้นที่ 2 (ชั้นนอก):</b> ให้ $B = \\tan^{-1}\\dfrac{1}{\\sqrt{8}}$",
         "→ สามเหลี่ยมด้านตรงข้าม $1$ ด้านประชิด $\\sqrt{8}$",
         "→ ด้านตรงข้ามมุมฉาก $= \\sqrt{1 + 8} = 3$",
@@ -16034,8 +16945,114 @@
         "$1 - \\dfrac{1}{\\sqrt{170}} + \\dfrac{2}{170}$",
         "$1 + \\dfrac{1}{\\sqrt{170}} + \\dfrac{2}{170}$"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "sourceTag": "สมาคมคณิตศาสตร์ฯ 2549",
+      "imageSpec": {
+        "type": "polygon-labeled",
+        "width": 340,
+        "height": 300,
+        "vertices": {
+          "O": [
+            60,
+            150
+          ],
+          "F": [
+            230,
+            150
+          ],
+          "P": [
+            230,
+            255
+          ],
+          "Xneg": [
+            20,
+            150
+          ],
+          "Xpos": [
+            300,
+            150
+          ]
+        },
+        "vertexLabels": {
+          "O": {
+            "text": " "
+          },
+          "F": {
+            "text": " "
+          },
+          "P": {
+            "text": " "
+          },
+          "Xneg": {
+            "text": " "
+          },
+          "Xpos": {
+            "text": "x",
+            "dx": 8,
+            "dy": 4
+          }
+        },
+        "sides": [
+          {
+            "from": "Xneg",
+            "to": "Xpos",
+            "style": "dashed"
+          },
+          {
+            "from": "O",
+            "to": "F",
+            "label": "13",
+            "labelOffset": {
+              "dx": 0,
+              "dy": -14
+            }
+          },
+          {
+            "from": "F",
+            "to": "P",
+            "label": "1",
+            "labelOffset": {
+              "dx": 18,
+              "dy": 0
+            }
+          },
+          {
+            "from": "O",
+            "to": "P",
+            "label": "$\\sqrt{170}$",
+            "labelOffset": {
+              "dx": -16,
+              "dy": 18
+            }
+          }
+        ],
+        "angleMarks": [
+          {
+            "at": "F",
+            "from": "O",
+            "to": "P",
+            "type": "right",
+            "size": 11
+          },
+          {
+            "at": "O",
+            "from": "Xpos",
+            "to": "P",
+            "type": "arc",
+            "radius": 30,
+            "label": "θ"
+          }
+        ],
+        "annotations": [
+          {
+            "x": 170,
+            "y": 280,
+            "text": "A = arctan(−1/13) อยู่ควอดรันต์ 4",
+            "anchor": "middle",
+            "fontSize": 11
+          }
+        ]
+      },
       "correct": 0,
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
@@ -16045,6 +17062,7 @@
         "<b>🎯 เป้าหมาย</b> หา $\\sin A$ จากสามเหลี่ยม แล้วประกอบ $\\cos 2A + \\sin A$",
         "",
         "<b>【 พื้นฐาน · ถอดค่าจากสามเหลี่ยมแล้วประกอบนิพจน์ (read from triangle, assemble) 】</b>",
+        "[IMAGE]",
         "<b>ขั้นที่ 1:</b> ให้ $A = \\arctan\\left(-\\dfrac{1}{13}\\right)$",
         "→ สามเหลี่ยมด้านตรงข้าม $1$ ด้านประชิด $13$",
         "→ ด้านตรงข้ามมุมฉาก $= \\sqrt{1 + 169} = \\sqrt{170}$",
