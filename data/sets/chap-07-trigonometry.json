@@ -628,8 +628,98 @@
         "ค่าของ $\\sin\\theta$ มีค่าเพิ่มขึ้นเมื่อ $\\theta$ อยู่ระหว่าง $\\dfrac{\\pi}{2}$ เรเดียน และ $\\dfrac{3\\pi}{2}$ เรเดียน",
         "$\\sec A\\cdot\\csc(90^{\\circ}-A)=\\tan A+\\tan(90^{\\circ}-A)$"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "sourceTag": "Entrance 2520",
+      "imageSpec": {
+        "type": "unit-circle-figure",
+        "size": 440,
+        "radius": 150,
+        "showAxes": true,
+        "axisLabels": {
+          "x": "x",
+          "y": "y"
+        },
+        "dots": [
+          {
+            "id": "E",
+            "x": 1,
+            "y": 0
+          },
+          {
+            "id": "N",
+            "x": 0,
+            "y": 1
+          },
+          {
+            "id": "W",
+            "x": -1,
+            "y": 0
+          },
+          {
+            "id": "S",
+            "x": 0,
+            "y": -1
+          }
+        ],
+        "annotations": [
+          {
+            "x": 307,
+            "y": 122,
+            "text": "Q1: sin เพิ่ม",
+            "fontSize": 14,
+            "anchor": "middle"
+          },
+          {
+            "x": 307,
+            "y": 141,
+            "text": "cos ลด",
+            "fontSize": 14,
+            "anchor": "middle"
+          },
+          {
+            "x": 133,
+            "y": 122,
+            "text": "Q2: sin ลด",
+            "fontSize": 14,
+            "anchor": "middle"
+          },
+          {
+            "x": 133,
+            "y": 141,
+            "text": "cos ลด",
+            "fontSize": 14,
+            "anchor": "middle"
+          },
+          {
+            "x": 133,
+            "y": 310,
+            "text": "Q3: sin ลด",
+            "fontSize": 14,
+            "anchor": "middle"
+          },
+          {
+            "x": 133,
+            "y": 329,
+            "text": "cos เพิ่ม",
+            "fontSize": 14,
+            "anchor": "middle"
+          },
+          {
+            "x": 307,
+            "y": 310,
+            "text": "Q4: sin เพิ่ม",
+            "fontSize": 14,
+            "anchor": "middle"
+          },
+          {
+            "x": 307,
+            "y": 329,
+            "text": "cos เพิ่ม",
+            "fontSize": 14,
+            "anchor": "middle"
+          }
+        ]
+      },
       "correct": 2,
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
@@ -642,6 +732,7 @@
         "<b>🎯 เป้าหมาย</b> ตรวจข้อความทั้ง 5 ข้อ หาข้อที่ถูกต้อง",
         "",
         "<b>【 พื้นฐาน · ตรวจทีละข้อด้วยค่าตรีโกณมาตรฐาน (evaluate each statement) 】</b>",
+        "[IMAGE]",
         "<b>ขั้นที่ 1 (ข้อ 1):</b>",
         "$\\begin{aligned} \\sec\\frac{5\\pi}{3} &= \\frac{1}{\\cos(5\\pi/3)} \\\\ &= \\frac{1}{1/2} \\\\ &= 2 \\end{aligned}$",
         "และ $\\csc\\frac{7\\pi}{3}=\\csc\\frac{\\pi}{3}=\\frac{2}{\\sqrt{3}}$",
@@ -985,8 +1076,64 @@
         "$\\dfrac{\\sqrt{3}}{2}$",
         "$-\\dfrac{\\sqrt{3}}{2}$"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "sourceTag": "Entrance 2529",
+      "imageSpec": {
+        "type": "unit-circle-figure",
+        "size": 300,
+        "radius": 105,
+        "showAxes": true,
+        "axisLabels": {
+          "x": "x",
+          "y": "y"
+        },
+        "dots": [
+          {
+            "id": "A",
+            "x": 1,
+            "y": 0,
+            "label": "(2, 0)",
+            "labelDx": -51,
+            "labelDy": 23
+          },
+          {
+            "id": "B",
+            "x": -0.5,
+            "y": 0.8660254,
+            "showCoord": "$(-1,\\ \\sqrt{3})$",
+            "coordPos": {
+              "dx": -64,
+              "dy": -10
+            }
+          }
+        ],
+        "radii": [
+          {
+            "toDot": "A"
+          },
+          {
+            "toDot": "B"
+          }
+        ],
+        "perimeterArcs": [
+          {
+            "fromDot": "A",
+            "toDot": "B",
+            "emphasized": true,
+            "arrow": true,
+            "color": "#1a56db"
+          }
+        ],
+        "annotations": [
+          {
+            "x": 143,
+            "y": 290,
+            "text": "รัศมี r = 2 หน่วย, มุม θ = 2π/3",
+            "anchor": "middle",
+            "fontSize": 13
+          }
+        ]
+      },
       "correct": 1,
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
@@ -996,6 +1143,7 @@
         "<b>🎯 เป้าหมาย</b> หาค่า $\\theta$ (ความยาวโค้ง) แล้วคำนวณ $\\sin\\theta-\\sin 2\\theta$",
         "",
         "<b>【 พื้นฐาน · หาจุดปลายแล้วแปลงเป็นความยาวโค้ง $\\theta=r\\alpha$ (arc length from central angle) 】</b>",
+        "[IMAGE]",
         "<b>ขั้นที่ 1:</b> หาจุดปลาย: แทน $x=-1$ ใน $x^2+y^2=4$ ได้ $y^2=3$ และอยู่ควอดรันต์ที่ 2 ($y$ บวก) จึงได้จุด $(-1,\\sqrt{3})$",
         "<b>ขั้นที่ 2:</b> มุมที่จุดศูนย์กลาง: $\\cos\\alpha=\\dfrac{x}{r}=-\\dfrac{1}{2}$ และอยู่ควอดรันต์ที่ 2",
         "→ $\\alpha=\\dfrac{2\\pi}{3}$",
@@ -1038,8 +1186,137 @@
         "$1$",
         "$-\\dfrac{\\sqrt{3}}{2}$"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "sourceTag": "Entrance 2530",
+      "imageSpec": [
+        {
+          "type": "unit-circle-figure",
+          "size": 260,
+          "radius": 95,
+          "showAxes": true,
+          "axisLabels": {
+            "x": "x",
+            "y": "y"
+          },
+          "dots": [
+            {
+              "id": "A",
+              "x": 0,
+              "y": 1,
+              "label": "(0, 4)",
+              "labelDx": -47,
+              "labelDy": -12
+            },
+            {
+              "id": "B",
+              "x": -0.8660254,
+              "y": 0.5,
+              "showCoord": "$(-2\\sqrt{3},\\ 2)$",
+              "coordPos": {
+                "dx": -68,
+                "dy": -3
+              }
+            }
+          ],
+          "radii": [
+            {
+              "toDot": "A"
+            },
+            {
+              "toDot": "B"
+            }
+          ],
+          "perimeterArcs": [
+            {
+              "fromDot": "A",
+              "toDot": "B",
+              "emphasized": true,
+              "arrow": true,
+              "color": "#1a56db"
+            }
+          ],
+          "annotations": [
+            {
+              "x": 100,
+              "y": 54,
+              "text": "θ",
+              "fontSize": 15,
+              "anchor": "middle"
+            },
+            {
+              "x": 197,
+              "y": 252,
+              "text": "หามุม θ (ทวนเข็ม)",
+              "anchor": "middle",
+              "fontSize": 12
+            }
+          ]
+        },
+        {
+          "type": "unit-circle-figure",
+          "size": 260,
+          "radius": 95,
+          "showAxes": true,
+          "axisLabels": {
+            "x": "x",
+            "y": "y"
+          },
+          "dots": [
+            {
+              "id": "C",
+              "x": 1,
+              "y": 0,
+              "label": "(4, 0)",
+              "labelDx": -50,
+              "labelDy": -14
+            },
+            {
+              "id": "D",
+              "x": 0.8660254,
+              "y": -0.5,
+              "showCoord": "$(2\\sqrt{3},\\ -2)$",
+              "coordPos": {
+                "dx": 5,
+                "dy": 15
+              }
+            }
+          ],
+          "radii": [
+            {
+              "toDot": "C"
+            },
+            {
+              "toDot": "D"
+            }
+          ],
+          "perimeterArcs": [
+            {
+              "fromDot": "C",
+              "toDot": "D",
+              "emphasized": true,
+              "dashed": true,
+              "arrow": true,
+              "color": "#1a56db"
+            }
+          ],
+          "annotations": [
+            {
+              "x": 236,
+              "y": 158,
+              "text": "φ",
+              "fontSize": 15,
+              "anchor": "middle"
+            },
+            {
+              "x": 197,
+              "y": 254,
+              "text": "หามุม φ (ตามเข็ม, ค่าลบ)",
+              "anchor": "middle",
+              "fontSize": 12
+            }
+          ]
+        }
+      ],
       "correct": 0,
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
@@ -1050,11 +1327,13 @@
         "<b>🎯 เป้าหมาย</b> หา $\\theta$ และ $\\phi$ (ระยะโค้งมีเครื่องหมาย) แล้วคำนวณ $\\cos(\\theta+\\phi)$",
         "",
         "<b>【 พื้นฐาน · หามุมที่เส้นตรงตัดวงกลม แล้วแปลงเป็นความยาวโค้งมีเครื่องหมาย (signed arc length) 】</b>",
+        "[IMAGE:0]",
         "<b>ขั้นที่ 1:</b> เส้นตรง $y=-\\frac{1}{\\sqrt{3}}x$ มีความชัน $-\\frac{1}{\\sqrt{3}}=\\tan$ ของมุม",
         "→ ตัดวงกลมที่มุม $\\frac{5\\pi}{6}$ (ควอดรันต์ 2) และ $-\\frac{\\pi}{6}$ (ควอดรันต์ 4)",
         "<b>ขั้นที่ 2 (หา $\\theta$):</b> เริ่มที่ $(0,4)$ คือมุม $\\frac{\\pi}{2}$ วัดทวนเข็มไปถึงมุม $\\frac{5\\pi}{6}$ ได้มุมกวาด $\\frac{5\\pi}{6}-\\frac{\\pi}{2}=\\frac{\\pi}{3}$",
         "ระยะโค้ง",
         "$\\begin{aligned} \\theta &= r\\cdot\\text{มุมกวาด} \\\\ &= 4\\cdot\\frac{\\pi}{3} \\\\ &= \\frac{4\\pi}{3} \\end{aligned}$",
+        "[IMAGE:1]",
         "<b>ขั้นที่ 3 (หา $\\phi$):</b> เริ่มที่ $(4,0)$ คือมุม $0$ วัดตามเข็มไปถึงมุม $-\\frac{\\pi}{6}$ ได้มุมกวาด $\\frac{\\pi}{6}$",
         "→ ระยะโค้ง $4\\cdot\\frac{\\pi}{6}=\\frac{2\\pi}{3}$ ทิศตามเข็มจึงได้ $\\phi=-\\frac{2\\pi}{3}$",
         "<b>ขั้นที่ 4:</b> $\\theta+\\phi=\\frac{4\\pi}{3}-\\frac{2\\pi}{3}=\\frac{2\\pi}{3}$",
@@ -2226,8 +2505,355 @@
         "$\\left[-\\pi, \\dfrac{\\pi}{8}\\right]$",
         "$[0, \\pi]$"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "sourceTag": "Entrance 2532",
+      "imageSpec": {
+        "type": "function-plot",
+        "width": 420,
+        "height": 320,
+        "xRange": [
+          -1.7,
+          1.7
+        ],
+        "yRange": [
+          -0.3,
+          1.7
+        ],
+        "grid": true,
+        "xTicks": [
+          -1.57,
+          -0.79,
+          0.79,
+          1.57
+        ],
+        "yTicks": [
+          1
+        ],
+        "axes": {
+          "xLabel": "x",
+          "yLabel": "y",
+          "arrows": true,
+          "originLabel": "O"
+        },
+        "functions": [
+          {
+            "id": "abs",
+            "kind": "piecewise-linear",
+            "points": [
+              [
+                -1.7,
+                1.7
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                1.7,
+                1.7
+              ]
+            ],
+            "color": "#a33",
+            "strokeWidth": 1.8,
+            "label": {
+              "text": "y = |x|",
+              "at": [
+                1.1,
+                1.35
+              ],
+              "anchor": "start",
+              "color": "#a33"
+            }
+          },
+          {
+            "id": "cos",
+            "kind": "piecewise-linear",
+            "points": [
+              [
+                -1.6,
+                -0.0292
+              ],
+              [
+                -1.5467,
+                0.0241
+              ],
+              [
+                -1.4933,
+                0.0774
+              ],
+              [
+                -1.44,
+                0.1304
+              ],
+              [
+                -1.3867,
+                0.1831
+              ],
+              [
+                -1.3333,
+                0.2352
+              ],
+              [
+                -1.28,
+                0.2867
+              ],
+              [
+                -1.2267,
+                0.3374
+              ],
+              [
+                -1.1733,
+                0.3871
+              ],
+              [
+                -1.12,
+                0.4357
+              ],
+              [
+                -1.0667,
+                0.483
+              ],
+              [
+                -1.0133,
+                0.529
+              ],
+              [
+                -0.96,
+                0.5735
+              ],
+              [
+                -0.9067,
+                0.6164
+              ],
+              [
+                -0.8533,
+                0.6575
+              ],
+              [
+                -0.8,
+                0.6967
+              ],
+              [
+                -0.7467,
+                0.734
+              ],
+              [
+                -0.6933,
+                0.7691
+              ],
+              [
+                -0.64,
+                0.8021
+              ],
+              [
+                -0.5867,
+                0.8328
+              ],
+              [
+                -0.5333,
+                0.8611
+              ],
+              [
+                -0.48,
+                0.887
+              ],
+              [
+                -0.4267,
+                0.9104
+              ],
+              [
+                -0.3733,
+                0.9311
+              ],
+              [
+                -0.32,
+                0.9492
+              ],
+              [
+                -0.2667,
+                0.9647
+              ],
+              [
+                -0.2133,
+                0.9773
+              ],
+              [
+                -0.16,
+                0.9872
+              ],
+              [
+                -0.1067,
+                0.9943
+              ],
+              [
+                -0.0533,
+                0.9986
+              ],
+              [
+                0.0,
+                1.0
+              ],
+              [
+                0.0533,
+                0.9986
+              ],
+              [
+                0.1067,
+                0.9943
+              ],
+              [
+                0.16,
+                0.9872
+              ],
+              [
+                0.2133,
+                0.9773
+              ],
+              [
+                0.2667,
+                0.9647
+              ],
+              [
+                0.32,
+                0.9492
+              ],
+              [
+                0.3733,
+                0.9311
+              ],
+              [
+                0.4267,
+                0.9104
+              ],
+              [
+                0.48,
+                0.887
+              ],
+              [
+                0.5333,
+                0.8611
+              ],
+              [
+                0.5867,
+                0.8328
+              ],
+              [
+                0.64,
+                0.8021
+              ],
+              [
+                0.6933,
+                0.7691
+              ],
+              [
+                0.7467,
+                0.734
+              ],
+              [
+                0.8,
+                0.6967
+              ],
+              [
+                0.8533,
+                0.6575
+              ],
+              [
+                0.9067,
+                0.6164
+              ],
+              [
+                0.96,
+                0.5735
+              ],
+              [
+                1.0133,
+                0.529
+              ],
+              [
+                1.0667,
+                0.483
+              ],
+              [
+                1.12,
+                0.4357
+              ],
+              [
+                1.1733,
+                0.3871
+              ],
+              [
+                1.2267,
+                0.3374
+              ],
+              [
+                1.28,
+                0.2867
+              ],
+              [
+                1.3333,
+                0.2352
+              ],
+              [
+                1.3867,
+                0.1831
+              ],
+              [
+                1.44,
+                0.1304
+              ],
+              [
+                1.4933,
+                0.0774
+              ],
+              [
+                1.5467,
+                0.0241
+              ],
+              [
+                1.6,
+                -0.0292
+              ]
+            ],
+            "color": "#225",
+            "strokeWidth": 1.8,
+            "label": {
+              "text": "y = cos x",
+              "at": [
+                -1.65,
+                0.55
+              ],
+              "anchor": "start",
+              "color": "#225"
+            }
+          }
+        ],
+        "dots": [
+          {
+            "x": 0.7391,
+            "y": 0.7391,
+            "label": "Q",
+            "labelDx": 8,
+            "labelDy": -6
+          },
+          {
+            "x": -0.7391,
+            "y": 0.7391,
+            "label": "P",
+            "labelDx": -16,
+            "labelDy": -6
+          }
+        ],
+        "annotations": [
+          {
+            "at": [
+              0,
+              -0.2
+            ],
+            "text": "จุดตัด P, Q สมมาตรรอบแกน y",
+            "anchor": "middle"
+          }
+        ]
+      },
       "correct": 0,
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
@@ -2238,6 +2864,7 @@
         "<b>🎯 เป้าหมาย</b> หาช่วงที่ครอบคลุมค่า $x$ ของจุดตัดทุกจุด",
         "",
         "<b>【 พื้นฐาน · ขนาบรากของจุดตัดแล้วใช้สมมาตรฟังก์ชันคู่ (bracket the root, even symmetry) 】</b>",
+        "[IMAGE]",
         "<b>ขั้นที่ 1 (จำกัดบริเวณ):</b> จุดตัดต้องมี $|x|=\\cos x\\le 1$",
         "ดังนั้น $|x|\\le 1$ และต้อง $\\cos x\\ge 0$",
         "→ จุดตัดอยู่ในช่วง $\\left(-\\frac{\\pi}{2},\\frac{\\pi}{2}\\right)$ เท่านั้น",
@@ -2259,8 +2886,7 @@
         "แล้วดูเครื่องหมายเปลี่ยน + ใช้สมมาตรของฟังก์ชันคู่",
         "<b>⚠️ จุดที่เด็กมักผิด</b> ลืมจุดตัดฝั่งลบ $P(-x^*, x^*)$ แล้วเลือกข้อ 2 — กราฟ $|x|$ กับ $\\cos x$ สมมาตรแกน $y$ ทั้งคู่ จุดตัดจึงมาเป็นคู่เสมอ"
       ],
-      "notes": "ขนาบราก Dottie x*≈0.7391 ∈ (π/8, π/4) + สมมาตรฟังก์ชันคู่ → ±x* ; ข้อ 1 ช่วงเดียวที่ครอบทั้งคู่; เฉลยชั้นเดียว (แนวเดียวกับเฉลย PDF); key 19.1 ตรง",
-      "_imageNote": "กราฟ y=|x| (ตัว V) กับ y=cos x บนช่วง [−π/2, π/2] ตัดกันที่ P(−x*, x*) และ Q(x*, x*) โดย x*≈0.739 (แบบรูปในเฉลย PDF)"
+      "notes": "ขนาบราก Dottie x*≈0.7391 ∈ (π/8, π/4) + สมมาตรฟังก์ชันคู่ → ±x* ; ข้อ 1 ช่วงเดียวที่ครอบทั้งคู่; เฉลยชั้นเดียว (แนวเดียวกับเฉลย PDF); key 19.1 ตรง"
     },
     {
       "id": "chap-07-trigonometry-q20",
@@ -2717,8 +3343,75 @@
         "$\\left(0, \\dfrac{\\pi}{4}\\right) \\cup \\left(\\dfrac{5\\pi}{6}, \\pi\\right)$",
         "$\\left(\\dfrac{\\pi}{6}, \\dfrac{\\pi}{2}\\right) \\cup \\left(\\dfrac{3\\pi}{4}, \\dfrac{3\\pi}{2}\\right)$"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "sourceTag": "Entrance มี.ค.2545",
+      "imageSpec": {
+        "type": "unit-circle-figure",
+        "size": 300,
+        "radius": 105,
+        "showAxes": true,
+        "axisLabels": {
+          "x": "x",
+          "y": "y"
+        },
+        "dots": [
+          {
+            "id": "P1",
+            "x": 0.866,
+            "y": 0.5,
+            "label": "π/6",
+            "labelDx": 8,
+            "labelDy": -4
+          },
+          {
+            "id": "P2",
+            "x": 0,
+            "y": 1,
+            "label": "π/2",
+            "labelDx": 6,
+            "labelDy": -10
+          },
+          {
+            "id": "P3",
+            "x": -0.866,
+            "y": 0.5,
+            "label": "5π/6",
+            "labelDx": -38,
+            "labelDy": -4
+          },
+          {
+            "id": "P4",
+            "x": 0,
+            "y": -1,
+            "label": "3π/2",
+            "labelDx": 6,
+            "labelDy": 15
+          }
+        ],
+        "perimeterArcs": [
+          {
+            "fromDot": "P1",
+            "toDot": "P2",
+            "emphasized": true,
+            "color": "#1a56db"
+          },
+          {
+            "fromDot": "P3",
+            "toDot": "P4",
+            "emphasized": true,
+            "color": "#1a56db"
+          }
+        ],
+        "annotations": [
+          {
+            "x": 151,
+            "y": 295,
+            "text": "ช่วงคำตอบ (เส้นหนา): (π/6,π/2) ∪ (5π/6,3π/2)",
+            "anchor": "middle",
+            "fontSize": 11
+          }
+        ]
+      },
       "correct": 3,
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
@@ -2728,6 +3421,7 @@
         "<b>🎯 เป้าหมาย</b> แยกตัวประกอบเศษ แล้วแบ่งกรณีตามเครื่องหมายบน–ล่าง",
         "",
         "<b>【 พื้นฐาน · แบ่งกรณีเครื่องหมายของอสมการเศษส่วน (sign analysis of a rational inequality) 】</b>",
+        "[IMAGE]",
         "<b>ขั้นที่ 1:</b> เศษ $= \\cos\\theta(\\cos\\theta - 1)$ โดย $\\cos\\theta - 1 \\le 0$ เสมอ ดังนั้นเครื่องหมายของเศษตรงข้ามกับ $\\cos\\theta$",
         "(และเศษ $= 0$ เมื่อ $\\cos\\theta = 0$ หรือ $1$ ซึ่งใช้ไม่ได้เพราะอสมการเคร่งครัด)",
         "<b>ขั้นที่ 2 (กรณีเศษ $ > 0$, ส่วน $ < 0$):</b> เศษบวก ⟺ $\\cos\\theta < 0$ ⟺ $\\theta \\in \\left(\\dfrac{\\pi}{2}, \\dfrac{3\\pi}{2}\\right)$",
@@ -5208,8 +5902,68 @@
         "$\\left\\{ (x, y) \\mid 0 < y \\le 2\\pi - x,\\ x > 0 \\right\\}$",
         "$\\left\\{ (x, y) \\,\\middle|\\, \\dfrac{3\\pi}{4} \\le x \\le \\pi,\\ \\dfrac{3\\pi}{4} \\le y \\le \\pi \\right\\}$"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "sourceTag": "Entrance 2537",
+      "imageSpec": {
+        "type": "unit-circle-figure",
+        "size": 290,
+        "radius": 105,
+        "showAxes": true,
+        "axisLabels": {
+          "x": "x",
+          "y": "y"
+        },
+        "dots": [
+          {
+            "id": "S1",
+            "x": 0,
+            "y": -1,
+            "label": "3π/2",
+            "labelDx": 4,
+            "labelDy": 15
+          },
+          {
+            "id": "S2",
+            "x": 1,
+            "y": 0,
+            "label": "2π",
+            "labelDx": 8,
+            "labelDy": 17
+          }
+        ],
+        "perimeterArcs": [
+          {
+            "fromDot": "S1",
+            "toDot": "S2",
+            "emphasized": true,
+            "major": false,
+            "color": "#1a56db"
+          }
+        ],
+        "annotations": [
+          {
+            "x": 144,
+            "y": 288,
+            "text": "บริเวณ (เส้นหนา) = ควอดรันต์ 4",
+            "anchor": "middle",
+            "fontSize": 11
+          },
+          {
+            "x": 190,
+            "y": 177,
+            "text": "cos u ≥ 0",
+            "fontSize": 12,
+            "anchor": "middle"
+          },
+          {
+            "x": 188,
+            "y": 211,
+            "text": "sin u ≤ 0",
+            "fontSize": 12,
+            "anchor": "middle"
+          }
+        ]
+      },
       "correct": 0,
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
@@ -5222,6 +5976,7 @@
         "<b>🎯 เป้าหมาย</b> แปลงเงื่อนไขตรีโกณของ $x + y$ เป็นอสมการเชิงเส้นของ $y$",
         "",
         "<b>【 พื้นฐาน · อ่านควอดรันต์ของมุมรวมจากเครื่องหมาย cos กับ sin แล้วแปลงเป็นแถบเชิงเส้น (quadrant-to-band) 】</b>",
+        "[IMAGE]",
         "<b>ขั้นที่ 1:</b> เงื่อนไข $\\cos u \\ge 0$ ใน $(0, 2\\pi]$: $u \\in \\left(0, \\dfrac{\\pi}{2}\\right] \\cup \\left[\\dfrac{3\\pi}{2}, 2\\pi\\right]$",
         "เงื่อนไข $\\sin u \\le 0$: $u \\in [\\pi, 2\\pi]$",
         "<b>ขั้นที่ 2:</b> อินเตอร์เซกชัน: $u \\in \\left[\\dfrac{3\\pi}{2}, 2\\pi\\right]$ (ควอดรันต์ 4 รวมขอบ)",
@@ -5247,8 +6002,7 @@
         "อ่านเงื่อนไขขอบไม่ครบ: $\\cos u \\ge 0$ \"รวม\" ศูนย์ แต่ $\\sin u \\le 0$ ตัดควอดรันต์ 1 ทิ้งทั้งหมด — เหลือเฉพาะควอดรันต์ 4",
         "และอย่าลืมเช็คว่าเซตในตัวเลือกไม่เป็นเซตว่าง (ขอบบนต้องมากกว่าขอบล่าง)"
       ],
-      "notes": "_bookKeyMismatch: เฉลย PDF หน้า 11 ตอบข้อ 2 ({3π/2−x ≤ y ≤ π−x}) แต่ 3π/2−x > π−x ทุก x → ข้อ 2 เป็นเซตว่าง ขณะที่ A ไม่ว่าง (เช่น (3π/4, π)) ; เหตุผลในเฉลย (\"ลดขอบขวาเหลือ π−x\") ผิด — ขอบบนที่ถูกคือ y ≤ π ; sympy Monte Carlo 200k จุด: A ≡ ข้อ 1 ภายในโดเมน 0<x,y≤π และข้อ 2 ว่างจริง → ใส่ idx0 + _needsReview รอครูตัดสิน ; สองเงื่อนไข cos≥0, sin≤0 → u∈Q4 [3π/2, 2π] ; ชั้นเดียว",
-      "_imageNote": "วงกลมหนึ่งหน่วยแสดงเงื่อนไขมุมรวม u=x+y ตามรูปเฉลย PDF หน้า 11 (ข้อ 64): เน้นส่วนโค้งควอดรันต์ 4 (3π/2 ถึง 2π) ที่ cos u ≥ 0 และ sin u ≤ 0 พร้อมกัน — จุดขอบ 3π/2 (ล่าง) กับ 2π (ขวา) ทำเครื่องหมายทึบ"
+      "notes": "_bookKeyMismatch: เฉลย PDF หน้า 11 ตอบข้อ 2 ({3π/2−x ≤ y ≤ π−x}) แต่ 3π/2−x > π−x ทุก x → ข้อ 2 เป็นเซตว่าง ขณะที่ A ไม่ว่าง (เช่น (3π/4, π)) ; เหตุผลในเฉลย (\"ลดขอบขวาเหลือ π−x\") ผิด — ขอบบนที่ถูกคือ y ≤ π ; sympy Monte Carlo 200k จุด: A ≡ ข้อ 1 ภายในโดเมน 0<x,y≤π และข้อ 2 ว่างจริง → ใส่ idx0 + _needsReview รอครูตัดสิน ; สองเงื่อนไข cos≥0, sin≤0 → u∈Q4 [3π/2, 2π] ; ชั้นเดียว"
     },
     {
       "id": "chap-07-trigonometry-q65",
@@ -5269,8 +6023,53 @@
         "$\\left\\{ x \\,\\middle|\\, -\\dfrac{2\\pi}{3} < x < \\dfrac{\\pi}{3} \\right\\}$",
         "$\\left\\{ x \\,\\middle|\\, -\\dfrac{\\pi}{3} < x < \\dfrac{\\pi}{3} \\right\\}$"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "sourceTag": "Entrance 2533",
+      "imageSpec": {
+        "type": "unit-circle-figure",
+        "size": 290,
+        "radius": 105,
+        "showAxes": true,
+        "axisLabels": {
+          "x": "x",
+          "y": "y"
+        },
+        "dots": [
+          {
+            "id": "L1",
+            "x": 0.5,
+            "y": -0.866,
+            "label": "-π/3",
+            "labelDx": 4,
+            "labelDy": 13
+          },
+          {
+            "id": "L2",
+            "x": -0.5,
+            "y": 0.866,
+            "label": "2π/3",
+            "labelDx": -28,
+            "labelDy": -12
+          }
+        ],
+        "perimeterArcs": [
+          {
+            "fromDot": "L1",
+            "toDot": "L2",
+            "emphasized": true,
+            "color": "#1a56db"
+          }
+        ],
+        "annotations": [
+          {
+            "x": 142,
+            "y": 288,
+            "text": "เส้นหนา = คำตอบ sin(x+π/3) เป็นบวก",
+            "anchor": "middle",
+            "fontSize": 11
+          }
+        ]
+      },
       "correct": 1,
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
@@ -5281,6 +6080,7 @@
         "<b>🎯 เป้าหมาย</b> ยุบฝั่งซ้ายเป็น $\\sin$ ก้อนเดียว แล้วแก้อสมการในช่วงที่เลื่อนแล้ว",
         "",
         "<b>【 พื้นฐาน · ยุบเป็น sin ก้อนเดียวด้วยสูตรผลบวกมุม แล้วแก้อสมการบนช่วงที่เลื่อน (collapse to single sine) 】</b>",
+        "[IMAGE]",
         "<b>ขั้นที่ 1:</b> หารทั้งสองข้างด้วย $2$: $\\dfrac{\\sqrt{3}}{2}\\cos x + \\dfrac{1}{2}\\sin x > 0$",
         "→ $\\sin\\left(x + \\dfrac{\\pi}{3}\\right) > 0$",
         "<b>ขั้นที่ 2:</b> เลื่อนช่วง: $x \\in [-\\pi, \\pi]$",
@@ -5830,8 +6630,72 @@
         "อาร์คโคไซน์ เป็นฟังก์ชันที่มีโดเมนเป็น $-1 \\le x \\le 1$ และเรนจ์เป็น $-\\dfrac{\\pi}{2} \\le \\arccos x \\le \\dfrac{\\pi}{2}$",
         "$\\cos(2\\arcsin\\theta) = 1 - \\dfrac{\\theta^2}{2}$"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "sourceTag": "Entrance 2523",
+      "imageSpec": {
+        "type": "unit-circle-figure",
+        "size": 290,
+        "radius": 105,
+        "showAxes": true,
+        "axisLabels": {
+          "x": "x",
+          "y": "y"
+        },
+        "dots": [
+          {
+            "id": "R1",
+            "x": -1,
+            "y": 0,
+            "label": "π",
+            "labelDx": -20,
+            "labelDy": 11
+          },
+          {
+            "id": "R2",
+            "x": 0,
+            "y": -1,
+            "label": "3π/2",
+            "labelDx": 8,
+            "labelDy": 13
+          },
+          {
+            "id": "P",
+            "x": -0.6536,
+            "y": -0.7568,
+            "label": "",
+            "labelDx": -12,
+            "labelDy": 18
+          }
+        ],
+        "radii": [
+          {
+            "toDot": "P"
+          }
+        ],
+        "perimeterArcs": [
+          {
+            "fromDot": "R1",
+            "toDot": "P",
+            "dashed": true
+          }
+        ],
+        "annotations": [
+          {
+            "x": 36,
+            "y": 63,
+            "text": "s=4",
+            "fontSize": 12,
+            "anchor": "middle"
+          },
+          {
+            "x": 144,
+            "y": 286,
+            "text": "ส่วนโค้งยาว 4 หน่วย ≈ 229° (ระหว่าง π กับ 3π/2 → ควอดรันต์ 3)",
+            "anchor": "middle",
+            "fontSize": 10.5
+          }
+        ]
+      },
       "correct": 2,
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
@@ -5843,6 +6707,7 @@
         "<b>🎯 เป้าหมาย</b> ไล่ตรวจทีละข้อความ หาข้อที่จริง",
         "",
         "<b>【 พื้นฐาน · ตรวจแต่ละข้อความด้วยวงกลมหนึ่งหน่วยและเรนจ์ผกผัน (check each statement: unit circle and inverse ranges) 】</b>",
+        "[IMAGE]",
         "<b>ขั้นที่ 1 (ข้อ 1):</b> ที่ส่วนโค้งยาว $\\dfrac{\\pi}{4}$ จุด $P$ มีพิกัด $\\left(\\dfrac{\\sqrt{2}}{2}, \\dfrac{\\sqrt{2}}{2}\\right)$ ซึ่ง $x = y$ พอดี — ข้อความบอก $x \\ne y$",
         "→ <b>เท็จ</b>",
         "<b>ขั้นที่ 2 (ข้อ 2):</b> $\\sin\\theta = \\cos\\theta$ ใน $[0, 2\\pi]$ มี<b>สอง</b>คำตอบ: $\\theta = \\dfrac{\\pi}{4}$ และ $\\dfrac{5\\pi}{4}$ ไม่ใช่ 1 ค่า",
@@ -5869,8 +6734,7 @@
         "ข้อ 4 จำเรนจ์ $\\arccos$ สลับกับ $\\arcsin$",
         "ข้อ 5 ลืมคูณ 2 ในสูตร $1 - 2\\sin^2$"
       ],
-      "notes": "ตรง key หน้า 15 (72.3) ✓ ; เฉลย PDF หน้า 13-14 ตรวจทีละข้อแบบเดียวกัน (ข้อ 3 ถูก: โค้ง 4 หน่วยอยู่ Q3) ; 5 ตัวเลือก ; sympy ยืนยันทุกข้อความ",
-      "_imageNote": "วงกลมหนึ่งหน่วยประกอบข้อ 3: ทำเครื่องหมายจุด (1,0) แล้ววาดส่วนโค้งยาว 4 หน่วย (มุม 4 เรเดียน ≈ 229°) ทวนเข็มไปสิ้นสุดในควอดรันต์ 3 พร้อมป้ายเทียบ π ≈ 3.14 กับ 3π/2 ≈ 4.71 แสดงว่าจุดปลายอยู่ระหว่างสองค่านี้"
+      "notes": "ตรง key หน้า 15 (72.3) ✓ ; เฉลย PDF หน้า 13-14 ตรวจทีละข้อแบบเดียวกัน (ข้อ 3 ถูก: โค้ง 4 หน่วยอยู่ Q3) ; 5 ตัวเลือก ; sympy ยืนยันทุกข้อความ"
     },
     {
       "id": "chap-07-trigonometry-q73",
@@ -8303,8 +9167,65 @@
         "$\\dfrac{\\pi}{6} - \\dfrac{\\sqrt{3}}{8}$ ตารางเมตร",
         "$\\dfrac{\\pi}{6} - \\dfrac{\\sqrt{3}}{4}$ ตารางเมตร"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "sourceTag": "Entrance 2535",
+      "imageSpec": {
+        "type": "unit-circle-figure",
+        "size": 280,
+        "radius": 100,
+        "showAxes": false,
+        "dots": [
+          {
+            "id": "P0",
+            "x": 1,
+            "y": 0
+          },
+          {
+            "id": "P1",
+            "x": 0.5,
+            "y": 0.8660254
+          }
+        ],
+        "radii": [
+          {
+            "toDot": "P0"
+          },
+          {
+            "toDot": "P1"
+          }
+        ],
+        "chords": [
+          {
+            "fromDot": "P0",
+            "toDot": "P1"
+          }
+        ],
+        "shadedSegments": [
+          {
+            "fromDot": "P0",
+            "toDot": "P1",
+            "major": false,
+            "fill": "#7a6e54",
+            "opacity": 0.3
+          }
+        ],
+        "annotations": [
+          {
+            "x": 168,
+            "y": 126,
+            "text": "60°",
+            "anchor": "middle",
+            "fontSize": 13
+          },
+          {
+            "x": 140,
+            "y": 265,
+            "text": "รัศมี = 1, คอร์ด = 1 → เซกเมนต์ส่วนน้อย = พื้นที่แรเงา",
+            "anchor": "middle",
+            "fontSize": 11
+          }
+        ]
+      },
       "correct": 3,
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
@@ -8315,6 +9236,7 @@
         "<b>🎯 เป้าหมาย</b> หาพื้นที่ส่วนน้อย (เซกเมนต์) ที่คอร์ดยาว $1$ ตัดออกจากวงกลมรัศมี $1$",
         "",
         "<b>【 พื้นฐาน · พื้นที่เซกเมนต์ = พื้นที่เซกเตอร์ลบสามเหลี่ยม (circular segment area) 】</b>",
+        "[IMAGE]",
         "<b>ขั้นที่ 1:</b> รัศมี $1$ คอร์ด $1$",
         "→ สามเหลี่ยมจุดศูนย์กลาง–ปลายคอร์ดสองข้าง มีด้าน $1, 1, 1$ เป็นรูปด้านเท่า",
         "→ มุมที่จุดศูนย์กลาง $= \\dfrac{\\pi}{3}$",
@@ -8334,8 +9256,7 @@
         "ลืมลบพื้นที่สามเหลี่ยมออก",
         "ตัวลวงข้อ 3: ใช้พื้นที่สามเหลี่ยม $\\dfrac{\\sqrt{3}}{8}$ จากการคูณ $\\dfrac{1}{2}$ เกินหนึ่งครั้ง"
       ],
-      "notes": "คอร์ด 1 = รัศมี 1 → มุมศูนย์กลาง π/3 → segment = π/6 − √3/4 ≈ 0.0906 ; sympy ✓ ; ตรง key footer หน้า 21 (107.4) + เฉลย PDF หน้า 19 ((1/6)π(1)² − (1/2)(1)(1)sin60°) ; ชั้นเดียว ; ตัวลวง: π/2 = ใช้มุมผิด, √3/8 = พื้นที่สามเหลี่ยมผิด",
-      "_imageNote": "ตามรูปเฉลย PDF หน้า 19 (ข้อ 107): วงกลมรัศมี 1 ; คอร์ดยาว 1 ; ลากรัศมีสองเส้นไปปลายคอร์ด เกิดสามเหลี่ยมด้านเท่า (ป้ายมุม 60° ที่จุดศูนย์กลาง, ป้ายด้าน 1 ทั้งสาม) ; แรเงาเซกเมนต์ส่วนน้อยระหว่างคอร์ดกับส่วนโค้ง"
+      "notes": "คอร์ด 1 = รัศมี 1 → มุมศูนย์กลาง π/3 → segment = π/6 − √3/4 ≈ 0.0906 ; sympy ✓ ; ตรง key footer หน้า 21 (107.4) + เฉลย PDF หน้า 19 ((1/6)π(1)² − (1/2)(1)(1)sin60°) ; ชั้นเดียว ; ตัวลวง: π/2 = ใช้มุมผิด, √3/8 = พื้นที่สามเหลี่ยมผิด"
     },
     {
       "id": "chap-07-trigonometry-q108",
@@ -10306,8 +11227,54 @@
         "$\\cos 2$",
         "$\\tan 2$"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "sourceTag": "สมาคมคณิตศาสตร์ฯ 2548",
+      "imageSpec": {
+        "type": "unit-circle-figure",
+        "size": 280,
+        "radius": 100,
+        "showAxes": true,
+        "axisLabels": {
+          "x": "x",
+          "y": "y"
+        },
+        "dots": [
+          {
+            "id": "P",
+            "x": -0.4161,
+            "y": 0.9093,
+            "label": "2 เรเดียน",
+            "labelDx": -51,
+            "labelDy": -15
+          },
+          {
+            "id": "E2",
+            "x": 0,
+            "y": 1
+          }
+        ],
+        "radii": [
+          {
+            "toDot": "P"
+          }
+        ],
+        "perimeterArcs": [
+          {
+            "fromDot": "E2",
+            "toDot": "P",
+            "dashed": true
+          }
+        ],
+        "annotations": [
+          {
+            "x": 143,
+            "y": 275,
+            "text": "2 rad ≈ 114.6° อยู่ควอดรันต์ 2 (sin เป็นบวก, cos และ tan เป็นลบ)",
+            "anchor": "middle",
+            "fontSize": 10.5
+          }
+        ]
+      },
       "correct": 1,
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
@@ -10317,6 +11284,7 @@
         "<b>🎯 เป้าหมาย</b> เทียบ 4 ค่าโดยไม่ต้องกดเครื่องคิดเลข — ใช้เครื่องหมายและขนาดคร่าว ๆ",
         "",
         "<b>【 พื้นฐาน · เทียบสี่ค่าด้วยเครื่องหมายและขนาดคร่าว ๆ ไม่ใช้เครื่องคิดเลข (compare by sign and magnitude) 】</b>",
+        "[IMAGE]",
         "<b>ขั้นที่ 1:</b> $2$ เรเดียนอยู่ควอดรันต์ 2",
         "→ $\\cos 2 < 0$",
         "และ $\\tan 2 < 0$ ตัดสองตัวเลือกนี้ทิ้งได้ทันที",
@@ -11567,8 +12535,68 @@
         "$\\left[0, \\dfrac{\\pi}{4}\\right] \\cup \\left[\\dfrac{5\\pi}{4}, 2\\pi\\right]$",
         "$\\left[\\dfrac{\\pi}{4}, \\dfrac{5\\pi}{4}\\right]$"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "sourceTag": "โควตา มช. 2543",
+      "imageSpec": {
+        "type": "unit-circle-figure",
+        "size": 290,
+        "radius": 100,
+        "showAxes": true,
+        "axisLabels": {
+          "x": "x",
+          "y": "y"
+        },
+        "dots": [
+          {
+            "id": "A",
+            "x": 0.7071,
+            "y": 0.7071,
+            "label": "π/4",
+            "labelDx": -45,
+            "labelDy": 8
+          },
+          {
+            "id": "B",
+            "x": -0.7071,
+            "y": -0.7071,
+            "label": "5π/4",
+            "labelDx": -50,
+            "labelDy": 2
+          }
+        ],
+        "chords": [
+          {
+            "fromDot": "A",
+            "toDot": "B",
+            "extend": 40,
+            "dashed": true
+          }
+        ],
+        "perimeterArcs": [
+          {
+            "fromDot": "A",
+            "toDot": "B",
+            "emphasized": true,
+            "color": "#1a56db"
+          }
+        ],
+        "annotations": [
+          {
+            "x": 226,
+            "y": 38,
+            "text": "y = x",
+            "fontSize": 12,
+            "anchor": "middle"
+          },
+          {
+            "x": 142,
+            "y": 286,
+            "text": "เส้นหนา = บริเวณ sin x ≥ cos x (เหนือเส้น y=x)",
+            "anchor": "middle",
+            "fontSize": 10.5
+          }
+        ]
+      },
       "correct": 3,
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
@@ -11579,6 +12607,7 @@
         "<b>🎯 เป้าหมาย</b> เปลี่ยน $B \\cap A'$ เป็นอสมการ $\\sin x \\ge \\cos x$ บน $[0, 2\\pi]$ แล้วแก้ด้วย R-form",
         "",
         "<b>【 พื้นฐาน · แปลงเป็นอสมการแล้วใช้ R-form (convert to inequality, R-form) 】</b>",
+        "[IMAGE]",
         "<b>ขั้นที่ 1:</b> $B \\cap A' = \\{ x \\in [0, 2\\pi] \\mid \\sin x - \\cos x \\ge 0 \\}$",
         "<b>ขั้นที่ 2:</b> เขียน R-form: $\\sqrt{2}\\sin\\left(x - \\dfrac{\\pi}{4}\\right) \\ge 0$",
         "→ $\\sin\\left(x - \\dfrac{\\pi}{4}\\right) \\ge 0$",
@@ -11676,8 +12705,75 @@
         "$\\left(\\dfrac{\\pi}{3}, \\dfrac{5\\pi}{6}\\right) \\cup \\left(\\dfrac{3\\pi}{2}, \\dfrac{11\\pi}{6}\\right)$",
         "$\\left(\\dfrac{\\pi}{3}, \\dfrac{5\\pi}{6}\\right) \\cup \\left(\\dfrac{7\\pi}{6}, \\dfrac{11\\pi}{6}\\right)$"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "sourceTag": "สมาคมคณิตศาสตร์ฯ 2543",
+      "imageSpec": {
+        "type": "unit-circle-figure",
+        "size": 290,
+        "radius": 100,
+        "showAxes": true,
+        "axisLabels": {
+          "x": "x",
+          "y": "y"
+        },
+        "dots": [
+          {
+            "id": "P1",
+            "x": 0.866,
+            "y": 0.5,
+            "label": "π/6",
+            "labelDx": 8,
+            "labelDy": -4
+          },
+          {
+            "id": "P2",
+            "x": -0.866,
+            "y": 0.5,
+            "label": "5π/6",
+            "labelDx": -42,
+            "labelDy": -4
+          },
+          {
+            "id": "P3",
+            "x": -0.866,
+            "y": -0.5,
+            "label": "7π/6",
+            "labelDx": -48,
+            "labelDy": 10
+          },
+          {
+            "id": "P4",
+            "x": 0.866,
+            "y": -0.5,
+            "label": "11π/6",
+            "labelDx": 8,
+            "labelDy": 10
+          }
+        ],
+        "perimeterArcs": [
+          {
+            "fromDot": "P1",
+            "toDot": "P2",
+            "emphasized": true,
+            "color": "#1a56db"
+          },
+          {
+            "fromDot": "P3",
+            "toDot": "P4",
+            "emphasized": true,
+            "color": "#1a56db"
+          }
+        ],
+        "annotations": [
+          {
+            "x": 144,
+            "y": 289,
+            "text": "เส้นหนา: sin x มากกว่า 1/2 หรือ น้อยกว่า -1/2",
+            "anchor": "middle",
+            "fontSize": 11
+          }
+        ]
+      },
       "correct": 1,
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
@@ -11689,6 +12785,7 @@
         "<b>🎯 เป้าหมาย</b> กำจัดตัวส่วนด้วยการพิสูจน์ว่าเป็นบวกเสมอ แล้วแก้อสมการของ $\\sin x$ บนวงกลมหนึ่งหน่วย",
         "",
         "<b>【 พื้นฐาน · พิสูจน์ตัวส่วนบวกแล้วแก้ตัวเศษ (denominator positive, solve numerator) 】</b>",
+        "[IMAGE]",
         "<b>ขั้นที่ 1:</b> ตัวส่วน: เนื่องจาก $\\sin x + \\cos x \\le \\sqrt{2} < \\sqrt{3}$ ทุกค่า $x$",
         "ดังนั้น $\\sqrt{3} - (\\sin x + \\cos x) \\ge \\sqrt{3} - \\sqrt{2} > 0$ — ตัวส่วนเป็นบวกตลอด",
         "<b>ขั้นที่ 2:</b> อสมการจึงสมมูลกับ $\\sin^2 x - \\dfrac{1}{4} > 0$",
@@ -11733,8 +12830,479 @@
         "$\\dfrac{3\\pi}{4}$",
         "$\\pi$"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "sourceTag": "โควตา มช. 2542",
+      "imageSpec": {
+        "type": "function-plot",
+        "width": 460,
+        "height": 300,
+        "xRange": [
+          -0.3,
+          6.6
+        ],
+        "yRange": [
+          -2.4,
+          2.4
+        ],
+        "grid": true,
+        "xTicks": [
+          1.57,
+          3.14,
+          4.71,
+          6.28
+        ],
+        "yTicks": [
+          -2,
+          2
+        ],
+        "axes": {
+          "xLabel": "x",
+          "yLabel": "y",
+          "arrows": true
+        },
+        "functions": [
+          {
+            "id": "y",
+            "kind": "piecewise-linear",
+            "points": [
+              [
+                0.0,
+                0.0
+              ],
+              [
+                0.0628,
+                0.2507
+              ],
+              [
+                0.1257,
+                0.4974
+              ],
+              [
+                0.1885,
+                0.7362
+              ],
+              [
+                0.2513,
+                0.9635
+              ],
+              [
+                0.3142,
+                1.1756
+              ],
+              [
+                0.377,
+                1.3691
+              ],
+              [
+                0.4398,
+                1.541
+              ],
+              [
+                0.5027,
+                1.6887
+              ],
+              [
+                0.5655,
+                1.8097
+              ],
+              [
+                0.6283,
+                1.9021
+              ],
+              [
+                0.6912,
+                1.9646
+              ],
+              [
+                0.754,
+                1.9961
+              ],
+              [
+                0.8168,
+                1.9961
+              ],
+              [
+                0.8796,
+                1.9646
+              ],
+              [
+                0.9425,
+                1.9021
+              ],
+              [
+                1.0053,
+                1.8097
+              ],
+              [
+                1.0681,
+                1.6887
+              ],
+              [
+                1.131,
+                1.541
+              ],
+              [
+                1.1938,
+                1.3691
+              ],
+              [
+                1.2566,
+                1.1756
+              ],
+              [
+                1.3195,
+                0.9635
+              ],
+              [
+                1.3823,
+                0.7362
+              ],
+              [
+                1.4451,
+                0.4974
+              ],
+              [
+                1.508,
+                0.2507
+              ],
+              [
+                1.5708,
+                -0.0
+              ],
+              [
+                1.6336,
+                -0.2507
+              ],
+              [
+                1.6965,
+                -0.4974
+              ],
+              [
+                1.7593,
+                -0.7362
+              ],
+              [
+                1.8221,
+                -0.9635
+              ],
+              [
+                1.885,
+                -1.1756
+              ],
+              [
+                1.9478,
+                -1.3691
+              ],
+              [
+                2.0106,
+                -1.541
+              ],
+              [
+                2.0735,
+                -1.6887
+              ],
+              [
+                2.1363,
+                -1.8097
+              ],
+              [
+                2.1991,
+                -1.9021
+              ],
+              [
+                2.2619,
+                -1.9646
+              ],
+              [
+                2.3248,
+                -1.9961
+              ],
+              [
+                2.3876,
+                -1.9961
+              ],
+              [
+                2.4504,
+                -1.9646
+              ],
+              [
+                2.5133,
+                -1.9021
+              ],
+              [
+                2.5761,
+                -1.8097
+              ],
+              [
+                2.6389,
+                -1.6887
+              ],
+              [
+                2.7018,
+                -1.541
+              ],
+              [
+                2.7646,
+                -1.3691
+              ],
+              [
+                2.8274,
+                -1.1756
+              ],
+              [
+                2.8903,
+                -0.9635
+              ],
+              [
+                2.9531,
+                -0.7362
+              ],
+              [
+                3.0159,
+                -0.4974
+              ],
+              [
+                3.0788,
+                -0.2507
+              ],
+              [
+                3.1416,
+                0.0
+              ],
+              [
+                3.2044,
+                0.2507
+              ],
+              [
+                3.2673,
+                0.4974
+              ],
+              [
+                3.3301,
+                0.7362
+              ],
+              [
+                3.3929,
+                0.9635
+              ],
+              [
+                3.4558,
+                1.1756
+              ],
+              [
+                3.5186,
+                1.3691
+              ],
+              [
+                3.5814,
+                1.541
+              ],
+              [
+                3.6442,
+                1.6887
+              ],
+              [
+                3.7071,
+                1.8097
+              ],
+              [
+                3.7699,
+                1.9021
+              ],
+              [
+                3.8327,
+                1.9646
+              ],
+              [
+                3.8956,
+                1.9961
+              ],
+              [
+                3.9584,
+                1.9961
+              ],
+              [
+                4.0212,
+                1.9646
+              ],
+              [
+                4.0841,
+                1.9021
+              ],
+              [
+                4.1469,
+                1.8097
+              ],
+              [
+                4.2097,
+                1.6887
+              ],
+              [
+                4.2726,
+                1.541
+              ],
+              [
+                4.3354,
+                1.3691
+              ],
+              [
+                4.3982,
+                1.1756
+              ],
+              [
+                4.4611,
+                0.9635
+              ],
+              [
+                4.5239,
+                0.7362
+              ],
+              [
+                4.5867,
+                0.4974
+              ],
+              [
+                4.6496,
+                0.2507
+              ],
+              [
+                4.7124,
+                0.0
+              ],
+              [
+                4.7752,
+                -0.2507
+              ],
+              [
+                4.8381,
+                -0.4974
+              ],
+              [
+                4.9009,
+                -0.7362
+              ],
+              [
+                4.9637,
+                -0.9635
+              ],
+              [
+                5.0265,
+                -1.1756
+              ],
+              [
+                5.0894,
+                -1.3691
+              ],
+              [
+                5.1522,
+                -1.541
+              ],
+              [
+                5.215,
+                -1.6887
+              ],
+              [
+                5.2779,
+                -1.8097
+              ],
+              [
+                5.3407,
+                -1.9021
+              ],
+              [
+                5.4035,
+                -1.9646
+              ],
+              [
+                5.4664,
+                -1.9961
+              ],
+              [
+                5.5292,
+                -1.9961
+              ],
+              [
+                5.592,
+                -1.9646
+              ],
+              [
+                5.6549,
+                -1.9021
+              ],
+              [
+                5.7177,
+                -1.8097
+              ],
+              [
+                5.7805,
+                -1.6887
+              ],
+              [
+                5.8434,
+                -1.541
+              ],
+              [
+                5.9062,
+                -1.3691
+              ],
+              [
+                5.969,
+                -1.1756
+              ],
+              [
+                6.0319,
+                -0.9635
+              ],
+              [
+                6.0947,
+                -0.7362
+              ],
+              [
+                6.1575,
+                -0.4974
+              ],
+              [
+                6.2204,
+                -0.2507
+              ],
+              [
+                6.2832,
+                0.0
+              ]
+            ],
+            "color": "#223",
+            "strokeWidth": 1.8
+          }
+        ],
+        "dots": [
+          {
+            "x": 2.3562,
+            "y": -2,
+            "label": "x = 3π/4",
+            "labelDx": -10,
+            "labelDy": 22,
+            "labelAnchor": "middle"
+          },
+          {
+            "x": 5.4978,
+            "y": -2,
+            "label": "x = 7π/4",
+            "labelDx": 10,
+            "labelDy": 22,
+            "labelAnchor": "middle"
+          }
+        ],
+        "annotations": [
+          {
+            "at": [
+              3.14,
+              2.15
+            ],
+            "text": "y = 2cos(2x - π/2) = 2sin 2x",
+            "anchor": "middle"
+          }
+        ]
+      },
       "correct": 2,
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
@@ -11744,6 +13312,7 @@
         "<b>🎯 เป้าหมาย</b> ตั้งสมการ $\\cos\\left(2x - \\dfrac{\\pi}{2}\\right) = -1$ แล้วแก้หา $x$ ในโดเมนที่กำหนด",
         "",
         "<b>【 พื้นฐาน · ตั้งเงื่อนไขค่าต่ำสุดแล้วแก้สมการ (set minimum condition, solve) 】</b>",
+        "[IMAGE]",
         "<b>ขั้นที่ 1:</b> จาก $0 \\le x < 2\\pi$",
         "จะได้ $2x - \\dfrac{\\pi}{2} \\in \\left[-\\dfrac{\\pi}{2}, \\dfrac{7\\pi}{2}\\right)$",
         "<b>ขั้นที่ 2:</b> $y$ ต่ำสุดเมื่อ $\\cos\\left(2x - \\dfrac{\\pi}{2}\\right) = -1$",
@@ -11838,8 +13407,469 @@
         "$\\left[\\pi, \\dfrac{3\\pi}{2}\\right]$",
         "$\\left[\\dfrac{3\\pi}{2}, 2\\pi\\right]$"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "sourceTag": "คัดโอลิมปิก 2535",
+      "imageSpec": {
+        "type": "function-plot",
+        "width": 440,
+        "height": 260,
+        "xRange": [
+          -0.2,
+          6.5
+        ],
+        "yRange": [
+          -0.7,
+          0.7
+        ],
+        "grid": true,
+        "xTicks": [],
+        "yTicks": [
+          0.5,
+          -0.5
+        ],
+        "axes": {
+          "xLabel": "x",
+          "yLabel": "y",
+          "arrows": true
+        },
+        "functions": [
+          {
+            "id": "y",
+            "kind": "piecewise-linear",
+            "points": [
+              [
+                0.0,
+                -0.0
+              ],
+              [
+                0.0628,
+                -0.0937
+              ],
+              [
+                0.1257,
+                -0.1841
+              ],
+              [
+                0.1885,
+                -0.2679
+              ],
+              [
+                0.2513,
+                -0.3423
+              ],
+              [
+                0.3142,
+                -0.4045
+              ],
+              [
+                0.377,
+                -0.4524
+              ],
+              [
+                0.4398,
+                -0.4843
+              ],
+              [
+                0.5027,
+                -0.499
+              ],
+              [
+                0.5655,
+                -0.4961
+              ],
+              [
+                0.6283,
+                -0.4755
+              ],
+              [
+                0.6912,
+                -0.4382
+              ],
+              [
+                0.754,
+                -0.3853
+              ],
+              [
+                0.8168,
+                -0.3187
+              ],
+              [
+                0.8796,
+                -0.2409
+              ],
+              [
+                0.9425,
+                -0.1545
+              ],
+              [
+                1.0053,
+                -0.0627
+              ],
+              [
+                1.0681,
+                0.0314
+              ],
+              [
+                1.131,
+                0.1243
+              ],
+              [
+                1.1938,
+                0.2129
+              ],
+              [
+                1.2566,
+                0.2939
+              ],
+              [
+                1.3195,
+                0.3645
+              ],
+              [
+                1.3823,
+                0.4222
+              ],
+              [
+                1.4451,
+                0.4649
+              ],
+              [
+                1.508,
+                0.4911
+              ],
+              [
+                1.5708,
+                0.5
+              ],
+              [
+                1.6336,
+                0.4911
+              ],
+              [
+                1.6965,
+                0.4649
+              ],
+              [
+                1.7593,
+                0.4222
+              ],
+              [
+                1.8221,
+                0.3645
+              ],
+              [
+                1.885,
+                0.2939
+              ],
+              [
+                1.9478,
+                0.2129
+              ],
+              [
+                2.0106,
+                0.1243
+              ],
+              [
+                2.0735,
+                0.0314
+              ],
+              [
+                2.1363,
+                -0.0627
+              ],
+              [
+                2.1991,
+                -0.1545
+              ],
+              [
+                2.2619,
+                -0.2409
+              ],
+              [
+                2.3248,
+                -0.3187
+              ],
+              [
+                2.3876,
+                -0.3853
+              ],
+              [
+                2.4504,
+                -0.4382
+              ],
+              [
+                2.5133,
+                -0.4755
+              ],
+              [
+                2.5761,
+                -0.4961
+              ],
+              [
+                2.6389,
+                -0.499
+              ],
+              [
+                2.7018,
+                -0.4843
+              ],
+              [
+                2.7646,
+                -0.4524
+              ],
+              [
+                2.8274,
+                -0.4045
+              ],
+              [
+                2.8903,
+                -0.3423
+              ],
+              [
+                2.9531,
+                -0.2679
+              ],
+              [
+                3.0159,
+                -0.1841
+              ],
+              [
+                3.0788,
+                -0.0937
+              ],
+              [
+                3.1416,
+                0.0
+              ],
+              [
+                3.2044,
+                0.0937
+              ],
+              [
+                3.2673,
+                0.1841
+              ],
+              [
+                3.3301,
+                0.2679
+              ],
+              [
+                3.3929,
+                0.3423
+              ],
+              [
+                3.4558,
+                0.4045
+              ],
+              [
+                3.5186,
+                0.4524
+              ],
+              [
+                3.5814,
+                0.4843
+              ],
+              [
+                3.6442,
+                0.499
+              ],
+              [
+                3.7071,
+                0.4961
+              ],
+              [
+                3.7699,
+                0.4755
+              ],
+              [
+                3.8327,
+                0.4382
+              ],
+              [
+                3.8956,
+                0.3853
+              ],
+              [
+                3.9584,
+                0.3187
+              ],
+              [
+                4.0212,
+                0.2409
+              ],
+              [
+                4.0841,
+                0.1545
+              ],
+              [
+                4.1469,
+                0.0627
+              ],
+              [
+                4.2097,
+                -0.0314
+              ],
+              [
+                4.2726,
+                -0.1243
+              ],
+              [
+                4.3354,
+                -0.2129
+              ],
+              [
+                4.3982,
+                -0.2939
+              ],
+              [
+                4.4611,
+                -0.3645
+              ],
+              [
+                4.5239,
+                -0.4222
+              ],
+              [
+                4.5867,
+                -0.4649
+              ],
+              [
+                4.6496,
+                -0.4911
+              ],
+              [
+                4.7124,
+                -0.5
+              ],
+              [
+                4.7752,
+                -0.4911
+              ],
+              [
+                4.8381,
+                -0.4649
+              ],
+              [
+                4.9009,
+                -0.4222
+              ],
+              [
+                4.9637,
+                -0.3645
+              ],
+              [
+                5.0265,
+                -0.2939
+              ],
+              [
+                5.0894,
+                -0.2129
+              ],
+              [
+                5.1522,
+                -0.1243
+              ],
+              [
+                5.215,
+                -0.0314
+              ],
+              [
+                5.2779,
+                0.0627
+              ],
+              [
+                5.3407,
+                0.1545
+              ],
+              [
+                5.4035,
+                0.2409
+              ],
+              [
+                5.4664,
+                0.3187
+              ],
+              [
+                5.5292,
+                0.3853
+              ],
+              [
+                5.592,
+                0.4382
+              ],
+              [
+                5.6549,
+                0.4755
+              ],
+              [
+                5.7177,
+                0.4961
+              ],
+              [
+                5.7805,
+                0.499
+              ],
+              [
+                5.8434,
+                0.4843
+              ],
+              [
+                5.9062,
+                0.4524
+              ],
+              [
+                5.969,
+                0.4045
+              ],
+              [
+                6.0319,
+                0.3423
+              ],
+              [
+                6.0947,
+                0.2679
+              ],
+              [
+                6.1575,
+                0.1841
+              ],
+              [
+                6.2204,
+                0.0937
+              ],
+              [
+                6.2832,
+                -0.0
+              ]
+            ],
+            "color": "#223",
+            "strokeWidth": 1.8
+          }
+        ],
+        "segments": [
+          {
+            "from": [
+              0,
+              0.62
+            ],
+            "to": [
+              2.0944,
+              0.62
+            ],
+            "dashed": true
+          }
+        ],
+        "annotations": [
+          {
+            "at": [
+              1.0472,
+              0.62
+            ],
+            "text": "คาบ m = 2π/3",
+            "anchor": "middle"
+          }
+        ]
+      },
       "correct": 1,
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
@@ -11850,6 +13880,7 @@
         "<b>🎯 เป้าหมาย</b> ประกอบฟังก์ชันให้ได้รูป $A\\sin(Bx + C)$ แล้วอ่านคาบจาก $B$",
         "",
         "<b>【 พื้นฐาน · ประกอบฟังก์ชันแล้วอ่านคาบจากสัมประสิทธิ์ (compose, read period) 】</b>",
+        "[IMAGE]",
         "<b>ขั้นที่ 1:</b> $(f_2 \\circ f_1)(x) = \\sin(3x - \\pi)$",
         "<b>ขั้นที่ 2:</b> $f_3 \\circ (f_2 \\circ f_1)(x) = \\dfrac{1}{2}\\sin(3x - \\pi)$",
         "<b>ขั้นที่ 3:</b> สัมประสิทธิ์ของ $x$ ข้างในคือ $3$",
@@ -12005,15 +14036,52 @@
       "level": "medium",
       "score": 1,
       "question": "จงหาค่า $c$ และ $\\alpha$ โดยที่ $c > 0$\nที่ทำให้ $c\\sin(x + \\alpha) = -2\\sin x - 2\\cos x$",
-      "hasImage": false,
+      "hasImage": true,
       "sourceTag": "ทุนเล่าเรียนหลวง (กพ.) 2539",
+      "imageSpec": {
+        "type": "unit-circle-figure",
+        "size": 270,
+        "radius": 95,
+        "showAxes": true,
+        "axisLabels": {
+          "x": "x",
+          "y": "y"
+        },
+        "dots": [
+          {
+            "id": "A",
+            "x": -0.7071,
+            "y": -0.7071,
+            "showCoord": "$(-1/\\sqrt{2},\\ -1/\\sqrt{2})$",
+            "coordPos": {
+              "dx": -77,
+              "dy": 31
+            }
+          }
+        ],
+        "radii": [
+          {
+            "toDot": "A"
+          }
+        ],
+        "annotations": [
+          {
+            "x": 97,
+            "y": 145,
+            "text": "π/4",
+            "fontSize": 12,
+            "anchor": "middle"
+          },
+          {
+            "x": 138,
+            "y": 268,
+            "text": "α = π + π/4 = 5π/4 (ควอดรันต์ 3)",
+            "anchor": "middle",
+            "fontSize": 11
+          }
+        ]
+      },
       "correct": "$c = 2\\sqrt{2},\\ \\alpha = \\dfrac{5\\pi}{4}$",
-      "accept": [
-        "c = 2sqrt(2), alpha = 5pi/4",
-        "2sqrt2, 5pi/4",
-        "c = 2.83, a = 225 องศา",
-        "2.83, 3.93"
-      ],
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
         "ขยายมุมผลบวก: $c\\sin(x + \\alpha) = (c\\cos\\alpha)\\sin x + (c\\sin\\alpha)\\cos x$",
@@ -12023,6 +14091,7 @@
         "<b>🎯 เป้าหมาย</b> เทียบสัมประสิทธิ์ให้ได้ระบบสมการของ $c\\cos\\alpha, c\\sin\\alpha$ แล้วถอด $c$ กับ $\\alpha$",
         "",
         "<b>【 พื้นฐาน · เทียบสัมประสิทธิ์แล้วถอดค่า c และ α (match coefficients, solve) 】</b>",
+        "[IMAGE]",
         "<b>ขั้นที่ 1:</b> เทียบสัมประสิทธิ์: $c\\cos\\alpha = -2$",
         "และ $c\\sin\\alpha = -2$",
         "<b>ขั้นที่ 2:</b> ยกกำลังสองแล้วบวก: $c^2(\\cos^2\\alpha + \\sin^2\\alpha) = 4 + 4 = 8$",
@@ -12043,7 +14112,13 @@
         "สลับสัมประสิทธิ์ ($c\\cos\\alpha$ คู่กับ $\\sin x$ ไม่ใช่ $\\cos x$)",
         "ลืมเงื่อนไข $c > 0$ แล้วตอบ $c = -2\\sqrt{2}, \\alpha = \\frac{\\pi}{4}$"
       ],
-      "notes": "เทียบสัมประสิทธิ์: c cosα = c sinα = −2 → c = 2√2, α = 5π/4 (+2nπ — เฉลย PDF เขียน 5π/4 + 2nπ) ; sympy expand = 0 ✓ ; fill สองช่อง (c และ α) ตามแบบ Q130 ; เฉลยอยู่ใน PDF เฉลย (ไม่อยู่ใน key footer) ; ชั้นเดียว ; จุดหลอก: tanα = 1 มีสองควอดรันต์ ต้องเลือก Q3"
+      "notes": "เทียบสัมประสิทธิ์: c cosα = c sinα = −2 → c = 2√2, α = 5π/4 (+2nπ — เฉลย PDF เขียน 5π/4 + 2nπ) ; sympy expand = 0 ✓ ; fill สองช่อง (c และ α) ตามแบบ Q130 ; เฉลยอยู่ใน PDF เฉลย (ไม่อยู่ใน key footer) ; ชั้นเดียว ; จุดหลอก: tanα = 1 มีสองควอดรันต์ ต้องเลือก Q3",
+      "accept": [
+        "c = 2sqrt(2), alpha = 5pi/4",
+        "2sqrt2, 5pi/4",
+        "c = 2.83, a = 225 องศา",
+        "2.83, 3.93"
+      ]
     },
     {
       "id": "chap-07-trigonometry-q158",
@@ -12753,8 +14828,45 @@
         "อยู่บนแกน $y$",
         "อยู่บนกราฟของพาราโบลา $y^2 = x$"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "sourceTag": "คัดโอลิมปิก 2535",
+      "imageSpec": {
+        "type": "unit-circle-figure",
+        "size": 260,
+        "radius": 95,
+        "showAxes": true,
+        "axisLabels": {
+          "x": "x",
+          "y": "y"
+        },
+        "dots": [
+          {
+            "id": "A",
+            "x": 0,
+            "y": 1,
+            "label": "(0, 1)",
+            "labelDx": -47,
+            "labelDy": -9
+          },
+          {
+            "id": "B",
+            "x": 0,
+            "y": -1,
+            "label": "(0, -1)",
+            "labelDx": 5,
+            "labelDy": 12
+          }
+        ],
+        "annotations": [
+          {
+            "x": 129,
+            "y": 257,
+            "text": "จุดทั้งสองอยู่บนแกน y",
+            "anchor": "middle",
+            "fontSize": 11
+          }
+        ]
+      },
       "correct": 2,
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
@@ -12766,6 +14878,7 @@
         "<b>🎯 เป้าหมาย</b> ยุบสมการกำลังสี่ให้เหลือสมการมุมเดียว แล้วแปลคำตอบเป็นตำแหน่งจุดบนวงกลม",
         "",
         "<b>【 พื้นฐาน · แยกตัวประกอบยุบเป็น cos2θ แล้วแปลเป็นจุด (factor to cos2θ, read point) 】</b>",
+        "[IMAGE]",
         "<b>ขั้นที่ 1:</b> แยกตัวประกอบ:",
         "$\\begin{aligned} \\sin^4\\theta - \\cos^4\\theta &= (\\sin^2\\theta - \\cos^2\\theta)(\\sin^2\\theta + \\cos^2\\theta) \\\\ &= \\sin^2\\theta - \\cos^2\\theta \\\\ &= -\\cos 2\\theta \\end{aligned}$",
         "<b>ขั้นที่ 2:</b> สมการกลายเป็น $-\\cos 2\\theta = 1$",

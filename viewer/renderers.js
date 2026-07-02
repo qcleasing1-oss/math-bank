@@ -462,7 +462,16 @@ function renderUnitCircle(spec){
           + `style="background:#fff;font-family:'Sarabun',sans-serif;">`;
   svg += `<defs><marker id="ucArr" viewBox="0 0 10 10" refX="9" refY="5" `
        + `markerWidth="7" markerHeight="7" orient="auto-start-reverse">`
-       + `<path d="M 0 0 L 10 5 L 0 10 z" fill="#222"/></marker></defs>`;
+       + `<path d="M 0 0 L 10 5 L 0 10 z" fill="#222"/></marker>`;
+  // extra colored arrow markers (one per distinct perimeterArc color, so arrowheads match line color)
+  const _ucArrColors = Array.from(new Set((spec.perimeterArcs || []).map(a => a.color).filter(Boolean)));
+  _ucArrColors.forEach(c => {
+    const cid = 'ucArr_' + c.replace(/[^a-zA-Z0-9]/g, '');
+    svg += `<marker id="${cid}" viewBox="0 0 10 10" refX="9" refY="5" `
+         + `markerWidth="7" markerHeight="7" orient="auto-start-reverse">`
+         + `<path d="M 0 0 L 10 5 L 0 10 z" fill="${c}"/></marker>`;
+  });
+  svg += `</defs>`;
 
   // Axes
   if (spec.showAxes !== false) {
@@ -544,8 +553,10 @@ function renderUnitCircle(spec){
     if (arc.major) { sweep = sweep ? 0 : 1; largeArc = 1; }
     const w = arc.emphasized ? 2.8 : 1.4;
     const dash = arc.dashed ? ' stroke-dasharray="5 4"' : '';
-    const mk = arc.arrow ? ' marker-end="url(#ucArr)"' : '';
-    svg += `<path d="M ${a.px.toFixed(2)} ${a.py.toFixed(2)} A ${radius} ${radius} 0 ${largeArc} ${sweep} ${b.px.toFixed(2)} ${b.py.toFixed(2)}" fill="none" stroke="#222" stroke-width="${w}"${dash}${mk}/>`;
+    const col = arc.color || '#222';
+    const mkId = arc.color ? ('ucArr_' + arc.color.replace(/[^a-zA-Z0-9]/g, '')) : 'ucArr';
+    const mk = arc.arrow ? ` marker-end="url(#${mkId})"` : '';
+    svg += `<path d="M ${a.px.toFixed(2)} ${a.py.toFixed(2)} A ${radius} ${radius} 0 ${largeArc} ${sweep} ${b.px.toFixed(2)} ${b.py.toFixed(2)}" fill="none" stroke="${col}" stroke-width="${w}"${dash}${mk}/>`;
   });
 
   // rightAngles (small square at vertex, aligned with arms toward refs)
