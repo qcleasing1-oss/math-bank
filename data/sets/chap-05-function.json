@@ -850,7 +850,7 @@
         "$(f \\cap h) \\cup g$",
         "$(f \\cup g) \\cup h$"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "imageSpec": [
         {
           "type": "function-plot",
@@ -1658,7 +1658,7 @@
         "$(B - A) \\cap C = C$",
         "$C - B = \\varnothing$"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "imageSpec": [
         {
           "type": "disk-shading",
@@ -1923,7 +1923,7 @@
         "$A$ เป็นสับเซตแท้ของ $B$",
         "$B$ เป็นสับเซตแท้ของ $A$"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "imageSpec": [
         {
           "type": "function-plot",
@@ -1995,8 +1995,8 @@
               "y": 4,
               "label": "(2,4)",
               "labelAnchor": "start",
-              "labelDx": 7,
-              "labelDy": -3
+              "labelDx": -13,
+              "labelDy": -10
             },
             {
               "x": 0,
@@ -2018,16 +2018,16 @@
             {
               "text": "y=2x",
               "at": [
-                0.7,
-                2.8
+                1.053,
+                2.574
               ],
               "anchor": "end"
             },
             {
               "text": "x=2",
               "at": [
-                2.15,
-                -0.45
+                1.763,
+                -0.652
               ],
               "anchor": "start"
             }
@@ -2214,7 +2214,7 @@
         "$\\{ (x, y) \\in \\mathbb{R} \\times \\mathbb{R} \\mid -3 \\le y \\le 0$ และ $y \\le x - 3 \\}$",
         "$\\{ (x, y) \\in \\mathbb{R} \\times \\mathbb{R} \\mid -3 \\le x \\le 0$ และ $x \\le y + 3 \\}$"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "imageSpec": [
         {
           "type": "function-plot",
@@ -3143,7 +3143,7 @@
         "$D_f = \\{ x \\mid x \\ne 1 \\}$ และ $R_f = \\{ x \\mid x \\le -2$ หรือ $x > 0 \\}$",
         "$D_f = \\{ x \\mid x \\ne 1$ และ $x \\ne -1 \\}$ และ $R_f = \\{ x \\mid x \\le -2$ หรือ $x > 0 \\}$"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "imageSpec": [
         {
           "type": "number-line",
@@ -3249,6 +3249,7 @@
         "ดังนั้น $\\dfrac{2}{y} + 1 \\ge 0$ คือ $\\dfrac{2 + y}{y} \\ge 0$",
         "",
         "<b>ขั้นที่ 3:</b> ทำเส้นจำนวน (จุดวิกฤต $y = -2$ ทึบ, $y = 0$ โปร่ง):",
+        "[IMAGE:0]",
         "$y \\le -2$: เศษ $\\le 0$ ส่วน $ < 0$ → ผลหาร $\\ge 0$ ✓ | $-2 < y < 0$: เศษ $ > 0$ ส่วน $ < 0$ → ✗ | $y > 0$: ✓",
         "ได้ $R_f = \\{ y \\mid y \\le -2$",
         "หรือ $y > 0 \\}$",
@@ -3290,7 +3291,7 @@
         "$\\left(-\\infty, -\\dfrac{1}{3}\\right) \\cup \\left(-\\dfrac{1}{3}, \\infty\\right)$",
         "$(-\\infty, \\infty)$"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "sourceTag": "Entrance ต.ค. 2544",
       "correct": 0,
       "explanation": [
@@ -3545,7 +3546,7 @@
         "$(-\\infty, 2] \\cup [3, \\infty)$",
         "$(-\\infty, 2] \\cup (3, \\infty)$"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "imageSpec": [
         {
           "type": "number-line",
@@ -3652,6 +3653,7 @@
         "หรือ $\\dfrac{4(y - 3)}{y - 2} \\ge 0$",
         "",
         "<b>ขั้นที่ 3:</b> เส้นจำนวน (จุดวิกฤต: $y = 2$ โปร่ง, $y = 3$ ทึบ):",
+        "[IMAGE:0]",
         "$y < 2$: เศษลบ ส่วนลบ → บวก ✓ | $2 < y < 3$: เศษลบ ส่วนบวก → ลบ ✗ | $y \\ge 3$: บวก/บวก ✓",
         "ได้เรนจ์ $= (-\\infty, 2) \\cup [3, \\infty)$",
         "",
@@ -3900,7 +3902,7 @@
         "ข้อ (1) และข้อ (3) ถูกเพียง 2 ข้อ",
         "ข้อ (2) และข้อ (3) ถูกเพียง 2 ข้อ"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "imageSpec": [
         {
           "type": "function-plot",
@@ -4030,7 +4032,7 @@
         "$(-\\infty, 0] \\cup [2, \\infty)$",
         "$(-\\infty, 0] \\cup [4, \\infty)$"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "imageSpec": [
         {
           "type": "function-plot",
@@ -4185,7 +4187,7 @@
         "$(-\\infty, -1] \\cup [\\dfrac{1}{2}, 1]$",
         "$(-\\infty, \\dfrac{1}{2}] \\cup [1, 2]$"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "imageSpec": [
         {
           "type": "function-plot",
@@ -4542,7 +4544,7 @@
         "ก. ผิด และ ข. ถูก",
         "ก. ผิด และ ข. ผิด"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "imageSpec": [
         {
           "type": "function-plot",
@@ -4598,24 +4600,24 @@
               "x": -1,
               "y": 0,
               "label": "(-1, 0)",
-              "labelDx": -8,
-              "labelDy": -8,
+              "labelDx": -18,
+              "labelDy": -7,
               "labelAnchor": "end"
             },
             {
               "x": 1,
               "y": 0,
               "label": "(1, 0)",
-              "labelDx": 8,
-              "labelDy": 16,
+              "labelDx": 14,
+              "labelDy": 18,
               "labelAnchor": "start"
             },
             {
               "x": 1.5,
               "y": 1.5,
               "label": "(3/2, 3/2)",
-              "labelDx": 9,
-              "labelDy": -6,
+              "labelDx": 13,
+              "labelDy": 5,
               "labelAnchor": "start"
             }
           ],
@@ -4623,8 +4625,8 @@
             {
               "text": "x = y",
               "at": [
-                -2.7,
-                -1.5
+                -3.573,
+                -3.784
               ],
               "anchor": "start"
             }
@@ -4695,7 +4697,7 @@
         "ก. ผิด และ ข. ถูก",
         "ก. ผิด และ ข. ผิด"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "imageSpec": [
         {
           "type": "function-plot",
@@ -5042,7 +5044,7 @@
         "$\\{(-3, 1), (0, 2), (1, 1), (2, 3), (3, 4)\\}$",
         "$\\{(-3, 1), (-2, 4), (1, 5), (2, 2), (3, 1)\\}$"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "sourceTag": "Entrance 2537",
       "correct": 3,
       "explanation": [
@@ -5183,7 +5185,7 @@
         "ถูกทั้งข้อ 2. และข้อ 3. ดังนั้น $f$ ไม่ใช่ฟังก์ชันชนิด \"หนึ่งต่อหนึ่งทั่วถึง\"",
         "ไม่มีคำตอบใดถูกต้อง"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "imageSpec": [
         {
           "type": "function-plot",
@@ -6442,7 +6444,7 @@
       "level": "medium",
       "score": 1,
       "question": "กำหนดให้ $f(x) = \\dfrac{1}{3}\\sqrt{36 - 4x^2}$\nถ้า $A = \\{ x \\mid x \\in [-3, 3]$ และ $f(x) \\in \\{0, 1, 2, 3\\} \\}$\nแล้ว จำนวนสมาชิกของเซต $A$ เท่ากับเท่าใด",
-      "hasImage": false,
+      "hasImage": true,
       "imageSpec": [
         {
           "type": "function-plot",
@@ -6596,7 +6598,7 @@
         "ก. ผิด และ ข. ถูก",
         "ก. ผิด และ ข. ผิด"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "imageSpec": [
         {
           "type": "function-plot",
@@ -6693,8 +6695,8 @@
               "y": 0.5,
               "label": "(1/2, 1/2)",
               "labelAnchor": "start",
-              "labelDx": 7,
-              "labelDy": 14
+              "labelDx": -64,
+              "labelDy": 2
             },
             {
               "x": 1,
@@ -6711,7 +6713,7 @@
               "label": "(2, 2)",
               "labelAnchor": "start",
               "labelDx": 7,
-              "labelDy": 4
+              "labelDy": 15
             }
           ]
         }
@@ -8038,7 +8040,7 @@
         "ก. เท็จ ข. จริง",
         "ก. เท็จ ข. เท็จ"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "imageSpec": [
         {
           "type": "function-plot",
@@ -9273,7 +9275,7 @@
         "$(-3, 2)$",
         "$(-3, 2]$"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "sourceTag": "Entrance 2538",
       "correct": 3,
       "explanation": [
@@ -9378,7 +9380,7 @@
         "$(2, 7)$",
         "$(4, 8)$"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "sourceTag": "Entrance 2534",
       "correct": 1,
       "explanation": [
@@ -9541,7 +9543,7 @@
         "$\\{ x \\mid x \\le -5$ หรือ $x \\ge 5 \\}$",
         "$\\{ x \\mid x \\ge 0 \\}$"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "sourceTag": "Entrance 2527",
       "correct": 0,
       "explanation": [
@@ -9817,7 +9819,7 @@
       "level": "medium",
       "score": 1,
       "question": "กำหนดให้ $f(x) = 10^x$ และ $g(x) = \\sqrt{100 - 3x^2}$\nจำนวนเต็มที่มีค่ามากที่สุดที่เป็นสมาชิกของ $R_{g \\circ f}$ มีค่าเท่าใด",
-      "hasImage": false,
+      "hasImage": true,
       "sourceTag": "Entrance มี.ค. 2547",
       "correct": "9",
       "accept": [
@@ -10521,7 +10523,7 @@
       "level": "medium",
       "score": 1,
       "question": "พื้นที่ของอาณาบริเวณที่ล้อมรอบโดยกราฟของ $|x| + |y| = 2$ เท่ากับกี่ตารางหน่วย",
-      "hasImage": false,
+      "hasImage": true,
       "imageSpec": [
         {
           "type": "function-plot",
@@ -10651,7 +10653,7 @@
         "8 ตร.หน่วย",
         "16 ตร.หน่วย"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "sourceTag": "พื้นฐานวิศวะฯ 2538",
       "correct": 1,
       "explanation": [
@@ -10718,8 +10720,8 @@
               "label": {
                 "text": "y=x−1",
                 "at": [
-                  3.3,
-                  2.0
+                  3.674,
+                  2.117
                 ],
                 "anchor": "start"
               }
@@ -10740,8 +10742,8 @@
               "label": {
                 "text": "y=−x+3",
                 "at": [
-                  3.2,
-                  -1.1
+                  2.765,
+                  -1.389
                 ],
                 "anchor": "start"
               }
@@ -10774,8 +10776,8 @@
               "open": false,
               "label": "(0, 3)",
               "labelAnchor": "end",
-              "labelDx": -8,
-              "labelDy": -8
+              "labelDx": 32,
+              "labelDy": -5
             },
             {
               "x": 0,
@@ -10783,8 +10785,8 @@
               "open": false,
               "label": "(0, −1)",
               "labelAnchor": "end",
-              "labelDx": -8,
-              "labelDy": 18
+              "labelDx": -15,
+              "labelDy": 0
             }
           ],
           "annotations": [
@@ -10815,7 +10817,7 @@
       "level": "hard",
       "score": 1,
       "question": "กำหนดให้ $r_1 = \\{ (x, y) \\in \\mathbb{R} \\times \\mathbb{R} \\mid 2|x| + |y| \\le 4 \\}$\nและ $r_2 = \\{ (x, y) \\in \\mathbb{R} \\times \\mathbb{R} \\mid |x| - |y| \\ge 1 \\}$\nพื้นที่ของ $r_1 \\cap r_2$ มีค่าเท่ากับกี่ตารางหน่วย",
-      "hasImage": false,
+      "hasImage": true,
       "sourceTag": "คัดโอลิมปิก 2545",
       "correct": "4/3",
       "accept": [
@@ -11062,8 +11064,8 @@
               "open": false,
               "label": "(2,0)",
               "labelAnchor": "start",
-              "labelDx": 5,
-              "labelDy": 14
+              "labelDx": 10,
+              "labelDy": 17
             },
             {
               "x": 1.6667,
@@ -11071,8 +11073,8 @@
               "open": false,
               "label": "(5/3, 2/3)",
               "labelAnchor": "start",
-              "labelDx": 6,
-              "labelDy": -4
+              "labelDx": -61,
+              "labelDy": -3
             },
             {
               "x": 0,
@@ -11108,23 +11110,23 @@
               "text": "r₁: ข้าวหลามตัด",
               "at": [
                 0.2,
-                3.0
+                3
               ],
               "anchor": "start"
             },
             {
               "text": "r₂: โบว์",
               "at": [
-                2.0,
-                1.7
+                2.303,
+                2.07
               ],
               "anchor": "start"
             },
             {
               "text": "พื้นที่ = 4×⅓ = 4/3",
               "at": [
-                -3.3,
-                -3.6
+                -3.463,
+                -3.034
               ],
               "anchor": "start"
             }
@@ -11155,7 +11157,7 @@
         "สี่เหลี่ยมด้านขนานที่เท่ากันทุกประการ 2 รูป กับสี่เหลี่ยมจัตุรัส 1 รูป",
         "สี่เหลี่ยมผืนผ้าที่เท่ากันทุกประการ 2 รูป กับสามเหลี่ยมหน้าจั่ว 1 รูป"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "sourceTag": "คัดโอลิมปิก 2547",
       "correct": 3,
       "explanation": [
@@ -11341,8 +11343,8 @@
             {
               "text": "พื้นที่ = 3",
               "at": [
-                -0.62,
-                -0.2
+                -0.853,
+                0.499
               ],
               "anchor": "start"
             }
@@ -11541,7 +11543,7 @@
         "2,000 ชั่วโมง",
         "2,250 ชั่วโมง"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "imageSpec": [
         {
           "type": "function-plot",
@@ -12482,7 +12484,7 @@
         "เซตคำตอบของอสมการ $x^4 - 10x^2 + 9 \\ge 0$",
         "เซตคำตอบของอสมการ $x^3 - 2x^2 - 3x \\ge 0$"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "sourceTag": "โควตา มช. 2545",
       "correct": 2,
       "explanation": [
@@ -12674,7 +12676,7 @@
         "$(-\\infty, 2] \\cup [3, \\infty)$",
         "$(-\\infty, -1) \\cup (-1, 2] \\cup [3, \\infty)$"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "sourceTag": "โควตา มช. 2538",
       "correct": 3,
       "explanation": [
@@ -13227,7 +13229,7 @@
         "$(-\\infty, 0)$",
         "$(-2, \\infty)$"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "sourceTag": "โควตา มช. 2543",
       "correct": 1,
       "explanation": [
@@ -13296,8 +13298,8 @@
               "label": {
                 "text": "y=x²−6",
                 "at": [
-                  -3.25,
-                  -1.2
+                  -1.735,
+                  3.424
                 ],
                 "anchor": "end",
                 "color": "#1f6f5c"
@@ -13312,14 +13314,14 @@
               ],
               "domain": [
                 -3.4,
-                4.0
+                4
               ],
               "color": "#b5532a",
               "label": {
                 "text": "y=x",
                 "at": [
-                  1.6,
-                  3.5
+                  3.914,
+                  4.43
                 ],
                 "anchor": "start",
                 "color": "#b5532a"
@@ -13357,8 +13359,8 @@
               "open": false,
               "label": "(−2,−2)",
               "labelAnchor": "end",
-              "labelDx": -9,
-              "labelDy": 4
+              "labelDx": -13,
+              "labelDy": -4
             },
             {
               "x": 3,
@@ -13366,8 +13368,8 @@
               "open": false,
               "label": "(3,3)",
               "labelAnchor": "start",
-              "labelDx": 10,
-              "labelDy": 6
+              "labelDx": 15,
+              "labelDy": 14
             },
             {
               "x": 0,
@@ -13375,8 +13377,8 @@
               "open": false,
               "label": "(0,−6)",
               "labelAnchor": "start",
-              "labelDx": 7,
-              "labelDy": 4
+              "labelDx": 15,
+              "labelDy": 20
             }
           ],
           "annotations": [
@@ -13407,7 +13409,7 @@
       "level": "medium",
       "score": 1,
       "question": "กำหนดความสัมพันธ์ $r_1, r_2$ ดังนี้\n$r_1 = \\{ (x, y) \\in \\mathbb{R} \\times \\mathbb{R} \\mid |x| + |y| \\le 2 \\}$\n$r_2 = \\{ (x, y) \\in \\mathbb{R} \\times \\mathbb{R} \\mid y \\ge x^2 - 1 \\}$\nและให้ $r = r_1 \\cap r_2$ จงหาเรนจ์ของ $r_1$, $r_2$ และโดเมนของ $r^{-1}$",
-      "hasImage": false,
+      "hasImage": true,
       "sourceTag": "ทุนเล่าเรียนหลวง (กพ.) 2542",
       "correct": "$R_{r_1} = [-2, 2]$, $R_{r_2} = [-1, \\infty)$, $D_{r^{-1}} = [-1, 2]$",
       "accept": [
@@ -13615,7 +13617,7 @@
         "$\\{ y \\mid 1 \\le y \\le 3 \\}$",
         "$\\{ y \\mid 1 \\le y \\le 4 \\}$"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "sourceTag": "สมาคมคณิตศาสตร์ฯ 2545",
       "correct": 3,
       "explanation": [
@@ -13679,8 +13681,8 @@
               "label": {
                 "text": "y=x²+1",
                 "at": [
-                  1.95,
-                  4.35
+                  1.426,
+                  4.421
                 ],
                 "anchor": "start"
               }
@@ -13757,8 +13759,8 @@
               "open": false,
               "label": "1",
               "labelAnchor": "end",
-              "labelDx": -6,
-              "labelDy": 4
+              "labelDx": -5,
+              "labelDy": 11
             },
             {
               "x": 0,
@@ -13766,8 +13768,8 @@
               "open": false,
               "label": "4",
               "labelAnchor": "end",
-              "labelDx": -6,
-              "labelDy": 4
+              "labelDx": -9,
+              "labelDy": -7
             },
             {
               "x": 0,
@@ -13783,8 +13785,8 @@
             {
               "text": "ขอบ r₂: |y−1|+|x|=3",
               "at": [
-                -3.7,
-                -2.0
+                -4.003,
+                -0.376
               ],
               "anchor": "start",
               "arrowTo": [
@@ -13823,7 +13825,7 @@
         "$(-\\infty, -1] \\cup [1, \\infty)$",
         "$(-\\infty, 0) \\cup [1, \\infty)$"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "sourceTag": "สมาคมคณิตศาสตร์ฯ 2544",
       "correct": 3,
       "explanation": [
@@ -13886,8 +13888,8 @@
               "label": {
                 "text": "y=x²",
                 "at": [
-                  0.35,
-                  4.5
+                  1.618,
+                  4.79
                 ],
                 "anchor": "start"
               }
@@ -13905,8 +13907,8 @@
               "label": {
                 "text": "y=1/x",
                 "at": [
-                  1.9,
-                  0.95
+                  2.477,
+                  0.488
                 ],
                 "anchor": "start"
               }
@@ -13962,8 +13964,8 @@
               "open": false,
               "label": "(1,1)",
               "labelAnchor": "start",
-              "labelDx": 7,
-              "labelDy": -4
+              "labelDx": -16,
+              "labelDy": -18
             },
             {
               "x": 0,
@@ -14002,24 +14004,24 @@
             {
               "text": "โดเมน = (−∞,0) ∪ [1,∞)",
               "at": [
-                -0.3,
-                -3.6
+                0.383,
+                -3.498
               ],
               "anchor": "start"
             },
             {
               "text": "x ≥ 1",
               "at": [
-                1.85,
-                1.55
+                2.217,
+                2.043
               ],
               "anchor": "start"
             },
             {
               "text": "ฝั่ง x ลบ: y ≤ 1/x",
               "at": [
-                -2.45,
-                -2.6
+                -2.216,
+                -2.477
               ],
               "anchor": "start"
             }
@@ -14048,7 +14050,7 @@
         "$R_f \\subset [0, \\infty)$",
         "$D_f - R_f = (-\\infty, 0]$"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "imageSpec": [
         {
           "type": "function-plot",
@@ -15324,7 +15326,7 @@
         "$(-2, 0)$",
         "$(-1, 1)$"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "sourceTag": "สมาคมคณิตศาสตร์ฯ 2547",
       "correct": 1,
       "explanation": [
