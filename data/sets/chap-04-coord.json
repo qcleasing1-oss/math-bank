@@ -3127,7 +3127,89 @@
       "level": "medium",
       "score": 1,
       "question": "กำหนดพาราโบลา ที่มีเส้นตรง $x = -2$ เป็นไดเรกตริกซ์ และจุด $(2, 2)$ เป็นโฟกัส\nสมการของพาราโบลานี้คือสมการในข้อใด",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 400,
+          "height": 380,
+          "xRange": [
+            -4,
+            5
+          ],
+          "yRange": [
+            -4.2,
+            8.2
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "p",
+              "kind": "parabola-h",
+              "vertex": [
+                0,
+                2
+              ],
+              "throughPoint": [
+                2,
+                6
+              ],
+              "yDomain": [
+                -3.5,
+                7.5
+              ],
+              "color": "#1f6feb",
+              "strokeWidth": 1.6
+            }
+          ],
+          "segments": [
+            {
+              "from": [
+                -2,
+                -3.6
+              ],
+              "to": [
+                -2,
+                7.6
+              ],
+              "dashed": true
+            }
+          ],
+          "dots": [
+            {
+              "x": 0,
+              "y": 2,
+              "label": "จุดยอด(0,2)",
+              "labelDx": -10,
+              "labelDy": 18,
+              "labelAnchor": "end"
+            },
+            {
+              "x": 2,
+              "y": 2,
+              "label": "F(2,2)",
+              "labelDx": 8,
+              "labelDy": -8,
+              "labelAnchor": "start"
+            }
+          ],
+          "annotations": [
+            {
+              "text": "x = -2 (directrix)",
+              "at": [
+                -2,
+                7.9
+              ],
+              "anchor": "middle"
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance 2525",
       "choices": [
         "$y^2 = 8x$",
@@ -3155,6 +3237,8 @@
         "ตัวเลือก 1: $y^2 = 8x$ คือพาราโบลายอด $(0,0)$ ✗ | ตัวเลือก 2: รูปแบบไม่ใช่ด้วยซ้ำ ✗",
         "ตัวเลือก 3: $y^2 - 4y + 8x + 8 = 0$ เปิดซ้าย ✗ | ตัวเลือก 4: $y^2 - 4y - 8x + 8 = 0$ ค่าคงตัวเป็น $+8$ แต่ของจริงคือ $+4$ ✗",
         "ไม่มีข้อใดตรง",
+        "",
+        "[IMAGE]",
         "",
         "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ · นิยาม locus โดยตรง (distance equality) 】</b>",
         "• พาราโบลาคือเซตของจุด $P(x, y)$ ที่ระยะถึงโฟกัสเท่ากับระยะถึงไดเรกตริกซ์",
@@ -3190,7 +3274,103 @@
       "level": "easy",
       "score": 1,
       "question": "ข้อใดต่อไปนี้เป็นสมการของเส้นตรงที่ผ่านจุด $(1, 6)$\nและผ่านจุดโฟกัสของพาราโบลา $y^2 - 4y - 4x = 8$",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 380,
+          "height": 430,
+          "xRange": [
+            -4.7,
+            3
+          ],
+          "yRange": [
+            -2.2,
+            8.2
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "p",
+              "kind": "parabola-h",
+              "vertex": [
+                -3,
+                2
+              ],
+              "throughPoint": [
+                1,
+                6
+              ],
+              "yDomain": [
+                -2,
+                6
+              ],
+              "color": "#1f6feb",
+              "strokeWidth": 1.6
+            },
+            {
+              "id": "L",
+              "kind": "piecewise-linear",
+              "points": [
+                [
+                  -4.6,
+                  -1.467
+                ],
+                [
+                  2.6,
+                  7.867
+                ]
+              ],
+              "domain": [
+                -4.6,
+                2.6
+              ],
+              "color": "#d11",
+              "strokeWidth": 1.5,
+              "label": {
+                "at": [
+                  2.269,
+                  6.944
+                ],
+                "text": "L",
+                "anchor": "start",
+                "color": "#d11"
+              }
+            }
+          ],
+          "dots": [
+            {
+              "x": -3,
+              "y": 2,
+              "label": "จุดยอด(-3,2)",
+              "labelDx": -11,
+              "labelDy": 5,
+              "labelAnchor": "end"
+            },
+            {
+              "x": -2,
+              "y": 2,
+              "label": "F(-2,2)",
+              "labelDx": 19,
+              "labelDy": 8,
+              "labelAnchor": "start"
+            },
+            {
+              "x": 1,
+              "y": 6,
+              "label": "P(1,6)",
+              "labelDx": -18,
+              "labelDy": -21,
+              "labelAnchor": "start"
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance 2538",
       "choices": [
         "$3x - 4y + 21 = 0$",
@@ -3212,6 +3392,8 @@
         "<b>ขั้นที่ 2:</b> เส้นผ่าน $(1, 6)$ และ $(-2, 2)$: ความชัน $= \\dfrac{6 - 2}{1 - (-2)} = \\dfrac{4}{3}$",
         "",
         "<b>ขั้นที่ 3:</b> $y - 6 = \\dfrac{4}{3}(x - 1)$ → $3y - 18 = 4x - 4$ → $4x - 3y + 14 = 0$",
+        "",
+        "[IMAGE]",
         "",
         "<b>✔ ตรวจคำตอบ:</b> แทน $(1, 6)$: $4 - 18 + 14 = 0$ ✓ แทน $(-2, 2)$: $-8 - 6 + 14 = 0$ ✓",
         "",
@@ -3235,7 +3417,133 @@
       "level": "medium",
       "score": 1,
       "question": "พาราโบลา $P$ มีจุดโฟกัสอยู่ที่ $(2, 0)$ และมี $y = 2$ เป็นเส้นไดเรกตริกซ์\nข้อใดต่อไปนี้<u>ผิด</u>",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 430,
+          "height": 400,
+          "xRange": [
+            -3.6,
+            7.6
+          ],
+          "yRange": [
+            -5.8,
+            3.2
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "p",
+              "kind": "parabola",
+              "vertex": [
+                2,
+                1
+              ],
+              "throughPoint": [
+                0,
+                0
+              ],
+              "domain": [
+                -2.3,
+                6.3
+              ],
+              "color": "#1f6feb",
+              "strokeWidth": 1.6
+            }
+          ],
+          "segments": [
+            {
+              "from": [
+                -3.4,
+                2
+              ],
+              "to": [
+                7.4,
+                2
+              ],
+              "dashed": true
+            },
+            {
+              "from": [
+                -2,
+                -2
+              ],
+              "to": [
+                -2,
+                -3
+              ],
+              "dashed": true
+            }
+          ],
+          "dots": [
+            {
+              "x": 2,
+              "y": 1,
+              "label": "จุดยอด(2,1)",
+              "labelDx": 8,
+              "labelDy": -8,
+              "labelAnchor": "start"
+            },
+            {
+              "x": 2,
+              "y": 0,
+              "label": "F(2,0)",
+              "labelDx": 8,
+              "labelDy": 16,
+              "labelAnchor": "start"
+            },
+            {
+              "x": 0,
+              "y": 0,
+              "label": "(0,0)",
+              "labelDx": -6,
+              "labelDy": -10,
+              "labelAnchor": "end"
+            },
+            {
+              "x": 4,
+              "y": 0,
+              "label": "(4,0)",
+              "labelDx": 8,
+              "labelDy": 16,
+              "labelAnchor": "start"
+            },
+            {
+              "x": -2,
+              "y": -3,
+              "label": "",
+              "labelDx": 0,
+              "labelDy": 0
+            },
+            {
+              "x": -2,
+              "y": -2,
+              "label": "(-2,-2)?",
+              "labelDx": -8,
+              "labelDy": -8,
+              "labelAnchor": "end",
+              "labelColor": "#c33",
+              "open": true
+            }
+          ],
+          "annotations": [
+            {
+              "text": "y = 2 (directrix)",
+              "at": [
+                -3.4,
+                2.5
+              ],
+              "anchor": "start"
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance 2541",
       "choices": [
         "$P$ มีจุดยอดอยู่ที่ $(2, 1)$",
@@ -3262,6 +3570,8 @@
         "",
         "<b>ขั้นที่ 5 (ตัวเลือก 4):</b> แทน $(-2, -2)$: ซ้าย $= (-4)^2 = 16$, ขวา $= -4(-2 - 1) = 12$",
         "$16 \\ne 12$ → ไม่ผ่าน → <u>ผิด</u> ✗",
+        "",
+        "[IMAGE]",
         "",
         "<b>✔ ตรวจคำตอบ:</b> เช็คนิยามที่ $(0,0)$: ระยะถึงโฟกัส $(2,0)$ คือ 2 = ระยะถึงเส้น $y = 2$ คือ 2 ✓ สมการถูกต้อง",
         "",
@@ -3583,7 +3893,124 @@
       "level": "hard",
       "score": 1,
       "question": "สมมติทางโคจรของดาวหางดวงหนึ่งรอบๆ ดวงอาทิตย์ มีลักษณะเป็นกราฟที่กำหนดโดยสมการ $y^2 = 4px$, $p > 0$ และดวงอาทิตย์อยู่ ณ ตำแหน่ง $(-p, 0)$ เมื่อดาวหางอยู่ห่างจากจุด $(p, 0)$ เป็นระยะทาง 60 ล้านไมล์ แนวเส้นตรงจากดาวหางมายังจุดนี้ทำมุมกับแกน $x$ วัดได้ 60 องศา\nระยะทางสั้นที่สุดระหว่างดาวหางดวงนี้และดวงอาทิตย์เท่ากับเท่าใด",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 460,
+          "height": 460,
+          "xRange": [
+            -20,
+            52
+          ],
+          "yRange": [
+            -9,
+            60
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "p",
+              "kind": "parabola-h",
+              "vertex": [
+                0,
+                0
+              ],
+              "throughPoint": [
+                15,
+                30
+              ],
+              "yDomain": [
+                -5,
+                55
+              ],
+              "color": "#1f6feb",
+              "strokeWidth": 1.6
+            }
+          ],
+          "segments": [
+            {
+              "from": [
+                -15,
+                -8.5
+              ],
+              "to": [
+                -15,
+                58.5
+              ],
+              "dashed": true
+            },
+            {
+              "from": [
+                45,
+                51.962
+              ],
+              "to": [
+                15,
+                0
+              ],
+              "dashed": true
+            }
+          ],
+          "dots": [
+            {
+              "x": 0,
+              "y": 0,
+              "label": "O (ใกล้สุด)",
+              "labelDx": 36,
+              "labelDy": -12,
+              "labelAnchor": "middle"
+            },
+            {
+              "x": 15,
+              "y": 0,
+              "label": "F(15,0)",
+              "labelDx": -18,
+              "labelDy": 21,
+              "labelAnchor": "start"
+            },
+            {
+              "x": -15,
+              "y": 0,
+              "label": "S(-15,0)",
+              "labelDx": 29,
+              "labelDy": -17,
+              "labelAnchor": "middle"
+            },
+            {
+              "x": 45,
+              "y": 51.962,
+              "label": "C(45,30√3)",
+              "labelDx": 1,
+              "labelDy": -20,
+              "labelAnchor": "end"
+            }
+          ],
+          "annotations": [
+            {
+              "text": "60°",
+              "at": [
+                21.1,
+                3.034
+              ],
+              "anchor": "start"
+            },
+            {
+              "text": "ดวงอาทิตย์",
+              "at": [
+                -15.98,
+                -3.178
+              ],
+              "anchor": "middle"
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance 2526",
       "choices": [
         "20 ล้านไมล์",
@@ -3608,6 +4035,8 @@
         "<b>ขั้นที่ 3:</b> ดวงอาทิตย์อยู่ที่ $(-15, 0)$ หาระยะใกล้สุดถึงจุด $(x, y)$ บนพาราโบลา $y^2 = 60x$, $x \\ge 0$:",
         "$d^2 = (x + 15)^2 + y^2 = (x + 15)^2 + 60x$",
         "ทุกพจน์เพิ่มขึ้นตาม $x$ → น้อยสุดเมื่อ $x = 0$ (ที่จุดยอด) ได้ $d = 15$",
+        "",
+        "[IMAGE]",
         "",
         "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ · สมบัติเรขาคณิต + ระยะตั้งฉาก (geometric property) 】</b>",
         "• หลังหาค่า $p = 15$ แล้ว ดวงอาทิตย์อยู่ที่ $(-15, 0)$ — สังเกตว่าจุดนี้อยู่<u>บนเส้นไดเรกตริกซ์</u> $x = -p$ ของพาราโบลา",
@@ -3643,7 +4072,104 @@
       "level": "medium",
       "score": 1,
       "question": "ถ้ากำหนด $y^2 = 8x$ เป็นสมการของพาราโบลา แล้วความยาวของส่วนของเส้นตรงที่มีจุดปลายทั้งสองอยู่บนพาราโบลาโดยลากผ่านจุดโฟกัส และขนานกับเส้นตรง $y = 2\\sqrt{2}x + 1$ มีค่าเป็นเท่าใด",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 380,
+          "height": 420,
+          "xRange": [
+            -1.6,
+            5.2
+          ],
+          "yRange": [
+            -6.8,
+            7.4
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "p",
+              "kind": "parabola-h",
+              "vertex": [
+                0,
+                0
+              ],
+              "throughPoint": [
+                2,
+                4
+              ],
+              "yDomain": [
+                -6.2,
+                6.2
+              ],
+              "color": "#1f6feb",
+              "strokeWidth": 1.6
+            },
+            {
+              "id": "L",
+              "kind": "piecewise-linear",
+              "points": [
+                [
+                  0.65,
+                  -3.819
+                ],
+                [
+                  4.35,
+                  6.647
+                ]
+              ],
+              "domain": [
+                0.65,
+                4.35
+              ],
+              "color": "#d11",
+              "strokeWidth": 1.5
+            }
+          ],
+          "dots": [
+            {
+              "x": 2,
+              "y": 0,
+              "label": "F(2,0)",
+              "labelDx": 10,
+              "labelDy": 18,
+              "labelAnchor": "start"
+            },
+            {
+              "x": 1,
+              "y": -2.828,
+              "label": "A(1,-2√2)",
+              "labelDx": 69,
+              "labelDy": 4,
+              "labelAnchor": "end"
+            },
+            {
+              "x": 4,
+              "y": 5.657,
+              "label": "B(4,4√2)",
+              "labelDx": 11,
+              "labelDy": 11,
+              "labelAnchor": "start"
+            }
+          ],
+          "annotations": [
+            {
+              "text": "|AB| = 9",
+              "at": [
+                3.515,
+                2.748
+              ],
+              "anchor": "start"
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance 2532",
       "correct": "9",
       "accept": [
@@ -3664,6 +4190,8 @@
         "และ $x = 4$: $y = 2\\sqrt{2}(2) = 4\\sqrt{2}$",
         "",
         "<b>ขั้นที่ 4:</b> ความยาว $= \\sqrt{(4 - 1)^2 + (4\\sqrt{2} + 2\\sqrt{2})^2} = \\sqrt{9 + (6\\sqrt{2})^2} = \\sqrt{9 + 72} = \\sqrt{81} = 9$",
+        "",
+        "[IMAGE]",
         "",
         "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ · สูตรคอร์ดผ่านโฟกัส $x_1+x_2+2p$ + เวียตา (focal chord + Vieta’s) 】</b>",
         "จากสมการจุดตัด $x^2 - 5x + 4 = 0$ — <b>ไม่ต้องแก้ราก</b>: เวียตา $x_1 + x_2 = 5$",
@@ -3692,7 +4220,104 @@
       "level": "medium",
       "score": 1,
       "question": "กำหนดให้พาราโบลารูปหนึ่งมีสมการเป็น $y^2 - 4y - 16x - 12 = 0$\nถ้า $L$ เป็นเส้นตรงที่ผ่านโฟกัสของพาราโบลารูปนี้ และตั้งฉากกับเส้นตรง $3x - 2y + 5 = 0$\nแล้ว ระยะตัดแกน $y$ ของเส้นตรง $L$ มีค่าเท่ากับเท่าใด",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 420,
+          "height": 420,
+          "xRange": [
+            -3,
+            6.5
+          ],
+          "yRange": [
+            -7.5,
+            11.5
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "p",
+              "kind": "parabola-h",
+              "vertex": [
+                -1,
+                2
+              ],
+              "throughPoint": [
+                3,
+                10
+              ],
+              "yDomain": [
+                -6.5,
+                11
+              ],
+              "color": "#1f6feb",
+              "strokeWidth": 1.6
+            },
+            {
+              "id": "L",
+              "kind": "piecewise-linear",
+              "points": [
+                [
+                  -3,
+                  6
+                ],
+                [
+                  6.3,
+                  -0.2
+                ]
+              ],
+              "domain": [
+                -3,
+                6.3
+              ],
+              "color": "#d11",
+              "strokeWidth": 1.5,
+              "label": {
+                "at": [
+                  5,
+                  1.3
+                ],
+                "text": "L",
+                "anchor": "start",
+                "color": "#d11"
+              }
+            }
+          ],
+          "dots": [
+            {
+              "x": -1,
+              "y": 2,
+              "label": "จุดยอด(-1,2)",
+              "labelDx": -17,
+              "labelDy": 5,
+              "labelAnchor": "end"
+            },
+            {
+              "x": 3,
+              "y": 2,
+              "label": "F(3,2)",
+              "labelDx": -20,
+              "labelDy": 19,
+              "labelAnchor": "start"
+            },
+            {
+              "x": 0,
+              "y": 4,
+              "label": "(0,4)",
+              "labelDx": 10,
+              "labelDy": -10,
+              "labelAnchor": "start",
+              "labelColor": "#c33"
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance มี.ค. 2548",
       "correct": "4",
       "accept": [
@@ -3713,6 +4338,8 @@
         "<b>ขั้นที่ 3:</b> $L$ ผ่าน $(3, 2)$: $y - 2 = -\\dfrac{2}{3}(x - 3)$ → $y = -\\dfrac{2}{3}x + 4$",
         "",
         "<b>ขั้นที่ 4:</b> ระยะตัดแกน $y$ (แทน $x = 0$): $y = 4$",
+        "",
+        "[IMAGE]",
         "",
         "<b>✔ ตรวจคำตอบ:</b> แทน $(3, 2)$ ใน $y = -\\dfrac{2}{3}x + 4$: $-2 + 4 = 2$ ✓ และ $-\\dfrac{2}{3} \\cdot \\dfrac{3}{2} = -1$ ✓",
         "",
@@ -3736,7 +4363,126 @@
       "level": "medium",
       "score": 1,
       "question": "พาราโบลารูปหนึ่ง มีจุดโฟกัสอยู่ที่ $(5, -1)$ จุดยอดอยู่บนเส้นตรง $y = \\dfrac{x}{2}$\nและเส้นไดเรกตริกซ์ขนานกับแกน $x$\nสมการของเส้นไดเรกตริกซ์ของพาราโบลารูปนี้ คือสมการในข้อใด",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 460,
+          "height": 360,
+          "xRange": [
+            -4,
+            14
+          ],
+          "yRange": [
+            -3.5,
+            8.5
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "p",
+              "kind": "parabola",
+              "vertex": [
+                5,
+                2.5
+              ],
+              "throughPoint": [
+                12,
+                -1
+              ],
+              "domain": [
+                -2,
+                12
+              ],
+              "color": "#1f6feb",
+              "strokeWidth": 1.6
+            },
+            {
+              "id": "dir",
+              "kind": "piecewise-linear",
+              "points": [
+                [
+                  -4,
+                  6
+                ],
+                [
+                  14,
+                  6
+                ]
+              ],
+              "domain": [
+                -4,
+                14
+              ],
+              "color": "#999",
+              "strokeWidth": 1.2,
+              "dashed": true,
+              "label": {
+                "at": [
+                  1.735,
+                  6.614
+                ],
+                "text": "y=6 (directrix)",
+                "anchor": "start",
+                "color": "#999"
+              }
+            },
+            {
+              "id": "ref",
+              "kind": "piecewise-linear",
+              "points": [
+                [
+                  -4,
+                  -2
+                ],
+                [
+                  14,
+                  7
+                ]
+              ],
+              "domain": [
+                -4,
+                14
+              ],
+              "color": "#bbb",
+              "strokeWidth": 1,
+              "dashed": true,
+              "label": {
+                "at": [
+                  10.165,
+                  4.315
+                ],
+                "text": "y=x/2",
+                "anchor": "start",
+                "color": "#bbb"
+              }
+            }
+          ],
+          "dots": [
+            {
+              "x": 5,
+              "y": 2.5,
+              "label": "จุดยอด(5,5/2)",
+              "labelDx": -58,
+              "labelDy": -14,
+              "labelAnchor": "start"
+            },
+            {
+              "x": 5,
+              "y": -1,
+              "label": "F(5,-1)",
+              "labelDx": 16,
+              "labelDy": 1,
+              "labelAnchor": "start"
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance 2534",
       "choices": [
         "$y = 7$",
@@ -3759,6 +4505,8 @@
         "โฟกัสอยู่<b>ใต้</b>จุดยอด → พาราโบลาคว่ำลง → ไดเรกตริกซ์อยู่<b>เหนือ</b>จุดยอด",
         "",
         "<b>ขั้นที่ 3:</b> ไดเรกตริกซ์: $y = \\dfrac{5}{2} + \\dfrac{7}{2} = 6$",
+        "",
+        "[IMAGE]",
         "",
         "<b>✔ ตรวจคำตอบ:</b> จุดยอด $\\left(5, \\dfrac{5}{2}\\right)$ ห่างโฟกัส $\\dfrac{7}{2}$ และห่างเส้น $y = 6$ เท่ากับ $6 - \\dfrac{5}{2} = \\dfrac{7}{2}$ ✓ เท่ากันตามนิยาม",
         "",
@@ -3883,7 +4631,86 @@
       "level": "medium",
       "score": 1,
       "question": "กำหนดให้จุด $P(t, 2)$ และจุด $Q\\left(\\dfrac{1}{4}, t\\right)$\nเป็นจุดที่มีพิกัดสอดคล้องตามสมการพาราโบลา $x = ay^2$ ($a$, $t$ เป็นจำนวนจริง)\nเส้นตรง $PQ$ มีสมการตรงกับข้อใดต่อไปนี้",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 380,
+          "height": 380,
+          "xRange": [
+            -0.6,
+            2.1
+          ],
+          "yRange": [
+            -0.6,
+            2.7
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "p",
+              "kind": "parabola-h",
+              "vertex": [
+                0,
+                0
+              ],
+              "throughPoint": [
+                1,
+                2
+              ],
+              "yDomain": [
+                -2.3,
+                2.5
+              ],
+              "color": "#1f6feb",
+              "strokeWidth": 1.6
+            },
+            {
+              "id": "L",
+              "kind": "piecewise-linear",
+              "points": [
+                [
+                  -0.4,
+                  -0.867
+                ],
+                [
+                  1.9,
+                  3.2
+                ]
+              ],
+              "domain": [
+                -0.4,
+                1.9
+              ],
+              "color": "#d11",
+              "strokeWidth": 1.5
+            }
+          ],
+          "dots": [
+            {
+              "x": 1,
+              "y": 2,
+              "label": "P(1,2)",
+              "labelDx": -35,
+              "labelDy": -8,
+              "labelAnchor": "start"
+            },
+            {
+              "x": 0.25,
+              "y": 1,
+              "label": "Q(1/4,1)",
+              "labelDx": -46,
+              "labelDy": 1,
+              "labelAnchor": "end"
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance 2520",
       "choices": [
         "$4x - 3y + 2 = 0$",
@@ -3910,6 +4737,8 @@
         "ความชัน $= \\dfrac{2 - 1}{1 - \\frac{1}{4}} = \\dfrac{1}{3/4} = \\dfrac{4}{3}$",
         "",
         "<b>ขั้นที่ 4:</b> $y - 2 = \\dfrac{4}{3}(x - 1)$ → $3y - 6 = 4x - 4$ → $4x - 3y + 2 = 0$",
+        "",
+        "[IMAGE]",
         "",
         "<b>✔ ตรวจคำตอบ:</b> แทน $P(1,2)$: $4 - 6 + 2 = 0$ ✓ แทน $Q\\left(\\dfrac{1}{4},1\\right)$: $1 - 3 + 2 = 0$ ✓",
         "",
@@ -3995,7 +4824,124 @@
       "level": "medium",
       "score": 1,
       "question": "ให้ $M\\left(t, \\dfrac{1}{9}\\right)$ และ $N(3, t)$ เป็นจุดสองจุดบนพาราโบลา $y = ax^2$\nโดย $a$ และ $t$ เป็นจำนวนจริง ข้อความใดต่อไปนี้เป็นจริง",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 420,
+          "height": 420,
+          "xRange": [
+            -2.2,
+            4
+          ],
+          "yRange": [
+            -3.6,
+            3.6
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "p",
+              "kind": "parabola",
+              "vertex": [
+                0,
+                0
+              ],
+              "throughPoint": [
+                3,
+                1
+              ],
+              "domain": [
+                -3.4,
+                3.4
+              ],
+              "color": "#1f6feb",
+              "strokeWidth": 1.6
+            },
+            {
+              "id": "dir",
+              "kind": "piecewise-linear",
+              "points": [
+                [
+                  -2.2,
+                  -2.25
+                ],
+                [
+                  4,
+                  -2.25
+                ]
+              ],
+              "domain": [
+                -2.2,
+                4
+              ],
+              "color": "#999",
+              "strokeWidth": 1.2,
+              "dashed": true,
+              "label": {
+                "at": [
+                  0.673,
+                  -2.719
+                ],
+                "text": "y=-9/4 (directrix)",
+                "anchor": "start",
+                "color": "#999"
+              }
+            },
+            {
+              "id": "L",
+              "kind": "piecewise-linear",
+              "points": [
+                [
+                  0.4,
+                  -1.178
+                ],
+                [
+                  3.6,
+                  1.622
+                ]
+              ],
+              "domain": [
+                0.4,
+                3.6
+              ],
+              "color": "#d11",
+              "strokeWidth": 1.5
+            }
+          ],
+          "dots": [
+            {
+              "x": 1,
+              "y": 0.111,
+              "label": "M(1,1/9)",
+              "labelDx": 13,
+              "labelDy": -23,
+              "labelAnchor": "end"
+            },
+            {
+              "x": 3,
+              "y": 1,
+              "label": "N(3,1)",
+              "labelDx": 2,
+              "labelDy": 20,
+              "labelAnchor": "start"
+            },
+            {
+              "x": 0,
+              "y": 2.25,
+              "label": "F(0,9/4)",
+              "labelDx": 15,
+              "labelDy": 1,
+              "labelAnchor": "start"
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance 2528",
       "choices": [
         "สมการของเส้นตรง $MN$ คือ $4x + 9y - 21 = 0$",
@@ -4022,6 +4968,8 @@
         "<b>ขั้นที่ 4:</b> เช็คตัวเลือก 1–2: ความชัน $MN = \\dfrac{1 - \\frac{1}{9}}{3 - 1} = \\dfrac{4}{9}$",
         "$MN$: $y - 1 = \\dfrac{4}{9}(x - 3)$ → $4x - 9y - 3 = 0$ ไม่ตรงข้อ 1 ✗ และตัดแกน $x$ ที่ $\\left(\\dfrac{3}{4}, 0\\right)$ ไม่ใช่ $-\\dfrac{3}{4}$ ✗",
         "",
+        "[IMAGE]",
+        "",
         "<b>✔ ตรวจคำตอบ:</b> $M(1, \\frac{1}{9})$ บน $y = \\frac{x^2}{9}$: $\\frac{1}{9}$ ✓ $N(3,1)$: $\\frac{9}{9} = 1$ ✓",
         "",
         "<b>✅ คำตอบ: โฟกัสอยู่ที่ $\\left(0, \\dfrac{9}{4}\\right)$ → ตัวเลือก 4</b>",
@@ -4044,7 +4992,132 @@
       "level": "medium",
       "score": 1,
       "question": "กำหนดให้ $P$ คือพาราโบลา $x^2 + 8y + 2x + a = 0$ โดยที่ $a < 0$\nและมีเส้นตรง $y = 4$ เป็นเส้นไดเรกตริกซ์ ถ้า $P$ ตัดแกน $x$ ทางลบที่จุด $A$ แล้ว\nเส้นตรงที่ผ่านจุด $A$ และจุดยอดของ $P$ มีความชันเท่ากับเท่าใด",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 440,
+          "height": 380,
+          "xRange": [
+            -6.5,
+            4.5
+          ],
+          "yRange": [
+            -2,
+            6.5
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "p",
+              "kind": "parabola",
+              "vertex": [
+                -1,
+                2
+              ],
+              "throughPoint": [
+                3,
+                0
+              ],
+              "domain": [
+                -6,
+                4
+              ],
+              "color": "#1f6feb",
+              "strokeWidth": 1.6
+            },
+            {
+              "id": "dir",
+              "kind": "piecewise-linear",
+              "points": [
+                [
+                  -6.5,
+                  4
+                ],
+                [
+                  4.5,
+                  4
+                ]
+              ],
+              "domain": [
+                -6.5,
+                4.5
+              ],
+              "color": "#999",
+              "strokeWidth": 1.2,
+              "dashed": true,
+              "label": {
+                "at": [
+                  -6.3,
+                  4.5
+                ],
+                "text": "y=4 (directrix)",
+                "anchor": "start",
+                "color": "#999"
+              }
+            },
+            {
+              "id": "L",
+              "kind": "piecewise-linear",
+              "points": [
+                [
+                  -6,
+                  -0.5
+                ],
+                [
+                  3.5,
+                  4.25
+                ]
+              ],
+              "domain": [
+                -6,
+                3.5
+              ],
+              "color": "#d11",
+              "strokeWidth": 1.5
+            }
+          ],
+          "dots": [
+            {
+              "x": -1,
+              "y": 2,
+              "label": "จุดยอด(-1,2)",
+              "labelDx": -2,
+              "labelDy": -19,
+              "labelAnchor": "end"
+            },
+            {
+              "x": -1,
+              "y": 0,
+              "label": "F(-1,0)",
+              "labelDx": 5,
+              "labelDy": 25,
+              "labelAnchor": "end"
+            },
+            {
+              "x": -5,
+              "y": 0,
+              "label": "A(-5,0)",
+              "labelDx": -13,
+              "labelDy": -10,
+              "labelAnchor": "end"
+            },
+            {
+              "x": 3,
+              "y": 0,
+              "label": "(3,0)",
+              "labelDx": -26,
+              "labelDy": 21,
+              "labelAnchor": "start"
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance มี.ค. 2547",
       "correct": "0.5",
       "accept": [
@@ -4069,6 +5142,8 @@
         "โจทย์ระบุ \"ตัดแกน $x$ ทางลบ\" → $A(-5, 0)$",
         "",
         "<b>ขั้นที่ 4:</b> ความชันจาก $A(-5, 0)$ ถึงจุดยอด $(-1, 2)$: $\\dfrac{2 - 0}{-1 - (-5)} = \\dfrac{2}{4} = 0.5$",
+        "",
+        "[IMAGE]",
         "",
         "<b>✔ ตรวจคำตอบ:</b> แทน $A(-5, 0)$ ในสมการเดิม: $25 + 0 - 10 - 15 = 0$ ✓ อยู่บนพาราโบลาจริง",
         "",
