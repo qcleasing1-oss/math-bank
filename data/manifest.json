@@ -892,7 +892,7 @@
         "15": 5,
         "16": 2
       },
-      "note": "ingest ครบ 45 ข้อ (STANDARD v2, verify sympy ตรง KEY ทุกข้อ) — รอครู audit 🔄 + push"
+      "note": "ingest ครบ 45 ข้อ (STANDARD v2, verify sympy ตรง KEY ทุกข้อ) — step1-4 (STANDARD v2 upgrade+เพิ่มวิธี) + step6 เส้นจำนวน 4 ข้อ (q06,q12,q27,q37) + step7 รูปภาพ 13 ข้อ (q08,q10,q11,q14,q17,q18,q19,q22,q26,q34,q35,q40,q45) เสร็จ ✅ CLOSED+pushed (4 ก.ค.69)"
     },
     "pat1-2560-03": {
       "source": "PAT 1",
