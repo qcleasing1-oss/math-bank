@@ -1027,6 +1027,7 @@
       "structure": {
         "part1": "ตอนที่ 1 ปรนัย 5 ตัวเลือก 35 ข้อ (ข้อละ 6) + ตอนที่ 2 เติมคำตอบ 10 ข้อ (ข้อละ 9) รวม 45 ข้อ คะแนนเต็ม 300 คะแนน"
       },
+      "note": "step6-7 เสร็จ (4 ก.ค.69): Q23,Q24 = เส้นจำนวน (number-line); Q3,Q5 = เวนน์ (venn-diagram 2-set/3-set, Q5 5 panel); Q4,Q10,Q17,Q20,Q33,Q35,Q41 = function-plot (scatter/feasible-region/พาราโบลา+พื้นที่/เส้นแบ่งครึ่งตั้งฉาก/piecewise/เส้นถดถอย/ลูกบาศก); Q13 = number-line (dot-plot เดไซล์); Q25 = argand-plane; Q37 = unit-circle-figure; Q42 = 2 panel (conic-ellipse-hyperbola + circle-on-plane); Q45 = normal-curve. รวม 16 ข้อมีรูป. Q18 (พาราโบลาแนวนอน) ข้ามตั้งใจ — renderer ยังไม่รองรับ. ⚠️ Q45 มี flag เดิม _needsRewrite=true ค้างอยู่ (เฉลยเก่ารอเขียนใหม่ ไม่เกี่ยวกับรูป ยังไม่ได้แก้ รอครูตัดสินใจ). เหลือ step5 (line-break) รอกวาดทีเดียวท้ายสุดข้ามทุกชุดตาม SOP.",
       "topicDistribution": {
         "1": 2,
         "2": 2,
