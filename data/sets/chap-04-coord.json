@@ -7568,7 +7568,7 @@
       "level": "easy",
       "score": 1,
       "question": "ผลบวกของระยะทางที่ยาวที่สุด และสั้นที่สุดจากจุด $(10, 7)$\nไปยังกราฟซึ่งมีสมการ $5x^2 + 5y^2 - 20x - 10y - 100 = 0$ มีค่าเท่ากับเท่าใด",
-      "hasImage": false,
+      "hasImage": true,
       "imageSpec": [
         {
           "type": "function-plot",
@@ -7632,8 +7632,8 @@
               "x": 10,
               "y": 7,
               "label": "P(10,7)",
-              "labelAnchor": "start",
-              "labelDx": 8,
+              "labelAnchor": "end",
+              "labelDx": -8,
               "labelDy": -6
             },
             {
@@ -7648,9 +7648,9 @@
               "x": 6,
               "y": 4,
               "label": "N",
-              "labelAnchor": "end",
-              "labelDx": -6,
-              "labelDy": -6
+              "labelAnchor": "middle",
+              "labelDx": 0,
+              "labelDy": -13
             },
             {
               "x": -2,
@@ -8453,7 +8453,7 @@
       "level": "medium",
       "score": 1,
       "question": "เส้นตรง $AB$ สัมผัสกราฟของความสัมพันธ์ $\\{(x, y) \\in \\mathbf{R} \\times \\mathbf{R} \\mid x^2 + y^2 + 4x - 2y + 1 = 0\\}$\nที่จุด $A(-1, 1 + \\sqrt{3})$ และตัดแกน $x$ ที่จุด $B$ โปรเจคชันของ $AB$ บนแกน $x$ คือข้อใด",
-      "hasImage": false,
+      "hasImage": true,
       "imageSpec": [
         {
           "type": "function-plot",
@@ -12170,7 +12170,7 @@
       "level": "easy",
       "score": 1,
       "question": "กำหนดให้ a, b เป็นจำนวนจริงบวก และ $a \\ne b$\nสมการในข้อใดต่อไปนี้ที่ทำให้สรุปได้ว่า $|x| \\le a$ และ $|y| \\le b$",
-      "hasImage": false,
+      "hasImage": true,
       "imageSpec": [
         {
           "type": "function-plot",
@@ -13109,7 +13109,7 @@
       "level": "easy",
       "score": 1,
       "question": "โปรเจคชันของส่วนของเส้นตรง $P_1P_2$ บนแกน x ยาว 2 หน่วย\nและบนแกน y ยาว 3 หน่วย จงหาความยาวของส่วนของเส้นตรง $P_1P_2$",
-      "hasImage": false,
+      "hasImage": true,
       "imageSpec": [
         {
           "type": "function-plot",
@@ -13902,7 +13902,7 @@
       "level": "easy",
       "score": 1,
       "question": "มีเส้นคู่ขนานสองเส้นคือ $x - y + 5 = 0$ และ $x - y - 5 = 0$\nระยะห่างระหว่างเส้นคู่ขนานสองเส้นนี้จะเป็นเท่าใด",
-      "hasImage": false,
+      "hasImage": true,
       "imageSpec": [
         {
           "type": "function-plot",
@@ -15170,7 +15170,7 @@
       "level": "hard",
       "score": 1,
       "question": "รูปสามเหลี่ยมมุมฉากมีพื้นที่ 8 ตารางหน่วย มีจุด $(3, 4)$ เป็นจุดมุมฉาก\nและจุด $(1, 2)$ เป็นจุดมุมจุดหนึ่ง จงหาพิกัดของจุดมุมที่เหลือ",
-      "hasImage": false,
+      "hasImage": true,
       "imageSpec": [
         {
           "type": "function-plot",
@@ -26835,7 +26835,7 @@
       "level": "hard",
       "score": 1,
       "question": "ให้ $A_1, A_2, A_3$ และ $A_4$ เป็นพื้นที่ของวงรี $\\dfrac{(x - 25)^2}{25} + \\dfrac{(y - 47)^2}{47} = 2004$\nในควอดรันต์ที่ 1, 2, 3 และ 4 ตามลำดับ\nจงหาว่า $A_1 - A_2 + A_3 - A_4$ เท่ากับกี่ตารางหน่วย",
-      "hasImage": false,
+      "hasImage": true,
       "imageSpec": [
         {
           "type": "function-plot",
@@ -27103,11 +27103,11 @@
           "annotations": [
             {
               "at": [
-                2,
+                0.4,
                 10.1
               ],
               "text": "50 × 94 = 4700",
-              "anchor": "middle"
+              "anchor": "start"
             }
           ]
         }
