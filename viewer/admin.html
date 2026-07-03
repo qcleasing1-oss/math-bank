@@ -268,6 +268,11 @@
     color: #8b3a1f;
     border: 1px solid #8b3a1f;
   }
+  .diff-chip.vhard {
+    background: #e7dbee;
+    color: #5b2a72;
+    border: 1px solid #5b2a72;
+  }
   /* Difficulty list item in sidebar */
   .diff-item {
     padding: 7px 10px;
@@ -295,6 +300,7 @@
   .diff-item .diff-dot.easy { background: #4a6b3a; }
   .diff-item .diff-dot.med  { background: #b58200; }
   .diff-item .diff-dot.hard { background: #8b3a1f; }
+  .diff-item .diff-dot.vhard { background: #5b2a72; }
   .diff-item .diff-name { flex: 1; }
   .diff-item .diff-count {
     font-size: 11px;
@@ -897,7 +903,7 @@
     </section>
 
     <section>
-      <h4>ระดับความยาก <span class="hint">(ง่าย / ปานกลาง / ยาก)</span></h4>
+      <h4>ระดับความยาก <span class="hint">(ง่าย / ปานกลาง / ยาก / ยากมาก)</span></h4>
       <div class="tag-selector" id="difficultySelector"></div>
     </section>
 
@@ -977,7 +983,7 @@
   let EDITING_QID = null;
   let EDITING_PRIMARY = new Set();   // selected primary chapter IDs (1-2)
   let EDITING_SUB = new Set();       // selected secondary chapter IDs
-  let EDITING_DIFFICULTY = null;     // Phase 4: 'ง่าย' | 'ปานกลาง' | 'ยาก' | null
+  let EDITING_DIFFICULTY = null;     // Phase 4: 'ง่าย' | 'ปานกลาง' | 'ยาก' | 'ยากมาก' | null
 
   function loadPendingFromStorage() {
     try {
@@ -1122,10 +1128,12 @@
     { key: 'ง่าย',     cls: 'easy' },
     { key: 'ปานกลาง', cls: 'med'  },
     { key: 'ยาก',     cls: 'hard' },
+    { key: 'ยากมาก',  cls: 'vhard' },
   ];
 
   function diffClass(level) {
     if (level === 'ง่าย') return 'easy';
+    if (level === 'ยากมาก') return 'vhard';
     if (level === 'ยาก') return 'hard';
     if (level === 'ปานกลาง') return 'med';
     return '';
@@ -1150,7 +1158,7 @@
   }
 
   function updateDifficultyCounts() {
-    const counts = { 'ง่าย': 0, 'ปานกลาง': 0, 'ยาก': 0 };
+    const counts = { 'ง่าย': 0, 'ปานกลาง': 0, 'ยาก': 0, 'ยากมาก': 0 };
     Object.values(LOADED_SETS).forEach(set => {
       (set.questions || []).forEach(q => {
         const d = getEffectiveTags(q).difficulty;
@@ -1805,7 +1813,7 @@
   }
 
   function setDifficulty(level) {
-    EDITING_DIFFICULTY = level;  // 'ง่าย'|'ปานกลาง'|'ยาก'|null
+    EDITING_DIFFICULTY = level;  // 'ง่าย'|'ปานกลาง'|'ยาก'|'ยากมาก'|null
     renderTagSelectors();
   }
 
@@ -1983,11 +1991,11 @@
     const d = s.difficulty;
     const level = (typeof d === 'string') ? d : d.level;
     if (!level) return '';
-    const cls = level === 'ง่าย' ? 'easy' : (level === 'ยาก' ? 'hard' : 'med');
+    const cls = diffClass(level);
     let bd = '';
     if (d && typeof d === 'object' && d.breakdown) {
       const b = d.breakdown;
-      const parts = ['ง่าย', 'ปานกลาง', 'ยาก'].filter(k => b[k]).map(k => `${k} ${b[k]} ข้อ`);
+      const parts = ['ง่าย', 'ปานกลาง', 'ยาก', 'ยากมาก'].filter(k => b[k]).map(k => `${k} ${b[k]} ข้อ`);
       if (parts.length) bd = ` (${parts.join(' · ')})`;
     }
     return ` · <span class="diff-chip ${cls}">${escapeHtml(level)}</span>${bd}`;
