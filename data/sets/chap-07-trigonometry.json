@@ -308,8 +308,53 @@
         "$\\cos x$ มากกว่า $\\sin x$ ถ้า $x$ มีค่าอยู่ระหว่าง $\\dfrac{5\\pi}{4}$ เรเดียน และ $2\\pi$ เรเดียน",
         "$\\cos x$ เท่ากับ $\\sin x$ ถ้า $x$ มีค่าอยู่ระหว่าง $\\dfrac{5\\pi}{4}$ เรเดียน และ $2\\pi$ เรเดียน"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "sourceTag": "Entrance 2521",
+      "imageSpec": {
+        "type": "unit-circle-figure",
+        "size": 300,
+        "radius": 105,
+        "showAxes": true,
+        "axisLabels": {
+          "x": "x",
+          "y": "y"
+        },
+        "dots": [
+          {
+            "id": "A",
+            "x": -0.7071,
+            "y": -0.7071,
+            "label": "5π/4",
+            "labelDx": -46,
+            "labelDy": 10
+          },
+          {
+            "id": "B",
+            "x": 1.0,
+            "y": -0.0,
+            "label": "2π",
+            "labelDx": 8,
+            "labelDy": 16
+          }
+        ],
+        "perimeterArcs": [
+          {
+            "fromDot": "A",
+            "toDot": "B",
+            "emphasized": true,
+            "color": "#1a56db"
+          }
+        ],
+        "annotations": [
+          {
+            "x": 150,
+            "y": 288,
+            "text": "เส้นหนา = คำตอบ cos x เป็นบวกมากกว่า sin x",
+            "anchor": "middle",
+            "fontSize": 11
+          }
+        ]
+      },
       "correct": 3,
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
@@ -318,6 +363,7 @@
         "<b>🎯 เป้าหมาย</b> หาช่วงที่เปรียบเทียบ $\\cos x$ กับ $\\sin x$ ได้ถูกต้อง",
         "",
         "<b>【 วิธีที่ 1 ▸ พื้นฐาน · จุดตัดแล้วทดสอบเครื่องหมายทีละช่วง (sign-line test) 】</b>",
+        "[IMAGE]",
         "<b>ขั้นที่ 1:</b> หาจุดที่ $\\cos x=\\sin x$ โดยแก้ $\\tan x=1$ ได้ $x=\\dfrac{\\pi}{4}$",
         "และ $x=\\dfrac{5\\pi}{4}$",
         "(แก้ $\\cos x=\\sin x$ โดยหารทั้งสองข้างด้วย $\\cos x$ ได้ $\\tan x=1$ เพราะคาบของ $\\tan$ คือ $\\pi$ ใน $[0,2\\pi)$ จึงมี $2$ คำตอบ คือ $\\dfrac{\\pi}{4}$",
@@ -3738,160 +3784,162 @@
         "$\\dfrac{63}{65}$",
         "$\\dfrac{64}{65}$"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "sourceTag": "Entrance 2527",
       "imageSpec": [
         {
           "type": "polygon-labeled",
-          "width": 320,
-          "height": 300,
+          "width": 280,
+          "height": 240,
           "vertices": {
             "O": [
-              90,
-              250
+              60,
+              195
             ],
-            "B": [
-              210,
-              250
+            "P": [
+              215,
+              195
             ],
-            "C": [
-              210,
-              160
+            "Q": [
+              215,
+              45
             ]
           },
           "vertexLabels": {
             "O": {
+              "text": "θ₁",
+              "dx": -18,
+              "dy": 5
+            },
+            "P": {
               "text": " "
             },
-            "B": {
-              "text": " "
-            },
-            "C": {
+            "Q": {
               "text": " "
             }
           },
           "sides": [
             {
               "from": "O",
-              "to": "B",
+              "to": "P",
               "label": "4",
               "labelOffset": {
                 "dx": 0,
-                "dy": 22
+                "dy": 16
               }
             },
             {
-              "from": "B",
-              "to": "C",
+              "from": "P",
+              "to": "Q",
               "label": "3",
               "labelOffset": {
-                "dx": 20,
+                "dx": 16,
                 "dy": 0
               }
             },
             {
               "from": "O",
-              "to": "C",
+              "to": "Q",
               "label": "5",
               "labelOffset": {
-                "dx": -16,
+                "dx": -12,
                 "dy": -12
               }
             }
           ],
           "angleMarks": [
             {
-              "at": "B",
+              "at": "P",
               "from": "O",
-              "to": "C",
+              "to": "Q",
               "type": "right",
-              "size": 12
+              "size": 10
             },
             {
               "at": "O",
-              "from": "B",
-              "to": "C",
+              "from": "P",
+              "to": "Q",
               "type": "arc",
-              "label": "θ₁",
-              "radius": 30,
-              "labelDistance": 48
+              "radius": 20,
+              "label": "θ₁"
             }
           ]
         },
         {
           "type": "polygon-labeled",
-          "width": 320,
-          "height": 300,
+          "width": 280,
+          "height": 240,
           "vertices": {
             "O": [
-              80,
-              255
+              60,
+              195
             ],
-            "B": [
-              180,
-              255
+            "P": [
+              215,
+              195
             ],
-            "A": [
-              180,
-              25
+            "Q": [
+              215,
+              45
             ]
           },
           "vertexLabels": {
             "O": {
+              "text": "θ₂",
+              "dx": -18,
+              "dy": 5
+            },
+            "P": {
               "text": " "
             },
-            "B": {
-              "text": " "
-            },
-            "A": {
+            "Q": {
               "text": " "
             }
           },
           "sides": [
             {
               "from": "O",
-              "to": "B",
+              "to": "P",
               "label": "5",
               "labelOffset": {
                 "dx": 0,
-                "dy": 22
+                "dy": 16
               }
             },
             {
-              "from": "B",
-              "to": "A",
+              "from": "P",
+              "to": "Q",
               "label": "12",
               "labelOffset": {
-                "dx": 22,
+                "dx": 16,
                 "dy": 0
               }
             },
             {
               "from": "O",
-              "to": "A",
+              "to": "Q",
               "label": "13",
               "labelOffset": {
-                "dx": -20,
-                "dy": -10
+                "dx": -12,
+                "dy": -12
               }
             }
           ],
           "angleMarks": [
             {
-              "at": "B",
+              "at": "P",
               "from": "O",
-              "to": "A",
+              "to": "Q",
               "type": "right",
-              "size": 12
+              "size": 10
             },
             {
               "at": "O",
-              "from": "B",
-              "to": "A",
+              "from": "P",
+              "to": "Q",
               "type": "arc",
-              "label": "θ₂",
-              "radius": 30,
-              "labelDistance": 50
+              "radius": 20,
+              "label": "θ₂"
             }
           ]
         }
@@ -4474,8 +4522,115 @@
         "$10$",
         "$11$"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "sourceTag": "Entrance ต.ค.2542",
+      "imageSpec": {
+        "type": "circle-on-plane",
+        "width": 320,
+        "height": 300,
+        "pad": 30,
+        "xRange": [
+          -2,
+          2.5
+        ],
+        "yRange": [
+          -0.5,
+          3
+        ],
+        "grid": true,
+        "axes": {
+          "xLabel": "x",
+          "yLabel": "y",
+          "arrows": true
+        },
+        "dots": [
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": -1,
+            "y": 0
+          },
+          {
+            "x": 1,
+            "y": 2
+          }
+        ],
+        "lines": [
+          {
+            "from": [
+              0,
+              0
+            ],
+            "to": [
+              1.6,
+              3.2
+            ]
+          },
+          {
+            "from": [
+              -1,
+              0
+            ],
+            "to": [
+              2.2,
+              3.2
+            ]
+          },
+          {
+            "from": [
+              1,
+              3
+            ],
+            "to": [
+              1,
+              1
+            ],
+            "color": "#999",
+            "dashed": true
+          }
+        ],
+        "labels": [
+          {
+            "at": [
+              0,
+              0
+            ],
+            "text": "O",
+            "dx": -14,
+            "dy": 16
+          },
+          {
+            "at": [
+              -1,
+              0
+            ],
+            "text": "A(−1, 0)",
+            "dx": -60,
+            "dy": 16
+          },
+          {
+            "at": [
+              1,
+              2
+            ],
+            "text": "B(1, 2)",
+            "dx": 14,
+            "dy": -16
+          },
+          {
+            "at": [
+              1,
+              2.35
+            ],
+            "text": "θ",
+            "dx": -20,
+            "dy": 8,
+            "fontSize": 13
+          }
+        ]
+      },
       "correct": 0,
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
@@ -4485,6 +4640,7 @@
         "<b>🎯 เป้าหมาย</b> $\\theta$ คือมุมระหว่างเส้นตรงสองเส้นที่จุด $B$ — หา $\\tan\\theta$ จากความชันทั้งสอง แล้วแปลงเป็น $\\sec^2\\theta$",
         "",
         "<b>【 วิธีที่ 1 ▸ พื้นฐาน · ผ่านมุมเอียงด้วยสูตรผลต่างมุม (tangent difference formula) 】</b>",
+        "[IMAGE]",
         "<b>เครื่องมือ:</b> สูตรผลต่างมุม $\\tan(P-Q) = \\dfrac{\\tan P - \\tan Q}{1 + \\tan P\\tan Q}$",
         "<b>ขั้นที่ 1:</b> มุมที่ $B$ ระหว่างแขน $BA$ กับ $BO$ คือมุมระหว่างเส้นตรง $AB$ กับ $OB$ นั่นเอง",
         "ให้มุมเอียงของ $AB$ เป็น $P$: $\\tan P = 1$ ($P = 45^{\\circ}$) และมุมเอียงของ $OB$ เป็น $Q$: $\\tan Q = 2$",
@@ -4511,8 +4667,7 @@
         "สับสนว่า $\\theta$ อยู่ที่จุดไหน — $A\\hat{B}O$ คือมุมที่จุด $B$ (ตัวอักษรกลาง)",
         "$\\sec^2 = 1 + \\tan^2$ อย่าจำสลับกับ $\\csc^2 = 1 + \\cot^2$"
       ],
-      "notes": "มุมระหว่างเส้นชัน 2 กับชัน 1: tanθ = 1/3 → sec²θ = 10/9 ; verify sympy (พิกัดจริง B(1,2), A(−1,0)) ตรง key footer หน้า 9 (41.1) และเฉลย PDF หน้า 7 ; เฉลยสองชั้น ; ใช้ความชันจากบทเรขาฯ → subTopics 4",
-      "_imageNote": "รูปพิกัดตามเฉลย PDF หน้า 7: แกน x-y, จุด O ที่จุดกำเนิด, A บนแกน x ฝั่งลบ (−1,0), B ที่ (1,2), เส้นตรง OB (ชัน 2) และ AB (ชัน 1) ตัดกันที่ B, มุม θ ที่จุด B ระหว่างแขน BA กับ BO (เฉลยมีเส้นประแนวดิ่งผ่าน B ช่วยแสดงมุม)"
+      "notes": "มุมระหว่างเส้นชัน 2 กับชัน 1: tanθ = 1/3 → sec²θ = 10/9 ; verify sympy (พิกัดจริง B(1,2), A(−1,0)) ตรง key footer หน้า 9 (41.1) และเฉลย PDF หน้า 7 ; เฉลยสองชั้น ; ใช้ความชันจากบทเรขาฯ → subTopics 4"
     },
     {
       "id": "chap-07-trigonometry-q42",
@@ -5349,8 +5504,89 @@
         "$\\left\\{2n\\pi,\\ 2n\\pi + \\dfrac{\\pi}{2}\\right\\}$",
         "ไม่มีคำตอบที่ถูกต้อง"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "sourceTag": "Entrance 2523",
+      "imageSpec": {
+        "type": "circle-on-plane",
+        "width": 300,
+        "height": 300,
+        "pad": 30,
+        "xRange": [
+          -1.4,
+          1.4
+        ],
+        "yRange": [
+          -1.4,
+          1.4
+        ],
+        "grid": true,
+        "axes": {
+          "xLabel": "x",
+          "yLabel": "y",
+          "arrows": true
+        },
+        "circles": [
+          {
+            "center": [
+              0,
+              0
+            ],
+            "r": 1
+          }
+        ],
+        "lines": [
+          {
+            "from": [
+              -0.4,
+              1.4
+            ],
+            "to": [
+              1.4,
+              -0.4
+            ]
+          }
+        ],
+        "dots": [
+          {
+            "x": 1,
+            "y": 0
+          },
+          {
+            "x": 0,
+            "y": 1
+          }
+        ],
+        "labels": [
+          {
+            "at": [
+              1,
+              0
+            ],
+            "text": "(1, 0)",
+            "dx": 8,
+            "dy": 16
+          },
+          {
+            "at": [
+              0,
+              1
+            ],
+            "text": "(0, 1)",
+            "dx": 8,
+            "dy": -8
+          },
+          {
+            "at": [
+              0.9,
+              0.75
+            ],
+            "text": "x + y = 1",
+            "dx": 4,
+            "dy": -4,
+            "fontSize": 12
+          }
+        ]
+      },
       "correct": 3,
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
@@ -5361,6 +5597,7 @@
         "<b>🎯 เป้าหมาย</b> ลดสมการให้เหลือ $\\cos\\theta + \\sin\\theta = 1$ แล้วหาคำตอบรูปมุมทั่วไป",
         "",
         "<b>【 วิธีที่ 1 ▸ พื้นฐาน · ยกกำลังสองแล้วแทนกลับตรวจราก (square, check extraneous roots) 】</b>",
+        "[IMAGE]",
         "<b>เครื่องมือ:</b> มุมสองเท่า $\\sin 2\\theta = 2\\sin\\theta\\cos\\theta$",
         "<b>ขั้นที่ 1:</b> แยกตัวประกอบตัวส่วน: $\\dfrac{\\cos\\theta - \\sin\\theta}{(\\cos\\theta - \\sin\\theta)(\\cos\\theta + \\sin\\theta)} = 1$",
         "→ ตัด $\\cos\\theta - \\sin\\theta$ ได้ (ถ้ามันเป็น $0$ ตัวส่วน $\\cos 2\\theta$ จะเป็น $0$ ซึ่งใช้ไม่ได้อยู่แล้ว)",
@@ -5399,8 +5636,7 @@
         "ยกกำลังสองแล้วไม่แทนกลับ → ได้ราก $\\pi, \\dfrac{3\\pi}{2}$ เกินมา",
         "ลืมเงื่อนไข $\\cos 2\\theta \\ne 0$ → หลงเลือกตัวเลือกที่มี $n\\pi \\pm \\dfrac{\\pi}{4}$ ซึ่งเป็นจุดที่ตัวส่วนเป็นศูนย์"
       ],
-      "notes": "แยก cos2θ=(cosθ−sinθ)(cosθ+sinθ) → cosθ+sinθ=1 → {2nπ, 2nπ+π/2} ; ตรวจ cos2θ≠0 ผ่านทั้งคู่ ; ตัวเลือก 1-3 มี nπ±π/4 ที่ทำให้ cos2θ=0 ; sympy เช็ค [0,2π) ได้ 0, π/2 เท่านั้น + R-form identity ; ตรง key footer หน้า 11 (54.4) และเฉลย PDF หน้า 9-10 ; สองชั้น ; 5 ตัวเลือก",
-      "_imageNote": "วงกลมหนึ่งหน่วย x²+y²=1 กับเส้นตรง x+y=1 ตามรูปเฉลย PDF หน้า 9: เส้นตรงตัดวงกลมที่จุด (1,0) และ (0,1) พอดี — ใช้แสดงว่า cosθ+sinθ=1 มีคำตอบเพียง θ=0 กับ π/2 ในหนึ่งรอบ (จุดตัด=คู่ (cosθ, sinθ) ที่ใช้ได้)"
+      "notes": "แยก cos2θ=(cosθ−sinθ)(cosθ+sinθ) → cosθ+sinθ=1 → {2nπ, 2nπ+π/2} ; ตรวจ cos2θ≠0 ผ่านทั้งคู่ ; ตัวเลือก 1-3 มี nπ±π/4 ที่ทำให้ cos2θ=0 ; sympy เช็ค [0,2π) ได้ 0, π/2 เท่านั้น + R-form identity ; ตรง key footer หน้า 11 (54.4) และเฉลย PDF หน้า 9-10 ; สองชั้น ; 5 ตัวเลือก"
     },
     {
       "id": "chap-07-trigonometry-q55",
@@ -6667,8 +6903,160 @@
         "$(a^2 + b^2 + c^2 + ab + ac)^{\\frac{1}{2}}$",
         "$a + (b^2 + c^2)^{\\frac{1}{2}}$"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "sourceTag": "Entrance 2540",
+      "imageSpec": {
+        "type": "polygon-labeled",
+        "width": 380,
+        "height": 300,
+        "vertices": {
+          "A": [
+            280,
+            230
+          ],
+          "B": [
+            210,
+            160
+          ],
+          "C": [
+            110,
+            160
+          ],
+          "D": [
+            110,
+            90
+          ],
+          "F": [
+            110,
+            230
+          ]
+        },
+        "vertexLabels": {
+          "A": {
+            "text": "A",
+            "dx": 10,
+            "dy": 14
+          },
+          "B": {
+            "text": "B",
+            "dx": 10,
+            "dy": -8
+          },
+          "C": {
+            "text": "C",
+            "dx": -18,
+            "dy": -6
+          },
+          "D": {
+            "text": "D",
+            "dx": -6,
+            "dy": -12
+          },
+          "F": {
+            "text": " "
+          }
+        },
+        "sides": [
+          {
+            "from": "A",
+            "to": "B",
+            "label": "a",
+            "labelOffset": {
+              "dx": -26,
+              "dy": -8
+            },
+            "arrows": "end"
+          },
+          {
+            "from": "B",
+            "to": "C",
+            "label": "b",
+            "labelOffset": {
+              "dx": 0,
+              "dy": -12
+            },
+            "arrows": "end"
+          },
+          {
+            "from": "C",
+            "to": "D",
+            "label": "c",
+            "labelOffset": {
+              "dx": -16,
+              "dy": 0
+            },
+            "arrows": "end"
+          },
+          {
+            "from": "A",
+            "to": "F",
+            "style": "dashed"
+          },
+          {
+            "from": "F",
+            "to": "D",
+            "style": "dashed"
+          },
+          {
+            "from": "A",
+            "to": "D",
+            "style": "dashed"
+          }
+        ],
+        "angleMarks": [
+          {
+            "at": "F",
+            "from": "A",
+            "to": "D",
+            "type": "right",
+            "size": 10
+          }
+        ],
+        "annotations": [
+          {
+            "x": 195,
+            "y": 250,
+            "text": "$a/\\sqrt{2}+b$",
+            "anchor": "middle",
+            "fontSize": 11
+          },
+          {
+            "x": 68,
+            "y": 153,
+            "text": "$a/\\sqrt{2}$",
+            "anchor": "middle",
+            "fontSize": 11
+          },
+          {
+            "x": 68,
+            "y": 167,
+            "text": "+ c",
+            "anchor": "middle",
+            "fontSize": 11
+          },
+          {
+            "x": 320,
+            "y": 210,
+            "text": "ระยะทาง = AD",
+            "anchor": "middle",
+            "fontSize": 11
+          },
+          {
+            "x": 340,
+            "y": 60,
+            "text": "N",
+            "fontSize": 14,
+            "anchor": "middle"
+          },
+          {
+            "x": 340,
+            "y": 75,
+            "text": "↑",
+            "fontSize": 14,
+            "anchor": "middle"
+          }
+        ]
+      },
       "correct": 1,
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
@@ -6679,6 +7067,7 @@
         "<b>🎯 เป้าหมาย</b> รวมระยะที่ขยับไปทางตะวันตกทั้งหมดและทางเหนือทั้งหมด แล้วใช้พีทาโกรัสครั้งเดียว",
         "",
         "<b>【 พื้นฐาน · แตกการเดินเฉียงเป็นองค์ประกอบสองแกน แล้วใช้พีทาโกรัสครั้งเดียว (decompose into components, single Pythagoras) 】</b>",
+        "[IMAGE]",
         "<b>ขั้นที่ 1:</b> วางแกน: ทิศตะวันตกเป็นแกนนอน ทิศเหนือเป็นแกนตั้ง (ทุกการเดินของนาย ก ขยับไปทางตะวันตกหรือเหนือเท่านั้น ไม่มีถอยกลับ)",
         "<b>ขั้นที่ 2:</b> ช่วงแรกเดินเฉียง $45°$ ระยะ $a$: ขยับไปตะวันตก $\\dfrac{a}{\\sqrt{2}}$ และไปเหนือ $\\dfrac{a}{\\sqrt{2}}$",
         "<b>ขั้นที่ 3:</b> รวมแนวตะวันตกทั้งหมด: $\\dfrac{a}{\\sqrt{2}} + b$",
@@ -6705,8 +7094,7 @@
         "<b>⚠️ จุดที่เด็กมักผิด</b> เลือกข้อ 1 เพราะเผลอใช้พีทาโกรัสกับ $a, b, c$ ตรง ๆ — ผิดเพราะสามช่วงไม่ได้ตั้งฉากกันทั้งหมด (ช่วงแรกเฉียง $45°$ กับอีกสองช่วง)",
         "พจน์ไขว้ $\\sqrt{2}\\,ab, \\sqrt{2}\\,ac$ มาจากการกระจายกำลังสอง อย่าลืม"
       ],
-      "notes": "ตรง key หน้า 15 (70.2) ✓ ; เฉลย PDF หน้า 13 (ตอบข้อ 2 — ใช้รูปฉาย AF, FD แบบเดียวกัน) + sympy expand ยืนยัน",
-      "_imageNote": "แผนภาพเส้นทางเดินตามรูปเฉลย PDF หน้า 13 (ข้อ 70): จุดเริ่ม A อยู่ขวาล่าง เดินเฉียงขึ้นซ้าย 45° (ตะวันตกเฉียงเหนือ) ไป B ระยะ a (ทำมุม 45° กับแนวนอนที่ A), จาก B ไปทางซ้าย (ตะวันตก) ถึง C ระยะ b, จาก C ขึ้นบน (เหนือ) ถึง D ระยะ c ; เส้นประฉาย: F อยู่บนแนวนอนผ่าน A ใต้ D, AF = a/√2 + b (แนวนอน), FD = a/√2 + c (แนวตั้ง) ; เส้น AD พร้อมเครื่องหมายระยะที่ถาม"
+      "notes": "ตรง key หน้า 15 (70.2) ✓ ; เฉลย PDF หน้า 13 (ตอบข้อ 2 — ใช้รูปฉาย AF, FD แบบเดียวกัน) + sympy expand ยืนยัน"
     },
     {
       "id": "chap-07-trigonometry-q71",
@@ -7377,8 +7765,86 @@
         "$\\dfrac{4}{3}$",
         "$-\\dfrac{4}{3}$"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "sourceTag": "Entrance 2539",
+      "imageSpec": {
+        "type": "polygon-labeled",
+        "width": 300,
+        "height": 260,
+        "vertices": {
+          "O": [
+            65,
+            210
+          ],
+          "P": [
+            230,
+            210
+          ],
+          "Q": [
+            230,
+            50
+          ]
+        },
+        "vertexLabels": {
+          "O": {
+            "text": "A",
+            "dx": -20,
+            "dy": 5
+          },
+          "P": {
+            "text": " "
+          },
+          "Q": {
+            "text": " "
+          }
+        },
+        "sides": [
+          {
+            "from": "O",
+            "to": "P",
+            "label": "2",
+            "labelOffset": {
+              "dx": 0,
+              "dy": 17
+            }
+          },
+          {
+            "from": "P",
+            "to": "Q",
+            "label": "1",
+            "labelOffset": {
+              "dx": 17,
+              "dy": 0
+            }
+          },
+          {
+            "from": "O",
+            "to": "Q",
+            "label": "$\\sqrt{5}$",
+            "labelOffset": {
+              "dx": -13,
+              "dy": -13
+            }
+          }
+        ],
+        "angleMarks": [
+          {
+            "at": "P",
+            "from": "O",
+            "to": "Q",
+            "type": "right",
+            "size": 11
+          },
+          {
+            "at": "O",
+            "from": "P",
+            "to": "Q",
+            "type": "arc",
+            "radius": 22,
+            "label": "A"
+          }
+        ]
+      },
       "correct": 3,
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
@@ -7390,6 +7856,7 @@
         "<b>🎯 เป้าหมาย</b> ดึงเครื่องหมายลบออก หาค่า $\\tan A$ จากสามเหลี่ยม แล้วใช้สูตรมุมสองเท่า",
         "",
         "<b>【 พื้นฐาน · ดึงเครื่องหมายลบออก อ่าน tan จากสามเหลี่ยม แล้วใช้สูตรมุมสองเท่า (extract sign, read tan, double-angle) 】</b>",
+        "[IMAGE]",
         "<b>ขั้นที่ 1:</b> ให้",
         "$\\begin{aligned} A &= \\arcsin\\left(-\\dfrac{1}{\\sqrt{5}}\\right) \\\\ &= -\\arcsin\\dfrac{1}{\\sqrt{5}} \\end{aligned}$",
         "→ $\\sin A = -\\dfrac{1}{\\sqrt{5}}$ โดย $A$ อยู่ควอดรันต์ 4",
@@ -7472,14 +7939,167 @@
       "level": "medium",
       "score": 1,
       "question": "ค่า $\\sin\\left(2\\arctan\\dfrac{1}{2}\\right) + \\cot^2\\left(\\arcsin\\dfrac{1}{3}\\right)$ เท่ากับเท่าใด",
-      "hasImage": false,
+      "hasImage": true,
       "sourceTag": "Entrance มี.ค.2547",
-      "correct": "8.8",
-      "accept": [
-        "8.8",
-        "44/5",
-        "8.80"
+      "imageSpec": [
+        {
+          "type": "polygon-labeled",
+          "width": 280,
+          "height": 240,
+          "vertices": {
+            "O": [
+              60,
+              195
+            ],
+            "P": [
+              215,
+              195
+            ],
+            "Q": [
+              215,
+              45
+            ]
+          },
+          "vertexLabels": {
+            "O": {
+              "text": "A",
+              "dx": -18,
+              "dy": 5
+            },
+            "P": {
+              "text": " "
+            },
+            "Q": {
+              "text": " "
+            }
+          },
+          "sides": [
+            {
+              "from": "O",
+              "to": "P",
+              "label": "2",
+              "labelOffset": {
+                "dx": 0,
+                "dy": 16
+              }
+            },
+            {
+              "from": "P",
+              "to": "Q",
+              "label": "1",
+              "labelOffset": {
+                "dx": 16,
+                "dy": 0
+              }
+            },
+            {
+              "from": "O",
+              "to": "Q",
+              "label": "$\\sqrt{5}$",
+              "labelOffset": {
+                "dx": -12,
+                "dy": -12
+              }
+            }
+          ],
+          "angleMarks": [
+            {
+              "at": "P",
+              "from": "O",
+              "to": "Q",
+              "type": "right",
+              "size": 10
+            },
+            {
+              "at": "O",
+              "from": "P",
+              "to": "Q",
+              "type": "arc",
+              "radius": 20,
+              "label": "A"
+            }
+          ]
+        },
+        {
+          "type": "polygon-labeled",
+          "width": 280,
+          "height": 240,
+          "vertices": {
+            "O": [
+              60,
+              195
+            ],
+            "P": [
+              215,
+              195
+            ],
+            "Q": [
+              215,
+              45
+            ]
+          },
+          "vertexLabels": {
+            "O": {
+              "text": "B",
+              "dx": -18,
+              "dy": 5
+            },
+            "P": {
+              "text": " "
+            },
+            "Q": {
+              "text": " "
+            }
+          },
+          "sides": [
+            {
+              "from": "O",
+              "to": "P",
+              "label": "$\\sqrt{8}$",
+              "labelOffset": {
+                "dx": 0,
+                "dy": 16
+              }
+            },
+            {
+              "from": "P",
+              "to": "Q",
+              "label": "1",
+              "labelOffset": {
+                "dx": 16,
+                "dy": 0
+              }
+            },
+            {
+              "from": "O",
+              "to": "Q",
+              "label": "3",
+              "labelOffset": {
+                "dx": -12,
+                "dy": -12
+              }
+            }
+          ],
+          "angleMarks": [
+            {
+              "at": "P",
+              "from": "O",
+              "to": "Q",
+              "type": "right",
+              "size": 10
+            },
+            {
+              "at": "O",
+              "from": "P",
+              "to": "Q",
+              "type": "arc",
+              "radius": 20,
+              "label": "B"
+            }
+          ]
+        }
       ],
+      "correct": "8.8",
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
         "สามเหลี่ยมช่วยคิด: $\\tan A = \\dfrac{1}{2}$ → ด้าน $1, 2, \\sqrt{5}$",
@@ -7490,6 +8110,8 @@
         "<b>🎯 เป้าหมาย</b> แยกคำนวณสองก้อนจากสามเหลี่ยมคนละรูป แล้วบวกกัน",
         "",
         "<b>【 พื้นฐาน · วาดสามเหลี่ยมอ้างอิงแยกสองรูป หา sin2A กับ cot²B แล้วบวก (two reference triangles, sum) 】</b>",
+        "[IMAGE:0]",
+        "[IMAGE:1]",
         "<b>ขั้นที่ 1:</b> ก้อนแรก ให้ $A = \\arctan\\dfrac{1}{2}$: จากสามเหลี่ยม $1$-$2$-$\\sqrt{5}$ ได้ $\\sin A = \\dfrac{1}{\\sqrt{5}}, \\cos A = \\dfrac{2}{\\sqrt{5}}$",
         "<b>ขั้นที่ 2:</b>",
         "$\\begin{aligned} \\sin 2A &= 2\\cdot\\dfrac{1}{\\sqrt{5}}\\cdot\\dfrac{2}{\\sqrt{5}} \\\\ &= \\dfrac{4}{5} \\end{aligned}$",
@@ -7513,7 +8135,12 @@
         "<b>⚠️ จุดที่เด็กมักผิด</b> จับคู่ด้านผิดตอนวาดสามเหลี่ยมของ $\\arcsin\\dfrac{1}{3}$ (ด้านตรงข้าม $1$ ไม่ใช่ด้านประชิด)",
         "อย่าลืมยกกำลังสองของ $\\cot$ — ตอบ $\\dfrac{4}{5} + \\sqrt{8}$ ผิด"
       ],
-      "notes": "หน้า 16 ไม่มี footer key → ยึดเฉลย PDF หน้า 14 (4/5 + 8 = 8.8) + sympy ยืนยัน (= 44/5) ; ข้อ fill (อัตนัย)"
+      "notes": "หน้า 16 ไม่มี footer key → ยึดเฉลย PDF หน้า 14 (4/5 + 8 = 8.8) + sympy ยืนยัน (= 44/5) ; ข้อ fill (อัตนัย)",
+      "accept": [
+        "8.8",
+        "44/5",
+        "8.80"
+      ]
     },
     {
       "id": "chap-07-trigonometry-q81",
@@ -7528,13 +8155,93 @@
       "level": "medium",
       "score": 1,
       "question": "$1 + \\cos\\left(\\dfrac{\\pi}{2} + \\left(\\arccos\\dfrac{4}{5} - \\arctan\\dfrac{4}{3}\\right)\\right)$ เท่ากับเท่าใด",
-      "hasImage": false,
+      "hasImage": true,
       "sourceTag": "Entrance ต.ค.2546",
+      "imageSpec": {
+        "type": "polygon-labeled",
+        "width": 300,
+        "height": 260,
+        "vertices": {
+          "O": [
+            65,
+            210
+          ],
+          "P": [
+            230,
+            210
+          ],
+          "Q": [
+            230,
+            50
+          ]
+        },
+        "vertexLabels": {
+          "O": {
+            "text": " "
+          },
+          "P": {
+            "text": " "
+          },
+          "Q": {
+            "text": " "
+          }
+        },
+        "sides": [
+          {
+            "from": "O",
+            "to": "P",
+            "label": "4",
+            "labelOffset": {
+              "dx": 0,
+              "dy": 17
+            }
+          },
+          {
+            "from": "P",
+            "to": "Q",
+            "label": "3",
+            "labelOffset": {
+              "dx": 17,
+              "dy": 0
+            }
+          },
+          {
+            "from": "O",
+            "to": "Q",
+            "label": "5",
+            "labelOffset": {
+              "dx": -13,
+              "dy": -13
+            }
+          }
+        ],
+        "angleMarks": [
+          {
+            "at": "P",
+            "from": "O",
+            "to": "Q",
+            "type": "right",
+            "size": 11
+          },
+          {
+            "at": "O",
+            "from": "P",
+            "to": "Q",
+            "type": "arc",
+            "radius": 22,
+            "label": "B"
+          },
+          {
+            "at": "Q",
+            "from": "O",
+            "to": "P",
+            "type": "arc",
+            "radius": 20,
+            "label": "A"
+          }
+        ]
+      },
       "correct": "1.28",
-      "accept": [
-        "1.28",
-        "32/25"
-      ],
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
         "โคฟังก์ชันมุมเลื่อน: $\\cos\\left(\\dfrac{\\pi}{2} + u\\right) = -\\sin u$",
@@ -7544,6 +8251,7 @@
         "<b>🎯 เป้าหมาย</b> เปลี่ยน $\\cos\\left(\\dfrac{\\pi}{2} + u\\right)$ เป็น $-\\sin u$ แล้วกระจาย $\\sin(A - B)$",
         "",
         "<b>【 พื้นฐาน · ใช้โคฟังก์ชันเปลี่ยนเป็น −sin u แล้วกระจายผลต่างมุม (cofunction shift, expand sin(A−B)) 】</b>",
+        "[IMAGE]",
         "<b>ขั้นที่ 1:</b> ให้ $A = \\arccos\\dfrac{4}{5}$",
         "และ $B = \\arctan\\dfrac{4}{3}$",
         "→ นิพจน์ $= 1 + \\cos\\left(\\dfrac{\\pi}{2} + (A - B)\\right) = 1 - \\sin(A - B)$",
@@ -7564,7 +8272,11 @@
         "<b>⚠️ จุดที่เด็กมักผิด</b> เครื่องหมายของ $\\cos\\left(\\dfrac{\\pi}{2} + u\\right)$ ต้องเป็น<b>ลบ</b> $\\sin u$ (มุมตกควอดรันต์ 2)",
         "ลบเศษส่วน $\\dfrac{9}{25} - \\dfrac{16}{25}$ ได้ค่าลบ อย่าสลับ"
       ],
-      "notes": "เฉลย PDF หน้า 15: 1 − sin(A−B) = 1 + 7/25 = 1.28 ; sympy ยืนยัน (= 32/25) ; ข้อ fill (อัตนัย)"
+      "notes": "เฉลย PDF หน้า 15: 1 − sin(A−B) = 1 + 7/25 = 1.28 ; sympy ยืนยัน (= 32/25) ; ข้อ fill (อัตนัย)",
+      "accept": [
+        "1.28",
+        "32/25"
+      ]
     },
     {
       "id": "chap-07-trigonometry-q82",
@@ -7685,8 +8397,86 @@
         "$\\sqrt{\\dfrac{1}{10}} + \\dfrac{7}{25}$",
         "$\\sqrt{\\dfrac{1}{3}} + \\dfrac{7}{25}$"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "sourceTag": "Entrance 2534",
+      "imageSpec": {
+        "type": "polygon-labeled",
+        "width": 300,
+        "height": 260,
+        "vertices": {
+          "O": [
+            65,
+            210
+          ],
+          "P": [
+            230,
+            210
+          ],
+          "Q": [
+            230,
+            50
+          ]
+        },
+        "vertexLabels": {
+          "O": {
+            "text": "θ",
+            "dx": -20,
+            "dy": 5
+          },
+          "P": {
+            "text": " "
+          },
+          "Q": {
+            "text": " "
+          }
+        },
+        "sides": [
+          {
+            "from": "O",
+            "to": "P",
+            "label": "4",
+            "labelOffset": {
+              "dx": 0,
+              "dy": 17
+            }
+          },
+          {
+            "from": "P",
+            "to": "Q",
+            "label": "3",
+            "labelOffset": {
+              "dx": 17,
+              "dy": 0
+            }
+          },
+          {
+            "from": "O",
+            "to": "Q",
+            "label": "5",
+            "labelOffset": {
+              "dx": -13,
+              "dy": -13
+            }
+          }
+        ],
+        "angleMarks": [
+          {
+            "at": "P",
+            "from": "O",
+            "to": "Q",
+            "type": "right",
+            "size": 11
+          },
+          {
+            "at": "O",
+            "from": "P",
+            "to": "Q",
+            "type": "arc",
+            "radius": 22,
+            "label": "θ"
+          }
+        ]
+      },
       "correct": 2,
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
@@ -7698,6 +8488,7 @@
         "<b>🎯 เป้าหมาย</b> ก้อนแรกใช้มุมครึ่ง ก้อนหลังใช้มุมสองเท่า — ทั้งคู่ตั้งต้นจาก $\\cos = \\dfrac{4}{5}$",
         "",
         "<b>【 พื้นฐาน · ก้อนแรกใช้มุมครึ่ง ก้อนหลังใช้มุมสองเท่า ตั้งต้นจาก cos = 4/5 (half-angle and double-angle) 】</b>",
+        "[IMAGE]",
         "<b>ขั้นที่ 1:</b> ให้ $A = \\arctan\\dfrac{3}{4}$",
         "→ จากสามเหลี่ยม $3$-$4$-$5$: $\\cos A = \\dfrac{4}{5}$ ($A$ เป็นมุมแหลม)",
         "<b>ขั้นที่ 2:</b> มุมครึ่ง:",
@@ -7743,8 +8534,166 @@
         "$4\\sqrt{2} + \\dfrac{\\sqrt{10}}{12}$",
         "$\\dfrac{2}{27}(7 + 2\\sqrt{10})$"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "sourceTag": "Entrance 2537",
+      "imageSpec": [
+        {
+          "type": "polygon-labeled",
+          "width": 280,
+          "height": 240,
+          "vertices": {
+            "O": [
+              60,
+              195
+            ],
+            "P": [
+              215,
+              195
+            ],
+            "Q": [
+              215,
+              45
+            ]
+          },
+          "vertexLabels": {
+            "O": {
+              "text": "A",
+              "dx": -18,
+              "dy": 5
+            },
+            "P": {
+              "text": " "
+            },
+            "Q": {
+              "text": " "
+            }
+          },
+          "sides": [
+            {
+              "from": "O",
+              "to": "P",
+              "label": "$\\sqrt{5}$",
+              "labelOffset": {
+                "dx": 0,
+                "dy": 16
+              }
+            },
+            {
+              "from": "P",
+              "to": "Q",
+              "label": "2",
+              "labelOffset": {
+                "dx": 16,
+                "dy": 0
+              }
+            },
+            {
+              "from": "O",
+              "to": "Q",
+              "label": "3",
+              "labelOffset": {
+                "dx": -12,
+                "dy": -12
+              }
+            }
+          ],
+          "angleMarks": [
+            {
+              "at": "P",
+              "from": "O",
+              "to": "Q",
+              "type": "right",
+              "size": 10
+            },
+            {
+              "at": "O",
+              "from": "P",
+              "to": "Q",
+              "type": "arc",
+              "radius": 20,
+              "label": "A"
+            }
+          ]
+        },
+        {
+          "type": "polygon-labeled",
+          "width": 280,
+          "height": 240,
+          "vertices": {
+            "O": [
+              60,
+              195
+            ],
+            "P": [
+              215,
+              195
+            ],
+            "Q": [
+              215,
+              45
+            ]
+          },
+          "vertexLabels": {
+            "O": {
+              "text": "B",
+              "dx": -18,
+              "dy": 5
+            },
+            "P": {
+              "text": " "
+            },
+            "Q": {
+              "text": " "
+            }
+          },
+          "sides": [
+            {
+              "from": "O",
+              "to": "P",
+              "label": "$\\sqrt{8}$",
+              "labelOffset": {
+                "dx": 0,
+                "dy": 16
+              }
+            },
+            {
+              "from": "P",
+              "to": "Q",
+              "label": "1",
+              "labelOffset": {
+                "dx": 16,
+                "dy": 0
+              }
+            },
+            {
+              "from": "O",
+              "to": "Q",
+              "label": "3",
+              "labelOffset": {
+                "dx": -12,
+                "dy": -12
+              }
+            }
+          ],
+          "angleMarks": [
+            {
+              "at": "P",
+              "from": "O",
+              "to": "Q",
+              "type": "right",
+              "size": 10
+            },
+            {
+              "at": "O",
+              "from": "P",
+              "to": "Q",
+              "type": "arc",
+              "radius": 20,
+              "label": "B"
+            }
+          ]
+        }
+      ],
       "correct": 3,
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
@@ -7757,6 +8706,8 @@
         "<b>🎯 เป้าหมาย</b> แทนค่า $x = \\dfrac{1}{3}$ ให้เป็น $\\sin(A + 2B)$ แล้วกระจายสูตรผลบวกมุม",
         "",
         "<b>【 พื้นฐาน · แทนค่าแล้วกระจาย sin(A + 2B) ด้วยสูตรผลบวกมุม (substitute, expand sum formula) 】</b>",
+        "[IMAGE:0]",
+        "[IMAGE:1]",
         "<b>ขั้นที่ 1:</b> $g\\left(\\dfrac{1}{3}\\right) = \\arcsin\\dfrac{2}{3} + 2\\arcsin\\dfrac{1}{3}$",
         "ให้ $A = \\arcsin\\dfrac{2}{3}, B = \\arcsin\\dfrac{1}{3}$",
         "→ ต้องการ $\\sin(A + 2B)$",
@@ -8462,15 +9413,87 @@
       "level": "medium",
       "score": 1,
       "question": "ถ้า $a$ และ $b$ เป็นคำตอบของสมการ $\\sin(2\\arcsin x) = x$ โดยที่ $a \\ne 0, b \\ne 0$ และ $a \\ne b$\nแล้ว $\\left|\\sin\\arctan(ab)\\right|$ เท่ากับเท่าใด",
-      "hasImage": false,
+      "hasImage": true,
       "sourceTag": "Entrance ต.ค.2545",
+      "imageSpec": {
+        "type": "polygon-labeled",
+        "width": 300,
+        "height": 260,
+        "vertices": {
+          "O": [
+            65,
+            210
+          ],
+          "P": [
+            230,
+            210
+          ],
+          "Q": [
+            230,
+            50
+          ]
+        },
+        "vertexLabels": {
+          "O": {
+            "text": "θ",
+            "dx": -20,
+            "dy": 5
+          },
+          "P": {
+            "text": " "
+          },
+          "Q": {
+            "text": " "
+          }
+        },
+        "sides": [
+          {
+            "from": "O",
+            "to": "P",
+            "label": "4",
+            "labelOffset": {
+              "dx": 0,
+              "dy": 17
+            }
+          },
+          {
+            "from": "P",
+            "to": "Q",
+            "label": "3",
+            "labelOffset": {
+              "dx": 17,
+              "dy": 0
+            }
+          },
+          {
+            "from": "O",
+            "to": "Q",
+            "label": "5",
+            "labelOffset": {
+              "dx": -13,
+              "dy": -13
+            }
+          }
+        ],
+        "angleMarks": [
+          {
+            "at": "P",
+            "from": "O",
+            "to": "Q",
+            "type": "right",
+            "size": 11
+          },
+          {
+            "at": "O",
+            "from": "P",
+            "to": "Q",
+            "type": "arc",
+            "radius": 22,
+            "label": "θ"
+          }
+        ]
+      },
       "correct": "0.6",
-      "accept": [
-        "0.6",
-        "3/5",
-        "0.60",
-        ".6"
-      ],
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
         "มุมสองเท่า: $\\sin 2A = 2\\sin A\\cos A$",
@@ -8481,6 +9504,7 @@
         "<b>🎯 เป้าหมาย</b> แก้สมการหา $a, b$ ก่อน แล้วค่อยคำนวณ $ab$ และ $\\left|\\sin\\arctan(ab)\\right|$",
         "",
         "<b>【 วิธีที่ 1 ▸ พื้นฐาน · ดึงตัวประกอบ $x$ จากสมการมุมสองเท่า (factor the double-angle equation) 】</b>",
+        "[IMAGE]",
         "<b>เครื่องมือ:</b> มุมสองเท่า $\\sin 2A = 2\\sin A\\cos A$",
         "$\\cos(\\arcsin x) = \\sqrt{1 - x^2}$",
         "<b>ขั้นที่ 1:</b> ให้ $A = \\arcsin x$: $\\sin 2A = 2\\sin A\\cos A = 2x\\sqrt{1 - x^2}$",
@@ -8529,7 +9553,13 @@
         "<b>⚠️ จุดที่เด็กมักผิด</b> รากสองตัวต้องเครื่องหมายตรงข้าม → $ab$ ติดลบ ถ้าเผลอคิด $ab = +\\dfrac{3}{4}$ ก็ยังได้ค่าสัมบูรณ์เท่ากัน แต่ถ้าโจทย์ไม่ใส่ค่าสัมบูรณ์จะพลาดทันที",
         "$\\cos(\\arcsin x) = \\sqrt{1 - x^2}$ ห้ามติดลบ"
       ],
-      "notes": "หน้า 18 ไม่มี footer key → ยึดเฉลย PDF หน้า 16 (|sin| = 3/5 = 0.6) + sympy ยืนยัน ; ข้อ fill (อัตนัย) ; ราก ±√3/2 → ab = −3/4 → สามเหลี่ยม 3-4-5 ; ชั้นเดียว"
+      "notes": "หน้า 18 ไม่มี footer key → ยึดเฉลย PDF หน้า 16 (|sin| = 3/5 = 0.6) + sympy ยืนยัน ; ข้อ fill (อัตนัย) ; ราก ±√3/2 → ab = −3/4 → สามเหลี่ยม 3-4-5 ; ชั้นเดียว",
+      "accept": [
+        "0.6",
+        "3/5",
+        "0.60",
+        ".6"
+      ]
     },
     {
       "id": "chap-07-trigonometry-q93",
@@ -8959,8 +9989,117 @@
         "$10\\left(2 + 2\\sqrt{3}\\right)$ เมตร",
         "$10\\left(2 + \\sqrt{3}\\right)$ เมตร"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "sourceTag": "Entrance ต.ค.2545",
+      "imageSpec": {
+        "type": "polygon-labeled",
+        "width": 380,
+        "height": 260,
+        "vertices": {
+          "P1": [
+            50,
+            220
+          ],
+          "P2": [
+            180,
+            220
+          ],
+          "D": [
+            320,
+            220
+          ],
+          "T": [
+            320,
+            50
+          ]
+        },
+        "vertexLabels": {
+          "P1": {
+            "text": "จุดไกล",
+            "dx": 0,
+            "dy": 18
+          },
+          "P2": {
+            "text": "จุดใกล้",
+            "dx": 0,
+            "dy": 18
+          },
+          "D": {
+            "text": " "
+          },
+          "T": {
+            "text": " "
+          }
+        },
+        "sides": [
+          {
+            "from": "P1",
+            "to": "P2",
+            "label": "20 ม.",
+            "labelOffset": {
+              "dx": 0,
+              "dy": -10
+            }
+          },
+          {
+            "from": "P2",
+            "to": "D",
+            "label": "a",
+            "labelOffset": {
+              "dx": 0,
+              "dy": -10
+            }
+          },
+          {
+            "from": "D",
+            "to": "T"
+          },
+          {
+            "from": "P1",
+            "to": "T",
+            "style": "dashed"
+          },
+          {
+            "from": "P2",
+            "to": "T",
+            "style": "dashed"
+          }
+        ],
+        "angleMarks": [
+          {
+            "at": "D",
+            "from": "P1",
+            "to": "T",
+            "type": "right",
+            "size": 11
+          },
+          {
+            "at": "P1",
+            "from": "P2",
+            "to": "T",
+            "type": "arc",
+            "radius": 26,
+            "label": "60°"
+          },
+          {
+            "at": "P2",
+            "from": "D",
+            "to": "T",
+            "type": "arc",
+            "radius": 26,
+            "label": "75°"
+          }
+        ],
+        "annotations": [
+          {
+            "x": 320,
+            "y": 135,
+            "text": "h",
+            "anchor": "start",
+            "fontSize": 13
+          }
+        ]
+      },
       "correct": 3,
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
@@ -8971,6 +10110,7 @@
         "<b>🎯 เป้าหมาย</b> ตั้งสมการความสูงเสาธงจากสองตำแหน่ง แล้วแก้หาระยะที่ถาม",
         "",
         "<b>【 วิธีที่ 1 ▸ พื้นฐาน · ตั้ง $\\tan$ สองสมการแล้วจับความสูงเท่ากัน (two tangent equations, equal height) 】</b>",
+        "[IMAGE]",
         "<b>เครื่องมือ:</b> $\\tan(\\text{มุมเงย}) = \\dfrac{h}{\\text{ระยะราบ}}$",
         "ค่าพิเศษ $\\tan 60^\\circ = \\sqrt{3}, \\tan 75^\\circ = 2 + \\sqrt{3}$",
         "<b>ขั้นที่ 1:</b> ให้เสาธงสูง $h$ และตำแหน่งมุมเงย $75^\\circ$ ห่างเสา $a$ เมตร: $\\dfrac{h}{a} = \\tan 75^\\circ$",
@@ -9009,8 +10149,7 @@
         "<b>⚠️ จุดที่เด็กมักผิด</b> ตอบระยะ $a = 10\\sqrt{3}$ (ตำแหน่ง $75^\\circ$) ทั้งที่โจทย์ถามตำแหน่งตอนมองมุมเงย $60^\\circ$ ซึ่งต้องบวก 20 เมตรกลับเข้าไป",
         "เขียนสมการสลับ — ตำแหน่งที่มุมเงยใหญ่กว่าต้องอยู่ใกล้เสากว่า"
       ],
-      "notes": "h = a·tan75° = (20+a)·tan60° → 2a = 20√3 → a = 10√3 → ระยะที่ถาม 20 + 10√3 = 10(2+√3) ; ตรง key footer หน้า 19 (100.4) + เฉลย PDF หน้า 18 (tan75 = 2+√3 จากสูตรผลบวกมุม) ; sympy ยืนยัน ; subTopics 4 (เรขาคณิต/มุมเงย) ; ชั้นเดียว ; ตัวลวง: ตอบตำแหน่ง 75° = 10√3 ไม่อยู่ในตัวเลือก แต่พลาดเครื่องหมาย/สมการจะไปลงตัวเลือกอื่น",
-      "_imageNote": "รูปสามเหลี่ยมมุมเงยสองตำแหน่งตามรูปในเฉลย PDF หน้า 18: เสาธงแนวตั้งสูง h ทางขวา, จุดสังเกตสองจุดบนพื้นราบด้านซ้าย — จุดไกลมุมเงย 60° ห่างเสา 20+a, เดินเข้าไป 20 เมตรถึงจุดใกล้มุมเงย 75° ห่างเสา a — ช่วยให้เห็นว่าทำไมระยะที่ถามคือ 20+a"
+      "notes": "h = a·tan75° = (20+a)·tan60° → 2a = 20√3 → a = 10√3 → ระยะที่ถาม 20 + 10√3 = 10(2+√3) ; ตรง key footer หน้า 19 (100.4) + เฉลย PDF หน้า 18 (tan75 = 2+√3 จากสูตรผลบวกมุม) ; sympy ยืนยัน ; subTopics 4 (เรขาคณิต/มุมเงย) ; ชั้นเดียว ; ตัวลวง: ตอบตำแหน่ง 75° = 10√3 ไม่อยู่ในตัวเลือก แต่พลาดเครื่องหมาย/สมการจะไปลงตัวเลือกอื่น"
     },
     {
       "id": "chap-07-trigonometry-q101",
@@ -9261,8 +10400,32 @@
         "$50\\sqrt{3}$",
         "$\\dfrac{100}{\\sqrt{3}}$"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "sourceTag": "Entrance 2534",
+      "imageSpec": {
+        "type": "tower-two-observers",
+        "legAB": 160,
+        "legAC": 130,
+        "towerH": 110,
+        "labels": {
+          "A": "B",
+          "B": "G",
+          "C": "D"
+        },
+        "hLabel": "h",
+        "acLabel": "100 ม.",
+        "angles": [
+          {
+            "at": "A",
+            "text": "45°"
+          },
+          {
+            "at": "C",
+            "text": "30°"
+          }
+        ],
+        "north": "right"
+      },
       "correct": 1,
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
@@ -9273,6 +10436,7 @@
         "<b>🎯 เป้าหมาย</b> หาความสูงตึก $h$ จากมุมเงยสองจุด ที่เดินตั้งฉากกับแนวเดิม (ไม่ใช่เดินเข้าหาตึก)",
         "",
         "<b>【 พื้นฐาน · ตั้งมุมเงยสองจุดที่เดินตั้งฉากกับแนวเดิม แล้วแก้หาความสูง (two elevation angles, perpendicular walk) 】</b>",
+        "[IMAGE]",
         "<b>ขั้นที่ 1:</b> ให้ฐานตึกคือ $A$ สูง $h$ จุดยืนแรก $B$ อยู่ทิศตะวันออกของตึก: $\\dfrac{h}{AB} = \\tan 45^\\circ = 1$",
         "→ $AB = h$",
         "<b>ขั้นที่ 2:</b> เดินจาก $B$ ไปทิศใต้ $100$ เมตร ถึงจุด $D$: $\\dfrac{h}{AD} = \\tan 30^\\circ = \\dfrac{1}{\\sqrt{3}}$",
@@ -9295,8 +10459,7 @@
         "<b>⚠️ จุดที่เด็กมักผิด</b> คิดว่าเดินเข้าหา/ออกจากตึกบนแนวเดิม (แบบโจทย์เสาธง) แล้วตั้ง $AD = AB + 100$ → จะหลงไปตัวเลือกอื่น",
         "สับสนว่า $AD$ คือระยะราบบนพื้น ไม่ใช่เส้นเอียงจากตาไปยอดตึก"
       ],
-      "notes": "tan45 → AB = h, tan30 → AD = √3h, พีทาโกรัสมุมฉากที่ B: h²+100² = 3h² → h = 50√2 ; sympy ✓ ; ตรง key footer หน้า 19 (102.2) + เฉลย PDF หน้า 18 (△ABC: BA = h, △ACD: AD = √3h, (BA)²+100² = (AD)²) ; ชั้นเดียว ; ตัวลวง: 100/√3 = คิดแบบเดินแนวเดิมแล้วลบระยะ, 50√3 = สลับบทบาท tan",
-      "_imageNote": "วาดตามรูปเฉลย PDF หน้า 18 (ข้อ 102): ตึกแนวตั้งสูง h ฐาน A ยอด C ; จุด B อยู่ทางทิศตะวันออกของ A บนพื้นราบ (มุมเงยที่ B = 45° มีมุมฉากเล็กที่ A ระหว่าง AB กับตึก) ; จาก B เดินลงทิศใต้ 100 ม. ถึง D (มุมเงยที่ D = 30°) ; สามเหลี่ยมพื้นราบ ABD มุมฉากที่ B — ภาพกึ่ง 3 มิติช่วยให้เห็นว่าทำไมใช้พีทาโกรัสเชื่อม AB กับ AD"
+      "notes": "tan45 → AB = h, tan30 → AD = √3h, พีทาโกรัสมุมฉากที่ B: h²+100² = 3h² → h = 50√2 ; sympy ✓ ; ตรง key footer หน้า 19 (102.2) + เฉลย PDF หน้า 18 (△ABC: BA = h, △ACD: AD = √3h, (BA)²+100² = (AD)²) ; ชั้นเดียว ; ตัวลวง: 100/√3 = คิดแบบเดินแนวเดิมแล้วลบระยะ, 50√3 = สลับบทบาท tan"
     },
     {
       "id": "chap-07-trigonometry-q103",
@@ -9630,14 +10793,111 @@
       "level": "easy",
       "score": 1,
       "question": "สามเหลี่ยม $ABC$ มีด้าน $a, b, c$ เป็นด้านตรงข้ามมุม $A, B, C$ ซึ่งมีความยาวเป็น $3, 2.5, 1$ หน่วย ตามลำดับ\nค่าของ $b\\cos C + c\\cos B$ เท่ากับเท่าใด",
-      "hasImage": false,
+      "hasImage": true,
       "sourceTag": "Entrance 2539",
+      "imageSpec": {
+        "type": "polygon-labeled",
+        "width": 360,
+        "height": 280,
+        "vertices": {
+          "B": [
+            60,
+            230
+          ],
+          "C": [
+            300,
+            230
+          ],
+          "A": [
+            195,
+            50
+          ],
+          "D": [
+            195,
+            230
+          ]
+        },
+        "vertexLabels": {
+          "B": {
+            "text": "B",
+            "dx": -16,
+            "dy": 8
+          },
+          "C": {
+            "text": "C",
+            "dx": 12,
+            "dy": 8
+          },
+          "A": {
+            "text": "A",
+            "dx": 0,
+            "dy": -12
+          },
+          "D": {
+            "text": " "
+          }
+        },
+        "sides": [
+          {
+            "from": "B",
+            "to": "C",
+            "label": "a",
+            "labelOffset": {
+              "dx": 0,
+              "dy": 20
+            }
+          },
+          {
+            "from": "B",
+            "to": "A",
+            "label": "c",
+            "labelOffset": {
+              "dx": -16,
+              "dy": -6
+            }
+          },
+          {
+            "from": "A",
+            "to": "C",
+            "label": "b",
+            "labelOffset": {
+              "dx": 16,
+              "dy": -6
+            }
+          },
+          {
+            "from": "A",
+            "to": "D",
+            "style": "dashed"
+          }
+        ],
+        "angleMarks": [
+          {
+            "at": "D",
+            "from": "B",
+            "to": "A",
+            "type": "right",
+            "size": 10
+          }
+        ],
+        "annotations": [
+          {
+            "x": 128,
+            "y": 248,
+            "text": "c·cosB",
+            "anchor": "middle",
+            "fontSize": 12
+          },
+          {
+            "x": 248,
+            "y": 248,
+            "text": "b·cosC",
+            "anchor": "middle",
+            "fontSize": 12
+          }
+        ]
+      },
       "correct": "3",
-      "accept": [
-        "3",
-        "3.0",
-        "3.00"
-      ],
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
         "สูตรโปรเจกชัน: ในสามเหลี่ยมใด ๆ $a = b\\cos C + c\\cos B$ (ด้าน $a$ เท่ากับผลรวมเงาของอีกสองด้านที่ทอดลงบนมัน — จริงแม้มุมป้าน เพราะเครื่องหมาย $\\cos$ จัดการเอง)",
@@ -9645,6 +10905,7 @@
         "<b>🎯 เป้าหมาย</b> หาค่า $b\\cos C + c\\cos B$ เมื่อ $a = 3, b = 2.5, c = 1$ (เรียงตามด้านตรงข้ามมุม $A, B, C$)",
         "",
         "<b>【 วิธีที่ 1 ▸ พื้นฐาน · แทนกฎของโคไซน์สองรอบแล้วบวก (cosine rule) 】</b>",
+        "[IMAGE]",
         "<b>เครื่องมือ:</b> กฎของโคไซน์รูปหา $\\cos$: $\\cos C = \\dfrac{a^2 + b^2 - c^2}{2ab}$ , $\\cos B = \\dfrac{a^2 + c^2 - b^2}{2ac}$",
         "<b>ขั้นที่ 1:</b>",
         "$\\begin{aligned} \\cos C &= \\dfrac{9 + 6.25 - 1}{2(3)(2.5)} \\\\ &= \\dfrac{14.25}{15} \\\\ &= \\dfrac{19}{20} \\end{aligned}$",
@@ -9677,7 +10938,11 @@
         "ลืมว่าโจทย์ให้ความยาวเรียงตามด้าน $a, b, c$ (3 คือด้าน $a$ ตรงข้ามมุม $A$)"
       ],
       "notes": "M1 กฎโคไซน์: cosC = 19/20, cosB = 5/8 → 2.5(19/20)+1(5/8) = 19/8+5/8 = 3 ; M2 ⚡ สูตรโปรเจกชัน a = bcosC+ccosB = 3 (เฉลย PDF หน้า 19 ใช้วิธีนี้: BD+DC) ; sympy ✓ ; key footer หน้า 21 (105. 3 = ค่าคำตอบ fill ไม่ใช่เลขตัวเลือก) ; สองชั้น ; fill รวมเป็นข้อที่ 7 ของบท",
-      "_imageNote": "วาดตามรูปเฉลย PDF หน้า 19 (ข้อ 105): สามเหลี่ยม ABC — B ซ้ายล่าง, C ขวาล่าง, A ยอดบน, ป้ายด้าน c ที่ AB และ b ที่ AC ; เส้นประจาก A ลงตั้งฉากกับ BC ที่จุด D (สัญลักษณ์มุมฉากที่ D) — ให้เห็นว่า BD = c cos B, DC = b cos C รวมกันเป็นด้าน a ทั้งเส้น (ประกอบวิธีลัดสูตรโปรเจกชัน)"
+      "accept": [
+        "3",
+        "3.0",
+        "3.00"
+      ]
     },
     {
       "id": "chap-07-trigonometry-q106",
@@ -9864,15 +11129,79 @@
       "level": "medium",
       "score": 1,
       "question": "กำหนดให้รูปสามเหลี่ยม $ABC$ มีด้าน $BC$ ยาว $\\sqrt{3}$ หน่วย ด้าน $AC$ ยาว $2$ หน่วย\nถ้ามุม $B = \\arctan\\left(\\dfrac{1}{\\sqrt{3}}\\right)$ แล้วค่าของ $\\sin(A + B) + \\sin(A - B)$ เท่ากับเท่าใด",
-      "hasImage": false,
+      "hasImage": true,
       "sourceTag": "Entrance ต.ค.2547",
+      "imageSpec": {
+        "type": "polygon-labeled",
+        "width": 340,
+        "height": 260,
+        "vertices": {
+          "B": [
+            60,
+            220
+          ],
+          "C": [
+            280,
+            220
+          ],
+          "A": [
+            230,
+            60
+          ]
+        },
+        "vertexLabels": {
+          "B": {
+            "text": "B",
+            "dx": -16,
+            "dy": 8
+          },
+          "C": {
+            "text": "C",
+            "dx": 14,
+            "dy": 10
+          },
+          "A": {
+            "text": "A",
+            "dx": 10,
+            "dy": -8
+          }
+        },
+        "sides": [
+          {
+            "from": "B",
+            "to": "C",
+            "label": "$\\sqrt{3}$",
+            "labelOffset": {
+              "dx": 0,
+              "dy": 20
+            }
+          },
+          {
+            "from": "A",
+            "to": "C",
+            "label": "2",
+            "labelOffset": {
+              "dx": 16,
+              "dy": -4
+            }
+          },
+          {
+            "from": "B",
+            "to": "A"
+          }
+        ],
+        "angleMarks": [
+          {
+            "at": "B",
+            "from": "C",
+            "to": "A",
+            "type": "arc",
+            "radius": 24,
+            "label": "30°"
+          }
+        ]
+      },
       "correct": "0.75",
-      "accept": [
-        "0.75",
-        "3/4",
-        ".75",
-        "0.750"
-      ],
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
         "$B = \\arctan\\dfrac{1}{\\sqrt{3}}$ หมายถึง $\\tan B = \\dfrac{1}{\\sqrt{3}}$ → $B = 30^\\circ$ → $\\sin B = \\dfrac{1}{2}$ , $\\cos B = \\dfrac{\\sqrt{3}}{2}$",
@@ -9882,6 +11211,7 @@
         "<b>🎯 เป้าหมาย</b> หา $\\sin(A + B) + \\sin(A - B)$ โดยไม่ต้องรู้ค่ามุม $A$ จริง",
         "",
         "<b>【 พื้นฐาน · ยุบ sin(A+B) + sin(A−B) เป็น 2 sin A cos B โดยไม่ต้องรู้มุม A (sum-to-product) 】</b>",
+        "[IMAGE]",
         "<b>ขั้นที่ 1:</b> $\\tan B = \\dfrac{1}{\\sqrt{3}}$",
         "→ $B = \\dfrac{\\pi}{6}$",
         "→ $\\sin B = \\dfrac{1}{2}$ , $\\cos B = \\dfrac{\\sqrt{3}}{2}$",
@@ -9902,7 +11232,13 @@
         "จำสลับ $\\arctan\\dfrac{1}{\\sqrt{3}} = 30^\\circ$ กับ $\\arctan\\sqrt{3} = 60^\\circ$",
         "จับคู่ด้าน–มุมในกฎของไซน์ผิด ($BC$ ต้องคู่กับมุม $A$)"
       ],
-      "notes": "B = arctan(1/√3) = 30° ; sinA = √3·(1/2)/2 = √3/4 (กฎของไซน์) ; sin(A+B)+sin(A−B) = 2sinAcosB = 2(√3/4)(√3/2) = 3/4 ; sympy แก้เต็มรูป (AB = (3+√13)/2 รูปเดียว) ตรงกัน ; ตรง key footer หน้า 21 (108. 0.75) + เฉลย PDF หน้า 19 ; ชั้นเดียว ; fill ข้อที่ 8 ของบท"
+      "notes": "B = arctan(1/√3) = 30° ; sinA = √3·(1/2)/2 = √3/4 (กฎของไซน์) ; sin(A+B)+sin(A−B) = 2sinAcosB = 2(√3/4)(√3/2) = 3/4 ; sympy แก้เต็มรูป (AB = (3+√13)/2 รูปเดียว) ตรงกัน ; ตรง key footer หน้า 21 (108. 0.75) + เฉลย PDF หน้า 19 ; ชั้นเดียว ; fill ข้อที่ 8 ของบท",
+      "accept": [
+        "0.75",
+        "3/4",
+        ".75",
+        "0.750"
+      ]
     },
     {
       "id": "chap-07-trigonometry-q109",
@@ -9923,8 +11259,81 @@
         "$\\dfrac{200\\sqrt{2}}{\\sqrt{3} + 1}$ ตารางหน่วย",
         "$\\dfrac{200\\sqrt{3}}{\\sqrt{3} + 1}$ ตารางหน่วย"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "sourceTag": "Entrance มี.ค.2543",
+      "imageSpec": {
+        "type": "polygon-labeled",
+        "width": 340,
+        "height": 260,
+        "vertices": {
+          "C": [
+            60,
+            220
+          ],
+          "B": [
+            290,
+            220
+          ],
+          "A": [
+            150,
+            50
+          ]
+        },
+        "vertexLabels": {
+          "C": {
+            "text": "C",
+            "dx": -16,
+            "dy": 8
+          },
+          "B": {
+            "text": "B",
+            "dx": 12,
+            "dy": 8
+          },
+          "A": {
+            "text": "A",
+            "dx": 0,
+            "dy": -12
+          }
+        },
+        "sides": [
+          {
+            "from": "C",
+            "to": "A",
+            "label": "20",
+            "labelOffset": {
+              "dx": -18,
+              "dy": -4
+            }
+          },
+          {
+            "from": "C",
+            "to": "B"
+          },
+          {
+            "from": "B",
+            "to": "A"
+          }
+        ],
+        "angleMarks": [
+          {
+            "at": "C",
+            "from": "B",
+            "to": "A",
+            "type": "arc",
+            "radius": 24,
+            "label": "60°"
+          },
+          {
+            "at": "A",
+            "from": "C",
+            "to": "B",
+            "type": "arc",
+            "radius": 24,
+            "label": "45°"
+          }
+        ]
+      },
       "correct": 3,
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
@@ -9937,6 +11346,7 @@
         "<b>🎯 เป้าหมาย</b> หาด้าน $AB$ ด้วยกฎของไซน์ แล้วใช้สูตรพื้นที่กับมุม $A$ ที่คั่นระหว่าง $AB$ กับ $AC$",
         "",
         "<b>【 วิธีที่ 1 ▸ พื้นฐาน · หาด้าน $AB$ ก่อนแล้วใช้สูตรพื้นที่ (find side first, then area) 】</b>",
+        "[IMAGE]",
         "<b>ขั้นที่ 1:</b> มุม $ABC = 180^\\circ - 45^\\circ - 60^\\circ = 75^\\circ$",
         "<b>ขั้นที่ 2:</b> กฎของไซน์ ($AB$ ตรงข้ามมุม $C$, $AC$ ตรงข้ามมุม $B$):",
         "$AB = \\dfrac{AC\\sin C}{\\sin B} = \\dfrac{20\\sin 60^\\circ}{\\sin 75^\\circ} = \\dfrac{20\\times\\frac{\\sqrt{3}}{2}\\times 2\\sqrt{2}}{\\sqrt{3} + 1} = \\dfrac{20\\sqrt{6}}{\\sqrt{3} + 1}$",
@@ -9966,8 +11376,7 @@
         "ตัวลวงข้อ 3 ($200\\sqrt{2}$) มาจากใช้ $\\sin 45^\\circ$ แทน $\\sin 60^\\circ$ ตอนหา $AB$",
         "ลืมว่ามุมคั่นระหว่าง $AB$ กับ $AC$ คือมุม $A = 45^\\circ$"
       ],
-      "notes": "B = 75°, AB = 20sin60/sin75 = 20√6/(√3+1), พื้นที่ = (1/2)AB·AC·sin45 = 200√3/(√3+1) ≈ 126.79 ; sympy ตรวจสองสูตรอิสระตรงกัน ; ตรง key footer หน้า 21 (109.4) + เฉลย PDF หน้า 20 ; ชั้นเดียว ; ตัวลวง: 200√2 = ใช้ sin45 ผิดที่, 300√_ = คูณ 20·20/2 พลาดเป็น 300",
-      "_imageNote": "สามเหลี่ยม ABC ตามรูปเฉลย PDF หน้า 20 (ข้อ 109): A ยอดบน (มุม 45°), C ซ้ายล่าง (มุม 60°), B ขวาล่าง ; ป้ายด้าน AC = 20 นิ้ว ด้านซ้าย — ช่วยให้เห็นว่า AB ตรงข้ามมุม C และมุม A คั่นระหว่างสองด้านที่ใช้ในสูตรพื้นที่"
+      "notes": "B = 75°, AB = 20sin60/sin75 = 20√6/(√3+1), พื้นที่ = (1/2)AB·AC·sin45 = 200√3/(√3+1) ≈ 126.79 ; sympy ตรวจสองสูตรอิสระตรงกัน ; ตรง key footer หน้า 21 (109.4) + เฉลย PDF หน้า 20 ; ชั้นเดียว ; ตัวลวง: 200√2 = ใช้ sin45 ผิดที่, 300√_ = คูณ 20·20/2 พลาดเป็น 300"
     },
     {
       "id": "chap-07-trigonometry-q110",
@@ -9988,8 +11397,182 @@
         "$\\sqrt{3}\\left(\\sqrt{3} - 1\\right)$",
         "$\\sqrt{3} + 1$"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "sourceTag": "Entrance 2536",
+      "imageSpec": [
+        {
+          "type": "polygon-labeled",
+          "width": 300,
+          "height": 260,
+          "vertices": {
+            "B": [
+              50,
+              220
+            ],
+            "C": [
+              250,
+              220
+            ],
+            "A": [
+              170,
+              50
+            ]
+          },
+          "vertexLabels": {
+            "B": {
+              "text": "B",
+              "dx": -16,
+              "dy": 8
+            },
+            "C": {
+              "text": "C",
+              "dx": 12,
+              "dy": 8
+            },
+            "A": {
+              "text": "A",
+              "dx": 8,
+              "dy": -10
+            }
+          },
+          "sides": [
+            {
+              "from": "B",
+              "to": "A",
+              "label": "$\\sqrt{12}$",
+              "labelOffset": {
+                "dx": -18,
+                "dy": -4
+              }
+            },
+            {
+              "from": "C",
+              "to": "A",
+              "label": "$\\sqrt{8}$",
+              "labelOffset": {
+                "dx": 18,
+                "dy": -4
+              }
+            },
+            {
+              "from": "B",
+              "to": "C"
+            }
+          ],
+          "angleMarks": [
+            {
+              "at": "B",
+              "from": "C",
+              "to": "A",
+              "type": "arc",
+              "radius": 22,
+              "label": "45°"
+            },
+            {
+              "at": "C",
+              "from": "B",
+              "to": "A",
+              "type": "arc",
+              "radius": 22,
+              "label": "60°"
+            },
+            {
+              "at": "A",
+              "from": "C",
+              "to": "B",
+              "type": "arc",
+              "radius": 18,
+              "label": "75°"
+            }
+          ]
+        },
+        {
+          "type": "polygon-labeled",
+          "width": 300,
+          "height": 260,
+          "vertices": {
+            "B": [
+              50,
+              220
+            ],
+            "C": [
+              250,
+              220
+            ],
+            "A": [
+              170,
+              50
+            ]
+          },
+          "vertexLabels": {
+            "B": {
+              "text": "B",
+              "dx": -16,
+              "dy": 8
+            },
+            "C": {
+              "text": "C",
+              "dx": 12,
+              "dy": 8
+            },
+            "A": {
+              "text": "A",
+              "dx": 8,
+              "dy": -10
+            }
+          },
+          "sides": [
+            {
+              "from": "B",
+              "to": "A",
+              "label": "$\\sqrt{12}$",
+              "labelOffset": {
+                "dx": -18,
+                "dy": -4
+              }
+            },
+            {
+              "from": "C",
+              "to": "A",
+              "label": "$\\sqrt{8}$",
+              "labelOffset": {
+                "dx": 18,
+                "dy": -4
+              }
+            },
+            {
+              "from": "B",
+              "to": "C"
+            }
+          ],
+          "angleMarks": [
+            {
+              "at": "B",
+              "from": "C",
+              "to": "A",
+              "type": "arc",
+              "radius": 22,
+              "label": "45°"
+            },
+            {
+              "at": "C",
+              "from": "B",
+              "to": "A",
+              "type": "arc",
+              "radius": 22,
+              "label": "120°"
+            },
+            {
+              "at": "A",
+              "from": "C",
+              "to": "B",
+              "type": "arc",
+              "radius": 18,
+              "label": "15°"
+            }
+          ]
+        }
+      ],
       "correct": 2,
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
@@ -10000,11 +11583,13 @@
         "<b>🎯 เป้าหมาย</b> หามุม $C$ จากกฎของไซน์ แล้วคิดพื้นที่ $\\dfrac{1}{2}(AB)(AC)\\sin A$ — ระวังสองกรณี",
         "",
         "<b>【 พื้นฐาน · หามุม C ด้วยกฎไซน์ แล้วคิดพื้นที่ ระวังสองกรณีของ C (law of sines, two cases) 】</b>",
+        "[IMAGE:0]",
         "<b>ขั้นที่ 1:</b> กฎของไซน์ ($AB$ ตรงข้ามมุม $C$, $AC$ ตรงข้ามมุม $B$): $\\sin C = \\dfrac{AB\\sin B}{AC} = \\dfrac{\\sqrt{12}\\times\\frac{1}{\\sqrt{2}}}{\\sqrt{8}} = \\dfrac{\\sqrt{3}}{2}$",
         "<b>ขั้นที่ 2:</b> $C = 60^\\circ$",
         "หรือ $C = 120^\\circ$ — เป็นไปได้ทั้งคู่ เพราะ $AB > AC$ บังคับแค่ $C > B = 45^\\circ$",
         "<b>ขั้นที่ 3 (กรณี $C = 60^\\circ$):</b> $A = 75^\\circ$",
         "→ พื้นที่ $= \\dfrac{1}{2}\\sqrt{8}\\sqrt{12}\\sin 75^\\circ = 2\\sqrt{6}\\times\\dfrac{\\sqrt{6} + \\sqrt{2}}{4} = 3 + \\sqrt{3}$ — ไม่มีในตัวเลือก",
+        "[IMAGE:1]",
         "<b>ขั้นที่ 4 (กรณี $C = 120^\\circ$):</b> $A = 15^\\circ$",
         "→ พื้นที่ $= \\dfrac{1}{2}\\sqrt{8}\\sqrt{12}\\sin 15^\\circ = 2\\sqrt{6}\\times\\dfrac{\\sqrt{6} - \\sqrt{2}}{4} = 3 - \\sqrt{3} = \\sqrt{3}\\left(\\sqrt{3} - 1\\right)$",
         "→ ตรงตัวเลือก 3",
@@ -10022,8 +11607,7 @@
         "จำ $\\sin 15^\\circ$ สลับกับ $\\sin 75^\\circ$",
         "กฎของไซน์จับคู่ผิด ($AB$ ตรงข้าม $C$ ไม่ใช่ $B$)"
       ],
-      "notes": "SSA กำกวม: sinC = √12·sin45/√8 = √3/2 → C = 60° (A = 75°, พื้นที่ 3+√3 ไม่มีในตัวเลือก) หรือ C = 120° (A = 15°, พื้นที่ 3−√3 = √3(√3−1)) ; sympy ทั้งสองกรณี ; ตรง key footer หน้า 21 (110.3) + เฉลย PDF หน้า 20 (เฉลยแสดงสองกรณีแล้วสรุปข้อ 3) ; ชั้นเดียว (จุดหลักคือการเช็คสองกรณี) ; ตัวลวง: ข้อ 2/4 รูปจาก 3+√3 ที่จัดรูปพลาด",
-      "_imageNote": "รูปคู่เทียบกรณี SSA สองแบบ (ข้อ 110): สามเหลี่ยมซ้าย C = 60° (A = 75°) กับสามเหลี่ยมขวา C = 120° (A = 15°) — ทั้งคู่มี B = 45°, AB = √12, AC = √8 ; ช่วยให้เห็นว่าข้อมูล “สองด้าน + มุมไม่คั่น” สร้างสามเหลี่ยมได้สองรูปจริง"
+      "notes": "SSA กำกวม: sinC = √12·sin45/√8 = √3/2 → C = 60° (A = 75°, พื้นที่ 3+√3 ไม่มีในตัวเลือก) หรือ C = 120° (A = 15°, พื้นที่ 3−√3 = √3(√3−1)) ; sympy ทั้งสองกรณี ; ตรง key footer หน้า 21 (110.3) + เฉลย PDF หน้า 20 (เฉลยแสดงสองกรณีแล้วสรุปข้อ 3) ; ชั้นเดียว (จุดหลักคือการเช็คสองกรณี) ; ตัวลวง: ข้อ 2/4 รูปจาก 3+√3 ที่จัดรูปพลาด"
     },
     {
       "id": "chap-07-trigonometry-q111",
@@ -10109,8 +11693,98 @@
         "$4 + \\sqrt{3}$",
         "$3$"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "sourceTag": "Entrance 2523",
+      "imageSpec": {
+        "type": "polygon-labeled",
+        "width": 320,
+        "height": 260,
+        "vertices": {
+          "C": [
+            60,
+            220
+          ],
+          "B": [
+            220,
+            220
+          ],
+          "A": [
+            220,
+            60
+          ]
+        },
+        "vertexLabels": {
+          "C": {
+            "text": "C",
+            "dx": -16,
+            "dy": 8
+          },
+          "B": {
+            "text": "B",
+            "dx": 12,
+            "dy": 10
+          },
+          "A": {
+            "text": "A",
+            "dx": 10,
+            "dy": -8
+          }
+        },
+        "sides": [
+          {
+            "from": "C",
+            "to": "B",
+            "label": "$\\sqrt{3}/3$",
+            "labelOffset": {
+              "dx": 0,
+              "dy": 20
+            }
+          },
+          {
+            "from": "B",
+            "to": "A",
+            "label": "1",
+            "labelOffset": {
+              "dx": 16,
+              "dy": 0
+            }
+          },
+          {
+            "from": "C",
+            "to": "A",
+            "label": "$2\\sqrt{3}/3$",
+            "labelOffset": {
+              "dx": -18,
+              "dy": -10
+            }
+          }
+        ],
+        "angleMarks": [
+          {
+            "at": "B",
+            "from": "C",
+            "to": "A",
+            "type": "right",
+            "size": 11
+          },
+          {
+            "at": "C",
+            "from": "B",
+            "to": "A",
+            "type": "arc",
+            "radius": 22,
+            "label": "30°"
+          },
+          {
+            "at": "A",
+            "from": "C",
+            "to": "B",
+            "type": "arc",
+            "radius": 22,
+            "label": "60°"
+          }
+        ]
+      },
       "correct": 0,
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
@@ -10120,6 +11794,7 @@
         "<b>🎯 เป้าหมาย</b> แปลงเงื่อนไข “ด้านสองเท่า + มุมสามเท่า” เป็นสมการตรีโกณ หามุมทั้งสาม แล้วคิดความยาวรอบรูป",
         "",
         "<b>【 พื้นฐาน · แปลงเงื่อนไขด้าน-มุมเป็นสมการตรีโกณ หามุมแล้วคิดเส้นรอบรูป (translate to trig equation) 】</b>",
+        "[IMAGE]",
         "<b>ขั้นที่ 1:</b> กฎของไซน์กับ $b = 2c$: $\\sin B = 2\\sin C$",
         "และ $B = 3C$",
         "→ $\\sin 3C = 2\\sin C$",
@@ -11767,8 +13442,106 @@
         "$2r$",
         "$\\dfrac{2r}{\\sqrt{3}}$"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "sourceTag": "พื้นฐานวิศวะฯ มี.ค.2546",
+      "imageSpec": {
+        "type": "polygon-labeled",
+        "width": 320,
+        "height": 300,
+        "vertices": {
+          "B": [
+            60,
+            240
+          ],
+          "C": [
+            280,
+            240
+          ],
+          "A": [
+            170,
+            40
+          ],
+          "IncL": [
+            103,
+            173
+          ],
+          "IncR": [
+            237,
+            173
+          ],
+          "Mid": [
+            170,
+            240
+          ]
+        },
+        "vertexLabels": {
+          "B": {
+            "text": " "
+          },
+          "C": {
+            "text": " "
+          },
+          "A": {
+            "text": " "
+          },
+          "IncL": {
+            "text": " "
+          },
+          "IncR": {
+            "text": " "
+          },
+          "Mid": {
+            "text": " "
+          }
+        },
+        "ellipses": [
+          {
+            "from": "IncL",
+            "to": "IncR",
+            "minorRatio": 1
+          }
+        ],
+        "sides": [
+          {
+            "from": "B",
+            "to": "C",
+            "label": "x",
+            "labelOffset": {
+              "dx": 0,
+              "dy": 18
+            }
+          },
+          {
+            "from": "C",
+            "to": "A"
+          },
+          {
+            "from": "A",
+            "to": "B"
+          },
+          {
+            "from": "A",
+            "to": "Mid",
+            "style": "dashed"
+          }
+        ],
+        "annotations": [
+          {
+            "x": 178,
+            "y": 150,
+            "text": "r",
+            "fontSize": 13,
+            "anchor": "start"
+          },
+          {
+            "x": 180,
+            "y": 210,
+            "text": "3r",
+            "fontSize": 12,
+            "anchor": "start"
+          }
+        ]
+      },
       "correct": 1,
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
@@ -11779,6 +13552,7 @@
         "<b>🎯 เป้าหมาย</b> หาความยาวด้านที่มากที่สุดที่เป็นไปได้ = กรณีสามเหลี่ยมด้านเท่า ($n = 3$)",
         "",
         "<b>【 พื้นฐาน · ด้านยาวสุดเกิดเมื่อเป็นสามเหลี่ยมด้านเท่า (longest side at equilateral case) 】</b>",
+        "[IMAGE]",
         "<b>ขั้นที่ 1:</b> เทียบทุกรูปเหลี่ยมด้านเท่าที่แนบในวงกลมรัศมี $r$ เดียวกัน: จำนวนด้านน้อยสุดคือสามเหลี่ยม ($n = 3$) ซึ่งด้านยาวที่สุด",
         "→ ขอบเขตบนของความยาวด้านมาจากกรณีนี้",
         "<b>ขั้นที่ 2:</b> สามเหลี่ยมด้านเท่าด้านยาว $x$: เส้นมัธยฐาน (= เส้นสูง) ยาว $\\dfrac{\\sqrt{3}}{2}x$ และจากสมบัติเซนทรอยด์ เส้นมัธยฐาน $= 3r$",
@@ -15528,8 +17302,54 @@
         "$\\dfrac{24}{25}$",
         "$-\\dfrac{24}{25}$"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "sourceTag": "คัดโอลิมปิก 2534",
+      "imageSpec": {
+        "type": "unit-circle-figure",
+        "size": 290,
+        "radius": 105,
+        "showAxes": true,
+        "axisLabels": {
+          "x": "x",
+          "y": "y"
+        },
+        "dots": [
+          {
+            "id": "S1",
+            "x": -0.0,
+            "y": -1.0,
+            "label": "3π/2",
+            "labelDx": -20,
+            "labelDy": 16
+          },
+          {
+            "id": "S2",
+            "x": 1.0,
+            "y": -0.0,
+            "label": "2π",
+            "labelDx": 8,
+            "labelDy": 17
+          }
+        ],
+        "perimeterArcs": [
+          {
+            "fromDot": "S1",
+            "toDot": "S2",
+            "emphasized": true,
+            "major": false,
+            "color": "#1a56db"
+          }
+        ],
+        "annotations": [
+          {
+            "x": 144,
+            "y": 288,
+            "text": "2x อยู่ควอดรันต์ 4 → cos 2x เป็นบวก",
+            "anchor": "middle",
+            "fontSize": 11
+          }
+        ]
+      },
       "correct": 0,
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
@@ -15539,6 +17359,7 @@
         "<b>🎯 เป้าหมาย</b> หา $\\sin 2x$ จากการยกกำลังสอง แล้วใช้ช่วงของ $2x$ ตัดสินเครื่องหมายของ $\\cos 2x$",
         "",
         "<b>【 พื้นฐาน · ยกกำลังสองแล้วใช้ช่วงตัดเครื่องหมาย (square, fix sign by quadrant) 】</b>",
+        "[IMAGE]",
         "<b>ขั้นที่ 1:</b> ยกกำลังสองทั้งสองข้าง: $1 + \\sin 2x = \\dfrac{1}{25}$",
         "→ $\\sin 2x = -\\dfrac{24}{25}$",
         "<b>ขั้นที่ 2:</b> จากสามเหลี่ยมพีทาโกรัส 7-24-25: $\\cos 2x = \\pm\\dfrac{7}{25}$ — เหลือแค่เลือกเครื่องหมาย",
@@ -16571,8 +18392,86 @@
         "$0.56$",
         "$0.96$"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "sourceTag": "พื้นฐานวิศวะฯ 2538",
+      "imageSpec": {
+        "type": "polygon-labeled",
+        "width": 300,
+        "height": 260,
+        "vertices": {
+          "O": [
+            65,
+            210
+          ],
+          "P": [
+            230,
+            210
+          ],
+          "Q": [
+            230,
+            50
+          ]
+        },
+        "vertexLabels": {
+          "O": {
+            "text": "θ",
+            "dx": -20,
+            "dy": 5
+          },
+          "P": {
+            "text": " "
+          },
+          "Q": {
+            "text": " "
+          }
+        },
+        "sides": [
+          {
+            "from": "O",
+            "to": "P",
+            "label": "4",
+            "labelOffset": {
+              "dx": 0,
+              "dy": 17
+            }
+          },
+          {
+            "from": "P",
+            "to": "Q",
+            "label": "3",
+            "labelOffset": {
+              "dx": 17,
+              "dy": 0
+            }
+          },
+          {
+            "from": "O",
+            "to": "Q",
+            "label": "5",
+            "labelOffset": {
+              "dx": -13,
+              "dy": -13
+            }
+          }
+        ],
+        "angleMarks": [
+          {
+            "at": "P",
+            "from": "O",
+            "to": "Q",
+            "type": "right",
+            "size": 11
+          },
+          {
+            "at": "O",
+            "from": "P",
+            "to": "Q",
+            "type": "arc",
+            "radius": 22,
+            "label": "θ"
+          }
+        ]
+      },
       "correct": 0,
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
@@ -16584,6 +18483,7 @@
         "<b>🎯 เป้าหมาย</b> ถอดค่าตรีโกณจาก $\\arctan$ แล้วแทนสูตรมุมสองเท่า",
         "",
         "<b>【 พื้นฐาน · ถอดค่าจากสามเหลี่ยมแล้วใช้สูตรมุมสองเท่า (read from triangle, double-angle) 】</b>",
+        "[IMAGE]",
         "<b>ขั้นที่ 1:</b> จาก $\\tan\\theta = \\dfrac{3}{4}$ วาดสามเหลี่ยม 3-4-5",
         "→ $\\sin\\theta = \\dfrac{3}{5}$",
         "<b>ขั้นที่ 2:</b>",
@@ -17098,14 +18998,93 @@
       "level": "easy",
       "score": 1,
       "question": "จงหาค่าของ $\\sin\\left(2\\arctan\\dfrac{1}{3}\\right) + \\cos^2(\\arctan 3)$",
-      "hasImage": false,
+      "hasImage": true,
       "sourceTag": "โควตา มช. 2548",
+      "imageSpec": {
+        "type": "polygon-labeled",
+        "width": 300,
+        "height": 260,
+        "vertices": {
+          "O": [
+            65,
+            210
+          ],
+          "P": [
+            230,
+            210
+          ],
+          "Q": [
+            230,
+            50
+          ]
+        },
+        "vertexLabels": {
+          "O": {
+            "text": " "
+          },
+          "P": {
+            "text": " "
+          },
+          "Q": {
+            "text": " "
+          }
+        },
+        "sides": [
+          {
+            "from": "O",
+            "to": "P",
+            "label": "3",
+            "labelOffset": {
+              "dx": 0,
+              "dy": 17
+            }
+          },
+          {
+            "from": "P",
+            "to": "Q",
+            "label": "1",
+            "labelOffset": {
+              "dx": 17,
+              "dy": 0
+            }
+          },
+          {
+            "from": "O",
+            "to": "Q",
+            "label": "$\\sqrt{10}$",
+            "labelOffset": {
+              "dx": -13,
+              "dy": -13
+            }
+          }
+        ],
+        "angleMarks": [
+          {
+            "at": "P",
+            "from": "O",
+            "to": "Q",
+            "type": "right",
+            "size": 11
+          },
+          {
+            "at": "O",
+            "from": "P",
+            "to": "Q",
+            "type": "arc",
+            "radius": 22,
+            "label": "B"
+          },
+          {
+            "at": "Q",
+            "from": "O",
+            "to": "P",
+            "type": "arc",
+            "radius": 20,
+            "label": "A"
+          }
+        ]
+      },
       "correct": "0.7",
-      "accept": [
-        "0.7",
-        "7/10",
-        "0.70"
-      ],
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
         "มุมสองเท่า: $\\sin 2A = 2\\sin A\\cos A$",
@@ -17115,6 +19094,7 @@
         "<b>🎯 เป้าหมาย</b> ถอดค่า $\\sin, \\cos$ จากสามเหลี่ยม 1-3-$\\sqrt{10}$ แล้วแทนทีละพจน์",
         "",
         "<b>【 พื้นฐาน · ถอดค่าจากสามเหลี่ยมแล้วแทนทีละพจน์ (read from triangle, term by term) 】</b>",
+        "[IMAGE]",
         "<b>ขั้นที่ 1:</b> ให้ $A = \\arctan\\dfrac{1}{3}$: $\\sin A = \\dfrac{1}{\\sqrt{10}}, \\cos A = \\dfrac{3}{\\sqrt{10}}$",
         "→ $\\sin 2A = 2 \\cdot \\dfrac{1}{\\sqrt{10}} \\cdot \\dfrac{3}{\\sqrt{10}} = \\dfrac{6}{10}$",
         "<b>ขั้นที่ 2:</b> ให้ $B = \\arctan 3$: $\\cos B = \\dfrac{1}{\\sqrt{10}}$",
@@ -17132,7 +19112,12 @@
         "ลืมยกกำลังสองพจน์หลัง",
         "เผลอใช้สูตร $\\sin 2A = \\dfrac{2\\tan A}{1 + \\tan^2 A}$ แล้วแทน $\\tan A = 3$ ผิดมุม"
       ],
-      "notes": "สามเหลี่ยม 1-3-√10 รูปเดียว: sin2A = 6/10 (A = arctan(1/3)), cos²(arctan3) = 1/10 → 0.7 (ตรงเฉลย PDF) ; sympy = 7/10 ✓ ; fill ; ชั้นเดียว ง่าย ; arctan(1/3) + arctan3 = π/2 โคฟังก์ชัน"
+      "notes": "สามเหลี่ยม 1-3-√10 รูปเดียว: sin2A = 6/10 (A = arctan(1/3)), cos²(arctan3) = 1/10 → 0.7 (ตรงเฉลย PDF) ; sympy = 7/10 ✓ ; fill ; ชั้นเดียว ง่าย ; arctan(1/3) + arctan3 = π/2 โคฟังก์ชัน",
+      "accept": [
+        "0.7",
+        "7/10",
+        "0.70"
+      ]
     },
     {
       "id": "chap-07-trigonometry-q190",
@@ -17147,13 +19132,167 @@
       "level": "easy",
       "score": 1,
       "question": "จงหาค่าของ $\\sin\\left[\\arctan\\left(-\\dfrac{3}{4}\\right) + \\arccos\\left(\\dfrac{3}{5}\\right)\\right]$",
-      "hasImage": false,
+      "hasImage": true,
       "sourceTag": "โควตา มช. 2547",
-      "correct": "0.28",
-      "accept": [
-        "0.28",
-        "7/25"
+      "imageSpec": [
+        {
+          "type": "polygon-labeled",
+          "width": 280,
+          "height": 240,
+          "vertices": {
+            "O": [
+              60,
+              195
+            ],
+            "P": [
+              215,
+              195
+            ],
+            "Q": [
+              215,
+              45
+            ]
+          },
+          "vertexLabels": {
+            "O": {
+              "text": "θ",
+              "dx": -18,
+              "dy": 5
+            },
+            "P": {
+              "text": " "
+            },
+            "Q": {
+              "text": " "
+            }
+          },
+          "sides": [
+            {
+              "from": "O",
+              "to": "P",
+              "label": "4",
+              "labelOffset": {
+                "dx": 0,
+                "dy": 16
+              }
+            },
+            {
+              "from": "P",
+              "to": "Q",
+              "label": "3",
+              "labelOffset": {
+                "dx": 16,
+                "dy": 0
+              }
+            },
+            {
+              "from": "O",
+              "to": "Q",
+              "label": "5",
+              "labelOffset": {
+                "dx": -12,
+                "dy": -12
+              }
+            }
+          ],
+          "angleMarks": [
+            {
+              "at": "P",
+              "from": "O",
+              "to": "Q",
+              "type": "right",
+              "size": 10
+            },
+            {
+              "at": "O",
+              "from": "P",
+              "to": "Q",
+              "type": "arc",
+              "radius": 20,
+              "label": "θ"
+            }
+          ]
+        },
+        {
+          "type": "polygon-labeled",
+          "width": 280,
+          "height": 240,
+          "vertices": {
+            "O": [
+              60,
+              195
+            ],
+            "P": [
+              215,
+              195
+            ],
+            "Q": [
+              215,
+              45
+            ]
+          },
+          "vertexLabels": {
+            "O": {
+              "text": "θ",
+              "dx": -18,
+              "dy": 5
+            },
+            "P": {
+              "text": " "
+            },
+            "Q": {
+              "text": " "
+            }
+          },
+          "sides": [
+            {
+              "from": "O",
+              "to": "P",
+              "label": "3",
+              "labelOffset": {
+                "dx": 0,
+                "dy": 16
+              }
+            },
+            {
+              "from": "P",
+              "to": "Q",
+              "label": "4",
+              "labelOffset": {
+                "dx": 16,
+                "dy": 0
+              }
+            },
+            {
+              "from": "O",
+              "to": "Q",
+              "label": "5",
+              "labelOffset": {
+                "dx": -12,
+                "dy": -12
+              }
+            }
+          ],
+          "angleMarks": [
+            {
+              "at": "P",
+              "from": "O",
+              "to": "Q",
+              "type": "right",
+              "size": 10
+            },
+            {
+              "at": "O",
+              "from": "P",
+              "to": "Q",
+              "type": "arc",
+              "radius": 20,
+              "label": "θ"
+            }
+          ]
+        }
       ],
+      "correct": "0.28",
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
         "สูตรผลบวก: $\\sin(A + B) = \\sin A\\cos B + \\cos A\\sin B$",
@@ -17163,6 +19302,8 @@
         "<b>🎯 เป้าหมาย</b> ถอดค่า $\\sin, \\cos$ ของแต่ละมุมจากสามเหลี่ยม 3-4-5 แล้วแทนสูตร",
         "",
         "<b>【 พื้นฐาน · ถอดค่าแต่ละมุมจากสามเหลี่ยมแล้วแทนสูตรผลบวก (read both angles, sum formula) 】</b>",
+        "[IMAGE:0]",
+        "[IMAGE:1]",
         "<b>ขั้นที่ 1:</b> $A = \\arctan\\left(-\\dfrac{3}{4}\\right)$: สามเหลี่ยม 3-4-5, ควอดรันต์ 4",
         "→ $\\sin A = -\\dfrac{3}{5}, \\cos A = \\dfrac{4}{5}$",
         "<b>ขั้นที่ 2:</b> $B = \\arccos\\dfrac{3}{5}$: สามเหลี่ยม 3-4-5, ควอดรันต์ 1",
@@ -17181,7 +19322,11 @@
         "สลับ $\\sin B$ กับ $\\cos B$ ของ $\\arccos\\dfrac{3}{5}$",
         "ใช้สูตร $\\sin(A - B)$ เพราะเห็นเครื่องหมายลบในโจทย์ — ลบอยู่<b>ใน</b> $\\arctan$ ไม่ใช่ระหว่างมุม"
       ],
-      "notes": "A = arctan(−3/4) Q4: (−3/5, 4/5) ; B = arccos(3/5) Q1: (4/5, 3/5) → sin(A+B) = −9/25 + 16/25 = 7/25 = 0.28 (ตรงเฉลย PDF) ; sympy ✓ ; fill ; ชั้นเดียว ง่าย ; จุดหลอก: ลืมลบจะได้ 1 พอดี"
+      "notes": "A = arctan(−3/4) Q4: (−3/5, 4/5) ; B = arccos(3/5) Q1: (4/5, 3/5) → sin(A+B) = −9/25 + 16/25 = 7/25 = 0.28 (ตรงเฉลย PDF) ; sympy ✓ ; fill ; ชั้นเดียว ง่าย ; จุดหลอก: ลืมลบจะได้ 1 พอดี",
+      "accept": [
+        "0.28",
+        "7/25"
+      ]
     },
     {
       "id": "chap-07-trigonometry-q191",
@@ -17202,8 +19347,86 @@
         "$\\dfrac{\\pi}{5}$",
         "$\\dfrac{\\pi}{2}$"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "sourceTag": "สมาคมคณิตศาสตร์ฯ 2543",
+      "imageSpec": {
+        "type": "polygon-labeled",
+        "width": 300,
+        "height": 260,
+        "vertices": {
+          "O": [
+            65,
+            210
+          ],
+          "P": [
+            230,
+            210
+          ],
+          "Q": [
+            230,
+            50
+          ]
+        },
+        "vertexLabels": {
+          "O": {
+            "text": "θ",
+            "dx": -20,
+            "dy": 5
+          },
+          "P": {
+            "text": " "
+          },
+          "Q": {
+            "text": " "
+          }
+        },
+        "sides": [
+          {
+            "from": "O",
+            "to": "P",
+            "label": "5",
+            "labelOffset": {
+              "dx": 0,
+              "dy": 17
+            }
+          },
+          {
+            "from": "P",
+            "to": "Q",
+            "label": "1",
+            "labelOffset": {
+              "dx": 17,
+              "dy": 0
+            }
+          },
+          {
+            "from": "O",
+            "to": "Q",
+            "label": "$\\sqrt{26}$",
+            "labelOffset": {
+              "dx": -13,
+              "dy": -13
+            }
+          }
+        ],
+        "angleMarks": [
+          {
+            "at": "P",
+            "from": "O",
+            "to": "Q",
+            "type": "right",
+            "size": 11
+          },
+          {
+            "at": "O",
+            "from": "P",
+            "to": "Q",
+            "type": "arc",
+            "radius": 22,
+            "label": "θ"
+          }
+        ]
+      },
       "correct": 0,
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
@@ -17213,6 +19436,7 @@
         "<b>🎯 เป้าหมาย</b> เช็คว่ามุม $2\\arctan\\dfrac{1}{5}$ กับ $\\arctan\\dfrac{5}{12}$ คือมุมเดียวกันหรือไม่",
         "",
         "<b>【 พื้นฐาน · เทียบว่าสองมุมเท่ากัน (show the two angles are equal) 】</b>",
+        "[IMAGE]",
         "<b>ขั้นที่ 1:</b>",
         "$\\begin{aligned} \\tan\\left(2\\arctan\\dfrac{1}{5}\\right) &= \\dfrac{2 \\cdot \\frac{1}{5}}{1 - \\frac{1}{25}} \\\\ &= \\dfrac{2/5}{24/25} \\\\ &= \\dfrac{5}{12} \\end{aligned}$",
         "<b>ขั้นที่ 2:</b> ทั้ง $2\\arctan\\dfrac{1}{5}$ และ $\\arctan\\dfrac{5}{12}$ เป็นมุมแหลม (อยู่ใน $\\left(0, \\dfrac{\\pi}{2}\\right)$) และมีแทนเจนต์เท่ากัน",
@@ -17252,8 +19476,166 @@
         "$\\dfrac{13\\sqrt{5}}{25}$",
         "$\\dfrac{14\\sqrt{5}}{25}$"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "sourceTag": "สมาคมคณิตศาสตร์ฯ 2546",
+      "imageSpec": [
+        {
+          "type": "polygon-labeled",
+          "width": 280,
+          "height": 240,
+          "vertices": {
+            "O": [
+              60,
+              195
+            ],
+            "P": [
+              215,
+              195
+            ],
+            "Q": [
+              215,
+              45
+            ]
+          },
+          "vertexLabels": {
+            "O": {
+              "text": "θ",
+              "dx": -18,
+              "dy": 5
+            },
+            "P": {
+              "text": " "
+            },
+            "Q": {
+              "text": " "
+            }
+          },
+          "sides": [
+            {
+              "from": "O",
+              "to": "P",
+              "label": "3",
+              "labelOffset": {
+                "dx": 0,
+                "dy": 16
+              }
+            },
+            {
+              "from": "P",
+              "to": "Q",
+              "label": "4",
+              "labelOffset": {
+                "dx": 16,
+                "dy": 0
+              }
+            },
+            {
+              "from": "O",
+              "to": "Q",
+              "label": "5",
+              "labelOffset": {
+                "dx": -12,
+                "dy": -12
+              }
+            }
+          ],
+          "angleMarks": [
+            {
+              "at": "P",
+              "from": "O",
+              "to": "Q",
+              "type": "right",
+              "size": 10
+            },
+            {
+              "at": "O",
+              "from": "P",
+              "to": "Q",
+              "type": "arc",
+              "radius": 20,
+              "label": "θ"
+            }
+          ]
+        },
+        {
+          "type": "polygon-labeled",
+          "width": 280,
+          "height": 240,
+          "vertices": {
+            "O": [
+              60,
+              195
+            ],
+            "P": [
+              215,
+              195
+            ],
+            "Q": [
+              215,
+              45
+            ]
+          },
+          "vertexLabels": {
+            "O": {
+              "text": "θ",
+              "dx": -18,
+              "dy": 5
+            },
+            "P": {
+              "text": " "
+            },
+            "Q": {
+              "text": " "
+            }
+          },
+          "sides": [
+            {
+              "from": "O",
+              "to": "P",
+              "label": "2",
+              "labelOffset": {
+                "dx": 0,
+                "dy": 16
+              }
+            },
+            {
+              "from": "P",
+              "to": "Q",
+              "label": "1",
+              "labelOffset": {
+                "dx": 16,
+                "dy": 0
+              }
+            },
+            {
+              "from": "O",
+              "to": "Q",
+              "label": "$\\sqrt{5}$",
+              "labelOffset": {
+                "dx": -12,
+                "dy": -12
+              }
+            }
+          ],
+          "angleMarks": [
+            {
+              "at": "P",
+              "from": "O",
+              "to": "Q",
+              "type": "right",
+              "size": 10
+            },
+            {
+              "at": "O",
+              "from": "P",
+              "to": "Q",
+              "type": "arc",
+              "radius": 20,
+              "label": "θ"
+            }
+          ]
+        }
+      ],
       "correct": 0,
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
@@ -17266,6 +19648,8 @@
         "<b>🎯 เป้าหมาย</b> เตรียมค่า $\\sin, \\cos$ ของมุมครึ่ง ($X = \\dfrac{A}{2}$) และมุมคู่ ($Y = 2B$) แล้วประกอบสูตรผลต่าง",
         "",
         "<b>【 พื้นฐาน · เตรียมค่ามุมครึ่ง-มุมคู่แล้วใช้สูตรผลต่าง (half/double angle, difference formula) 】</b>",
+        "[IMAGE:0]",
+        "[IMAGE:1]",
         "<b>ขั้นที่ 1:</b> $A = \\arccos\\dfrac{3}{5}$: $\\sin\\dfrac{A}{2} = \\sqrt{\\dfrac{1 - \\frac{3}{5}}{2}} = \\dfrac{1}{\\sqrt{5}}$",
         "$\\begin{aligned} \\cos\\dfrac{A}{2} &= \\sqrt{\\dfrac{1 + \\frac{3}{5}}{2}} \\\\ &= \\dfrac{2}{\\sqrt{5}} \\end{aligned}$",
         "<b>ขั้นที่ 2:</b> $B = \\arctan\\left(-\\dfrac{1}{2}\\right)$ (ควอดรันต์ 4): $\\sin B = -\\dfrac{1}{\\sqrt{5}}, \\cos B = \\dfrac{2}{\\sqrt{5}}$",
@@ -17307,8 +19691,166 @@
         "ก. ผิด และ ข. ถูก",
         "ก. ผิด และ ข. ผิด"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "sourceTag": "คัดโอลิมปิก 2548",
+      "imageSpec": [
+        {
+          "type": "polygon-labeled",
+          "width": 280,
+          "height": 240,
+          "vertices": {
+            "O": [
+              60,
+              195
+            ],
+            "P": [
+              215,
+              195
+            ],
+            "Q": [
+              215,
+              45
+            ]
+          },
+          "vertexLabels": {
+            "O": {
+              "text": "A",
+              "dx": -18,
+              "dy": 5
+            },
+            "P": {
+              "text": " "
+            },
+            "Q": {
+              "text": " "
+            }
+          },
+          "sides": [
+            {
+              "from": "O",
+              "to": "P",
+              "label": "1",
+              "labelOffset": {
+                "dx": 0,
+                "dy": 16
+              }
+            },
+            {
+              "from": "P",
+              "to": "Q",
+              "label": "2",
+              "labelOffset": {
+                "dx": 16,
+                "dy": 0
+              }
+            },
+            {
+              "from": "O",
+              "to": "Q",
+              "label": "$\\sqrt{5}$",
+              "labelOffset": {
+                "dx": -12,
+                "dy": -12
+              }
+            }
+          ],
+          "angleMarks": [
+            {
+              "at": "P",
+              "from": "O",
+              "to": "Q",
+              "type": "right",
+              "size": 10
+            },
+            {
+              "at": "O",
+              "from": "P",
+              "to": "Q",
+              "type": "arc",
+              "radius": 20,
+              "label": "A"
+            }
+          ]
+        },
+        {
+          "type": "polygon-labeled",
+          "width": 280,
+          "height": 240,
+          "vertices": {
+            "O": [
+              60,
+              195
+            ],
+            "P": [
+              215,
+              195
+            ],
+            "Q": [
+              215,
+              45
+            ]
+          },
+          "vertexLabels": {
+            "O": {
+              "text": "B",
+              "dx": -18,
+              "dy": 5
+            },
+            "P": {
+              "text": " "
+            },
+            "Q": {
+              "text": " "
+            }
+          },
+          "sides": [
+            {
+              "from": "O",
+              "to": "P",
+              "label": "1",
+              "labelOffset": {
+                "dx": 0,
+                "dy": 16
+              }
+            },
+            {
+              "from": "P",
+              "to": "Q",
+              "label": "3",
+              "labelOffset": {
+                "dx": 16,
+                "dy": 0
+              }
+            },
+            {
+              "from": "O",
+              "to": "Q",
+              "label": "$\\sqrt{10}$",
+              "labelOffset": {
+                "dx": -12,
+                "dy": -12
+              }
+            }
+          ],
+          "angleMarks": [
+            {
+              "at": "P",
+              "from": "O",
+              "to": "Q",
+              "type": "right",
+              "size": 10
+            },
+            {
+              "at": "O",
+              "from": "P",
+              "to": "Q",
+              "type": "arc",
+              "radius": 20,
+              "label": "B"
+            }
+          ]
+        }
+      ],
       "correct": 3,
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
@@ -17322,6 +19864,8 @@
         "<b>🎯 เป้าหมาย</b> ประเมินค่าแท้จริงของ ก และ ข ทีละข้อ",
         "",
         "<b>【 พื้นฐาน · ประเมินค่าจริงทีละข้อความ (evaluate each statement) 】</b>",
+        "[IMAGE:0]",
+        "[IMAGE:1]",
         "<b>ขั้นที่ 1 (ก):</b>",
         "$\\begin{aligned} \\sin\\dfrac{\\pi}{12} - \\cos\\dfrac{7\\pi}{12} &= \\sin\\dfrac{\\pi}{12} + \\sin\\dfrac{\\pi}{12} \\\\ &= 2\\sin\\dfrac{\\pi}{12} \\\\ &= 2 \\cdot \\dfrac{\\sqrt{6} - \\sqrt{2}}{4} \\\\ &= \\dfrac{\\sqrt{6} - \\sqrt{2}}{2} \\end{aligned}$",
         "<b>ขั้นที่ 2:</b> $\\dfrac{\\sqrt{6} - \\sqrt{2}}{2} \\approx 0.518$ ไม่เท่ากับ $\\dfrac{\\sqrt{6}}{2} \\approx 1.225$",
@@ -18961,10 +21505,142 @@
         "$515$ เมตร",
         "$525$ เมตร"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "sourceTag": "พื้นฐานวิศวะฯ 2540",
       "imageSpec": {
-        "type": "roads-curve-survey"
+        "type": "polygon-labeled",
+        "width": 380,
+        "height": 340,
+        "vertices": {
+          "A": [
+            190,
+            40
+          ],
+          "X": [
+            110,
+            150
+          ],
+          "Y": [
+            260,
+            150
+          ],
+          "B": [
+            55,
+            260
+          ],
+          "C": [
+            300,
+            260
+          ],
+          "P": [
+            75,
+            195
+          ],
+          "Q": [
+            285,
+            195
+          ]
+        },
+        "vertexLabels": {
+          "A": {
+            "text": "A",
+            "dx": 0,
+            "dy": -14
+          },
+          "X": {
+            "text": "X",
+            "dx": -16,
+            "dy": 0
+          },
+          "Y": {
+            "text": "Y",
+            "dx": 14,
+            "dy": 0
+          },
+          "B": {
+            "text": "B",
+            "dx": -16,
+            "dy": 6
+          },
+          "C": {
+            "text": "C",
+            "dx": 14,
+            "dy": 6
+          },
+          "P": {
+            "text": "P",
+            "dx": -16,
+            "dy": 6
+          },
+          "Q": {
+            "text": "Q",
+            "dx": 14,
+            "dy": 6
+          }
+        },
+        "sides": [
+          {
+            "from": "A",
+            "to": "X",
+            "style": "dashed"
+          },
+          {
+            "from": "A",
+            "to": "Y",
+            "style": "dashed"
+          },
+          {
+            "from": "X",
+            "to": "B"
+          },
+          {
+            "from": "Y",
+            "to": "C"
+          },
+          {
+            "from": "X",
+            "to": "Y",
+            "label": "$105\\sqrt{3}$",
+            "labelOffset": {
+              "dx": 0,
+              "dy": -12
+            }
+          }
+        ],
+        "angleMarks": [
+          {
+            "at": "X",
+            "from": "P",
+            "to": "Y",
+            "type": "arc",
+            "radius": 22,
+            "label": "90°"
+          },
+          {
+            "at": "Y",
+            "from": "Q",
+            "to": "X",
+            "type": "arc",
+            "radius": 22,
+            "label": "150°"
+          }
+        ],
+        "annotations": [
+          {
+            "x": 255,
+            "y": 45,
+            "text": "A (เข้าถึงไม่ได้)",
+            "anchor": "start",
+            "fontSize": 11
+          },
+          {
+            "x": 177,
+            "y": 300,
+            "text": "ส่วนโค้งรัศมี R เชื่อม B กับ C (ไม่วาดตามสเกล)",
+            "anchor": "middle",
+            "fontSize": 10.5
+          }
+        ]
       },
       "correct": 1,
       "explanation": [
@@ -18976,6 +21652,7 @@
         "<b>🎯 เป้าหมาย</b> หา $XB = AB - AX$ (ระยะบนถนนสายซ้าย)",
         "",
         "<b>【 พื้นฐาน · ไล่สามเหลี่ยมมุมฉากผ่านเส้นแบ่งครึ่งมุม (right triangles via angle bisector) 】</b>",
+        "[IMAGE]",
         "<b>ขั้นที่ 1:</b> แปลงมุมสำรวจเป็นมุมภายในสามเหลี่ยม $AXY$: $\\angle PXY = 90^\\circ$",
         "→ $\\angle AXY = 90^\\circ$",
         "$\\angle QYX = 150^\\circ$",
@@ -21281,12 +23958,92 @@
       "level": "hard",
       "score": 1,
       "question": "รูปสามเหลี่ยม $ABC$ มีความยาวด้านตรงข้ามมุม $A$, $B$ และ $C$ เป็น $a$ หน่วย $b$ หน่วย และ $c$ หน่วย ตามลำดับ ถ้า $a^2 + b^2 = 49c^2$ แล้ว ค่าของ $\\dfrac{\\cot C}{\\cot A + \\cot B}$ เท่ากับเท่าใด",
-      "hasImage": false,
+      "hasImage": true,
       "sourceTag": "คัดโอลิมปิก 2549",
+      "imageSpec": {
+        "type": "polygon-labeled",
+        "width": 320,
+        "height": 300,
+        "vertices": {
+          "B": [
+            60,
+            220
+          ],
+          "C": [
+            220,
+            220
+          ],
+          "A": [
+            220,
+            60
+          ]
+        },
+        "vertexLabels": {
+          "B": {
+            "text": "B",
+            "dx": -16,
+            "dy": 8
+          },
+          "C": {
+            "text": "C",
+            "dx": 12,
+            "dy": 10
+          },
+          "A": {
+            "text": "A",
+            "dx": 10,
+            "dy": -8
+          }
+        },
+        "sides": [
+          {
+            "from": "B",
+            "to": "C",
+            "label": "a",
+            "labelOffset": {
+              "dx": 0,
+              "dy": 20
+            }
+          },
+          {
+            "from": "C",
+            "to": "A",
+            "label": "b",
+            "labelOffset": {
+              "dx": 16,
+              "dy": 0
+            }
+          },
+          {
+            "from": "B",
+            "to": "A",
+            "label": "c",
+            "labelOffset": {
+              "dx": -20,
+              "dy": -10
+            }
+          }
+        ],
+        "angleMarks": [
+          {
+            "at": "C",
+            "from": "B",
+            "to": "A",
+            "type": "right",
+            "size": 11
+          }
+        ],
+        "annotations": [
+          {
+            "x": 160,
+            "y": 282,
+            "text": "$a^2+b^2=49c^2 (A = 90°)$",
+            "anchor": "middle",
+            "fontSize": 12
+          }
+        ]
+      },
       "correct": "$24$",
-      "accept": [
-        "24"
-      ],
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
         "$\\cot\\theta = \\dfrac{\\cos\\theta}{\\sin\\theta}$",
@@ -21296,6 +24053,7 @@
         "<b>🎯 เป้าหมาย</b> แปลง $\\dfrac{\\cot C}{\\cot A + \\cot B}$ ให้เป็นอัตราส่วนของด้าน แล้วแทน $a^2 + b^2 = 49c^2$",
         "",
         "<b>【 วิธีที่ 1 ▸ พื้นฐาน · พิสูจน์สูตรทั่วไปจากนิยาม (general proof from definition) 】</b>",
+        "[IMAGE]",
         "<b>เครื่องมือ:</b> เขียนทุกพจน์เป็น $\\sin, \\cos$ แล้วใช้กฎไซน์/โคไซน์แปลงนิพจน์มุมเป็นนิพจน์ด้าน — ได้สูตรทั่วไปที่ใช้ซ้ำได้ทุกข้อแนวนี้",
         "<b>ขั้นที่ 1:</b> เขียนทุกตัวเป็น $\\sin, \\cos$ แล้วคูณทั้งเศษและส่วนด้วย $\\sin A\\sin B\\sin C$:",
         "$\\begin{aligned} \\dfrac{\\cot C}{\\cot A + \\cot B} &= \\dfrac{\\sin A\\sin B\\cos C}{\\sin C(\\sin B\\cos A + \\cos B\\sin A)} \\\\ &= \\dfrac{\\sin A\\sin B\\cos C}{\\sin C\\sin(A + B)} \\end{aligned}$",
@@ -21323,7 +24081,10 @@
         "<b>⚠️ จุดที่เด็กมักผิด</b> รวมเศษส่วน $\\cot A + \\cot B$ แล้วลืมใช้ $\\sin(A + B) = \\sin C$ ทำให้ติดมุมยุ่งเหยิง",
         "แทนกฎของไซน์โดยลืมว่าค่าคงที่ $k$ ตัดกันหมดทั้งเศษส่วน"
       ],
-      "notes": "cotC/(cotA+cotB) = (a²+b²−c²)/(2c²) = (49−1)/2 = 24 ; M2 ⚡ เลือกกรณี A = 90° → cotA = 0, b² = 24c² → b²/c² = 24 (verify sympy ตรงกัน) ; numeric สามเหลี่ยม 5-√24-1 ✓ ; ตรง key 229.24 ✓ ; เฉลย PDF หน้า 42 (วิธี 1) ; สองชั้น"
+      "notes": "cotC/(cotA+cotB) = (a²+b²−c²)/(2c²) = (49−1)/2 = 24 ; M2 ⚡ เลือกกรณี A = 90° → cotA = 0, b² = 24c² → b²/c² = 24 (verify sympy ตรงกัน) ; numeric สามเหลี่ยม 5-√24-1 ✓ ; ตรง key 229.24 ✓ ; เฉลย PDF หน้า 42 (วิธี 1) ; สองชั้น",
+      "accept": [
+        "24"
+      ]
     },
     {
       "id": "chap-07-trigonometry-q230",
