@@ -2003,11 +2003,11 @@
       },
       "snapshot": {
         "round": 2,
-        "stage": "pipeline complete (imageSpec feasible-region inserted)",
+        "stage": "pipeline complete (imageSpec feasible-region inserted); hasImage flag bug fixed (4 ก.ค.69)",
         "questionsCompleted": 45,
         "questionsRemaining": 0,
         "exportedAt": "2026-06-26",
-        "note": "Q6 ตัดออก (ข้อบกพร่อง: ค่าสูงสุดจริง 1180 ไม่อยู่ในตัวเลือก, key ไม่มีคำตอบ) → 45 ข้อ ช่วง 1-46 เว้น 6. ใส่ imageSpec รูปอาณาบริเวณ (feasible-region renderer ใหม่) 42 ข้อ region: region ฟ้า + จุดมุม + วงแดง optimum + เส้นจุดประสงค์ประแดง+ลูกศรทิศ P เพิ่ม เฉพาะ 7 ข้อ (1,4,11,22,24,28,29). param 15-19 derive ค่า a → iso+ring. Q14 ไฮไลต์เส้น x-2y=4 ม่วง (ค่าสูงสุดบนเส้น บริเวณไม่จำกัด, ไม่มี ring). Q16 TIE ค่าสูงสุดตลอดขอบ 2 ring. Q44 integer prog ไม่มี ring. unbounded 14/32/33/34/43 มี note. render 42/42 0 null, collision-clean. ยังเหลือ: Q35 number-line (step 6 แยก), audit ทั่วไป. exported 2026-06-26."
+        "note": "Q6 ตัดออก (ข้อบกพร่อง: ค่าสูงสุดจริง 1180 ไม่อยู่ในตัวเลือก, key ไม่มีคำตอบ) → 45 ข้อ ช่วง 1-46 เว้น 6. ใส่ imageSpec รูปอาณาบริเวณ (feasible-region renderer ใหม่) 42 ข้อ region: region ฟ้า + จุดมุม + วงแดง optimum + เส้นจุดประสงค์ประแดง+ลูกศรทิศ P เพิ่ม เฉพาะ 7 ข้อ (1,4,11,22,24,28,29). param 15-19 derive ค่า a → iso+ring. Q14 ไฮไลต์เส้น x-2y=4 ม่วง (ค่าสูงสุดบนเส้น บริเวณไม่จำกัด, ไม่มี ring). Q16 TIE ค่าสูงสุดตลอดขอบ 2 ring. Q44 integer prog ไม่มี ring. unbounded 14/32/33/34/43 มี note. render 42/42 0 null, collision-clean. ยังเหลือ: Q35 number-line (step 6 แยก), audit ทั่วไป. exported 2026-06-26. · 4 ก.ค.69: พบบั๊ก hasImage=false ทั้งที่มี imageSpec+marker ครบ 42 ข้อ (เขียนไว้แล้วแต่ flag ไม่อัปเดต) → verify render จริงผ่าน renderers.js ทุกข้อ (0 error) + overflow-checker (เขียน checkFeasibleRegion ใหม่) พบ label ล้นขอบ Q12/Q23 (แก้ตำแหน่ง) และ Q27 region.vertices ผิด (ใช้ (4,0) แทนจุดมุมจริง (4/3,-4/3) เพราะโจทย์ไม่มีเงื่อนไข y≥0 → แก้ region + เพิ่มเส้น constraint x+y=0 ที่หายไป) → พลิก hasImage:true ครบ 42 ข้อ, render 42/42 0 issues."
       }
     }
   }
