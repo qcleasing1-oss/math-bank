@@ -413,7 +413,7 @@
         "$-3\\overline{i} - 3\\overline{j}$",
         "ข้อ 1, 2 และ 3 ไม่มีข้อใดถูก"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "imageSpec": {
         "type": "polygon-labeled",
         "width": 320,
@@ -582,7 +582,7 @@
         "$4\\overline{i}$",
         "ไม่มีคำตอบใดถูก"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "imageSpec": {
         "type": "polygon-labeled",
         "width": 300,
@@ -767,7 +767,7 @@
         "$3$",
         "$7$"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "imageSpec": {
         "type": "polygon-labeled",
         "width": 300,
@@ -943,7 +943,7 @@
         "$\\pm\\dfrac{1}{\\sqrt{10}}(3\\overline{i} + \\overline{j})$",
         "$\\pm\\dfrac{1}{\\sqrt{10}}(3\\overline{i} - \\overline{j})$"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "imageSpec": {
         "type": "polygon-labeled",
         "width": 340,
@@ -1064,7 +1064,7 @@
         "$-\\dfrac{1}{10}(\\overline{u} + \\overline{v})$",
         "$-\\dfrac{1}{10}(\\overline{u} + 5\\overline{v})$"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "imageSpec": {
         "type": "polygon-labeled",
         "width": 340,
@@ -1246,7 +1246,7 @@
         "$3$",
         "$5$"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "imageSpec": {
         "type": "polygon-labeled",
         "width": 380,
@@ -1379,7 +1379,7 @@
         "$\\dfrac{2}{3}\\overline{u} - \\dfrac{1}{2}\\overline{v}$",
         "$\\dfrac{4}{3}\\overline{u} - \\dfrac{2}{3}\\overline{v}$"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "imageSpec": {
         "type": "polygon-labeled",
         "width": 420,
@@ -1858,7 +1858,7 @@
         "$18$",
         "$21$"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "imageSpec": {
         "type": "polygon-labeled",
         "width": 300,
@@ -2252,7 +2252,7 @@
         "$\\overrightarrow{OA}$ และ $\\overrightarrow{OB}$ เป็นเวกเตอร์ในระนาบ\nถ้า $\\overrightarrow{OA}$ และ $\\overrightarrow{OB}$ ตั้งฉากกัน แล้ว $|\\overrightarrow{AB}|^2 = (\\overrightarrow{OA} \\cdot \\overrightarrow{OA}) + (\\overrightarrow{OB} \\cdot \\overrightarrow{OB})$",
         "ถ้า $\\overline{u} ,\\ \\overline{v}$ และ $\\overline{w}$ เป็นเวกเตอร์ใดๆ ในระนาบ\nเราสามารถเขียน $\\overline{w}$ ในรูปของ $\\overline{u}$ และ $\\overline{v}$ ได้เสมอ"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "imageSpec": {
         "type": "polygon-labeled",
         "width": 340,
@@ -2346,6 +2346,7 @@
         "$(\\overline{u}+\\overline{v}) \\cdot (\\overline{u}-\\overline{v}) = |\\overline{u}|^2 - |\\overline{v}|^2$",
         "",
         "<b>🎯 เป้าหมาย</b> ไล่เช็คทีละข้อความ หาข้อที่ไม่จริง",
+        "[IMAGE]",
         "",
         "<b>【 พื้นฐาน · หาตัวอย่างค้านทีละข้อความ (counterexample test) 】</b>",
         "<b>ขั้นที่ 1:</b> ข้อความ 1 — $(\\overline{u}+\\overline{v})\\cdot(\\overline{u}-\\overline{v}) = |\\overline{u}|^2 - |\\overline{v}|^2$ เป็นศูนย์ ⟺ $|\\overline{u}| = |\\overline{v}|$ ✓ จริง",
@@ -2504,7 +2505,7 @@
         "ถ้า $ABCD$ เป็นสี่เหลี่ยมด้านขนาน\nดังรูป แล้ว $\\overrightarrow{AB} + \\dfrac{1}{2}(\\overrightarrow{AD} - \\overrightarrow{AB}) = \\dfrac{1}{2}\\overrightarrow{AC}$",
         "$(\\overrightarrow{A} \\cdot \\overrightarrow{B})^2 \\le (\\overrightarrow{A} \\cdot \\overrightarrow{A})(\\overrightarrow{B} \\cdot \\overrightarrow{B})$ เสมอ"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "imageSpec": {
         "type": "polygon-labeled",
         "width": 320,
@@ -2572,6 +2573,7 @@
         "อสมการโคชี–ชวาร์ซ: $(\\overline{A}\\cdot\\overline{B})^2 \\le |\\overline{A}|^2 |\\overline{B}|^2$ จริงเสมอ",
         "",
         "<b>🎯 เป้าหมาย</b> หาข้อความที่ผิด — สแกนหาคำกว้างเกินจริง",
+        "[IMAGE]",
         "",
         "<b>【 พื้นฐาน · ตรวจทีละข้อความหาข้อที่ผิด (check each claim) 】</b>",
         "<b>ขั้นที่ 1:</b> ข้อความ 1 — เดินครบรอบ $A \\to B \\to C \\to D \\to E \\to F \\to A$ กลับมาจุดเดิม ผลรวมเป็น $\\overline{0}$ ✓ จริง",
@@ -2618,7 +2620,7 @@
         "$\\overrightarrow{AC} \\cdot \\overrightarrow{BC} = 0$",
         "$\\overrightarrow{AB} \\cdot \\overrightarrow{BC} = \\dfrac{25\\sqrt{3}}{4}$"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "imageSpec": {
         "type": "polygon-labeled",
         "width": 300,
@@ -2776,7 +2778,7 @@
         "$0.50$",
         "$1.75$"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "imageSpec": [
         {
           "type": "polygon-labeled",
@@ -3138,7 +3140,7 @@
         "ก. ผิด และ ข. ถูก",
         "ก. ผิด และ ข. ผิด"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "imageSpec": {
         "type": "polygon-labeled",
         "width": 370,
@@ -4246,7 +4248,7 @@
         "$3$",
         "$4$"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "imageSpec": {
         "type": "polygon-labeled",
         "width": 360,
@@ -4424,7 +4426,7 @@
         "$\\dfrac{\\sqrt{5}}{4\\sqrt{2}}$",
         "$\\dfrac{\\sqrt{5}}{2\\sqrt{2}}$"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "imageSpec": {
         "type": "polygon-labeled",
         "width": 380,
@@ -4820,7 +4822,7 @@
         "$\\dfrac{13}{5}$",
         "$\\dfrac{14}{5}$"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "imageSpec": {
         "type": "polygon-labeled",
         "width": 385,
@@ -4949,7 +4951,7 @@
         "$\\dfrac{193}{9}$",
         "$\\dfrac{153}{9}$"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "imageSpec": {
         "type": "polygon-labeled",
         "width": 385,
@@ -5073,7 +5075,7 @@
       "level": "easy",
       "score": 1,
       "question": "กำหนดจุด $A(3, -2) ,\\ B(9, 4)$ และ $O(0, 0)$\nถ้าแบ่งส่วนของเส้นตรง $AB$ เป็น $3$ ส่วนเท่าๆ กันที่จุด $C$ และ $D$\nแล้ว $\\overrightarrow{OC} \\cdot \\overrightarrow{OD}$ มีค่าเท่าใด",
-      "hasImage": false,
+      "hasImage": true,
       "imageSpec": {
         "type": "polygon-labeled",
         "width": 385,
@@ -5220,7 +5222,7 @@
         "$\\dfrac{2}{\\sqrt{5}}$",
         "$\\dfrac{2}{\\sqrt{10}}$"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "imageSpec": {
         "type": "polygon-labeled",
         "width": 385,
@@ -5350,7 +5352,7 @@
         "$\\dfrac{1}{\\sqrt{10}}$",
         "$\\dfrac{2}{\\sqrt{10}}$"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "imageSpec": {
         "type": "polygon-labeled",
         "width": 380,
@@ -5491,7 +5493,7 @@
         "ก. ผิด และ ข. ถูก",
         "ก. ผิด และ ข. ผิด"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "imageSpec": {
         "type": "polygon-labeled",
         "width": 385,
@@ -5636,7 +5638,7 @@
         "$\\dfrac{6}{\\sqrt{10}}$",
         "$\\dfrac{6}{\\sqrt{2}}$"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "imageSpec": {
         "type": "polygon-labeled",
         "width": 400,
@@ -5875,7 +5877,7 @@
         "$\\dfrac{10}{27}$",
         "$\\dfrac{11}{27}$"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "imageSpec": {
         "type": "polygon-labeled",
         "width": 460,
@@ -6026,7 +6028,7 @@
         "$\\dfrac{8}{\\sqrt{29}}(5\\overline{i} - 2\\overline{j})$",
         "$\\dfrac{8}{29}(5\\overline{i} - 2\\overline{j})$"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "imageSpec": {
         "type": "polygon-labeled",
         "width": 360,
@@ -6193,7 +6195,7 @@
         "$\\dfrac{16}{25}(3\\overline{i} - 4\\overline{j})$",
         "$\\dfrac{25}{16}(3\\overline{i} - 4\\overline{j})$"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "imageSpec": {
         "type": "polygon-labeled",
         "width": 320,
@@ -6331,7 +6333,7 @@
         "$\\dfrac{77}{17}$",
         "$\\dfrac{77}{34}$"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "imageSpec": {
         "type": "polygon-labeled",
         "width": 340,
@@ -6477,7 +6479,7 @@
         "$(\\overline{u} \\cdot \\overline{v})\\left(\\dfrac{\\overline{u}}{|\\overline{u}|} + \\dfrac{\\overline{v}}{|\\overline{v}|}\\right)$",
         "$(\\overline{u} \\cdot \\overline{v})\\left(\\dfrac{\\overline{u}}{|\\overline{u}|} - \\dfrac{\\overline{v}}{|\\overline{v}|}\\right)$"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "imageSpec": {
         "type": "polygon-labeled",
         "width": 430,
@@ -6634,7 +6636,7 @@
         "$\\dfrac{1}{2}\\sqrt{(\\overline{u} \\cdot \\overline{u})(\\overline{v} \\cdot \\overline{v}) + (\\overline{u} \\cdot \\overline{v})^2}$",
         "$\\dfrac{1}{2}\\sqrt{(\\overline{u} \\cdot \\overline{v})(\\overline{v} \\cdot \\overline{w}) + (\\overline{u} \\cdot \\overline{w})^2}$"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "imageSpec": {
         "type": "polygon-labeled",
         "width": 420,
@@ -6831,7 +6833,7 @@
         "$5$ ตารางหน่วย",
         "$10$ ตารางหน่วย"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "imageSpec": {
         "type": "polygon-labeled",
         "width": 400,
@@ -7027,7 +7029,7 @@
         "$\\dfrac{\\sqrt{13}}{3}$",
         "$-\\dfrac{\\sqrt{13}}{3}$"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "imageSpec": {
         "type": "polygon-labeled",
         "width": 420,
@@ -7153,7 +7155,7 @@
         "ก. ผิด และ ข. ถูก",
         "ก. ผิด และ ข. ผิด"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "imageSpec": {
         "type": "polygon-labeled",
         "width": 450,
@@ -7281,7 +7283,7 @@
         "$(1.4, 1.6)$",
         "$(1.6, 1.8)$"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "imageSpec": {
         "type": "polygon-labeled",
         "width": 300,
@@ -7444,7 +7446,7 @@
           {
             "x": 150,
             "y": 224,
-            "text": "1 หน่วย",
+            "text": "1",
             "fontSize": 12,
             "anchor": "middle"
           },
@@ -7509,7 +7511,7 @@
       "level": "easy",
       "score": 1,
       "question": "เรือลำหนึ่งออกเดินทางจากท่าเรือลอยเลยไปทางทิศตะวันตก ด้วยความเร็ว $12$ กิโลเมตรต่อชั่วโมง\nในขณะที่กระแสน้ำไหลจากทิศเหนือไปทางทิศใต้ด้วยความเร็ว $5$ กิโลเมตรต่อชั่วโมง ขณะนี้เรือลำนี้\nเคลื่อนที่ไปทิศใด ด้วยความเร็วเท่าไร",
-      "hasImage": false,
+      "hasImage": true,
       "imageSpec": {
         "type": "polygon-labeled",
         "width": 300,
@@ -7642,7 +7644,7 @@
       "level": "medium",
       "score": 1,
       "question": "เรือช่วยผู้ประสบอุทกภัยออกเดินทางจากจุดหนึ่งด้วยความเร็ว $12$ กิโลเมตรต่อชั่วโมง ไปทางทิศ\nตะวันตก แต่ขณะที่เรือวิ่งกระแสน้ำไหลจากทิศเหนือไปทิศใต้ด้วยความเร็ว $5$ กิโลเมตรต่อชั่วโมง\nเรือลำนี้จะไปถึงผู้ประสบอุทกภัยซึ่งอยู่ในทิศทาง $\\tan^{-1}\\dfrac{5}{12}$ เป็นระยะทาง $6.5$ กิโลเมตร\nจากจุดที่เรือออกเดินทาง ภายในเวลาครึ่งชั่วโมงหรือไม่",
-      "hasImage": false,
+      "hasImage": true,
       "imageSpec": {
         "type": "polygon-labeled",
         "width": 430,
@@ -7788,7 +7790,7 @@
         "$20\\sqrt{3}$ หน่วย",
         "$30$ หน่วย"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "imageSpec": {
         "type": "polygon-labeled",
         "width": 420,
@@ -7958,6 +7960,7 @@
         "แตกเวกเตอร์เป็นส่วนประกอบ $x, y$ แล้วบวกลบตามปกติ",
         "",
         "<b>🎯 เป้าหมาย</b> แตกทุกเวกเตอร์เป็นพิกัด → หา $\\overline{C}$ → หา $|\\overline{D} - \\overline{C}|$",
+        "[IMAGE]",
         "",
         "<b>【 พื้นฐาน · แตกเวกเตอร์ตามมุมแล้วรวม (component decomposition) 】</b>",
         "<b>ขั้นที่ 1:</b> แตก $\\overline{A}$ (ขนาด 20, มุม $30°$ เหนือแนวนอน)",
@@ -8004,7 +8007,7 @@
         "$(10\\sqrt{3})\\overline{i} + 22\\overline{j}$",
         "$(2\\sqrt{3})\\overline{i} + 14\\overline{j}$"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "imageSpec": {
         "type": "polygon-labeled",
         "width": 350,
@@ -8045,7 +8048,7 @@
           },
           "XR": {
             "text": "x",
-            "dx": 4,
+            "dx": 1,
             "dy": 5
           },
           "XL": {
@@ -8112,7 +8115,7 @@
           {
             "x": 312,
             "y": 40,
-            "text": "8 หน่วย",
+            "text": "8",
             "fontSize": 14,
             "anchor": "start"
           },
@@ -8120,13 +8123,6 @@
             "x": 104,
             "y": 152,
             "text": "$12\\sqrt{3}$",
-            "fontSize": 14,
-            "anchor": "start"
-          },
-          {
-            "x": 150,
-            "y": 152,
-            "text": "หน่วย",
             "fontSize": 14,
             "anchor": "start"
           }
@@ -8140,6 +8136,7 @@
         "จากรูป: เวกเตอร์ $8$ หน่วยชี้ขึ้นขวาทำมุม $30°$ กับแกน $x$ · เวกเตอร์ $12\\sqrt{3}$ หน่วยชี้ลงซ้าย (ควอดรันต์ 3) ทำมุม $60°$ กับแกน $x$",
         "",
         "<b>🎯 เป้าหมาย</b> แตกส่วนประกอบ บวกกัน แล้วกลับเครื่องหมาย",
+        "[IMAGE]",
         "",
         "<b>【 พื้นฐาน · หาเวกเตอร์ลบล้างผลรวม (equilibrant vector) 】</b>",
         "<b>ขั้นที่ 1:</b> เวกเตอร์แรก (ขนาด 8 มุม $30°$)",
@@ -8245,7 +8242,7 @@
         "$\\overline{A} = \\dfrac{68}{25}\\overline{i} + \\dfrac{51}{25}\\overline{j} ,\\ \\overline{B} = -\\dfrac{18}{25}\\overline{i} + \\dfrac{24}{25}\\overline{j}$",
         "$\\overline{A} = \\dfrac{5}{2}(\\overline{i} + \\overline{j}) ,\\ \\overline{B} = -\\dfrac{1}{2}(\\overline{i} - \\overline{j})$"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "imageSpec": {
         "type": "polygon-labeled",
         "width": 360,
@@ -8392,6 +8389,7 @@
         "นี่คือการแยกเวกเตอร์เป็น \"ส่วนขนาน + ส่วนตั้งฉาก\" กับแนวที่กำหนด (projection)",
         "",
         "<b>🎯 เป้าหมาย</b> ฉาย $2\\overline{i} + 3\\overline{j}$ ลงแนว $(1, 1)$ ได้ $\\overline{A}$ แล้ว $\\overline{B}$ คือส่วนที่เหลือ",
+        "[IMAGE]",
         "",
         "<b>【 วิธีที่ 1 ▸ พื้นฐาน · คำนวณภาพฉาย (projection) 】</b>",
         "",
@@ -8446,7 +8444,7 @@
         "$8\\sqrt{5}$ หน่วย",
         "$12\\sqrt{5}$ หน่วย"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "imageSpec": {
         "type": "polygon-labeled",
         "width": 420,
@@ -8599,6 +8597,7 @@
         "และ $\\overline{Q} = s(-1, 2)$ โดย $t, s > 0$",
         "",
         "<b>🎯 เป้าหมาย</b> ใช้เงื่อนไขผลรวมส่วนประกอบ $x, y$ ตั้งระบบสมการหา $t$ แล้วได้ขนาด $\\overline{P}$",
+        "[IMAGE]",
         "",
         "<b>【 ⚡ ประยุกต์ · เขียนแนวเป็นพารามิเตอร์แล้วแก้ระบบ (parametric + system) 】</b>",
         "<b>ขั้นที่ 1:</b> ตั้งสมการผลรวมส่วนประกอบ",
@@ -9141,7 +9140,7 @@
       "level": "medium",
       "score": 1,
       "question": "$ABC$ เป็นรูปสามเหลี่ยม ซึ่ง $|\\overrightarrow{BC}| = 2$\nถ้าจุด $D$ และ $E$ อยู่บนด้าน $AB$ และ $AC$ โดยที่ $\\overrightarrow{DB} = \\dfrac{1}{3}\\overrightarrow{AB}$ และ $\\overrightarrow{CE} = \\dfrac{1}{3}\\overrightarrow{CA}$\nแล้ว $|\\overrightarrow{BE} + \\overrightarrow{DC}|$ มีค่าเท่ากับเท่าใด",
-      "hasImage": false,
+      "hasImage": true,
       "imageSpec": {
         "type": "polygon-labeled",
         "width": 430,
@@ -9284,7 +9283,7 @@
         "$\\dfrac{1}{2}$",
         "$\\dfrac{3}{4}$"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "imageSpec": [
         {
           "type": "polygon-labeled",
@@ -9510,7 +9509,7 @@
       "level": "hard",
       "score": 1,
       "question": "ให้ $ABC$ เป็นรูปสามเหลี่ยม ซึ่งมี $AB = \\dfrac{4}{3}$ หน่วย และ $AC = 2$ หน่วย\nให้ $P$ เป็นจุดบนด้าน $BC$ ซึ่ง $BP : PC = 2 : 3$ และ $AP = 1$ หน่วย\nค่าของ $\\cos\\left(\\dfrac{B\\hat{A}C}{2}\\right)$ เท่ากับเท่าใด",
-      "hasImage": false,
+      "hasImage": true,
       "imageSpec": {
         "type": "polygon-labeled",
         "width": 430,
@@ -9650,7 +9649,7 @@
         "ข้อ ข. เท่านั้นเป็นจริง",
         "ข้อ ก. และ ข. เป็นเท็จ"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "imageSpec": [
         {
           "type": "unit-circle-figure",
@@ -9858,7 +9857,7 @@
         "$\\dfrac{m^2}{n^2}\\,\\overrightarrow{BP} \\cdot \\overrightarrow{BC}$",
         "$\\dfrac{n}{m}\\,\\overrightarrow{BP} \\cdot \\overrightarrow{BC}$"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "imageSpec": {
         "type": "unit-circle-figure",
         "size": 230,
@@ -9942,6 +9941,7 @@
         "ดังนั้น $\\triangle APD \\sim \\triangle BPC$ (มุม-มุม) ด้วยอัตราส่วน $\\dfrac{AD}{BC} = \\dfrac{m}{n}$",
         "",
         "<b>🎯 เป้าหมาย</b> ใช้สามเหลี่ยมคล้ายแปลงทุกความยาวและมุมของฝั่ง $A$ ให้เป็นฝั่ง $B$",
+        "[IMAGE]",
         "",
         "<b>【 ⚡ ประยุกต์ · คอร์ดตัดกัน สามเหลี่ยมคล้าย (intersecting chords / similar triangles) 】</b>",
         "<b>ขั้นที่ 1:</b> ระบุคู่คล้าย",
@@ -10089,7 +10089,7 @@
         "ข้อ ข. และ ค. เท่านั้นเป็นจริง",
         "ข้อ ก. และ ค. เท่านั้นเป็นจริง"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "imageSpec": [
         {
           "type": "polygon-labeled",
@@ -10514,7 +10514,7 @@
         "$\\cos^{-1}\\dfrac{22}{25}$",
         "$\\cos^{-1}\\dfrac{43}{50}$"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "imageSpec": {
         "type": "polygon-labeled",
         "width": 320,
@@ -10631,6 +10631,7 @@
         "$\\overrightarrow{AC} = \\overrightarrow{AB} + \\overrightarrow{BC}$ ก็คือเวกเตอร์จาก $A$ ตรงไป $C$ — คำนวณจากพิกัดได้เลย",
         "",
         "<b>🎯 เป้าหมาย</b> หา $\\overrightarrow{AC} ,\\ \\overrightarrow{AD}$ จากพิกัดในรูป แล้วใช้นิยามมุม",
+        "[IMAGE]",
         "",
         "<b>【 พื้นฐาน · กฎสามเหลี่ยมแล้วหามุม (triangle rule + dot) 】</b>",
         "<b>ขั้นที่ 1:</b> หาเวกเตอร์",
@@ -10665,7 +10666,7 @@
       "level": "medium",
       "score": 1,
       "question": "กำหนดรูปสี่เหลี่ยมด้านขนาน $ABCD$ มีมุม $BAD = \\theta$ ดังรูป\nถ้า $\\overrightarrow{AB} = 6\\overline{i} - 3\\overline{j}$ และ $\\overrightarrow{AC} = 10\\overline{i} - \\overline{j}$ จงหาค่าของ $\\sin\\theta - \\cos\\theta$",
-      "hasImage": false,
+      "hasImage": true,
       "imageSpec": {
         "type": "polygon-labeled",
         "width": 330,
@@ -10753,6 +10754,7 @@
         "มุม $BAD$ = มุมระหว่าง $\\overrightarrow{AB}$ กับ $\\overrightarrow{AD}$ และ $\\sin\\theta = \\sqrt{1 - \\cos^2\\theta}$ (มุมในรูปอยู่ใน $(0°, 180°)$ ดังนั้น $\\sin\\theta > 0$)",
         "",
         "<b>🎯 เป้าหมาย</b> หา $\\overrightarrow{AD}$ → หา $\\cos\\theta$ → หา $\\sin\\theta$ → ลบกัน",
+        "[IMAGE]",
         "",
         "<b>【 พื้นฐาน · กฎสี่เหลี่ยมด้านขนาน แปลงทแยงเป็นด้าน (parallelogram law) 】</b>",
         "<b>ขั้นที่ 1:</b> หา $\\overrightarrow{AD}$",
@@ -11215,7 +11217,7 @@
         "$-2$",
         "$2$"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "imageSpec": {
         "type": "polygon-labeled",
         "width": 320,
@@ -11356,7 +11358,7 @@
         "$\\dfrac{40}{145}(12\\overline{i} + \\overline{j})$",
         "$\\dfrac{140}{45}(12\\overline{i} + \\overline{j})$"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "imageSpec": {
         "type": "polygon-labeled",
         "width": 330,
@@ -11535,7 +11537,7 @@
         "$-5$",
         "$-13$"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "imageSpec": {
         "type": "polygon-labeled",
         "width": 420,
@@ -11649,7 +11651,7 @@
         "$-22$",
         "$-44$"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "imageSpec": {
         "type": "polygon-labeled",
         "width": 420,
