@@ -1801,11 +1801,11 @@
       },
       "snapshot": {
         "round": 1,
-        "stage": "VERIFY COMPLETE 127/127 pending screenshot review",
+        "stage": "VERIFY COMPLETE 127/127 pending screenshot review; hasImage flag bug fixed 50/51 (5 ก.ค.69), Q123 pending",
         "questionsCompleted": 127,
         "questionsRemaining": 0,
         "exportedAt": "2026-06-09",
-        "note": "Verify COMPLETE 9 มิ.ย. 2569: 127/127 sympy/numpy ตรง correct + PDF answer key (0 mismatch, 96 mc + 18 fill key). flag: _needsImage[27,30,32,81,82,84,85,97,99,100,103,108,109,123] · _noAnswerInKey[16,124] · _bookKeyMismatch[88 → 120° override, เฉลยหนังสือ 60° ผิดใช้สูตรเครื่องหมายลบ] · correct=null 2 ข้อ. POST-FLIGHT=0 ทุกจุด. KaTeX clean (0 Thai-in-math จริง; warning ใน local preview = artifact ของ <,> relation + production render แต่ละ field แยก). subTopics + difficulty ครบทั้งบท. imageSpec 14 ข้อ = Phase ถัดไป. audit ว.2/multi-method ยังไม่ทำ."
+        "note": "Verify COMPLETE 9 มิ.ย. 2569: 127/127 sympy/numpy ตรง correct + PDF answer key (0 mismatch, 96 mc + 18 fill key). flag: _needsImage[27,30,32,81,82,84,85,97,99,100,103,108,109,123] · _noAnswerInKey[16,124] · _bookKeyMismatch[88 → 120° override, เฉลยหนังสือ 60° ผิดใช้สูตรเครื่องหมายลบ] · correct=null 2 ข้อ. POST-FLIGHT=0 ทุกจุด. KaTeX clean (0 Thai-in-math จริง; warning ใน local preview = artifact ของ <,> relation + production render แต่ละ field แยก). subTopics + difficulty ครบทั้งบท. imageSpec 14 ข้อ = Phase ถัดไป. audit ว.2/multi-method ยังไม่ทำ. · 5 ก.ค.69: พบบั๊ก hasImage=false ทั้งที่มี imageSpec ครบ 51 ข้อ (มากกว่า 14 ข้อที่บันทึกไว้เดิม เพราะทำเพิ่มหลังจากนั้น) → verify render จริงผ่าน renderers.js ทุกข้อ (0 error) + เขียน checkPolygonLabeled/checkUnitCircleFigure ใหม่ (ยังไม่เคยมี checker 2 type นี้) → แทรก [IMAGE] marker ที่ขาด 9 ข้อ (27,30,81,82,84,85,100,108,109) + แก้ annotation คำไทย \"หน่วย\" ใน Q78/Q82 (serif font ของ polygon-labeled ไม่มี glyph ไทย ทำให้ข้อความหายไปเงียบๆ) + แก้ label ล้นขอบจริง Q82 → พลิก hasImage:true ครบ 50/51 ข้อ. ⚠️ Q123 พักไว้ยังไม่พลิก flag: vertex label เป็นตัวอักษรไทย ก/ข/ค/ง/จ ผูกกับเนื้อหาทั้งข้อ (เปลี่ยนไม่ได้ง่ายๆ) render จริงแล้วตัวอักษรหายหมด (ข้อจำกัด renderer, ต้องแก้เชิงโครงสร้างภายหลัง — รอครูตัดสินใจแนวทาง)."
       }
     },
     "chap-10-complex": {
