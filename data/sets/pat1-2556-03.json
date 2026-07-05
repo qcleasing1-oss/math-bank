@@ -1988,6 +1988,101 @@
         "$4\\sqrt{41}$",
         "$8\\sqrt{41}$"
       ],
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 460,
+          "height": 340,
+          "xRange": [
+            -2,
+            10.5
+          ],
+          "yRange": [
+            -18,
+            82
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y"
+          },
+          "xTicks": [
+            1,
+            9
+          ],
+          "yTicks": [
+            1,
+            73
+          ],
+          "functions": [
+            {
+              "id": "parab",
+              "kind": "parabola",
+              "vertex": [
+                0.5,
+                0.75
+              ],
+              "throughPoint": [
+                1,
+                1
+              ],
+              "color": "#2e7d32",
+              "label": {
+                "text": "พาราโบลา",
+                "at": [
+                  6.87,
+                  28.11
+                ],
+                "anchor": "start",
+                "color": "#2e7d32"
+              }
+            },
+            {
+              "id": "L",
+              "kind": "piecewise-linear",
+              "points": [
+                [
+                  -2,
+                  -26
+                ],
+                [
+                  10.5,
+                  86.5
+                ]
+              ],
+              "color": "#c0392b",
+              "label": {
+                "text": "L",
+                "at": [
+                  10.14,
+                  75.62
+                ],
+                "anchor": "start",
+                "color": "#c0392b"
+              }
+            }
+          ],
+          "dots": [
+            {
+              "x": 1,
+              "y": 1,
+              "label": "A(1, 1)",
+              "labelDx": -15,
+              "labelDy": 34,
+              "labelAnchor": "end"
+            },
+            {
+              "x": 9,
+              "y": 73,
+              "label": "B(9, 73)",
+              "labelDx": -59,
+              "labelDy": -21,
+              "labelAnchor": "end"
+            }
+          ]
+        }
+      ],
       "correct": 1,
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
@@ -1997,6 +2092,7 @@
         "",
         "<b>🎯 เป้าหมาย</b>",
         "หาอนุพันธ์เพื่อได้ความชันที่ $(1,1)$ → เขียนสมการเส้นสัมผัส $L$ → หาจุดตัด $L$ กับพาราโบลา → คำนวณระยะ $AB$",
+        "[IMAGE:0]",
         "",
         "<b>【 วิธีที่ 1 ▸ พื้นฐาน 】</b>",
         "<b>ขั้นที่ 1: หาความชันของ $L$</b>",
@@ -3348,6 +3444,132 @@
       "difficulty": "ปานกลาง",
       "type": "fill",
       "question": "กำหนดให้ $f(x)=\\begin{cases} \\dfrac{2x-8}{2x-\\sqrt{4x^2-3x+12}}, & x < 4 \\\\[2mm] \\dfrac{kx}{3}, & x \\geq 4 \\end{cases}$ โดยที่ $k$ เป็นจำนวนจริง ถ้า $f$ เป็นฟังก์ชันต่อเนื่องที่จุด $x=4$ แล้ว $f(k+1)$ เท่ากับเท่าใด",
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 460,
+          "height": 300,
+          "xRange": [
+            -0.5,
+            10.5
+          ],
+          "yRange": [
+            -1,
+            28
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y"
+          },
+          "xTicks": [
+            4,
+            9
+          ],
+          "functions": [
+            {
+              "id": "left",
+              "kind": "piecewise-linear",
+              "color": "#1565c0",
+              "points": [
+                [
+                  0,
+                  2.309
+                ],
+                [
+                  1,
+                  3.736
+                ],
+                [
+                  2,
+                  5.797
+                ],
+                [
+                  3,
+                  8.165
+                ],
+                [
+                  3.5,
+                  9.434
+                ],
+                [
+                  3.9,
+                  10.53
+                ],
+                [
+                  4,
+                  10.667
+                ]
+              ],
+              "domain": [
+                0,
+                4
+              ],
+              "label": {
+                "text": "x &lt; 4",
+                "at": [
+                  2.21,
+                  4.07
+                ],
+                "anchor": "middle",
+                "color": "#1565c0"
+              }
+            },
+            {
+              "id": "right",
+              "kind": "piecewise-linear",
+              "color": "#c0392b",
+              "points": [
+                [
+                  4,
+                  10.667
+                ],
+                [
+                  9,
+                  24
+                ],
+                [
+                  10,
+                  26.667
+                ]
+              ],
+              "domain": [
+                4,
+                10
+              ],
+              "label": {
+                "text": "x ≥ 4",
+                "at": [
+                  6.45,
+                  22.7
+                ],
+                "anchor": "middle",
+                "color": "#c0392b"
+              }
+            }
+          ],
+          "dots": [
+            {
+              "x": 4,
+              "y": 10.667,
+              "color": "#222",
+              "label": "f(4) = 32/3",
+              "labelDx": -76,
+              "labelDy": -15,
+              "labelAnchor": "end"
+            },
+            {
+              "x": 9,
+              "y": 24,
+              "color": "#222",
+              "label": "f(9) = 24",
+              "labelDx": 16,
+              "labelDy": 12
+            }
+          ]
+        }
+      ],
       "correct": "24",
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
@@ -3356,6 +3578,7 @@
         "สังยุคของ $2x-\\sqrt{\\cdots}$ คือ $2x+\\sqrt{\\cdots}$",
         "",
         "<b>🎯 เป้าหมาย</b> หา $\\displaystyle\\lim_{x\\to4^-}f(x)$ ให้เท่ากับ $f(4)=\\dfrac{4k}{3}$ เพื่อหา $k$ แล้วคำนวณ $f(k+1)$",
+        "[IMAGE:0]",
         "",
         "<b>【 วิธีที่ 1 ▸ พื้นฐาน · คูณสังยุคหาลิมิตแล้วใช้เงื่อนไขความต่อเนื่อง (conjugate multiplication and continuity) 】</b>",
         "",
