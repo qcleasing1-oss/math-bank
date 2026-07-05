@@ -547,7 +547,7 @@
       "level": "easy",
       "score": 2,
       "question": "สมการของเส้นสัมผัสเส้นโค้ง $y = \\dfrac{6}{x+1}$ ที่จุด $(1, 3)$ ตรงกับข้อใดต่อไปนี้",
-      "hasImage": false,
+      "hasImage": true,
       "imageSpec": {
         "type": "function-plot",
         "width": 380,
@@ -726,7 +726,7 @@
       "level": "medium",
       "score": 4,
       "question": "จำนวนเต็ม $x$ ที่สอดคล้องกับอสมการ $|2x^2 + 1| - |-x^2 + 2x - 1| \\le 15$ มีทั้งหมดกี่จำนวน",
-      "hasImage": false,
+      "hasImage": true,
       "imageSpec": {
         "type": "number-line",
         "width": 480,
@@ -1017,7 +1017,7 @@
       "level": "medium",
       "score": 4,
       "question": "ให้ $r$ และ $s$ เป็นจำนวนจริงบวก ถ้า $P(2, 2)$ เป็นจุดบนวงรีที่มีสมการเป็น $\\dfrac{(x+2)^2}{r^2} + \\dfrac{(y-2)^2}{s^2} = 1$ ซึ่งมีจุด $F_1$ และ $F_2$ เป็นโฟกัสของวงรี และ $PF_1 + PF_2 = 12$ แล้วระยะห่างระหว่าง $F_1$ และ $F_2$ ตรงกับข้อใดต่อไปนี้",
-      "hasImage": false,
+      "hasImage": true,
       "imageSpec": {
         "type": "conic-ellipse-hyperbola",
         "width": 320,
@@ -1526,7 +1526,7 @@
       "level": "hard",
       "score": 4,
       "question": "ให้ $f(x)$ เป็นฟังก์ชันกำลังสอง โดยที่กราฟของ $y = f(x)$ มีจุดต่ำสุดที่ $(0, -9)$ และตัดแกน $x$ ที่จุด $(x_1, 0)$ และ $(x_2, 0)$ ถ้าพื้นที่ซึ่งปิดล้อมด้วยกราฟของ $y = f(x)$ และแกน $x$ จาก $x_1$ ถึง $x_2$ เท่ากับ $18$ ตารางหน่วย แล้ว $f(2)$ มีค่าเท่ากับข้อใดต่อไปนี้",
-      "hasImage": false,
+      "hasImage": true,
       "imageSpec": {
         "type": "function-plot",
         "width": 380,
@@ -1559,7 +1559,7 @@
             "label": {
               "text": "y = 4x² − 9",
               "at": [
-                1.75,
+                1.6,
                 -3.5
               ],
               "anchor": "start"
