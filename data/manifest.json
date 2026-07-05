@@ -1613,7 +1613,7 @@
         "questionsCompleted": 189,
         "questionsRemaining": 0,
         "exportedAt": "2026-06-03",
-        "note": "batch 24-25 (Q171-Q190) ingest 3 มิ.ย.69: Q171-180 Diophantine + gcd/lcm, Q181-190 modular + Legendre + Euclidean. | 12 มิ.ย.69: ตัด Q103 ทิ้งทั้งข้อ (โจทย์ต้นฉบับบกพร่อง มีคำตอบเท็จซ้อน ข้อ 2 และ ข้อ 4) — เว้นช่องว่างที่ 103 ไม่เรียงเลขใหม่ ; total 190→189"
+        "note": "batch 24-25 (Q171-Q190) ingest 3 มิ.ย.69: Q171-180 Diophantine + gcd/lcm, Q181-190 modular + Legendre + Euclidean. | 12 มิ.ย.69: ตัด Q103 ทิ้งทั้งข้อ (โจทย์ต้นฉบับบกพร่อง มีคำตอบเท็จซ้อน ข้อ 2 และ ข้อ 4) — เว้นช่องว่างที่ 103 ไม่เรียงเลขใหม่ ; total 190→189 | 5 ก.ค.69: แก้บั๊ก hasImage/imageSpec mismatch 22 ข้อ (Q40,48,50,51,54,59,62,68,69,74,90,141,145,149,155,156,159,160,161,162,168,169) — พลิก hasImage→true; เจอ+แก้ overflow/collision เพิ่ม 3 ข้อ (Q141,156,168)"
       }
     },
     "chap-04-coord": {
