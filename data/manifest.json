@@ -1921,7 +1921,7 @@
         "questionsCompleted": 292,
         "questionsRemaining": 0,
         "exportedAt": "2026-06-14",
-        "note": "ingest จาก Projects วางใน repo (14 มิ.ย.69): 292 ข้อ (mc 214 + fill 78), ช่วง 1-292. format OK (LF, indent=2, ไม่มี BOM/trailing). correct=null=0. difficulty+topicDistribution ครบ. ยังไม่ทำ: pipeline (🔄→วิธีที่N, format ตรีโกณ, เพิ่มวิธี ว.2, เช็คลัด), imageSpec, audit. exported 2026-06-14."
+        "note": "ingest จาก Projects วางใน repo (14 มิ.ย.69): 292 ข้อ (mc 214 + fill 78), ช่วง 1-292. format OK (LF, indent=2, ไม่มี BOM/trailing). correct=null=0. difficulty+topicDistribution ครบ. ยังไม่ทำ: pipeline (🔄→วิธีที่N, format ตรีโกณ, เพิ่มวิธี ว.2, เช็คลัด), imageSpec, audit. exported 2026-06-14. [4 ก.ค.69] แก้บั๊ก hasImage 55 ข้อ (Q33,40,72,73,77,91,92,94,95,97,98,99,107,127,143,144,152,153,154,156,159,160,161,162,164,165,188,209,215,217,218,219,220,221,222,229,230,231,232,233,235,237,243,244,245,247,248,272,273,274,275,285,286,290,291): imageSpec มีอยู่แล้วแต่ flag เป็น false — verify render จริง+overflow-checker ผ่านหมดแล้วพลิก flag เป็น true."
       }
     },
     "chap-14-infiniteseries": {
