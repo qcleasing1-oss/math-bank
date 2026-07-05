@@ -2877,6 +2877,7 @@
         "$11$"
       ],
       "correct": 0,
+      "hasImage": true,
       "imageSpec": [
         {
           "type": "number-line",
@@ -3469,6 +3470,7 @@
         "ถ้า $a, b$ เป็นจำนวนจริงที่ $a > 0$ และ $|x - b| \\le a$ แล้ว $b - a \\le x \\le a + b$"
       ],
       "correct": 4,
+      "hasImage": true,
       "imageSpec": [
         {
           "type": "number-line",
@@ -3798,6 +3800,7 @@
         "$\\left\\{ x \\mid \\left| \\dfrac{x - 1}{x + 1} \\right| = \\dfrac{x - 1}{x + 1} \\right\\}$"
       ],
       "correct": 3,
+      "hasImage": true,
       "imageSpec": [
         {
           "type": "number-line",
@@ -3934,6 +3937,7 @@
         "ก. ผิด ข. ผิด"
       ],
       "correct": 2,
+      "hasImage": true,
       "imageSpec": [
         {
           "type": "number-line",
@@ -4565,6 +4569,7 @@
         "$(-2, 0) \\cup (0, 3) \\cup (5, 6)$"
       ],
       "correct": 3,
+      "hasImage": true,
       "imageSpec": [
         {
           "type": "number-line",
@@ -5976,6 +5981,7 @@
         "ไม่มีคำตอบที่ถูกต้องในข้อ 1. ถึงข้อ 4."
       ],
       "correct": 2,
+      "hasImage": true,
       "imageSpec": [
         {
           "type": "number-line",
@@ -6819,6 +6825,7 @@
         "$[3, \\infty)$"
       ],
       "correct": 1,
+      "hasImage": true,
       "imageSpec": [
         {
           "type": "number-line",
@@ -8123,6 +8130,7 @@
         "<b>⚠️ จุดที่เด็กมักผิด:</b> (1) ลืมว่าโจทย์ถามค่า \"มากที่สุด\" ไม่ใช่ช่วงคำตอบทั้งหมด",
         "(2) คิดทศนิยมพลาด เผลอตอบว่า $\\dfrac{1}{\\sqrt{2}} \\approx 0.707$ อยู่ในช่วง $[1, 1.5)$"
       ],
+      "hasImage": true,
       "imageSpec": [
         {
           "type": "number-line",
@@ -8223,6 +8231,7 @@
         "$16$"
       ],
       "correct": 2,
+      "hasImage": true,
       "imageSpec": [
         {
           "type": "number-line",
@@ -9168,6 +9177,7 @@
         "<b>⚠️ จุดที่เด็กมักผิด:</b> (1) ยกกำลังสองทันทีโดยลืมกรณีฝั่งซ้ายติดลบ ($x \\in [-2, -1]$) ทำให้ตกคำตอบช่วงซ้าย แล้วเผลอตอบ $-\\dfrac{8}{5}$ (ตัวเลือก 2)",
         "(2) ลืมโดเมน $-2 \\le x \\le 2$"
       ],
+      "hasImage": true,
       "imageSpec": [
         {
           "type": "number-line",
@@ -10093,6 +10103,7 @@
         "ก. ผิด และ ข. ผิด"
       ],
       "correct": 0,
+      "hasImage": true,
       "imageSpec": [
         {
           "type": "number-line",
@@ -13599,6 +13610,7 @@
         "$(B\\cup C)' = B'\\cup C'$"
       ],
       "correct": 2,
+      "hasImage": true,
       "imageSpec": [
         {
           "type": "number-line",
@@ -13610,7 +13622,7 @@
             1
           ],
           "width": 540,
-          "height": 116,
+          "height": 132,
           "axisY": 86,
           "solutionY": 36,
           "labels": [
@@ -13701,7 +13713,7 @@
             {
               "text": "A − B = (−∞, −2)",
               "x": 532,
-              "y": 108,
+              "y": 124,
               "anchor": "end"
             }
           ]
@@ -14088,6 +14100,7 @@
         "$a\\in(-\\infty,1]\\cup[9,\\infty)$"
       ],
       "correct": 2,
+      "hasImage": true,
       "imageSpec": [
         {
           "type": "number-line",
@@ -14909,6 +14922,7 @@
         "(-∞,0]∪(1,2]∪[3,∞)",
         "(-inf,0]∪(1,2]∪[3,inf)"
       ],
+      "hasImage": true,
       "imageSpec": [
         {
           "type": "number-line",
@@ -16217,6 +16231,7 @@
         "<b>⚠️ จุดที่เด็กมักผิด:</b> ลืมเช็คว่าคำตอบที่ได้อยู่ในช่วงที่กำหนดของแต่ละกรณี",
         "ตอบ $1+\\sqrt{2}$ หรือ $+\\sqrt{3}$ ทั้งที่ไม่อยู่ใน $x \\le 0$"
       ],
+      "hasImage": true,
       "imageSpec": [
         {
           "type": "number-line",
@@ -16344,6 +16359,7 @@
         "[-4, -3) \\cup (-3, -2]",
         "[-4,-3)\\cup(-3,-2]"
       ],
+      "hasImage": true,
       "imageSpec": [
         {
           "type": "number-line",
@@ -16356,7 +16372,7 @@
             0
           ],
           "width": 500,
-          "height": 96,
+          "height": 106,
           "axisY": 60,
           "solutionY": 36,
           "bands": [
@@ -16430,7 +16446,7 @@
             {
               "text": "คำตอบ = A = [−4, −3) ∪ (−3, −2]",
               "x": 250,
-              "y": 86,
+              "y": 100,
               "anchor": "middle"
             }
           ]
@@ -16907,6 +16923,7 @@
       "accept": [
         "-3"
       ],
+      "hasImage": true,
       "imageSpec": [
         {
           "type": "number-line",
@@ -17078,6 +17095,7 @@
         "(-\\infty, -3) \\cup (4, \\infty)",
         "(-\\infty,-3)\\cup(4,\\infty)"
       ],
+      "hasImage": true,
       "imageSpec": [
         {
           "type": "number-line",
@@ -17218,6 +17236,7 @@
         "$7$"
       ],
       "correct": 1,
+      "hasImage": true,
       "imageSpec": [
         {
           "type": "number-line",
@@ -17394,6 +17413,7 @@
       "accept": [
         "$(-\\infty, -4) \\cup (0, \\infty)$"
       ],
+      "hasImage": true,
       "imageSpec": [
         {
           "type": "number-line",
@@ -17855,6 +17875,7 @@
       "accept": [
         "24"
       ],
+      "hasImage": true,
       "imageSpec": [
         {
           "type": "number-line",
@@ -17864,7 +17885,7 @@
             8
           ],
           "width": 600,
-          "height": 96,
+          "height": 106,
           "axisY": 60,
           "solutionY": 36,
           "labels": [
@@ -17986,10 +18007,18 @@
           ],
           "annotations": [
             {
-              "text": "จำนวนเต็มใน [−8, 8] ที่ 3∤x : 12 ตัว (วงเทา = พหุคูณ 3 ตัดออก)  ·  |C| = 2  →  12 × 2 = 24",
+              "text": "จำนวนเต็มใน [−8, 8] ที่ 3∤x : 12 ตัว",
               "x": 300,
               "y": 14,
-              "anchor": "middle"
+              "anchor": "middle",
+              "fontSize": 12
+            },
+            {
+              "text": "(วงเทา = พหุคูณ 3 ตัดออก)  ·  |C| = 2  →  12 × 2 = 24",
+              "x": 300,
+              "y": 98,
+              "anchor": "middle",
+              "fontSize": 12
             }
           ]
         }
@@ -18056,6 +18085,7 @@
         "$3 \\mid (a^3 - a)$ เมื่อ $a$ เป็นจำนวนเต็มใด ๆ"
       ],
       "correct": 1,
+      "hasImage": true,
       "imageSpec": [
         {
           "type": "number-line",
