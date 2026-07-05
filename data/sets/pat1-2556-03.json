@@ -1648,6 +1648,81 @@
         "$\\dfrac{1}{2}$",
         "$\\dfrac{\\sqrt{3}}{2}$"
       ],
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "polygon-labeled",
+          "width": 380,
+          "height": 280,
+          "vertices": {
+            "A": [
+              150,
+              230.5
+            ],
+            "B": [
+              282,
+              230.5
+            ],
+            "C": [
+              40,
+              40
+            ]
+          },
+          "vertexLabels": {
+            "A": {
+              "dx": -6,
+              "dy": 20
+            },
+            "B": {
+              "dx": 10,
+              "dy": 16
+            },
+            "C": {
+              "dx": -16,
+              "dy": -6
+            }
+          },
+          "sides": [
+            {
+              "from": "B",
+              "to": "C",
+              "label": "a = 14",
+              "labelOffset": {
+                "dx": 14,
+                "dy": -10
+              }
+            },
+            {
+              "from": "A",
+              "to": "C",
+              "label": "b = 10",
+              "labelOffset": {
+                "dx": -14,
+                "dy": 4
+              }
+            },
+            {
+              "from": "A",
+              "to": "B",
+              "label": "c = 6",
+              "labelOffset": {
+                "dx": 0,
+                "dy": 16
+              }
+            }
+          ],
+          "angleMarks": [
+            {
+              "at": "A",
+              "from": "B",
+              "to": "C",
+              "type": "arc",
+              "radius": 26,
+              "label": "120°"
+            }
+          ]
+        }
+      ],
       "correct": 1,
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
@@ -1658,6 +1733,7 @@
         "",
         "<b>🎯 เป้าหมาย</b>",
         "ใช้กฎไซน์เปลี่ยน $3\\sin B = 5\\sin C$ เป็นอัตราส่วนด้าน → หาด้าน $b, c$ → ใช้กฎโคไซน์หามุม $A$ → คำนวณ $\\sin 2A$",
+        "[IMAGE:0]",
         "",
         "<b>【 พื้นฐาน · ใช้กฎไซน์หาสัดส่วนด้านแล้วกฎโคไซน์หามุม (law of sines and law of cosines) 】</b>",
         "",
