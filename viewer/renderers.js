@@ -3397,6 +3397,8 @@ function renderImage(spec){
       return renderConicEllipseHyperbola(spec);
     case 'circle-on-plane':
       return renderCircleOnPlane(spec);
+    case 'l-shape-grid':
+      return renderLShapeGrid(spec);
     default:
       return null; // unknown type → admin.html จะ fallback ไปแสดง placeholder
   }
@@ -4194,5 +4196,44 @@ function renderCircleOnPlane(spec){
     else svg+=`<text x="${lx.toFixed(2)}" y="${ly.toFixed(2)}" font-size="${fs}" fill="${l.color||'#222'}" text-anchor="${anc}">${t}</text>`;
   });
 
+  return svg+'</svg>';
+}
+
+// ----- renderer: l-shape-grid -----
+// รูปตัว L: คอลัมน์แนวตั้ง N ช่อง (บนลงล่าง) ต่อกับแถวแนวนอน M ช่อง (ซ้ายไปขวา)
+// โดยช่องล่างสุดของแนวตั้ง = ช่องซ้ายสุดของแนวนอน (ช่องร่วมมุม, ใส่ cornerLabel)
+// spec fields:
+//   width, height, cellSize (default 45), x0, y0 (มุมบนซ้ายของคอลัมน์แนวตั้ง)
+//   vertCount (default 6), horizCount (default 6) — รวมช่องมุมทั้งคู่
+//   cornerLabel (default 'x'), vertLabel, horizLabel (ป้ายไทย — ใช้ plain <text> ไม่ fix font)
+function renderLShapeGrid(spec){
+  const W=spec.width||480, H=spec.height||340;
+  const cell=spec.cellSize||45;
+  const vertCount=spec.vertCount||6, horizCount=spec.horizCount||6;
+  const x0=(spec.x0!=null)?spec.x0:140, y0=(spec.y0!=null)?spec.y0:40;
+  let svg=`<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" xmlns="http://www.w3.org/2000/svg" style="background:#fff;">`;
+  // แนวตั้ง (บนลงล่าง)
+  for(let i=0;i<vertCount;i++){
+    const y=y0+i*cell;
+    svg+=`<rect x="${x0}" y="${y}" width="${cell}" height="${cell}" fill="none" stroke="#222" stroke-width="1.3"/>`;
+  }
+  // แนวนอน (ต่อจากช่องมุม, ไม่วาดซ้ำช่องมุม)
+  const cornerY=y0+(vertCount-1)*cell;
+  for(let j=1;j<horizCount;j++){
+    const x=x0+j*cell;
+    svg+=`<rect x="${x}" y="${cornerY}" width="${cell}" height="${cell}" fill="none" stroke="#222" stroke-width="1.3"/>`;
+  }
+  // ป้ายช่องมุม (ตัวแปรคณิต เช่น x) — เอียงแบบตัวแปร
+  const cornerLabel=(spec.cornerLabel!=null)?spec.cornerLabel:'x';
+  const cx=x0+cell/2, cy=cornerY+cell/2;
+  svg+=`<text x="${cx.toFixed(2)}" y="${(cy+5).toFixed(2)}" font-family="'Cambria Math','Times New Roman',serif" font-style="italic" font-size="16" fill="#222" text-anchor="middle">${cornerLabel}</text>`;
+  // ป้ายแนวตั้ง (เหนือคอลัมน์)
+  if(spec.vertLabel){
+    svg+=`<text x="${(x0+cell/2).toFixed(2)}" y="${(y0-14).toFixed(2)}" font-size="14" fill="#222" text-anchor="middle">${spec.vertLabel}</text>`;
+  }
+  // ป้ายแนวนอน (ขวาสุดของแถว)
+  if(spec.horizLabel){
+    svg+=`<text x="${(x0+horizCount*cell+8).toFixed(2)}" y="${(cornerY+cell/2+5).toFixed(2)}" font-size="14" fill="#222" text-anchor="start">${spec.horizLabel}</text>`;
+  }
   return svg+'</svg>';
 }
