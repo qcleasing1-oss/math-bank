@@ -989,6 +989,106 @@
         "(ก) ผิด แต่ (ข) ถูก",
         "(ก) ผิด และ (ข) ผิด"
       ],
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 360,
+          "height": 360,
+          "xRange": [
+            -2.8,
+            2.8
+          ],
+          "yRange": [
+            -2.8,
+            2.8
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "q1",
+              "kind": "ellipse-arc",
+              "center": [
+                0,
+                0
+              ],
+              "a": 2,
+              "b": 2,
+              "startAngle": 0,
+              "endAngle": 90,
+              "color": "#2e7d32",
+              "strokeWidth": 2.4
+            },
+            {
+              "id": "q3",
+              "kind": "ellipse-arc",
+              "center": [
+                0,
+                0
+              ],
+              "a": 2,
+              "b": 2,
+              "startAngle": 180,
+              "endAngle": 270,
+              "color": "#2e7d32",
+              "strokeWidth": 2.4
+            },
+            {
+              "id": "q2",
+              "kind": "ellipse-arc",
+              "center": [
+                0,
+                0
+              ],
+              "a": 2,
+              "b": 2,
+              "startAngle": 90,
+              "endAngle": 180,
+              "color": "#aaa",
+              "dashed": true
+            },
+            {
+              "id": "q4",
+              "kind": "ellipse-arc",
+              "center": [
+                0,
+                0
+              ],
+              "a": 2,
+              "b": 2,
+              "startAngle": 270,
+              "endAngle": 360,
+              "color": "#aaa",
+              "dashed": true
+            }
+          ],
+          "annotations": [
+            {
+              "text": "xy > 0",
+              "at": [
+                0.15,
+                2.5
+              ],
+              "anchor": "start",
+              "color": "#2e7d32"
+            },
+            {
+              "text": "xy &lt; 0 (ไม่รวม)",
+              "at": [
+                -2.7,
+                0.35
+              ],
+              "anchor": "start",
+              "color": "#888"
+            }
+          ]
+        }
+      ],
       "correct": 0,
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
@@ -999,6 +1099,7 @@
         "<b>🎯 เป้าหมาย</b>",
         "ตรวจ (ก) ว่ากราฟวงกลมเฉพาะส่วน $xy > 0$ เป็นฟังก์ชันหรือไม่",
         "ตรวจ (ข) โดยหา $f^{-1}(25)$ แล้วส่งเข้า $g$",
+        "[IMAGE:0]",
         "",
         "<b>【 พื้นฐาน · ตรวจฟังก์ชันด้วยเส้นแนวดิ่งและหาฟังก์ชันผกผันร่วมกับฟังก์ชันประกอบ (vertical line test and inverse composition) 】</b>",
         "",
