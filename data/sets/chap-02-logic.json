@@ -936,7 +936,9 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "5"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "level": "medium",
@@ -944,7 +946,6 @@
       "question": "ให้ $S$ เป็นเซตของประพจน์ และ $f : S \\to \\{0, 1\\}$ กำหนดโดย $f(p) = 0$ ถ้า $p$ มีค่าความจริงเป็นเท็จ; $f(p) = 1$ ถ้า $p$ มีค่าความจริงเป็นจริง พิจารณาข้อความต่อไปนี้สำหรับประพจน์ $p, q$ ใดๆ\n\nก. $f(p \\vee q) = |f(p) - f(q)| + f(p) f(q)$\n\nข. $f(p \\wedge q) = f(p) f(q)$\n\nข้อใดต่อไปนี้ถูก",
       "hasImage": false,
       "sourceTag": "Entrance 2535",
-      "imageNote": "ข้อนี้อาศัยเนื้อหา \"ฟังก์ชัน\" ด้วย",
       "choices": [
         "ก. จริง ข. จริง",
         "ก. จริง ข. เท็จ",
@@ -3577,7 +3578,9 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "5"
+      ],
       "difficulty": "ยาก",
       "type": "mc",
       "level": "hard",
@@ -3585,7 +3588,6 @@
       "question": "กำหนดให้ $\\;P(x)$ แทนประโยค $\\exists x [\\, x^2 $ ≠ $ -1, \\; x \\in \\mathbb{R} \\,]$\n\n$\\;\\;\\;\\;Q(x)$ แทนประโยค $x \\in D_r$ เมื่อ $r = \\{ (x, y) \\in \\mathbb{R} \\times \\mathbb{R} \\mid y = \\sqrt{x - 2} \\,\\}$\n\n$\\;\\;\\;\\;R(x)$ แทนประโยค $x$ เป็นจำนวนตรรกยะที่อยู่ระหว่าง $0.010010001\\ldots$ กับ $0.1010010001\\ldots$\n\n$\\;\\;\\;\\;S(x)$ แทนประโยค $x$ เป็นจำนวนเชิงซ้อน\n\nจงหาว่า ประโยคในข้อใดมีค่าเป็นจริง",
       "hasImage": false,
       "sourceTag": "Entrance 2527",
-      "imageNote": "ข้อนี้อาศัยเนื้อหา \"ความสัมพันธ์\" ด้วย",
       "choices": [
         "$[R(0.0\\dot{1}) \\to \\sim S(\\pi)] \\wedge [\\sim Q(\\sqrt{2}) \\to R(0.0\\dot{1})]$",
         "$[\\sim P(x) \\vee Q(\\sqrt{2})] \\to \\sim [P(x) \\leftrightarrow R(0.0\\dot{1})]$",
