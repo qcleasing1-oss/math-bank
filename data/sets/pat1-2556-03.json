@@ -1053,6 +1053,176 @@
         "$7x^2 + 7y^2 - 4x + 82y - 55 = 0$",
         "$7x^2 + 7y^2 + 4x - 82y + 55 = 0$"
       ],
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 340,
+          "height": 320,
+          "xRange": [
+            -7.5,
+            1.5
+          ],
+          "yRange": [
+            -6,
+            8
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y"
+          },
+          "functions": [
+            {
+              "id": "parab",
+              "kind": "parabola-h",
+              "vertex": [
+                -0.5,
+                1
+              ],
+              "throughPoint": [
+                -2,
+                4
+              ],
+              "yDomain": [
+                -6,
+                8
+              ],
+              "color": "#2e7d32"
+            }
+          ],
+          "dots": [
+            {
+              "x": -0.5,
+              "y": 1,
+              "label": "(-1/2,1)",
+              "labelDx": 80,
+              "labelDy": 1,
+              "labelAnchor": "end"
+            },
+            {
+              "x": -2,
+              "y": 1,
+              "label": "F(-2,1)",
+              "labelDx": 12,
+              "labelDy": -20,
+              "labelAnchor": "end"
+            }
+          ]
+        },
+        {
+          "type": "circle-on-plane",
+          "width": 340,
+          "height": 320,
+          "xRange": [
+            -7,
+            6
+          ],
+          "yRange": [
+            -1,
+            12
+          ],
+          "axes": {
+            "arrows": true
+          },
+          "circles": [
+            {
+              "center": [
+                -0.2857142857142857,
+                5.857142857142857
+              ],
+              "r": 5.150787536377128,
+              "color": "#2e7d32"
+            }
+          ],
+          "lines": [
+            {
+              "from": [
+                -2,
+                -6
+              ],
+              "to": [
+                6,
+                6
+              ],
+              "color": "#c0392b"
+            }
+          ],
+          "segments": [
+            {
+              "from": [
+                -0.2857142857142857,
+                5.857142857142857
+              ],
+              "to": [
+                -2,
+                1
+              ],
+              "dashed": true,
+              "color": "#888"
+            },
+            {
+              "from": [
+                -0.2857142857142857,
+                5.857142857142857
+              ],
+              "to": [
+                4,
+                3
+              ],
+              "dashed": true,
+              "color": "#888"
+            }
+          ],
+          "dots": [
+            {
+              "x": -0.2857142857142857,
+              "y": 5.857142857142857,
+              "color": "#222"
+            },
+            {
+              "x": -2,
+              "y": 1,
+              "color": "#1565c0"
+            },
+            {
+              "x": 4,
+              "y": 3,
+              "color": "#1565c0"
+            }
+          ],
+          "labels": [
+            {
+              "at": [
+                -0.2857142857142857,
+                5.857142857142857
+              ],
+              "text": "C",
+              "dx": -9,
+              "dy": -12
+            },
+            {
+              "at": [
+                -2,
+                1
+              ],
+              "text": "F(-2,1)",
+              "dx": -2,
+              "dy": 14,
+              "anchor": "end"
+            },
+            {
+              "at": [
+                4,
+                3
+              ],
+              "text": "(4,3)",
+              "dx": 8,
+              "dy": 12
+            }
+          ]
+        }
+      ],
       "correct": 3,
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
@@ -1062,6 +1232,9 @@
         "",
         "<b>🎯 เป้าหมาย</b>",
         "(1) หาจุดโฟกัสของพาราโบลา (2) ตั้งสมการหาจุดศูนย์กลางวงกลม (3) เขียนสมการวงกลม",
+        "[IMAGE:0]",
+        "",
+        "[IMAGE:1]",
         "",
         "<b>【 วิธีที่ 1 ▸ พื้นฐาน 】</b>",
         "<b>ขั้นที่ 1: หาจุดโฟกัสของพาราโบลา</b>",
@@ -1791,6 +1964,142 @@
         "$\\left(3, \\dfrac{1}{2}\\right)$",
         "$\\left(4, \\dfrac{1}{4}\\right)$"
       ],
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "conic-ellipse-hyperbola",
+          "width": 500,
+          "height": 600,
+          "xRange": [
+            -9,
+            11
+          ],
+          "yRange": [
+            -6,
+            10
+          ],
+          "center": [
+            1,
+            2
+          ],
+          "hyperbola": {
+            "A": 4,
+            "B": 3,
+            "orientation": "horizontal"
+          },
+          "dots": [
+            {
+              "x": -3,
+              "y": 2,
+              "color": "#c0392b",
+              "label": "(-3,2)",
+              "labelDx": -12,
+              "labelDy": 1,
+              "anchor": "end"
+            },
+            {
+              "x": 5,
+              "y": 2,
+              "color": "#c0392b",
+              "label": "(5,2)",
+              "labelDx": 12,
+              "labelDy": 3
+            },
+            {
+              "x": 1,
+              "y": 2,
+              "color": "#222",
+              "label": "ศูนย์กลาง(1,2)",
+              "labelDx": 49,
+              "labelDy": -20,
+              "anchor": "end"
+            }
+          ]
+        },
+        {
+          "type": "function-plot",
+          "width": 500,
+          "height": 320,
+          "xRange": [
+            -5,
+            9
+          ],
+          "yRange": [
+            -0.5,
+            2.6
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y"
+          },
+          "functions": [
+            {
+              "id": "parab",
+              "kind": "parabola",
+              "vertex": [
+                1,
+                0
+              ],
+              "throughPoint": [
+                5,
+                2
+              ],
+              "color": "#2e7d32"
+            }
+          ],
+          "dots": [
+            {
+              "x": 1,
+              "y": 0,
+              "label": "จุดยอด(1,0)",
+              "labelDx": 50,
+              "labelDy": 38,
+              "labelAnchor": "end"
+            },
+            {
+              "x": -3,
+              "y": 2,
+              "label": "(-3,2)",
+              "labelDx": -15,
+              "labelDy": 6,
+              "labelAnchor": "end"
+            },
+            {
+              "x": 5,
+              "y": 2,
+              "label": "(5,2)",
+              "labelDx": 9,
+              "labelDy": 7
+            },
+            {
+              "x": 2,
+              "y": 0.125,
+              "color": "#1565c0",
+              "label": "(2, 1/8)",
+              "labelDx": 7,
+              "labelDy": 6
+            },
+            {
+              "x": 3,
+              "y": 0.5,
+              "color": "#1565c0",
+              "label": "(3, 1/2)",
+              "labelDx": 9,
+              "labelDy": 1
+            },
+            {
+              "x": 4,
+              "y": 0.25,
+              "color": "#c0392b",
+              "open": true,
+              "label": "(4, 1/4) ✗ไม่อยู่บน",
+              "labelDx": 7,
+              "labelDy": 4
+            }
+          ]
+        }
+      ],
       "correct": 3,
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
@@ -1800,6 +2109,9 @@
         "",
         "<b>🎯 เป้าหมาย</b>",
         "หาจุดยอดของไฮเพอร์โบลา → สร้างสมการพาราโบลาที่ตัดแกน $x$ ที่ $(1,0)$ และผ่านจุดยอดทั้งสอง → ตรวจว่าจุดใดไม่อยู่บนพาราโบลา",
+        "[IMAGE:0]",
+        "",
+        "[IMAGE:1]",
         "",
         "<b>【 วิธีที่ 1 ▸ พื้นฐาน 】</b>",
         "<b>ขั้นที่ 1: จัดรูปไฮเพอร์โบลาหาจุดยอด</b>",
