@@ -350,7 +350,7 @@
         "ไฮเพอร์โบลาซึ่งมีแกนตามขวางทับแกน $x$",
         "ไฮเพอร์โบลาซึ่งมีแกนตามขวางทับแกน $y$"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "sourceTag": "Entrance 2539",
       "correct": 2,
       "imageSpec": [
@@ -2138,7 +2138,7 @@
       "level": "easy",
       "score": 1,
       "question": "จำนวนเต็มบวก $x$ ทั้งหมดที่ทำให้เมทริกซ์ $\\begin{bmatrix} x & x \\\\ 1 & x \\end{bmatrix}$ มีค่าดีเทอร์มินันต์ไม่เกิน 30\nมีจำนวนเท่ากับเท่าใด",
-      "hasImage": false,
+      "hasImage": true,
       "sourceTag": "Entrance 2532",
       "correct": "6",
       "accept": [
@@ -2436,7 +2436,7 @@
         "$[-1, 0]$",
         "$(-\\infty, -1) \\cup \\{0\\}$"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "sourceTag": "Entrance 2536",
       "correct": 0,
       "imageSpec": [
@@ -2554,7 +2554,7 @@
         "$\\dfrac{4}{3}$",
         "$\\dfrac{5}{3}$"
       ],
-      "hasImage": false,
+      "hasImage": true,
       "sourceTag": "Entrance ต.ค. 2544",
       "correct": 3,
       "imageSpec": [
