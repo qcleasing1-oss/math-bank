@@ -159,6 +159,185 @@
         "$(-3, 2)$",
         "$(-1, \\infty)$"
       ],
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "number-line",
+          "width": 460,
+          "height": 200,
+          "scale": "even",
+          "criticals": [
+            -6,
+            -5,
+            -4,
+            -3,
+            -1,
+            -0.6666666666666666,
+            2
+          ],
+          "axisY": 170,
+          "labels": [
+            {
+              "at": -6,
+              "text": "−6"
+            },
+            {
+              "at": -5,
+              "text": "−5"
+            },
+            {
+              "at": -4,
+              "text": "−4"
+            },
+            {
+              "at": -3,
+              "text": "−3"
+            },
+            {
+              "at": -1,
+              "text": "−1"
+            },
+            {
+              "at": -0.6666666666666666,
+              "num": 2,
+              "den": 3,
+              "neg": true
+            },
+            {
+              "at": 2,
+              "text": "2"
+            }
+          ],
+          "bands": [
+            {
+              "from": -6,
+              "to": -0.6666666666666666,
+              "color": "#c8e6c9",
+              "opacity": 0.55,
+              "top": 148,
+              "height": 26
+            }
+          ],
+          "signs": [
+            {
+              "from": null,
+              "to": -6,
+              "label": "P จริง",
+              "color": "#c0392b"
+            },
+            {
+              "from": -6,
+              "to": -0.6666666666666666,
+              "label": "P เท็จ",
+              "color": "#2e7d32"
+            },
+            {
+              "from": -0.6666666666666666,
+              "to": null,
+              "label": "P จริง",
+              "color": "#c0392b"
+            }
+          ],
+          "rays": [
+            {
+              "from": -4,
+              "dir": "left",
+              "color": "#c0392b",
+              "y": 45
+            },
+            {
+              "from": -1,
+              "dir": "right",
+              "color": "#c0392b",
+              "y": 135
+            }
+          ],
+          "segments": [
+            {
+              "from": -5,
+              "to": -1,
+              "color": "#2e7d32",
+              "y": 75
+            },
+            {
+              "from": -3,
+              "to": 2,
+              "color": "#c0392b",
+              "y": 105
+            }
+          ],
+          "points": [
+            {
+              "at": -4,
+              "open": true,
+              "color": "#c0392b",
+              "y": 45
+            },
+            {
+              "at": -5,
+              "open": true,
+              "color": "#2e7d32",
+              "y": 75
+            },
+            {
+              "at": -1,
+              "open": true,
+              "color": "#2e7d32",
+              "y": 75
+            },
+            {
+              "at": -3,
+              "open": true,
+              "color": "#c0392b",
+              "y": 105
+            },
+            {
+              "at": 2,
+              "open": true,
+              "color": "#c0392b",
+              "y": 105
+            },
+            {
+              "at": -1,
+              "open": true,
+              "color": "#c0392b",
+              "y": 135
+            }
+          ],
+          "annotations": [
+            {
+              "x": 188,
+              "y": 49,
+              "text": "1)",
+              "color": "#c0392b",
+              "fontSize": 12
+            },
+            {
+              "x": 6,
+              "y": 79,
+              "text": "2)",
+              "color": "#2e7d32",
+              "fontSize": 12,
+              "weight": "bold"
+            },
+            {
+              "x": 6,
+              "y": 109,
+              "text": "3)",
+              "color": "#c0392b",
+              "fontSize": 12
+            },
+            {
+              "x": 272,
+              "y": 139,
+              "text": "4)",
+              "color": "#c0392b",
+              "fontSize": 12,
+              "anchor": "end"
+            }
+          ]
+        }
+      ],
       "correct": 1,
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
@@ -173,6 +352,7 @@
         "",
         "<b>🎯 เป้าหมาย</b>",
         "หาเซตคำตอบของ $P(x)$ และ $Q(x)$ บนจำนวนจริงก่อน แล้วเลือกเอกภพที่ทำให้ $Q$ จริงทุกตัว และ $P$ ไม่จริงสักตัว",
+        "[IMAGE:0]",
         "",
         "<b>【 วิธีที่ 1 ▸ พื้นฐาน 】</b>",
         "<b>ขั้นที่ 1: แก้ $Q(x): |2x+1| > x - 1$</b>",
@@ -242,6 +422,165 @@
         "(ก) ผิด แต่ (ข) ถูก",
         "(ก) ผิด และ (ข) ผิด"
       ],
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "number-line",
+          "width": 420,
+          "height": 195,
+          "scale": "even",
+          "criticals": [
+            -4,
+            -0.6666666666666666,
+            1,
+            4
+          ],
+          "axisY": 165,
+          "labels": [
+            {
+              "at": -4,
+              "text": "−4"
+            },
+            {
+              "at": -0.6666666666666666,
+              "num": 2,
+              "den": 3,
+              "neg": true
+            },
+            {
+              "at": 1,
+              "text": "1"
+            },
+            {
+              "at": 4,
+              "text": "4"
+            }
+          ],
+          "segments": [
+            {
+              "from": -0.6666666666666666,
+              "to": 4,
+              "color": "#d11",
+              "y": 135
+            },
+            {
+              "from": -4,
+              "to": 4,
+              "color": "#2e7d32",
+              "y": 113
+            },
+            {
+              "from": 1,
+              "to": 4,
+              "color": "#1565c0",
+              "y": 91
+            },
+            {
+              "from": -0.6666666666666666,
+              "to": 4,
+              "color": "#e67e22",
+              "y": 69
+            }
+          ],
+          "points": [
+            {
+              "at": -0.6666666666666666,
+              "open": false,
+              "color": "#d11",
+              "y": 135
+            },
+            {
+              "at": 4,
+              "open": false,
+              "color": "#d11",
+              "y": 135
+            },
+            {
+              "at": -4,
+              "open": true,
+              "color": "#2e7d32",
+              "y": 113
+            },
+            {
+              "at": 4,
+              "open": true,
+              "color": "#2e7d32",
+              "y": 113
+            },
+            {
+              "at": 1,
+              "open": false,
+              "color": "#1565c0",
+              "y": 91
+            },
+            {
+              "at": 4,
+              "open": true,
+              "color": "#1565c0",
+              "y": 91
+            },
+            {
+              "at": -0.6666666666666666,
+              "open": false,
+              "color": "#e67e22",
+              "y": 69
+            },
+            {
+              "at": 4,
+              "open": true,
+              "color": "#e67e22",
+              "y": 69
+            },
+            {
+              "at": 4,
+              "open": false,
+              "color": "#222",
+              "y": 48
+            }
+          ],
+          "annotations": [
+            {
+              "x": 6,
+              "y": 139,
+              "text": "A",
+              "color": "#d11",
+              "fontSize": 12,
+              "weight": "bold"
+            },
+            {
+              "x": 6,
+              "y": 117,
+              "text": "B",
+              "color": "#2e7d32",
+              "fontSize": 12,
+              "weight": "bold"
+            },
+            {
+              "x": 6,
+              "y": 95,
+              "text": "[1,4)",
+              "color": "#1565c0",
+              "fontSize": 11
+            },
+            {
+              "x": 6,
+              "y": 73,
+              "text": "A,B ร่วม",
+              "color": "#e67e22",
+              "fontSize": 11,
+              "weight": "bold"
+            },
+            {
+              "x": 333,
+              "y": 52,
+              "text": "A ต่าง B = {4}",
+              "color": "#222",
+              "fontSize": 12,
+              "anchor": "start"
+            }
+          ]
+        }
+      ],
       "correct": 2,
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
@@ -250,6 +589,7 @@
         "",
         "<b>🎯 เป้าหมาย</b>",
         "หาเซต $A$ และ $B$ ให้ชัด → หา $A \\cap B$ และ $A - B$ → ตรวจ (ก) (ข)",
+        "[IMAGE:0]",
         "",
         "<b>【 วิธีที่ 1 ▸ พื้นฐาน 】</b>",
         "<b>ขั้นที่ 1: หาเซต $A: |2x-5| + |x| \\le 7$ (แบ่ง 3 กรณี)</b>",
@@ -318,6 +658,196 @@
         "(ก) ผิด แต่ (ข) ถูก",
         "(ก) ผิด และ (ข) ผิด"
       ],
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "number-line",
+          "width": 460,
+          "height": 195,
+          "scale": "even",
+          "criticals": [
+            -12,
+            -3,
+            -1,
+            3,
+            8,
+            12
+          ],
+          "axisY": 165,
+          "labels": [
+            {
+              "at": -12,
+              "text": "−12"
+            },
+            {
+              "at": -3,
+              "text": "−3"
+            },
+            {
+              "at": -1,
+              "text": "−1"
+            },
+            {
+              "at": 3,
+              "text": "3"
+            },
+            {
+              "at": 8,
+              "text": "8"
+            },
+            {
+              "at": 12,
+              "text": "12"
+            }
+          ],
+          "segments": [
+            {
+              "from": -12,
+              "to": -3,
+              "color": "#d11",
+              "y": 135
+            },
+            {
+              "from": 3,
+              "to": 12,
+              "color": "#d11",
+              "y": 135
+            },
+            {
+              "from": -1,
+              "to": 8,
+              "color": "#2e7d32",
+              "y": 113
+            },
+            {
+              "from": 3,
+              "to": 8,
+              "color": "#8e44ad",
+              "y": 91
+            },
+            {
+              "from": -12,
+              "to": -3,
+              "color": "#1565c0",
+              "y": 69
+            },
+            {
+              "from": 8,
+              "to": 12,
+              "color": "#1565c0",
+              "y": 69
+            }
+          ],
+          "points": [
+            {
+              "at": -12,
+              "open": false,
+              "color": "#d11",
+              "y": 135
+            },
+            {
+              "at": -3,
+              "open": false,
+              "color": "#d11",
+              "y": 135
+            },
+            {
+              "at": 3,
+              "open": false,
+              "color": "#d11",
+              "y": 135
+            },
+            {
+              "at": 12,
+              "open": false,
+              "color": "#d11",
+              "y": 135
+            },
+            {
+              "at": -1,
+              "open": false,
+              "color": "#2e7d32",
+              "y": 113
+            },
+            {
+              "at": 8,
+              "open": false,
+              "color": "#2e7d32",
+              "y": 113
+            },
+            {
+              "at": 3,
+              "open": false,
+              "color": "#8e44ad",
+              "y": 91
+            },
+            {
+              "at": 8,
+              "open": false,
+              "color": "#8e44ad",
+              "y": 91
+            },
+            {
+              "at": -12,
+              "open": false,
+              "color": "#1565c0",
+              "y": 69
+            },
+            {
+              "at": -3,
+              "open": false,
+              "color": "#1565c0",
+              "y": 69
+            },
+            {
+              "at": 8,
+              "open": true,
+              "color": "#1565c0",
+              "y": 69
+            },
+            {
+              "at": 12,
+              "open": false,
+              "color": "#1565c0",
+              "y": 69
+            }
+          ],
+          "annotations": [
+            {
+              "x": 6,
+              "y": 139,
+              "text": "Dr",
+              "color": "#d11",
+              "fontSize": 12,
+              "weight": "bold"
+            },
+            {
+              "x": 6,
+              "y": 117,
+              "text": "Rr",
+              "color": "#2e7d32",
+              "fontSize": 12,
+              "weight": "bold"
+            },
+            {
+              "x": 6,
+              "y": 95,
+              "text": "Dr,Rr ร่วม",
+              "color": "#8e44ad",
+              "fontSize": 11,
+              "weight": "bold"
+            },
+            {
+              "x": 6,
+              "y": 73,
+              "text": "Dr ต่าง Rr",
+              "color": "#1565c0",
+              "fontSize": 11,
+              "weight": "bold"
+            }
+          ]
+        }
+      ],
       "correct": 3,
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
@@ -327,6 +857,7 @@
         "",
         "<b>🎯 เป้าหมาย</b>",
         "หา $\\mathrm{D}_r$ และ $\\mathrm{R}_r$ → หา $\\mathrm{D}_r \\cap \\mathrm{R}_r$ และ $\\mathrm{D}_r - \\mathrm{R}_r$ → ตรวจ (ก) (ข)",
+        "[IMAGE:0]",
         "",
         "<b>【 วิธีที่ 1 ▸ พื้นฐาน 】</b>",
         "<b>ขั้นที่ 1: หาโดเมน $\\mathrm{D}_r$</b>",
@@ -799,6 +1330,61 @@
         "$\\{\\, x \\in \\mathbb{R} \\mid 0 \\le |x + 3| \\le 5 \\,\\}$",
         "$\\{\\, x \\in \\mathbb{R} \\mid x^3 > 3x^2 \\,\\}$"
       ],
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "number-line",
+          "width": 300,
+          "height": 96,
+          "scale": "even",
+          "criticals": [
+            1,
+            2
+          ],
+          "axisY": 60,
+          "solutionY": 36,
+          "labels": [
+            {
+              "at": 1,
+              "text": "1"
+            },
+            {
+              "at": 2,
+              "text": "2"
+            }
+          ],
+          "segments": [
+            {
+              "from": 1,
+              "to": 2,
+              "color": "#d11"
+            }
+          ],
+          "points": [
+            {
+              "at": 1,
+              "open": true,
+              "color": "#d11"
+            },
+            {
+              "at": 2,
+              "open": false,
+              "color": "#d11"
+            }
+          ],
+          "annotations": [
+            {
+              "x": 150,
+              "y": 16,
+              "text": "A = (1, 2]",
+              "color": "#d11",
+              "fontSize": 12,
+              "anchor": "middle",
+              "weight": "bold"
+            }
+          ]
+        }
+      ],
       "correct": 2,
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
@@ -809,6 +1395,7 @@
         "",
         "<b>🎯 เป้าหมาย</b>",
         "หาเซตคำตอบ $A$ ของอสมการลอการิทึม → แล้วตรวจว่า $A$ เป็นสับเซตของตัวเลือกใด (ต้องอยู่ในตัวเลือกนั้น<b>ทั้งช่วง</b>)",
+        "[IMAGE:0]",
         "",
         "<b>【 พื้นฐาน · แก้อสมการลอการิทึมแล้วตรวจสับเซตทั้งช่วง (logarithmic inequality and subset verification) 】</b>",
         "",
