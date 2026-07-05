@@ -1772,11 +1772,11 @@
       },
       "snapshot": {
         "round": 6,
-        "stage": "STEP 8 — CUT 5 done (207) + figures/number-line done · pending preview+push",
+        "stage": "hasImage-flag bug fix DONE + pushed (5 ก.ค. 2569) — CLOSED",
         "questionsCompleted": 207,
         "questionsRemaining": 0,
         "exportedAt": "2026-06-25",
-        "note": "Pipeline step 0-8 (25 มิ.ย.69): CUT 5 ข้อบกพร่อง → 207 ข้อ (gap 99/102/106/164/175 ดู removedQuestions). step6 เส้นจำนวน 23 ข้อ (number-line 30 panel: 18·22·26·34·36·68·69·70·88·91·105·107·134·186·187·188·189·191·193·194·195·196·208; Q190 ตัด). step7 figures 6 ข้อ (function-plot 20 panel: Q114 สามเหลี่ยม region · Q122 exp compare a^x/b^x · Q71/113/211/212 รูปโจทย์เดิม; Q40 ข้าม). _bookKeyMismatch[193]: correct=2 (16, ตัวเลือก 3) ถูก — หนังสือ key=4 (17) นับ 20 เข้าผิดทั้งที่โจทย์ 'น้อยกว่า 20'; ครูยืนยัน 16 (ดู notes Q193). อย่าแก้ correct. renderers.js ไม่เปลี่ยนใน step6-7 (ไม่ push). subTopics ขาด = Phase A1 ค้าง. audit ว.2/multi-method ยังไม่ทำ. DEFERRED: line-break sweep bank-wide (ท้ายสุด)."
+        "note": "Pipeline step 0-8 (25 มิ.ย.69): CUT 5 ข้อบกพร่อง → 207 ข้อ (gap 99/102/106/164/175 ดู removedQuestions). step6 เส้นจำนวน 23 ข้อ (number-line 30 panel: 18·22·26·34·36·68·69·70·88·91·105·107·134·186·187·188·189·191·193·194·195·196·208; Q190 ตัด). step7 figures 6 ข้อ (function-plot 20 panel: Q114 สามเหลี่ยม region · Q122 exp compare a^x/b^x · Q71/113/211/212 รูปโจทย์เดิม; Q40 ข้าม). _bookKeyMismatch[193]: correct=2 (16, ตัวเลือก 3) ถูก — หนังสือ key=4 (17) นับ 20 เข้าผิดทั้งที่โจทย์ 'น้อยกว่า 20'; ครูยืนยัน 16 (ดู notes Q193). อย่าแก้ correct. renderers.js ไม่เปลี่ยนใน step6-7 (ไม่ push). subTopics ขาด = Phase A1 ค้าง. audit ว.2/multi-method ยังไม่ทำ. DEFERRED: line-break sweep bank-wide (ท้ายสุด). · [5 ก.ค.69] แก้บั๊ก hasImage 25 ข้อ (Q18,22,26,34,36,68,69,70,88,91,105,107,114,122,134,186,187,188,189,191,193,194,195,196,208 — number-line 22 panel + function-plot 2 panel, marker ครบทุกข้อแต่ hasImage ค้าง false) verify render+overflow ผ่านหมด push แล้ว."
       }
     },
     "chap-09-vector": {
