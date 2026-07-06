@@ -4010,6 +4010,58 @@
               "anchor": "middle"
             }
           ]
+        },
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
+            -0.5,
+            3.5
+          ],
+          "width": 340,
+          "height": 96,
+          "axisY": 60,
+          "solutionY": 36,
+          "labels": [
+            {
+              "at": -0.5,
+              "num": 1,
+              "den": 2,
+              "neg": true
+            },
+            {
+              "at": 3.5,
+              "num": 7,
+              "den": 2
+            }
+          ],
+          "segments": [
+            {
+              "from": -0.5,
+              "to": 3.5,
+              "color": "#d11"
+            }
+          ],
+          "points": [
+            {
+              "at": -0.5,
+              "open": false,
+              "color": "#d11"
+            },
+            {
+              "at": 3.5,
+              "open": false,
+              "color": "#d11"
+            }
+          ],
+          "annotations": [
+            {
+              "text": "B = [−1/2, 7/2]",
+              "x": 170,
+              "y": 15,
+              "anchor": "middle"
+            }
+          ]
         }
       ],
       "explanation": [
@@ -4028,6 +4080,8 @@
         "<b>ขั้นที่ 2:</b> หาเซต $B$ —",
         "$\\begin{aligned} |3 - 2x| & \\le 4 \\\\ -4 & \\le 3 - 2x \\le 4 \\\\ -7 & \\le -2x \\le 1 \\\\ -\\dfrac{1}{2} & \\le x \\le \\dfrac{7}{2} \\end{aligned}$",
         "ดังนั้น $B = [-\\dfrac{1}{2}, \\dfrac{7}{2}]$",
+        "[IMAGE:1]",
+        "",
         "",
         "<b>ขั้นที่ 3:</b> ตรวจ ก. — $A' = [-1, \\dfrac{2}{3}]$",
         "ดังนั้น",
@@ -4576,6 +4630,126 @@
           "scale": "even",
           "criticals": [
             -2,
+            6
+          ],
+          "width": 320,
+          "height": 96,
+          "axisY": 60,
+          "solutionY": 36,
+          "labels": [
+            {
+              "at": -2,
+              "text": "−2"
+            },
+            {
+              "at": 6,
+              "text": "6"
+            }
+          ],
+          "segments": [
+            {
+              "from": -2,
+              "to": 6,
+              "color": "#d11"
+            }
+          ],
+          "points": [
+            {
+              "at": -2,
+              "open": true,
+              "color": "#d11"
+            },
+            {
+              "at": 6,
+              "open": true,
+              "color": "#d11"
+            }
+          ],
+          "annotations": [
+            {
+              "text": "A = (−2, 6)",
+              "x": 160,
+              "y": 15,
+              "anchor": "middle"
+            }
+          ]
+        },
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
+            0,
+            3,
+            5
+          ],
+          "width": 380,
+          "height": 96,
+          "axisY": 60,
+          "solutionY": 36,
+          "labels": [
+            {
+              "at": 0,
+              "text": "0"
+            },
+            {
+              "at": 3,
+              "text": "3"
+            },
+            {
+              "at": 5,
+              "text": "5"
+            }
+          ],
+          "rays": [
+            {
+              "from": 0,
+              "dir": "left",
+              "color": "#d11"
+            },
+            {
+              "from": 5,
+              "dir": "right",
+              "color": "#d11"
+            }
+          ],
+          "segments": [
+            {
+              "from": 0,
+              "to": 3,
+              "color": "#d11"
+            }
+          ],
+          "points": [
+            {
+              "at": 0,
+              "open": true,
+              "color": "#d11"
+            },
+            {
+              "at": 3,
+              "open": true,
+              "color": "#d11"
+            },
+            {
+              "at": 5,
+              "open": true,
+              "color": "#d11"
+            }
+          ],
+          "annotations": [
+            {
+              "text": "B = (−∞, 0) ∪ (0, 3) ∪ (5, ∞)",
+              "x": 190,
+              "y": 15,
+              "anchor": "middle"
+            }
+          ]
+        },
+        {
+          "type": "number-line",
+          "scale": "even",
+          "criticals": [
+            -2,
             0,
             3,
             5,
@@ -4672,16 +4846,20 @@
         "<b>ขั้นที่ 1:</b> หาเซต $A$ —",
         "$\\begin{aligned} |x - 2| & < 4 \\\\ -4 & < x - 2 < 4 \\\\ -2 & < x < 6 \\end{aligned}$",
         "ดังนั้น $A = (-2, 6)$",
+        "[IMAGE:0]",
+        "",
         "",
         "<b>ขั้นที่ 2:</b> หาเซต $B$ — คูณ $15x^{-2} - 8x^{-1} + 1 > 0$ ด้วย $x^{2} > 0$ (โดย $x \\ne 0$) ได้",
         "$\\begin{aligned} 15 - 8x + x^{2} & > 0 \\\\ x^{2} - 8x + 15 & > 0 \\\\ (x - 3)(x - 5) & > 0 \\\\ x & < 3 \\end{aligned}$",
         "หรือ $x > 5$",
         "และ $x \\ne 0$",
         "ดังนั้น $B = (-\\infty, 0) \\cup (0, 3) \\cup (5, \\infty)$",
+        "[IMAGE:1]",
+        "",
         "",
         "<b>ขั้นที่ 3:</b> หา",
         "$\\begin{aligned} A \\cap B &= (-2, 6) \\cap [(-\\infty, 0) \\cup (0, 3) \\cup (5, \\infty)] \\\\ &= (-2, 0) \\cup (0, 3) \\cup (5, 6) \\end{aligned}$",
-        "[IMAGE:0]",
+        "[IMAGE:2]",
         "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ · ค่าทดสอบตัดตัวเลือก (test values) 】</b>",
         "<b>ขั้นที่ 1:</b> ทดสอบ $x = 0$ — พจน์ $x^{-2}$ นิยามไม่ได้ → $0 \\notin B$ → ตัวเลือกที่ครอบ $0$ ผิด",
         "• ตัวเลือก 1 คือ $(-2, 3) \\cup (5, 6)$ ครอบ $0$ → ตัด",
