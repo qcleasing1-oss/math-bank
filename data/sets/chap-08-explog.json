@@ -1483,7 +1483,78 @@
         "$\\dfrac{x - 4}{x + 4} > 0$",
         "$x^2 + 3x - 4 < 0$"
       ],
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": {
+        "criticals": [
+          -4,
+          4
+        ],
+        "width": 380,
+        "height": 96,
+        "axisY": 60,
+        "solutionY": 36,
+        "labels": [
+          {
+            "at": -4,
+            "text": "−4"
+          },
+          {
+            "at": 4,
+            "text": "4"
+          }
+        ],
+        "signs": [
+          {
+            "from": null,
+            "to": -4,
+            "label": "+"
+          },
+          {
+            "from": -4,
+            "to": 4,
+            "label": "−"
+          },
+          {
+            "from": 4,
+            "to": null,
+            "label": "+"
+          }
+        ],
+        "rays": [
+          {
+            "from": -4,
+            "dir": "left",
+            "color": "#2e7d32"
+          },
+          {
+            "from": 4,
+            "dir": "right",
+            "color": "#2e7d32"
+          }
+        ],
+        "points": [
+          {
+            "at": -4,
+            "open": true,
+            "color": "#2e7d32"
+          },
+          {
+            "at": 4,
+            "open": true,
+            "color": "#2e7d32"
+          }
+        ],
+        "annotations": [
+          {
+            "text": "เซตคำตอบ = (−∞, −4) ∪ (4, ∞)",
+            "x": 190,
+            "y": 15,
+            "anchor": "middle"
+          }
+        ],
+        "type": "number-line",
+        "scale": "even"
+      },
       "sourceTag": "Entrance 2532",
       "correct": 2,
       "explanation": [
@@ -1502,6 +1573,8 @@
         "",
         "<b>ขั้นที่ 3:</b> $x^2 > 16$ ก็ต่อเมื่อ $|x| > 4$ คือ $x < -4$",
         "หรือ $x > 4$",
+        "[IMAGE:0]",
+        "",
         "",
         "<b>ขั้นที่ 4: เทียบเซตคำตอบของแต่ละตัวเลือก</b>",
         "ข้อ 1: $\\dfrac{1}{x} > \\dfrac{1}{4}$ ได้ $0 < x < 4$ → ไม่ตรง",
@@ -1545,7 +1618,58 @@
         "$(-10, 10)$",
         "$(-\\infty, 2)$"
       ],
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": {
+        "criticals": [
+          2
+        ],
+        "width": 320,
+        "height": 96,
+        "axisY": 60,
+        "solutionY": 36,
+        "labels": [
+          {
+            "at": 2,
+            "text": "2"
+          }
+        ],
+        "signs": [
+          {
+            "from": null,
+            "to": 2,
+            "label": "−"
+          },
+          {
+            "from": 2,
+            "to": null,
+            "label": "+"
+          }
+        ],
+        "rays": [
+          {
+            "from": 2,
+            "dir": "left",
+            "color": "#2e7d32"
+          }
+        ],
+        "points": [
+          {
+            "at": 2,
+            "open": true,
+            "color": "#2e7d32"
+          }
+        ],
+        "annotations": [
+          {
+            "text": "เซตคำตอบ = (−∞, 2)",
+            "x": 160,
+            "y": 15,
+            "anchor": "middle"
+          }
+        ],
+        "type": "number-line",
+        "scale": "even"
+      },
       "sourceTag": "Entrance มี.ค. 2544",
       "correct": 3,
       "explanation": [
@@ -1569,6 +1693,8 @@
         "โดย $x^2 - x + 1$ มี discriminant $= 1 - 4 = -3 < 0$ จึงเป็นบวกเสมอ",
         "",
         "<b>ขั้นที่ 4:</b> อสมการเหลือ $x - 2 < 0$ คือ $x < 2$ เซตคำตอบ $= (-\\infty, 2)$ ซึ่งเป็นสับเซตของ $(-\\infty, 2)$ ในตัวเลือก 4 (ช่วงอื่นไม่ครอบคลุม เช่น $x = -50$ เป็นคำตอบแต่ไม่อยู่ใน $(-2,100)$ หรือ $(-10,10)$)",
+        "[IMAGE:0]",
+        "",
         "",
         "<b>✔ ตรวจคำตอบ</b> จุดทดสอบ $x = 0$ : ซ้าย $2^0 = 1$ ขวา $2^2 = 4$ จริง ✓ ($0 < 2$)",
         "$x = 3$ : ซ้าย $2^0 = 1$ ขวา $2^{-7}$ เท็จ ✓ ($3 > 2$) — sympy ยืนยันเซตคำตอบ $x < 2$",
@@ -2308,7 +2434,56 @@
         "$2$",
         "$\\log_5 30$"
       ],
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": {
+        "criticals": [
+          0.43067655807339306,
+          1.4306765580733933
+        ],
+        "width": 380,
+        "height": 96,
+        "axisY": 60,
+        "solutionY": 36,
+        "labels": [
+          {
+            "at": 0.43067655807339306,
+            "text": "log₅2"
+          },
+          {
+            "at": 1.4306765580733933,
+            "text": "log₅10"
+          }
+        ],
+        "segments": [
+          {
+            "from": 0.43067655807339306,
+            "to": 1.4306765580733933,
+            "color": "#2e7d32"
+          }
+        ],
+        "points": [
+          {
+            "at": 0.43067655807339306,
+            "open": false,
+            "color": "#2e7d32"
+          },
+          {
+            "at": 1.4306765580733933,
+            "open": false,
+            "color": "#2e7d32"
+          }
+        ],
+        "annotations": [
+          {
+            "text": "S = [log₅2, log₅10]",
+            "x": 190,
+            "y": 15,
+            "anchor": "middle"
+          }
+        ],
+        "type": "number-line",
+        "scale": "even"
+      },
       "sourceTag": "Entrance ต.ค. 2547",
       "correct": 1,
       "explanation": [
@@ -2329,6 +2504,8 @@
         "",
         "<b>ขั้นที่ 4:</b> ดังนั้น $2 \\le 5^x \\le 10$ ได้ $S = [\\log_5 2, \\log_5 10]$",
         "$b = \\log_5 2$ (น้อยสุด) , $a = \\log_5 10$ (มากสุด) : $a + b = \\log_5 (10 \\cdot 2) = \\log_5 20$",
+        "[IMAGE:0]",
+        "",
         "",
         "<b>✔ ตรวจคำตอบ</b> ขอบ $t = 2$ : $4 + 11 = 15 = |24 - 9|$ ✓ และ $t = 10$ : $100 + 11 = 111 = |120 - 9|$ ✓ — sympy ยืนยันกรณีสองไม่มีรากบวก",
         "",
@@ -4126,7 +4303,136 @@
         "ก. ผิด และ ข. ถูก",
         "ก. ผิด และ ข. ผิด"
       ],
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "criticals": [
+            -4,
+            1
+          ],
+          "width": 380,
+          "height": 108,
+          "axisY": 66,
+          "solutionY": 44,
+          "labels": [
+            {
+              "at": -4,
+              "text": "−4"
+            },
+            {
+              "at": 1,
+              "text": "1"
+            }
+          ],
+          "rays": [
+            {
+              "from": 1,
+              "dir": "left",
+              "color": "#2e7d32",
+              "y": 54
+            }
+          ],
+          "segments": [
+            {
+              "from": -4,
+              "to": 1,
+              "color": "#d11",
+              "y": 38
+            }
+          ],
+          "points": [
+            {
+              "at": -4,
+              "open": true,
+              "color": "#d11",
+              "y": 38
+            },
+            {
+              "at": 1,
+              "open": true,
+              "color": "#d11",
+              "y": 38
+            },
+            {
+              "at": 1,
+              "open": true,
+              "color": "#2e7d32",
+              "y": 54
+            }
+          ],
+          "annotations": [
+            {
+              "text": "เงื่อนไข 1: (−4, 1)   ·   เงื่อนไข 2: (−∞, 1)",
+              "x": 190,
+              "y": 15,
+              "anchor": "middle"
+            },
+            {
+              "text": "1",
+              "x": 6,
+              "y": 41,
+              "color": "#2e7d32"
+            },
+            {
+              "text": "2",
+              "x": 6,
+              "y": 57,
+              "color": "#d11"
+            }
+          ],
+          "type": "number-line",
+          "scale": "even"
+        },
+        {
+          "criticals": [
+            -4,
+            1
+          ],
+          "width": 320,
+          "height": 96,
+          "axisY": 60,
+          "solutionY": 36,
+          "labels": [
+            {
+              "at": -4,
+              "text": "−4"
+            },
+            {
+              "at": 1,
+              "text": "1"
+            }
+          ],
+          "segments": [
+            {
+              "from": -4,
+              "to": 1,
+              "color": "#d11"
+            }
+          ],
+          "points": [
+            {
+              "at": -4,
+              "open": true,
+              "color": "#d11"
+            },
+            {
+              "at": 1,
+              "open": true,
+              "color": "#d11"
+            }
+          ],
+          "annotations": [
+            {
+              "text": "โดเมน = (−4, 1)",
+              "x": 160,
+              "y": 15,
+              "anchor": "middle"
+            }
+          ],
+          "type": "number-line",
+          "scale": "even"
+        }
+      ],
       "sourceTag": "Entrance 2532",
       "correct": 0,
       "explanation": [
@@ -4141,6 +4447,10 @@
         "<b>ขั้นที่ 1 (ก):</b> เงื่อนไขแรก $4 - 3x - x^2 > 0$ คูณ $-1$ : $x^2 + 3x - 4 < 0$ แยก $(x + 4)(x - 1) < 0$ ได้ $-4 < x < 1$",
         "",
         "<b>ขั้นที่ 2 (ก):</b> เงื่อนไขสอง $1 - x > 0$ คือ $x < 1$ — อินเตอร์เซกต์กับขั้นที่ 1 เหลือ $-4 < x < 1$ ตรงข้อความ ก → ก ถูก",
+        "[IMAGE:0]",
+        "",
+        "[IMAGE:1]",
+        "",
         "",
         "<b>ขั้นที่ 3 (ข):</b> แก้ $f(x) = 0$ : $\\log \\dfrac{4 - 3x - x^2}{1 - x} = 0$ ได้ $\\dfrac{4 - 3x - x^2}{1 - x} = 1$",
         "",
@@ -7134,7 +7444,56 @@
       "level": "medium",
       "score": 1,
       "question": "ให้ช่วงเปิด $(a, b)$ เป็นเซตคำตอบของอสมการ $\\log(3x + 4) > \\log(x - 1) + 1$\nแล้ว $a + b$ มีค่าเท่ากับเท่าใด",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": {
+        "criticals": [
+          1,
+          2
+        ],
+        "width": 320,
+        "height": 96,
+        "axisY": 60,
+        "solutionY": 36,
+        "labels": [
+          {
+            "at": 1,
+            "text": "1"
+          },
+          {
+            "at": 2,
+            "text": "2"
+          }
+        ],
+        "segments": [
+          {
+            "from": 1,
+            "to": 2,
+            "color": "#2e7d32"
+          }
+        ],
+        "points": [
+          {
+            "at": 1,
+            "open": true,
+            "color": "#2e7d32"
+          },
+          {
+            "at": 2,
+            "open": true,
+            "color": "#2e7d32"
+          }
+        ],
+        "annotations": [
+          {
+            "text": "เซตคำตอบ = (1, 2)",
+            "x": 160,
+            "y": 15,
+            "anchor": "middle"
+          }
+        ],
+        "type": "number-line",
+        "scale": "even"
+      },
       "sourceTag": "Entrance ต.ค. 2544",
       "correct": "3",
       "accept": [
@@ -7157,6 +7516,8 @@
         "<b>ขั้นที่ 3:</b> ย้ายข้าง: $14 > 7x$ ได้ $x < 2$",
         "",
         "<b>ขั้นที่ 4:</b> อินเตอร์เซกต์กับโดเมน: $1 < x < 2$ — เซตคำตอบคือช่วงเปิด $(1, 2)$ ดังนั้น $a = 1, b = 2$",
+        "[IMAGE:0]",
+        "",
         "",
         "<b>ขั้นที่ 5:</b> $a + b = 1 + 2 = 3$",
         "",
@@ -7191,7 +7552,143 @@
         "$(0, 3]$",
         "$[3, 16)$"
       ],
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "criticals": [
+            0,
+            1.5,
+            16
+          ],
+          "width": 440,
+          "height": 108,
+          "axisY": 66,
+          "solutionY": 44,
+          "labels": [
+            {
+              "at": 0,
+              "text": "0"
+            },
+            {
+              "at": 1.5,
+              "num": 3,
+              "den": 2
+            },
+            {
+              "at": 16,
+              "text": "16"
+            }
+          ],
+          "rays": [
+            {
+              "from": 1.5,
+              "dir": "right",
+              "color": "#2e7d32",
+              "y": 54
+            }
+          ],
+          "segments": [
+            {
+              "from": 0,
+              "to": 16,
+              "color": "#d11",
+              "y": 38
+            }
+          ],
+          "points": [
+            {
+              "at": 0,
+              "open": true,
+              "color": "#d11",
+              "y": 38
+            },
+            {
+              "at": 16,
+              "open": true,
+              "color": "#d11",
+              "y": 38
+            },
+            {
+              "at": 1.5,
+              "open": false,
+              "color": "#2e7d32",
+              "y": 54
+            }
+          ],
+          "annotations": [
+            {
+              "text": "A = (0, 16)   ·   B = [3/2, ∞)",
+              "x": 220,
+              "y": 15,
+              "anchor": "middle"
+            },
+            {
+              "text": "B",
+              "x": 6,
+              "y": 41,
+              "color": "#2e7d32"
+            },
+            {
+              "text": "A",
+              "x": 6,
+              "y": 57,
+              "color": "#d11"
+            }
+          ],
+          "type": "number-line",
+          "scale": "even"
+        },
+        {
+          "criticals": [
+            0,
+            1.5
+          ],
+          "width": 320,
+          "height": 96,
+          "axisY": 60,
+          "solutionY": 36,
+          "labels": [
+            {
+              "at": 0,
+              "text": "0"
+            },
+            {
+              "at": 1.5,
+              "num": 3,
+              "den": 2
+            }
+          ],
+          "segments": [
+            {
+              "from": 0,
+              "to": 1.5,
+              "color": "#d11"
+            }
+          ],
+          "points": [
+            {
+              "at": 0,
+              "open": true,
+              "color": "#d11"
+            },
+            {
+              "at": 1.5,
+              "open": true,
+              "color": "#d11"
+            }
+          ],
+          "annotations": [
+            {
+              "text": "A − B = (0, 3/2)",
+              "x": 160,
+              "y": 15,
+              "anchor": "middle"
+            }
+          ],
+          "type": "number-line",
+          "scale": "even"
+        }
+      ],
       "sourceTag": "Entrance ต.ค. 2545",
       "correct": 0,
       "explanation": [
@@ -7211,9 +7708,13 @@
         "<b>ขั้นที่ 3:</b> แยกตัวประกอบ: $(t - 27)(t + 1) \\ge 0$ — เนื่องจาก $t = 3^{2x} > 0$ ทำให้ $t + 1 > 0$ เสมอ เหลือเงื่อนไข $t \\ge 27$",
         "",
         "<b>ขั้นที่ 4:</b> ถอดกลับ: $3^{2x} \\ge 3^3$ ได้ $2x \\ge 3$ คือ $x \\ge \\dfrac{3}{2}$ — $B = \\left[\\dfrac{3}{2}, \\infty\\right)$",
+        "[IMAGE:0]",
+        "",
         "",
         "<b>ขั้นที่ 5:</b>",
         "$\\begin{aligned} A - B &= (0, 16) - \\left[\\dfrac{3}{2}, \\infty\\right) \\\\ &= \\left(0, \\dfrac{3}{2}\\right) \\end{aligned}$",
+        "[IMAGE:1]",
+        "",
         "",
         "<b>✔ ตรวจคำตอบ</b> sympy: สัมประสิทธิ์รวม $\\dfrac{7}{4}$ ✓ รากของ $t^2 - 26t - 27$ คือ $-1, 27$ ✓ ผลลบเซตได้ $\\left(0, \\dfrac{3}{2}\\right)$ ✓",
         "เช็คตัวแทน $x = 1$ : อยู่ใน $A$ (ผลรวม log $= 0 < 7$) และไม่อยู่ใน $B$ ($3^1 - 26 \\cdot 3^{-1} = 3 - 8.67 < 1$) ✓",
@@ -7392,7 +7893,73 @@
         "$10^{11/2}$",
         "$10^{13/2}$"
       ],
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": {
+        "criticals": [
+          100,
+          316.22776601683796
+        ],
+        "width": 380,
+        "height": 96,
+        "axisY": 60,
+        "solutionY": 36,
+        "labels": [
+          {
+            "at": 100,
+            "text": "10²"
+          },
+          {
+            "at": 316.22776601683796,
+            "text": "10^(5/2)"
+          }
+        ],
+        "signs": [
+          {
+            "from": null,
+            "to": 100,
+            "label": "+"
+          },
+          {
+            "from": 100,
+            "to": 316.22776601683796,
+            "label": "−"
+          },
+          {
+            "from": 316.22776601683796,
+            "to": null,
+            "label": "+"
+          }
+        ],
+        "segments": [
+          {
+            "from": 100,
+            "to": 316.22776601683796,
+            "color": "#2e7d32"
+          }
+        ],
+        "points": [
+          {
+            "at": 100,
+            "open": false,
+            "color": "#2e7d32"
+          },
+          {
+            "at": 316.22776601683796,
+            "open": false,
+            "color": "#2e7d32"
+          }
+        ],
+        "annotations": [
+          {
+            "text": "S = [10², 10^(5/2)]",
+            "x": 190,
+            "y": 15,
+            "anchor": "middle"
+          }
+        ],
+        "type": "number-line",
+        "scale": "even"
+      },
       "sourceTag": "Entrance มี.ค. 2548",
       "correct": 1,
       "explanation": [
@@ -7412,6 +7979,8 @@
         "<b>ขั้นที่ 3:</b> กระจาย: $9L - 2L^2 \\ge 10$ จัดรูป $2L^2 - 9L + 10 \\le 0$ แยก $(2L - 5)(L - 2) \\le 0$ ได้ $2 \\le L \\le \\dfrac{5}{2}$ (อยู่ในโดเมนขั้นที่ 1 ทั้งช่วง)",
         "",
         "<b>ขั้นที่ 4:</b> ถอดกลับ: $2 \\le \\log x \\le \\dfrac{5}{2}$ คือ $x \\in \\left[ 10^2, 10^{5/2} \\right]$ — ดังนั้น $a = 10^{5/2}$ (มากสุด) และ $b = 10^2$ (น้อยสุด)",
+        "[IMAGE:0]",
+        "",
         "",
         "<b>ขั้นที่ 5:</b>",
         "$\\begin{aligned} ab &= 10^{5/2} \\cdot 10^2 \\\\ &= 10^{5/2 + 2} \\\\ &= 10^{9/2} \\end{aligned}$",
@@ -7449,7 +8018,173 @@
         "$[1/2, 5/2]$",
         "$[1/3, 7/3]$"
       ],
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "criticals": [
+            -1,
+            3
+          ],
+          "width": 340,
+          "height": 96,
+          "axisY": 60,
+          "solutionY": 36,
+          "labels": [
+            {
+              "at": -1,
+              "text": "−1"
+            },
+            {
+              "at": 3,
+              "text": "3"
+            }
+          ],
+          "signs": [
+            {
+              "from": null,
+              "to": -1,
+              "label": "+"
+            },
+            {
+              "from": -1,
+              "to": 3,
+              "label": "−"
+            },
+            {
+              "from": 3,
+              "to": null,
+              "label": "+"
+            }
+          ],
+          "segments": [
+            {
+              "from": -1,
+              "to": 3,
+              "color": "#2e7d32"
+            }
+          ],
+          "points": [
+            {
+              "at": -1,
+              "open": false,
+              "color": "#2e7d32"
+            },
+            {
+              "at": 3,
+              "open": false,
+              "color": "#2e7d32"
+            }
+          ],
+          "annotations": [
+            {
+              "text": "(x−3)(x+1) ≤ 0  →  [−1, 3]",
+              "x": 170,
+              "y": 15,
+              "anchor": "middle"
+            }
+          ],
+          "type": "number-line",
+          "scale": "even"
+        },
+        {
+          "criticals": [
+            1,
+            3
+          ],
+          "width": 320,
+          "height": 96,
+          "axisY": 60,
+          "solutionY": 36,
+          "labels": [
+            {
+              "at": 1,
+              "text": "1"
+            },
+            {
+              "at": 3,
+              "text": "3"
+            }
+          ],
+          "segments": [
+            {
+              "from": 1,
+              "to": 3,
+              "color": "#2e7d32"
+            }
+          ],
+          "points": [
+            {
+              "at": 1,
+              "open": true,
+              "color": "#2e7d32"
+            },
+            {
+              "at": 3,
+              "open": false,
+              "color": "#2e7d32"
+            }
+          ],
+          "annotations": [
+            {
+              "text": "S = (1, 3]  (ตัดกับโดเมน x มากกว่า 1)",
+              "x": 160,
+              "y": 15,
+              "anchor": "middle"
+            }
+          ],
+          "type": "number-line",
+          "scale": "even"
+        },
+        {
+          "criticals": [
+            0,
+            2
+          ],
+          "width": 320,
+          "height": 96,
+          "axisY": 60,
+          "solutionY": 36,
+          "labels": [
+            {
+              "at": 0,
+              "text": "0"
+            },
+            {
+              "at": 2,
+              "text": "2"
+            }
+          ],
+          "segments": [
+            {
+              "from": 0,
+              "to": 2,
+              "color": "#d11"
+            }
+          ],
+          "points": [
+            {
+              "at": 0,
+              "open": true,
+              "color": "#d11"
+            },
+            {
+              "at": 2,
+              "open": false,
+              "color": "#d11"
+            }
+          ],
+          "annotations": [
+            {
+              "text": "T = (0, 2]",
+              "x": 160,
+              "y": 15,
+              "anchor": "middle"
+            }
+          ],
+          "type": "number-line",
+          "scale": "even"
+        }
+      ],
       "sourceTag": "Entrance ต.ค. 2546",
       "correct": 0,
       "explanation": [
@@ -7467,10 +8202,16 @@
         "<b>ขั้นที่ 2:</b> บนกรณี $x > 1$ (ฐานเกิน $1$ ถอดทิศเดิม): $\\dfrac{x+3}{x-1} \\ge x$ คูณ $(x-1) > 0$ : $x + 3 \\ge x(x - 1)$",
         "",
         "<b>ขั้นที่ 3:</b> จัดรูป: $x + 3 \\ge x^2 - x$ ได้ $x^2 - 2x - 3 \\le 0$ แยก $(x - 3)(x + 1) \\le 0$ คือ $-1 \\le x \\le 3$",
+        "[IMAGE:0]",
+        "",
         "",
         "<b>ขั้นที่ 4:</b> อินเตอร์เซกต์กับ $x > 1$ : $S = (1, 3]$",
+        "[IMAGE:1]",
+        "",
         "",
         "<b>ขั้นที่ 5:</b> แปลงเป็น $T$ : $\\log_{\\sqrt{3}}$ เป็นฟังก์ชันเพิ่ม (ฐาน $\\sqrt{3} > 1$) ดังนั้น $T = \\left( \\log_{\\sqrt{3}} 1, \\log_{\\sqrt{3}} 3 \\right] = (0, 2]$ (เพราะ $\\log_{\\sqrt{3}} 3 = \\log_{\\sqrt{3}} (\\sqrt{3})^2 = 2$) — และ $(0, 2] \\subseteq [0, 2]$ ✓",
+        "[IMAGE:2]",
+        "",
         "",
         "<b>✔ ตรวจคำตอบ</b> sympy ยืนยันช่วง $[-1, 3]$ ✓ และ $\\log_{\\sqrt{3}} 3 = 2$ ✓",
         "เช็ค $x = 3$ : $\\log_3 \\dfrac{6}{2} = \\log_3 3 = 1 \\ge 1$ ✓ ขอบรวมจริง",
@@ -7629,7 +8370,74 @@
         "$200$",
         "$1000$"
       ],
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": {
+        "criticals": [
+          0.01,
+          10
+        ],
+        "width": 380,
+        "height": 96,
+        "axisY": 60,
+        "solutionY": 36,
+        "labels": [
+          {
+            "at": 0.01,
+            "num": 1,
+            "den": 100
+          },
+          {
+            "at": 10,
+            "text": "10"
+          }
+        ],
+        "signs": [
+          {
+            "from": null,
+            "to": 0.01,
+            "label": "+"
+          },
+          {
+            "from": 0.01,
+            "to": 10,
+            "label": "−"
+          },
+          {
+            "from": 10,
+            "to": null,
+            "label": "+"
+          }
+        ],
+        "segments": [
+          {
+            "from": 0.01,
+            "to": 10,
+            "color": "#2e7d32"
+          }
+        ],
+        "points": [
+          {
+            "at": 0.01,
+            "open": false,
+            "color": "#2e7d32"
+          },
+          {
+            "at": 10,
+            "open": false,
+            "color": "#2e7d32"
+          }
+        ],
+        "annotations": [
+          {
+            "text": "S = [1/100, 10]",
+            "x": 190,
+            "y": 15,
+            "anchor": "middle"
+          }
+        ],
+        "type": "number-line",
+        "scale": "even"
+      },
       "sourceTag": "Entrance มี.ค. 2547",
       "correct": 3,
       "explanation": [
@@ -7651,6 +8459,8 @@
         "",
         "<b>ขั้นที่ 5:</b> ถอดชั้นสุดท้าย: $x \\in \\left[ 10^{-2}, 10 \\right]$",
         "ดังนั้น $a = 10$ , $b = \\dfrac{1}{100}$ ได้ $\\dfrac{a}{b} = \\dfrac{10}{1/100} = 1000$",
+        "[IMAGE:0]",
+        "",
         "",
         "<b>✔ ตรวจคำตอบ</b> sympy แทนขอบทั้งสอง $x = 10$",
         "และ $x = \\dfrac{1}{100}$ ลงนิพจน์เดิม ได้ค่า $= 0$ พอดี (เข้าเงื่อนไข $\\le 0$ ขอบรวมจริง) ✓",
@@ -7797,7 +8607,73 @@
         "$\\left(\\dfrac{\\ln 3}{\\ln 2}, \\infty\\right)$",
         "$\\left(0, \\dfrac{\\ln 3}{\\ln 2}\\right)$"
       ],
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": {
+        "criticals": [
+          0,
+          0.6309297535714574
+        ],
+        "width": 380,
+        "height": 96,
+        "axisY": 60,
+        "solutionY": 36,
+        "labels": [
+          {
+            "at": 0,
+            "text": "0"
+          },
+          {
+            "at": 0.6309297535714574,
+            "text": "ln2/ln3"
+          }
+        ],
+        "signs": [
+          {
+            "from": null,
+            "to": 0,
+            "label": "+"
+          },
+          {
+            "from": 0,
+            "to": 0.6309297535714574,
+            "label": "−"
+          },
+          {
+            "from": 0.6309297535714574,
+            "to": null,
+            "label": "+"
+          }
+        ],
+        "segments": [
+          {
+            "from": 0,
+            "to": 0.6309297535714574,
+            "color": "#2e7d32"
+          }
+        ],
+        "points": [
+          {
+            "at": 0,
+            "open": true,
+            "color": "#2e7d32"
+          },
+          {
+            "at": 0.6309297535714574,
+            "open": true,
+            "color": "#2e7d32"
+          }
+        ],
+        "annotations": [
+          {
+            "text": "เซตคำตอบ = (0, ln2/ln3)",
+            "x": 190,
+            "y": 15,
+            "anchor": "middle"
+          }
+        ],
+        "type": "number-line",
+        "scale": "even"
+      },
       "sourceTag": "Entrance 2534",
       "correct": 1,
       "explanation": [
@@ -7813,6 +8689,8 @@
         "<b>ขั้นที่ 2:</b> ย้ายข้างรวมก้อน: $x^2 \\ln 3 - x\\ln 2 < 0$ ดึง $x$ ร่วม: $x\\left( x\\ln 3 - \\ln 2 \\right) < 0$",
         "",
         "<b>ขั้นที่ 3:</b> รากของแต่ละวงเล็บ: $x = 0$ กับ $x = \\dfrac{\\ln 2}{\\ln 3}$ (ค่าบวก $\\approx 0.63$) — ผลคูณติดลบเมื่อ $x$ อยู่ระหว่างราก: $0 < x < \\dfrac{\\ln 2}{\\ln 3}$",
+        "[IMAGE:0]",
+        "",
         "",
         "<b>✔ ตรวจคำตอบ</b> ลอง $x = 0.3$ : $3^{0.09} \\approx 1.104$ เทียบ $2^{0.3} \\approx 1.231$ ✓ น้อยกว่าจริง",
         "ลอง $x = 1$ : $3 > 2$ ✗ ไม่อยู่ในเซต ✓",
@@ -12809,7 +13687,46 @@
       "level": "hard",
       "score": 1,
       "question": "จงหาเซตคำตอบของอสมการ $\\sqrt{4x + 2} - \\sqrt{x - 1} \\ge 2$",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": {
+        "criticals": [
+          1
+        ],
+        "width": 320,
+        "height": 96,
+        "axisY": 60,
+        "solutionY": 36,
+        "labels": [
+          {
+            "at": 1,
+            "text": "1"
+          }
+        ],
+        "rays": [
+          {
+            "from": 1,
+            "dir": "right",
+            "color": "#2e7d32"
+          }
+        ],
+        "points": [
+          {
+            "at": 1,
+            "open": false,
+            "color": "#2e7d32"
+          }
+        ],
+        "annotations": [
+          {
+            "text": "เซตคำตอบ = [1, ∞)",
+            "x": 160,
+            "y": 15,
+            "anchor": "middle"
+          }
+        ],
+        "type": "number-line",
+        "scale": "even"
+      },
       "sourceTag": "ทุนเล่าเรียนหลวง (กพ.) 2541",
       "correct": "[1, ∞)",
       "accept": [
@@ -12836,6 +13753,8 @@
         "<b>ขั้นที่ 4:</b> $9x^2 - 6x + 1 \\ge 16(x - 1)$ จัดรูป $9x^2 - 22x + 17 \\ge 0$ — ดิสคริมิแนนต์ $= 484 - 612 = -128 < 0$ และสัมประสิทธิ์นำ $9 > 0$ → อสมการนี้<b>จริงเสมอ</b>",
         "",
         "<b>ขั้นที่ 5:</b> ทุก $x$ ในโดเมนผ่านหมด — เซตคำตอบคือ $[1, \\infty)$",
+        "[IMAGE:0]",
+        "",
         "",
         "<b>✔ ตรวจคำตอบ</b> sympy: ดิสคริมิแนนต์ $-128 < 0$ ✓",
         "เช็คขอบ $x = 1$ : $\\sqrt{6} - 0 \\approx 2.449 \\ge 2$ ✓",
@@ -13579,7 +14498,73 @@
       "level": "hard",
       "score": 1,
       "question": "จงหาเซตคำตอบของอสมการ $2^{3x^2 + 2} - 5\\left(2^{2x^2}\\right) \\le 2^{3x^2} + 2^{x^2 + 1}$",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": {
+        "criticals": [
+          -1,
+          1
+        ],
+        "width": 320,
+        "height": 96,
+        "axisY": 60,
+        "solutionY": 36,
+        "labels": [
+          {
+            "at": -1,
+            "text": "−1"
+          },
+          {
+            "at": 1,
+            "text": "1"
+          }
+        ],
+        "signs": [
+          {
+            "from": null,
+            "to": -1,
+            "label": "+"
+          },
+          {
+            "from": -1,
+            "to": 1,
+            "label": "−"
+          },
+          {
+            "from": 1,
+            "to": null,
+            "label": "+"
+          }
+        ],
+        "segments": [
+          {
+            "from": -1,
+            "to": 1,
+            "color": "#2e7d32"
+          }
+        ],
+        "points": [
+          {
+            "at": -1,
+            "open": false,
+            "color": "#2e7d32"
+          },
+          {
+            "at": 1,
+            "open": false,
+            "color": "#2e7d32"
+          }
+        ],
+        "annotations": [
+          {
+            "text": "เซตคำตอบ = [−1, 1]",
+            "x": 160,
+            "y": 15,
+            "anchor": "middle"
+          }
+        ],
+        "type": "number-line",
+        "scale": "even"
+      },
       "sourceTag": "ทุนเล่าเรียนหลวง (กพ.) 2546",
       "correct": "[−1, 1]",
       "accept": [
@@ -13606,6 +14591,8 @@
         "<b>ขั้นที่ 4:</b> $2^{x^2} \\le 2^1$ ได้ $x^2 \\le 1$ คือ $-1 \\le x \\le 1$",
         "",
         "<b>ขั้นที่ 5:</b> เซตคำตอบ $= [-1, 1]$",
+        "[IMAGE:0]",
+        "",
         "",
         "<b>✔ ตรวจคำตอบ</b> sympy: $3a^3 - 5a^2 - 2a = a(a-2)(3a+1)$ ✓",
         "เช็คขอบ $x = 1$ ($a = 2$): $4(8) - 5(4) = 12$ เทียบ $8 + 4 = 12$ เท่ากันพอดี (เข้าเงื่อนไข $\\le$) ✓",
@@ -14690,7 +15677,56 @@
       "level": "hard",
       "score": 1,
       "question": "กำหนดให้ $\\log 2 = 0.301$ และ $\\log 3 = 0.4771$\nให้ $X = \\left\\{ n \\in \\mathbb{I} \\mid 5^{-10} < 3^n < 5 \\right\\}$\nผลบวกของค่าสัมบูรณ์ของสมาชิกในเซต $X$ เท่ากับเท่าไร",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": {
+        "criticals": [
+          -14.65,
+          1.465
+        ],
+        "width": 440,
+        "height": 96,
+        "axisY": 60,
+        "solutionY": 36,
+        "labels": [
+          {
+            "at": -14.65,
+            "text": "−14.65"
+          },
+          {
+            "at": 1.465,
+            "text": "1.465"
+          }
+        ],
+        "segments": [
+          {
+            "from": -14.65,
+            "to": 1.465,
+            "color": "#2e7d32"
+          }
+        ],
+        "points": [
+          {
+            "at": -14.65,
+            "open": true,
+            "color": "#2e7d32"
+          },
+          {
+            "at": 1.465,
+            "open": true,
+            "color": "#2e7d32"
+          }
+        ],
+        "annotations": [
+          {
+            "text": "n เต็มในช่วง: −14, −13, …, 0, 1",
+            "x": 220,
+            "y": 15,
+            "anchor": "middle"
+          }
+        ],
+        "type": "number-line",
+        "scale": "even"
+      },
       "sourceTag": "คัดโอลิมปิก 2538",
       "correct": "106",
       "accept": [
@@ -14707,6 +15743,8 @@
         "<b>ขั้นที่ 1:</b> หารด้วย $\\log 3 = 0.4771 > 0$ : $\\dfrac{-6.99}{0.4771} < n < \\dfrac{0.699}{0.4771}$ คือ $-14.65 < n < 1.46$ (โดยประมาณ)",
         "",
         "<b>ขั้นที่ 2:</b> จำนวนเต็มในช่วง: $n = -14, -13, \\ldots, -1, 0, 1$",
+        "[IMAGE:0]",
+        "",
         "",
         "<b>ขั้นที่ 3:</b> ผลบวกค่าสัมบูรณ์:",
         "$\\begin{aligned} \\left(14 + 13 + \\ldots + 1\\right) + 0 + 1 &= \\dfrac{14 \\times 15}{2} + 1 \\\\ &= 105 + 1 \\\\ &= 106 \\end{aligned}$",
@@ -17167,7 +18205,73 @@
         "$13$",
         "$16$"
       ],
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": {
+        "criticals": [
+          1,
+          10
+        ],
+        "width": 320,
+        "height": 96,
+        "axisY": 60,
+        "solutionY": 36,
+        "labels": [
+          {
+            "at": 1,
+            "text": "1"
+          },
+          {
+            "at": 10,
+            "text": "10"
+          }
+        ],
+        "signs": [
+          {
+            "from": null,
+            "to": 1,
+            "label": "+"
+          },
+          {
+            "from": 1,
+            "to": 10,
+            "label": "−"
+          },
+          {
+            "from": 10,
+            "to": null,
+            "label": "+"
+          }
+        ],
+        "segments": [
+          {
+            "from": 1,
+            "to": 10,
+            "color": "#2e7d32"
+          }
+        ],
+        "points": [
+          {
+            "at": 1,
+            "open": true,
+            "color": "#2e7d32"
+          },
+          {
+            "at": 10,
+            "open": true,
+            "color": "#2e7d32"
+          }
+        ],
+        "annotations": [
+          {
+            "text": "(a, b) = (1, 10)",
+            "x": 160,
+            "y": 15,
+            "anchor": "middle"
+          }
+        ],
+        "type": "number-line",
+        "scale": "even"
+      },
       "sourceTag": "คัดโอลิมปิก 2540",
       "correct": 1,
       "explanation": [
@@ -17183,6 +18287,8 @@
         "<b>ขั้นที่ 2:</b> ถอดชั้น $t = 2^{\\log x}$ : $2^0 < 2^{\\log x} < 2^1$ ได้ $0 < \\log x < 1$",
         "",
         "<b>ขั้นที่ 3:</b> ถอดชั้นสุดท้าย: $1 < x < 10$ — ดังนั้น $(a, b) = (1, 10)$",
+        "[IMAGE:0]",
+        "",
         "และ $a + b = 11$",
         "",
         "<b>✔ ตรวจคำตอบ</b> เช็ค $x = 5$ : $t = 2^{0.699} \\approx 1.62$ , $3(1.62) = 4.87 > 2 + 2.63 = 4.63$ ✓",
@@ -17335,7 +18441,73 @@
         "ข้อ ข. เป็นจริง แต่ข้อ ก. เป็นเท็จ",
         "ข้อ ก. และข้อ ข. เป็นเท็จ"
       ],
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": {
+        "criticals": [
+          2.32,
+          7.97
+        ],
+        "width": 380,
+        "height": 96,
+        "axisY": 60,
+        "solutionY": 36,
+        "labels": [
+          {
+            "at": 2.32,
+            "text": "log₂5"
+          },
+          {
+            "at": 7.97,
+            "text": "log₂251"
+          }
+        ],
+        "signs": [
+          {
+            "from": null,
+            "to": 2.32,
+            "label": "+"
+          },
+          {
+            "from": 2.32,
+            "to": 7.97,
+            "label": "−"
+          },
+          {
+            "from": 7.97,
+            "to": null,
+            "label": "+"
+          }
+        ],
+        "segments": [
+          {
+            "from": 2.32,
+            "to": 7.97,
+            "color": "#2e7d32"
+          }
+        ],
+        "points": [
+          {
+            "at": 2.32,
+            "open": true,
+            "color": "#2e7d32"
+          },
+          {
+            "at": 7.97,
+            "open": true,
+            "color": "#2e7d32"
+          }
+        ],
+        "annotations": [
+          {
+            "text": "x เต็มในช่วง: 3, 4, 5, 6, 7 (5 จำนวน)",
+            "x": 190,
+            "y": 15,
+            "anchor": "middle"
+          }
+        ],
+        "type": "number-line",
+        "scale": "even"
+      },
       "sourceTag": "คัดโอลิมปิก 2540",
       "correct": 3,
       "explanation": [
@@ -17357,6 +18529,8 @@
         "<b>ขั้นที่ 3:</b> ดิสคริมิแนนต์ $= 65536 - 5020 = 60516 = 246^2$ ราก $u = \\dfrac{256 \\pm 246}{2} = 5, 251$ ได้ $5 < 2^x < 251$",
         "",
         "<b>ขั้นที่ 4:</b> $\\log_2 5 \\approx 2.32 < x < \\log_2 251 \\approx 7.97$ — จำนวนเต็ม: $3, 4, 5, 6, 7$ รวม <u>5 จำนวน</u> ไม่ใช่ 4 → <u>ข เท็จ</u>",
+        "[IMAGE:0]",
+        "",
         "",
         "<b>✔ ตรวจคำตอบ</b> sympy: ราก $u = 5, 251$ ✓ จำนวนเต็มในช่วง $= \\{3,4,5,6,7\\}$ นับได้ $5$ ✓",
         "ก: $a^{0.693} < a$ ทุก $a \\ge 2$",
