@@ -9844,7 +9844,86 @@
       "level": "easy",
       "score": 1,
       "question": "เส้นตรงที่ผ่านจุดศูนย์กลางของวงรี $4x^2 + 9y^2 - 48x + 72y + 144 = 0$\nและตั้งฉากกับเส้นตรง $3x + 4y = 5$ มีสมการเป็นข้อใดต่อไปนี้",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 380,
+          "height": 304,
+          "xRange": [
+            -2,
+            14
+          ],
+          "yRange": [
+            -11,
+            2
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "eu",
+              "kind": "ellipse-arc",
+              "center": [
+                6,
+                -4
+              ],
+              "a": 6,
+              "b": 4,
+              "half": "upper",
+              "color": "#222"
+            },
+            {
+              "id": "el",
+              "kind": "ellipse-arc",
+              "center": [
+                6,
+                -4
+              ],
+              "a": 6,
+              "b": 4,
+              "half": "lower",
+              "color": "#222"
+            },
+            {
+              "kind": "polynomial",
+              "coefs": [
+                1.333333,
+                -12
+              ],
+              "domain": [
+                2,
+                10
+              ],
+              "color": "#c62828",
+              "strokeWidth": 1.7,
+              "label": {
+                "at": [
+                  10.3,
+                  1.9
+                ],
+                "text": "4x−3y−36=0",
+                "anchor": "start",
+                "color": "#c62828"
+              }
+            }
+          ],
+          "dots": [
+            {
+              "x": 6,
+              "y": -4,
+              "label": "C(6, −4)",
+              "labelAnchor": "start",
+              "labelDx": 8,
+              "labelDy": 16
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance 2539",
       "choices": [
         "$4x - 3y + 12 = 0$",
@@ -10040,7 +10119,80 @@
       "level": "easy",
       "score": 1,
       "question": "กำหนดสมการวงรี $\\dfrac{(x - 1)^2}{36} + \\dfrac{(y + 2)^2}{20} = 1$ จุดโฟกัสทั้งสองของวงรีนี้คือข้อใด",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 380,
+          "height": 318,
+          "xRange": [
+            -6,
+            8
+          ],
+          "yRange": [
+            -8.4,
+            3.6
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "eu",
+              "kind": "ellipse-arc",
+              "center": [
+                1,
+                -2
+              ],
+              "a": 6,
+              "b": 4.472136,
+              "half": "upper",
+              "color": "#222"
+            },
+            {
+              "id": "el",
+              "kind": "ellipse-arc",
+              "center": [
+                1,
+                -2
+              ],
+              "a": 6,
+              "b": 4.472136,
+              "half": "lower",
+              "color": "#222"
+            }
+          ],
+          "dots": [
+            {
+              "x": 1,
+              "y": -2,
+              "label": "C(1, −2)",
+              "labelAnchor": "middle",
+              "labelDx": 12,
+              "labelDy": 26.000333333333316
+            },
+            {
+              "x": 5,
+              "y": -2,
+              "label": "F₁(5, −2)",
+              "labelAnchor": "start",
+              "labelDx": -29.99957142857147,
+              "labelDy": 27.000333333333316
+            },
+            {
+              "x": -3,
+              "y": -2,
+              "label": "F₂(−3, −2)",
+              "labelAnchor": "end",
+              "labelDx": 38.99997142857141,
+              "labelDy": 28.000333333333316
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance 2523",
       "choices": [
         "$(-5, -2)$ และ $(7, -2)$",
@@ -10311,7 +10463,139 @@
       "level": "medium",
       "score": 1,
       "question": "ระยะห่างระหว่างเส้นคู่ขนานที่ทำมุม $45^{\\circ}$ กับแกน x\nและผ่านจุดโฟกัสทั้งสองของวงรี $x^2 - 4x + 3y^2 - 2 = 0$ มีค่าเท่ากับข้อใดต่อไปนี้",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 380,
+          "height": 318,
+          "xRange": [
+            -1.5,
+            5.5
+          ],
+          "yRange": [
+            -3,
+            3
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": ""
+          },
+          "functions": [
+            {
+              "id": "eu",
+              "kind": "ellipse-arc",
+              "center": [
+                2,
+                0
+              ],
+              "a": 2.44949,
+              "b": 1.414214,
+              "half": "upper",
+              "color": "#222"
+            },
+            {
+              "id": "el",
+              "kind": "ellipse-arc",
+              "center": [
+                2,
+                0
+              ],
+              "a": 2.44949,
+              "b": 1.414214,
+              "half": "lower",
+              "color": "#222"
+            },
+            {
+              "kind": "polynomial",
+              "coefs": [
+                1,
+                0
+              ],
+              "domain": [
+                -1,
+                2
+              ],
+              "color": "#c62828",
+              "strokeWidth": 1.6,
+              "label": {
+                "at": [
+                  2.1,
+                  2.0
+                ],
+                "text": "x−y=0",
+                "anchor": "start",
+                "color": "#c62828"
+              }
+            },
+            {
+              "kind": "polynomial",
+              "coefs": [
+                1,
+                -4
+              ],
+              "domain": [
+                2,
+                5
+              ],
+              "color": "#c62828",
+              "strokeWidth": 1.6,
+              "label": {
+                "at": [
+                  2.05,
+                  -2.5
+                ],
+                "text": "x−y−4=0",
+                "anchor": "start",
+                "color": "#c62828"
+              }
+            }
+          ],
+          "segments": [
+            {
+              "from": [
+                0,
+                0
+              ],
+              "to": [
+                2,
+                -2
+              ],
+              "dashed": true
+            }
+          ],
+          "dots": [
+            {
+              "x": 0,
+              "y": 0,
+              "label": "F₁(0,0)",
+              "labelAnchor": "end",
+              "labelDx": -8,
+              "labelDy": -8
+            },
+            {
+              "x": 4,
+              "y": 0,
+              "label": "F₂(4,0)",
+              "labelAnchor": "start",
+              "labelDx": 8,
+              "labelDy": 16
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                1.35,
+                -0.75
+              ],
+              "text": "2√2",
+              "anchor": "start"
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance 2537",
       "choices": [
         "$2\\sqrt{2}$",
@@ -10363,7 +10647,105 @@
       "level": "medium",
       "score": 1,
       "question": "ดาวเคราะห์ดวงหนึ่งโคจรรอบดวงอาทิตย์เป็นรูปวงรี ซึ่งมีความยาวของแกนเอกเป็น 186 ล้านไมล์\nโดยมีดวงอาทิตย์อยู่ที่จุดโฟกัสจุดหนึ่งของวงรีนั้น ถ้าอัตราส่วนของระยะทางจากจุดศูนย์กลางของวงรีไปยังจุดโฟกัส\nกับครึ่งหนึ่งของความยาวแกนเอกเป็น $1 : 62$ แล้ว ระยะทางที่ใกล้ที่สุดจากดาวเคราะห์ดวงนี้ถึงดวงอาทิตย์เท่ากับเท่าใด\n(หน่วยเป็นล้านไมล์)",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 380,
+          "height": 364,
+          "xRange": [
+            -6,
+            6
+          ],
+          "yRange": [
+            -6,
+            6
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": ""
+          },
+          "functions": [
+            {
+              "id": "eu",
+              "kind": "ellipse-arc",
+              "center": [
+                0,
+                0
+              ],
+              "a": 5,
+              "b": 4.582576,
+              "half": "upper",
+              "color": "#222"
+            },
+            {
+              "id": "el",
+              "kind": "ellipse-arc",
+              "center": [
+                0,
+                0
+              ],
+              "a": 5,
+              "b": 4.582576,
+              "half": "lower",
+              "color": "#222"
+            }
+          ],
+          "segments": [
+            {
+              "from": [
+                -5,
+                0
+              ],
+              "to": [
+                5,
+                0
+              ],
+              "dashed": true
+            }
+          ],
+          "dots": [
+            {
+              "x": 2,
+              "y": 0,
+              "label": "ดวงอาทิตย์",
+              "labelAnchor": "start",
+              "labelDx": 8,
+              "labelDy": -8
+            },
+            {
+              "x": 5,
+              "y": 0,
+              "label": "ใกล้สุด (a−c)",
+              "labelAnchor": "middle",
+              "labelDx": -45.33,
+              "labelDy": 149.33,
+              "labelLine": true
+            },
+            {
+              "x": -5,
+              "y": 0,
+              "label": "ไกลสุด (a+c)",
+              "labelAnchor": "middle",
+              "labelDx": 45.33,
+              "labelDy": 149.33,
+              "labelLine": true
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                -5.8,
+                5.6
+              ],
+              "text": "แผนภาพ (ไม่ใช่มาตราส่วนจริง)",
+              "anchor": "start"
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance 2535",
       "correct": "91.5",
       "accept": [
@@ -10692,7 +11074,148 @@
       "level": "easy",
       "score": 1,
       "question": "พื้นที่ของสามเหลี่ยมที่มีจุดยอดเป็น จุดกำเนิด และจุดโฟกัสทั้งสองของวงรี\n$x^2 + 2y^2 + 4x - 4y - 2 = 0$ เท่ากับเท่าใด",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 380,
+          "height": 273,
+          "xRange": [
+            -5.5,
+            1.5
+          ],
+          "yRange": [
+            -1.5,
+            3.5
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": ""
+          },
+          "functions": [
+            {
+              "id": "z0",
+              "kind": "polynomial",
+              "coefs": [
+                -0.25,
+                0
+              ],
+              "domain": [
+                -4,
+                0
+              ],
+              "color": "transparent"
+            },
+            {
+              "id": "z1",
+              "kind": "polynomial",
+              "coefs": [
+                1
+              ],
+              "domain": [
+                -4,
+                0
+              ],
+              "color": "transparent"
+            },
+            {
+              "id": "eu",
+              "kind": "ellipse-arc",
+              "center": [
+                -2,
+                1
+              ],
+              "a": 2.828427,
+              "b": 2,
+              "half": "upper",
+              "color": "#222"
+            },
+            {
+              "id": "el",
+              "kind": "ellipse-arc",
+              "center": [
+                -2,
+                1
+              ],
+              "a": 2.828427,
+              "b": 2,
+              "half": "lower",
+              "color": "#222"
+            }
+          ],
+          "shadeBetween": [
+            {
+              "funcA": "z0",
+              "funcB": "z1",
+              "xRange": [
+                -4,
+                0
+              ],
+              "color": "#7d9bbf"
+            }
+          ],
+          "segments": [
+            {
+              "from": [
+                0,
+                0
+              ],
+              "to": [
+                0,
+                1
+              ]
+            },
+            {
+              "from": [
+                0,
+                1
+              ],
+              "to": [
+                -4,
+                1
+              ]
+            },
+            {
+              "from": [
+                -4,
+                1
+              ],
+              "to": [
+                0,
+                0
+              ]
+            }
+          ],
+          "dots": [
+            {
+              "x": 0,
+              "y": 0,
+              "label": "O(0,0)",
+              "labelAnchor": "start",
+              "labelDx": 12,
+              "labelDy": -10
+            },
+            {
+              "x": 0,
+              "y": 1,
+              "label": "F₁(0,1)",
+              "labelAnchor": "start",
+              "labelDx": 12,
+              "labelDy": 4
+            },
+            {
+              "x": -4,
+              "y": 1,
+              "label": "F₂(−4,1)",
+              "labelAnchor": "end",
+              "labelDx": -6,
+              "labelDy": -8
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance ต.ค. 2542",
       "correct": "2",
       "accept": [
@@ -10783,7 +11306,155 @@
       "level": "hard",
       "score": 1,
       "question": "ให้ E เป็นวงรีซึ่งผลบวกของระยะทางจากจุดใดๆ บนวงรี E ไปยังจุด $(-3, 2)$ และ $(5, 2)$ เท่ากับ 12\nหน่วย ถ้า A และ B เป็นจุดยอดของวงรี E และวงรี E ตัดแกน y ที่จุด C และ D\nแล้ว พื้นที่ของรูปสี่เหลี่ยม ACBD เท่ากับข้อใดต่อไปนี้",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 380,
+          "height": 273,
+          "xRange": [
+            -6,
+            8
+          ],
+          "yRange": [
+            -3,
+            7
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "eu",
+              "kind": "ellipse-arc",
+              "center": [
+                1,
+                2
+              ],
+              "a": 6,
+              "b": 4.472136,
+              "half": "upper",
+              "color": "#222"
+            },
+            {
+              "id": "el",
+              "kind": "ellipse-arc",
+              "center": [
+                1,
+                2
+              ],
+              "a": 6,
+              "b": 4.472136,
+              "half": "lower",
+              "color": "#222"
+            },
+            {
+              "id": "upperK",
+              "kind": "piecewise-linear",
+              "points": [
+                [
+                  -5,
+                  2
+                ],
+                [
+                  0,
+                  6.4096
+                ],
+                [
+                  7,
+                  2
+                ]
+              ],
+              "color": "#1565c0",
+              "strokeWidth": 1.4
+            },
+            {
+              "id": "lowerK",
+              "kind": "piecewise-linear",
+              "points": [
+                [
+                  -5,
+                  2
+                ],
+                [
+                  0,
+                  -2.4096
+                ],
+                [
+                  7,
+                  2
+                ]
+              ],
+              "color": "#1565c0",
+              "strokeWidth": 1.4
+            }
+          ],
+          "shadeBetween": [
+            {
+              "funcA": "lowerK",
+              "funcB": "upperK",
+              "xRange": [
+                -5,
+                7
+              ],
+              "color": "#c5dcf0"
+            }
+          ],
+          "dots": [
+            {
+              "x": -3,
+              "y": 2,
+              "label": "F₁",
+              "labelAnchor": "end",
+              "labelDx": -6,
+              "labelDy": 16
+            },
+            {
+              "x": 5,
+              "y": 2,
+              "label": "F₂",
+              "labelAnchor": "start",
+              "labelDx": 6,
+              "labelDy": 16
+            },
+            {
+              "x": 7,
+              "y": 2,
+              "label": "A",
+              "labelAnchor": "start",
+              "labelDx": 6,
+              "labelDy": 4
+            },
+            {
+              "x": -5,
+              "y": 2,
+              "label": "B",
+              "labelAnchor": "end",
+              "labelDx": -6,
+              "labelDy": 4
+            },
+            {
+              "x": 0,
+              "y": 6.4096,
+              "label": "C",
+              "labelAnchor": "middle",
+              "labelDx": 0,
+              "labelDy": -8
+            },
+            {
+              "x": 0,
+              "y": -2.4096,
+              "label": "D",
+              "labelAnchor": "middle",
+              "labelDx": 0,
+              "labelDy": 16
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance มี.ค. 2546",
       "choices": [
         "$10\\sqrt{5}$ ตารางหน่วย",
@@ -10832,7 +11503,113 @@
       "level": "hard",
       "score": 1,
       "question": "ให้ $F_1, F_2$ เป็นจุดโฟกัสของวงรีที่มีสมการเป็น $kx^2 + 4y^2 - 4y = 8$\nจุด B เป็นจุดที่วงรีตัดแกน y และอยู่เหนือแกน x ถ้า $F_1, B, F_2$ ไม่อยู่ในแนวเส้นตรงเดียวกัน\nและ $F_1BF_2$ เป็นสามเหลี่ยมที่มีพื้นที่เท่ากับ $\\dfrac{3\\sqrt{7}}{4}$ ตารางหน่วย แล้ว k มีค่าเท่าใด",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 380,
+          "height": 257,
+          "xRange": [
+            -3,
+            3
+          ],
+          "yRange": [
+            -1.5,
+            2.5
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": ""
+          },
+          "functions": [
+            {
+              "id": "eu",
+              "kind": "ellipse-arc",
+              "center": [
+                0,
+                0.5
+              ],
+              "a": 2,
+              "b": 1.5,
+              "half": "upper",
+              "color": "#222"
+            },
+            {
+              "id": "el",
+              "kind": "ellipse-arc",
+              "center": [
+                0,
+                0.5
+              ],
+              "a": 2,
+              "b": 1.5,
+              "half": "lower",
+              "color": "#222"
+            }
+          ],
+          "segments": [
+            {
+              "from": [
+                -1.322876,
+                0.5
+              ],
+              "to": [
+                0,
+                2
+              ]
+            },
+            {
+              "from": [
+                0,
+                2
+              ],
+              "to": [
+                1.322876,
+                0.5
+              ]
+            },
+            {
+              "from": [
+                -1.322876,
+                0.5
+              ],
+              "to": [
+                1.322876,
+                0.5
+              ],
+              "dashed": true
+            }
+          ],
+          "dots": [
+            {
+              "x": 0,
+              "y": 2,
+              "label": "B(0,2)",
+              "labelAnchor": "start",
+              "labelDx": 10,
+              "labelDy": -6
+            },
+            {
+              "x": 1.322876,
+              "y": 0.5,
+              "label": "F₁",
+              "labelAnchor": "start",
+              "labelDx": 6,
+              "labelDy": 16
+            },
+            {
+              "x": -1.322876,
+              "y": 0.5,
+              "label": "F₂",
+              "labelAnchor": "end",
+              "labelDx": -6,
+              "labelDy": 16
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance 2538",
       "correct": "2.25",
       "accept": [
@@ -10882,7 +11659,110 @@
       "level": "easy",
       "score": 1,
       "question": "กำหนดให้เส้นตรง $x = y$ ตัดวงรี $\\dfrac{(x - 1)^2}{9} + \\dfrac{(y - 1)^2}{4} = 1$ ที่จุด A และ B\nถ้า $F_1$ และ $F_2$ เป็นจุดโฟกัสของวงรีนี้ แล้ว $AF_1 + AF_2 + BF_1 + BF_2$ มีค่าเท่ากับเท่าใด",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 380,
+          "height": 364,
+          "xRange": [
+            -2,
+            4
+          ],
+          "yRange": [
+            -2,
+            4
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "eu",
+              "kind": "ellipse-arc",
+              "center": [
+                1,
+                1
+              ],
+              "a": 3,
+              "b": 2,
+              "half": "upper",
+              "color": "#222"
+            },
+            {
+              "id": "el",
+              "kind": "ellipse-arc",
+              "center": [
+                1,
+                1
+              ],
+              "a": 3,
+              "b": 2,
+              "half": "lower",
+              "color": "#222"
+            },
+            {
+              "kind": "polynomial",
+              "coefs": [
+                1,
+                0
+              ],
+              "domain": [
+                -1.2,
+                3.2
+              ],
+              "color": "#c62828",
+              "strokeWidth": 1.5,
+              "label": {
+                "at": [
+                  3.3,
+                  3.1
+                ],
+                "text": "x=y",
+                "anchor": "start",
+                "color": "#c62828"
+              }
+            }
+          ],
+          "dots": [
+            {
+              "x": 2.664101,
+              "y": 2.664101,
+              "label": "A",
+              "labelAnchor": "start",
+              "labelDx": 7,
+              "labelDy": -4
+            },
+            {
+              "x": -0.664101,
+              "y": -0.664101,
+              "label": "B",
+              "labelAnchor": "end",
+              "labelDx": -7,
+              "labelDy": 10
+            },
+            {
+              "x": 3.236068,
+              "y": 1,
+              "label": "F₁",
+              "labelAnchor": "start",
+              "labelDx": 7,
+              "labelDy": 4
+            },
+            {
+              "x": -1.236068,
+              "y": 1,
+              "label": "F₂",
+              "labelAnchor": "end",
+              "labelDx": -7,
+              "labelDy": 4
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance มี.ค. 2548",
       "correct": "12",
       "accept": [
@@ -10972,7 +11852,102 @@
       "level": "medium",
       "score": 1,
       "question": "ถ้า $F_1$ และ $F_2$ เป็นโฟกัสของวงรี $x^2 + 3y^2 - 2x - 23 = 0$\nและ $P(4, \\sqrt{5})$ เป็นจุดซึ่งอยู่บนวงรีนี้แล้ว ค่าของ $\\cos(F_1\\hat{P}F_2)$ เท่ากับข้อใดต่อไปนี้",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 380,
+          "height": 231,
+          "xRange": [
+            -5,
+            7
+          ],
+          "yRange": [
+            -3.5,
+            3.5
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "eu",
+              "kind": "ellipse-arc",
+              "center": [
+                1,
+                0
+              ],
+              "a": 4.898979,
+              "b": 2.828427,
+              "half": "upper",
+              "color": "#222"
+            },
+            {
+              "id": "el",
+              "kind": "ellipse-arc",
+              "center": [
+                1,
+                0
+              ],
+              "a": 4.898979,
+              "b": 2.828427,
+              "half": "lower",
+              "color": "#222"
+            }
+          ],
+          "segments": [
+            {
+              "from": [
+                5,
+                0
+              ],
+              "to": [
+                4,
+                2.236068
+              ]
+            },
+            {
+              "from": [
+                4,
+                2.236068
+              ],
+              "to": [
+                -3,
+                0
+              ]
+            }
+          ],
+          "dots": [
+            {
+              "x": 5,
+              "y": 0,
+              "label": "F₁(5,0)",
+              "labelAnchor": "start",
+              "labelDx": 6,
+              "labelDy": 16
+            },
+            {
+              "x": -3,
+              "y": 0,
+              "label": "F₂(−3,0)",
+              "labelAnchor": "end",
+              "labelDx": -6,
+              "labelDy": 16
+            },
+            {
+              "x": 4,
+              "y": 2.236068,
+              "label": "P(4, √5)",
+              "labelAnchor": "middle",
+              "labelDx": 0,
+              "labelDy": -10
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance ต.ค. 2547",
       "choices": [
         "$-\\dfrac{1}{9}$",
@@ -25774,7 +26749,93 @@
       "level": "easy",
       "score": 1,
       "question": "หน้าตัดส่วนหนึ่งของท่อรับอากาศเข้าของเครื่องบิน F-100 เป็นรูปวงรีที่มีโฟกัสอยู่ที่จุด $(-4, -5)$\nมีแกนเอกยาว 14 หน่วย และมีจุดศูนย์กลางอยู่ที่ $(-4, 1)$ สมการของวงรีนี้คือข้อใด",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 252,
+          "height": 380,
+          "xRange": [
+            -8,
+            0
+          ],
+          "yRange": [
+            -6,
+            8
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "eu",
+              "kind": "ellipse-arc",
+              "center": [
+                -4,
+                1
+              ],
+              "a": 3.605551,
+              "b": 7,
+              "half": "right",
+              "color": "#222"
+            },
+            {
+              "id": "el",
+              "kind": "ellipse-arc",
+              "center": [
+                -4,
+                1
+              ],
+              "a": 3.605551,
+              "b": 7,
+              "half": "left",
+              "color": "#222"
+            }
+          ],
+          "segments": [
+            {
+              "from": [
+                -4,
+                -5
+              ],
+              "to": [
+                -4,
+                7
+              ],
+              "dashed": true
+            }
+          ],
+          "dots": [
+            {
+              "x": -4,
+              "y": 1,
+              "label": "C(−4, 1)",
+              "labelAnchor": "start",
+              "labelDx": 8,
+              "labelDy": 4
+            },
+            {
+              "x": -4,
+              "y": -5,
+              "label": "F₁(−4, −5)",
+              "labelAnchor": "start",
+              "labelDx": 8,
+              "labelDy": 4
+            },
+            {
+              "x": -4,
+              "y": 7,
+              "label": "F₂(−4, 7)",
+              "labelAnchor": "start",
+              "labelDx": 8,
+              "labelDy": 4
+            }
+          ]
+        }
+      ],
       "sourceTag": "พื้นฐานวิศวะฯ 2535",
       "choices": [
         "$\\dfrac{(x + 4)^2}{49} + \\dfrac{(y - 1)^2}{25} = 1$",
@@ -26386,7 +27447,110 @@
       "level": "medium",
       "score": 1,
       "question": "ถ้า k เป็นจำนวนจริงที่ทำให้สมการ $x^2 + 2y^2 - 2x + 4y + k = 0$ เป็นสมการของวงรี\nที่มีแกนเอกขนานกับแกน x และยาว 6 หน่วย แล้ว จงหาค่าของ $|k|$",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 380,
+          "height": 284,
+          "xRange": [
+            -3,
+            5
+          ],
+          "yRange": [
+            -4,
+            2
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "eu",
+              "kind": "ellipse-arc",
+              "center": [
+                1,
+                -1
+              ],
+              "a": 3,
+              "b": 2.12132,
+              "half": "upper",
+              "color": "#222"
+            },
+            {
+              "id": "el",
+              "kind": "ellipse-arc",
+              "center": [
+                1,
+                -1
+              ],
+              "a": 3,
+              "b": 2.12132,
+              "half": "lower",
+              "color": "#222"
+            },
+            {
+              "id": "maj",
+              "kind": "piecewise-linear",
+              "points": [
+                [
+                  -2,
+                  -1
+                ],
+                [
+                  4,
+                  -1
+                ]
+              ],
+              "domain": [
+                -2,
+                4
+              ],
+              "color": "#c62828",
+              "strokeWidth": 1.8
+            }
+          ],
+          "annotations": [
+            {
+              "text": "2a = 6",
+              "at": [
+                1,
+                1.6
+              ],
+              "anchor": "middle"
+            }
+          ],
+          "dots": [
+            {
+              "x": 1,
+              "y": -1,
+              "label": "C(1, −1)",
+              "labelAnchor": "start",
+              "labelDx": 8,
+              "labelDy": 16
+            },
+            {
+              "x": -2,
+              "y": -1,
+              "label": "(−2, −1)",
+              "labelAnchor": "end",
+              "labelDx": -8,
+              "labelDy": 16
+            },
+            {
+              "x": 4,
+              "y": -1,
+              "label": "(4, −1)",
+              "labelAnchor": "start",
+              "labelDx": 8,
+              "labelDy": 16
+            }
+          ]
+        }
+      ],
       "sourceTag": "โควตา มช. 2539",
       "correct": "6",
       "accept": [
@@ -26426,7 +27590,93 @@
       "level": "medium",
       "score": 1,
       "question": "ให้ $(a, b)$ เป็นจุดในควอดรันต์ที่ 1 ซึ่งอยู่บนวงรี $\\dfrac{x^2}{9} + \\dfrac{y^2}{4} = 1$\nและอยู่ห่างจากจุดกำเนิด $\\dfrac{5}{2}$ หน่วย ดังนั้น $ab$ เท่ากับข้อใดต่อไปนี้",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 380,
+          "height": 284,
+          "xRange": [
+            -4,
+            4
+          ],
+          "yRange": [
+            -3,
+            3
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "eu",
+              "kind": "ellipse-arc",
+              "center": [
+                0,
+                0
+              ],
+              "a": 3,
+              "b": 2,
+              "half": "upper",
+              "color": "#222"
+            },
+            {
+              "id": "el",
+              "kind": "ellipse-arc",
+              "center": [
+                0,
+                0
+              ],
+              "a": 3,
+              "b": 2,
+              "half": "lower",
+              "color": "#222"
+            },
+            {
+              "id": "op",
+              "kind": "piecewise-linear",
+              "points": [
+                [
+                  0,
+                  0
+                ],
+                [
+                  2.012461,
+                  1.48324
+                ]
+              ],
+              "domain": [
+                0,
+                2.012461
+              ],
+              "color": "#c62828",
+              "strokeWidth": 1.8,
+              "label": {
+                "at": [
+                  1.35,
+                  0.5
+                ],
+                "text": "5/2",
+                "anchor": "start",
+                "color": "#c62828"
+              }
+            }
+          ],
+          "dots": [
+            {
+              "x": 2.012461,
+              "y": 1.48324,
+              "label": "P(a, b)",
+              "labelAnchor": "start",
+              "labelDx": 7,
+              "labelDy": -6
+            }
+          ]
+        }
+      ],
       "sourceTag": "สมาคมคณิตศาสตร์ฯ 2542",
       "choices": [
         "$\\dfrac{9\\sqrt{11}}{10}$",
@@ -26689,7 +27939,149 @@
       "level": "medium",
       "score": 1,
       "question": "กำหนดให้วงรีวงหนึ่งมีสมการ $3x^2 + 4y^2 - 6x + 8y - 5 = 0$\nถ้า P เป็นจุดบนวงรีซึ่งมีระยะห่างจากโฟกัสจุดหนึ่ง เป็นสองเท่าของระยะระหว่างโฟกัสกับจุดยอด\nจงหาระยะทางระหว่างจุด P กับจุดยอดของวงรี",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 500,
+          "height": 300,
+          "xRange": [
+            -2,
+            4
+          ],
+          "yRange": [
+            -3.4,
+            1.5
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "eu",
+              "kind": "ellipse-arc",
+              "center": [
+                1,
+                -1
+              ],
+              "a": 2,
+              "b": 1.732051,
+              "half": "upper",
+              "color": "#222"
+            },
+            {
+              "id": "el",
+              "kind": "ellipse-arc",
+              "center": [
+                1,
+                -1
+              ],
+              "a": 2,
+              "b": 1.732051,
+              "half": "lower",
+              "color": "#222"
+            },
+            {
+              "id": "pv",
+              "kind": "piecewise-linear",
+              "points": [
+                [
+                  1,
+                  0.732051
+                ],
+                [
+                  3,
+                  -1
+                ]
+              ],
+              "domain": [
+                1,
+                3
+              ],
+              "color": "#c62828",
+              "strokeWidth": 1.8,
+              "label": {
+                "at": [
+                  1.939,
+                  0.154
+                ],
+                "text": "\\sqrt{7}",
+                "anchor": "middle",
+                "color": "#c62828"
+              }
+            }
+          ],
+          "segments": [
+            {
+              "from": [
+                1,
+                0.732051
+              ],
+              "to": [
+                0,
+                -1
+              ],
+              "dashed": true
+            },
+            {
+              "from": [
+                1,
+                0.732051
+              ],
+              "to": [
+                2,
+                -1
+              ],
+              "dashed": true
+            }
+          ],
+          "dots": [
+            {
+              "x": 1,
+              "y": -1,
+              "label": "C",
+              "labelAnchor": "middle",
+              "labelDx": 0,
+              "labelDy": 17
+            },
+            {
+              "x": 0,
+              "y": -1,
+              "label": "F₁",
+              "labelAnchor": "end",
+              "labelDx": -6,
+              "labelDy": 18.7
+            },
+            {
+              "x": 2,
+              "y": -1,
+              "label": "F₂",
+              "labelAnchor": "start",
+              "labelDx": -4,
+              "labelDy": 20.7
+            },
+            {
+              "x": 3,
+              "y": -1,
+              "label": "V(3, −1)",
+              "labelAnchor": "start",
+              "labelDx": 8,
+              "labelDy": 4
+            },
+            {
+              "x": 1,
+              "y": 0.732051,
+              "label": "P",
+              "labelAnchor": "end",
+              "labelDx": 10,
+              "labelDy": -10.7
+            }
+          ]
+        }
+      ],
       "sourceTag": "สมาคมคณิตศาสตร์ฯ 2549",
       "correct": "√7",
       "accept": [
@@ -26782,7 +28174,140 @@
       "level": "hard",
       "score": 1,
       "question": "สามเหลี่ยมด้านเท่ารูปหนึ่งแนบในวงรีซึ่งมีสมการคือ $x^2 + 5y^2 = 5$\nจุดยอดจุดหนึ่งของรูปสามเหลี่ยมนี้คือจุด $(0, 1)$ และส่วนสูงหนึ่งของรูปสามเหลี่ยมนี้อยู่บนแกน y\nด้านของรูปสามเหลี่ยมนี้ยาวเท่ากับเท่าใด",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 380,
+          "height": 257,
+          "xRange": [
+            -3,
+            3
+          ],
+          "yRange": [
+            -2,
+            2
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "eu",
+              "kind": "ellipse-arc",
+              "center": [
+                0,
+                0
+              ],
+              "a": 2.236068,
+              "b": 1,
+              "half": "upper",
+              "color": "#222"
+            },
+            {
+              "id": "el",
+              "kind": "ellipse-arc",
+              "center": [
+                0,
+                0
+              ],
+              "a": 2.236068,
+              "b": 1,
+              "half": "lower",
+              "color": "#222"
+            },
+            {
+              "id": "ab",
+              "kind": "piecewise-linear",
+              "points": [
+                [
+                  -1.082532,
+                  -0.875
+                ],
+                [
+                  0,
+                  1
+                ]
+              ],
+              "domain": [
+                -1.082532,
+                0
+              ],
+              "color": "#1565c0",
+              "strokeWidth": 1.7
+            },
+            {
+              "id": "ac",
+              "kind": "piecewise-linear",
+              "points": [
+                [
+                  0,
+                  1
+                ],
+                [
+                  1.082532,
+                  -0.875
+                ]
+              ],
+              "domain": [
+                0,
+                1.082532
+              ],
+              "color": "#1565c0",
+              "strokeWidth": 1.7
+            },
+            {
+              "id": "bc",
+              "kind": "piecewise-linear",
+              "points": [
+                [
+                  -1.082532,
+                  -0.875
+                ],
+                [
+                  1.082532,
+                  -0.875
+                ]
+              ],
+              "domain": [
+                -1.082532,
+                1.082532
+              ],
+              "color": "#1565c0",
+              "strokeWidth": 1.7
+            }
+          ],
+          "dots": [
+            {
+              "x": 0,
+              "y": 1,
+              "label": "A(0, 1)",
+              "labelAnchor": "start",
+              "labelDx": 8,
+              "labelDy": -4
+            },
+            {
+              "x": -1.082532,
+              "y": -0.875,
+              "label": "B",
+              "labelAnchor": "end",
+              "labelDx": -8,
+              "labelDy": 14
+            },
+            {
+              "x": 1.082532,
+              "y": -0.875,
+              "label": "C",
+              "labelAnchor": "start",
+              "labelDx": 8,
+              "labelDy": 14
+            }
+          ]
+        }
+      ],
       "sourceTag": "คัดโอลิมปิก 2549",
       "choices": [
         "$\\dfrac{4}{3}\\sqrt{3}$ หน่วย",
