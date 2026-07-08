@@ -11995,7 +11995,92 @@
       "level": "easy",
       "score": 1,
       "question": "ถ้าจุด $(h, k)$ เป็นจุดกึ่งกลางระหว่างจุดยอดของไฮเพอร์โบลา\nซึ่งมีสมการ $x^2 - 4y^2 + 24y - 32 = 0$ แล้ว ดังนั้นจุด $(h, k)$ คือข้อใดต่อไปนี้",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 500,
+          "height": 337,
+          "xRange": [
+            -6,
+            6
+          ],
+          "yRange": [
+            -1,
+            7
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "hu",
+              "kind": "hyperbola",
+              "center": [
+                0,
+                3
+              ],
+              "a": 1,
+              "b": 2,
+              "orientation": "vertical",
+              "branches": "up",
+              "asymptotes": true,
+              "tRange": [
+                -1.85,
+                1.85
+              ],
+              "color": "#222"
+            },
+            {
+              "id": "hd",
+              "kind": "hyperbola",
+              "center": [
+                0,
+                3
+              ],
+              "a": 1,
+              "b": 2,
+              "orientation": "vertical",
+              "branches": "down",
+              "tRange": [
+                -1.85,
+                1.85
+              ],
+              "color": "#222"
+            }
+          ],
+          "dots": [
+            {
+              "x": 0,
+              "y": 3,
+              "label": "(h, k) = ศูนย์กลาง",
+              "labelAnchor": "start",
+              "labelDx": 21.5,
+              "labelDy": -0.5,
+              "labelColor": "#c62828"
+            },
+            {
+              "x": 0,
+              "y": 4,
+              "label": "V₁(0, 4)",
+              "labelAnchor": "start",
+              "labelDx": 4,
+              "labelDy": 13
+            },
+            {
+              "x": 0,
+              "y": 2,
+              "label": "V₂(0, 2)",
+              "labelAnchor": "start",
+              "labelDx": 3.5,
+              "labelDy": -5.5
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance 2523",
       "choices": [
         "$(0, 3)$",
@@ -12038,7 +12123,100 @@
       "level": "easy",
       "score": 1,
       "question": "ไฮเพอร์โบลาที่มีจุดยอดที่ $(3, 2)$ และ $(3, -4)$ โฟกัสที่ $(3, -6)$ มีสมการตรงกับข้อใดต่อไปนี้",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 368,
+          "height": 352,
+          "xRange": [
+            -4,
+            10
+          ],
+          "yRange": [
+            -8,
+            6
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "hu",
+              "kind": "hyperbola",
+              "center": [
+                3,
+                -1
+              ],
+              "a": 3,
+              "b": 4,
+              "orientation": "vertical",
+              "branches": "up",
+              "asymptotes": true,
+              "tRange": [
+                -1.35,
+                1.35
+              ],
+              "color": "#222"
+            },
+            {
+              "id": "hd",
+              "kind": "hyperbola",
+              "center": [
+                3,
+                -1
+              ],
+              "a": 3,
+              "b": 4,
+              "orientation": "vertical",
+              "branches": "down",
+              "tRange": [
+                -1.35,
+                1.35
+              ],
+              "color": "#222"
+            }
+          ],
+          "dots": [
+            {
+              "x": 3,
+              "y": -1,
+              "label": "C(3, −1)",
+              "labelAnchor": "start",
+              "labelDx": 12.5,
+              "labelDy": 4
+            },
+            {
+              "x": 3,
+              "y": 2,
+              "label": "V₁(3, 2)",
+              "labelAnchor": "start",
+              "labelDx": -18,
+              "labelDy": 17.5
+            },
+            {
+              "x": 3,
+              "y": -4,
+              "label": "V₂(3, −4)",
+              "labelAnchor": "start",
+              "labelDx": -17,
+              "labelDy": -12
+            },
+            {
+              "x": 3,
+              "y": -6,
+              "label": "F(3, −6)",
+              "labelAnchor": "start",
+              "labelDx": 14,
+              "labelDy": -2,
+              "labelColor": "#c62828"
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance 2538",
       "choices": [
         "$\\dfrac{(y + 1)^2}{16} - \\dfrac{(x - 3)^2}{9} = 1$",
@@ -12126,7 +12304,157 @@
       "level": "medium",
       "score": 1,
       "question": "ผลบวกของระยะทางจากจุดโฟกัสทั้งสองของไฮเพอร์โบลา $9x^2 - 16y^2 - 18x - 64y - 199 = 0$\nไปยังเส้นตรง $3x + 4y - 8 = 0$ มีค่าเท่าใด",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 500,
+          "height": 374,
+          "xRange": [
+            -7,
+            9
+          ],
+          "yRange": [
+            -7,
+            5
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "hr",
+              "kind": "hyperbola",
+              "center": [
+                1,
+                -2
+              ],
+              "a": 4,
+              "b": 3,
+              "orientation": "horizontal",
+              "branches": "right",
+              "asymptotes": true,
+              "tRange": [
+                -1.35,
+                1.35
+              ],
+              "color": "#222"
+            },
+            {
+              "id": "hl",
+              "kind": "hyperbola",
+              "center": [
+                1,
+                -2
+              ],
+              "a": 4,
+              "b": 3,
+              "orientation": "horizontal",
+              "branches": "left",
+              "tRange": [
+                -1.35,
+                1.35
+              ],
+              "color": "#222"
+            },
+            {
+              "kind": "polynomial",
+              "coefs": [
+                -0.75,
+                2
+              ],
+              "domain": [
+                -7,
+                9
+              ],
+              "color": "#1565c0",
+              "strokeWidth": 1.6,
+              "label": {
+                "at": [
+                  -6.927,
+                  4.753
+                ],
+                "text": "3x+4y−8=0",
+                "anchor": "start",
+                "color": "#1565c0"
+              }
+            }
+          ],
+          "segments": [
+            {
+              "from": [
+                6,
+                -2
+              ],
+              "to": [
+                5.76,
+                -2.32
+              ],
+              "dashed": true
+            },
+            {
+              "from": [
+                -4,
+                -2
+              ],
+              "to": [
+                -0.64,
+                2.48
+              ],
+              "dashed": true
+            }
+          ],
+          "dots": [
+            {
+              "x": 1,
+              "y": -2,
+              "label": "C(1, −2)",
+              "labelAnchor": "end",
+              "labelDx": 53.5,
+              "labelDy": 5.5
+            },
+            {
+              "x": 6,
+              "y": -2,
+              "label": "F₁(6, −2)",
+              "labelAnchor": "start",
+              "labelDx": 11,
+              "labelDy": -9
+            },
+            {
+              "x": -4,
+              "y": -2,
+              "label": "F₂(−4, −2)",
+              "labelAnchor": "end",
+              "labelDx": 13,
+              "labelDy": 14.5
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                5.368,
+                -2.897
+              ],
+              "text": "2/5",
+              "anchor": "start",
+              "color": "#c62828"
+            },
+            {
+              "at": [
+                -2.564,
+                1.667
+              ],
+              "text": "28/5",
+              "anchor": "start",
+              "color": "#c62828"
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance 2536",
       "correct": "6",
       "accept": [
@@ -12364,7 +12692,154 @@
       "level": "easy",
       "score": 1,
       "question": "ถ้า A เป็นจุดตัดของเส้นตรง $5x - 4y - 15 = 0$ และ $x + y - 12 = 0$\nจุด B และจุด C เป็นจุดยอดของไฮเพอร์โบลา $4y^2 - 9x^2 - 16y + 18x - 29 = 0$\nแล้ว สามเหลี่ยม ABC มีพื้นที่กี่ตารางหน่วย",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 360,
+          "height": 294,
+          "xRange": [
+            -3,
+            9
+          ],
+          "yRange": [
+            -3,
+            7
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "hu",
+              "kind": "hyperbola",
+              "center": [
+                1,
+                2
+              ],
+              "a": 3,
+              "b": 2,
+              "orientation": "vertical",
+              "branches": "up",
+              "asymptotes": true,
+              "tRange": [
+                -1.15,
+                1.15
+              ],
+              "color": "#222"
+            },
+            {
+              "id": "hd",
+              "kind": "hyperbola",
+              "center": [
+                1,
+                2
+              ],
+              "a": 3,
+              "b": 2,
+              "orientation": "vertical",
+              "branches": "down",
+              "tRange": [
+                -1.15,
+                1.15
+              ],
+              "color": "#222"
+            }
+          ],
+          "segments": [
+            {
+              "from": [
+                1,
+                5
+              ],
+              "to": [
+                1,
+                -1
+              ],
+              "dashed": false
+            },
+            {
+              "from": [
+                1,
+                5
+              ],
+              "to": [
+                7,
+                5
+              ],
+              "dashed": false
+            },
+            {
+              "from": [
+                1,
+                -1
+              ],
+              "to": [
+                7,
+                5
+              ],
+              "dashed": false
+            }
+          ],
+          "dots": [
+            {
+              "x": 1,
+              "y": 2,
+              "label": "ศก.(1, 2)",
+              "labelAnchor": "end",
+              "labelDx": 55.5,
+              "labelDy": 2
+            },
+            {
+              "x": 1,
+              "y": 5,
+              "label": "B(1, 5)",
+              "labelAnchor": "end",
+              "labelDx": 20.5,
+              "labelDy": -15.5
+            },
+            {
+              "x": 1,
+              "y": -1,
+              "label": "C(1, −1)",
+              "labelAnchor": "end",
+              "labelDx": 24,
+              "labelDy": 28
+            },
+            {
+              "x": 7,
+              "y": 5,
+              "label": "A(7, 5)",
+              "labelAnchor": "start",
+              "labelDx": 8,
+              "labelDy": 1
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                1.16,
+                3.5
+              ],
+              "text": "BC = 6",
+              "anchor": "start",
+              "color": "#c62828"
+            },
+            {
+              "at": [
+                3.26,
+                4.48
+              ],
+              "text": "สูง = 6",
+              "anchor": "start",
+              "color": "#c62828"
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance 2535",
       "correct": "18",
       "accept": [
@@ -12825,7 +13300,141 @@
       "level": "easy",
       "score": 1,
       "question": "กำหนดให้ A เป็นจุดๆ หนึ่งบนไฮเพอร์โบลา $\\dfrac{(x - 1)^2}{9} - \\dfrac{(y - 2)^2}{16} = 1$\nถ้าระยะห่างระหว่างจุด A และจุดโฟกัสจุดหนึ่งของไฮเพอร์โบลาคือ 3 หน่วย แล้ว\nระยะห่างระหว่างจุด A กับจุดโฟกัสอีกจุดหนึ่งของไฮเพอร์โบลา มีค่าเท่ากับกี่หน่วย",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 428,
+          "height": 320,
+          "xRange": [
+            -7,
+            9
+          ],
+          "yRange": [
+            -4,
+            8
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "hr",
+              "kind": "hyperbola",
+              "center": [
+                1,
+                2
+              ],
+              "a": 3,
+              "b": 4,
+              "orientation": "horizontal",
+              "branches": "right",
+              "asymptotes": true,
+              "tRange": [
+                -1.25,
+                1.25
+              ],
+              "color": "#222"
+            },
+            {
+              "id": "hl",
+              "kind": "hyperbola",
+              "center": [
+                1,
+                2
+              ],
+              "a": 3,
+              "b": 4,
+              "orientation": "horizontal",
+              "branches": "left",
+              "tRange": [
+                -1.25,
+                1.25
+              ],
+              "color": "#222"
+            }
+          ],
+          "segments": [
+            {
+              "from": [
+                4.6,
+                4.653
+              ],
+              "to": [
+                6,
+                2
+              ]
+            },
+            {
+              "from": [
+                4.6,
+                4.653
+              ],
+              "to": [
+                -4,
+                2
+              ]
+            }
+          ],
+          "dots": [
+            {
+              "x": 1,
+              "y": 2,
+              "label": "C(1, 2)",
+              "labelAnchor": "middle",
+              "labelDx": 1.15,
+              "labelDy": 21.71
+            },
+            {
+              "x": 6,
+              "y": 2,
+              "label": "F₁(6, 2)",
+              "labelAnchor": "start",
+              "labelDx": -10.14,
+              "labelDy": 19.57
+            },
+            {
+              "x": -4,
+              "y": 2,
+              "label": "F₂(−4, 2)",
+              "labelAnchor": "end",
+              "labelDx": 3.14,
+              "labelDy": 20.14
+            },
+            {
+              "x": 4.6,
+              "y": 4.653,
+              "label": "A",
+              "labelAnchor": "start",
+              "labelDx": 8,
+              "labelDy": -4
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                5.575,
+                3.476
+              ],
+              "text": "3",
+              "anchor": "start",
+              "color": "#c62828"
+            },
+            {
+              "at": [
+                0.3,
+                3.7
+              ],
+              "text": "9",
+              "anchor": "start",
+              "color": "#1565c0"
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance ต.ค. 2547",
       "correct": "9",
       "accept": [
@@ -12865,7 +13474,185 @@
       "level": "medium",
       "score": 1,
       "question": "กำหนดให้ $F_1$ และ $F_2$ เป็นจุดโฟกัสของไฮเพอร์โบลา $x^2 + 6x - y^2 - 14y - 41 = 0$\nถ้า $P_1(0, y_1)$ และ $P_2(0, y_2)$ เป็นจุดสองจุดที่ทำให้พื้นที่ของรูปสามเหลี่ยม $P_1F_1F_2$ และพื้นที่ของรูป\nสามเหลี่ยม $P_2F_1F_2$ ต่างก็เท่ากับ $2\\sqrt{2}$ ตารางหน่วย แล้ว $|y_1^2 - y_2^2|$ มีค่าเท่ากับข้อใดต่อไปนี้",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 500,
+          "height": 572,
+          "xRange": [
+            -7,
+            3
+          ],
+          "yRange": [
+            -11,
+            1
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "hr",
+              "kind": "hyperbola",
+              "center": [
+                -3,
+                -7
+              ],
+              "a": 1,
+              "b": 1,
+              "orientation": "horizontal",
+              "branches": "right",
+              "asymptotes": true,
+              "tRange": [
+                -2.1,
+                2.1
+              ],
+              "color": "#222"
+            },
+            {
+              "id": "hl",
+              "kind": "hyperbola",
+              "center": [
+                -3,
+                -7
+              ],
+              "a": 1,
+              "b": 1,
+              "orientation": "horizontal",
+              "branches": "left",
+              "tRange": [
+                -2.1,
+                2.1
+              ],
+              "color": "#222"
+            }
+          ],
+          "segments": [
+            {
+              "from": [
+                -1.58579,
+                -7
+              ],
+              "to": [
+                -4.41421,
+                -7
+              ]
+            },
+            {
+              "from": [
+                0,
+                -5
+              ],
+              "to": [
+                -1.58579,
+                -7
+              ],
+              "dashed": true
+            },
+            {
+              "from": [
+                0,
+                -5
+              ],
+              "to": [
+                -4.41421,
+                -7
+              ],
+              "dashed": true
+            },
+            {
+              "from": [
+                0,
+                -9
+              ],
+              "to": [
+                -1.58579,
+                -7
+              ],
+              "dashed": true
+            },
+            {
+              "from": [
+                0,
+                -9
+              ],
+              "to": [
+                -4.41421,
+                -7
+              ],
+              "dashed": true
+            }
+          ],
+          "dots": [
+            {
+              "x": -3,
+              "y": -7,
+              "label": "C(−3, −7)",
+              "labelAnchor": "middle",
+              "labelDx": -1.14,
+              "labelDy": 16
+            },
+            {
+              "x": -1.58579,
+              "y": -7,
+              "label": "F₁",
+              "labelAnchor": "start",
+              "labelDx": 13.71,
+              "labelDy": 1.85
+            },
+            {
+              "x": -4.41421,
+              "y": -7,
+              "label": "F₂",
+              "labelAnchor": "end",
+              "labelDx": -13.72,
+              "labelDy": 1.29
+            },
+            {
+              "x": 0,
+              "y": -5,
+              "label": "P₁(0, y₁)",
+              "labelAnchor": "start",
+              "labelDx": 10.29,
+              "labelDy": 0.57,
+              "labelColor": "#c62828"
+            },
+            {
+              "x": 0,
+              "y": -9,
+              "label": "P₂(0, y₂)",
+              "labelAnchor": "start",
+              "labelDx": 8.57,
+              "labelDy": 10.29,
+              "labelColor": "#c62828"
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                -2.6,
+                -5.7
+              ],
+              "text": "2\\sqrt{2}",
+              "anchor": "start",
+              "color": "#1565c0"
+            },
+            {
+              "at": [
+                -2.86,
+                -8.436
+              ],
+              "text": "2\\sqrt{2}",
+              "anchor": "start",
+              "color": "#1565c0"
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance มี.ค. 2545",
       "choices": [
         "28",
@@ -28737,7 +29524,147 @@
       "level": "easy",
       "score": 1,
       "question": "ถ้าเลื่อนรูปไฮเพอร์โบลาที่มีสมการเป็น $4x^2 + 8x - y^2 - 6y = 21$ ลงมาในแนวดิ่ง 2 หน่วย และไป\nทางขวา 5 หน่วย แล้ว สมการใหม่ของไฮเพอร์โบลาคือข้อใด",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 434,
+          "height": 308,
+          "xRange": [
+            -7,
+            10
+          ],
+          "yRange": [
+            -10,
+            2
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "o1",
+              "kind": "hyperbola",
+              "center": [
+                -1,
+                -3
+              ],
+              "a": 2,
+              "b": 4,
+              "orientation": "horizontal",
+              "branches": "right",
+              "tRange": [
+                -1.1,
+                1.1
+              ],
+              "dashed": true,
+              "color": "#999"
+            },
+            {
+              "id": "o2",
+              "kind": "hyperbola",
+              "center": [
+                -1,
+                -3
+              ],
+              "a": 2,
+              "b": 4,
+              "orientation": "horizontal",
+              "branches": "left",
+              "tRange": [
+                -1.1,
+                1.1
+              ],
+              "dashed": true,
+              "color": "#999"
+            },
+            {
+              "id": "n1",
+              "kind": "hyperbola",
+              "center": [
+                4,
+                -5
+              ],
+              "a": 2,
+              "b": 4,
+              "orientation": "horizontal",
+              "branches": "right",
+              "tRange": [
+                -1.1,
+                1.1
+              ],
+              "color": "#222"
+            },
+            {
+              "id": "n2",
+              "kind": "hyperbola",
+              "center": [
+                4,
+                -5
+              ],
+              "a": 2,
+              "b": 4,
+              "orientation": "horizontal",
+              "branches": "left",
+              "tRange": [
+                -1.1,
+                1.1
+              ],
+              "color": "#222"
+            }
+          ],
+          "segments": [
+            {
+              "from": [
+                -1,
+                -3
+              ],
+              "to": [
+                4,
+                -5
+              ],
+              "dashed": true
+            }
+          ],
+          "dots": [
+            {
+              "x": -1,
+              "y": -3,
+              "label": "เดิม C(−1, −3)",
+              "labelAnchor": "end",
+              "labelDx": 14.67,
+              "labelDy": -9.99
+            },
+            {
+              "x": 4,
+              "y": -5,
+              "label": "ใหม่ C′(4, −5)",
+              "labelAnchor": "start",
+              "labelDx": -35.33,
+              "labelDy": 22.67,
+              "labelColor": "#c62828"
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                3.206,
+                -1.382
+              ],
+              "text": "ขวา 5, ลง 2",
+              "anchor": "start",
+              "color": "#1565c0",
+              "arrowTo": [
+                4,
+                -5
+              ]
+            }
+          ]
+        }
+      ],
       "sourceTag": "โควตา มช. 2543",
       "choices": [
         "$\\left(\\dfrac{x - 4}{2}\\right)^2 - \\left(\\dfrac{y + 5}{4}\\right)^2 = 1$",
@@ -28970,7 +29897,125 @@
       "level": "medium",
       "score": 1,
       "question": "ให้ H เป็นไฮเพอร์โบลาที่มีจุดโฟกัสทั้งสองอยู่บนเส้นตรง $x = 1$\nถ้า H ผ่านจุด $(1, 1)$, $(2, 3)$ และมีความยาวของแกนตามขวางเท่ากับ $\\dfrac{5}{2}$ หน่วย\nแล้วสมการของ H คือข้อใดต่อไปนี้",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 550,
+          "height": 616,
+          "xRange": [
+            -2,
+            4
+          ],
+          "yRange": [
+            -3,
+            4
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "hu",
+              "kind": "hyperbola",
+              "center": [
+                1,
+                -0.25
+              ],
+              "a": 1.25,
+              "b": 0.41667,
+              "orientation": "vertical",
+              "branches": "up",
+              "asymptotes": true,
+              "tRange": [
+                -1.7,
+                1.7
+              ],
+              "color": "#222"
+            },
+            {
+              "id": "hd",
+              "kind": "hyperbola",
+              "center": [
+                1,
+                -0.25
+              ],
+              "a": 1.25,
+              "b": 0.41667,
+              "orientation": "vertical",
+              "branches": "down",
+              "tRange": [
+                -1.7,
+                1.7
+              ],
+              "color": "#222"
+            }
+          ],
+          "segments": [
+            {
+              "from": [
+                1,
+                1
+              ],
+              "to": [
+                1,
+                -1.5
+              ],
+              "dashed": true
+            }
+          ],
+          "dots": [
+            {
+              "x": 1,
+              "y": -0.25,
+              "label": "C(1, −¼)",
+              "labelAnchor": "start",
+              "labelDx": 13.33,
+              "labelDy": 4.67
+            },
+            {
+              "x": 1,
+              "y": 1,
+              "label": "V₁(1, 1)",
+              "labelAnchor": "end",
+              "labelDx": 17.32,
+              "labelDy": -27.99,
+              "labelColor": "#c62828"
+            },
+            {
+              "x": 1,
+              "y": -1.5,
+              "label": "V₂(1, −3/2)",
+              "labelAnchor": "end",
+              "labelDx": 26,
+              "labelDy": 61.34
+            },
+            {
+              "x": 2,
+              "y": 3,
+              "label": "(2, 3)",
+              "labelAnchor": "start",
+              "labelDx": 10.33,
+              "labelDy": 9.34,
+              "labelColor": "#c62828"
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                1.093,
+                0.322
+              ],
+              "text": "2a = 5/2",
+              "anchor": "start",
+              "color": "#1565c0"
+            }
+          ]
+        }
+      ],
       "sourceTag": "สมาคมคณิตศาสตร์ฯ 2542",
       "choices": [
         "$16\\left(y + \\dfrac{1}{4}\\right)^2 - 144(x - 1)^2 = 25$",
