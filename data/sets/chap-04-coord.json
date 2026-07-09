@@ -1884,27 +1884,41 @@
             },
             {
               "x": 2.236,
-              "y": 4.472,
-              "label": "(√5,2√5)",
-              "labelDx": 14,
-              "labelDy": -8,
-              "labelAnchor": "start"
+              "y": 4.472
             },
             {
               "x": 0,
-              "y": 8.944,
-              "label": "(0,4√5)",
-              "labelDx": 8,
-              "labelDy": -8,
-              "labelAnchor": "start"
+              "y": 8.944
             },
             {
               "x": -2.236,
-              "y": 4.472,
-              "label": "(-√5,2√5)",
-              "labelDx": -8,
-              "labelDy": -4,
-              "labelAnchor": "end"
+              "y": 4.472
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                2.556,
+                4.734
+              ],
+              "text": "(\\sqrt{5},2\\sqrt{5})",
+              "anchor": "start"
+            },
+            {
+              "at": [
+                0.183,
+                9.206
+              ],
+              "text": "(0,4\\sqrt{5})",
+              "anchor": "start"
+            },
+            {
+              "at": [
+                -2.419,
+                4.603
+              ],
+              "text": "(-\\sqrt{5},2\\sqrt{5})",
+              "anchor": "end"
             }
           ]
         }
@@ -2297,11 +2311,7 @@
             },
             {
               "x": 3,
-              "y": 5.196,
-              "label": "F(3,3√3)",
-              "labelDx": -10,
-              "labelDy": -12,
-              "labelAnchor": "end"
+              "y": 5.196
             },
             {
               "x": 12,
@@ -2313,11 +2323,25 @@
             },
             {
               "x": 0,
-              "y": 6.928,
-              "label": "(0,4√3)",
-              "labelDx": 10,
-              "labelDy": -6,
-              "labelAnchor": "start"
+              "y": 6.928
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                2.547,
+                5.561
+              ],
+              "text": "F(3,3\\sqrt{3})",
+              "anchor": "end"
+            },
+            {
+              "at": [
+                0.453,
+                7.11
+              ],
+              "text": "(0,4\\sqrt{3})",
+              "anchor": "start"
             }
           ]
         }
@@ -3984,11 +4008,7 @@
             },
             {
               "x": 45,
-              "y": 51.962,
-              "label": "C(45,30√3)",
-              "labelDx": 1,
-              "labelDy": -20,
-              "labelAnchor": "end"
+              "y": 51.962
             }
           ],
           "annotations": [
@@ -4007,6 +4027,14 @@
                 -3.178
               ],
               "anchor": "middle"
+            },
+            {
+              "at": [
+                45.18,
+                55.279
+              ],
+              "text": "C(45,30\\sqrt{3})",
+              "anchor": "end"
             }
           ]
         }
@@ -4143,19 +4171,11 @@
             },
             {
               "x": 1,
-              "y": -2.828,
-              "label": "A(1,-2√2)",
-              "labelDx": 69,
-              "labelDy": 4,
-              "labelAnchor": "end"
+              "y": -2.828
             },
             {
               "x": 4,
-              "y": 5.657,
-              "label": "B(4,4√2)",
-              "labelDx": 11,
-              "labelDy": 11,
-              "labelAnchor": "start"
+              "y": 5.657
             }
           ],
           "annotations": [
@@ -4165,6 +4185,22 @@
                 3.515,
                 2.748
               ],
+              "anchor": "start"
+            },
+            {
+              "at": [
+                2.466,
+                -2.979
+              ],
+              "text": "A(1,-2\\sqrt{2})",
+              "anchor": "end"
+            },
+            {
+              "at": [
+                4.234,
+                5.242
+              ],
+              "text": "B(4,4\\sqrt{2})",
               "anchor": "start"
             }
           ]
@@ -11724,12 +11760,17 @@
             },
             {
               "x": 0.8165,
-              "y": 1,
-              "label": "(√⅔, 1)",
-              "labelAnchor": "start",
-              "labelDx": 8,
-              "labelDy": 0.67,
-              "labelColor": "#c62828"
+              "y": 1
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                0.926,
+                0.991
+              ],
+              "text": "(\\sqrt{⅔}, 1)",
+              "anchor": "start"
             }
           ]
         }
@@ -12077,7 +12118,7 @@
                 1.35,
                 -0.75
               ],
-              "text": "2√2",
+              "text": "2\\sqrt{2}",
               "anchor": "start"
             }
           ]
@@ -12384,7 +12425,7 @@
                 0.624,
                 -2.123
               ],
-              "text": "a=15, b=5 → c=10√2",
+              "text": "a=15, b=5 → c=10\\sqrt{2}",
               "anchor": "start",
               "color": "#c62828"
             }
@@ -13036,7 +13077,7 @@
                 -5.513,
                 2.436
               ],
-              "text": "r = แกนโท = 2√5",
+              "text": "r = แกนโท = 2\\sqrt{5}",
               "anchor": "start",
               "color": "#1565c0"
             }
@@ -13213,7 +13254,7 @@
                 -3.05,
                 1.35
               ],
-              "text": "AB = √6",
+              "text": "AB = \\sqrt{6}",
               "anchor": "start",
               "color": "#c62828"
             }
@@ -14264,11 +14305,17 @@
             },
             {
               "x": 4,
-              "y": 2.236068,
-              "label": "P(4, √5)",
-              "labelAnchor": "middle",
-              "labelDx": 0,
-              "labelDy": -10
+              "y": 2.236068
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                4.0,
+                2.61
+              ],
+              "text": "P(4, \\sqrt{5})",
+              "anchor": "middle"
             }
           ]
         }
@@ -15784,7 +15831,7 @@
                 3.645,
                 -5.978
               ],
-              "text": "รอบรูป = 15 + 3√5",
+              "text": "รอบรูป = 15 + 3\\sqrt{5}",
               "anchor": "start",
               "color": "#c62828"
             }
@@ -16818,7 +16865,146 @@
       "level": "hard",
       "score": 1,
       "question": "ให้ H เป็นไฮเพอร์โบลา $12y^2 - 4x^2 + 72y + 16x + 44 = 0$ ซึ่งมีจุดโฟกัสคือ $F_1$ และ $F_2$\nให้ E เป็นวงรีซึ่งมีจุดศูนย์กลางร่วมกับ H โดยมี $F_1$ และ $F_2$ เป็นจุดยอด และสัมผัสแกน y\nถ้า E ตัดแกน x ที่จุด A และ B แล้ว AB ยาวเท่ากับข้อใดต่อไปนี้",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 324,
+          "height": 356,
+          "xRange": [
+            -4,
+            7
+          ],
+          "yRange": [
+            -9,
+            4
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "e1",
+              "kind": "ellipse-arc",
+              "center": [
+                2,
+                -3
+              ],
+              "a": 2,
+              "b": 4,
+              "half": "upper",
+              "color": "#1565c0"
+            },
+            {
+              "id": "e2",
+              "kind": "ellipse-arc",
+              "center": [
+                2,
+                -3
+              ],
+              "a": 2,
+              "b": 4,
+              "half": "lower",
+              "color": "#1565c0"
+            },
+            {
+              "id": "hu",
+              "kind": "hyperbola",
+              "center": [
+                2,
+                -3
+              ],
+              "a": 2,
+              "b": 3.4641,
+              "orientation": "vertical",
+              "branches": "up",
+              "asymptotes": true,
+              "tRange": [
+                -1.2,
+                1.2
+              ],
+              "color": "#222"
+            },
+            {
+              "id": "hd",
+              "kind": "hyperbola",
+              "center": [
+                2,
+                -3
+              ],
+              "a": 2,
+              "b": 3.4641,
+              "orientation": "vertical",
+              "branches": "down",
+              "tRange": [
+                -1.2,
+                1.2
+              ],
+              "color": "#222"
+            }
+          ],
+          "dots": [
+            {
+              "x": 2,
+              "y": -3,
+              "label": "C(2, −3)",
+              "labelAnchor": "start",
+              "labelDx": -20.4,
+              "labelDy": 22.4
+            },
+            {
+              "x": 2,
+              "y": 1,
+              "label": "ยอด E = F₁",
+              "labelAnchor": "start",
+              "labelDx": -14,
+              "labelDy": -16.8,
+              "labelColor": "#1565c0"
+            },
+            {
+              "x": 2,
+              "y": -7,
+              "label": "ยอด E = F₂",
+              "labelAnchor": "start",
+              "labelDx": -22.8,
+              "labelDy": 17.6,
+              "labelColor": "#1565c0"
+            },
+            {
+              "x": 0.68,
+              "y": 0,
+              "label": "A",
+              "labelAnchor": "end",
+              "labelDx": -4,
+              "labelDy": -4,
+              "labelColor": "#c62828"
+            },
+            {
+              "x": 3.32,
+              "y": 0,
+              "label": "B",
+              "labelAnchor": "start",
+              "labelDx": 4.8,
+              "labelDy": -10.4,
+              "labelColor": "#c62828"
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                0.867,
+                -0.6
+              ],
+              "text": "AB = \\sqrt{7}",
+              "anchor": "start",
+              "color": "#c62828"
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance ต.ค. 2546",
       "choices": [
         "$\\sqrt{8}$ หน่วย",
@@ -16864,7 +17050,150 @@
       "level": "medium",
       "score": 1,
       "question": "ให้ A เป็นจุดในควอดรันต์ที่หนึ่ง และเป็นจุดศูนย์กลางของวงกลม C ซึ่งมีรัศมี 3 หน่วย\nถ้า C ผ่านจุดโฟกัสทั้งสองของไฮเพอร์โบลา $2y^2 - 12y - 3x^2 + 6x + 9 = 0$\nแล้ว ระยะทางจากจุดกำเนิดไปยังจุด A มีค่าเท่ากับข้อใดต่อไปนี้",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 340,
+          "height": 324,
+          "xRange": [
+            -1,
+            7
+          ],
+          "yRange": [
+            -1,
+            7
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "hu",
+              "kind": "hyperbola",
+              "center": [
+                1,
+                3
+              ],
+              "a": 1.73205,
+              "b": 1.41421,
+              "orientation": "vertical",
+              "branches": "up",
+              "asymptotes": true,
+              "tRange": [
+                -1.5,
+                1.5
+              ],
+              "color": "#222"
+            },
+            {
+              "id": "hd",
+              "kind": "hyperbola",
+              "center": [
+                1,
+                3
+              ],
+              "a": 1.73205,
+              "b": 1.41421,
+              "orientation": "vertical",
+              "branches": "down",
+              "tRange": [
+                -1.5,
+                1.5
+              ],
+              "color": "#222"
+            },
+            {
+              "id": "cu",
+              "kind": "ellipse-arc",
+              "center": [
+                3,
+                3
+              ],
+              "a": 3,
+              "b": 3,
+              "half": "upper",
+              "color": "#1565c0"
+            },
+            {
+              "id": "cl",
+              "kind": "ellipse-arc",
+              "center": [
+                3,
+                3
+              ],
+              "a": 3,
+              "b": 3,
+              "half": "lower",
+              "color": "#1565c0"
+            }
+          ],
+          "segments": [
+            {
+              "from": [
+                0,
+                0
+              ],
+              "to": [
+                3,
+                3
+              ],
+              "dashed": true
+            }
+          ],
+          "dots": [
+            {
+              "x": 1,
+              "y": 3,
+              "label": "C(1, 3)",
+              "labelAnchor": "end",
+              "labelDx": 47.6,
+              "labelDy": 3.2
+            },
+            {
+              "x": 1,
+              "y": 5.236,
+              "label": "F₁",
+              "labelAnchor": "end",
+              "labelDx": 4.6,
+              "labelDy": -12,
+              "labelColor": "#c62828"
+            },
+            {
+              "x": 1,
+              "y": 0.764,
+              "label": "F₂",
+              "labelAnchor": "end",
+              "labelDx": -2.6,
+              "labelDy": 18.8,
+              "labelColor": "#c62828"
+            },
+            {
+              "x": 3,
+              "y": 3,
+              "label": "A(3, 3)",
+              "labelAnchor": "start",
+              "labelDx": 13.2,
+              "labelDy": -9.6,
+              "labelColor": "#1565c0"
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                0.454,
+                2.114
+              ],
+              "text": "OA = \\sqrt{18}",
+              "anchor": "start",
+              "color": "#c62828"
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance มี.ค. 2547",
       "choices": [
         "$\\sqrt{15}$",
@@ -24388,7 +24717,7 @@
               "color": "#888"
             },
             {
-              "text": "ระยะ = 1/√2",
+              "text": "ระยะ = 1/\\sqrt{2}",
               "at": [
                 1.93,
                 -2.286
@@ -26682,7 +27011,172 @@
       "level": "medium",
       "score": 1,
       "question": "ให้ $y^2 = 8x$ เป็นสมการของพาราโบลา\nให้ L เป็นเส้นตรงที่ผ่านจุดโฟกัสของพาราโบลานี้ และขนานกับเส้นตรง $y = 2\\sqrt{2}\\,x + 5$\nถ้าเส้นตรง L ตัดแกน y ที่จุด A และมีจุดตัดพาราโบลาจุดหนึ่งเป็น $B(b, c)$\nเมื่อ $b > 0$ และ $c > 0$ จงหาสมการวงกลมที่ผ่านจุด A, $B(b, c)$ และ $C(0, c)$",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 500,
+          "height": 484,
+          "xRange": [
+            -5,
+            9
+          ],
+          "yRange": [
+            -7,
+            7
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "cu",
+              "kind": "ellipse-arc",
+              "center": [
+                2,
+                0
+              ],
+              "a": 6,
+              "b": 6,
+              "half": "upper",
+              "color": "#1565c0"
+            },
+            {
+              "id": "cl",
+              "kind": "ellipse-arc",
+              "center": [
+                2,
+                0
+              ],
+              "a": 6,
+              "b": 6,
+              "half": "lower",
+              "color": "#1565c0"
+            },
+            {
+              "id": "pr",
+              "kind": "parabola-h",
+              "vertex": [
+                0,
+                0
+              ],
+              "throughPoint": [
+                2,
+                4
+              ],
+              "yDomain": [
+                -6,
+                6
+              ],
+              "color": "#222",
+              "strokeWidth": 1.6
+            },
+            {
+              "kind": "polynomial",
+              "coefs": [
+                2.82843,
+                -5.65685
+              ],
+              "domain": [
+                -0.3,
+                4.6
+              ],
+              "color": "#c62828",
+              "strokeWidth": 1.6,
+              "label": {
+                "at": [
+                  4.8,
+                  6.567
+                ],
+                "text": "L",
+                "anchor": "start",
+                "color": "#c62828"
+              }
+            }
+          ],
+          "segments": [
+            {
+              "from": [
+                0,
+                -5.65685
+              ],
+              "to": [
+                0,
+                5.65685
+              ],
+              "dashed": true
+            },
+            {
+              "from": [
+                0,
+                5.65685
+              ],
+              "to": [
+                4,
+                5.65685
+              ],
+              "dashed": true
+            }
+          ],
+          "dots": [
+            {
+              "x": 2,
+              "y": 0,
+              "label": "F=ศก.(2, 0)",
+              "labelAnchor": "start",
+              "labelDx": 22,
+              "labelDy": -15.6
+            },
+            {
+              "x": 0,
+              "y": -5.65685,
+              "label": "A",
+              "labelAnchor": "start",
+              "labelDx": 6,
+              "labelDy": 17.6,
+              "labelColor": "#c62828"
+            },
+            {
+              "x": 4,
+              "y": 5.65685
+            },
+            {
+              "x": 0,
+              "y": 5.65685
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                1.781,
+                -2.241
+              ],
+              "text": "AB เป็นเส้นผ่านศก. → r = 6",
+              "anchor": "start",
+              "color": "#1565c0"
+            },
+            {
+              "at": [
+                4.751,
+                5.606
+              ],
+              "text": "B(4, 4\\sqrt{2})",
+              "anchor": "start"
+            },
+            {
+              "at": [
+                -0.42,
+                5.733
+              ],
+              "text": "C(0, 4\\sqrt{2})",
+              "anchor": "end"
+            }
+          ]
+        }
+      ],
       "sourceTag": "คัดโอลิมปิก 2548",
       "correct": "(x-2)^2+y^2=36",
       "accept": [
@@ -26959,7 +27453,195 @@
       "level": "hard",
       "score": 1,
       "question": "กำหนดสมการพาราโบลา $y^2 - 6x - 8y + 19 = 0$\nและสมการวงกลม 2 วง คือ $x^2 + y^2 = 12$ และ $x^2 + y^2 - 8x + 4 = 0$\nถ้า $d_1$ คือระยะจากจุดบนเส้นไดเรกตริกซ์ที่จุดโฟกัสของพาราโบลาลากมาตั้งฉาก ถึงจุดตัดของวงกลมสองวงจุดที่หนึ่ง\n$d_2$ คือระยะจากจุดบนเส้นไดเรกตริกซ์ที่จุดโฟกัสของพาราโบลาลากมาตั้งฉาก ถึงจุดตัดของวงกลมสองวงจุดที่สอง\nโดย $d_1 < d_2$ แล้ว จงหา $f(d_1, d_2)$ เมื่อ $f(x, y) = x^2 + 2y^2 + 5x - 3$",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 420,
+          "height": 344,
+          "xRange": [
+            -4,
+            8
+          ],
+          "yRange": [
+            -4,
+            6
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "c1u",
+              "kind": "ellipse-arc",
+              "center": [
+                0,
+                0
+              ],
+              "a": 3.4641,
+              "b": 3.4641,
+              "half": "upper",
+              "color": "#1565c0"
+            },
+            {
+              "id": "c1l",
+              "kind": "ellipse-arc",
+              "center": [
+                0,
+                0
+              ],
+              "a": 3.4641,
+              "b": 3.4641,
+              "half": "lower",
+              "color": "#1565c0"
+            },
+            {
+              "id": "c2u",
+              "kind": "ellipse-arc",
+              "center": [
+                4,
+                0
+              ],
+              "a": 3.4641,
+              "b": 3.4641,
+              "half": "upper",
+              "color": "#1565c0"
+            },
+            {
+              "id": "c2l",
+              "kind": "ellipse-arc",
+              "center": [
+                4,
+                0
+              ],
+              "a": 3.4641,
+              "b": 3.4641,
+              "half": "lower",
+              "color": "#1565c0"
+            },
+            {
+              "id": "pr",
+              "kind": "parabola-h",
+              "vertex": [
+                0.5,
+                4
+              ],
+              "throughPoint": [
+                2,
+                7
+              ],
+              "yDomain": [
+                1.5,
+                6.5
+              ],
+              "color": "#222",
+              "strokeWidth": 1.6
+            }
+          ],
+          "segments": [
+            {
+              "from": [
+                -1,
+                -4
+              ],
+              "to": [
+                -1,
+                6
+              ],
+              "dashed": true
+            },
+            {
+              "from": [
+                -1,
+                4
+              ],
+              "to": [
+                2,
+                2.82843
+              ]
+            },
+            {
+              "from": [
+                -1,
+                4
+              ],
+              "to": [
+                2,
+                -2.82843
+              ]
+            }
+          ],
+          "dots": [
+            {
+              "x": -1,
+              "y": 4,
+              "label": "จุดปลาย(−1, 4)",
+              "labelAnchor": "start",
+              "labelDx": -93.2,
+              "labelDy": 2.4,
+              "labelColor": "#c62828"
+            },
+            {
+              "x": 2,
+              "y": 2.82843,
+              "label": "d₁",
+              "labelAnchor": "start",
+              "labelDx": -8.6,
+              "labelDy": 16.8,
+              "labelColor": "#c62828"
+            },
+            {
+              "x": 2,
+              "y": -2.82843,
+              "label": "d₂",
+              "labelAnchor": "start",
+              "labelDx": -2.2,
+              "labelDy": -24,
+              "labelColor": "#c62828"
+            },
+            {
+              "x": 2,
+              "y": 4,
+              "label": "F(2, 4)",
+              "labelAnchor": "start",
+              "labelDx": -8.4,
+              "labelDy": -18.4
+            },
+            {
+              "x": 0,
+              "y": 0,
+              "label": "C₁",
+              "labelAnchor": "end",
+              "labelDx": -6,
+              "labelDy": -6,
+              "labelColor": "#1565c0"
+            },
+            {
+              "x": 4,
+              "y": 0,
+              "label": "C₂",
+              "labelAnchor": "start",
+              "labelDx": 4,
+              "labelDy": 14,
+              "labelColor": "#1565c0"
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                -4.333,
+                5.4
+              ],
+              "text": "ไดเรกตริกซ์ x=−1",
+              "anchor": "start",
+              "color": "#1565c0"
+            }
+          ]
+        }
+      ],
       "sourceTag": "ทุนเล่าเรียนหลวง (กพ.) 2539",
       "correct": "96+16√2+5√(33-16√2)",
       "accept": [
