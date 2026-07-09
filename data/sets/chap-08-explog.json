@@ -4189,7 +4189,61 @@
         "$D_f = \\{ x \\mid -9 \\le x < 11 \\}$ และ $R_f = \\{ y \\mid 0 < y < 5 \\}$",
         "$D_f = \\{ x \\mid -9 < x < 11 \\}$ และ $R_f = \\{ y \\mid 0 < y \\le 5 \\}$"
       ],
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": {
+        "type": "number-line",
+        "scale": "even",
+        "criticals": [
+          -9,
+          1,
+          11
+        ],
+        "width": 420,
+        "height": 96,
+        "axisY": 62,
+        "solutionY": 38,
+        "labels": [
+          {
+            "at": -9,
+            "text": "−9"
+          },
+          {
+            "at": 1,
+            "text": "1"
+          },
+          {
+            "at": 11,
+            "text": "11"
+          }
+        ],
+        "segments": [
+          {
+            "from": -9,
+            "to": 11,
+            "color": "#1a5fb4"
+          }
+        ],
+        "points": [
+          {
+            "at": -9,
+            "open": true,
+            "color": "#1a5fb4"
+          },
+          {
+            "at": 11,
+            "open": true,
+            "color": "#1a5fb4"
+          }
+        ],
+        "annotations": [
+          {
+            "text": "D_f = (−9, 11)  —  เปิดทั้งสองข้าง (log ต้องการ &gt; 0)",
+            "x": 210,
+            "y": 15,
+            "anchor": "middle"
+          }
+        ]
+      },
       "sourceTag": "Entrance 2524",
       "correct": 4,
       "explanation": [
@@ -4203,6 +4257,7 @@
         "",
         "<b>ขั้นที่ 1:</b> โดเมน: $100 - (x-1)^2 > 0$ คือ $(x-1)^2 < 100$ ได้ $-10 < x - 1 < 10$",
         "ดังนั้น $-9 < x < 11$ (ช่วงเปิดทั้งสองข้าง)",
+        "[IMAGE]",
         "",
         "<b>ขั้นที่ 2:</b> ตั้ง $u = \\sqrt{100 - (x-1)^2}$ : บนโดเมนนี้ $u$ วิ่งใน $(0, 10]$ (ค่าสูงสุด $10$ ที่ $x = 1$",
         "เข้าใกล้ $0$ แต่ไม่ถึง ที่ขอบช่วง)",
@@ -4249,7 +4304,109 @@
         "$(2, 4)$",
         "$(0, 2) \\cup (3, 4)$"
       ],
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": {
+        "type": "number-line",
+        "scale": "even",
+        "criticals": [
+          -2,
+          3,
+          4
+        ],
+        "width": 460,
+        "height": 130,
+        "axisY": 96,
+        "labels": [
+          {
+            "at": -2,
+            "text": "−2"
+          },
+          {
+            "at": 3,
+            "text": "3"
+          },
+          {
+            "at": 4,
+            "text": "4"
+          }
+        ],
+        "rays": [
+          {
+            "from": -2,
+            "dir": "right",
+            "color": "#1a5fb4",
+            "y": 30
+          },
+          {
+            "from": 3,
+            "dir": "right",
+            "color": "#8e44ad",
+            "y": 46
+          },
+          {
+            "from": 4,
+            "dir": "left",
+            "color": "#d68910",
+            "y": 62
+          }
+        ],
+        "points": [
+          {
+            "at": -2,
+            "open": true,
+            "color": "#1a5fb4",
+            "y": 30
+          },
+          {
+            "at": 3,
+            "open": true,
+            "color": "#8e44ad",
+            "y": 46
+          },
+          {
+            "at": 4,
+            "open": true,
+            "color": "#d68910",
+            "y": 62
+          }
+        ],
+        "bands": [
+          {
+            "from": 3,
+            "to": 4,
+            "color": "#c8e6c9",
+            "top": 80,
+            "height": 14,
+            "opacity": 0.9
+          }
+        ],
+        "annotations": [
+          {
+            "text": "x &gt; −2   ∩   x &gt; 3   ∩   x &lt; 4   ⟹   (3, 4)",
+            "x": 230,
+            "y": 15,
+            "anchor": "middle"
+          },
+          {
+            "text": "x&gt;−2",
+            "x": 340,
+            "y": 26,
+            "color": "#1a5fb4"
+          },
+          {
+            "text": "x&gt;3",
+            "x": 340,
+            "y": 42,
+            "color": "#8e44ad"
+          },
+          {
+            "text": "x&lt;4",
+            "x": 340,
+            "y": 58,
+            "color": "#d68910"
+          }
+        ]
+      },
       "sourceTag": "Entrance 2540",
       "correct": 0,
       "explanation": [
@@ -4269,6 +4426,7 @@
         "<b>ขั้นที่ 4:</b> รวมสามเงื่อนไข: $x > -2$",
         "และ $x > 3$",
         "และ $x < 4$ เหลือ $3 < x < 4$ คือช่วง $(3, 4)$",
+        "[IMAGE]",
         "",
         "<b>✔ ตรวจคำตอบ</b> ลอง $x = 3.5$ : อาร์กิวเมนต์ทั้งสาม $= 5.5, 0.5, 0.5$ บวกหมด ✓",
         "ลอง $x = 2.5$ (อยู่ในตัวเลือก 2, 3): $x - 3 = -0.5 < 0$ ใช้ไม่ได้ ✓",
@@ -4369,15 +4527,15 @@
             },
             {
               "text": "1",
-              "x": 6,
-              "y": 41,
-              "color": "#2e7d32"
+              "x": 255.6,
+              "y": 39.3,
+              "color": "#d11"
             },
             {
               "text": "2",
-              "x": 6,
-              "y": 57,
-              "color": "#d11"
+              "x": 255,
+              "y": 58.7,
+              "color": "#2e7d32"
             }
           ],
           "type": "number-line",
@@ -4880,7 +5038,7 @@
           "criticals": [
             1
           ],
-          "width": 460,
+          "width": 540,
           "height": 106,
           "axisY": 72,
           "labels": [
@@ -4925,21 +5083,21 @@
           ],
           "annotations": [
             {
-              "text": "R_f = ℝ   ·   D_(f+g) = (1, ∞)   ⟹   R_f − D_(f+g) = (−∞, 1]",
-              "x": 230,
+              "text": "R_f = R   ·   D_(f+g) = (1, ∞)   ⟹   R_f − D_(f+g) = (−∞, 1]",
+              "x": 270,
               "y": 15,
               "anchor": "middle"
             },
             {
-              "text": "R_f",
-              "x": 6,
-              "y": 38,
+              "text": "R",
+              "x": 60.6,
+              "y": 52.5,
               "color": "#2e7d32"
             },
             {
               "text": "D",
-              "x": 6,
-              "y": 56,
+              "x": 245,
+              "y": 58.2,
               "color": "#d11"
             }
           ]
@@ -17537,7 +17695,83 @@
         "ถูกทั้ง ก และ ข",
         "ผิดทั้ง ก และ ข"
       ],
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": {
+        "type": "number-line",
+        "scale": "even",
+        "criticals": [
+          6
+        ],
+        "width": 320,
+        "height": 108,
+        "axisY": 72,
+        "labels": [
+          {
+            "at": 6,
+            "text": "6"
+          }
+        ],
+        "rays": [
+          {
+            "from": 6,
+            "dir": "right",
+            "color": "#1a5fb4",
+            "y": 34
+          },
+          {
+            "from": 6,
+            "dir": "left",
+            "color": "#d68910",
+            "y": 50
+          }
+        ],
+        "points": [
+          {
+            "at": 6,
+            "open": false,
+            "color": "#1a5fb4",
+            "y": 34
+          },
+          {
+            "at": 6,
+            "open": false,
+            "color": "#d68910",
+            "y": 50
+          },
+          {
+            "at": 6,
+            "open": false,
+            "color": "#1a7a3a",
+            "y": 66
+          }
+        ],
+        "annotations": [
+          {
+            "text": "x ≥ 6   ∩   x ≤ 6   ⟹   x = 6 จุดเดียว",
+            "x": 160,
+            "y": 15,
+            "anchor": "middle"
+          },
+          {
+            "text": "x≥6",
+            "x": 123.3,
+            "y": 36.6,
+            "color": "#1a5fb4"
+          },
+          {
+            "text": "x≤6",
+            "x": 175,
+            "y": 52,
+            "color": "#d68910"
+          },
+          {
+            "text": "จุดเดียว",
+            "x": 108.3,
+            "y": 68.4,
+            "color": "#1a7a3a"
+          }
+        ]
+      },
       "sourceTag": "พื้นฐานวิศวะฯ 2538",
       "correct": 1,
       "explanation": [
@@ -17553,6 +17787,7 @@
         "และ $x + 4 \\ge 0$",
         "และ $6 - x \\ge 0$ — รวมได้ $x \\ge 6$",
         "และ $x \\le 6$ คือ $x = 6$ จุดเดียว",
+        "[IMAGE]",
         "",
         "<b>ขั้นที่ 2 (ก):</b> ทดสอบ $x = 6$ : $0 + \\sqrt{10} \\ge 0$ จริง — เซตคำตอบ $= \\{6\\}$ ผลรวมราก $= 6 \\ne 0$ → <u>ก ผิด</u>",
         "",
@@ -17755,7 +17990,7 @@
             2,
             3.6
           ],
-          "width": 470,
+          "width": 510,
           "height": 92,
           "axisY": 58,
           "solutionY": 34,
@@ -17806,8 +18041,8 @@
           ],
           "annotations": [
             {
-              "text": "B = ∅  ⟹  A ∩ B′ = A = (6/7, 18/5) − {2}   (เจาะ x=2 ตัวส่วน=0)",
-              "x": 235,
+              "text": "B = ∅  ⟹  A ∩ B' = A = (6/7, 18/5) − {2}   (เจาะ x=2 ตัวส่วน=0)",
+              "x": 255,
               "y": 14,
               "anchor": "middle"
             }
