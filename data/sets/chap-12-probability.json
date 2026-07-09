@@ -343,8 +343,8 @@
         "sets": 2,
         "layout": "intersecting",
         "labels": {
-          "A": "ฟุตบอล",
-          "B": "บาส"
+          "A": "A",
+          "B": "B"
         },
         "regions": {
           "A_only": "12",
@@ -1465,64 +1465,167 @@
       "question": "บนเส้นรอบวงของวงกลมวงหนึ่งมีจุด 7 จุด เราจะสร้างรูปเหลี่ยมบรรจุในวงกลมโดยอาศัยจุดเหล่านั้นได้กี่รูป",
       "hasImage": true,
       "imageSpec": {
-        "type": "circle-on-plane",
-        "width": 300,
-        "height": 300,
-        "xRange": [
-          -4,
-          4
-        ],
-        "yRange": [
-          -4,
-          4
-        ],
-        "axes": false,
-        "circles": [
+        "type": "polygon-labeled",
+        "width": 350,
+        "height": 350,
+        "vertices": {
+          "v0": [
+            175.0,
+            75.0
+          ],
+          "v1": [
+            253.18,
+            112.65
+          ],
+          "v2": [
+            272.49,
+            197.25
+          ],
+          "v3": [
+            218.39,
+            265.1
+          ],
+          "v4": [
+            131.61,
+            265.1
+          ],
+          "v5": [
+            77.51,
+            197.25
+          ],
+          "v6": [
+            96.82,
+            112.65
+          ],
+          "cTop": [
+            175,
+            75
+          ],
+          "cBot": [
+            175,
+            275
+          ]
+        },
+        "vertexLabels": {
+          "v0": {
+            "text": "1",
+            "dx": -5.0,
+            "dy": -11.0
+          },
+          "v1": {
+            "text": "2",
+            "dx": 7.51,
+            "dy": -4.98
+          },
+          "v2": {
+            "text": "3",
+            "dx": 10.6,
+            "dy": 8.56
+          },
+          "v3": {
+            "text": "4",
+            "dx": 1.94,
+            "dy": 19.42
+          },
+          "v4": {
+            "text": "5",
+            "dx": -11.94,
+            "dy": 19.42
+          },
+          "v5": {
+            "text": "6",
+            "dx": -20.6,
+            "dy": 8.56
+          },
+          "v6": {
+            "text": "7",
+            "dx": -17.51,
+            "dy": -4.98
+          },
+          "cTop": {
+            "text": " "
+          },
+          "cBot": {
+            "text": " "
+          }
+        },
+        "ellipses": [
           {
-            "center": [
-              0,
-              0
-            ],
-            "r": 3,
-            "color": "#222",
-            "width": 1.6
+            "from": "cTop",
+            "to": "cBot",
+            "minorRatio": 1
           }
         ],
-        "dots": [
+        "sides": [],
+        "shadeRegions": [
           {
-            "x": 0.0,
-            "y": 3.0,
-            "color": "#1a5fb4"
-          },
-          {
-            "x": -2.345,
-            "y": 1.87,
-            "color": "#1a5fb4"
-          },
-          {
-            "x": -2.925,
-            "y": -0.668,
-            "color": "#1a5fb4"
-          },
-          {
-            "x": -1.302,
-            "y": -2.703,
-            "color": "#1a5fb4"
-          },
-          {
-            "x": 1.302,
-            "y": -2.703,
-            "color": "#1a5fb4"
-          },
-          {
-            "x": 2.925,
-            "y": -0.668,
-            "color": "#1a5fb4"
-          },
-          {
-            "x": 2.345,
-            "y": 1.87,
-            "color": "#1a5fb4"
+            "parts": [
+              {
+                "circle": {
+                  "center": [
+                    175.0,
+                    75.0
+                  ],
+                  "r": 3.5
+                }
+              },
+              {
+                "circle": {
+                  "center": [
+                    253.18,
+                    112.65
+                  ],
+                  "r": 3.5
+                }
+              },
+              {
+                "circle": {
+                  "center": [
+                    272.49,
+                    197.25
+                  ],
+                  "r": 3.5
+                }
+              },
+              {
+                "circle": {
+                  "center": [
+                    218.39,
+                    265.1
+                  ],
+                  "r": 3.5
+                }
+              },
+              {
+                "circle": {
+                  "center": [
+                    131.61,
+                    265.1
+                  ],
+                  "r": 3.5
+                }
+              },
+              {
+                "circle": {
+                  "center": [
+                    77.51,
+                    197.25
+                  ],
+                  "r": 3.5
+                }
+              },
+              {
+                "circle": {
+                  "center": [
+                    96.82,
+                    112.65
+                  ],
+                  "r": 3.5
+                }
+              }
+            ],
+            "fill": "#1565c0",
+            "op": 1
           }
         ]
       },
@@ -3867,8 +3970,8 @@
         "sets": 2,
         "layout": "intersecting",
         "labels": {
-          "A": "พหุคูณ 3",
-          "B": "ราก"
+          "A": "A",
+          "B": "B"
         },
         "regions": {
           "A_only": "8",
@@ -3932,8 +4035,8 @@
         "sets": 2,
         "layout": "intersecting",
         "labels": {
-          "A": "หาร 2",
-          "B": "หาร 7"
+          "A": "A",
+          "B": "B"
         },
         "regions": {
           "A_only": "9",
@@ -3999,8 +4102,8 @@
         "sets": 2,
         "layout": "intersecting",
         "labels": {
-          "A": "คี่",
-          "B": "หาร 7"
+          "A": "A",
+          "B": "B"
         },
         "regions": {
           "A_only": "22",
@@ -4111,8 +4214,8 @@
         "sets": 2,
         "layout": "intersecting",
         "labels": {
-          "A": "กีฬา",
-          "B": "ดนตรี"
+          "A": "A",
+          "B": "B"
         },
         "regions": {
           "A_only": "40",
@@ -4175,9 +4278,9 @@
         "sets": 3,
         "layout": "intersecting",
         "labels": {
-          "A": "ฟิสิกส์",
-          "B": "เคมี",
-          "C": "คณิต"
+          "A": "P",
+          "B": "C",
+          "C": "M"
         },
         "regions": {
           "A_only": "20",
@@ -4295,9 +4398,9 @@
         "sets": 3,
         "layout": "intersecting",
         "labels": {
-          "A": "ฟุตบอล",
-          "B": "บาส",
-          "C": "เทนนิส"
+          "A": "F",
+          "B": "B",
+          "C": "T"
         },
         "regions": {
           "A_only": "20",
@@ -4606,8 +4709,8 @@
         "sets": 2,
         "layout": "intersecting",
         "labels": {
-          "A": "สิบ 7-9",
-          "B": "หน่วย 0-2"
+          "A": "A",
+          "B": "B"
         },
         "regions": {
           "A_only": "21",
@@ -4821,8 +4924,8 @@
         "sets": 2,
         "layout": "disjoint",
         "labels": {
-          "A": "สีเดียวกัน",
-          "B": "เลขเดียวกัน"
+          "A": "A",
+          "B": "B"
         },
         "regions": {
           "A": "6",
@@ -6199,6 +6302,13 @@
             "y": 160,
             "text": "O",
             "fontSize": 14
+          },
+          {
+            "x": 175,
+            "y": 320,
+            "text": "dashed = diameter (5 lines)",
+            "fontSize": 12.5,
+            "anchor": "middle"
           }
         ]
       },
@@ -7770,8 +7880,8 @@
         "sets": 2,
         "layout": "intersecting",
         "labels": {
-          "A": "ลำไย",
-          "B": "ลิ้นจี่"
+          "A": "A",
+          "B": "B"
         },
         "regions": {
           "A_only": "0.2",
@@ -7834,8 +7944,8 @@
         "sets": 2,
         "layout": "intersecting",
         "labels": {
-          "A": "ลิฟต์ 1",
-          "B": "ลิฟต์ 2"
+          "A": "A",
+          "B": "B"
         },
         "regions": {
           "A_only": "0.14",
