@@ -69,7 +69,80 @@
         "$(9, 11)$",
         "$(8, 9)$"
       ],
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": {
+        "type": "polygon-labeled",
+        "width": 360,
+        "height": 230,
+        "vertices": {
+          "A": [
+            70,
+            190
+          ],
+          "B": [
+            280,
+            190
+          ],
+          "D": [
+            110,
+            55
+          ],
+          "C": [
+            320,
+            55
+          ]
+        },
+        "vertexLabels": {
+          "A": {
+            "text": "A",
+            "dx": -16,
+            "dy": 8
+          },
+          "B": {
+            "text": "B",
+            "dx": 8,
+            "dy": 8
+          },
+          "D": {
+            "text": "D",
+            "dx": -4,
+            "dy": -12
+          },
+          "C": {
+            "text": "C",
+            "dx": 8,
+            "dy": -6
+          }
+        },
+        "sides": [
+          {
+            "from": "A",
+            "to": "B",
+            "arrows": "end"
+          },
+          {
+            "from": "A",
+            "to": "D",
+            "arrows": "end"
+          },
+          {
+            "from": "D",
+            "to": "C",
+            "style": "dashed"
+          },
+          {
+            "from": "B",
+            "to": "C",
+            "style": "dashed"
+          },
+          {
+            "from": "A",
+            "to": "C",
+            "style": "dashed",
+            "arrows": "end"
+          }
+        ]
+      },
       "sourceTag": "Entrance 2534",
       "correct": 0,
       "explanation": [
@@ -79,6 +152,7 @@
         "จุดปลาย: ถ้ารู้จุด $A$ และ $\\overline{AC}$ แล้ว $C = A + \\overline{AC}$ (บวกส่วนประกอบเข้ากับพิกัด)",
         "",
         "<b>🎯 เป้าหมาย</b> หา $\\overline{AC}$ ก่อน แล้วบวกเข้ากับพิกัดของ $A$",
+        "[IMAGE]",
         "",
         "<b>【 พื้นฐาน · กฎสี่เหลี่ยมด้านขนาน (parallelogram law) 】</b>",
         "<b>ขั้นที่ 1:</b> หาเวกเตอร์ทแยงมุม $\\overline{AC}$",
@@ -120,7 +194,89 @@
         "$5\\overline{i} - 3\\overline{j}$",
         "$5\\overline{i} + 3\\overline{j}$"
       ],
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": {
+        "type": "polygon-labeled",
+        "width": 360,
+        "height": 280,
+        "vertices": {
+          "O": [
+            150,
+            160
+          ],
+          "P": [
+            227,
+            96
+          ],
+          "CL": [
+            50,
+            160
+          ],
+          "CR": [
+            250,
+            160
+          ],
+          "T1": [
+            272,
+            150
+          ],
+          "T2": [
+            182,
+            42
+          ]
+        },
+        "vertexLabels": {
+          "O": {
+            "text": "O",
+            "dx": -16,
+            "dy": 6
+          },
+          "P": {
+            "text": "P",
+            "dx": 8,
+            "dy": -4
+          },
+          "CL": {
+            "text": " "
+          },
+          "CR": {
+            "text": " "
+          },
+          "T1": {
+            "text": " "
+          },
+          "T2": {
+            "text": " "
+          }
+        },
+        "ellipses": [
+          {
+            "from": "CL",
+            "to": "CR",
+            "minorRatio": 1
+          }
+        ],
+        "sides": [
+          {
+            "from": "O",
+            "to": "P",
+            "style": "dashed"
+          },
+          {
+            "from": "T2",
+            "to": "T1"
+          }
+        ],
+        "angleMarks": [
+          {
+            "at": "P",
+            "from": "O",
+            "to": "T1",
+            "type": "right",
+            "size": 10
+          }
+        ]
+      },
       "sourceTag": "Entrance 2536",
       "correct": 1,
       "explanation": [
@@ -130,6 +286,7 @@
         "จัดรูปวงกลม: $x^2 + y^2 + Dx + Ey + F = 0$ มีจุดศูนย์กลาง $\\left(-\\dfrac{D}{2}, -\\dfrac{E}{2}\\right)$",
         "",
         "<b>🎯 เป้าหมาย</b> หาเวกเตอร์รัศมีไปยังจุดสัมผัส แล้วหาตัวเลือกที่ตั้งฉากกับรัศมีนั้น",
+        "[IMAGE]",
         "",
         "<b>【 วิธีที่ 1 ▸ พื้นฐาน · รัศมีตั้งฉากเส้นสัมผัส + คัดตัวเลือก (radius perpendicular to tangent) 】</b>",
         "",
@@ -243,7 +400,71 @@
         "$\\dfrac{3}{\\sqrt{13}}\\overline{i} + \\dfrac{3}{\\sqrt{13}}\\overline{j}$",
         "ไม่มีคำตอบที่ถูกต้องในข้อ 1. ถึงข้อ 4."
       ],
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": {
+        "type": "polygon-labeled",
+        "width": 360,
+        "height": 230,
+        "vertices": {
+          "A": [
+            60,
+            190
+          ],
+          "B": [
+            300,
+            190
+          ],
+          "C": [
+            200,
+            50
+          ],
+          "M": [
+            250,
+            120
+          ]
+        },
+        "vertexLabels": {
+          "A": {
+            "text": "A",
+            "dx": -16,
+            "dy": 6
+          },
+          "B": {
+            "text": "B",
+            "dx": 8,
+            "dy": 6
+          },
+          "C": {
+            "text": "C",
+            "dx": 6,
+            "dy": -10
+          },
+          "M": {
+            "text": "M",
+            "dx": 10,
+            "dy": 4
+          }
+        },
+        "sides": [
+          {
+            "from": "A",
+            "to": "B"
+          },
+          {
+            "from": "B",
+            "to": "M"
+          },
+          {
+            "from": "M",
+            "to": "C"
+          },
+          {
+            "from": "A",
+            "to": "M",
+            "arrows": "end"
+          }
+        ]
+      },
       "sourceTag": "Entrance 2520",
       "correct": 2,
       "explanation": [
@@ -252,6 +473,7 @@
         "เวกเตอร์หนึ่งหน่วยทิศเดียวกับ $\\overline{v}$ คือ $\\dfrac{\\overline{v}}{|\\overline{v}|}$ (เอาเวกเตอร์หารด้วยขนาดของตัวเอง)",
         "",
         "<b>🎯 เป้าหมาย</b> หา $\\overline{AM}$ ก่อน แล้วย่อให้ยาว 1 หน่วย",
+        "[IMAGE]",
         "",
         "<b>【 วิธีที่ 1 ▸ พื้นฐาน · หาจุดกึ่งกลางแล้วทำให้เป็นหนึ่งหน่วย (midpoint + normalize) 】</b>",
         "",
@@ -3768,7 +3990,78 @@
         "$|\\overrightarrow{AB}| > |\\overrightarrow{AC}|$",
         "$|\\overrightarrow{OA}| > |\\overrightarrow{OC}|$"
       ],
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": {
+        "type": "polygon-labeled",
+        "width": 380,
+        "height": 250,
+        "vertices": {
+          "O": [
+            80,
+            220
+          ],
+          "A": [
+            320,
+            100
+          ],
+          "C": [
+            30.8,
+            121.7
+          ],
+          "B": [
+            175.4,
+            110.9
+          ]
+        },
+        "vertexLabels": {
+          "O": {
+            "text": "O",
+            "dx": -14,
+            "dy": 8
+          },
+          "A": {
+            "text": "A",
+            "dx": 8,
+            "dy": -6
+          },
+          "B": {
+            "text": "B",
+            "dx": 6,
+            "dy": 16
+          },
+          "C": {
+            "text": "C",
+            "dx": -16,
+            "dy": 4
+          }
+        },
+        "sides": [
+          {
+            "from": "O",
+            "to": "A",
+            "arrows": "end"
+          },
+          {
+            "from": "O",
+            "to": "C",
+            "arrows": "end",
+            "style": "dashed"
+          },
+          {
+            "from": "C",
+            "to": "A"
+          }
+        ],
+        "angleMarks": [
+          {
+            "at": "O",
+            "from": "A",
+            "to": "C",
+            "type": "right",
+            "size": 11
+          }
+        ]
+      },
       "sourceTag": "Entrance 2531",
       "correct": 1,
       "explanation": [
@@ -3777,6 +4070,7 @@
         "เงื่อนไขตั้งฉาก $\\overrightarrow{OC} \\cdot \\overrightarrow{OA} = 0$ ใช้หา $t$",
         "",
         "<b>🎯 เป้าหมาย</b> หาพิกัด $C$ ก่อน แล้วไล่เช็คตัวเลือก",
+        "[IMAGE]",
         "",
         "<b>【 วิธีที่ 1 ▸ พื้นฐาน · พารามิเตอร์บนเส้นตรง (parametric form) 】</b>",
         "",
@@ -3831,7 +4125,66 @@
       "level": "hard",
       "score": 1,
       "question": "จุด $A$ และจุด $B$ มีพิกัดเป็น $(3, 0)$ และ $(4, 1)$ ตามลำดับ\nและ $\\overrightarrow{AC}$ เป็นเวกเตอร์ที่เกิดจากการหมุนเวกเตอร์ $\\overrightarrow{AB}$ ทวนเข็มนาฬิกาไป $120°$\nถ้า $(a, b)$ เป็นพิกัดของจุด $C$ แล้ว $a + b$ จะมีค่าเท่าใด",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": {
+        "type": "polygon-labeled",
+        "width": 330,
+        "height": 250,
+        "vertices": {
+          "A": [
+            110,
+            210
+          ],
+          "B": [
+            280,
+            180
+          ],
+          "C": [
+            55,
+            60
+          ]
+        },
+        "vertexLabels": {
+          "A": {
+            "text": "A",
+            "dx": -16,
+            "dy": 8
+          },
+          "B": {
+            "text": "B",
+            "dx": 8,
+            "dy": 6
+          },
+          "C": {
+            "text": "C",
+            "dx": -10,
+            "dy": -10
+          }
+        },
+        "sides": [
+          {
+            "from": "A",
+            "to": "B",
+            "arrows": "end"
+          },
+          {
+            "from": "A",
+            "to": "C",
+            "arrows": "end"
+          }
+        ],
+        "angleMarks": [
+          {
+            "at": "A",
+            "from": "B",
+            "to": "C",
+            "type": "arc",
+            "radius": 38,
+            "label": "120°",
+            "labelDistance": 58
+          }
+        ]
+      },
       "sourceTag": "Entrance 2536",
       "correct": "2",
       "accept": [
@@ -3846,6 +4199,7 @@
         "$\\begin{aligned} \\cos 120° &= -\\dfrac{1}{2} ,\\ \\sin 120° \\\\ &= \\dfrac{\\sqrt{3}}{2} \\end{aligned}$",
         "",
         "<b>🎯 เป้าหมาย</b> หมุน $\\overrightarrow{AB}$ รอบจุด $A$ (ไม่ใช่รอบจุดกำเนิด!) แล้วหาพิกัด $C$",
+        "[IMAGE]",
         "",
         "<b>【 วิธีที่ 1 ▸ พื้นฐาน · เมทริกซ์การหมุน (rotation matrix) 】</b>",
         "",
@@ -3958,7 +4312,79 @@
         "ด้าน $AB$ ทำมุม $\\cos^{-1}\\left(\\dfrac{2\\sqrt{13}}{13}\\right)$ กับแกน $y$",
         "เวกเตอร์หนึ่งหน่วยซึ่งมีทิศทางเดียวกับเวกเตอร์ $\\overrightarrow{AE}$ คือ $\\left(\\dfrac{5}{\\sqrt{26}}, -\\dfrac{1}{\\sqrt{26}}\\right)$"
       ],
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": {
+        "type": "polygon-labeled",
+        "width": 360,
+        "height": 250,
+        "vertices": {
+          "A": [
+            190,
+            55
+          ],
+          "B": [
+            55,
+            210
+          ],
+          "C": [
+            320,
+            210
+          ],
+          "E": [
+            187,
+            210
+          ]
+        },
+        "vertexLabels": {
+          "A": {
+            "text": "A",
+            "dx": -4,
+            "dy": -10
+          },
+          "B": {
+            "text": "B",
+            "dx": -16,
+            "dy": 8
+          },
+          "C": {
+            "text": "C",
+            "dx": 8,
+            "dy": 8
+          },
+          "E": {
+            "text": "E",
+            "dx": 6,
+            "dy": 18
+          }
+        },
+        "sides": [
+          {
+            "from": "A",
+            "to": "B"
+          },
+          {
+            "from": "A",
+            "to": "C"
+          },
+          {
+            "from": "B",
+            "to": "E"
+          },
+          {
+            "from": "E",
+            "to": "C"
+          }
+        ],
+        "angleMarks": [
+          {
+            "at": "A",
+            "from": "B",
+            "to": "C",
+            "type": "right",
+            "size": 11
+          }
+        ]
+      },
       "sourceTag": "Entrance 2522",
       "correct": 3,
       "explanation": [
@@ -3967,6 +4393,7 @@
         "มุมฉาก: dot ของสองด้านที่จุดยอด = 0 · หน้าจั่ว: สองด้านยาวเท่ากัน",
         "",
         "<b>🎯 เป้าหมาย</b> คำนวณเวกเตอร์ด้านทั้งหมด แล้วไล่เช็ค 5 ข้อความ",
+        "[IMAGE]",
         "",
         "<b>【 วิธีที่ 1 ▸ พื้นฐาน · คำนวณตรวจทุกข้อความ (direct check) 】</b>",
         "",
@@ -4026,7 +4453,68 @@
         "$45° < \\hat{A} \\le 60°$",
         "$60° < \\hat{A} \\le 90°$"
       ],
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": {
+        "type": "polygon-labeled",
+        "width": 330,
+        "height": 230,
+        "vertices": {
+          "A": [
+            70,
+            190
+          ],
+          "B": [
+            230,
+            80
+          ],
+          "C": [
+            300,
+            140
+          ]
+        },
+        "vertexLabels": {
+          "A": {
+            "text": "A",
+            "dx": -16,
+            "dy": 8
+          },
+          "B": {
+            "text": "B",
+            "dx": 6,
+            "dy": -8
+          },
+          "C": {
+            "text": "C",
+            "dx": 8,
+            "dy": 6
+          }
+        },
+        "sides": [
+          {
+            "from": "A",
+            "to": "B",
+            "arrows": "end"
+          },
+          {
+            "from": "A",
+            "to": "C",
+            "arrows": "end"
+          },
+          {
+            "from": "B",
+            "to": "C"
+          }
+        ],
+        "angleMarks": [
+          {
+            "at": "A",
+            "from": "B",
+            "to": "C",
+            "type": "arc",
+            "radius": 30
+          }
+        ]
+      },
       "sourceTag": "Entrance 2523",
       "correct": 0,
       "explanation": [
@@ -4035,6 +4523,7 @@
         "เทียบช่วง: $\\cos 30° = \\dfrac{\\sqrt{3}}{2} \\approx 0.866$ — ถ้า $\\cos\\hat{A} \\ge 0.866$ แสดงว่า $\\hat{A} \\le 30°$",
         "",
         "<b>🎯 เป้าหมาย</b> หา $\\cos\\hat{A}$ แล้วเทียบกับค่าขอบช่วง",
+        "[IMAGE]",
         "",
         "<b>【 วิธีที่ 1 ▸ พื้นฐาน · ผลคูณจุดและขนาด (dot product) 】</b>",
         "",
@@ -4087,7 +4576,98 @@
         "$\\dfrac{\\pi}{4}$",
         "$\\dfrac{\\pi}{6}$"
       ],
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": {
+        "type": "polygon-labeled",
+        "width": 380,
+        "height": 260,
+        "vertices": {
+          "A": [
+            60,
+            210
+          ],
+          "B": [
+            170,
+            55
+          ],
+          "C": [
+            340,
+            110
+          ],
+          "D": [
+            280,
+            230
+          ],
+          "P": [
+            229.4,
+            149.5
+          ]
+        },
+        "vertexLabels": {
+          "A": {
+            "text": "A",
+            "dx": -16,
+            "dy": 6
+          },
+          "B": {
+            "text": "B",
+            "dx": -4,
+            "dy": -12
+          },
+          "C": {
+            "text": "C",
+            "dx": 9,
+            "dy": -4
+          },
+          "D": {
+            "text": "D",
+            "dx": 8,
+            "dy": 14
+          },
+          "P": {
+            "text": " "
+          }
+        },
+        "sides": [
+          {
+            "from": "A",
+            "to": "B"
+          },
+          {
+            "from": "B",
+            "to": "C"
+          },
+          {
+            "from": "C",
+            "to": "D"
+          },
+          {
+            "from": "D",
+            "to": "A"
+          },
+          {
+            "from": "A",
+            "to": "C",
+            "style": "dashed"
+          },
+          {
+            "from": "B",
+            "to": "D",
+            "style": "dashed"
+          }
+        ],
+        "angleMarks": [
+          {
+            "at": "P",
+            "from": "C",
+            "to": "D",
+            "type": "arc",
+            "radius": 26,
+            "label": "θ",
+            "labelDistance": 42
+          }
+        ]
+      },
       "sourceTag": "Entrance 2525",
       "correct": 0,
       "explanation": [
@@ -4096,6 +4676,7 @@
         "เอกลักษณ์: $\\arcsin x + \\arccos x = \\dfrac{\\pi}{2}$ ใช้แปลงรูปคำตอบ",
         "",
         "<b>🎯 เป้าหมาย</b> หา $\\cos$ ของมุมระหว่าง $\\overrightarrow{AC}$ กับ $\\overrightarrow{BD}$ แล้วจับคู่กับตัวเลือก",
+        "[IMAGE]",
         "",
         "<b>【 วิธีที่ 1 ▸ พื้นฐาน · ผลคูณจุดของทแยงมุม (dot product) 】</b>",
         "",
@@ -4664,7 +5245,68 @@
         "$\\left(\\dfrac{\\sqrt{50} + 1}{2\\sqrt{50}}\\right)^{\\frac{1}{2}}$",
         "$\\left(\\dfrac{\\sqrt{50} - 1}{2\\sqrt{50}}\\right)^{\\frac{1}{2}}$"
       ],
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": {
+        "type": "polygon-labeled",
+        "width": 370,
+        "height": 230,
+        "vertices": {
+          "B": [
+            190,
+            190
+          ],
+          "A": [
+            60,
+            60
+          ],
+          "C": [
+            320,
+            70
+          ]
+        },
+        "vertexLabels": {
+          "B": {
+            "text": "B",
+            "dx": -6,
+            "dy": 18
+          },
+          "A": {
+            "text": "A",
+            "dx": -14,
+            "dy": -8
+          },
+          "C": {
+            "text": "C",
+            "dx": 9,
+            "dy": -6
+          }
+        },
+        "sides": [
+          {
+            "from": "B",
+            "to": "A",
+            "arrows": "end"
+          },
+          {
+            "from": "B",
+            "to": "C",
+            "arrows": "end"
+          },
+          {
+            "from": "C",
+            "to": "A"
+          }
+        ],
+        "angleMarks": [
+          {
+            "at": "B",
+            "from": "A",
+            "to": "C",
+            "type": "arc",
+            "radius": 30
+          }
+        ]
+      },
       "sourceTag": "Entrance 2534",
       "correct": 3,
       "explanation": [
@@ -4673,6 +5315,7 @@
         "สูตรครึ่งมุม: $\\sin^2\\dfrac{B}{2} = \\dfrac{1 - \\cos B}{2}$",
         "",
         "<b>🎯 เป้าหมาย</b> หา $\\cos B$ จาก dot ก่อน แล้วผ่านสูตรครึ่งมุม",
+        "[IMAGE]",
         "",
         "<b>【 พื้นฐาน · ผลคูณจุดหา cos แล้วสูตรครึ่งมุม (dot product + half-angle) 】</b>",
         "<b>ขั้นที่ 1:</b> หาเวกเตอร์จาก $B$",
@@ -4765,7 +5408,74 @@
         "$4\\overrightarrow{PC} = (\\overrightarrow{PA} + \\overrightarrow{PB})$",
         "ไม่มีคำตอบที่ถูกต้องในข้อ 1. ถึงข้อ 4."
       ],
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": {
+        "type": "polygon-labeled",
+        "width": 380,
+        "height": 250,
+        "vertices": {
+          "A": [
+            60,
+            210
+          ],
+          "B": [
+            320,
+            210
+          ],
+          "C": [
+            190,
+            210
+          ],
+          "P": [
+            230,
+            50
+          ]
+        },
+        "vertexLabels": {
+          "A": {
+            "text": "A",
+            "dx": -16,
+            "dy": 6
+          },
+          "B": {
+            "text": "B",
+            "dx": 8,
+            "dy": 6
+          },
+          "C": {
+            "text": "C",
+            "dx": -6,
+            "dy": 22
+          },
+          "P": {
+            "text": "P",
+            "dx": 8,
+            "dy": -6
+          }
+        },
+        "sides": [
+          {
+            "from": "A",
+            "to": "C"
+          },
+          {
+            "from": "C",
+            "to": "B"
+          },
+          {
+            "from": "P",
+            "to": "A"
+          },
+          {
+            "from": "P",
+            "to": "C"
+          },
+          {
+            "from": "P",
+            "to": "B"
+          }
+        ]
+      },
       "sourceTag": "Entrance 2521",
       "correct": 2,
       "explanation": [
@@ -4774,6 +5484,7 @@
         "$\\overrightarrow{PC} = \\dfrac{1}{2}(\\overrightarrow{PA} + \\overrightarrow{PB})$ — ค่าเฉลี่ยของเวกเตอร์ไปยังจุดปลายทั้งสอง",
         "",
         "<b>🎯 เป้าหมาย</b> พิสูจน์สูตรจุดกึ่งกลาง แล้วจัดรูปให้ตรงตัวเลือก",
+        "[IMAGE]",
         "",
         "<b>【 วิธีที่ 1 ▸ พื้นฐาน · แตกเวกเตอร์ตามเส้นทาง (path decomposition) 】</b>",
         "",
@@ -10454,7 +11165,86 @@
         "$\\arccos\\left(\\dfrac{-7}{725}\\right)$",
         "$\\arccos\\left(\\dfrac{7}{725}\\right)$"
       ],
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": {
+        "type": "polygon-labeled",
+        "width": 360,
+        "height": 250,
+        "vertices": {
+          "A": [
+            190,
+            55
+          ],
+          "B": [
+            55,
+            210
+          ],
+          "C": [
+            320,
+            210
+          ],
+          "M": [
+            187,
+            210
+          ]
+        },
+        "vertexLabels": {
+          "A": {
+            "text": "A",
+            "dx": -4,
+            "dy": -10
+          },
+          "B": {
+            "text": "B",
+            "dx": -16,
+            "dy": 8
+          },
+          "C": {
+            "text": "C",
+            "dx": 8,
+            "dy": 8
+          },
+          "M": {
+            "text": "M",
+            "dx": 6,
+            "dy": 18
+          }
+        },
+        "sides": [
+          {
+            "from": "A",
+            "to": "B"
+          },
+          {
+            "from": "A",
+            "to": "C"
+          },
+          {
+            "from": "B",
+            "to": "M"
+          },
+          {
+            "from": "M",
+            "to": "C"
+          },
+          {
+            "from": "A",
+            "to": "M",
+            "style": "dashed"
+          }
+        ],
+        "angleMarks": [
+          {
+            "at": "M",
+            "from": "A",
+            "to": "B",
+            "type": "arc",
+            "radius": 26,
+            "label": "θ",
+            "labelDistance": 42
+          }
+        ]
+      },
       "sourceTag": "โควตา มช. 2547",
       "correct": 0,
       "explanation": [
@@ -10462,6 +11252,7 @@
         "มุม $A\\hat{M}B$ คือมุมที่จุดยอด $M$ — ใช้เวกเตอร์ $\\overrightarrow{MA}$ กับ $\\overrightarrow{MB}$ (ออกจาก $M$ ทั้งคู่)",
         "",
         "<b>🎯 เป้าหมาย</b> หา $M$ → สร้างเวกเตอร์สองตัว → $\\arccos$",
+        "[IMAGE]",
         "",
         "<b>【 วิธีที่ 1 ▸ พื้นฐาน · ผลคูณจุดของเวกเตอร์ (dot product) 】</b>",
         "",
@@ -10794,7 +11585,87 @@
       "level": "medium",
       "score": 1,
       "question": "กำหนด $A(-3, 1) ,\\ B(1, 1) ,\\ C(0, \\sqrt{3}+1)$ เป็นจุดบนวงกลมที่มี $O$ เป็นจุดศูนย์กลาง\nและ $\\overline{AB}$ เป็นเส้นผ่านศูนย์กลาง จงหาขนาดของมุม $COB$",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": {
+        "type": "polygon-labeled",
+        "width": 320,
+        "height": 230,
+        "vertices": {
+          "A": [
+            80,
+            140
+          ],
+          "B": [
+            260,
+            140
+          ],
+          "O": [
+            170,
+            140
+          ],
+          "C": [
+            170,
+            40
+          ]
+        },
+        "vertexLabels": {
+          "A": {
+            "text": "A",
+            "dx": -16,
+            "dy": 6
+          },
+          "B": {
+            "text": "B",
+            "dx": 8,
+            "dy": 6
+          },
+          "O": {
+            "text": "O",
+            "dx": -4,
+            "dy": 18
+          },
+          "C": {
+            "text": "C",
+            "dx": 8,
+            "dy": -6
+          }
+        },
+        "ellipses": [
+          {
+            "from": "A",
+            "to": "B",
+            "minorRatio": 1
+          }
+        ],
+        "sides": [
+          {
+            "from": "A",
+            "to": "B",
+            "style": "dashed"
+          },
+          {
+            "from": "O",
+            "to": "C",
+            "arrows": "end"
+          },
+          {
+            "from": "O",
+            "to": "B",
+            "arrows": "end"
+          }
+        ],
+        "angleMarks": [
+          {
+            "at": "O",
+            "from": "C",
+            "to": "B",
+            "type": "arc",
+            "radius": 28,
+            "label": "θ",
+            "labelDistance": 44
+          }
+        ]
+      },
       "sourceTag": "โควตา มช. 2540",
       "correct": "60",
       "accept": [
@@ -10808,6 +11679,7 @@
         "มุม $COB$ วัดที่ $O$ ด้วยเวกเตอร์ $\\overrightarrow{OC}$ กับ $\\overrightarrow{OB}$",
         "",
         "<b>🎯 เป้าหมาย</b> หา $O$ → เวกเตอร์สองตัว → มุม",
+        "[IMAGE]",
         "",
         "<b>【 พื้นฐาน · หาศูนย์กลางวงกลมแล้วหามุมจากคู่มาตรฐาน (center + standard angle) 】</b>",
         "<b>ขั้นที่ 1:</b> หา $O$",
@@ -12034,7 +12906,106 @@
         "$\\sqrt{30}$ หน่วย",
         "$\\sqrt{41}$ หน่วย"
       ],
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": {
+        "type": "polygon-labeled",
+        "width": 380,
+        "height": 250,
+        "vertices": {
+          "O": [
+            180,
+            150
+          ],
+          "XT": [
+            350,
+            150
+          ],
+          "YT": [
+            180,
+            40
+          ],
+          "ZT": [
+            70,
+            215
+          ],
+          "C": [
+            114,
+            186
+          ],
+          "A": [
+            290,
+            80
+          ],
+          "B": [
+            255,
+            175
+          ]
+        },
+        "vertexLabels": {
+          "O": {
+            "text": " "
+          },
+          "XT": {
+            "text": "x",
+            "dx": 6,
+            "dy": 5
+          },
+          "YT": {
+            "text": "y",
+            "dx": 4,
+            "dy": -3
+          },
+          "ZT": {
+            "text": "z",
+            "dx": -2,
+            "dy": 15
+          },
+          "C": {
+            "text": "C",
+            "dx": -18,
+            "dy": 4
+          },
+          "A": {
+            "text": "A",
+            "dx": 8,
+            "dy": -8
+          },
+          "B": {
+            "text": "B",
+            "dx": 10,
+            "dy": 8
+          }
+        },
+        "sides": [
+          {
+            "from": "O",
+            "to": "XT",
+            "arrows": "end"
+          },
+          {
+            "from": "O",
+            "to": "YT",
+            "arrows": "end"
+          },
+          {
+            "from": "O",
+            "to": "ZT",
+            "arrows": "end"
+          },
+          {
+            "from": "A",
+            "to": "B"
+          },
+          {
+            "from": "B",
+            "to": "C"
+          },
+          {
+            "from": "C",
+            "to": "A"
+          }
+        ]
+      },
       "sourceTag": "สมาคมคณิตศาสตร์ฯ 2549",
       "correct": 2,
       "explanation": [
@@ -12043,6 +13014,7 @@
         "จุดบนแกน $z$ ด้านบวก: $C = (0, 0, c)$ โดย $c > 0$",
         "",
         "<b>🎯 เป้าหมาย</b> ตั้ง $C = (0, 0, c)$ → สมการพื้นที่ → แก้ $c$ → หา $|\\overrightarrow{AC}|$",
+        "[IMAGE]",
         "",
         "<b>【 พื้นฐาน · พื้นที่สามเหลี่ยม = ครึ่งหนึ่งของ |cross| (cross product / area) 】</b>",
         "<b>ขั้นที่ 1:</b> เวกเตอร์ด้าน",
@@ -12089,7 +13061,85 @@
         "ข้อ ข. เท่านั้นเป็นจริง",
         "ข้อ ก. และ ข. เป็นเท็จ"
       ],
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": {
+        "type": "polygon-labeled",
+        "width": 330,
+        "height": 230,
+        "vertices": {
+          "A": [
+            70,
+            190
+          ],
+          "B": [
+            230,
+            190
+          ],
+          "C": [
+            300,
+            90
+          ],
+          "D": [
+            140,
+            90
+          ],
+          "W": [
+            20,
+            110
+          ]
+        },
+        "vertexLabels": {
+          "A": {
+            "text": "A",
+            "dx": -16,
+            "dy": 8
+          },
+          "B": {
+            "text": "B",
+            "dx": 8,
+            "dy": 8
+          },
+          "C": {
+            "text": "C",
+            "dx": 8,
+            "dy": -6
+          },
+          "D": {
+            "text": "D",
+            "dx": -6,
+            "dy": -10
+          },
+          "W": {
+            "text": "w",
+            "dx": -14,
+            "dy": 0
+          }
+        },
+        "sides": [
+          {
+            "from": "A",
+            "to": "B"
+          },
+          {
+            "from": "B",
+            "to": "C"
+          },
+          {
+            "from": "C",
+            "to": "D"
+          },
+          {
+            "from": "D",
+            "to": "A"
+          },
+          {
+            "from": "A",
+            "to": "W",
+            "arrows": "end",
+            "style": "dashed"
+          }
+        ]
+      },
       "sourceTag": "สมาคมคณิตศาสตร์ฯ 2548",
       "correct": 0,
       "explanation": [
@@ -12099,6 +13149,7 @@
         "พื้นที่สี่เหลี่ยมด้านขนานจากด้านประชิด: $|\\overline{u} \\times \\overline{v}|$",
         "",
         "<b>🎯 เป้าหมาย</b> หา $\\overline{u}, \\overline{v}$ และทิศของ $\\overline{w}$ แล้วเช็คทั้งสองข้อความ",
+        "[IMAGE]",
         "",
         "<b>【 พื้นฐาน · เวกเตอร์ 3 มิติ + ผลคูณไขว้ (3D vectors + cross product) 】</b>",
         "<b>ขั้นที่ 1:</b> หาเวกเตอร์",
