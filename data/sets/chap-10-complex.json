@@ -1309,6 +1309,7 @@
         "หรือแยกตัวประกอบ $z^3 + 1 = (z+1)(z^2 - z + 1)$",
         "",
         "<b>🎯 เป้าหมาย</b> หารากทั้งสามของ $z^3 = -1$",
+        "[IMAGE]",
         "",
         "<b>【 วิธีที่ 1 ▸ พื้นฐาน · เดอ มัวฟร์ 】</b>",
         "",
@@ -1336,7 +1337,70 @@
         "<b>⚠️ จุดที่เด็กมักผิด</b> สับสนเครื่องหมายส่วนจริง: รากของ $-1$ มีส่วนจริง $+\\dfrac12$ (ไม่ใช่ $-\\dfrac12$)",
         "ส่วน $-\\dfrac12$ คือรากของ $z^3 = 1$"
       ],
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": {
+        "type": "argand-plane",
+        "width": 320,
+        "height": 300,
+        "reRange": [
+          -1.6,
+          1.6
+        ],
+        "imRange": [
+          -1.5,
+          1.5
+        ],
+        "axes": {
+          "originLabel": "O",
+          "reTicks": [
+            -1,
+            1
+          ],
+          "imTicks": [
+            -1,
+            1
+          ]
+        },
+        "circles": [
+          {
+            "center": [
+              0,
+              0
+            ],
+            "r": 1,
+            "color": "#999"
+          }
+        ],
+        "points": [
+          {
+            "re": 0.5,
+            "im": 0.866025,
+            "color": "#1457a8",
+            "label": "cis 60°",
+            "labelDx": 8,
+            "labelDy": -8,
+            "labelAnchor": "start"
+          },
+          {
+            "re": -1.0,
+            "im": 0.0,
+            "color": "#1457a8",
+            "label": "cis 180°",
+            "labelDx": -8,
+            "labelDy": -8,
+            "labelAnchor": "end"
+          },
+          {
+            "re": 0.5,
+            "im": -0.866025,
+            "color": "#1457a8",
+            "label": "cis 300°",
+            "labelDx": 8,
+            "labelDy": 12,
+            "labelAnchor": "start"
+          }
+        ]
+      },
       "sourceTag": "ข้อสอบเข้ามหาวิทยาลัย 2521"
     },
     {
@@ -1369,6 +1433,7 @@
         "หรือตั้ง $(a+bi)^2 = i$ แล้วเทียบส่วนจริง–จินตภาพ",
         "",
         "<b>🎯 เป้าหมาย</b> หารากที่สองทั้งสองของ $i$",
+        "[IMAGE]",
         "",
         "<b>【 วิธีที่ 1 ▸ พื้นฐาน · เดอ มัวฟร์ 】</b>",
         "",
@@ -1397,7 +1462,61 @@
         "<b>💡 เทคนิคที่ใช้</b> เพราะ $2ab = 1 > 0$ ทั้ง $a, b$ ต้องเครื่องหมายเดียวกัน ตัดกรณี $a = -b$ ทิ้งได้ทันที",
         "<b>⚠️ จุดที่เด็กมักผิด</b> ลืมรากที่เป็นลบ $\\left(-\\dfrac{1+i}{\\sqrt2}\\right)$ หรือเลือก $a = -b$ จนได้ $(1-i)$ ที่ผิด"
       ],
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": {
+        "type": "argand-plane",
+        "width": 300,
+        "height": 300,
+        "reRange": [
+          -1.4,
+          1.4
+        ],
+        "imRange": [
+          -1.4,
+          1.4
+        ],
+        "axes": {
+          "originLabel": "O",
+          "reTicks": [
+            -1,
+            1
+          ],
+          "imTicks": [
+            -1,
+            1
+          ]
+        },
+        "circles": [
+          {
+            "center": [
+              0,
+              0
+            ],
+            "r": 1,
+            "color": "#999"
+          }
+        ],
+        "points": [
+          {
+            "re": 0.707107,
+            "im": 0.707107,
+            "color": "#1457a8",
+            "label": "cis 45°",
+            "labelDx": 8,
+            "labelDy": -8,
+            "labelAnchor": "start"
+          },
+          {
+            "re": -0.707107,
+            "im": -0.707107,
+            "color": "#1457a8",
+            "label": "cis 225°",
+            "labelDx": -8,
+            "labelDy": 12,
+            "labelAnchor": "end"
+          }
+        ]
+      },
       "sourceTag": "ข้อสอบเข้ามหาวิทยาลัย 2523"
     },
     {
@@ -1430,6 +1549,7 @@
         "ถ้า $x$ จริง แล้ว $x^6 \\ge 0$",
         "",
         "<b>🎯 เป้าหมาย</b> หารากที่หกของ $-64$ แล้วดูว่าตัวใดไม่เป็นจำนวนจริง",
+        "[IMAGE]",
         "",
         "<b>【 วิธีที่ 1 ▸ พื้นฐาน · เดอ มัวฟร์ ไล่ทุกราก 】</b>",
         "",
@@ -1458,7 +1578,97 @@
         "<b>💡 เทคนิคที่ใช้</b> รากที่ $n$ ของจำนวนจริงลบ เมื่อ $n$ เป็นเลขคู่ จะ \"ไม่มีตัวจริงเลย\" → ทุกตัวเข้าเงื่อนไข \"ไม่เป็นจำนวนจริง\"",
         "<b>⚠️ จุดที่เด็กมักผิด</b> ตอบว่ามี 4 ราก (ลืมว่าทั้ง 6 ไม่เป็นจริง) หรือสลับ $\\sqrt3 \\pm i$ กับ $1 \\pm \\sqrt3\\,i$ จากการคิดมุมผิด ($30^\\circ$ ให้ $\\sqrt3 + i$ ไม่ใช่ $1 + \\sqrt3\\,i$)"
       ],
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": {
+        "type": "argand-plane",
+        "width": 340,
+        "height": 320,
+        "reRange": [
+          -2.6,
+          2.6
+        ],
+        "imRange": [
+          -2.4,
+          2.4
+        ],
+        "axes": {
+          "originLabel": "O",
+          "reTicks": [
+            -2,
+            2
+          ],
+          "imTicks": [
+            -2,
+            2
+          ]
+        },
+        "circles": [
+          {
+            "center": [
+              0,
+              0
+            ],
+            "r": 2,
+            "color": "#999"
+          }
+        ],
+        "points": [
+          {
+            "re": 1.732051,
+            "im": 1,
+            "color": "#1457a8",
+            "label": "30°",
+            "labelDx": 9,
+            "labelDy": -9,
+            "labelAnchor": "start"
+          },
+          {
+            "re": 0,
+            "im": 2,
+            "color": "#1457a8",
+            "label": "90°",
+            "labelDx": 21,
+            "labelDy": -9,
+            "labelAnchor": "middle"
+          },
+          {
+            "re": -1.732051,
+            "im": 1,
+            "color": "#1457a8",
+            "label": "150°",
+            "labelDx": -9,
+            "labelDy": -9,
+            "labelAnchor": "end"
+          },
+          {
+            "re": -1.732051,
+            "im": -1,
+            "color": "#1457a8",
+            "label": "210°",
+            "labelDx": -9,
+            "labelDy": 14,
+            "labelAnchor": "end"
+          },
+          {
+            "re": 0,
+            "im": -2,
+            "color": "#1457a8",
+            "label": "270°",
+            "labelDx": 21,
+            "labelDy": 18,
+            "labelAnchor": "middle"
+          },
+          {
+            "re": 1.732051,
+            "im": -1,
+            "color": "#1457a8",
+            "label": "330°",
+            "labelDx": 9,
+            "labelDy": 14,
+            "labelAnchor": "start"
+          }
+        ]
+      },
       "sourceTag": "ข้อสอบเข้ามหาวิทยาลัย 2540"
     },
     {
@@ -1491,6 +1701,7 @@
         "ลดมุมด้วยการลบ $360^\\circ$",
         "",
         "<b>🎯 เป้าหมาย</b> หาค่า $4\\alpha^4 - \\beta^4 + 2\\gamma^4$ (จำนวนเชิงซ้อน)",
+        "[IMAGE]",
         "",
         "<b>【 พื้นฐาน · เดอ มัวฟร์โดยตรง (De Moivre's theorem) 】</b>",
         "",
@@ -1517,7 +1728,70 @@
         "ใช้ความเป็นสังยุคของ $\\alpha^4, \\gamma^4$ ช่วยตรวจ",
         "<b>⚠️ จุดที่เด็กมักผิด</b> ลืมลด $\\text{cis}\\,540^\\circ = \\text{cis}\\,180^\\circ$ ทำให้ $\\beta^4$ ผิดเครื่องหมาย หรือจับควอดรันต์ของรากสลับกัน"
       ],
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": {
+        "type": "argand-plane",
+        "width": 320,
+        "height": 300,
+        "reRange": [
+          -1.6,
+          1.6
+        ],
+        "imRange": [
+          -1.5,
+          1.5
+        ],
+        "axes": {
+          "originLabel": "O",
+          "reTicks": [
+            -1,
+            1
+          ],
+          "imTicks": [
+            -1,
+            1
+          ]
+        },
+        "circles": [
+          {
+            "center": [
+              0,
+              0
+            ],
+            "r": 1,
+            "color": "#999"
+          }
+        ],
+        "points": [
+          {
+            "re": 0.965926,
+            "im": 0.258819,
+            "color": "#1457a8",
+            "label": "α = 15°",
+            "labelDx": 9,
+            "labelDy": -9,
+            "labelAnchor": "start"
+          },
+          {
+            "re": -0.707107,
+            "im": 0.707107,
+            "color": "#1457a8",
+            "label": "β = 135°",
+            "labelDx": -9,
+            "labelDy": -9,
+            "labelAnchor": "end"
+          },
+          {
+            "re": -0.258819,
+            "im": -0.965926,
+            "color": "#1457a8",
+            "label": "γ = 255°",
+            "labelDx": -9,
+            "labelDy": 14,
+            "labelAnchor": "end"
+          }
+        ]
+      },
       "sourceTag": "ข้อสอบเข้ามหาวิทยาลัย 2537"
     },
     {
@@ -1549,6 +1823,7 @@
         "ผลคูณรากของ $z^3 = c$ เท่ากับ $c$ (จากความสัมพันธ์ราก–สัมประสิทธิ์)",
         "",
         "<b>🎯 เป้าหมาย</b> หา $z_1 z_3 + z_2^2$",
+        "[IMAGE]",
         "",
         "<b>【 วิธีที่ 1 ▸ พื้นฐาน · เดอ มัวฟร์ คูณมุมตรง 】</b>",
         "",
@@ -1578,7 +1853,70 @@
         "ผลคูณรากทั้งหมด $= (-1)^n\\cdot(\\text{พจน์คงที่})$",
         "<b>⚠️ จุดที่เด็กมักผิด</b> คิด $z_2^2 = \\text{cis}\\,135^\\circ$ (ลืมคูณมุมด้วย 2) หรือสลับลำดับควอดรันต์ของราก"
       ],
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": {
+        "type": "argand-plane",
+        "width": 320,
+        "height": 300,
+        "reRange": [
+          -1.6,
+          1.6
+        ],
+        "imRange": [
+          -1.5,
+          1.5
+        ],
+        "axes": {
+          "originLabel": "O",
+          "reTicks": [
+            -1,
+            1
+          ],
+          "imTicks": [
+            -1,
+            1
+          ]
+        },
+        "circles": [
+          {
+            "center": [
+              0,
+              0
+            ],
+            "r": 1,
+            "color": "#999"
+          }
+        ],
+        "points": [
+          {
+            "re": 0.965926,
+            "im": 0.258819,
+            "color": "#1457a8",
+            "label": "z1 = 15°",
+            "labelDx": 9,
+            "labelDy": -9,
+            "labelAnchor": "start"
+          },
+          {
+            "re": -0.707107,
+            "im": 0.707107,
+            "color": "#1457a8",
+            "label": "z2 = 135°",
+            "labelDx": -9,
+            "labelDy": -9,
+            "labelAnchor": "end"
+          },
+          {
+            "re": -0.258819,
+            "im": -0.965926,
+            "color": "#1457a8",
+            "label": "z3 = 255°",
+            "labelDx": -9,
+            "labelDy": 14,
+            "labelAnchor": "end"
+          }
+        ]
+      },
       "sourceTag": "ข้อสอบเข้ามหาวิทยาลัย มี.ค.2546"
     },
     {
@@ -1609,6 +1947,7 @@
         "$\\begin{aligned} |z|^2 &= |2\\sqrt3 + w|^2 \\\\ &= |2\\sqrt3|^2 + |w|^2 + 2(2\\sqrt3)\\,\\text{Re}(w) \\end{aligned}$",
         "",
         "<b>🎯 เป้าหมาย</b> หาราก $z$ ที่ขนาดเป็นจำนวนเต็ม สองตัว แล้วหาผลบวก",
+        "[IMAGE]",
         "",
         "<b>【 วิธีที่ 1 ▸ พื้นฐาน · หา $w$ แล้วบวก $2\\sqrt3$ 】</b>",
         "",
@@ -1642,7 +1981,88 @@
         "<b>💡 เทคนิคที่ใช้</b> ย้าย \"จุดศูนย์กลาง\" $2\\sqrt3$ ออกด้วยการตั้ง $w = z - 2\\sqrt3$ ทำให้กลายเป็นรากที่ $n$ มาตรฐานรอบจุดกำเนิด",
         "<b>⚠️ จุดที่เด็กมักผิด</b> ลืมเงื่อนไข \"ขนาดเป็นจำนวนเต็ม\" แล้วบวกทั้งสามราก หรือคิด $|z|$ จาก $|w|$ โดยลืมบวก $2\\sqrt3$"
       ],
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": {
+        "type": "argand-plane",
+        "width": 410,
+        "height": 320,
+        "reRange": [
+          -1,
+          7.5
+        ],
+        "imRange": [
+          -3,
+          3
+        ],
+        "axes": {
+          "originLabel": "O",
+          "reTicks": [
+            2,
+            4,
+            6
+          ],
+          "imTicks": [
+            -2,
+            2
+          ]
+        },
+        "circles": [
+          {
+            "center": [
+              3.4641016151377544,
+              0
+            ],
+            "r": 2,
+            "color": "#999",
+            "dashed": true
+          }
+        ],
+        "points": [
+          {
+            "re": 3.4641016151377544,
+            "im": 0,
+            "color": "#c0392b",
+            "label": "2\\sqrt{3}",
+            "labelDx": 5,
+            "labelDy": 16,
+            "labelAnchor": "end",
+            "labelFs": 11
+          },
+          {
+            "re": 3.4641016151377544,
+            "im": 2,
+            "color": "#1457a8",
+            "open": false,
+            "label": "|z|=4",
+            "labelDx": 0,
+            "labelDy": -9,
+            "labelAnchor": "middle",
+            "labelFs": 11
+          },
+          {
+            "re": 1.7320506151377544,
+            "im": -1,
+            "color": "#1457a8",
+            "open": false,
+            "label": "|z|=2",
+            "labelDx": -10,
+            "labelDy": 14,
+            "labelAnchor": "end",
+            "labelFs": 11
+          },
+          {
+            "re": 5.196152615137755,
+            "im": -1,
+            "color": "#999",
+            "open": true,
+            "label": "not int",
+            "labelDx": 53,
+            "labelDy": 8,
+            "labelAnchor": "end",
+            "labelFs": 11
+          }
+        ]
+      },
       "sourceTag": "ข้อสอบเข้ามหาวิทยาลัย มี.ค.2547"
     },
     {
@@ -1674,6 +2094,7 @@
         "รากที่สอง: $\\sqrt{|z|}\\,\\text{cis}\\left(\\dfrac{\\arg z}{2} + 180^\\circ k\\right)$",
         "",
         "<b>🎯 เป้าหมาย</b> หารากที่สองทั้งสองของ $z$",
+        "[IMAGE]",
         "",
         "<b>【 วิธีที่ 1 ▸ พื้นฐาน · หา $z$ แล้วถอดรากสอง 】</b>",
         "",
@@ -1702,7 +2123,63 @@
         "<b>💡 เทคนิคที่ใช้</b> ตรวจว่า $\\dfrac{\\arg z}{2}$ ตรงกับ $\\arg$ ของรากที่ให้หรือไม่ ถ้าตรงก็ลัดเป็นพหุคูณจริงได้เลย",
         "<b>⚠️ จุดที่เด็กมักผิด</b> ลืมลด $\\text{cis}\\,600^\\circ = \\text{cis}\\,240^\\circ$ หรือสับสนระหว่างองค์ประกอบ $(-1, \\sqrt3)$ กับ $(-\\sqrt3, 1)$ ในตัวเลือก"
       ],
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": {
+        "type": "argand-plane",
+        "width": 360,
+        "height": 320,
+        "reRange": [
+          -7,
+          7
+        ],
+        "imRange": [
+          -6.5,
+          6.5
+        ],
+        "axes": {
+          "originLabel": "O",
+          "reTicks": [
+            -5,
+            5
+          ],
+          "imTicks": [
+            -5,
+            5
+          ]
+        },
+        "circles": [
+          {
+            "center": [
+              0,
+              0
+            ],
+            "r": 5.656854249492381,
+            "color": "#999"
+          }
+        ],
+        "points": [
+          {
+            "re": -2.828427,
+            "im": 4.898979,
+            "color": "#1457a8",
+            "label": "2\\sqrt{2}(-1+\\sqrt{3}i)",
+            "labelDx": -9,
+            "labelDy": -9,
+            "labelAnchor": "end",
+            "labelFs": 11
+          },
+          {
+            "re": 2.828427,
+            "im": -4.898979,
+            "color": "#1457a8",
+            "label": "2\\sqrt{2}(1-\\sqrt{3}i)",
+            "labelDx": 9,
+            "labelDy": 14,
+            "labelAnchor": "start",
+            "labelFs": 11
+          }
+        ]
+      },
       "sourceTag": "ข้อสอบเข้ามหาวิทยาลัย ต.ค.2545"
     },
     {
@@ -1857,6 +2334,7 @@
         "",
         "<b>🎯 เป้าหมาย</b> นับจำนวนรากร่วมของ $z^{14} = i$",
         "และ $z^{22} = i$",
+        "[IMAGE]",
         "",
         "<b>【 วิธีที่ 1 ▸ พื้นฐาน · เทียบมุมของรากสองชุด 】</b>",
         "",
@@ -1884,7 +2362,71 @@
         "<b>⚠️ จุดที่เด็กมักผิด</b> ตอบ $\\gcd(14,22) = 2$ โดยบังเอิญถูก แต่ถ้าไม่ตรวจ $z^6 = i$ อาจพลาดกรณีไม่มีรากร่วม",
         "ต้องเช็คว่ารากที่ได้สอดคล้องเงื่อนไขเดิมจริง"
       ],
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": {
+        "type": "argand-plane",
+        "width": 320,
+        "height": 300,
+        "reRange": [
+          -1.6,
+          1.6
+        ],
+        "imRange": [
+          -1.5,
+          1.5
+        ],
+        "axes": {
+          "originLabel": "O",
+          "reTicks": [
+            -1,
+            1
+          ],
+          "imTicks": [
+            -1,
+            1
+          ]
+        },
+        "circles": [
+          {
+            "center": [
+              0,
+              0
+            ],
+            "r": 1,
+            "color": "#999"
+          }
+        ],
+        "points": [
+          {
+            "re": -0.707107,
+            "im": 0.707107,
+            "color": "#c0392b",
+            "label": "135°",
+            "labelDx": -9,
+            "labelDy": -9,
+            "labelAnchor": "end"
+          },
+          {
+            "re": 0.707107,
+            "im": -0.707107,
+            "color": "#c0392b",
+            "label": "315°",
+            "labelDx": 9,
+            "labelDy": 14,
+            "labelAnchor": "start"
+          },
+          {
+            "re": 0.0,
+            "im": 1.0,
+            "open": true,
+            "color": "#888",
+            "label": "i",
+            "labelDx": 6,
+            "labelDy": -8,
+            "labelFs": 11
+          }
+        ]
+      },
       "sourceTag": "ข้อสอบเข้ามหาวิทยาลัย ต.ค.2547"
     },
     {
@@ -2268,6 +2810,7 @@
         "เทียบได้กับกฎโคไซน์ของเวกเตอร์สองตัว",
         "",
         "<b>🎯 เป้าหมาย</b> หา $|z_1 - z_2|^2$ (สนใจแค่ผลต่างมุม $145^\\circ - 115^\\circ = 30^\\circ$)",
+        "[IMAGE]",
         "",
         "<b>【 วิธีที่ 1 ▸ พื้นฐาน · กระจาย $|z_1 - z_2|^2$ 】</b>",
         "",
@@ -2290,7 +2833,83 @@
         "<b>💡 เทคนิคที่ใช้</b> $|z_1 - z_2|^2$ ขึ้นกับขนาดสองตัวและ \"ผลต่างมุม\" เท่านั้น ไม่ต้องรู้มุมจริงแต่ละตัว",
         "<b>⚠️ จุดที่เด็กมักผิด</b> ใส่เครื่องหมายผิดเป็น $+2\\text{Re}$ (ของ $|z_1 + z_2|^2$) หรือใช้ $\\cos$ ของมุมเดี่ยวแทนผลต่างมุม"
       ],
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": {
+        "type": "argand-plane",
+        "width": 340,
+        "height": 320,
+        "reRange": [
+          -5.2,
+          1.5
+        ],
+        "imRange": [
+          -1,
+          4.5
+        ],
+        "axes": {
+          "originLabel": "O",
+          "reTicks": [
+            -4,
+            -2
+          ],
+          "imTicks": [
+            2,
+            4
+          ]
+        },
+        "vectors": [
+          {
+            "to": [
+              -3.276608,
+              2.294306
+            ],
+            "color": "#1457a8",
+            "label": "z1",
+            "labelAt": [
+              -3.276608,
+              2.294306
+            ],
+            "labelDx": -10,
+            "labelDy": -6,
+            "labelAnchor": "end",
+            "labelFs": 12
+          },
+          {
+            "to": [
+              -0.731996,
+              1.569771
+            ],
+            "color": "#c0392b",
+            "label": "z2",
+            "labelAt": [
+              -0.731996,
+              1.569771
+            ],
+            "labelDx": -14,
+            "labelDy": -17,
+            "labelFs": 12
+          }
+        ],
+        "angleArcs": [
+          {
+            "at": [
+              0,
+              0
+            ],
+            "from": [
+              -3.276608,
+              2.294306
+            ],
+            "to": [
+              -0.731996,
+              1.569771
+            ],
+            "r": 32,
+            "label": "30°",
+            "labelFs": 11
+          }
+        ]
+      },
       "sourceTag": "ข้อสอบเข้ามหาวิทยาลัย มี.ค.2548"
     },
     {
@@ -2854,6 +3473,7 @@
         "$z\\bar z = a^2 + b^2$",
         "",
         "<b>🎯 เป้าหมาย</b> หา $a + b$ (โดย $b > 0$)",
+        "[IMAGE]",
         "",
         "<b>【 วิธีที่ 1 ▸ พื้นฐาน · แยกตัวประกอบแล้วแก้พีชคณิต 】</b>",
         "",
@@ -2879,7 +3499,109 @@
         "<b>⚠️ จุดที่เด็กมักผิด</b> ไม่แยกตัวประกอบแล้วกระจาย $|z^2+4z-32| = |z^2-64|$ ตรง ๆ ซึ่งยุ่งมาก",
         "หรือเลือก $b = -5$ (ลืม $b > 0$)"
       ],
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": {
+        "type": "argand-plane",
+        "width": 340,
+        "height": 300,
+        "reRange": [
+          -1,
+          11
+        ],
+        "imRange": [
+          -1.5,
+          7.5
+        ],
+        "axes": {
+          "originLabel": "O",
+          "reTicks": [
+            6
+          ],
+          "imTicks": [
+            5
+          ]
+        },
+        "lines": [
+          {
+            "through": [
+              [
+                6,
+                -1.5
+              ],
+              [
+                6,
+                7.5
+              ]
+            ],
+            "dashed": true,
+            "color": "#1457a8",
+            "label": "Re(z) = 6",
+            "labelAt": [
+              6.3,
+              7.1
+            ],
+            "labelFs": 11
+          }
+        ],
+        "points": [
+          {
+            "re": 4,
+            "im": 0,
+            "open": true,
+            "color": "#888",
+            "label": "4",
+            "labelDx": -4,
+            "labelDy": 15,
+            "labelAnchor": "end",
+            "labelFs": 11
+          },
+          {
+            "re": 8,
+            "im": 0,
+            "open": true,
+            "color": "#888",
+            "label": "8",
+            "labelDx": 4,
+            "labelDy": 15,
+            "labelFs": 11
+          },
+          {
+            "re": 6,
+            "im": 5,
+            "color": "#c0392b",
+            "label": "z = 6+5i",
+            "labelDx": 8,
+            "labelDy": -6,
+            "labelFs": 13
+          }
+        ],
+        "segments": [
+          {
+            "from": [
+              4,
+              0
+            ],
+            "to": [
+              6,
+              5
+            ],
+            "dashed": true,
+            "color": "#bbb"
+          },
+          {
+            "from": [
+              8,
+              0
+            ],
+            "to": [
+              6,
+              5
+            ],
+            "dashed": true,
+            "color": "#bbb"
+          }
+        ]
+      },
       "sourceTag": "ข้อสอบเข้ามหาวิทยาลัย ต.ค.2546"
     },
     {
@@ -4075,6 +4797,7 @@
         "$z_i^2$ หาได้จากผลคูณ: $z_1^2 = \\dfrac{(z_1z_2)(z_3z_1)}{z_2z_3}$ เป็นต้น",
         "",
         "<b>🎯 เป้าหมาย</b> ตรวจ ก และ ข (ระวังกับดักเอกลักษณ์สามเหลี่ยมด้านเท่า)",
+        "[IMAGE]",
         "",
         "<b>【 พื้นฐาน · ตรวจทีละข้อความ (case-by-case check) 】</b>",
         "",
@@ -4091,7 +4814,116 @@
         "อย่าเหมาว่าเอกลักษณ์สามเหลี่ยมด้านเท่าใช้ได้ ต้องเช็คว่าผลคูณที่ให้สอดคล้องจริงไหม",
         "<b>⚠️ จุดที่เด็กมักผิด</b> ใช้เอกลักษณ์ $\\sum z_i^2 = \\sum z_iz_j$ แล้วได้ $6+7i$ ทันที (ตอบ ข ถูก) ทั้งที่ผลคูณที่โจทย์ให้ขัดกับสามเหลี่ยมด้านเท่า"
       ],
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": {
+        "type": "argand-plane",
+        "width": 320,
+        "height": 300,
+        "reRange": [
+          -3,
+          3
+        ],
+        "imRange": [
+          -2,
+          3.2
+        ],
+        "axes": {
+          "originLabel": "O",
+          "reTicks": [
+            -2,
+            2
+          ],
+          "imTicks": [
+            2
+          ]
+        },
+        "points": [
+          {
+            "re": -1.5,
+            "im": -1.0,
+            "color": "#1457a8",
+            "label": "z1",
+            "labelDx": -10,
+            "labelDy": 6,
+            "labelAnchor": "end"
+          },
+          {
+            "re": 1.5,
+            "im": -0.5,
+            "color": "#1457a8",
+            "label": "z2",
+            "labelDx": 10,
+            "labelDy": 6
+          },
+          {
+            "re": -0.43301270189221874,
+            "im": 1.848076211353316,
+            "color": "#1457a8",
+            "label": "z3",
+            "labelDx": 0,
+            "labelDy": -10,
+            "labelAnchor": "middle"
+          }
+        ],
+        "segments": [
+          {
+            "from": [
+              -1.5,
+              -1.0
+            ],
+            "to": [
+              1.5,
+              -0.5
+            ],
+            "dashed": false,
+            "color": "#888"
+          },
+          {
+            "from": [
+              1.5,
+              -0.5
+            ],
+            "to": [
+              -0.43301270189221874,
+              1.848076211353316
+            ],
+            "dashed": false,
+            "color": "#888"
+          },
+          {
+            "from": [
+              -0.43301270189221874,
+              1.848076211353316
+            ],
+            "to": [
+              -1.5,
+              -1.0
+            ],
+            "dashed": false,
+            "color": "#888"
+          }
+        ],
+        "angleArcs": [
+          {
+            "at": [
+              -1.5,
+              -1.0
+            ],
+            "from": [
+              1.5,
+              -0.5
+            ],
+            "to": [
+              -0.43301270189221874,
+              1.848076211353316
+            ],
+            "r": 26,
+            "label": "60°",
+            "labelFs": 11,
+            "color": "#c0392b"
+          }
+        ]
+      },
       "sourceTag": "ข้อสอบเข้ามหาวิทยาลัย มี.ค.2545"
     },
     {
@@ -4123,6 +4955,7 @@
         "$|z_1 - z_2|^2 = |z_1|^2 + |z_2|^2 - 2\\,\\text{Re}(z_1\\bar{z_2})$",
         "",
         "<b>🎯 เป้าหมาย</b> ตรวจ ก และ ข",
+        "[IMAGE]",
         "",
         "<b>【 วิธีที่ 1 ▸ พื้นฐาน · เชิงเรขาคณิต (ห่างกัน $120^\\circ$) 】</b>",
         "",
@@ -4149,7 +4982,108 @@
         "<b>💡 เทคนิคที่ใช้</b> เงื่อนไข $\\sum z_i = 0$ บนวงกลมหนึ่งหน่วย → ถอดขนาดจาก $z_1+z_2 = -z_3$ ได้ $\\text{Re}(z_1\\bar{z_2})$ ทันที",
         "<b>⚠️ จุดที่เด็กมักผิด</b> คิด $\\cos 120^\\circ = +\\dfrac12$ (ที่จริง $-\\dfrac12$) ทำให้ตอบ ก ถูกผิดพลาด"
       ],
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": {
+        "type": "argand-plane",
+        "width": 300,
+        "height": 300,
+        "reRange": [
+          -1.5,
+          1.5
+        ],
+        "imRange": [
+          -1.4,
+          1.4
+        ],
+        "axes": {
+          "originLabel": "O",
+          "reTicks": [
+            -1,
+            1
+          ],
+          "imTicks": [
+            -1,
+            1
+          ]
+        },
+        "circles": [
+          {
+            "center": [
+              0,
+              0
+            ],
+            "r": 1,
+            "color": "#999"
+          }
+        ],
+        "segments": [
+          {
+            "from": [
+              0,
+              1
+            ],
+            "to": [
+              -0.866025,
+              -0.5
+            ],
+            "dashed": true,
+            "color": "#bbb"
+          },
+          {
+            "from": [
+              -0.866025,
+              -0.5
+            ],
+            "to": [
+              0.866025,
+              -0.5
+            ],
+            "dashed": true,
+            "color": "#bbb"
+          },
+          {
+            "from": [
+              0.866025,
+              -0.5
+            ],
+            "to": [
+              0,
+              1
+            ],
+            "dashed": true,
+            "color": "#bbb"
+          }
+        ],
+        "points": [
+          {
+            "re": 0,
+            "im": 1,
+            "color": "#1457a8",
+            "label": "z1",
+            "labelDx": 14,
+            "labelDy": -9,
+            "labelAnchor": "middle"
+          },
+          {
+            "re": -0.866025,
+            "im": -0.5,
+            "color": "#1457a8",
+            "label": "z2",
+            "labelDx": -9,
+            "labelDy": 14,
+            "labelAnchor": "end"
+          },
+          {
+            "re": 0.866025,
+            "im": -0.5,
+            "color": "#1457a8",
+            "label": "z3",
+            "labelDx": 9,
+            "labelDy": 14,
+            "labelAnchor": "start"
+          }
+        ]
+      },
       "sourceTag": "ข้อสอบเข้ามหาวิทยาลัย ต.ค.2545"
     },
     {
@@ -5678,6 +6612,7 @@
         "หรือแยกตัวประกอบ $z^3 - 1 = (z-1)(z^2+z+1)$",
         "",
         "<b>🎯 เป้าหมาย</b> หารากที่สามของ 1 ทั้งสามค่า",
+        "[IMAGE]",
         "",
         "<b>【 วิธีที่ 1 ▸ พื้นฐาน · แยกตัวประกอบ $z^3-1$ 】</b>",
         "",
@@ -5703,7 +6638,70 @@
         "<b>💡 เทคนิคที่ใช้</b> รากที่สามของ 1 (เรียก $1, \\omega, \\omega^2$) มีผลบวก 0 และวางตัวห่างกัน $120^\\circ$ บนวงกลมหนึ่งหน่วย",
         "<b>⚠️ จุดที่เด็กมักผิด</b> ตอบเพียง $z = 1$ (ลืมรากเชิงซ้อนอีกสองตัว)"
       ],
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": {
+        "type": "argand-plane",
+        "width": 320,
+        "height": 300,
+        "reRange": [
+          -1.6,
+          1.6
+        ],
+        "imRange": [
+          -1.5,
+          1.5
+        ],
+        "axes": {
+          "originLabel": "O",
+          "reTicks": [
+            -1,
+            1
+          ],
+          "imTicks": [
+            -1,
+            1
+          ]
+        },
+        "circles": [
+          {
+            "center": [
+              0,
+              0
+            ],
+            "r": 1,
+            "color": "#999"
+          }
+        ],
+        "points": [
+          {
+            "re": 1.0,
+            "im": 0.0,
+            "color": "#1457a8",
+            "label": "0°",
+            "labelDx": 9,
+            "labelDy": -9,
+            "labelAnchor": "start"
+          },
+          {
+            "re": -0.5,
+            "im": 0.866025,
+            "color": "#1457a8",
+            "label": "120°",
+            "labelDx": -9,
+            "labelDy": -9,
+            "labelAnchor": "end"
+          },
+          {
+            "re": -0.5,
+            "im": -0.866025,
+            "color": "#1457a8",
+            "label": "240°",
+            "labelDx": -9,
+            "labelDy": 14,
+            "labelAnchor": "end"
+          }
+        ]
+      },
       "sourceTag": "ทุนเล่าเรียนหลวง (กพ.) 2539"
     },
     {
@@ -5729,6 +6727,7 @@
         "รากที่สาม $\\text{cis}\\left(\\dfrac{270^\\circ + 360^\\circ k}{3}\\right) = \\text{cis}(90^\\circ + 120^\\circ k)$",
         "",
         "<b>🎯 เป้าหมาย</b> หารากที่สามของ $-i$ ที่อยู่ในควอดรันต์ที่ 4",
+        "[IMAGE]",
         "",
         "<b>【 พื้นฐาน · เดอ มัวฟร์โดยตรง (De Moivre's theorem) 】</b>",
         "",
@@ -5745,7 +6744,76 @@
         "<b>💡 เทคนิคที่ใช้</b> หารากทั้งสามแล้วเลือกตัวที่มีส่วนจริง $ > 0$ และส่วนจินตภาพ $ < 0$ (ควอดรันต์ 4)",
         "<b>⚠️ จุดที่เด็กมักผิด</b> ลดมุม $-i = \\text{cis}\\,270^\\circ$ ผิด หรือเลือกรากผิดควอดรันต์"
       ],
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": {
+        "type": "argand-plane",
+        "width": 340,
+        "height": 300,
+        "reRange": [
+          -1.6,
+          1.6
+        ],
+        "imRange": [
+          -1.5,
+          1.5
+        ],
+        "axes": {
+          "originLabel": "O",
+          "reTicks": [
+            -1,
+            1
+          ],
+          "imTicks": [
+            -1,
+            1
+          ]
+        },
+        "circles": [
+          {
+            "center": [
+              0,
+              0
+            ],
+            "r": 1,
+            "color": "#999"
+          }
+        ],
+        "points": [
+          {
+            "re": 0,
+            "im": 1,
+            "color": "#999",
+            "open": true,
+            "label": "90°",
+            "labelDx": 15,
+            "labelDy": -9,
+            "labelAnchor": "middle",
+            "labelFs": 11
+          },
+          {
+            "re": -0.866025,
+            "im": -0.5,
+            "color": "#999",
+            "open": true,
+            "label": "210°",
+            "labelDx": -9,
+            "labelDy": 14,
+            "labelAnchor": "end",
+            "labelFs": 11
+          },
+          {
+            "re": 0.866025,
+            "im": -0.5,
+            "color": "#c0392b",
+            "open": false,
+            "label": "330° ✓",
+            "labelDx": 9,
+            "labelDy": 14,
+            "labelAnchor": "start",
+            "labelFs": 12
+          }
+        ]
+      },
       "sourceTag": "โควตา มช. 2539"
     },
     {
@@ -5772,6 +6840,7 @@
         "มุม $\\dfrac{180^\\circ + 360^\\circ k}{4} = 45^\\circ + 90^\\circ k$",
         "",
         "<b>🎯 เป้าหมาย</b> หารากที่สี่ของ $-1296$ ทั้งสี่ค่า",
+        "[IMAGE]",
         "",
         "<b>【 พื้นฐาน · เดอ มัวฟร์โดยตรง (De Moivre's theorem) 】</b>",
         "",
@@ -5789,7 +6858,79 @@
         "รากสี่ตัววางห่าง $90^\\circ$ เริ่มที่ $45^\\circ$",
         "<b>⚠️ จุดที่เด็กมักผิด</b> หาขนาดราก $6$ ไม่ออก (ต้องรู้ $6^4 = 1296$) หรือได้แค่บางราก"
       ],
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": {
+        "type": "argand-plane",
+        "width": 340,
+        "height": 320,
+        "reRange": [
+          -7.5,
+          7.5
+        ],
+        "imRange": [
+          -7,
+          7
+        ],
+        "axes": {
+          "originLabel": "O",
+          "reTicks": [
+            -6,
+            6
+          ],
+          "imTicks": [
+            -6,
+            6
+          ]
+        },
+        "circles": [
+          {
+            "center": [
+              0,
+              0
+            ],
+            "r": 6,
+            "color": "#999"
+          }
+        ],
+        "points": [
+          {
+            "re": 4.242641,
+            "im": 4.242641,
+            "color": "#1457a8",
+            "label": "45°",
+            "labelDx": 9,
+            "labelDy": -9,
+            "labelAnchor": "start"
+          },
+          {
+            "re": -4.242641,
+            "im": 4.242641,
+            "color": "#1457a8",
+            "label": "135°",
+            "labelDx": -9,
+            "labelDy": -9,
+            "labelAnchor": "end"
+          },
+          {
+            "re": -4.242641,
+            "im": -4.242641,
+            "color": "#1457a8",
+            "label": "225°",
+            "labelDx": -9,
+            "labelDy": 14,
+            "labelAnchor": "end"
+          },
+          {
+            "re": 4.242641,
+            "im": -4.242641,
+            "color": "#1457a8",
+            "label": "315°",
+            "labelDx": 9,
+            "labelDy": 14,
+            "labelAnchor": "start"
+          }
+        ]
+      },
       "sourceTag": "ทุนเล่าเรียนหลวง (กพ.) 2547"
     },
     {
@@ -5821,6 +6962,7 @@
         "$z - \\bar z = 2i\\,\\text{Im}(z)$",
         "",
         "<b>🎯 เป้าหมาย</b> หา $\\left|\\dfrac{z_1 - \\bar{z_1}}{z_1^{18} + i}\\right|$",
+        "[IMAGE]",
         "",
         "<b>【 พื้นฐาน · เดอ มัวฟร์โดยตรง (De Moivre's theorem) 】</b>",
         "",
@@ -5843,7 +6985,76 @@
         "<b>⚠️ จุดที่เด็กมักผิด</b> สับสน $\\sqrt{3/2}$ กับ $\\sqrt3/2$",
         "หรือคิด $z_1^{18}$ ผิด (ลืมลดมุม)"
       ],
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": {
+        "type": "argand-plane",
+        "width": 340,
+        "height": 300,
+        "reRange": [
+          -1.6,
+          1.6
+        ],
+        "imRange": [
+          -1.5,
+          1.5
+        ],
+        "axes": {
+          "originLabel": "O",
+          "reTicks": [
+            -1,
+            1
+          ],
+          "imTicks": [
+            -1,
+            1
+          ]
+        },
+        "circles": [
+          {
+            "center": [
+              0,
+              0
+            ],
+            "r": 1,
+            "color": "#999"
+          }
+        ],
+        "points": [
+          {
+            "re": 0.5,
+            "im": 0.866025,
+            "color": "#c0392b",
+            "open": false,
+            "label": "z1 = 60°",
+            "labelDx": 9,
+            "labelDy": -9,
+            "labelAnchor": "start",
+            "labelFs": 12
+          },
+          {
+            "re": -1.0,
+            "im": 0.0,
+            "color": "#999",
+            "open": true,
+            "label": "180°",
+            "labelDx": -9,
+            "labelDy": -9,
+            "labelAnchor": "end",
+            "labelFs": 11
+          },
+          {
+            "re": 0.5,
+            "im": -0.866025,
+            "color": "#999",
+            "open": true,
+            "label": "300°",
+            "labelDx": 9,
+            "labelDy": 14,
+            "labelAnchor": "start",
+            "labelFs": 11
+          }
+        ]
+      },
       "sourceTag": "โควตา มช. 2546"
     },
     {
@@ -5870,6 +7081,7 @@
         "มุม $\\dfrac{180^\\circ + 360^\\circ k}{6} = 30^\\circ + 60^\\circ k$",
         "",
         "<b>🎯 เป้าหมาย</b> หารากที่หกของ $-1$ ทั้งหก",
+        "[IMAGE]",
         "",
         "<b>【 พื้นฐาน · เดอ มัวฟร์โดยตรง (De Moivre's theorem) 】</b>",
         "",
@@ -5885,7 +7097,103 @@
         "<b>⚠️ จุดที่เด็กมักผิด</b> เริ่มมุมที่ $0^\\circ$ (ของรากที่หกของ $+1$) แทนที่จะเป็น $30^\\circ$",
         "หรือได้ไม่ครบ 6 ราก"
       ],
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": {
+        "type": "argand-plane",
+        "width": 320,
+        "height": 300,
+        "reRange": [
+          -1.6,
+          1.6
+        ],
+        "imRange": [
+          -1.5,
+          1.5
+        ],
+        "axes": {
+          "originLabel": "O",
+          "reTicks": [
+            -1,
+            1
+          ],
+          "imTicks": [
+            -1,
+            1
+          ]
+        },
+        "circles": [
+          {
+            "center": [
+              0,
+              0
+            ],
+            "r": 1,
+            "color": "#999"
+          }
+        ],
+        "points": [
+          {
+            "re": 0.866025,
+            "im": 0.5,
+            "color": "#1457a8",
+            "label": "30°",
+            "labelDx": 9,
+            "labelDy": -9,
+            "labelAnchor": "start",
+            "labelFs": 11
+          },
+          {
+            "re": 0.0,
+            "im": 1.0,
+            "color": "#1457a8",
+            "label": "90°",
+            "labelDx": 0,
+            "labelDy": -9,
+            "labelAnchor": "middle",
+            "labelFs": 11
+          },
+          {
+            "re": -0.866025,
+            "im": 0.5,
+            "color": "#1457a8",
+            "label": "150°",
+            "labelDx": -9,
+            "labelDy": -9,
+            "labelAnchor": "end",
+            "labelFs": 11
+          },
+          {
+            "re": -0.866025,
+            "im": -0.5,
+            "color": "#1457a8",
+            "label": "210°",
+            "labelDx": -9,
+            "labelDy": 14,
+            "labelAnchor": "end",
+            "labelFs": 11
+          },
+          {
+            "re": -0.0,
+            "im": -1.0,
+            "color": "#1457a8",
+            "label": "270°",
+            "labelDx": 0,
+            "labelDy": 14,
+            "labelAnchor": "middle",
+            "labelFs": 11
+          },
+          {
+            "re": 0.866025,
+            "im": -0.5,
+            "color": "#1457a8",
+            "label": "330°",
+            "labelDx": 9,
+            "labelDy": 14,
+            "labelAnchor": "start",
+            "labelFs": 11
+          }
+        ]
+      },
       "sourceTag": "ทุนเล่าเรียนหลวง (กพ.) 2548"
     },
     {
@@ -5917,6 +7225,7 @@
         "หา $w$ ที่เป็นทั้งรากที่สามของตัวแรกและรากที่สี่ของตัวที่สอง",
         "",
         "<b>🎯 เป้าหมาย</b> หา $w$ ที่อยู่ในเซตรากทั้งสอง",
+        "[IMAGE]",
         "",
         "<b>【 พื้นฐาน · หารากสองชุดแล้วหาตัวร่วม (both root sets, find common) 】</b>",
         "",
@@ -5933,7 +7242,106 @@
         "<b>⚠️ จุดที่เด็กมักผิด</b> แปลง $4\\sqrt2(-1+i)$ เป็นเชิงขั้วผิด (ขนาด $= 8$ ไม่ใช่ $4\\sqrt2$)",
         "หรือหามุมรากผิด"
       ],
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": {
+        "type": "argand-plane",
+        "width": 360,
+        "height": 340,
+        "reRange": [
+          -2.6,
+          2.6
+        ],
+        "imRange": [
+          -2.5,
+          2.5
+        ],
+        "axes": {
+          "originLabel": "O",
+          "reTicks": [
+            -2,
+            2
+          ],
+          "imTicks": [
+            -2,
+            2
+          ]
+        },
+        "circles": [
+          {
+            "center": [
+              0,
+              0
+            ],
+            "r": 2,
+            "color": "#999"
+          }
+        ],
+        "points": [
+          {
+            "re": 1.414214,
+            "im": 1.414214,
+            "color": "#1457a8",
+            "label": "45° A",
+            "labelDx": 10,
+            "labelDy": -9,
+            "labelAnchor": "start",
+            "labelFs": 11
+          },
+          {
+            "re": -1.931852,
+            "im": 0.517638,
+            "color": "#c0392b",
+            "label": "165° (A∩B)",
+            "labelDx": 0,
+            "labelDy": -23,
+            "labelAnchor": "end",
+            "labelFs": 11
+          },
+          {
+            "re": 0.517638,
+            "im": -1.931852,
+            "color": "#1457a8",
+            "label": "285° A",
+            "labelDx": 10,
+            "labelDy": 14,
+            "labelAnchor": "start",
+            "labelFs": 11
+          },
+          {
+            "re": 0.517638,
+            "im": 1.931852,
+            "color": "#2e7d32",
+            "open": true,
+            "label": "75° B",
+            "labelDx": 10,
+            "labelDy": -9,
+            "labelAnchor": "start",
+            "labelFs": 11
+          },
+          {
+            "re": -0.517638,
+            "im": -1.931852,
+            "color": "#2e7d32",
+            "open": true,
+            "label": "255° B",
+            "labelDx": -10,
+            "labelDy": 14,
+            "labelAnchor": "end",
+            "labelFs": 11
+          },
+          {
+            "re": 1.931852,
+            "im": -0.517638,
+            "color": "#2e7d32",
+            "open": true,
+            "label": "345° B",
+            "labelDx": 10,
+            "labelDy": 14,
+            "labelAnchor": "start",
+            "labelFs": 11
+          }
+        ]
+      },
       "sourceTag": "สมาคมคณิตศาสตร์ฯ 2547"
     },
     {
@@ -6168,6 +7576,7 @@
         "รากที่สอง: $\\sqrt2\\,\\text{cis}\\,60^\\circ$ และ $\\sqrt2\\,\\text{cis}\\,240^\\circ$",
         "",
         "<b>🎯 เป้าหมาย</b> หารากทั้งสองของ $x^2 = -1 + \\sqrt3\\,i$",
+        "[IMAGE]",
         "",
         "<b>【 พื้นฐาน · เดอ มัวฟร์โดยตรง (De Moivre's theorem) 】</b>",
         "",
@@ -6186,7 +7595,61 @@
         "และ $\\sqrt2\\sin 60^\\circ = \\dfrac{\\sqrt6}{2}$",
         "หรือได้รากเดียว"
       ],
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": {
+        "type": "argand-plane",
+        "width": 300,
+        "height": 300,
+        "reRange": [
+          -1.8,
+          1.8
+        ],
+        "imRange": [
+          -1.7,
+          1.7
+        ],
+        "axes": {
+          "originLabel": "O",
+          "reTicks": [
+            -1,
+            1
+          ],
+          "imTicks": [
+            -1,
+            1
+          ]
+        },
+        "circles": [
+          {
+            "center": [
+              0,
+              0
+            ],
+            "r": 1.4142135623730951,
+            "color": "#999"
+          }
+        ],
+        "points": [
+          {
+            "re": 0.707107,
+            "im": 1.224745,
+            "color": "#1457a8",
+            "label": "60°",
+            "labelDx": 9,
+            "labelDy": -9,
+            "labelAnchor": "start"
+          },
+          {
+            "re": -0.707107,
+            "im": -1.224745,
+            "color": "#1457a8",
+            "label": "240°",
+            "labelDx": -9,
+            "labelDy": 14,
+            "labelAnchor": "end"
+          }
+        ]
+      },
       "sourceTag": "โควตา มช. 2537"
     },
     {
@@ -6526,6 +7989,7 @@
         "$z^3 + 3z^2 + 3z + 1 = (z+1)^3$ → สมการ $B$ คือ $(z+1)^3 + 1 = 0$",
         "",
         "<b>🎯 เป้าหมาย</b> นับสมาชิกของ $B$ ที่อยู่ใน $A$",
+        "[IMAGE]",
         "",
         "<b>【 วิธีที่ 1 ▸ พื้นฐาน · หารากแล้วเช็คระยะ 】</b>",
         "",
@@ -6556,7 +8020,86 @@
         "<b>⚠️ จุดที่เด็กมักผิด</b> ลืมว่า $A$ เป็นจานเปิด (ไม่รวมขอบ)",
         "หรือเช็คระยะของรากเชิงซ้อนผิด"
       ],
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": {
+        "type": "argand-plane",
+        "width": 340,
+        "height": 320,
+        "reRange": [
+          -3.2,
+          2.2
+        ],
+        "imRange": [
+          -2.2,
+          2.6
+        ],
+        "axes": {
+          "originLabel": "O",
+          "reTicks": [
+            -3,
+            -1,
+            1
+          ],
+          "imTicks": [
+            -2,
+            -1,
+            1,
+            2
+          ]
+        },
+        "circles": [
+          {
+            "center": [
+              0,
+              1
+            ],
+            "r": 1,
+            "color": "#1457a8",
+            "dashed": true,
+            "label": "A",
+            "labelAt": [
+              0.85,
+              1.75
+            ],
+            "labelAnchor": "start",
+            "labelFs": 13
+          }
+        ],
+        "points": [
+          {
+            "re": -2,
+            "im": 0,
+            "open": true,
+            "color": "#888",
+            "label": "-2",
+            "labelDx": -6,
+            "labelDy": -8,
+            "labelAnchor": "end",
+            "labelFs": 12
+          },
+          {
+            "re": -0.5,
+            "im": 0.8660254037844386,
+            "color": "#c0392b",
+            "label": "in A",
+            "labelDx": 7,
+            "labelDy": -13,
+            "labelFs": 12,
+            "labelAnchor": "end"
+          },
+          {
+            "re": -0.5,
+            "im": -0.8660254037844386,
+            "open": true,
+            "color": "#888",
+            "label": "out",
+            "labelDx": -12,
+            "labelDy": 4,
+            "labelFs": 12,
+            "labelAnchor": "end"
+          }
+        ]
+      },
       "sourceTag": "สมาคมคณิตศาสตร์ฯ 2545"
     },
     {
