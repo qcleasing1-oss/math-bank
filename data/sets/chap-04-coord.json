@@ -8805,7 +8805,148 @@
       "level": "hard",
       "score": 1,
       "question": "กำหนดให้เส้นไดเรกตริกซ์และแกนของพาราโบลา $y^2 - 4y + 8x = 20$ ตัดกันที่จุด $P$\nถ้าวงกลมวงหนึ่งผ่านจุดกำเนิด, จุด $P$ และจุดโฟกัสของพาราโบลานี้\nแล้ว กำลังสองของรัศมีของวงกลมวงนี้มีค่าเท่ากับข้อใดต่อไปนี้",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 348,
+          "height": 300,
+          "xRange": [
+            -2,
+            7
+          ],
+          "yRange": [
+            -4,
+            4
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": ""
+          },
+          "functions": [
+            {
+              "id": "cu",
+              "kind": "ellipse-arc",
+              "center": [
+                3,
+                -0.25
+              ],
+              "a": 3.0104,
+              "b": 3.0104,
+              "half": "upper",
+              "color": "#222"
+            },
+            {
+              "id": "cl",
+              "kind": "ellipse-arc",
+              "center": [
+                3,
+                -0.25
+              ],
+              "a": 3.0104,
+              "b": 3.0104,
+              "half": "lower",
+              "color": "#222"
+            },
+            {
+              "kind": "parabola-h",
+              "vertex": [
+                3,
+                2
+              ],
+              "throughPoint": [
+                2.5,
+                4
+              ],
+              "yDomain": [
+                -2,
+                4
+              ],
+              "color": "#c62828",
+              "strokeWidth": 1.8
+            }
+          ],
+          "segments": [
+            {
+              "from": [
+                5,
+                -4
+              ],
+              "to": [
+                5,
+                4
+              ],
+              "dashed": true
+            }
+          ],
+          "dots": [
+            {
+              "x": 0,
+              "y": 0,
+              "label": "O",
+              "labelAnchor": "end",
+              "labelDx": 18.33,
+              "labelDy": 18
+            },
+            {
+              "x": 5,
+              "y": 2,
+              "label": "P(5, 2)",
+              "labelAnchor": "start",
+              "labelDx": 6.67,
+              "labelDy": -1.33,
+              "labelColor": "#c62828"
+            },
+            {
+              "x": 1,
+              "y": 2,
+              "label": "F(1, 2)",
+              "labelAnchor": "end",
+              "labelDx": 27.33,
+              "labelDy": 20,
+              "labelColor": "#c62828"
+            },
+            {
+              "x": 3,
+              "y": 2,
+              "label": "B(3, 2)",
+              "labelAnchor": "start",
+              "labelDx": 9.34,
+              "labelDy": 1.67
+            },
+            {
+              "x": 3,
+              "y": -0.25,
+              "label": "ศก.(3, −¼)",
+              "labelAnchor": "start",
+              "labelDx": -16.67,
+              "labelDy": 19.33
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                5.35,
+                3.558
+              ],
+              "text": "L: x = 5",
+              "anchor": "start",
+              "color": "#1565c0"
+            },
+            {
+              "at": [
+                2.654,
+                -2.359
+              ],
+              "text": "r² = 145/16",
+              "anchor": "start",
+              "color": "#1565c0"
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance 2539",
       "choices": [
         "$\\dfrac{35}{4}$",
@@ -11332,7 +11473,108 @@
       "level": "medium",
       "score": 1,
       "question": "สมการของพาราโบลาที่มีแกนอยู่บนแกน x มีจุดยอดอยู่ที่จุดกำเนิด\nและผ่านจุดโฟกัสทั้งสองของวงรี $4x^2 + 3y^2 - 16x + 4 = 0$ คือสมการในข้อใดต่อไปนี้",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 324,
+          "height": 264,
+          "xRange": [
+            -1,
+            5
+          ],
+          "yRange": [
+            -2.5,
+            2.5
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "eu",
+              "kind": "ellipse-arc",
+              "center": [
+                2,
+                0
+              ],
+              "a": 1.73205,
+              "b": 2,
+              "half": "upper",
+              "color": "#222"
+            },
+            {
+              "id": "el",
+              "kind": "ellipse-arc",
+              "center": [
+                2,
+                0
+              ],
+              "a": 1.73205,
+              "b": 2,
+              "half": "lower",
+              "color": "#222"
+            },
+            {
+              "kind": "parabola-h",
+              "vertex": [
+                0,
+                0
+              ],
+              "throughPoint": [
+                2,
+                1
+              ],
+              "yDomain": [
+                -1.2,
+                1.2
+              ],
+              "color": "#c62828",
+              "strokeWidth": 1.8,
+              "label": {
+                "at": [
+                  2.367,
+                  0.703
+                ],
+                "text": "2y² = x",
+                "anchor": "start",
+                "color": "#c62828"
+              }
+            }
+          ],
+          "dots": [
+            {
+              "x": 2,
+              "y": 0,
+              "label": "C(2, 0)",
+              "labelAnchor": "start",
+              "labelDx": -15.33,
+              "labelDy": 14.67
+            },
+            {
+              "x": 2,
+              "y": 1,
+              "label": "F₁(2, 1)",
+              "labelAnchor": "start",
+              "labelDx": -24.67,
+              "labelDy": -18.67,
+              "labelColor": "#1565c0"
+            },
+            {
+              "x": 2,
+              "y": -1,
+              "label": "F₂(2, −1)",
+              "labelAnchor": "start",
+              "labelDx": -35.34,
+              "labelDy": 17.33,
+              "labelColor": "#1565c0"
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance 2540",
       "choices": [
         "$y^2 = x$",
@@ -11376,7 +11618,122 @@
       "level": "medium",
       "score": 1,
       "question": "สมการของพาราโบลาที่มีจุดยอดเป็น $(0, -1)$\nและผ่านโฟกัสทั้งสองของวงรี $3x^2 + 4y^2 - 16y + 4 = 0$ ผ่านจุดในข้อใดต่อไปนี้",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 500,
+          "height": 484,
+          "xRange": [
+            -3,
+            3
+          ],
+          "yRange": [
+            -2,
+            4
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "eu",
+              "kind": "ellipse-arc",
+              "center": [
+                0,
+                2
+              ],
+              "a": 2,
+              "b": 1.73205,
+              "half": "upper",
+              "color": "#222"
+            },
+            {
+              "id": "el",
+              "kind": "ellipse-arc",
+              "center": [
+                0,
+                2
+              ],
+              "a": 2,
+              "b": 1.73205,
+              "half": "lower",
+              "color": "#222"
+            },
+            {
+              "kind": "polynomial",
+              "coefs": [
+                3,
+                0,
+                -1
+              ],
+              "domain": [
+                -1.35,
+                1.35
+              ],
+              "color": "#c62828",
+              "strokeWidth": 1.8,
+              "label": {
+                "at": [
+                  1.428,
+                  3.597
+                ],
+                "text": "x² = (y+1)/3",
+                "anchor": "start",
+                "color": "#c62828"
+              }
+            }
+          ],
+          "dots": [
+            {
+              "x": 0,
+              "y": 2,
+              "label": "C(0, 2)",
+              "labelAnchor": "start",
+              "labelDx": 6,
+              "labelDy": 4
+            },
+            {
+              "x": 1,
+              "y": 2,
+              "label": "F₁(1, 2)",
+              "labelAnchor": "start",
+              "labelDx": 11.33,
+              "labelDy": 5,
+              "labelColor": "#1565c0"
+            },
+            {
+              "x": -1,
+              "y": 2,
+              "label": "F₂(−1, 2)",
+              "labelAnchor": "end",
+              "labelDx": -9.34,
+              "labelDy": 5.66,
+              "labelColor": "#1565c0"
+            },
+            {
+              "x": 0,
+              "y": -1,
+              "label": "V(0, −1)",
+              "labelAnchor": "start",
+              "labelDx": 5.33,
+              "labelDy": 18
+            },
+            {
+              "x": 0.8165,
+              "y": 1,
+              "label": "(√⅔, 1)",
+              "labelAnchor": "start",
+              "labelDx": 8,
+              "labelDy": 0.67,
+              "labelColor": "#c62828"
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance ต.ค. 2541",
       "choices": [
         "$\\left(\\sqrt{\\dfrac{2}{3}}, 1\\right)$",
@@ -11423,7 +11780,130 @@
       "level": "hard",
       "score": 1,
       "question": "ให้ A และ B เป็นจุดโฟกัสและจุดยอด (ตามลำดับ) ของพาราโบลา $x^2 - 8x + 4y + 4 = 0$\nถ้าวงรีมีจุดศูนย์กลางอยู่ที่ A และจุดโฟกัสจุดหนึ่งอยู่ที่ B โดยที่จุดยอดจุดหนึ่งอยู่บนเส้นตรง $y = 4$\nแล้วสมการวงรีคือข้อใดต่อไปนี้",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 364,
+          "height": 272,
+          "xRange": [
+            -1,
+            7
+          ],
+          "yRange": [
+            -1,
+            5
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "eu",
+              "kind": "ellipse-arc",
+              "center": [
+                4,
+                2
+              ],
+              "a": 1.73205,
+              "b": 2,
+              "half": "upper",
+              "color": "#222"
+            },
+            {
+              "id": "el",
+              "kind": "ellipse-arc",
+              "center": [
+                4,
+                2
+              ],
+              "a": 1.73205,
+              "b": 2,
+              "half": "lower",
+              "color": "#222"
+            },
+            {
+              "kind": "parabola",
+              "vertex": [
+                4,
+                3
+              ],
+              "throughPoint": [
+                6,
+                2
+              ],
+              "domain": [
+                1.5,
+                6.5
+              ],
+              "color": "#c62828",
+              "strokeWidth": 1.8
+            }
+          ],
+          "segments": [
+            {
+              "from": [
+                1,
+                4
+              ],
+              "to": [
+                7,
+                4
+              ],
+              "dashed": true
+            }
+          ],
+          "dots": [
+            {
+              "x": 4,
+              "y": 2,
+              "label": "A=ศก.(4, 2)",
+              "labelAnchor": "start",
+              "labelDx": -28.33,
+              "labelDy": 18,
+              "labelColor": "#c62828"
+            },
+            {
+              "x": 4,
+              "y": 3,
+              "label": "B(4, 3)",
+              "labelAnchor": "end",
+              "labelDx": 19.99,
+              "labelDy": -10.67
+            },
+            {
+              "x": 4,
+              "y": 4,
+              "label": "ยอดวงรี(4, 4)",
+              "labelAnchor": "start",
+              "labelDx": -32.34,
+              "labelDy": -15.33
+            },
+            {
+              "x": 4,
+              "y": 0,
+              "label": "(4, 0)",
+              "labelAnchor": "start",
+              "labelDx": -21.67,
+              "labelDy": 21.33
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                5.937,
+                4.277
+              ],
+              "text": "y = 4",
+              "anchor": "start",
+              "color": "#1565c0"
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance 2541",
       "choices": [
         "$(x - 4)^2 + \\dfrac{(y - 2)^2}{2} = 1$",
@@ -11793,7 +12273,124 @@
       "level": "medium",
       "score": 1,
       "question": "วงรีที่มีระยะครึ่งแกนเอกและครึ่งแกนโทเท่ากับความยาวของระยะทางไกลสุดและใกล้สุดจากจุด $(10, 7)$\nไปยังวงกลม $x^2 + y^2 - 4x - 2y - 20 = 0$ ตามลำดับ จะมีระยะทางจากจุดโฟกัสถึงจุดศูนย์กลางของวงรี\nเท่ากับค่าในข้อใดต่อไปนี้",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 450,
+          "height": 356,
+          "xRange": [
+            -4,
+            11
+          ],
+          "yRange": [
+            -4,
+            8
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "cu",
+              "kind": "ellipse-arc",
+              "center": [
+                2,
+                1
+              ],
+              "a": 5,
+              "b": 5,
+              "half": "upper",
+              "color": "#222"
+            },
+            {
+              "id": "cl",
+              "kind": "ellipse-arc",
+              "center": [
+                2,
+                1
+              ],
+              "a": 5,
+              "b": 5,
+              "half": "lower",
+              "color": "#222"
+            }
+          ],
+          "segments": [
+            {
+              "from": [
+                10,
+                7
+              ],
+              "to": [
+                -2,
+                -2
+              ],
+              "dashed": true
+            }
+          ],
+          "dots": [
+            {
+              "x": 2,
+              "y": 1,
+              "label": "ศก.(2, 1)",
+              "labelAnchor": "start",
+              "labelDx": 18,
+              "labelDy": 7
+            },
+            {
+              "x": 10,
+              "y": 7,
+              "label": "A(10, 7)",
+              "labelAnchor": "start",
+              "labelDx": -10,
+              "labelDy": -18,
+              "labelColor": "#c62828"
+            },
+            {
+              "x": 6,
+              "y": 4,
+              "label": "ใกล้สุด",
+              "labelAnchor": "end",
+              "labelDx": -19,
+              "labelDy": 2,
+              "labelColor": "#1565c0"
+            },
+            {
+              "x": -2,
+              "y": -2,
+              "label": "ไกลสุด",
+              "labelAnchor": "start",
+              "labelDx": -43,
+              "labelDy": 20,
+              "labelColor": "#1565c0"
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                8.092,
+                4.884
+              ],
+              "text": "ใกล้=5, ไกล=15",
+              "anchor": "start",
+              "color": "#1565c0"
+            },
+            {
+              "at": [
+                0.624,
+                -2.123
+              ],
+              "text": "a=15, b=5 → c=10√2",
+              "anchor": "start",
+              "color": "#c62828"
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance 2532",
       "choices": [
         "$5\\sqrt{3}$",
@@ -11847,7 +12444,104 @@
       "level": "medium",
       "score": 1,
       "question": "สมการของวงรีที่มีจุดศูนย์กลางอยู่บนเส้นตรง $x = -1$ แกนโทยาว 6 หน่วย และจุดยอดจุดหนึ่งอยู่ที่\nจุดยอดของพาราโบลา $x^2 - 8x - 2y + 20 = 0$ คือสมการในข้อใด",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 450,
+          "height": 278,
+          "xRange": [
+            -8,
+            7
+          ],
+          "yRange": [
+            -2,
+            7
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "eu",
+              "kind": "ellipse-arc",
+              "center": [
+                -1,
+                2
+              ],
+              "a": 5,
+              "b": 3,
+              "half": "upper",
+              "color": "#222"
+            },
+            {
+              "id": "el",
+              "kind": "ellipse-arc",
+              "center": [
+                -1,
+                2
+              ],
+              "a": 5,
+              "b": 3,
+              "half": "lower",
+              "color": "#222"
+            },
+            {
+              "kind": "polynomial",
+              "coefs": [
+                0.5,
+                -4,
+                10
+              ],
+              "domain": [
+                1.6,
+                6.4
+              ],
+              "color": "#c62828",
+              "strokeWidth": 1.8,
+              "label": {
+                "at": [
+                  3.762,
+                  5.323
+                ],
+                "text": "พาราโบลา",
+                "anchor": "start",
+                "color": "#c62828"
+              }
+            }
+          ],
+          "dots": [
+            {
+              "x": -1,
+              "y": 2,
+              "label": "C(−1, 2)",
+              "labelAnchor": "middle",
+              "labelDx": -3,
+              "labelDy": 16
+            },
+            {
+              "x": 4,
+              "y": 2,
+              "label": "V(4, 2) ยอดร่วม",
+              "labelAnchor": "start",
+              "labelDx": 3,
+              "labelDy": 14,
+              "labelColor": "#c62828"
+            },
+            {
+              "x": -6,
+              "y": 2,
+              "label": "(−6, 2)",
+              "labelAnchor": "end",
+              "labelDx": -15,
+              "labelDy": 3
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance 2528",
       "choices": [
         "$9x^2 + 25y^2 - 18x - 100y - 116 = 0$",
@@ -11894,7 +12588,126 @@
       "level": "medium",
       "score": 1,
       "question": "กำหนดให้ $y^2 = 12(x + 3)$ และ $y^2 = -12(x - 3)$ เป็นสมการของรูปพาราโบลาสองรูป ถ้าวงรีมี\nโฟกัสที่จุดยอดของพาราโบลาทั้งสอง และแกนโทคือส่วนของเส้นตรงที่เชื่อมจุดตัดของพาราโบลาทั้งสอง\nแล้วข้อใดต่อไปนี้ถูก",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 380,
+          "height": 364,
+          "xRange": [
+            -8,
+            8
+          ],
+          "yRange": [
+            -8,
+            8
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "eu",
+              "kind": "ellipse-arc",
+              "center": [
+                0,
+                0
+              ],
+              "a": 6.7082,
+              "b": 6,
+              "half": "upper",
+              "color": "#222"
+            },
+            {
+              "id": "el",
+              "kind": "ellipse-arc",
+              "center": [
+                0,
+                0
+              ],
+              "a": 6.7082,
+              "b": 6,
+              "half": "lower",
+              "color": "#222"
+            },
+            {
+              "id": "pr",
+              "kind": "parabola-h",
+              "vertex": [
+                -3,
+                0
+              ],
+              "throughPoint": [
+                0,
+                6
+              ],
+              "yDomain": [
+                -6.3,
+                6.3
+              ],
+              "color": "#c62828",
+              "strokeWidth": 1.7
+            },
+            {
+              "id": "pl",
+              "kind": "parabola-h",
+              "vertex": [
+                3,
+                0
+              ],
+              "throughPoint": [
+                0,
+                6
+              ],
+              "yDomain": [
+                -6.3,
+                6.3
+              ],
+              "color": "#c62828",
+              "strokeWidth": 1.7
+            }
+          ],
+          "dots": [
+            {
+              "x": 3,
+              "y": 0,
+              "label": "F₁(3, 0)",
+              "labelAnchor": "start",
+              "labelDx": 6,
+              "labelDy": 14,
+              "labelColor": "#1565c0"
+            },
+            {
+              "x": -3,
+              "y": 0,
+              "label": "F₂(−3, 0)",
+              "labelAnchor": "end",
+              "labelDx": -6,
+              "labelDy": 14,
+              "labelColor": "#1565c0"
+            },
+            {
+              "x": 0,
+              "y": 6,
+              "label": "(0, 6)",
+              "labelAnchor": "start",
+              "labelDx": 10,
+              "labelDy": -18
+            },
+            {
+              "x": 0,
+              "y": -6,
+              "label": "(0, −6)",
+              "labelAnchor": "start",
+              "labelDx": 4,
+              "labelDy": 20
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance 2531",
       "choices": [
         "ความยาวของส่วนของเส้นตรงที่เชื่อมจุดโฟกัสทั้งสองของวงรี $= 12$",
@@ -11942,7 +12755,128 @@
       "level": "medium",
       "score": 1,
       "question": "กำหนดให้ $25x^2 + 16y^2 - 50x - 64y - 311 = 0$ เป็นสมการของวงรี ถ้าพาราโบลาสองรูปมีจุดยอด\nอยู่ที่โฟกัสทั้งสองของวงรี และตัดกันที่จุดปลายทั้งสองของแกนโทของวงรีแล้ว สมการพาราโบลาทั้งสอง\nคือข้อใดต่อไปนี้",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 420,
+          "height": 344,
+          "xRange": [
+            -5,
+            7
+          ],
+          "yRange": [
+            -3,
+            7
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "eu",
+              "kind": "ellipse-arc",
+              "center": [
+                1,
+                2
+              ],
+              "a": 4,
+              "b": 5,
+              "half": "upper",
+              "color": "#222"
+            },
+            {
+              "id": "el",
+              "kind": "ellipse-arc",
+              "center": [
+                1,
+                2
+              ],
+              "a": 4,
+              "b": 5,
+              "half": "lower",
+              "color": "#222"
+            },
+            {
+              "id": "pu",
+              "kind": "polynomial",
+              "coefs": [
+                0.1875,
+                -0.375,
+                -0.8125
+              ],
+              "domain": [
+                -3,
+                5
+              ],
+              "color": "#c62828",
+              "strokeWidth": 1.7
+            },
+            {
+              "id": "pd",
+              "kind": "polynomial",
+              "coefs": [
+                -0.1875,
+                0.375,
+                4.8125
+              ],
+              "domain": [
+                -3,
+                5
+              ],
+              "color": "#c62828",
+              "strokeWidth": 1.7
+            }
+          ],
+          "dots": [
+            {
+              "x": 1,
+              "y": 5,
+              "label": "F₁(1, 5)",
+              "labelAnchor": "start",
+              "labelDx": -11,
+              "labelDy": -16,
+              "labelColor": "#1565c0"
+            },
+            {
+              "x": 1,
+              "y": -1,
+              "label": "F₂(1, −1)",
+              "labelAnchor": "start",
+              "labelDx": -14,
+              "labelDy": 18,
+              "labelColor": "#1565c0"
+            },
+            {
+              "x": 5,
+              "y": 2,
+              "label": "(5, 2)",
+              "labelAnchor": "start",
+              "labelDx": 10,
+              "labelDy": 3
+            },
+            {
+              "x": -3,
+              "y": 2,
+              "label": "(−3, 2)",
+              "labelAnchor": "end",
+              "labelDx": -10,
+              "labelDy": 4
+            },
+            {
+              "x": 1,
+              "y": 2,
+              "label": "C(1, 2)",
+              "labelAnchor": "start",
+              "labelDx": -14,
+              "labelDy": 17
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance 2532",
       "choices": [
         "$(x - 1)^2 = \\dfrac{16}{3}(y + 1)$ และ $(x - 1)^2 = -\\dfrac{16}{3}(y - 5)$",
