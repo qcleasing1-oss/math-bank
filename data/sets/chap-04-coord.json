@@ -12924,7 +12924,125 @@
       "level": "medium",
       "score": 1,
       "question": "วงรีวงหนึ่งมีจุดศูนย์กลางที่ $(3, 1)$ จุดโฟกัสจุดหนึ่งที่ $(5, 1)$ และสัมผัสแกน y ที่จุด $(0, 1)$ สมการ\nของวงกลมที่มีจุดศูนย์กลางที่ $(-2, 1)$ และมีรัศมีเท่ากับความยาวแกนโทของวงรี คือข้อใดต่อไปนี้",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 452,
+          "height": 324,
+          "xRange": [
+            -7,
+            7
+          ],
+          "yRange": [
+            -4,
+            6
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "e1",
+              "kind": "ellipse-arc",
+              "center": [
+                3,
+                1
+              ],
+              "a": 3,
+              "b": 2.23607,
+              "half": "upper",
+              "color": "#222"
+            },
+            {
+              "id": "e2",
+              "kind": "ellipse-arc",
+              "center": [
+                3,
+                1
+              ],
+              "a": 3,
+              "b": 2.23607,
+              "half": "lower",
+              "color": "#222"
+            },
+            {
+              "id": "c1",
+              "kind": "ellipse-arc",
+              "center": [
+                -2,
+                1
+              ],
+              "a": 4.47214,
+              "b": 4.47214,
+              "half": "upper",
+              "color": "#1565c0"
+            },
+            {
+              "id": "c2",
+              "kind": "ellipse-arc",
+              "center": [
+                -2,
+                1
+              ],
+              "a": 4.47214,
+              "b": 4.47214,
+              "half": "lower",
+              "color": "#1565c0"
+            }
+          ],
+          "dots": [
+            {
+              "x": 3,
+              "y": 1,
+              "label": "C₁(3, 1)",
+              "labelAnchor": "start",
+              "labelDx": -5,
+              "labelDy": 19
+            },
+            {
+              "x": 0,
+              "y": 1,
+              "label": "สัมผัส(0, 1)",
+              "labelAnchor": "start",
+              "labelDx": 10,
+              "labelDy": 2,
+              "labelColor": "#c62828"
+            },
+            {
+              "x": 5,
+              "y": 1,
+              "label": "F(5, 1)",
+              "labelAnchor": "start",
+              "labelDx": -25,
+              "labelDy": -16
+            },
+            {
+              "x": -2,
+              "y": 1,
+              "label": "C₂(−2, 1)",
+              "labelAnchor": "middle",
+              "labelDx": -7,
+              "labelDy": 16,
+              "labelColor": "#1565c0"
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                -5.513,
+                2.436
+              ],
+              "text": "r = แกนโท = 2√5",
+              "anchor": "start",
+              "color": "#1565c0"
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance มี.ค. 2542",
       "choices": [
         "$x^2 + y^2 + 4x - 2y = 0$",
@@ -12969,7 +13087,139 @@
       "level": "medium",
       "score": 1,
       "question": "ให้ C เป็นวงกลมที่มีจุดศูนย์กลางอยู่ที่จุดศูนย์กลางของวงรี $x^2 + 2y^2 + 4x - 4y + 2 = 0$\nและผ่านจุดโฟกัสทั้งสองของวงรีนี้ ถ้าวงกลม C ตัดเส้นตรง $y = -x$ ที่จุด A และ B\nแล้ว ระยะ AB ยาวเท่ากับข้อใดต่อไปนี้",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 340,
+          "height": 244,
+          "xRange": [
+            -5,
+            2
+          ],
+          "yRange": [
+            -2,
+            3
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "e1",
+              "kind": "ellipse-arc",
+              "center": [
+                -2,
+                1
+              ],
+              "a": 2,
+              "b": 1.41421,
+              "half": "upper",
+              "color": "#222"
+            },
+            {
+              "id": "e2",
+              "kind": "ellipse-arc",
+              "center": [
+                -2,
+                1
+              ],
+              "a": 2,
+              "b": 1.41421,
+              "half": "lower",
+              "color": "#222"
+            },
+            {
+              "id": "c1",
+              "kind": "ellipse-arc",
+              "center": [
+                -2,
+                1
+              ],
+              "a": 1.41421,
+              "b": 1.41421,
+              "half": "upper",
+              "color": "#1565c0"
+            },
+            {
+              "id": "c2",
+              "kind": "ellipse-arc",
+              "center": [
+                -2,
+                1
+              ],
+              "a": 1.41421,
+              "b": 1.41421,
+              "half": "lower",
+              "color": "#1565c0"
+            },
+            {
+              "kind": "polynomial",
+              "coefs": [
+                -1,
+                0
+              ],
+              "domain": [
+                -3.6,
+                1
+              ],
+              "color": "#c62828",
+              "strokeWidth": 1.6,
+              "label": {
+                "at": [
+                  0.95,
+                  -0.6
+                ],
+                "text": "y = −x",
+                "anchor": "start",
+                "color": "#c62828"
+              }
+            }
+          ],
+          "dots": [
+            {
+              "x": -2,
+              "y": 1,
+              "label": "C(−2, 1)",
+              "labelAnchor": "start",
+              "labelDx": -24,
+              "labelDy": 20
+            },
+            {
+              "x": -0.634,
+              "y": 0.634,
+              "label": "A",
+              "labelAnchor": "start",
+              "labelDx": 5,
+              "labelDy": 2,
+              "labelColor": "#c62828"
+            },
+            {
+              "x": -2.366,
+              "y": 2.366,
+              "label": "B",
+              "labelAnchor": "end",
+              "labelDx": 8,
+              "labelDy": -19,
+              "labelColor": "#c62828"
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                -3.05,
+                1.35
+              ],
+              "text": "AB = √6",
+              "anchor": "start",
+              "color": "#c62828"
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance ต.ค. 2544",
       "choices": [
         "$\\sqrt{3}$ หน่วย",
@@ -14630,7 +14880,147 @@
       "level": "medium",
       "score": 1,
       "question": "ให้ $k_1$ เป็นครึ่งแกนเอกของวงรี $4x^2 - 8x + y^2 + 4y - 8 = 0$\nและ $k_2$ เป็นครึ่งแกนตามขวางของไฮเพอร์โบลา $-x^2 + 4x + 3y^2 - 30y + 68 = 0$\nข้อความต่อไปนี้ข้อใดถูก",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 324,
+          "height": 396,
+          "xRange": [
+            -4,
+            8
+          ],
+          "yRange": [
+            -7,
+            9
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "e1",
+              "kind": "ellipse-arc",
+              "center": [
+                1,
+                -2
+              ],
+              "a": 2,
+              "b": 4,
+              "half": "upper",
+              "color": "#222"
+            },
+            {
+              "id": "e2",
+              "kind": "ellipse-arc",
+              "center": [
+                1,
+                -2
+              ],
+              "a": 2,
+              "b": 4,
+              "half": "lower",
+              "color": "#222"
+            },
+            {
+              "id": "hu",
+              "kind": "hyperbola",
+              "center": [
+                2,
+                5
+              ],
+              "a": 1,
+              "b": 1.73205,
+              "orientation": "vertical",
+              "branches": "up",
+              "asymptotes": true,
+              "tRange": [
+                -2,
+                2
+              ],
+              "color": "#c62828"
+            },
+            {
+              "id": "hd",
+              "kind": "hyperbola",
+              "center": [
+                2,
+                5
+              ],
+              "a": 1,
+              "b": 1.73205,
+              "orientation": "vertical",
+              "branches": "down",
+              "tRange": [
+                -2,
+                2
+              ],
+              "color": "#c62828"
+            }
+          ],
+          "segments": [
+            {
+              "from": [
+                1,
+                -2
+              ],
+              "to": [
+                1,
+                2
+              ]
+            },
+            {
+              "from": [
+                2,
+                5
+              ],
+              "to": [
+                2,
+                6
+              ]
+            }
+          ],
+          "dots": [
+            {
+              "x": 1,
+              "y": -2,
+              "label": "C₁(1, −2)",
+              "labelAnchor": "start",
+              "labelDx": -17,
+              "labelDy": 27
+            },
+            {
+              "x": 1,
+              "y": 2,
+              "label": "k₁ = 4",
+              "labelAnchor": "end",
+              "labelDx": 23,
+              "labelDy": -12
+            },
+            {
+              "x": 2,
+              "y": 5,
+              "label": "C₂(2, 5)",
+              "labelAnchor": "start",
+              "labelDx": 16,
+              "labelDy": 5,
+              "labelColor": "#c62828"
+            },
+            {
+              "x": 2,
+              "y": 6,
+              "label": "k₂ = 1",
+              "labelAnchor": "start",
+              "labelDx": -13,
+              "labelDy": -24,
+              "labelColor": "#c62828"
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance 2531",
       "choices": [
         "$k_1 = k_2$",
@@ -14675,7 +15065,162 @@
       "level": "medium",
       "score": 1,
       "question": "กำหนดสมการของวงรี $2x^2 + 11y^2 + 4x - 44y + 24 = 0$\nและสมการไฮเพอร์โบลา $2x^2 - 7y^2 - 4x + 28y - 40 = 0$\nคุณสมบัติต่อไปนี้ข้อใดเป็นจริง",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 500,
+          "height": 383,
+          "xRange": [
+            -6,
+            7
+          ],
+          "yRange": [
+            -3,
+            7
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "e1",
+              "kind": "ellipse-arc",
+              "center": [
+                -1,
+                2
+              ],
+              "a": 3.31662,
+              "b": 1.41421,
+              "half": "upper",
+              "color": "#222"
+            },
+            {
+              "id": "e2",
+              "kind": "ellipse-arc",
+              "center": [
+                -1,
+                2
+              ],
+              "a": 3.31662,
+              "b": 1.41421,
+              "half": "lower",
+              "color": "#222"
+            },
+            {
+              "id": "hr",
+              "kind": "hyperbola",
+              "center": [
+                1,
+                2
+              ],
+              "a": 2.64575,
+              "b": 1.41421,
+              "orientation": "horizontal",
+              "branches": "right",
+              "asymptotes": true,
+              "tRange": [
+                -1.5,
+                1.5
+              ],
+              "color": "#c62828"
+            },
+            {
+              "id": "hl",
+              "kind": "hyperbola",
+              "center": [
+                1,
+                2
+              ],
+              "a": 2.64575,
+              "b": 1.41421,
+              "orientation": "horizontal",
+              "branches": "left",
+              "tRange": [
+                -1.5,
+                1.5
+              ],
+              "color": "#c62828"
+            }
+          ],
+          "dots": [
+            {
+              "x": -1,
+              "y": 2,
+              "label": "C₁",
+              "labelAnchor": "middle",
+              "labelDx": 0,
+              "labelDy": -9
+            },
+            {
+              "x": 1,
+              "y": 2,
+              "label": "C₂",
+              "labelAnchor": "middle",
+              "labelDx": 0,
+              "labelDy": -9,
+              "labelColor": "#c62828"
+            },
+            {
+              "x": -4,
+              "y": 2,
+              "label": "F₁",
+              "labelAnchor": "middle",
+              "labelDx": 9,
+              "labelDy": 14
+            },
+            {
+              "x": 2,
+              "y": 2,
+              "label": "F₂",
+              "labelAnchor": "middle",
+              "labelDx": -9,
+              "labelDy": 17
+            },
+            {
+              "x": -2,
+              "y": 2,
+              "label": "G₁",
+              "labelAnchor": "middle",
+              "labelDx": -7,
+              "labelDy": 16,
+              "labelColor": "#c62828"
+            },
+            {
+              "x": 4,
+              "y": 2,
+              "label": "G₂",
+              "labelAnchor": "middle",
+              "labelDx": 16,
+              "labelDy": 19,
+              "labelColor": "#c62828"
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                -6.228,
+                6.508
+              ],
+              "text": "F=โฟกัสวงรี  G=โฟกัสไฮเพอร์โบลา",
+              "anchor": "start",
+              "color": "#555"
+            },
+            {
+              "at": [
+                -5.809,
+                -2.635
+              ],
+              "text": "ทั้งคู่ 2c = 6 (โฟกัสห่างเท่ากัน)",
+              "anchor": "start",
+              "color": "#1565c0"
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance 2533",
       "choices": [
         "กราฟของทั้งสองสมการมีจุดศูนย์กลางร่วมกัน",
@@ -14723,7 +15268,136 @@
       "level": "medium",
       "score": 1,
       "question": "กำหนดให้ F เป็นจุดโฟกัสในควอดรันต์ที่หนึ่งของไฮเพอร์โบลา $4x^2 - 5y^2 - 8x + 20y - 36 = 0$\nวงกลมซึ่งมีจุดศูนย์กลางอยู่ที่ F และสัมผัสแกน x มีสมการเป็นข้อใดต่อไปนี้",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 450,
+          "height": 254,
+          "xRange": [
+            -5,
+            8
+          ],
+          "yRange": [
+            -1,
+            6
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "hr",
+              "kind": "hyperbola",
+              "center": [
+                1,
+                2
+              ],
+              "a": 2.23607,
+              "b": 2,
+              "orientation": "horizontal",
+              "branches": "right",
+              "asymptotes": true,
+              "tRange": [
+                -1.45,
+                1.45
+              ],
+              "color": "#222"
+            },
+            {
+              "id": "hl",
+              "kind": "hyperbola",
+              "center": [
+                1,
+                2
+              ],
+              "a": 2.23607,
+              "b": 2,
+              "orientation": "horizontal",
+              "branches": "left",
+              "tRange": [
+                -1.45,
+                1.45
+              ],
+              "color": "#222"
+            },
+            {
+              "id": "cu",
+              "kind": "ellipse-arc",
+              "center": [
+                4,
+                2
+              ],
+              "a": 2,
+              "b": 2,
+              "half": "upper",
+              "color": "#1565c0"
+            },
+            {
+              "id": "cl",
+              "kind": "ellipse-arc",
+              "center": [
+                4,
+                2
+              ],
+              "a": 2,
+              "b": 2,
+              "half": "lower",
+              "color": "#1565c0"
+            }
+          ],
+          "dots": [
+            {
+              "x": 1,
+              "y": 2,
+              "label": "C(1, 2)",
+              "labelAnchor": "end",
+              "labelDx": 16.66,
+              "labelDy": -18.67
+            },
+            {
+              "x": 4,
+              "y": 2,
+              "label": "F(4, 2)",
+              "labelAnchor": "start",
+              "labelDx": -8,
+              "labelDy": -16.66,
+              "labelColor": "#c62828"
+            },
+            {
+              "x": -2,
+              "y": 2,
+              "label": "F′(−2, 2)",
+              "labelAnchor": "end",
+              "labelDx": 8,
+              "labelDy": -10
+            },
+            {
+              "x": 4,
+              "y": 0,
+              "label": "สัมผัส(4, 0)",
+              "labelAnchor": "start",
+              "labelDx": -54,
+              "labelDy": 19,
+              "labelColor": "#1565c0"
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                0.6,
+                4.111
+              ],
+              "text": "วงกลม r = 2 สัมผัสแกน x",
+              "anchor": "start",
+              "color": "#1565c0"
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance 2541",
       "choices": [
         "$x^2 + y^2 - 4x - 4y + 4 = 0$",
@@ -14956,7 +15630,167 @@
       "level": "medium",
       "score": 1,
       "question": "ถ้า $F_1$ และ $F_2$ เป็นจุดโฟกัสของไฮเพอร์โบลา $16y^2 - 9x^2 + 36x - 32y - 164 = 0$\nและ V เป็นจุดศูนย์กลางของวงกลม $x^2 + y^2 + 2x - 4y + 1 = 0$\nแล้วความยาวรอบรูปของสามเหลี่ยม $F_1F_2V$ มีค่าเท่ากับข้อใดต่อไปนี้",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 348,
+          "height": 380,
+          "xRange": [
+            -4,
+            8
+          ],
+          "yRange": [
+            -6,
+            8
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "hu",
+              "kind": "hyperbola",
+              "center": [
+                2,
+                1
+              ],
+              "a": 3,
+              "b": 4,
+              "orientation": "vertical",
+              "branches": "up",
+              "asymptotes": true,
+              "tRange": [
+                -1.25,
+                1.25
+              ],
+              "color": "#222"
+            },
+            {
+              "id": "hd",
+              "kind": "hyperbola",
+              "center": [
+                2,
+                1
+              ],
+              "a": 3,
+              "b": 4,
+              "orientation": "vertical",
+              "branches": "down",
+              "tRange": [
+                -1.25,
+                1.25
+              ],
+              "color": "#222"
+            },
+            {
+              "id": "cu",
+              "kind": "ellipse-arc",
+              "center": [
+                -1,
+                2
+              ],
+              "a": 2,
+              "b": 2,
+              "half": "upper",
+              "color": "#1565c0"
+            },
+            {
+              "id": "cl",
+              "kind": "ellipse-arc",
+              "center": [
+                -1,
+                2
+              ],
+              "a": 2,
+              "b": 2,
+              "half": "lower",
+              "color": "#1565c0"
+            }
+          ],
+          "segments": [
+            {
+              "from": [
+                2,
+                6
+              ],
+              "to": [
+                2,
+                -4
+              ]
+            },
+            {
+              "from": [
+                2,
+                6
+              ],
+              "to": [
+                -1,
+                2
+              ]
+            },
+            {
+              "from": [
+                2,
+                -4
+              ],
+              "to": [
+                -1,
+                2
+              ]
+            }
+          ],
+          "dots": [
+            {
+              "x": 2,
+              "y": 6,
+              "label": "F₁(2, 6)",
+              "labelAnchor": "start",
+              "labelDx": -18,
+              "labelDy": -24.67
+            },
+            {
+              "x": 2,
+              "y": -4,
+              "label": "F₂(2, −4)",
+              "labelAnchor": "start",
+              "labelDx": -19.33,
+              "labelDy": 20.67
+            },
+            {
+              "x": -1,
+              "y": 2,
+              "label": "V(−1, 2)",
+              "labelAnchor": "end",
+              "labelDx": 3.33,
+              "labelDy": -12,
+              "labelColor": "#1565c0"
+            },
+            {
+              "x": 2,
+              "y": 1,
+              "label": "C(2, 1)",
+              "labelAnchor": "start",
+              "labelDx": 20.66,
+              "labelDy": 0
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                3.645,
+                -5.978
+              ],
+              "text": "รอบรูป = 15 + 3√5",
+              "anchor": "start",
+              "color": "#c62828"
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance 2533",
       "choices": [
         "$13 + 2\\sqrt{5}$",
@@ -15003,7 +15837,133 @@
       "level": "medium",
       "score": 1,
       "question": "ถ้า F เป็นจุดโฟกัสของไฮเพอร์โบลา $6x^2 - 10y^2 - 12x - 40y - 94 = 0$ อยู่ในควอดรันต์ที่สี่\nแล้วพาราโบลาที่มีจุดยอดที่ F และมีแกนสังยุคของไฮเพอร์โบลาเป็นเส้นไดเรกตริกซ์\nคือสมการในข้อใดต่อไปนี้",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 550,
+          "height": 412,
+          "xRange": [
+            -5,
+            11
+          ],
+          "yRange": [
+            -8,
+            4
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "hr",
+              "kind": "hyperbola",
+              "center": [
+                1,
+                -2
+              ],
+              "a": 3.16228,
+              "b": 2.44949,
+              "orientation": "horizontal",
+              "branches": "right",
+              "asymptotes": true,
+              "tRange": [
+                -1.65,
+                1.65
+              ],
+              "color": "#222"
+            },
+            {
+              "id": "hl",
+              "kind": "hyperbola",
+              "center": [
+                1,
+                -2
+              ],
+              "a": 3.16228,
+              "b": 2.44949,
+              "orientation": "horizontal",
+              "branches": "left",
+              "tRange": [
+                -1.65,
+                1.65
+              ],
+              "color": "#222"
+            },
+            {
+              "kind": "parabola-h",
+              "vertex": [
+                5,
+                -2
+              ],
+              "throughPoint": [
+                6,
+                2
+              ],
+              "yDomain": [
+                -8,
+                4
+              ],
+              "color": "#c62828",
+              "strokeWidth": 1.8
+            }
+          ],
+          "segments": [
+            {
+              "from": [
+                1,
+                -8
+              ],
+              "to": [
+                1,
+                4
+              ],
+              "dashed": true
+            }
+          ],
+          "dots": [
+            {
+              "x": 5,
+              "y": -2,
+              "label": "F=ยอด(5, −2)",
+              "labelAnchor": "start",
+              "labelDx": 12,
+              "labelDy": -12.67,
+              "labelColor": "#c62828"
+            },
+            {
+              "x": 1,
+              "y": -2,
+              "label": "C(1, −2)",
+              "labelAnchor": "end",
+              "labelDx": 58.66,
+              "labelDy": 5.33
+            },
+            {
+              "x": -3,
+              "y": -2,
+              "label": "F′(−3, −2)",
+              "labelAnchor": "end",
+              "labelDx": 2.66,
+              "labelDy": -16
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                1.283,
+                3.4
+              ],
+              "text": "แกนสังยุค x=1 (ไดเรกตริกซ์)",
+              "anchor": "start",
+              "color": "#1565c0"
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance 2534",
       "choices": [
         "$y^2 + 4y - 4x - 9 = 0$",
@@ -15050,7 +16010,116 @@
       "level": "medium",
       "score": 1,
       "question": "กำหนดให้ E เป็นวงรีซึ่งมีสมการเป็น $6x^2 + 5y^2 + 12x - 20y - 4 = 0$\nและ H เป็นไฮเพอร์โบลาที่มีจุดศูนย์กลางร่วมกับ E มีจุดยอดที่จุดโฟกัสของ E\nและมีความยาวแกนสังยุคเท่ากับความยาวแกนโทของ E\nข้อใดต่อไปนี้คือสมการของไฮเพอร์โบลา H",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 500,
+          "height": 572,
+          "xRange": [
+            -6,
+            4
+          ],
+          "yRange": [
+            -4,
+            8
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "e1",
+              "kind": "ellipse-arc",
+              "center": [
+                -1,
+                2
+              ],
+              "a": 2.23607,
+              "b": 2.44949,
+              "half": "upper",
+              "color": "#222"
+            },
+            {
+              "id": "e2",
+              "kind": "ellipse-arc",
+              "center": [
+                -1,
+                2
+              ],
+              "a": 2.23607,
+              "b": 2.44949,
+              "half": "lower",
+              "color": "#222"
+            },
+            {
+              "id": "hu",
+              "kind": "hyperbola",
+              "center": [
+                -1,
+                2
+              ],
+              "a": 1,
+              "b": 2.23607,
+              "orientation": "vertical",
+              "branches": "up",
+              "asymptotes": true,
+              "tRange": [
+                -1.6,
+                1.6
+              ],
+              "color": "#c62828"
+            },
+            {
+              "id": "hd",
+              "kind": "hyperbola",
+              "center": [
+                -1,
+                2
+              ],
+              "a": 1,
+              "b": 2.23607,
+              "orientation": "vertical",
+              "branches": "down",
+              "tRange": [
+                -1.6,
+                1.6
+              ],
+              "color": "#c62828"
+            }
+          ],
+          "dots": [
+            {
+              "x": -1,
+              "y": 2,
+              "label": "C(−1, 2)",
+              "labelAnchor": "start",
+              "labelDx": -65,
+              "labelDy": -0.66
+            },
+            {
+              "x": -1,
+              "y": 3,
+              "label": "ยอด H = โฟกัส E",
+              "labelAnchor": "start",
+              "labelDx": -53.66,
+              "labelDy": 17.33,
+              "labelColor": "#c62828"
+            },
+            {
+              "x": -1,
+              "y": 1,
+              "label": "(−1, 1)",
+              "labelAnchor": "end",
+              "labelDx": 23.33,
+              "labelDy": -8.67
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance 2537",
       "choices": [
         "$x^2 - 5y^2 - 2x - 20y + 14 = 0$",
@@ -15097,7 +16166,125 @@
       "level": "hard",
       "score": 1,
       "question": "ถ้าไฮเพอร์โบลา H มีจุดศูนย์กลางอยู่ที่จุดศูนย์กลางของวงรี $4x^2 + 9y^2 - 8x - 36y + 4 = 0$\nจุดยอดอยู่ที่จุดโฟกัสทั้งสองของวงรีนี้ และผ่านจุด $(5, 5)$\nแล้ว จุดโฟกัสของไฮเพอร์โบลา H คือจุดในข้อใดต่อไปนี้",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 500,
+          "height": 364,
+          "xRange": [
+            -4,
+            7
+          ],
+          "yRange": [
+            -2,
+            6
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "e1",
+              "kind": "ellipse-arc",
+              "center": [
+                1,
+                2
+              ],
+              "a": 3,
+              "b": 2,
+              "half": "upper",
+              "color": "#222"
+            },
+            {
+              "id": "e2",
+              "kind": "ellipse-arc",
+              "center": [
+                1,
+                2
+              ],
+              "a": 3,
+              "b": 2,
+              "half": "lower",
+              "color": "#222"
+            },
+            {
+              "id": "hr",
+              "kind": "hyperbola",
+              "center": [
+                1,
+                2
+              ],
+              "a": 2.23607,
+              "b": 2.0226,
+              "orientation": "horizontal",
+              "branches": "right",
+              "asymptotes": true,
+              "tRange": [
+                -1.45,
+                1.45
+              ],
+              "color": "#c62828"
+            },
+            {
+              "id": "hl",
+              "kind": "hyperbola",
+              "center": [
+                1,
+                2
+              ],
+              "a": 2.23607,
+              "b": 2.0226,
+              "orientation": "horizontal",
+              "branches": "left",
+              "tRange": [
+                -1.45,
+                1.45
+              ],
+              "color": "#c62828"
+            }
+          ],
+          "dots": [
+            {
+              "x": 1,
+              "y": 2,
+              "label": "C(1, 2)",
+              "labelAnchor": "middle",
+              "labelDx": 4,
+              "labelDy": -29.2
+            },
+            {
+              "x": 3.23607,
+              "y": 2,
+              "label": "ยอด H",
+              "labelAnchor": "start",
+              "labelDx": -49.4,
+              "labelDy": -3.4,
+              "labelColor": "#c62828"
+            },
+            {
+              "x": 4.01513,
+              "y": 2,
+              "label": "F_H",
+              "labelAnchor": "start",
+              "labelDx": 8,
+              "labelDy": 15.6,
+              "labelColor": "#c62828"
+            },
+            {
+              "x": 5,
+              "y": 5,
+              "label": "(5, 5)",
+              "labelAnchor": "start",
+              "labelDx": 8.4,
+              "labelDy": 7.2
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance ต.ค. 2545",
       "choices": [
         "$\\left(1 - \\dfrac{7}{\\sqrt{11}}, 2\\right)$ และ $\\left(1 + \\dfrac{7}{\\sqrt{11}}, 2\\right)$",
@@ -15147,7 +16334,126 @@
       "level": "medium",
       "score": 1,
       "question": "กำหนดให้ไฮเพอร์โบลามีจุดยอดที่ $(-4, 0)$ โฟกัสที่ $(-5, 0)$ และ $(1, 0)$ ถ้าวงรีมีจุดศูนย์กลางอยู่ที่จุด\nศูนย์กลางของไฮเพอร์โบลานี้ และมีความยาวของแกนเอกและแกนโทเท่ากับความยาวของแกนสังยุค\nและแกนตามขวางของไฮเพอร์โบลาตามลำดับ แล้วสมการของวงรีคือข้อใดต่อไปนี้",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 500,
+          "height": 337,
+          "xRange": [
+            -8,
+            4
+          ],
+          "yRange": [
+            -4,
+            4
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "e1",
+              "kind": "ellipse-arc",
+              "center": [
+                -2,
+                0
+              ],
+              "a": 2,
+              "b": 2.23607,
+              "half": "upper",
+              "color": "#222"
+            },
+            {
+              "id": "e2",
+              "kind": "ellipse-arc",
+              "center": [
+                -2,
+                0
+              ],
+              "a": 2,
+              "b": 2.23607,
+              "half": "lower",
+              "color": "#222"
+            },
+            {
+              "id": "hr",
+              "kind": "hyperbola",
+              "center": [
+                -2,
+                0
+              ],
+              "a": 2,
+              "b": 2.23607,
+              "orientation": "horizontal",
+              "branches": "right",
+              "asymptotes": true,
+              "tRange": [
+                -1.4,
+                1.4
+              ],
+              "color": "#c62828"
+            },
+            {
+              "id": "hl",
+              "kind": "hyperbola",
+              "center": [
+                -2,
+                0
+              ],
+              "a": 2,
+              "b": 2.23607,
+              "orientation": "horizontal",
+              "branches": "left",
+              "tRange": [
+                -1.4,
+                1.4
+              ],
+              "color": "#c62828"
+            }
+          ],
+          "dots": [
+            {
+              "x": -2,
+              "y": 0,
+              "label": "C(−2, 0)",
+              "labelAnchor": "end",
+              "labelDx": 20.4,
+              "labelDy": 27.6
+            },
+            {
+              "x": -4,
+              "y": 0,
+              "label": "ยอด(−4, 0)",
+              "labelAnchor": "end",
+              "labelDx": 68.4,
+              "labelDy": -6.6,
+              "labelColor": "#c62828"
+            },
+            {
+              "x": -5,
+              "y": 0,
+              "label": "F(−5, 0)",
+              "labelAnchor": "end",
+              "labelDx": 22.8,
+              "labelDy": 23.6,
+              "labelColor": "#c62828"
+            },
+            {
+              "x": 1,
+              "y": 0,
+              "label": "F(1, 0)",
+              "labelAnchor": "start",
+              "labelDx": -11.6,
+              "labelDy": 19.6,
+              "labelColor": "#c62828"
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance 2540",
       "choices": [
         "$\\dfrac{(x + 2)^2}{4} + \\dfrac{y^2}{5} = 1$",
@@ -15193,7 +16499,117 @@
       "level": "medium",
       "score": 1,
       "question": "สมการของวงรีที่มีแกนตามขวางและแกนสังยุคของไฮเพอร์โบลา $9x^2 - 4y^2 - 54x + 8y + 41 = 0$\nเป็นแกนโทและแกนเอกตามลำดับ คือข้อใดต่อไปนี้",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 340,
+          "height": 324,
+          "xRange": [
+            -2,
+            8
+          ],
+          "yRange": [
+            -4,
+            6
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "e1",
+              "kind": "ellipse-arc",
+              "center": [
+                3,
+                1
+              ],
+              "a": 2,
+              "b": 3,
+              "half": "upper",
+              "color": "#222"
+            },
+            {
+              "id": "e2",
+              "kind": "ellipse-arc",
+              "center": [
+                3,
+                1
+              ],
+              "a": 2,
+              "b": 3,
+              "half": "lower",
+              "color": "#222"
+            },
+            {
+              "id": "hr",
+              "kind": "hyperbola",
+              "center": [
+                3,
+                1
+              ],
+              "a": 2,
+              "b": 3,
+              "orientation": "horizontal",
+              "branches": "right",
+              "asymptotes": true,
+              "tRange": [
+                -1.3,
+                1.3
+              ],
+              "color": "#c62828"
+            },
+            {
+              "id": "hl",
+              "kind": "hyperbola",
+              "center": [
+                3,
+                1
+              ],
+              "a": 2,
+              "b": 3,
+              "orientation": "horizontal",
+              "branches": "left",
+              "tRange": [
+                -1.3,
+                1.3
+              ],
+              "color": "#c62828"
+            }
+          ],
+          "dots": [
+            {
+              "x": 3,
+              "y": 1,
+              "label": "C(3, 1)",
+              "labelAnchor": "start",
+              "labelDx": -8.4,
+              "labelDy": -22
+            },
+            {
+              "x": 5,
+              "y": 1,
+              "label": "ยอด H(5, 1)",
+              "labelAnchor": "start",
+              "labelDx": 8.2,
+              "labelDy": 3.8,
+              "labelColor": "#c62828"
+            },
+            {
+              "x": 1,
+              "y": 1,
+              "label": "(1, 1)",
+              "labelAnchor": "end",
+              "labelDx": 34.2,
+              "labelDy": 3,
+              "labelColor": "#c62828"
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance 2527",
       "choices": [
         "$9x^2 + 4y^2 + 54x + 8y + 49 = 0$",
@@ -15238,7 +16654,125 @@
       "level": "medium",
       "score": 1,
       "question": "ถ้าไฮเพอร์โบลา H มีสมการเป็น $16x^2 - 64x - 9y^2 - 80 = 0$ แล้ววงรีที่มีจุดยอดอยู่ที่จุดโฟกัสทั้งสอง\nของ H และมีแกนโทคือแกนสังยุคของ H มีสมการเป็นข้อใดต่อไปนี้",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 476,
+          "height": 304,
+          "xRange": [
+            -6,
+            10
+          ],
+          "yRange": [
+            -5,
+            5
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "e1",
+              "kind": "ellipse-arc",
+              "center": [
+                2,
+                0
+              ],
+              "a": 5,
+              "b": 4,
+              "half": "upper",
+              "color": "#222"
+            },
+            {
+              "id": "e2",
+              "kind": "ellipse-arc",
+              "center": [
+                2,
+                0
+              ],
+              "a": 5,
+              "b": 4,
+              "half": "lower",
+              "color": "#222"
+            },
+            {
+              "id": "hr",
+              "kind": "hyperbola",
+              "center": [
+                2,
+                0
+              ],
+              "a": 3,
+              "b": 4,
+              "orientation": "horizontal",
+              "branches": "right",
+              "asymptotes": true,
+              "tRange": [
+                -1.1,
+                1.1
+              ],
+              "color": "#c62828"
+            },
+            {
+              "id": "hl",
+              "kind": "hyperbola",
+              "center": [
+                2,
+                0
+              ],
+              "a": 3,
+              "b": 4,
+              "orientation": "horizontal",
+              "branches": "left",
+              "tRange": [
+                -1.1,
+                1.1
+              ],
+              "color": "#c62828"
+            }
+          ],
+          "dots": [
+            {
+              "x": 2,
+              "y": 0,
+              "label": "C(2, 0)",
+              "labelAnchor": "middle",
+              "labelDx": -8,
+              "labelDy": -16.2
+            },
+            {
+              "x": 5,
+              "y": 0,
+              "label": "ยอด H",
+              "labelAnchor": "start",
+              "labelDx": -47.2,
+              "labelDy": 16.6,
+              "labelColor": "#c62828"
+            },
+            {
+              "x": 7,
+              "y": 0,
+              "label": "ยอด E = F_H",
+              "labelAnchor": "start",
+              "labelDx": 10.6,
+              "labelDy": 15,
+              "labelColor": "#c62828"
+            },
+            {
+              "x": -3,
+              "y": 0,
+              "label": "(−3, 0)",
+              "labelAnchor": "end",
+              "labelDx": -5,
+              "labelDy": 15
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance มี.ค. 2542",
       "choices": [
         "$16x^2 - 64x + 25y^2 - 464 = 0$",
