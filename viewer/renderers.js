@@ -3311,6 +3311,67 @@ function renderConicEllipseHyperbola(spec){
   return svg+'</svg>';
 }
 
+
+// ===== cashflow-timeline (บท 18) — added with gen-chap-18 set =====
+function renderCashflowTimeline(spec) {
+  const COL_W = 95, ML = 90, AY = 70, ROW_H = 34, ARROW_TOP = AY + 22;
+  const COLORS = ["#2e9e5b", "#c0158c", "#1f9bd4", "#e0731f", "#7b52c0", "#d11"];
+  const esc = s => (s || "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  const cols = spec.cols || [];
+  const mode = spec.mode || "fv";
+  const ncol = cols.length;
+  const W = ML + COL_W * (ncol - 1) + 70;
+  const flowCols = [];
+  cols.forEach((c, i) => { if (c.flow) flowCols.push(i); });
+  const nrows = flowCols.length;
+  const H = ARROW_TOP + ROW_H * nrows + 70;
+  const x = i => ML + COL_W * i;
+  let termI = cols.findIndex(c => c.terminal);
+  if (termI < 0) termI = ncol - 1;
+  const o = [];
+  o.push(`<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" font-family="Sarabun,sans-serif">`);
+  o.push(`<rect width="${W}" height="${H}" fill="#ffffff"/>`);
+  if (spec.caption)
+    o.push(`<text x="${ML}" y="26" font-size="15" font-weight="700" fill="#333">${esc(spec.caption)}</text>`);
+  const x0 = x(0), x1 = x(ncol - 1);
+  o.push(`<line x1="${x0}" y1="${AY}" x2="${x1}" y2="${AY}" stroke="#333" stroke-width="2"/>`);
+  cols.forEach((c, i) => {
+    const xi = x(i);
+    if (c.ellipsis) { o.push(`<text x="${xi}" y="${AY + 5}" font-size="20" text-anchor="middle" fill="#333">⋯</text>`); return; }
+    o.push(`<line x1="${xi}" y1="${AY - 7}" x2="${xi}" y2="${AY + 7}" stroke="#333" stroke-width="2"/>`);
+    o.push(`<text x="${xi}" y="${AY - 12}" font-size="14" text-anchor="middle" fill="#222">${esc(c.t || "")}</text>`);
+    if (c.flow) o.push(`<text x="${xi}" y="${AY + 26}" font-size="13" text-anchor="middle" fill="#111">${esc(c.flow)}</text>`);
+  });
+  const bottom = ARROW_TOP + ROW_H * nrows;
+  if (mode === "fv") {
+    const tx = x(termI);
+    o.push(`<line x1="${tx}" y1="${AY - 14}" x2="${tx}" y2="${bottom}" stroke="#333" stroke-width="1.5" stroke-dasharray="4 3"/>`);
+  } else {
+    const px = x(0);
+    o.push(`<line x1="${px}" y1="${AY - 14}" x2="${px}" y2="${bottom}" stroke="#333" stroke-width="1.5" stroke-dasharray="4 3"/>`);
+  }
+  flowCols.forEach((ci, row) => {
+    const col = COLORS[row % COLORS.length];
+    const y = ARROW_TOP + ROW_H * row + ROW_H / 2;
+    const sx = x(ci);
+    if (mode === "fv") {
+      const tx = x(termI);
+      o.push(`<path d="M ${sx} ${AY + 34} L ${sx} ${y} L ${tx - 6} ${y}" fill="none" stroke="${col}" stroke-width="2"/>`);
+      o.push(`<path d="M ${tx - 6} ${y - 5} L ${tx} ${y} L ${tx - 6} ${y + 5} Z" fill="${col}"/>`);
+    } else {
+      const px = x(0);
+      o.push(`<path d="M ${sx} ${AY + 34} L ${sx} ${y} L ${px + 6} ${y}" fill="none" stroke="${col}" stroke-width="2"/>`);
+      o.push(`<path d="M ${px + 6} ${y - 5} L ${px} ${y} L ${px + 6} ${y + 5} Z" fill="${col}"/>`);
+      if (spec.pvLabels && row < spec.pvLabels.length)
+        o.push(`<text x="${px - 8}" y="${y + 4}" font-size="12" text-anchor="end" fill="${col}">${esc(spec.pvLabels[row])}</text>`);
+    }
+  });
+  if (spec.rateLabel)
+    o.push(`<text x="${x1}" y="${H - 30}" font-size="13" text-anchor="end" fill="#555">${esc(spec.rateLabel)}</text>`);
+  o.push("</svg>");
+  return o.join("\n");
+}
+
 function renderImage(spec){
   if(!spec) return null;
   // Array of specs → render each, wrap in horizontal flex container
@@ -3323,6 +3384,8 @@ function renderImage(spec){
   }
   if(!spec.type) return null;
   switch(spec.type){
+    case 'cashflow-timeline':
+      return renderCashflowTimeline(spec);
     case 'argand-plane':
       return renderArgandPlane(spec);
     case 'normal-curve':
