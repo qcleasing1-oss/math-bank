@@ -143,7 +143,108 @@
       "level": "easy",
       "score": 1,
       "question": "ข้อใดต่อไปนี้<u>ผิด</u>",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 500,
+          "height": 358,
+          "xRange": [
+            -8,
+            6
+          ],
+          "yRange": [
+            -5,
+            5
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "kind": "polynomial",
+              "coefs": [
+                0.5,
+                2.5
+              ],
+              "color": "#c62828",
+              "strokeWidth": 1.6
+            },
+            {
+              "kind": "polynomial",
+              "coefs": [
+                0.5,
+                -2.5
+              ],
+              "color": "#2e7d32",
+              "strokeWidth": 1.6
+            }
+          ],
+          "segments": [
+            {
+              "from": [
+                -5,
+                0
+              ],
+              "to": [
+                -3,
+                -4
+              ],
+              "dashed": true
+            }
+          ],
+          "dots": [
+            {
+              "x": -5,
+              "y": 0,
+              "label": "(−5, 0)",
+              "labelAnchor": "end",
+              "labelDx": 1,
+              "labelDy": -18
+            },
+            {
+              "x": -3,
+              "y": -4,
+              "label": "(−3, −4)",
+              "labelAnchor": "start",
+              "labelDx": 8,
+              "labelDy": 6
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                -7.6,
+                4.4
+              ],
+              "text": "ข้อ (4) ผิด",
+              "anchor": "start",
+              "color": "#c62828"
+            },
+            {
+              "at": [
+                -7.6,
+                3.6
+              ],
+              "text": "x−2y+5=0 (แดง) , x−2y−5=0 (เขียว)",
+              "anchor": "start",
+              "color": "#616161"
+            },
+            {
+              "at": [
+                -7.6,
+                2.8
+              ],
+              "text": "ระยะ = 2\\sqrt{5} ≈ 4.47  (ไม่ใช่ 2)",
+              "anchor": "start",
+              "color": "#616161"
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance มี.ค. 2548",
       "choices": [
         "เส้นตรง $y = 3x + 2$ ขนานกับเส้นตรง $3x - y - 4 = 0$",
@@ -193,7 +294,142 @@
       "level": "medium",
       "score": 1,
       "question": "ข้อความใดต่อไปนี้<u>ไม่</u>จริง",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 500,
+          "height": 352,
+          "xRange": [
+            -5,
+            5
+          ],
+          "yRange": [
+            -3,
+            4
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "cu",
+              "kind": "ellipse-arc",
+              "center": [
+                -2,
+                1
+              ],
+              "a": 2.1213,
+              "b": 2.1213,
+              "half": "upper",
+              "color": "#1565c0"
+            },
+            {
+              "id": "cl",
+              "kind": "ellipse-arc",
+              "center": [
+                -2,
+                1
+              ],
+              "a": 2.1213,
+              "b": 2.1213,
+              "half": "lower",
+              "color": "#1565c0"
+            }
+          ],
+          "segments": [
+            {
+              "from": [
+                -1.5,
+                -1
+              ],
+              "to": [
+                3,
+                -0.5
+              ]
+            },
+            {
+              "from": [
+                -1.5,
+                -2.4
+              ],
+              "to": [
+                3,
+                -2.4
+              ],
+              "dashed": true
+            }
+          ],
+          "dots": [
+            {
+              "x": -2,
+              "y": 1,
+              "label": "ศก.วงกลม(−2, 1)",
+              "labelAnchor": "end",
+              "labelDx": 61.33,
+              "labelDy": -12.67,
+              "labelColor": "#1565c0"
+            },
+            {
+              "x": -1.5,
+              "y": -1,
+              "label": "P(−1.5, −1)",
+              "labelAnchor": "end",
+              "labelDx": 44.01,
+              "labelDy": 22.67
+            },
+            {
+              "x": 3,
+              "y": -0.5,
+              "label": "Q(3, −0.5)",
+              "labelAnchor": "start",
+              "labelDx": 18.67,
+              "labelDy": 6.67
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                0.653,
+                3.827
+              ],
+              "text": "ข้อ (3) ผิด",
+              "anchor": "start",
+              "color": "#c62828"
+            },
+            {
+              "at": [
+                0.592,
+                3.355
+              ],
+              "text": "โปรเจกชันแกน x = 4.5",
+              "anchor": "start",
+              "color": "#616161"
+            },
+            {
+              "at": [
+                0.562,
+                2.761
+              ],
+              "text": "รัศมี = \\sqrt{4.5} ≈ 2.12  → ไม่เท่ากัน",
+              "anchor": "start",
+              "color": "#616161"
+            },
+            {
+              "at": [
+                0.622,
+                -3.036
+              ],
+              "text": "โปรเจกชัน = 4.5",
+              "anchor": "middle",
+              "color": "#c62828"
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance 2528",
       "choices": [
         "เส้นตรงที่มีระยะตัดแกน $x$ เป็น $-2$ และระยะตัดแกน $y$ เป็น 3 จะตั้งฉากกับเส้นตรง $2x + 3y + 15 = 0$",
@@ -2169,7 +2405,86 @@
       "level": "medium",
       "score": 1,
       "question": "ให้ $L_1$ คือเส้นตรงซึ่งมีความชัน $m_1$\n$L_2$ คือเส้นตรงซึ่งผ่านจุด $(1, -2)$ และ $(-2, 1)$\n$L_3$ คือเส้นตรงที่มีสมการ $ax + by + c = 0$\nข้อความในข้อใดต่อไปนี้<u>ผิด</u>",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 460,
+          "height": 444,
+          "xRange": [
+            -5,
+            5
+          ],
+          "yRange": [
+            -5,
+            5
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "kind": "polynomial",
+              "coefs": [
+                -1,
+                -1
+              ],
+              "color": "#2e7d32",
+              "strokeWidth": 1.6
+            }
+          ],
+          "dots": [
+            {
+              "x": 1,
+              "y": -2,
+              "label": "(1, −2)",
+              "labelAnchor": "start",
+              "labelDx": 13.33,
+              "labelDy": -7.33
+            },
+            {
+              "x": -2,
+              "y": 1,
+              "label": "(−2, 1)",
+              "labelAnchor": "end",
+              "labelDx": -9.33,
+              "labelDy": 14
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                -1.517,
+                4.75
+              ],
+              "text": "L₂ ผ่าน (1,−2),(−2,1) → x+y+1=0",
+              "anchor": "start",
+              "color": "#2e7d32"
+            },
+            {
+              "at": [
+                -1.567,
+                4.083
+              ],
+              "text": "ข้อ (5) ผิด",
+              "anchor": "start",
+              "color": "#c62828"
+            },
+            {
+              "at": [
+                -1.633,
+                3.467
+              ],
+              "text": "เส้นตรงกำหนดด้วย 2 เงื่อนไข (ไม่ใช่ 3)",
+              "anchor": "start",
+              "color": "#616161"
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance 2522",
       "choices": [
         "$L_1$ และ $L_3$ จะขนานกันเมื่อ $m_1 = -\\dfrac{a}{b}$ ถ้า $b \\ne 0$",
@@ -2395,7 +2710,87 @@
       "level": "medium",
       "score": 1,
       "question": "ข้อความต่อไปนี้ข้อใดถูกต้อง",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 460,
+          "height": 394,
+          "xRange": [
+            -2,
+            6
+          ],
+          "yRange": [
+            -2,
+            5
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "kind": "polynomial",
+              "coefs": [
+                -0.6666666666666666,
+                2
+              ],
+              "color": "#1565c0",
+              "strokeWidth": 1.6
+            }
+          ],
+          "dots": [
+            {
+              "x": 0,
+              "y": 2,
+              "label": "y-intercept = −C/B = 2",
+              "labelAnchor": "start",
+              "labelDx": 22,
+              "labelDy": -24,
+              "labelColor": "#c62828"
+            },
+            {
+              "x": 3,
+              "y": 0,
+              "label": "x-intercept = 3",
+              "labelAnchor": "start",
+              "labelDx": 14.67,
+              "labelDy": -20
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                2.053,
+                4.853
+              ],
+              "text": "ข้อ (4) ถูก",
+              "anchor": "start",
+              "color": "#1565c0"
+            },
+            {
+              "at": [
+                2.027,
+                4.393
+              ],
+              "text": "Ax+By+C=0 (ตัวอย่าง 2x+3y−6=0)",
+              "anchor": "start",
+              "color": "#616161"
+            },
+            {
+              "at": [
+                1.973,
+                3.867
+              ],
+              "text": "→ y-intercept = −C/B",
+              "anchor": "start",
+              "color": "#616161"
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance 2521",
       "choices": [
         "$(x, y)$ เป็นจุดใดๆ บนเส้นตรง ดังนั้นกราฟของความสัมพันธ์ $\\{(x, y) \\in \\mathbf{R} \\times \\mathbf{R} \\mid x - x_1 = m(y - y_1)\\}$ คือเส้นตรงที่มีความชัน $m$ และผ่านจุด $(x_1, y_1)$",
@@ -4566,7 +4961,109 @@
       "level": "easy",
       "score": 1,
       "question": "เมื่อ $c$ เป็นจำนวนจริงใดๆ สมการในข้อใดมีกราฟเป็นทางเดินของจุดซึ่งอยู่ห่างจากเส้นตรง $x + c = 0$ และอยู่ห่างจากจุด $(c, 0)$ เป็นระยะทางเท่ากัน",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 500,
+          "height": 484,
+          "xRange": [
+            -3,
+            7
+          ],
+          "yRange": [
+            -5,
+            5
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "pb",
+              "kind": "parabola-h",
+              "vertex": [
+                0,
+                0
+              ],
+              "throughPoint": [
+                4,
+                4
+              ],
+              "yDomain": [
+                -4.5,
+                4.5
+              ],
+              "color": "#222",
+              "strokeWidth": 1.6
+            }
+          ],
+          "segments": [
+            {
+              "from": [
+                -1,
+                -5
+              ],
+              "to": [
+                -1,
+                5
+              ],
+              "dashed": true
+            }
+          ],
+          "dots": [
+            {
+              "x": 0,
+              "y": 0,
+              "label": "ยอด(0, 0)",
+              "labelAnchor": "start",
+              "labelDx": -59.33,
+              "labelDy": -17.33
+            },
+            {
+              "x": 1,
+              "y": 0,
+              "label": "โฟกัส (c, 0)",
+              "labelAnchor": "start",
+              "labelDx": -12,
+              "labelDy": -29.33,
+              "labelColor": "#c62828"
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                0.312,
+                4.703
+              ],
+              "text": "ห่างจากเส้น x=−c = ห่างจากจุด (c,0)",
+              "anchor": "start",
+              "color": "#616161"
+            },
+            {
+              "at": [
+                0.358,
+                4.13
+              ],
+              "text": "→ y² = 4cx = ตัวเลือกข้อ (1)",
+              "anchor": "start",
+              "color": "#1565c0"
+            },
+            {
+              "at": [
+                -3.386,
+                -3.779
+              ],
+              "text": "ไดเรกตริกซ์ x=−c",
+              "anchor": "start",
+              "color": "#2e7d32"
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance 2523",
       "choices": [
         "$y^2 = 4cx$",
@@ -4612,7 +5109,148 @@
       "level": "medium",
       "score": 1,
       "question": "กำหนดให้ $P$ เป็นจุดที่อยู่บนกราฟ $\\dfrac{y^2}{8} + x + \\dfrac{y}{4} = \\dfrac{15}{8}$\n$m$ เป็นระยะทางจาก $P$ ไปยังจุด $(0, -1)$\n$n$ เป็นระยะทางจาก $P$ ไปยังเส้น $x - 4 = 0$\nแล้ว $m$ และ $n$ จะมีความสัมพันธ์กันตามข้อใด",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 600,
+          "height": 692,
+          "xRange": [
+            -4,
+            6
+          ],
+          "yRange": [
+            -7,
+            5
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "pb",
+              "kind": "parabola-h",
+              "vertex": [
+                2,
+                -1
+              ],
+              "throughPoint": [
+                0,
+                3
+              ],
+              "yDomain": [
+                -5,
+                3
+              ],
+              "color": "#222",
+              "strokeWidth": 1.6
+            }
+          ],
+          "segments": [
+            {
+              "from": [
+                4,
+                -7
+              ],
+              "to": [
+                4,
+                5
+              ],
+              "dashed": true
+            },
+            {
+              "from": [
+                0,
+                3
+              ],
+              "to": [
+                0,
+                -1
+              ]
+            },
+            {
+              "from": [
+                0,
+                3
+              ],
+              "to": [
+                4,
+                3
+              ],
+              "dashed": true
+            }
+          ],
+          "dots": [
+            {
+              "x": 2,
+              "y": -1,
+              "label": "ยอด(2, −1)",
+              "labelAnchor": "start",
+              "labelDx": 23,
+              "labelDy": 0
+            },
+            {
+              "x": 0,
+              "y": -1,
+              "label": "S=โฟกัส(0, −1)",
+              "labelAnchor": "end",
+              "labelDx": -12,
+              "labelDy": 1,
+              "labelColor": "#c62828"
+            },
+            {
+              "x": 0,
+              "y": 3,
+              "label": "P",
+              "labelAnchor": "end",
+              "labelDx": -18,
+              "labelDy": 0,
+              "labelColor": "#1565c0"
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                -4.182,
+                4.309
+              ],
+              "text": "m = PS ; n = ระยะถึงไดเรกตริกซ์ x=4",
+              "anchor": "start",
+              "color": "#616161"
+            },
+            {
+              "at": [
+                -4.119,
+                3.623
+              ],
+              "text": "นิยามพาราโบลา → m = n  → ข้อ 3",
+              "anchor": "start",
+              "color": "#1565c0"
+            },
+            {
+              "at": [
+                1.941,
+                2.523
+              ],
+              "text": "n = 4",
+              "anchor": "start",
+              "color": "#616161"
+            },
+            {
+              "at": [
+                -1.9,
+                1
+              ],
+              "text": "m = 4",
+              "anchor": "end",
+              "color": "#c62828"
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance 2530",
       "choices": [
         "$m > n$",
@@ -4798,7 +5436,152 @@
       "level": "medium",
       "score": 1,
       "question": "จากข้อมูลในข้อที่แล้ว ข้อความใดถูกต้อง",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 500,
+          "height": 484,
+          "xRange": [
+            -3,
+            7
+          ],
+          "yRange": [
+            -5,
+            5
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "pb",
+              "kind": "parabola-h",
+              "vertex": [
+                0,
+                0
+              ],
+              "throughPoint": [
+                4,
+                4
+              ],
+              "yDomain": [
+                -4.5,
+                4.5
+              ],
+              "color": "#222",
+              "strokeWidth": 1.6
+            },
+            {
+              "id": "cu",
+              "kind": "ellipse-arc",
+              "center": [
+                1,
+                0
+              ],
+              "a": 2,
+              "b": 2,
+              "half": "upper",
+              "color": "#c62828"
+            },
+            {
+              "id": "cl",
+              "kind": "ellipse-arc",
+              "center": [
+                1,
+                0
+              ],
+              "a": 2,
+              "b": 2,
+              "half": "lower",
+              "color": "#c62828"
+            }
+          ],
+          "segments": [
+            {
+              "from": [
+                -1,
+                -5
+              ],
+              "to": [
+                -1,
+                5
+              ],
+              "dashed": true
+            },
+            {
+              "from": [
+                1,
+                0
+              ],
+              "to": [
+                1,
+                2
+              ]
+            }
+          ],
+          "dots": [
+            {
+              "x": 1,
+              "y": 0,
+              "label": "S=โฟกัส(1, 0)",
+              "labelAnchor": "start",
+              "labelDx": -14,
+              "labelDy": 20
+            },
+            {
+              "x": 1,
+              "y": 2,
+              "label": "P(1, 2)",
+              "labelAnchor": "start",
+              "labelDx": -31,
+              "labelDy": -24,
+              "labelColor": "#1565c0"
+            },
+            {
+              "x": 0.25,
+              "y": 1,
+              "label": "Q(¼, 1)",
+              "labelAnchor": "end",
+              "labelDx": 44,
+              "labelDy": 18,
+              "labelColor": "#1565c0"
+            },
+            {
+              "x": -1,
+              "y": 0,
+              "label": "สัมผัส(−1, 0)",
+              "labelAnchor": "end",
+              "labelDx": -21,
+              "labelDy": 22,
+              "labelColor": "#c62828"
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                0.418,
+                4.964
+              ],
+              "text": "วงกลม ศก.S รัศมี PS=2",
+              "anchor": "start",
+              "color": "#c62828"
+            },
+            {
+              "at": [
+                0.259,
+                4.368
+              ],
+              "text": "สัมผัสไดเรกตริกซ์ x=−1  → ข้อ 3",
+              "anchor": "start",
+              "color": "#1565c0"
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance 2520",
       "choices": [
         "พาราโบลามีสมการเส้นไดเรกตริกซ์เป็น $x = 1$",
@@ -10896,7 +11679,102 @@
       "level": "medium",
       "score": 1,
       "question": "กำหนด $A = \\{(x, y) \\mid 4x^2 + 9y^2 - 16x + 54y + 61 = 0\\}$\nข้อใดต่อไปนี้เกี่ยวกับเซต $A$ ได้ถูกต้อง",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 460,
+          "height": 444,
+          "xRange": [
+            -2,
+            6
+          ],
+          "yRange": [
+            -7,
+            1
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "eu",
+              "kind": "ellipse-arc",
+              "center": [
+                2,
+                -3
+              ],
+              "a": 3,
+              "b": 2,
+              "half": "upper",
+              "color": "#1565c0"
+            },
+            {
+              "id": "el",
+              "kind": "ellipse-arc",
+              "center": [
+                2,
+                -3
+              ],
+              "a": 3,
+              "b": 2,
+              "half": "lower",
+              "color": "#1565c0"
+            }
+          ],
+          "dots": [
+            {
+              "x": 2,
+              "y": -3,
+              "label": "ศก.(2, −3)",
+              "labelAnchor": "start",
+              "labelDx": -25,
+              "labelDy": 21
+            },
+            {
+              "x": 5,
+              "y": -3,
+              "label": "ยอด(5, −3)",
+              "labelAnchor": "start",
+              "labelDx": 6,
+              "labelDy": 2,
+              "labelColor": "#c62828"
+            },
+            {
+              "x": -1,
+              "y": -3,
+              "label": "ยอด(−1, −3)",
+              "labelAnchor": "end",
+              "labelDx": -7,
+              "labelDy": 3,
+              "labelColor": "#c62828"
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                0.58,
+                1.02
+              ],
+              "text": "(x−2)²/9 + (y+3)²/4 = 1",
+              "anchor": "start",
+              "color": "#616161"
+            },
+            {
+              "at": [
+                0.34,
+                0.38
+              ],
+              "text": "แกนเอกแนวนอน ยาว 2a = 6  → ข้อ 2",
+              "anchor": "start",
+              "color": "#1565c0"
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance 2541",
       "choices": [
         "$A$ เป็นวงรีมีจุดศูนย์กลางคือ $(-2, 3)$",
@@ -11466,7 +12344,112 @@
       "level": "easy",
       "score": 1,
       "question": "ข้อความในข้อใดต่อไปนี้บรรยายลักษณะของกราฟของ $25x^2 + 4y^2 - 100 = 0$ อย่างถูกต้อง",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 480,
+          "height": 534,
+          "xRange": [
+            -6,
+            6
+          ],
+          "yRange": [
+            -7,
+            7
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "eu",
+              "kind": "ellipse-arc",
+              "center": [
+                0,
+                0
+              ],
+              "a": 2,
+              "b": 5,
+              "half": "upper",
+              "color": "#1565c0"
+            },
+            {
+              "id": "el",
+              "kind": "ellipse-arc",
+              "center": [
+                0,
+                0
+              ],
+              "a": 2,
+              "b": 5,
+              "half": "lower",
+              "color": "#1565c0"
+            }
+          ],
+          "dots": [
+            {
+              "x": 0,
+              "y": 5,
+              "label": "ยอด(0, 5)",
+              "labelAnchor": "start",
+              "labelDx": 8,
+              "labelDy": -4,
+              "labelColor": "#c62828"
+            },
+            {
+              "x": 0,
+              "y": -5,
+              "label": "ยอด(0, −5)",
+              "labelAnchor": "start",
+              "labelDx": 13,
+              "labelDy": 19,
+              "labelColor": "#c62828"
+            },
+            {
+              "x": 0,
+              "y": 4.5826,
+              "label": "F₁",
+              "labelAnchor": "end",
+              "labelDx": -9,
+              "labelDy": 12,
+              "labelColor": "#2e7d32"
+            },
+            {
+              "x": 0,
+              "y": -4.5826,
+              "label": "F₂",
+              "labelAnchor": "end",
+              "labelDx": -9,
+              "labelDy": -7,
+              "labelColor": "#2e7d32"
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                -6.186,
+                6.486
+              ],
+              "text": "x²/4 + y²/25 = 1  → แกนเอกบนแกน y",
+              "anchor": "start",
+              "color": "#616161"
+            },
+            {
+              "at": [
+                -6.386,
+                5.5
+              ],
+              "text": "ยอด (0,±5) , โฟกัส (0,±\\sqrt{21})  → ข้อ 4",
+              "anchor": "start",
+              "color": "#1565c0"
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance 2526",
       "choices": [
         "วงรีซึ่งมีแกนเอกอยู่บนแกน x จุดยอดอยู่ที่ $(5, 0)$ และ $(-5, 0)$ จุดโฟกัสอยู่ที่ $(\\sqrt{21}, 0)$ และ $(-\\sqrt{21}, 0)$",
@@ -14168,7 +15151,154 @@
       "level": "hard",
       "score": 1,
       "question": "ในการแข่งขันจับเวลาวิ่งเก็บของที่โรงเรียนแห่งหนึ่ง ครูกำหนดให้นักเรียนวิ่งออกจากจุด ก ไปเก็บของ\nหนึ่งชิ้นที่วางเรียงไว้ในบริเวณสนาม นำไปส่งที่จุด ข แล้ววิ่งจากจุด ข ไปเก็บของอีกชิ้นหนึ่งนำไปส่งที่จุด ก\nถ้าจุด ก และจุด ข ห่างกัน 40 เมตร และครูจัดวางของไว้ในลักษณะที่ทำให้ระยะทางที่สั้นที่สุด\nที่นักเรียนแต่ละคนจะต้องวิ่ง เป็นระยะทาง 100 เมตร เท่ากันหมด ไม่ว่าจะไปหยิบของชิ้นใด\nให้ $L_1$ เป็นเส้นตรงซึ่งลากผ่านจุด ก และจุด ข\n$L_2$ เป็นเส้นตรงซึ่งลากผ่านจุด ก และตั้งฉากกับเส้น $L_1$ ข้อความในข้อใดต่อไปนี้ถูก",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 800,
+          "height": 538,
+          "xRange": [
+            -30,
+            30
+          ],
+          "yRange": [
+            -20,
+            20
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "eu",
+              "kind": "ellipse-arc",
+              "center": [
+                0,
+                0
+              ],
+              "a": 25,
+              "b": 15,
+              "half": "upper",
+              "color": "#1565c0"
+            },
+            {
+              "id": "el",
+              "kind": "ellipse-arc",
+              "center": [
+                0,
+                0
+              ],
+              "a": 25,
+              "b": 15,
+              "half": "lower",
+              "color": "#1565c0"
+            }
+          ],
+          "segments": [
+            {
+              "from": [
+                -20,
+                -20
+              ],
+              "to": [
+                -20,
+                20
+              ],
+              "dashed": true
+            },
+            {
+              "from": [
+                -20,
+                9
+              ],
+              "to": [
+                -20,
+                0
+              ],
+              "dashed": true
+            }
+          ],
+          "dots": [
+            {
+              "x": -20,
+              "y": 0,
+              "label": "ก(−20, 0)",
+              "labelAnchor": "end",
+              "labelDx": 65,
+              "labelDy": 23,
+              "labelColor": "#c62828"
+            },
+            {
+              "x": 20,
+              "y": 0,
+              "label": "ข(20, 0)",
+              "labelAnchor": "start",
+              "labelDx": -34,
+              "labelDy": 31,
+              "labelColor": "#c62828"
+            },
+            {
+              "x": -20,
+              "y": 9,
+              "label": "ของบน L₂ (−20, 9)",
+              "labelAnchor": "start",
+              "labelDx": 21,
+              "labelDy": -1,
+              "labelColor": "#1565c0"
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                -0.08,
+                19.28
+              ],
+              "text": "ของอยู่บนวงรี โฟกัส ก,ข ; ผลรวมระยะ = 50 (2a=50, 2c=40)",
+              "anchor": "start",
+              "color": "#616161"
+            },
+            {
+              "at": [
+                0.322,
+                17.362
+              ],
+              "text": "ของบน L₂ : (−20, ±9) → ห่างจาก L₁ = 9 ม. → ข้อ 2",
+              "anchor": "start",
+              "color": "#1565c0"
+            },
+            {
+              "at": [
+                -18.5,
+                4.5
+              ],
+              "text": "9 ม.",
+              "anchor": "start",
+              "color": "#1565c0"
+            },
+            {
+              "at": [
+                22.7,
+                2.5
+              ],
+              "text": "L₁",
+              "anchor": "start",
+              "color": "#616161"
+            },
+            {
+              "at": [
+                -19.095,
+                -16.099
+              ],
+              "text": "L₂",
+              "anchor": "start",
+              "color": "#616161"
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance 2522",
       "choices": [
         "ของชิ้นที่อยู่ใกล้จุด ก มากที่สุด จะต้องอยู่ห่างจากจุด ก ไม่ต่ำกว่า 6 เมตร",
@@ -14631,7 +15761,146 @@
       "level": "medium",
       "score": 1,
       "question": "ถ้าภาคตัดกรวยมีสมการเป็น $9x^2 - 16y^2 - 18x - 64y - 199 = 0$\nแล้ว ระยะทางจากจุดโฟกัสถึงเส้นตรง $2x + 3y - 5 = 0$ เท่ากับข้อใดต่อไปนี้",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 520,
+          "height": 504,
+          "xRange": [
+            -10,
+            10
+          ],
+          "yRange": [
+            -12,
+            8
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "hr",
+              "kind": "hyperbola",
+              "center": [
+                1,
+                -2
+              ],
+              "a": 4,
+              "b": 3,
+              "orientation": "horizontal",
+              "branches": "right",
+              "asymptotes": true,
+              "tRange": [
+                -1.4,
+                1.4
+              ],
+              "color": "#c62828"
+            },
+            {
+              "id": "hl",
+              "kind": "hyperbola",
+              "center": [
+                1,
+                -2
+              ],
+              "a": 4,
+              "b": 3,
+              "orientation": "horizontal",
+              "branches": "left",
+              "tRange": [
+                -1.4,
+                1.4
+              ],
+              "color": "#c62828"
+            },
+            {
+              "kind": "polynomial",
+              "coefs": [
+                -0.6666666666666666,
+                1.6666666666666667
+              ],
+              "color": "#2e7d32",
+              "strokeWidth": 1.6
+            }
+          ],
+          "segments": [
+            {
+              "from": [
+                6,
+                -2
+              ],
+              "to": [
+                5.846,
+                -2.231
+              ],
+              "dashed": true
+            },
+            {
+              "from": [
+                -4,
+                -2
+              ],
+              "to": [
+                -1.077,
+                2.385
+              ],
+              "dashed": true
+            }
+          ],
+          "dots": [
+            {
+              "x": 1,
+              "y": -2,
+              "label": "ศก.(1, −2)",
+              "labelAnchor": "start",
+              "labelDx": -7,
+              "labelDy": 34
+            },
+            {
+              "x": 6,
+              "y": -2,
+              "label": "F₁(6, −2)",
+              "labelAnchor": "start",
+              "labelDx": 15,
+              "labelDy": -2,
+              "labelColor": "#c62828"
+            },
+            {
+              "x": -4,
+              "y": -2,
+              "label": "F₂(−4, −2)",
+              "labelAnchor": "end",
+              "labelDx": -6,
+              "labelDy": 14,
+              "labelColor": "#c62828"
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                0.357,
+                7.487
+              ],
+              "text": "เส้น 2x+3y−5=0 (เขียว)",
+              "anchor": "start",
+              "color": "#2e7d32"
+            },
+            {
+              "at": [
+                0.313,
+                6.009
+              ],
+              "text": "ระยะโฟกัส→เส้น = 1/\\sqrt{13} , 19/\\sqrt{13} → ข้อ 1",
+              "anchor": "start",
+              "color": "#1565c0"
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance 2532",
       "choices": [
         "$\\dfrac{1}{\\sqrt{13}}$ และ $\\dfrac{19}{\\sqrt{13}}$",
@@ -14877,7 +16146,122 @@
       "level": "hard",
       "score": 1,
       "question": "ข้อใดต่อไปนี้ถูก",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 700,
+          "height": 684,
+          "xRange": [
+            -5,
+            7
+          ],
+          "yRange": [
+            -8,
+            4
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "hr",
+              "kind": "hyperbola",
+              "center": [
+                1,
+                -2
+              ],
+              "a": 2,
+              "b": 2,
+              "orientation": "horizontal",
+              "branches": "right",
+              "asymptotes": true,
+              "tRange": [
+                -1.6,
+                1.6
+              ],
+              "color": "#c62828"
+            },
+            {
+              "id": "hl",
+              "kind": "hyperbola",
+              "center": [
+                1,
+                -2
+              ],
+              "a": 2,
+              "b": 2,
+              "orientation": "horizontal",
+              "branches": "left",
+              "tRange": [
+                -1.6,
+                1.6
+              ],
+              "color": "#c62828"
+            }
+          ],
+          "dots": [
+            {
+              "x": 1,
+              "y": -2,
+              "label": "ศก.(1, −2)",
+              "labelAnchor": "start",
+              "labelDx": -25,
+              "labelDy": 40
+            },
+            {
+              "x": 3,
+              "y": -2,
+              "label": "ยอด(3, −2)",
+              "labelAnchor": "start",
+              "labelDx": 17,
+              "labelDy": 1,
+              "labelColor": "#c62828"
+            },
+            {
+              "x": -1,
+              "y": -2,
+              "label": "ยอด(−1, −2)",
+              "labelAnchor": "end",
+              "labelDx": -16,
+              "labelDy": 5,
+              "labelColor": "#c62828"
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                0.801,
+                3.721
+              ],
+              "text": "x² − y² สัมประสิทธิ์เท่ากัน → a = b",
+              "anchor": "start",
+              "color": "#616161"
+            },
+            {
+              "at": [
+                0.819,
+                3.242
+              ],
+              "text": "→ ไฮเพอร์โบลามุมฉากเสมอ → ข้อ 3",
+              "anchor": "start",
+              "color": "#1565c0"
+            },
+            {
+              "at": [
+                0.856,
+                2.699
+              ],
+              "text": "(เส้นกำกับตั้งฉาก : ชัน ±1)",
+              "anchor": "start",
+              "color": "#616161"
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance 2529",
       "choices": [
         "$x^2 - 2y^2 - 2x - 4y - 1 = 0$ เป็นสมการของไฮเพอร์โบลาที่มีจุดศูนย์กลางที่ $(1, -1)$",
@@ -17636,7 +19020,93 @@
       "level": "easy",
       "score": 1,
       "question": "ข้อใดต่อไปนี้ถูก",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 420,
+          "height": 404,
+          "xRange": [
+            -1,
+            3
+          ],
+          "yRange": [
+            0,
+            4
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "cu",
+              "kind": "ellipse-arc",
+              "center": [
+                1,
+                2
+              ],
+              "a": 0.8409,
+              "b": 0.8409,
+              "half": "upper",
+              "color": "#1565c0"
+            },
+            {
+              "id": "cl",
+              "kind": "ellipse-arc",
+              "center": [
+                1,
+                2
+              ],
+              "a": 0.8409,
+              "b": 0.8409,
+              "half": "lower",
+              "color": "#1565c0"
+            }
+          ],
+          "dots": [
+            {
+              "x": 1,
+              "y": 2,
+              "label": "ศก.(1, 2)",
+              "labelAnchor": "start",
+              "labelDx": 8,
+              "labelDy": 4
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                0.307,
+                3.804
+              ],
+              "text": "ข้อ (4) ถูก",
+              "anchor": "start",
+              "color": "#1565c0"
+            },
+            {
+              "at": [
+                0.366,
+                3.522
+              ],
+              "text": "sin(π/4) = \\sqrt{2}/2 ≈ 0.707 > 0",
+              "anchor": "start",
+              "color": "#616161"
+            },
+            {
+              "at": [
+                0.33,
+                3.165
+              ],
+              "text": "→ เป็นวงกลม (r² > 0)",
+              "anchor": "start",
+              "color": "#616161"
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance 2530",
       "choices": [
         "แกน x มีสมการเป็น $x = 0$",
@@ -17680,7 +19150,93 @@
       "level": "medium",
       "score": 1,
       "question": "ข้อความใดต่อไปนี้ถูก",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 440,
+          "height": 552,
+          "xRange": [
+            -3,
+            3
+          ],
+          "yRange": [
+            -2,
+            6
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "pb",
+              "kind": "polynomial",
+              "coefs": [
+                1,
+                1,
+                0
+              ],
+              "domain": [
+                -2.7,
+                1.7
+              ],
+              "color": "#222",
+              "strokeWidth": 1.8
+            }
+          ],
+          "dots": [
+            {
+              "x": -0.5,
+              "y": -0.25,
+              "label": "ยอด(−½, −¼)",
+              "labelAnchor": "start",
+              "labelDx": -60,
+              "labelDy": 17.34
+            },
+            {
+              "x": 0,
+              "y": 0,
+              "label": "(0, 0)",
+              "labelAnchor": "start",
+              "labelDx": 3.33,
+              "labelDy": 14,
+              "labelColor": "#1565c0"
+            },
+            {
+              "x": -1,
+              "y": 0,
+              "label": "(−1, 0)",
+              "labelAnchor": "end",
+              "labelDx": 30,
+              "labelDy": -16,
+              "labelColor": "#1565c0"
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                -2.9,
+                5.4
+              ],
+              "text": "ข้อ (4) ถูก",
+              "anchor": "start",
+              "color": "#1565c0"
+            },
+            {
+              "at": [
+                -2.868,
+                4.899
+              ],
+              "text": "y = x² + x → พาราโบลา",
+              "anchor": "start",
+              "color": "#616161"
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance 2526",
       "choices": [
         "กราฟของ $\\dfrac{x^2}{16} + \\dfrac{y^2}{25} = 1$ มีแกนเอกเป็นเส้นตรงที่ขนานกับแกน y",
@@ -17725,7 +19281,100 @@
       "level": "medium",
       "score": 1,
       "question": "ข้อความต่อไปนี้มีข้อใดถูก",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 500,
+          "height": 514,
+          "xRange": [
+            -9,
+            6
+          ],
+          "yRange": [
+            -8,
+            8
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "pb",
+              "kind": "parabola-h",
+              "vertex": [
+                0,
+                0
+              ],
+              "throughPoint": [
+                -4,
+                8
+              ],
+              "yDomain": [
+                -8,
+                8
+              ],
+              "color": "#222",
+              "strokeWidth": 1.6
+            }
+          ],
+          "segments": [
+            {
+              "from": [
+                4,
+                -8
+              ],
+              "to": [
+                4,
+                8
+              ],
+              "dashed": true
+            }
+          ],
+          "dots": [
+            {
+              "x": 0,
+              "y": 0,
+              "label": "ยอด(0, 0)",
+              "labelAnchor": "start",
+              "labelDx": 6,
+              "labelDy": 16
+            },
+            {
+              "x": -4,
+              "y": 0,
+              "label": "โฟกัส(−4, 0)",
+              "labelAnchor": "end",
+              "labelDx": 36.67,
+              "labelDy": -18,
+              "labelColor": "#c62828"
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                -8.6,
+                7.4
+              ],
+              "text": "ข้อ (1) ถูก : y² = −16x",
+              "anchor": "start",
+              "color": "#1565c0"
+            },
+            {
+              "at": [
+                3.7,
+                6.6
+              ],
+              "text": "ไดเรกตริกซ์ x = 4",
+              "anchor": "end",
+              "color": "#2e7d32"
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance 2525",
       "choices": [
         "$y^2 = -16x$ เป็นสมการพาราโบลาซึ่งมีไดเรกตริกซ์คือ เส้นตรง $x = 4$",
@@ -17773,7 +19422,122 @@
       "level": "medium",
       "score": 1,
       "question": "ข้อความใดต่อไปนี้เป็นจริง",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 500,
+          "height": 484,
+          "xRange": [
+            -3,
+            9
+          ],
+          "yRange": [
+            -6,
+            6
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "hr",
+              "kind": "hyperbola",
+              "center": [
+                3,
+                0
+              ],
+              "a": 2,
+              "b": 2,
+              "orientation": "horizontal",
+              "branches": "right",
+              "asymptotes": true,
+              "tRange": [
+                -1.6,
+                1.6
+              ],
+              "color": "#c62828"
+            },
+            {
+              "id": "hl",
+              "kind": "hyperbola",
+              "center": [
+                3,
+                0
+              ],
+              "a": 2,
+              "b": 2,
+              "orientation": "horizontal",
+              "branches": "left",
+              "tRange": [
+                -1.6,
+                1.6
+              ],
+              "color": "#c62828"
+            }
+          ],
+          "dots": [
+            {
+              "x": 3,
+              "y": 0,
+              "label": "ศก.(3, 0)",
+              "labelAnchor": "start",
+              "labelDx": -26,
+              "labelDy": 33.33
+            },
+            {
+              "x": 5,
+              "y": 0,
+              "label": "ยอด(5, 0)",
+              "labelAnchor": "start",
+              "labelDx": -56.67,
+              "labelDy": -8,
+              "labelColor": "#c62828"
+            },
+            {
+              "x": 1,
+              "y": 0,
+              "label": "ยอด(1, 0)",
+              "labelAnchor": "end",
+              "labelDx": 55.33,
+              "labelDy": -10,
+              "labelColor": "#c62828"
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                0.945,
+                5.709
+              ],
+              "text": "ข้อ (4) ถูก : (x−3)² − y² = 4",
+              "anchor": "start",
+              "color": "#1565c0"
+            },
+            {
+              "at": [
+                0.909,
+                4.873
+              ],
+              "text": "a = b = 2 → ไฮเพอร์โบลามุมฉาก",
+              "anchor": "start",
+              "color": "#616161"
+            },
+            {
+              "at": [
+                0.982,
+                4.027
+              ],
+              "text": "(เส้นกำกับตั้งฉากกัน)",
+              "anchor": "start",
+              "color": "#616161"
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance 2528",
       "choices": [
         "สมการของพาราโบลาที่มีจุดยอดที่จุด $(2, 3)$ และจุดโฟกัสอยู่ที่จุด $(2, 1)$ คือ $(x - 2)^2 = -4(y - 3)$",
@@ -17818,7 +19582,131 @@
       "level": "hard",
       "score": 1,
       "question": "ข้อความต่อไปนี้ ข้อใดไม่ถูกต้อง",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 500,
+          "height": 484,
+          "xRange": [
+            -9,
+            7
+          ],
+          "yRange": [
+            -6,
+            10
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "hu",
+              "kind": "hyperbola",
+              "center": [
+                -1,
+                2
+              ],
+              "a": 4,
+              "b": 3,
+              "orientation": "vertical",
+              "branches": "up",
+              "asymptotes": true,
+              "tRange": [
+                -1.25,
+                1.25
+              ],
+              "color": "#c62828"
+            },
+            {
+              "id": "hd",
+              "kind": "hyperbola",
+              "center": [
+                -1,
+                2
+              ],
+              "a": 4,
+              "b": 3,
+              "orientation": "vertical",
+              "branches": "down",
+              "tRange": [
+                -1.25,
+                1.25
+              ],
+              "color": "#c62828"
+            }
+          ],
+          "dots": [
+            {
+              "x": -1,
+              "y": 2,
+              "label": "ศก.(−1, 2)",
+              "labelAnchor": "start",
+              "labelDx": -77,
+              "labelDy": 0
+            },
+            {
+              "x": -1,
+              "y": 7,
+              "label": "F₁(−1, 7)",
+              "labelAnchor": "start",
+              "labelDx": -32,
+              "labelDy": -23,
+              "labelColor": "#c62828"
+            },
+            {
+              "x": -1,
+              "y": -3,
+              "label": "F₂(−1, −3)",
+              "labelAnchor": "start",
+              "labelDx": -36,
+              "labelDy": 26,
+              "labelColor": "#c62828"
+            },
+            {
+              "x": -1,
+              "y": 6,
+              "label": "ยอด(−1, 6) ✗ ไม่ใช่โฟกัส",
+              "labelAnchor": "end",
+              "labelDx": 73,
+              "labelDy": 19,
+              "labelColor": "#9e9e9e"
+            },
+            {
+              "x": -1,
+              "y": -2,
+              "label": "ยอด(−1, −2)",
+              "labelAnchor": "end",
+              "labelDx": 25,
+              "labelDy": -6,
+              "labelColor": "#9e9e9e"
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                -9.073,
+                5.909
+              ],
+              "text": "ข้อ (5) ผิด",
+              "anchor": "start",
+              "color": "#c62828"
+            },
+            {
+              "at": [
+                -9.218,
+                4.682
+              ],
+              "text": "โฟกัสจริง (−1,7),(−1,−3)",
+              "anchor": "start",
+              "color": "#616161"
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance 2524",
       "choices": [
         "วงกลม $4x^2 + 4y^2 + 20x + 12y + 9 = 0$ สัมผัสแกน y และมีจุดศูนย์กลางอยู่ที่ $\\left(-\\dfrac{5}{2}, -\\dfrac{3}{2}\\right)$",
@@ -18042,7 +19930,124 @@
       "level": "hard",
       "score": 1,
       "question": "กำหนดสมการของเส้นโค้งคือ $qx^2 + py^2 - 2qx - 4py + 4p + q - pq = 0$\nเมื่อ p และ q เป็นจำนวนจริง ซึ่ง $p > q > 0$ กราฟของเส้นโค้งจะมีลักษณะอย่างใด",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 460,
+          "height": 364,
+          "xRange": [
+            -4,
+            6
+          ],
+          "yRange": [
+            -2,
+            6
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "eu",
+              "kind": "ellipse-arc",
+              "center": [
+                1,
+                2
+              ],
+              "a": 3,
+              "b": 2,
+              "half": "upper",
+              "color": "#1565c0"
+            },
+            {
+              "id": "el",
+              "kind": "ellipse-arc",
+              "center": [
+                1,
+                2
+              ],
+              "a": 3,
+              "b": 2,
+              "half": "lower",
+              "color": "#1565c0"
+            }
+          ],
+          "segments": [
+            {
+              "from": [
+                -1.2361,
+                2
+              ],
+              "to": [
+                3.2361,
+                2
+              ],
+              "dashed": true
+            }
+          ],
+          "dots": [
+            {
+              "x": 1,
+              "y": 2,
+              "label": "ศก.(1, 2)",
+              "labelAnchor": "start",
+              "labelDx": -19,
+              "labelDy": 18
+            },
+            {
+              "x": 3.2361,
+              "y": 2,
+              "label": "F₁",
+              "labelAnchor": "start",
+              "labelDx": -10,
+              "labelDy": -21,
+              "labelColor": "#c62828"
+            },
+            {
+              "x": -1.2361,
+              "y": 2,
+              "label": "F₂",
+              "labelAnchor": "end",
+              "labelDx": -6,
+              "labelDy": -6,
+              "labelColor": "#c62828"
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                0.95,
+                5.95
+              ],
+              "text": "ข้อ (2) ถูก",
+              "anchor": "start",
+              "color": "#1565c0"
+            },
+            {
+              "at": [
+                0.85,
+                5.325
+              ],
+              "text": "(x−1)²/p + (y−2)²/q = 1 , p > q",
+              "anchor": "start",
+              "color": "#616161"
+            },
+            {
+              "at": [
+                0.85,
+                4.75
+              ],
+              "text": "→ แกนเอกแนวนอน, โฟกัสบนเส้น y=2",
+              "anchor": "start",
+              "color": "#616161"
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance 2523",
       "choices": [
         "วงรี มีจุดโฟกัสทั้งสองอยู่บนเส้นที่ขนานกับแกน y",
@@ -18096,7 +20101,93 @@
       "level": "medium",
       "score": 1,
       "question": "กำหนดความสัมพันธ์ $\\{(x, y) \\mid 2x^2 - by^2 + x = 1$ เมื่อ x, y และ b เป็นจำนวนจริง$\\}$\nข้อความต่อไปนี้ข้อใดไม่ถูกต้อง",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 420,
+          "height": 404,
+          "xRange": [
+            -2,
+            2
+          ],
+          "yRange": [
+            -2,
+            2
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "eu",
+              "kind": "ellipse-arc",
+              "center": [
+                -0.25,
+                0
+              ],
+              "a": 0.75,
+              "b": 1.0607,
+              "half": "upper",
+              "color": "#1565c0"
+            },
+            {
+              "id": "el",
+              "kind": "ellipse-arc",
+              "center": [
+                -0.25,
+                0
+              ],
+              "a": 0.75,
+              "b": 1.0607,
+              "half": "lower",
+              "color": "#1565c0"
+            }
+          ],
+          "dots": [
+            {
+              "x": -0.25,
+              "y": 0,
+              "label": "ศก.(−¼, 0)",
+              "labelAnchor": "end",
+              "labelDx": 15,
+              "labelDy": -21
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                -1.9,
+                1.7
+              ],
+              "text": "ข้อ (1) ผิด",
+              "anchor": "start",
+              "color": "#c62828"
+            },
+            {
+              "at": [
+                -1.9,
+                1.42
+              ],
+              "text": "b=−1 : 2x² + y² + x = 1",
+              "anchor": "start",
+              "color": "#616161"
+            },
+            {
+              "at": [
+                -1.9,
+                1.14
+              ],
+              "text": "→ วงรี (2 ≠ 1 ไม่ใช่วงกลม)",
+              "anchor": "start",
+              "color": "#616161"
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance 2523",
       "choices": [
         "ถ้า $b = -1$ กราฟของความสัมพันธ์เป็นรูปวงกลม",
@@ -18147,7 +20238,97 @@
       "level": "easy",
       "score": 1,
       "question": "$\\{(x, y) \\in \\mathbb{R} \\times \\mathbb{R} \\mid x^2 + y^2 + 2xy - 1 = 0\\}$ มีกราฟเป็นรูปใด",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 440,
+          "height": 424,
+          "xRange": [
+            -3,
+            3
+          ],
+          "yRange": [
+            -3,
+            3
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "kind": "polynomial",
+              "coefs": [
+                -1,
+                1
+              ],
+              "color": "#c62828",
+              "strokeWidth": 1.6
+            },
+            {
+              "kind": "polynomial",
+              "coefs": [
+                -1,
+                -1
+              ],
+              "color": "#2e7d32",
+              "strokeWidth": 1.6
+            }
+          ],
+          "dots": [
+            {
+              "x": 0,
+              "y": 1,
+              "label": "x+y=1",
+              "labelAnchor": "start",
+              "labelDx": -90,
+              "labelDy": -110,
+              "labelColor": "#c62828"
+            },
+            {
+              "x": 0,
+              "y": -1,
+              "label": "x+y=−1",
+              "labelAnchor": "end",
+              "labelDx": -96,
+              "labelDy": -156,
+              "labelColor": "#2e7d32"
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                0.474,
+                2.932
+              ],
+              "text": "ข้อ (3) ถูก",
+              "anchor": "start",
+              "color": "#1565c0"
+            },
+            {
+              "at": [
+                0.426,
+                2.476
+              ],
+              "text": "(x+y)² = 1 → x+y = ±1",
+              "anchor": "start",
+              "color": "#616161"
+            },
+            {
+              "at": [
+                0.363,
+                2.068
+              ],
+              "text": "2 เส้นขนาน (ชัน −1 เท่ากัน)",
+              "anchor": "start",
+              "color": "#616161"
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance 2526",
       "choices": [
         "วงกลม",
@@ -18191,7 +20372,135 @@
       "level": "medium",
       "score": 1,
       "question": "กำหนดให้ P เป็นจุดที่เคลื่อนที่บนระนาบ โดยมีเงื่อนไขว่าระยะทางจากจุด P ไปยังจุด $(6, 0)$\nจะเป็นสองเท่าของระยะทางจาก P ไปยังแกน y เสมอ ทางเดินของจุด P จะเป็นข้อใด",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 520,
+          "height": 504,
+          "xRange": [
+            -13,
+            9
+          ],
+          "yRange": [
+            -11,
+            11
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "hr",
+              "kind": "hyperbola",
+              "center": [
+                -2,
+                0
+              ],
+              "a": 4,
+              "b": 6.9282,
+              "orientation": "horizontal",
+              "branches": "right",
+              "asymptotes": true,
+              "tRange": [
+                -1.25,
+                1.25
+              ],
+              "color": "#c62828"
+            },
+            {
+              "id": "hl",
+              "kind": "hyperbola",
+              "center": [
+                -2,
+                0
+              ],
+              "a": 4,
+              "b": 6.9282,
+              "orientation": "horizontal",
+              "branches": "left",
+              "tRange": [
+                -1.25,
+                1.25
+              ],
+              "color": "#c62828"
+            }
+          ],
+          "segments": [
+            {
+              "from": [
+                0,
+                -10
+              ],
+              "to": [
+                0,
+                10
+              ],
+              "dashed": true
+            }
+          ],
+          "dots": [
+            {
+              "x": -2,
+              "y": 0,
+              "label": "ศก.(−2, 0)",
+              "labelAnchor": "end",
+              "labelDx": 21,
+              "labelDy": 38
+            },
+            {
+              "x": 6,
+              "y": 0,
+              "label": "โฟกัส(6, 0)",
+              "labelAnchor": "end",
+              "labelDx": 15,
+              "labelDy": 23,
+              "labelColor": "#c62828"
+            },
+            {
+              "x": 2,
+              "y": 0,
+              "label": "ยอด(2, 0)",
+              "labelAnchor": "start",
+              "labelDx": 11,
+              "labelDy": -14,
+              "labelColor": "#c62828"
+            },
+            {
+              "x": -6,
+              "y": 0,
+              "label": "ยอด(−6, 0)",
+              "labelAnchor": "end",
+              "labelDx": -21,
+              "labelDy": -11,
+              "labelColor": "#c62828"
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                -12.552,
+                9.448
+              ],
+              "text": "PA = 2·(ระยะถึงแกน y)  → e = 2",
+              "anchor": "start",
+              "color": "#616161"
+            },
+            {
+              "at": [
+                -12.743,
+                7.535
+              ],
+              "text": "→ ไฮเพอร์โบลา (แกน y เป็นไดเรกตริกซ์)",
+              "anchor": "start",
+              "color": "#616161"
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance 2530",
       "choices": [
         "เส้นตรง",
@@ -18235,7 +20544,131 @@
       "level": "medium",
       "score": 1,
       "question": "เซตของจุดซึ่งมีผลคูณของระยะตั้งฉากจากจุดนั้นถึงเส้นตรง $3x - 4y + 1 = 0$\nและเส้นตรง $3x + 4y - 7 = 0$ มีค่า $\\dfrac{144}{25}$ เสมอ คือภาคตัดกรวยในข้อใดต่อไปนี้",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 500,
+          "height": 484,
+          "xRange": [
+            -7,
+            9
+          ],
+          "yRange": [
+            -7,
+            9
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "kind": "polynomial",
+              "coefs": [
+                0.75,
+                0.25
+              ],
+              "color": "#2e7d32",
+              "strokeWidth": 1.6
+            },
+            {
+              "kind": "polynomial",
+              "coefs": [
+                -0.75,
+                1.75
+              ],
+              "color": "#8e24aa",
+              "strokeWidth": 1.6
+            },
+            {
+              "id": "hr",
+              "kind": "hyperbola",
+              "center": [
+                1,
+                1
+              ],
+              "a": 4,
+              "b": 3,
+              "orientation": "horizontal",
+              "branches": "right",
+              "asymptotes": false,
+              "tRange": [
+                -1.5,
+                1.5
+              ],
+              "color": "#c62828"
+            },
+            {
+              "id": "hl",
+              "kind": "hyperbola",
+              "center": [
+                1,
+                1
+              ],
+              "a": 4,
+              "b": 3,
+              "orientation": "horizontal",
+              "branches": "left",
+              "tRange": [
+                -1.5,
+                1.5
+              ],
+              "color": "#c62828"
+            }
+          ],
+          "dots": [
+            {
+              "x": 1,
+              "y": 1,
+              "label": "ศก.(1, 1)",
+              "labelAnchor": "start",
+              "labelDx": 25,
+              "labelDy": -4
+            },
+            {
+              "x": 5,
+              "y": 1,
+              "label": "ยอด(5, 1)",
+              "labelAnchor": "start",
+              "labelDx": 19,
+              "labelDy": 0,
+              "labelColor": "#c62828"
+            },
+            {
+              "x": -3,
+              "y": 1,
+              "label": "ยอด(−3, 1)",
+              "labelAnchor": "end",
+              "labelDx": -15,
+              "labelDy": -2,
+              "labelColor": "#c62828"
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                0.709,
+                8.364
+              ],
+              "text": "ผลคูณระยะถึง 2 เส้น = 144/25",
+              "anchor": "start",
+              "color": "#616161"
+            },
+            {
+              "at": [
+                0.782,
+                7.209
+              ],
+              "text": "→ ไฮเพอร์โบลา (2 เส้น = เส้นกำกับ)",
+              "anchor": "start",
+              "color": "#616161"
+            }
+          ]
+        }
+      ],
       "sourceTag": "Entrance 2532",
       "choices": [
         "วงกลม",
@@ -18634,7 +21067,138 @@
       "level": "medium",
       "score": 1,
       "question": "นาย ก, ข, ค และ ง ยืนอยู่ที่ตำแหน่ง $(3, 5), (2, 4), (2, 3)$ และ $(4, 2)$ ตามลำดับ โดยหน่วยเป็น\nกิโลเมตร ถ้าทั้งสี่คนออกเดินทางพร้อมกันตรงไปยังจุดหมาย จ ที่ $(3, 10)$ ด้วยความเร็ว $\\sqrt{25},$\n$\\sqrt{38}, \\sqrt{49}$ และ $\\sqrt{64}$ กิโลเมตรต่อชั่วโมงตามลำดับ ผู้ที่ไปถึงจุดหมายหลังสุดคือใคร",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 600,
+          "height": 584,
+          "xRange": [
+            -3,
+            9
+          ],
+          "yRange": [
+            0,
+            12
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [],
+          "segments": [
+            {
+              "from": [
+                3,
+                5
+              ],
+              "to": [
+                3,
+                10
+              ],
+              "dashed": true
+            },
+            {
+              "from": [
+                2,
+                4
+              ],
+              "to": [
+                3,
+                10
+              ],
+              "dashed": true
+            },
+            {
+              "from": [
+                2,
+                3
+              ],
+              "to": [
+                3,
+                10
+              ],
+              "dashed": true
+            },
+            {
+              "from": [
+                4,
+                2
+              ],
+              "to": [
+                3,
+                10
+              ],
+              "dashed": true
+            }
+          ],
+          "dots": [
+            {
+              "x": 3,
+              "y": 10,
+              "label": "จ (3, 10)",
+              "labelAnchor": "start",
+              "labelDx": -22,
+              "labelDy": -15
+            },
+            {
+              "x": 3,
+              "y": 5,
+              "label": "ก(3,5) t=1.00",
+              "labelAnchor": "start",
+              "labelDx": -11,
+              "labelDy": 19
+            },
+            {
+              "x": 2,
+              "y": 4,
+              "label": "ข(2,4) t=0.99",
+              "labelAnchor": "end",
+              "labelDx": -12,
+              "labelDy": 9
+            },
+            {
+              "x": 2,
+              "y": 3,
+              "label": "ค(2,3) t=1.01 (ช้าสุด)",
+              "labelAnchor": "end",
+              "labelDx": 38,
+              "labelDy": 29,
+              "labelColor": "#c62828"
+            },
+            {
+              "x": 4,
+              "y": 2,
+              "label": "ง(4,2) t=1.008",
+              "labelAnchor": "start",
+              "labelDx": -15,
+              "labelDy": 25
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                4.85,
+                11.829
+              ],
+              "text": "เวลา = ระยะ / อัตราเร็ว",
+              "anchor": "start",
+              "color": "#616161"
+            },
+            {
+              "at": [
+                4.907,
+                11.057
+              ],
+              "text": "ถึงหลังสุด = นาย ค (t มากสุด)",
+              "anchor": "start",
+              "color": "#c62828"
+            }
+          ]
+        }
+      ],
       "sourceTag": "พื้นฐานวิศวะฯ 2536",
       "choices": [
         "นาย ก",
@@ -19149,7 +21713,145 @@
       "level": "medium",
       "score": 1,
       "question": "กำหนดให้ ABC เป็นสามเหลี่ยมที่มีจุดยอดที่ $A(6, 6)$, $B(8, -2)$, $C(2, 1)$\nE เป็นจุดอยู่บนด้าน AB โดยที่ $AE = 2EB$ และ F เป็นจุดอยู่บนด้าน AC โดยที่ $AF = \\dfrac{1}{2}FC$\nถ้า $P(a, b)$ เป็นจุดกึ่งกลางของด้าน EF แล้ว $a + 2b$ มีค่าเท่าใด",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 460,
+          "height": 444,
+          "xRange": [
+            -2,
+            10
+          ],
+          "yRange": [
+            -4,
+            8
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [],
+          "segments": [
+            {
+              "from": [
+                6,
+                6
+              ],
+              "to": [
+                8,
+                -2
+              ]
+            },
+            {
+              "from": [
+                8,
+                -2
+              ],
+              "to": [
+                2,
+                1
+              ]
+            },
+            {
+              "from": [
+                2,
+                1
+              ],
+              "to": [
+                6,
+                6
+              ]
+            },
+            {
+              "from": [
+                7.333333333333333,
+                0.6666666666666666
+              ],
+              "to": [
+                4.666666666666667,
+                4.333333333333333
+              ],
+              "dashed": true
+            }
+          ],
+          "dots": [
+            {
+              "x": 6,
+              "y": 6,
+              "label": "A(6, 6)",
+              "labelAnchor": "start",
+              "labelDx": -6.86,
+              "labelDy": -17.71
+            },
+            {
+              "x": 8,
+              "y": -2,
+              "label": "B(8, −2)",
+              "labelAnchor": "start",
+              "labelDx": 8,
+              "labelDy": 6
+            },
+            {
+              "x": 2,
+              "y": 1,
+              "label": "C(2, 1)",
+              "labelAnchor": "end",
+              "labelDx": -6,
+              "labelDy": 6
+            },
+            {
+              "x": 7.333333333333333,
+              "y": 0.6666666666666666,
+              "label": "E",
+              "labelAnchor": "start",
+              "labelDx": 8,
+              "labelDy": 6,
+              "labelColor": "#c62828"
+            },
+            {
+              "x": 4.666666666666667,
+              "y": 4.333333333333333,
+              "label": "F",
+              "labelAnchor": "end",
+              "labelDx": -6,
+              "labelDy": -4,
+              "labelColor": "#c62828"
+            },
+            {
+              "x": 6,
+              "y": 2.5,
+              "label": "P(6, 5/2)",
+              "labelAnchor": "start",
+              "labelDx": -58.28,
+              "labelDy": 12,
+              "labelColor": "#1565c0"
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                0.578,
+                7.64
+              ],
+              "text": "AE=2EB, AF=½FC, P=กึ่งกลาง EF",
+              "anchor": "start",
+              "color": "#616161"
+            },
+            {
+              "at": [
+                0.577,
+                6.723
+              ],
+              "text": "a+2b = 6+2(5/2) = 11",
+              "anchor": "start",
+              "color": "#1565c0"
+            }
+          ]
+        }
+      ],
       "sourceTag": "คัดโอลิมปิก 2536",
       "correct": "11",
       "accept": [
@@ -19509,7 +22211,99 @@
       "level": "easy",
       "score": 1,
       "question": "ให้ L เป็นเส้นตรงที่มีสมการเป็น $3x - 4y + 20 = 0$\nตัดแกน x ที่จุด $P_1$ และตัดแกน y ที่จุด $P_2$ ข้อใดต่อไปนี้ถูก",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 480,
+          "height": 374,
+          "xRange": [
+            -10,
+            4
+          ],
+          "yRange": [
+            -4,
+            7
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "kind": "polynomial",
+              "coefs": [
+                0.75,
+                5
+              ],
+              "color": "#1565c0",
+              "strokeWidth": 1.6
+            }
+          ],
+          "segments": [
+            {
+              "from": [
+                -6.666666666666667,
+                0
+              ],
+              "to": [
+                0,
+                5
+              ],
+              "dashed": true
+            }
+          ],
+          "dots": [
+            {
+              "x": -6.666666666666667,
+              "y": 0,
+              "label": "P₁(−20/3, 0)",
+              "labelAnchor": "end",
+              "labelDx": 60.86,
+              "labelDy": 25.72
+            },
+            {
+              "x": 0,
+              "y": 5,
+              "label": "P₂(0, 5)",
+              "labelAnchor": "start",
+              "labelDx": 14.86,
+              "labelDy": 6.29
+            },
+            {
+              "x": -3.3333333333333335,
+              "y": 2.5,
+              "label": "กึ่งกลาง(−10/3, 5/2)",
+              "labelAnchor": "start",
+              "labelDx": -121.73,
+              "labelDy": -7.43,
+              "labelColor": "#c62828"
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                -9.6,
+                6.4
+              ],
+              "text": "L: 3x−4y+20=0",
+              "anchor": "start",
+              "color": "#1565c0"
+            },
+            {
+              "at": [
+                -9.6,
+                5.5
+              ],
+              "text": "จุดกึ่งกลาง P₁P₂ = (−10/3, 5/2)",
+              "anchor": "start",
+              "color": "#c62828"
+            }
+          ]
+        }
+      ],
       "sourceTag": "โควตา มช. 2539",
       "choices": [
         "ระยะระหว่างจุด $P_1$ และ $P_2$ เท่ากับ $\\dfrac{625}{9}$",
@@ -19559,7 +22353,79 @@
       "level": "easy",
       "score": 1,
       "question": "จงหาโคออร์ดิเนตของจุดตัดระหว่างกราฟเส้นตรง $y = \\dfrac{1}{2}x + 3$ กับ $y = 2x + 1$",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 440,
+          "height": 424,
+          "xRange": [
+            -4,
+            6
+          ],
+          "yRange": [
+            -3,
+            7
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "kind": "polynomial",
+              "coefs": [
+                0.5,
+                3
+              ],
+              "color": "#1565c0",
+              "strokeWidth": 1.6
+            },
+            {
+              "kind": "polynomial",
+              "coefs": [
+                2,
+                1
+              ],
+              "color": "#2e7d32",
+              "strokeWidth": 1.6
+            }
+          ],
+          "dots": [
+            {
+              "x": 1.3333333333333333,
+              "y": 3.6666666666666665,
+              "label": "(4/3, 11/3)",
+              "labelAnchor": "start",
+              "labelDx": 14.4,
+              "labelDy": 11.6,
+              "labelColor": "#c62828"
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                -3.6,
+                6.4
+              ],
+              "text": "y = x/2 + 3 (น้ำเงิน)",
+              "anchor": "start",
+              "color": "#1565c0"
+            },
+            {
+              "at": [
+                -3.6,
+                5.5
+              ],
+              "text": "y = 2x + 1 (เขียว)",
+              "anchor": "start",
+              "color": "#2e7d32"
+            }
+          ]
+        }
+      ],
       "sourceTag": "พื้นฐานวิศวะฯ 2532",
       "choices": [
         "$(2, 4)$",
@@ -19745,7 +22611,109 @@
       "level": "easy",
       "score": 1,
       "question": "จงหาระยะทางที่สั้นที่สุดจากจุดตัดของเส้นตรง $y = x - 5$ กับเส้นตรง $y = -2x - 5$\nไปยังแนวของเส้นตรง $y = -\\dfrac{3}{4}x + 3$",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 520,
+          "height": 504,
+          "xRange": [
+            -6,
+            8
+          ],
+          "yRange": [
+            -8,
+            6
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "kind": "polynomial",
+              "coefs": [
+                1,
+                -5
+              ],
+              "color": "#2e7d32",
+              "strokeWidth": 1.6
+            },
+            {
+              "kind": "polynomial",
+              "coefs": [
+                -2,
+                -5
+              ],
+              "color": "#8e24aa",
+              "strokeWidth": 1.6
+            },
+            {
+              "kind": "polynomial",
+              "coefs": [
+                -0.75,
+                3
+              ],
+              "color": "#1565c0",
+              "strokeWidth": 1.6
+            }
+          ],
+          "segments": [
+            {
+              "from": [
+                0,
+                -5
+              ],
+              "to": [
+                3.84,
+                0.12
+              ],
+              "dashed": true
+            }
+          ],
+          "dots": [
+            {
+              "x": 0,
+              "y": -5,
+              "label": "จุดตัด(0, −5)",
+              "labelAnchor": "start",
+              "labelDx": 20.8,
+              "labelDy": 5.2
+            },
+            {
+              "x": 3.84,
+              "y": 0.12,
+              "label": "จุดปลายเส้นตั้งฉาก",
+              "labelAnchor": "start",
+              "labelDx": -8.4,
+              "labelDy": -24.4,
+              "labelColor": "#c62828"
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                -1.681,
+                -1.028
+              ],
+              "text": "ระยะสั้นสุด (ตั้งฉาก) = 32/5",
+              "anchor": "start",
+              "color": "#c62828"
+            },
+            {
+              "at": [
+                0.39,
+                3.377
+              ],
+              "text": "เส้นเป้าหมาย y = −3x/4 + 3 (น้ำเงิน)",
+              "anchor": "start",
+              "color": "#1565c0"
+            }
+          ]
+        }
+      ],
       "sourceTag": "พื้นฐานวิศวะฯ 2533",
       "choices": [
         "$3/5$",
@@ -19787,7 +22755,117 @@
       "level": "medium",
       "score": 1,
       "question": "ท่อน้ำในโรงงานแห่งหนึ่งวางเอียงและเขียนเป็นสมการได้ $y - 4 = \\dfrac{7}{5}(x - 3)$\nจากจุด $P(9, 12)$ ต้องการดึงเชือกไปผูกกับท่อที่ $P_1$ โดยให้เชือกทำมุมฉากกับท่อ\nความยาว $PP_1$ ของเส้นเชือกเท่ากับข้อใด",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 500,
+          "height": 572,
+          "xRange": [
+            6.5,
+            11.5
+          ],
+          "yRange": [
+            9,
+            15
+          ],
+          "axes": {
+            "arrows": false
+          },
+          "functions": [
+            {
+              "kind": "polynomial",
+              "coefs": [
+                1.4,
+                -0.2
+              ],
+              "color": "#2e7d32",
+              "strokeWidth": 1.8
+            }
+          ],
+          "segments": [
+            {
+              "from": [
+                9.0,
+                12.0
+              ],
+              "to": [
+                8.8108,
+                12.1351
+              ],
+              "dashed": true
+            },
+            {
+              "from": [
+                8.9735,
+                12.3629
+              ],
+              "to": [
+                9.2013,
+                12.2002
+              ]
+            },
+            {
+              "from": [
+                9.0386,
+                11.9724
+              ],
+              "to": [
+                9.2013,
+                12.2002
+              ]
+            }
+          ],
+          "dots": [
+            {
+              "x": 9.0,
+              "y": 12.0,
+              "label": "P(9, 12)",
+              "labelAnchor": "start",
+              "labelDx": 8,
+              "labelDy": -6
+            },
+            {
+              "x": 8.8108,
+              "y": 12.1351,
+              "label": "P₁ = จุดปลายเส้นตั้งฉาก",
+              "labelAnchor": "end",
+              "labelDx": -8,
+              "labelDy": -8,
+              "labelColor": "#c62828"
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                6.7,
+                14.6
+              ],
+              "text": "ท่อ: 7x−5y−1=0",
+              "anchor": "start",
+              "color": "#2e7d32"
+            },
+            {
+              "at": [
+                6.7,
+                14.0
+              ],
+              "text": "PP₁ = ระยะตั้งฉาก = \\sqrt{2/37}",
+              "anchor": "start",
+              "color": "#c62828"
+            },
+            {
+              "at": [
+                9.35,
+                11.6
+              ],
+              "text": "(ซูมบริเวณ P — มุมฉากที่ P₁)",
+              "anchor": "start",
+              "color": "#9e9e9e"
+            }
+          ]
+        }
+      ],
       "sourceTag": "พื้นฐานวิศวะฯ 2535",
       "choices": [
         "$\\dfrac{\\sqrt{2}}{37}$",
@@ -20303,7 +23381,106 @@
       "level": "medium",
       "score": 1,
       "question": "สมการเส้นตรงชุดใดต่อไปนี้ประกอบเป็นรูปสามเหลี่ยมมุมฉาก",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 600,
+          "height": 584,
+          "xRange": [
+            -6,
+            10
+          ],
+          "yRange": [
+            -3,
+            13
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "kind": "polynomial",
+              "coefs": [
+                1.6666666666666667,
+                2.3333333333333335
+              ],
+              "color": "#c62828",
+              "strokeWidth": 1.6
+            },
+            {
+              "kind": "polynomial",
+              "coefs": [
+                2,
+                0
+              ],
+              "color": "#2e7d32",
+              "strokeWidth": 1.6
+            },
+            {
+              "kind": "polynomial",
+              "coefs": [
+                -0.6,
+                0.26666666666666666
+              ],
+              "color": "#1565c0",
+              "strokeWidth": 1.6
+            }
+          ],
+          "dots": [
+            {
+              "x": -0.912,
+              "y": 0.814,
+              "label": "มุมฉาก 90°",
+              "labelAnchor": "start",
+              "labelDx": -87.43,
+              "labelDy": 4,
+              "labelColor": "#c62828"
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                -5.6,
+                12.4
+              ],
+              "text": "เส้น 1: 5x−3y+7=0 (แดง)",
+              "anchor": "start",
+              "color": "#c62828"
+            },
+            {
+              "at": [
+                -5.6,
+                11.4
+              ],
+              "text": "เส้น 2: 2x−y=0 (เขียว)",
+              "anchor": "start",
+              "color": "#2e7d32"
+            },
+            {
+              "at": [
+                -5.6,
+                10.4
+              ],
+              "text": "เส้น 3: 9x+15y−4=0 (น้ำเงิน)",
+              "anchor": "start",
+              "color": "#1565c0"
+            },
+            {
+              "at": [
+                -5.6,
+                9.2
+              ],
+              "text": "เส้น1 ⊥ เส้น3 : (5/3)(−3/5) = −1",
+              "anchor": "start",
+              "color": "#616161"
+            }
+          ]
+        }
+      ],
       "sourceTag": "พื้นฐานวิศวะฯ 2541",
       "choices": [
         "$3x - 5y + 10 = 0,\\quad x + 4y - 6 = 0,\\quad 6x - 10y - 1 = 0$",
@@ -21349,7 +24526,100 @@
       "level": "easy",
       "score": 1,
       "question": "จงหาสมการเส้นตรงที่ตั้งฉากกับเส้นตรง $x - 7y - 11 = 0$\nและผ่านจุดที่เส้นตรงเส้นนี้ตัดกับเส้นตรง $3x + 5y - 7 = 0$",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 500,
+          "height": 484,
+          "xRange": [
+            -2,
+            10
+          ],
+          "yRange": [
+            -7,
+            5
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "kind": "polynomial",
+              "coefs": [
+                0.14285714285714285,
+                -1.5714285714285714
+              ],
+              "color": "#1565c0",
+              "strokeWidth": 1.6
+            },
+            {
+              "kind": "polynomial",
+              "coefs": [
+                -0.6,
+                1.4
+              ],
+              "color": "#2e7d32",
+              "strokeWidth": 1.6
+            },
+            {
+              "kind": "polynomial",
+              "coefs": [
+                -7,
+                27
+              ],
+              "color": "#c62828",
+              "strokeWidth": 1.8,
+              "domain": [
+                3.2,
+                4.8
+              ]
+            }
+          ],
+          "dots": [
+            {
+              "x": 4,
+              "y": -1,
+              "label": "จุดตัด(4, −1)",
+              "labelAnchor": "start",
+              "labelDx": -76,
+              "labelDy": 35.2
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                4.4,
+                -1.142
+              ],
+              "text": "L₁: x−7y−11=0 (สีน้ำเงิน)",
+              "anchor": "start",
+              "color": "#1565c0"
+            },
+            {
+              "at": [
+                6.036,
+                -4.682
+              ],
+              "text": "L₂: 3x+5y−7=0 (สีเขียว)",
+              "anchor": "start",
+              "color": "#2e7d32"
+            },
+            {
+              "at": [
+                4.531,
+                3.56
+              ],
+              "text": "L₃ ⊥ L₁: 7x+y−27=0 (สีแดง)",
+              "anchor": "start",
+              "color": "#c62828"
+            }
+          ]
+        }
+      ],
       "sourceTag": "ทุนเล่าเรียนหลวง (กพ.) 2537",
       "correct": "7x+y-27=0",
       "accept": [
@@ -27695,7 +30965,107 @@
       "level": "easy",
       "score": 1,
       "question": "ถ้าวงกลมวงหนึ่งผ่านจุด $(1, 3)$ และมีจุดศูนย์กลางอยู่ที่จุดโฟกัสของพาราโบลา\nซึ่งมีสมการ $x^2 - 8x + 8y + 8 = 0$ แล้วสมการของวงกลมนี้คือข้อใดต่อไปนี้",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 400,
+          "height": 356,
+          "xRange": [
+            -2,
+            10
+          ],
+          "yRange": [
+            -7,
+            4
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "pb",
+              "kind": "parabola",
+              "vertex": [
+                4,
+                1
+              ],
+              "throughPoint": [
+                0,
+                -1
+              ],
+              "color": "#222",
+              "strokeWidth": 1.6
+            },
+            {
+              "id": "cu",
+              "kind": "ellipse-arc",
+              "center": [
+                4,
+                -1
+              ],
+              "a": 5,
+              "b": 5,
+              "half": "upper",
+              "color": "#1565c0"
+            },
+            {
+              "id": "cl",
+              "kind": "ellipse-arc",
+              "center": [
+                4,
+                -1
+              ],
+              "a": 5,
+              "b": 5,
+              "half": "lower",
+              "color": "#1565c0"
+            }
+          ],
+          "dots": [
+            {
+              "x": 4,
+              "y": -1,
+              "label": "F=ศก.(4, −1)",
+              "labelAnchor": "start",
+              "labelDx": -39.33,
+              "labelDy": 19.33,
+              "labelColor": "#c62828"
+            },
+            {
+              "x": 4,
+              "y": 1,
+              "label": "ยอด(4, 1)",
+              "labelAnchor": "start",
+              "labelDx": -15.33,
+              "labelDy": -18
+            },
+            {
+              "x": 1,
+              "y": 3,
+              "label": "(1, 3)",
+              "labelAnchor": "end",
+              "labelDx": 9.33,
+              "labelDy": -11.33,
+              "labelColor": "#1565c0"
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                5.776,
+                -3.365
+              ],
+              "text": "r = 5",
+              "anchor": "start",
+              "color": "#1565c0"
+            }
+          ]
+        }
+      ],
       "sourceTag": "คัดโอลิมปิก 2547",
       "choices": [
         "$(x - 4)^2 + (y + 3)^2 = 45$",
@@ -27738,7 +31108,107 @@
       "level": "easy",
       "score": 1,
       "question": "จงหาสมการของวงกลมซึ่งผ่านจุด $(-2, 4)$\nและมีจุดศูนย์กลางอยู่ที่จุดโฟกัสของพาราโบลา $x^2 - 4x + 12y - 44 = 0$",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 400,
+          "height": 384,
+          "xRange": [
+            -4,
+            8
+          ],
+          "yRange": [
+            -5,
+            7
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "pb",
+              "kind": "parabola",
+              "vertex": [
+                2,
+                4
+              ],
+              "throughPoint": [
+                -4,
+                1
+              ],
+              "color": "#222",
+              "strokeWidth": 1.6
+            },
+            {
+              "id": "cu",
+              "kind": "ellipse-arc",
+              "center": [
+                2,
+                1
+              ],
+              "a": 5,
+              "b": 5,
+              "half": "upper",
+              "color": "#1565c0"
+            },
+            {
+              "id": "cl",
+              "kind": "ellipse-arc",
+              "center": [
+                2,
+                1
+              ],
+              "a": 5,
+              "b": 5,
+              "half": "lower",
+              "color": "#1565c0"
+            }
+          ],
+          "dots": [
+            {
+              "x": 2,
+              "y": 1,
+              "label": "F=ศก.(2, 1)",
+              "labelAnchor": "start",
+              "labelDx": -28.67,
+              "labelDy": -17.33,
+              "labelColor": "#c62828"
+            },
+            {
+              "x": 2,
+              "y": 4,
+              "label": "ยอด(2, 4)",
+              "labelAnchor": "start",
+              "labelDx": -12.67,
+              "labelDy": -14
+            },
+            {
+              "x": -2,
+              "y": 4,
+              "label": "(−2, 4)",
+              "labelAnchor": "end",
+              "labelDx": -12,
+              "labelDy": -4.67,
+              "labelColor": "#1565c0"
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                4.2,
+                -0.8
+              ],
+              "text": "r = 5",
+              "anchor": "start",
+              "color": "#1565c0"
+            }
+          ]
+        }
+      ],
       "sourceTag": "คัดโอลิมปิก 2546",
       "correct": "(x-2)^2+(y-1)^2=25",
       "accept": [
@@ -27781,7 +31251,111 @@
       "level": "medium",
       "score": 1,
       "question": "กำหนดให้วงกลม C มีสมการเป็น $x^2 + ax + y^2 + by - 5 = 0$\nถ้ากราฟของวงกลม C ผ่านจุด $\\left(\\dfrac{3}{2}, \\dfrac{1}{2}\\right)$ และผ่านจุดยอดของพาราโบลา $y - 1 = 4(x - 1)^2$\nแล้ว จงหารัศมีของวงกลม C",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 360,
+          "height": 344,
+          "xRange": [
+            -4,
+            3
+          ],
+          "yRange": [
+            -4,
+            3
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "pb",
+              "kind": "parabola",
+              "vertex": [
+                1,
+                1
+              ],
+              "throughPoint": [
+                1.6,
+                2.44
+              ],
+              "domain": [
+                0.35,
+                1.65
+              ],
+              "color": "#222",
+              "strokeWidth": 1.6
+            },
+            {
+              "id": "cu",
+              "kind": "ellipse-arc",
+              "center": [
+                -0.5,
+                -1
+              ],
+              "a": 2.5,
+              "b": 2.5,
+              "half": "upper",
+              "color": "#1565c0"
+            },
+            {
+              "id": "cl",
+              "kind": "ellipse-arc",
+              "center": [
+                -0.5,
+                -1
+              ],
+              "a": 2.5,
+              "b": 2.5,
+              "half": "lower",
+              "color": "#1565c0"
+            }
+          ],
+          "dots": [
+            {
+              "x": -0.5,
+              "y": -1,
+              "label": "C(−½, −1)",
+              "labelAnchor": "start",
+              "labelDx": -46.67,
+              "labelDy": 14.67,
+              "labelColor": "#c62828"
+            },
+            {
+              "x": 1,
+              "y": 1,
+              "label": "ยอด(1, 1)",
+              "labelAnchor": "start",
+              "labelDx": 13.33,
+              "labelDy": -2
+            },
+            {
+              "x": 1.5,
+              "y": 0.5,
+              "label": "(3/2, 1/2)",
+              "labelAnchor": "start",
+              "labelDx": 14.67,
+              "labelDy": 6.67,
+              "labelColor": "#1565c0"
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                0.382,
+                -1.853
+              ],
+              "text": "r = 5/2",
+              "anchor": "start",
+              "color": "#1565c0"
+            }
+          ]
+        }
+      ],
       "sourceTag": "โควตา มช. 2545",
       "correct": "5/2",
       "accept": [
@@ -31696,7 +35270,176 @@
       "level": "medium",
       "score": 1,
       "question": "จงหาสมการของวงกลมที่ผ่านจุด P และ Q โดยมีจุดศูนย์กลางเป็นจุดกึ่งกลางของเส้นตรง PQ\nเมื่อข้อมูลเกี่ยวกับจุด P และ Q มีดังต่อไปนี้\nก. จุด P และ Q อยู่บนพาราโบลาที่มีจุดยอดคือ $(2, 3)$\nข. จุด P เป็นจุดศูนย์กลางของวงรี $\\dfrac{x^2}{25} + \\dfrac{(y - 2)^2}{16} = 1$\nค. จากจุด Q ลากเส้นให้ตั้งฉากกับแกน x จะตัดแกน x ที่จุด $(8, 0)$",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 460,
+          "height": 420,
+          "xRange": [
+            -6,
+            10
+          ],
+          "yRange": [
+            -9,
+            6
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "pb",
+              "kind": "parabola",
+              "vertex": [
+                2,
+                3
+              ],
+              "throughPoint": [
+                8,
+                -6
+              ],
+              "domain": [
+                -4.9,
+                8.9
+              ],
+              "color": "#222",
+              "strokeWidth": 1.6
+            },
+            {
+              "id": "eu",
+              "kind": "ellipse-arc",
+              "center": [
+                0,
+                2
+              ],
+              "a": 5,
+              "b": 4,
+              "half": "upper",
+              "color": "#8e24aa"
+            },
+            {
+              "id": "el",
+              "kind": "ellipse-arc",
+              "center": [
+                0,
+                2
+              ],
+              "a": 5,
+              "b": 4,
+              "half": "lower",
+              "color": "#8e24aa"
+            },
+            {
+              "id": "cu",
+              "kind": "ellipse-arc",
+              "center": [
+                4,
+                -2
+              ],
+              "a": 5.65685,
+              "b": 5.65685,
+              "half": "upper",
+              "color": "#1565c0"
+            },
+            {
+              "id": "cl",
+              "kind": "ellipse-arc",
+              "center": [
+                4,
+                -2
+              ],
+              "a": 5.65685,
+              "b": 5.65685,
+              "half": "lower",
+              "color": "#1565c0"
+            }
+          ],
+          "segments": [
+            {
+              "from": [
+                8,
+                0
+              ],
+              "to": [
+                8,
+                -6
+              ],
+              "dashed": true
+            },
+            {
+              "from": [
+                0,
+                2
+              ],
+              "to": [
+                8,
+                -6
+              ],
+              "dashed": true
+            }
+          ],
+          "dots": [
+            {
+              "x": 4,
+              "y": -2,
+              "label": "C=กึ่งกลาง PQ(4, −2)",
+              "labelAnchor": "start",
+              "labelDx": -93.33,
+              "labelDy": 25.34,
+              "labelColor": "#c62828"
+            },
+            {
+              "x": 0,
+              "y": 2,
+              "label": "P=ศก.วงรี(0, 2)",
+              "labelAnchor": "end",
+              "labelDx": -10,
+              "labelDy": -7.33,
+              "labelColor": "#8e24aa"
+            },
+            {
+              "x": 8,
+              "y": -6,
+              "label": "Q(8, −6)",
+              "labelAnchor": "start",
+              "labelDx": 8,
+              "labelDy": 6,
+              "labelColor": "#222"
+            },
+            {
+              "x": 2,
+              "y": 3,
+              "label": "ยอด(2, 3)",
+              "labelAnchor": "start",
+              "labelDx": -26.67,
+              "labelDy": -23.33
+            },
+            {
+              "x": 8,
+              "y": 0,
+              "label": "(8, 0)",
+              "labelAnchor": "start",
+              "labelDx": -19.33,
+              "labelDy": -16
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                3.933,
+                -4.999
+              ],
+              "text": "r = \\sqrt{32}",
+              "anchor": "start",
+              "color": "#1565c0"
+            }
+          ]
+        }
+      ],
       "sourceTag": "ทุนเล่าเรียนหลวง (กพ.) 2545",
       "correct": "(x-4)^2+(y+2)^2=32",
       "accept": [
@@ -31742,7 +35485,173 @@
       "level": "medium",
       "score": 1,
       "question": "กำหนดให้ A และ B เป็นจุดตัดของ\n$x^2 + y^2 - 16x + 4y + 48 = 0$ และ $x^2 + y^2 - 12x + 4y + 32 = 0$\nจงหาสมการของกราฟที่เกิดจากเซตของจุด P ซึ่ง\nผลบวกของระยะทางจากจุด P ไปยังจุด A และ B มีค่าเป็น 8 เสมอ",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 520,
+          "height": 504,
+          "xRange": [
+            -2,
+            13
+          ],
+          "yRange": [
+            -9,
+            6
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "c1u",
+              "kind": "ellipse-arc",
+              "center": [
+                8,
+                -2
+              ],
+              "a": 4.47214,
+              "b": 4.47214,
+              "half": "upper",
+              "color": "#9e9e9e"
+            },
+            {
+              "id": "c1l",
+              "kind": "ellipse-arc",
+              "center": [
+                8,
+                -2
+              ],
+              "a": 4.47214,
+              "b": 4.47214,
+              "half": "lower",
+              "color": "#9e9e9e"
+            },
+            {
+              "id": "c2u",
+              "kind": "ellipse-arc",
+              "center": [
+                6,
+                -2
+              ],
+              "a": 2.82843,
+              "b": 2.82843,
+              "half": "upper",
+              "color": "#bdbdbd"
+            },
+            {
+              "id": "c2l",
+              "kind": "ellipse-arc",
+              "center": [
+                6,
+                -2
+              ],
+              "a": 2.82843,
+              "b": 2.82843,
+              "half": "lower",
+              "color": "#bdbdbd"
+            },
+            {
+              "id": "eu",
+              "kind": "ellipse-arc",
+              "center": [
+                4,
+                -2
+              ],
+              "a": 3.4641,
+              "b": 4,
+              "half": "upper",
+              "color": "#1565c0"
+            },
+            {
+              "id": "el",
+              "kind": "ellipse-arc",
+              "center": [
+                4,
+                -2
+              ],
+              "a": 3.4641,
+              "b": 4,
+              "half": "lower",
+              "color": "#1565c0"
+            }
+          ],
+          "segments": [
+            {
+              "from": [
+                4,
+                0
+              ],
+              "to": [
+                4,
+                -4
+              ],
+              "dashed": true
+            }
+          ],
+          "dots": [
+            {
+              "x": 4,
+              "y": 0,
+              "label": "A(4, 0)",
+              "labelAnchor": "end",
+              "labelDx": -5.43,
+              "labelDy": -10.29,
+              "labelColor": "#c62828"
+            },
+            {
+              "x": 4,
+              "y": -4,
+              "label": "B(4, −4)",
+              "labelAnchor": "end",
+              "labelDx": -7.14,
+              "labelDy": 15.14,
+              "labelColor": "#c62828"
+            },
+            {
+              "x": 4,
+              "y": -2,
+              "label": "ศก.วงรี(4, −2)",
+              "labelAnchor": "end",
+              "labelDx": -12.28,
+              "labelDy": 4.57,
+              "labelColor": "#1565c0"
+            },
+            {
+              "x": 8,
+              "y": -2,
+              "label": "C₁(8, −2)",
+              "labelAnchor": "start",
+              "labelDx": 7.71,
+              "labelDy": 3.14,
+              "labelColor": "#616161"
+            },
+            {
+              "x": 6,
+              "y": -2,
+              "label": "C₂(6, −2)",
+              "labelAnchor": "start",
+              "labelDx": -28.57,
+              "labelDy": 31.43,
+              "labelColor": "#616161"
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                2.108,
+                4.4
+              ],
+              "text": "PA + PB = 8 → วงรี โฟกัส A,B",
+              "anchor": "start",
+              "color": "#1565c0"
+            }
+          ]
+        }
+      ],
       "sourceTag": "คัดโอลิมปิก 2547",
       "correct": "(x-4)^2/12+(y+2)^2/16=1",
       "accept": [
@@ -32219,7 +36128,134 @@
       "level": "medium",
       "score": 1,
       "question": "วงรีวงหนึ่งมีจุดยอดจุดหนึ่งอยู่ที่จุด $(4, -2)$ โดยมีแกนโทยาว 4 หน่วย\nและมีจุดศูนย์กลางอยู่ที่จุดยอดของพาราโบลา $4x + 2y - y^2 = 17$ จงหาสมการของวงรีนี้",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 1000,
+          "height": 900,
+          "xRange": [
+            -1,
+            10
+          ],
+          "yRange": [
+            -4,
+            6
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "eu",
+              "kind": "ellipse-arc",
+              "center": [
+                4,
+                1
+              ],
+              "a": 2,
+              "b": 3,
+              "half": "upper",
+              "color": "#1565c0"
+            },
+            {
+              "id": "el",
+              "kind": "ellipse-arc",
+              "center": [
+                4,
+                1
+              ],
+              "a": 2,
+              "b": 3,
+              "half": "lower",
+              "color": "#1565c0"
+            },
+            {
+              "id": "pb",
+              "kind": "parabola-h",
+              "vertex": [
+                4,
+                1
+              ],
+              "throughPoint": [
+                8,
+                5
+              ],
+              "yDomain": [
+                -3.4,
+                5.4
+              ],
+              "color": "#222",
+              "strokeWidth": 1.6
+            }
+          ],
+          "segments": [
+            {
+              "from": [
+                2,
+                1
+              ],
+              "to": [
+                6,
+                1
+              ],
+              "dashed": false
+            }
+          ],
+          "dots": [
+            {
+              "x": 4,
+              "y": 1,
+              "label": "ศก.E = ยอดพาราโบลา(4, 1)",
+              "labelAnchor": "start",
+              "labelDx": 7.33,
+              "labelDy": -14,
+              "labelColor": "#c62828"
+            },
+            {
+              "x": 4,
+              "y": -2,
+              "label": "ยอด(4, −2)",
+              "labelAnchor": "start",
+              "labelDx": -14,
+              "labelDy": 25.33,
+              "labelColor": "#1565c0"
+            },
+            {
+              "x": 2,
+              "y": 1,
+              "label": "(2, 1)",
+              "labelAnchor": "end",
+              "labelDx": -17.33,
+              "labelDy": 0,
+              "labelColor": "#1565c0"
+            },
+            {
+              "x": 6,
+              "y": 1,
+              "label": "(6, 1)",
+              "labelAnchor": "start",
+              "labelDx": 10.67,
+              "labelDy": 4.33,
+              "labelColor": "#1565c0"
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                2.866,
+                0.646
+              ],
+              "text": "แกนโท = 4 (แนวนอน)",
+              "anchor": "middle",
+              "color": "#1565c0"
+            }
+          ]
+        }
+      ],
       "sourceTag": "ทุนเล่าเรียนหลวง (กพ.) 2540",
       "correct": "(x-4)^2/4+(y-1)^2/9=1",
       "accept": [
@@ -32263,7 +36299,133 @@
       "level": "medium",
       "score": 1,
       "question": "ให้วงรี E มีจุดศูนย์กลางอยู่ที่จุดยอดของพาราโบลา $y^2 - 4y + 8x - 4 = 0$\nถ้าโฟกัสจุดหนึ่งของวงรีอยู่ที่จุดที่เกิดจากไดเรกตริกซ์ตัดกับแกนของพาราโบลา\nและวงรีผ่านจุด $(4, 2)$ สมการของวงรี E คือข้อใดต่อไปนี้",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 1000,
+          "height": 796,
+          "xRange": [
+            -4,
+            6
+          ],
+          "yRange": [
+            -2,
+            6
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "eu",
+              "kind": "ellipse-arc",
+              "center": [
+                1,
+                2
+              ],
+              "a": 3,
+              "b": 2.23607,
+              "half": "upper",
+              "color": "#1565c0"
+            },
+            {
+              "id": "el",
+              "kind": "ellipse-arc",
+              "center": [
+                1,
+                2
+              ],
+              "a": 3,
+              "b": 2.23607,
+              "half": "lower",
+              "color": "#1565c0"
+            },
+            {
+              "id": "pb",
+              "kind": "parabola-h",
+              "vertex": [
+                1,
+                2
+              ],
+              "throughPoint": [
+                -1,
+                6
+              ],
+              "yDomain": [
+                -1.6,
+                5.6
+              ],
+              "color": "#222",
+              "strokeWidth": 1.6
+            }
+          ],
+          "segments": [
+            {
+              "from": [
+                3,
+                -2
+              ],
+              "to": [
+                3,
+                6
+              ],
+              "dashed": true
+            }
+          ],
+          "dots": [
+            {
+              "x": 1,
+              "y": 2,
+              "label": "ศก.E = ยอดพาราโบลา(1, 2)",
+              "labelAnchor": "start",
+              "labelDx": 21.33,
+              "labelDy": -2.66,
+              "labelColor": "#c62828"
+            },
+            {
+              "x": -1,
+              "y": 2,
+              "label": "F(−1, 2)",
+              "labelAnchor": "end",
+              "labelDx": 26,
+              "labelDy": -14.67,
+              "labelColor": "#c62828"
+            },
+            {
+              "x": 3,
+              "y": 2,
+              "label": "(3, 2)",
+              "labelAnchor": "start",
+              "labelDx": 6,
+              "labelDy": -4
+            },
+            {
+              "x": 4,
+              "y": 2,
+              "label": "(4, 2)",
+              "labelAnchor": "start",
+              "labelDx": 6,
+              "labelDy": -4,
+              "labelColor": "#1565c0"
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                3.122,
+                4.366
+              ],
+              "text": "ไดเรกตริกซ์ x=3",
+              "anchor": "start",
+              "color": "#222"
+            }
+          ]
+        }
+      ],
       "sourceTag": "คัดโอลิมปิก 2549",
       "choices": [
         "$5(x - 7)^2 + 9(y - 2)^2 = 45$",
@@ -32307,7 +36469,145 @@
       "level": "medium",
       "score": 1,
       "question": "ให้ A เป็นจุดที่เกิดจากเส้นตรง $3x + 2y = 8$ และ $5x - 3y = 7$ ตัดกัน\nB เป็นจุดศูนย์กลางของวงกลม $x^2 + y^2 - 4x + 6y - 12 = 0$\nวงรีที่มี A และ B เป็นโฟกัส และความยาวครึ่งแกนโทเท่ากับรัศมีของวงกลม คือข้อใดต่อไปนี้",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 460,
+          "height": 394,
+          "xRange": [
+            -7,
+            9
+          ],
+          "yRange": [
+            -9,
+            5
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "eu",
+              "kind": "ellipse-arc",
+              "center": [
+                2,
+                -1
+              ],
+              "a": 5,
+              "b": 5.38516,
+              "half": "upper",
+              "color": "#1565c0"
+            },
+            {
+              "id": "el",
+              "kind": "ellipse-arc",
+              "center": [
+                2,
+                -1
+              ],
+              "a": 5,
+              "b": 5.38516,
+              "half": "lower",
+              "color": "#1565c0"
+            },
+            {
+              "id": "qu",
+              "kind": "ellipse-arc",
+              "center": [
+                2,
+                -3
+              ],
+              "a": 5,
+              "b": 5,
+              "half": "upper",
+              "color": "#9e9e9e"
+            },
+            {
+              "id": "ql",
+              "kind": "ellipse-arc",
+              "center": [
+                2,
+                -3
+              ],
+              "a": 5,
+              "b": 5,
+              "half": "lower",
+              "color": "#9e9e9e"
+            },
+            {
+              "id": "L1",
+              "kind": "polynomial",
+              "coefs": [
+                -1.5,
+                4
+              ],
+              "domain": [
+                -0.6,
+                4.6
+              ],
+              "color": "#2e7d32",
+              "strokeWidth": 1.4
+            },
+            {
+              "id": "L2",
+              "kind": "polynomial",
+              "coefs": [
+                1.6667,
+                -2.3333
+              ],
+              "domain": [
+                -0.4,
+                4.4
+              ],
+              "color": "#8e24aa",
+              "strokeWidth": 1.4
+            }
+          ],
+          "dots": [
+            {
+              "x": 2,
+              "y": 1,
+              "label": "A=F₁(2, 1)",
+              "labelAnchor": "start",
+              "labelDx": 8,
+              "labelDy": -6,
+              "labelColor": "#c62828"
+            },
+            {
+              "x": 2,
+              "y": -3,
+              "label": "B=F₂=ศก.วงกลม(2, −3)",
+              "labelAnchor": "start",
+              "labelDx": -29.33,
+              "labelDy": 21.34,
+              "labelColor": "#c62828"
+            },
+            {
+              "x": 2,
+              "y": -1,
+              "label": "ศก.E(2, −1)",
+              "labelAnchor": "end",
+              "labelDx": 36.67,
+              "labelDy": 10.66
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                5.387,
+                -7.32
+              ],
+              "text": "b = r = 5",
+              "anchor": "start",
+              "color": "#616161"
+            }
+          ]
+        }
+      ],
       "sourceTag": "สมาคมคณิตศาสตร์ฯ 2545",
       "choices": [
         "$\\dfrac{(x - 2)^2}{16} + \\dfrac{(y + 1)^2}{25} = 1$",
@@ -32577,7 +36877,143 @@
       "level": "medium",
       "score": 1,
       "question": "ให้ L เป็นระยะของแกนโทของวงรี A ซึ่งมีสมการดังนี้ $16x^2 + 25y^2 - 32x - 100y - 284 = 0$\nและ d เป็นระยะจากจุดยอดถึงจุดโฟกัสของรูปพาราโบลา\nซึ่งมีจุดยอดอยู่ที่จุดโฟกัสของวงรี A และมีเส้นไดเรกตริกซ์คือแกนโทของวงรี A\nจงหา $f(d, L)$ เมื่อ $f(x, y) = x^2 + 2y + 1$",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 800,
+          "height": 626,
+          "xRange": [
+            -5,
+            9
+          ],
+          "yRange": [
+            -4,
+            7
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "eu",
+              "kind": "ellipse-arc",
+              "center": [
+                1,
+                2
+              ],
+              "a": 5,
+              "b": 4,
+              "half": "upper",
+              "color": "#1565c0"
+            },
+            {
+              "id": "el",
+              "kind": "ellipse-arc",
+              "center": [
+                1,
+                2
+              ],
+              "a": 5,
+              "b": 4,
+              "half": "lower",
+              "color": "#1565c0"
+            },
+            {
+              "id": "pb",
+              "kind": "parabola-h",
+              "vertex": [
+                4,
+                2
+              ],
+              "throughPoint": [
+                5.3333,
+                6
+              ],
+              "yDomain": [
+                -2,
+                6
+              ],
+              "color": "#222",
+              "strokeWidth": 1.6
+            }
+          ],
+          "segments": [
+            {
+              "from": [
+                1,
+                -2
+              ],
+              "to": [
+                1,
+                6
+              ],
+              "dashed": true
+            }
+          ],
+          "dots": [
+            {
+              "x": 4,
+              "y": 2,
+              "label": "F=ยอด(4, 2)",
+              "labelAnchor": "start",
+              "labelDx": 11.33,
+              "labelDy": 4.68,
+              "labelColor": "#c62828"
+            },
+            {
+              "x": -2,
+              "y": 2,
+              "label": "F′(−2, 2)",
+              "labelAnchor": "end",
+              "labelDx": 19.33,
+              "labelDy": 27.33,
+              "labelColor": "#c62828"
+            },
+            {
+              "x": 7,
+              "y": 2,
+              "label": "โฟกัส(7, 2)",
+              "labelAnchor": "start",
+              "labelDx": -20.01,
+              "labelDy": 27.33,
+              "labelColor": "#222"
+            },
+            {
+              "x": 1,
+              "y": 2,
+              "label": "ศก.E(1, 2)",
+              "labelAnchor": "end",
+              "labelDx": 72.66,
+              "labelDy": 6.66,
+              "labelColor": "#1565c0"
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                0.564,
+                -2.792
+              ],
+              "text": "ไดเรกตริกซ์ = แกนโท (x=1)",
+              "anchor": "start",
+              "color": "#1565c0"
+            },
+            {
+              "at": [
+                2.192,
+                3.305
+              ],
+              "text": "d = 3",
+              "anchor": "start",
+              "color": "#c62828"
+            }
+          ]
+        }
+      ],
       "sourceTag": "ทุนเล่าเรียนหลวง (กพ.) 2538",
       "correct": "26",
       "accept": [
@@ -32622,7 +37058,147 @@
       "level": "medium",
       "score": 1,
       "question": "กำหนดให้ $16x^2 + 25y^2 - 64x - 50y - 311 = 0$ เป็นสมการของวงรี\nถ้าพาราโบลาสองรูปมีจุดยอดอยู่ที่จุดโฟกัสของวงรี และตัดกันที่จุดปลายทั้งสองของแกนโทของวงรี\nแล้ว จงเขียนสมการของพาราโบลาทั้งสองรูปนี้",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 800,
+          "height": 784,
+          "xRange": [
+            -4,
+            8
+          ],
+          "yRange": [
+            -5,
+            7
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "eu",
+              "kind": "ellipse-arc",
+              "center": [
+                2,
+                1
+              ],
+              "a": 5,
+              "b": 4,
+              "half": "upper",
+              "color": "#1565c0"
+            },
+            {
+              "id": "el",
+              "kind": "ellipse-arc",
+              "center": [
+                2,
+                1
+              ],
+              "a": 5,
+              "b": 4,
+              "half": "lower",
+              "color": "#1565c0"
+            },
+            {
+              "id": "p1",
+              "kind": "parabola-h",
+              "vertex": [
+                -1,
+                1
+              ],
+              "throughPoint": [
+                2,
+                5
+              ],
+              "yDomain": [
+                -3.2,
+                5.2
+              ],
+              "color": "#c62828",
+              "strokeWidth": 1.6
+            },
+            {
+              "id": "p2",
+              "kind": "parabola-h",
+              "vertex": [
+                5,
+                1
+              ],
+              "throughPoint": [
+                2,
+                5
+              ],
+              "yDomain": [
+                -3.2,
+                5.2
+              ],
+              "color": "#2e7d32",
+              "strokeWidth": 1.6
+            }
+          ],
+          "dots": [
+            {
+              "x": 2,
+              "y": 1,
+              "label": "ศก.(2, 1)",
+              "labelAnchor": "start",
+              "labelDx": -28.8,
+              "labelDy": 24
+            },
+            {
+              "x": -1,
+              "y": 1,
+              "label": "ยอด P₁=F₁(−1, 1)",
+              "labelAnchor": "end",
+              "labelDx": -14.8,
+              "labelDy": 5.2,
+              "labelColor": "#c62828"
+            },
+            {
+              "x": 5,
+              "y": 1,
+              "label": "ยอด P₂=F₂(5, 1)",
+              "labelAnchor": "start",
+              "labelDx": 12.4,
+              "labelDy": 2.8,
+              "labelColor": "#2e7d32"
+            },
+            {
+              "x": 2,
+              "y": 5,
+              "label": "(2, 5)",
+              "labelAnchor": "start",
+              "labelDx": -6.4,
+              "labelDy": -21.6,
+              "labelColor": "#1565c0"
+            },
+            {
+              "x": 2,
+              "y": -3,
+              "label": "(2, −3)",
+              "labelAnchor": "start",
+              "labelDx": -22.4,
+              "labelDy": 29.2,
+              "labelColor": "#1565c0"
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                4.584,
+                6.712
+              ],
+              "text": "ปลายแกนโท (2,5),(2,−3)",
+              "anchor": "start",
+              "color": "#1565c0"
+            }
+          ]
+        }
+      ],
       "sourceTag": "คัดโอลิมปิก 2548",
       "correct": "3(y-1)^2=16(x+1) และ 3(y-1)^2=-16(x-5)",
       "accept": [
@@ -34012,7 +38588,126 @@
       "level": "hard",
       "score": 1,
       "question": "บทนิยาม ถ้า r และ s เป็นความสัมพันธ์ที่มีกราฟเป็นวงกลม และวงรีตามลำดับ\nวงกลม r เป็นวงกลมแนบในวงรี s ก็ต่อเมื่อ $D_r \\subseteq D_s$ และ $R_r \\subseteq R_s$ และ $n(r \\cap s) = 2$\nถ้าวงกลมที่ใหญ่ที่สุดที่แนบในวงรีซึ่งมีสมการ $121x^2 + 256y^2 - 242x + 512y - 107 = 0$ มีเส้นรอบวง\nยาว $\\theta$ หน่วย แล้ว ข้อใดต่อไปนี้ถูกต้อง",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 460,
+          "height": 378,
+          "xRange": [
+            -2,
+            4
+          ],
+          "yRange": [
+            -3.5,
+            1.5
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "eu",
+              "kind": "ellipse-arc",
+              "center": [
+                1,
+                -1
+              ],
+              "a": 2,
+              "b": 1.375,
+              "half": "upper",
+              "color": "#1565c0"
+            },
+            {
+              "id": "el",
+              "kind": "ellipse-arc",
+              "center": [
+                1,
+                -1
+              ],
+              "a": 2,
+              "b": 1.375,
+              "half": "lower",
+              "color": "#1565c0"
+            },
+            {
+              "id": "cu",
+              "kind": "ellipse-arc",
+              "center": [
+                1,
+                -1
+              ],
+              "a": 1.375,
+              "b": 1.375,
+              "half": "upper",
+              "color": "#c62828"
+            },
+            {
+              "id": "cl",
+              "kind": "ellipse-arc",
+              "center": [
+                1,
+                -1
+              ],
+              "a": 1.375,
+              "b": 1.375,
+              "half": "lower",
+              "color": "#c62828"
+            }
+          ],
+          "dots": [
+            {
+              "x": 1,
+              "y": -1,
+              "label": "ศก.(1, −1)",
+              "labelAnchor": "start",
+              "labelDx": -11.2,
+              "labelDy": 22.4
+            },
+            {
+              "x": 1,
+              "y": 0.375,
+              "label": "สัมผัส (1, 3/8)",
+              "labelAnchor": "start",
+              "labelDx": -18.4,
+              "labelDy": -19.2,
+              "labelColor": "#c62828"
+            },
+            {
+              "x": 1,
+              "y": -2.375,
+              "label": "สัมผัส (1, −19/8)",
+              "labelAnchor": "start",
+              "labelDx": -13.6,
+              "labelDy": 24.4,
+              "labelColor": "#c62828"
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                -1.54,
+                -1.115
+              ],
+              "text": "รัศมี = 11/8",
+              "anchor": "start",
+              "color": "#c62828"
+            },
+            {
+              "at": [
+                -1.96,
+                -1.768
+              ],
+              "text": "เส้นรอบวง θ = 11π/4",
+              "anchor": "start",
+              "color": "#c62828"
+            }
+          ]
+        }
+      ],
       "sourceTag": "คัดโอลิมปิก 2535",
       "choices": [
         "$\\tan(-\\theta) = -1$",
@@ -34245,7 +38940,104 @@
       "level": "easy",
       "score": 1,
       "question": "สมการในข้อใดที่เป็นสมการของเส้นกำกับ (Asymptotes)\nของสมการ $16y^2 - 25x^2 - 64y + 50x + 439 = 0$",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 800,
+          "height": 784,
+          "xRange": [
+            -7,
+            9
+          ],
+          "yRange": [
+            -6,
+            10
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "hr",
+              "kind": "hyperbola",
+              "center": [
+                1,
+                2
+              ],
+              "a": 4,
+              "b": 5,
+              "orientation": "horizontal",
+              "branches": "right",
+              "asymptotes": true,
+              "tRange": [
+                -1.35,
+                1.35
+              ],
+              "color": "#c62828"
+            },
+            {
+              "id": "hl",
+              "kind": "hyperbola",
+              "center": [
+                1,
+                2
+              ],
+              "a": 4,
+              "b": 5,
+              "orientation": "horizontal",
+              "branches": "left",
+              "tRange": [
+                -1.35,
+                1.35
+              ],
+              "color": "#c62828"
+            }
+          ],
+          "dots": [
+            {
+              "x": 1,
+              "y": 2,
+              "label": "ศก.(1, 2)",
+              "labelAnchor": "start",
+              "labelDx": 24.67,
+              "labelDy": 2.67
+            },
+            {
+              "x": 5,
+              "y": 2,
+              "label": "ยอด(5, 2)",
+              "labelAnchor": "start",
+              "labelDx": -66,
+              "labelDy": 7.33,
+              "labelColor": "#c62828"
+            },
+            {
+              "x": -3,
+              "y": 2,
+              "label": "ยอด(−3, 2)",
+              "labelAnchor": "end",
+              "labelDx": 70.01,
+              "labelDy": 0.67,
+              "labelColor": "#c62828"
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                -3.75,
+                8.734
+              ],
+              "text": "เส้นกำกับ y = 2 ± (5/4)(x−1)",
+              "anchor": "start",
+              "color": "#616161"
+            }
+          ]
+        }
+      ],
       "sourceTag": "พื้นฐานวิศวะฯ 2538",
       "choices": [
         "$y = \\pm\\dfrac{4}{5}(x - 1) - 2$",
@@ -34881,7 +39673,162 @@
       "level": "medium",
       "score": 1,
       "question": "กำหนดสมการของภาคตัดกรวยคือ $Ax^2 + By^2 - 6Ax + 4By = 0$\nพิจารณาข้อความต่อไปนี้\nก. ถ้า $A = 16$ และ $B = 12$ แล้ว สมการนี้เป็นสมการของวงรี ที่มีโฟกัสอยู่ที่จุด $(3, 0)$ และ $(3, -4)$\nข. ถ้า $A = 1$ และ $B = -3$ แล้ว สมการนี้เป็นสมการของไฮเพอร์โบลา ที่มีโฟกัสอยู่ที่จุด $(1, -2)$ และ $(5, -2)$\nข้อใดถูก",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 480,
+          "height": 464,
+          "xRange": [
+            -2,
+            8
+          ],
+          "yRange": [
+            -7,
+            3
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "eu",
+              "kind": "ellipse-arc",
+              "center": [
+                3,
+                -2
+              ],
+              "a": 3.4641,
+              "b": 4,
+              "half": "upper",
+              "color": "#1565c0"
+            },
+            {
+              "id": "el",
+              "kind": "ellipse-arc",
+              "center": [
+                3,
+                -2
+              ],
+              "a": 3.4641,
+              "b": 4,
+              "half": "lower",
+              "color": "#1565c0"
+            },
+            {
+              "id": "hu",
+              "kind": "hyperbola",
+              "center": [
+                3,
+                -2
+              ],
+              "a": 1,
+              "b": 1.73205,
+              "orientation": "vertical",
+              "branches": "up",
+              "asymptotes": false,
+              "tRange": [
+                -1.7,
+                1.7
+              ],
+              "color": "#c62828"
+            },
+            {
+              "id": "hd",
+              "kind": "hyperbola",
+              "center": [
+                3,
+                -2
+              ],
+              "a": 1,
+              "b": 1.73205,
+              "orientation": "vertical",
+              "branches": "down",
+              "tRange": [
+                -1.7,
+                1.7
+              ],
+              "color": "#c62828"
+            }
+          ],
+          "dots": [
+            {
+              "x": 3,
+              "y": -2,
+              "label": "ศก.(3, −2)",
+              "labelAnchor": "start",
+              "labelDx": -26.4,
+              "labelDy": 17.6
+            },
+            {
+              "x": 3,
+              "y": 0,
+              "label": "F(3, 0)",
+              "labelAnchor": "start",
+              "labelDx": -10.4,
+              "labelDy": -22.4
+            },
+            {
+              "x": 3,
+              "y": -4,
+              "label": "F(3, −4)",
+              "labelAnchor": "start",
+              "labelDx": -25.6,
+              "labelDy": 22.8
+            },
+            {
+              "x": 1,
+              "y": -2,
+              "label": "(1, −2) ✗",
+              "labelAnchor": "end",
+              "labelDx": 27.6,
+              "labelDy": -16.8,
+              "labelColor": "#9e9e9e"
+            },
+            {
+              "x": 5,
+              "y": -2,
+              "label": "(5, −2) ✗",
+              "labelAnchor": "start",
+              "labelDx": -35.6,
+              "labelDy": -15.2,
+              "labelColor": "#9e9e9e"
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                0.386,
+                3.048
+              ],
+              "text": "ก. วงรี โฟกัส (3,0),(3,−4) → ถูก",
+              "anchor": "start",
+              "color": "#1565c0"
+            },
+            {
+              "at": [
+                0.538,
+                2.578
+              ],
+              "text": "ข. ไฮเพอร์โบลา โฟกัสแนวตั้ง (3,0),(3,−4)",
+              "anchor": "start",
+              "color": "#c62828"
+            },
+            {
+              "at": [
+                5.814,
+                1.95
+              ],
+              "text": "    ≠ (1,−2),(5,−2) → ผิด",
+              "anchor": "start",
+              "color": "#c62828"
+            }
+          ]
+        }
+      ],
       "sourceTag": "โควตา มช. 2548",
       "choices": [
         "ก. ถูก และ ข. ถูก",
@@ -34925,7 +39872,153 @@
       "level": "medium",
       "score": 1,
       "question": "ให้ H เป็นไฮเพอร์โบลา $16x^2 - 32x - 9y^2 - 36y - 164 = 0$\nถ้าพาราโบลา P มีจุดยอดอยู่ที่จุดศูนย์กลางของไฮเพอร์โบลา H\nและมีโฟกัสที่จุดปลายของแกนสังยุคของไฮเพอร์โบลาในควอดรันต์ที่หนึ่ง\nแล้ว สมการของพาราโบลา P คือข้อใดต่อไปนี้",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 800,
+          "height": 600,
+          "xRange": [
+            -7,
+            9
+          ],
+          "yRange": [
+            -7,
+            5
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "hr",
+              "kind": "hyperbola",
+              "center": [
+                1,
+                -2
+              ],
+              "a": 3,
+              "b": 4,
+              "orientation": "horizontal",
+              "branches": "right",
+              "asymptotes": true,
+              "tRange": [
+                -1.5,
+                1.5
+              ],
+              "color": "#c62828"
+            },
+            {
+              "id": "hl",
+              "kind": "hyperbola",
+              "center": [
+                1,
+                -2
+              ],
+              "a": 3,
+              "b": 4,
+              "orientation": "horizontal",
+              "branches": "left",
+              "tRange": [
+                -1.5,
+                1.5
+              ],
+              "color": "#c62828"
+            },
+            {
+              "id": "pb",
+              "kind": "parabola",
+              "vertex": [
+                1,
+                -2
+              ],
+              "throughPoint": [
+                7,
+                0.25
+              ],
+              "domain": [
+                -5.5,
+                7.5
+              ],
+              "color": "#222",
+              "strokeWidth": 1.6
+            }
+          ],
+          "segments": [
+            {
+              "from": [
+                1,
+                2
+              ],
+              "to": [
+                1,
+                -6
+              ],
+              "dashed": true
+            }
+          ],
+          "dots": [
+            {
+              "x": 1,
+              "y": -2,
+              "label": "ศก.H = ยอด P(1, −2)",
+              "labelAnchor": "start",
+              "labelDx": 8,
+              "labelDy": 19.2
+            },
+            {
+              "x": 1,
+              "y": 2,
+              "label": "ปลายแกนสังยุค = โฟกัส P(1, 2)",
+              "labelAnchor": "start",
+              "labelDx": -21.6,
+              "labelDy": -22.4,
+              "labelColor": "#c62828"
+            },
+            {
+              "x": 1,
+              "y": -6,
+              "label": "(1, −6)",
+              "labelAnchor": "start",
+              "labelDx": 8,
+              "labelDy": 6,
+              "labelColor": "#c62828"
+            },
+            {
+              "x": 4,
+              "y": -2,
+              "label": "ยอด H(4, −2)",
+              "labelAnchor": "start",
+              "labelDx": 17.2,
+              "labelDy": 9.2,
+              "labelColor": "#c62828"
+            },
+            {
+              "x": -2,
+              "y": -2,
+              "label": "(−2, −2)",
+              "labelAnchor": "end",
+              "labelDx": -18,
+              "labelDy": 4.4,
+              "labelColor": "#c62828"
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                1.201,
+                0.844
+              ],
+              "text": "แกนสังยุค (แนวตั้ง)",
+              "anchor": "start",
+              "color": "#c62828"
+            }
+          ]
+        }
+      ],
       "sourceTag": "สมาคมคณิตศาสตร์ฯ 2544",
       "choices": [
         "$x^2 - 2x - 16y - 31 = 0$",
@@ -34974,7 +40067,135 @@
       "level": "medium",
       "score": 1,
       "question": "ถ้าวงรีวงหนึ่งผ่านจุด $(3, 2)$ และมีจุดโฟกัสทั้งสองอยู่ที่จุดโฟกัสทั้งสองของไฮเพอร์โบลา\nซึ่งมีสมการ $7x^2 - 9y^2 + 28x + 36y - 71 = 0$ แล้วสมการของวงรีนี้คือข้อใดต่อไปนี้",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 800,
+          "height": 784,
+          "xRange": [
+            -9,
+            5
+          ],
+          "yRange": [
+            -5,
+            9
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "eu",
+              "kind": "ellipse-arc",
+              "center": [
+                -2,
+                2
+              ],
+              "a": 5,
+              "b": 3,
+              "half": "upper",
+              "color": "#1565c0"
+            },
+            {
+              "id": "el",
+              "kind": "ellipse-arc",
+              "center": [
+                -2,
+                2
+              ],
+              "a": 5,
+              "b": 3,
+              "half": "lower",
+              "color": "#1565c0"
+            },
+            {
+              "id": "hr",
+              "kind": "hyperbola",
+              "center": [
+                -2,
+                2
+              ],
+              "a": 3,
+              "b": 2.64575,
+              "orientation": "horizontal",
+              "branches": "right",
+              "asymptotes": false,
+              "tRange": [
+                -1.35,
+                1.35
+              ],
+              "color": "#c62828"
+            },
+            {
+              "id": "hl",
+              "kind": "hyperbola",
+              "center": [
+                -2,
+                2
+              ],
+              "a": 3,
+              "b": 2.64575,
+              "orientation": "horizontal",
+              "branches": "left",
+              "tRange": [
+                -1.35,
+                1.35
+              ],
+              "color": "#c62828"
+            }
+          ],
+          "dots": [
+            {
+              "x": -2,
+              "y": 2,
+              "label": "ศก.(−2, 2)",
+              "labelAnchor": "middle",
+              "labelDx": -8.18,
+              "labelDy": 29.64
+            },
+            {
+              "x": 2,
+              "y": 2,
+              "label": "F(2, 2)",
+              "labelAnchor": "start",
+              "labelDx": -20.36,
+              "labelDy": -12.36
+            },
+            {
+              "x": -6,
+              "y": 2,
+              "label": "F(−6, 2)",
+              "labelAnchor": "end",
+              "labelDx": 17.63,
+              "labelDy": -14.19
+            },
+            {
+              "x": 3,
+              "y": 2,
+              "label": "(3, 2)",
+              "labelAnchor": "start",
+              "labelDx": 9.82,
+              "labelDy": 0.36,
+              "labelColor": "#1565c0"
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                -5.215,
+                6.349
+              ],
+              "text": "วงรี และ ไฮเพอร์โบลา โฟกัสร่วม (2,2),(−6,2)",
+              "anchor": "start",
+              "color": "#616161"
+            }
+          ]
+        }
+      ],
       "sourceTag": "คัดโอลิมปิก 2547",
       "choices": [
         "$\\dfrac{(x - 3)^2}{16} + \\dfrac{(y + 3)^2}{25} = 1$",
@@ -35017,7 +40238,137 @@
       "level": "medium",
       "score": 1,
       "question": "จงหาสมการของวงรี ซึ่งผ่านจุด $(3, -1)$ และมีจุดยอดทั้งสองอยู่ที่\nจุดโฟกัสทั้งสองของไฮเพอร์โบลา $16x^2 - 9y^2 - 96x + 36y - 36 = 0$",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 800,
+          "height": 784,
+          "xRange": [
+            -4,
+            10
+          ],
+          "yRange": [
+            -5,
+            9
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "eu",
+              "kind": "ellipse-arc",
+              "center": [
+                3,
+                2
+              ],
+              "a": 5,
+              "b": 3,
+              "half": "upper",
+              "color": "#1565c0"
+            },
+            {
+              "id": "el",
+              "kind": "ellipse-arc",
+              "center": [
+                3,
+                2
+              ],
+              "a": 5,
+              "b": 3,
+              "half": "lower",
+              "color": "#1565c0"
+            },
+            {
+              "id": "hr",
+              "kind": "hyperbola",
+              "center": [
+                3,
+                2
+              ],
+              "a": 3,
+              "b": 4,
+              "orientation": "horizontal",
+              "branches": "right",
+              "asymptotes": false,
+              "tRange": [
+                -1.2,
+                1.2
+              ],
+              "color": "#c62828"
+            },
+            {
+              "id": "hl",
+              "kind": "hyperbola",
+              "center": [
+                3,
+                2
+              ],
+              "a": 3,
+              "b": 4,
+              "orientation": "horizontal",
+              "branches": "left",
+              "tRange": [
+                -1.2,
+                1.2
+              ],
+              "color": "#c62828"
+            }
+          ],
+          "dots": [
+            {
+              "x": 3,
+              "y": 2,
+              "label": "ศก.(3, 2)",
+              "labelAnchor": "middle",
+              "labelDx": -8.18,
+              "labelDy": 25.09
+            },
+            {
+              "x": 8,
+              "y": 2,
+              "label": "ยอดวงรี=F H(8, 2)",
+              "labelAnchor": "end",
+              "labelDx": 106.72,
+              "labelDy": 7.64,
+              "labelColor": "#c62828"
+            },
+            {
+              "x": -2,
+              "y": 2,
+              "label": "ยอดวงรี=F H(−2, 2)",
+              "labelAnchor": "start",
+              "labelDx": -113.99,
+              "labelDy": -0.55,
+              "labelColor": "#c62828"
+            },
+            {
+              "x": 3,
+              "y": -1,
+              "label": "(3, −1)",
+              "labelAnchor": "start",
+              "labelDx": -14.73,
+              "labelDy": 24.18,
+              "labelColor": "#1565c0"
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                -4.047,
+                4.353
+              ],
+              "text": "ยอดวงรี = โฟกัสไฮเพอร์โบลา",
+              "anchor": "start",
+              "color": "#616161"
+            }
+          ]
+        }
+      ],
       "sourceTag": "คัดโอลิมปิก 2546",
       "correct": "(x-3)^2/25+(y-2)^2/9=1",
       "accept": [
@@ -35270,7 +40621,163 @@
       "level": "hard",
       "score": 1,
       "question": "ให้วงรีผ่านจุด $\\left(3, \\dfrac{18}{5}\\right)$ และมีโฟกัสร่วมกับไฮเพอร์โบลา $3x^2 - y^2 + 12y - 48 = 0$\nข้อใดต่อไปนี้ผิด",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 800,
+          "height": 784,
+          "xRange": [
+            -7,
+            7
+          ],
+          "yRange": [
+            -1,
+            13
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "eu",
+              "kind": "ellipse-arc",
+              "center": [
+                0,
+                6
+              ],
+              "a": 5,
+              "b": 3,
+              "half": "upper",
+              "color": "#1565c0"
+            },
+            {
+              "id": "el",
+              "kind": "ellipse-arc",
+              "center": [
+                0,
+                6
+              ],
+              "a": 5,
+              "b": 3,
+              "half": "lower",
+              "color": "#1565c0"
+            },
+            {
+              "id": "hr",
+              "kind": "hyperbola",
+              "center": [
+                0,
+                6
+              ],
+              "a": 2,
+              "b": 3.4641,
+              "orientation": "horizontal",
+              "branches": "right",
+              "asymptotes": false,
+              "tRange": [
+                -1.35,
+                1.35
+              ],
+              "color": "#c62828"
+            },
+            {
+              "id": "hl",
+              "kind": "hyperbola",
+              "center": [
+                0,
+                6
+              ],
+              "a": 2,
+              "b": 3.4641,
+              "orientation": "horizontal",
+              "branches": "left",
+              "tRange": [
+                -1.35,
+                1.35
+              ],
+              "color": "#c62828"
+            }
+          ],
+          "dots": [
+            {
+              "x": 0,
+              "y": 6,
+              "label": "ศก.(0, 6)",
+              "labelAnchor": "end",
+              "labelDx": 53.09,
+              "labelDy": -32.37
+            },
+            {
+              "x": 2,
+              "y": 6,
+              "label": "ยอด H(2, 6)",
+              "labelAnchor": "start",
+              "labelDx": 6.82,
+              "labelDy": 4.91,
+              "labelColor": "#c62828"
+            },
+            {
+              "x": -2,
+              "y": 6,
+              "label": "ยอด H(−2, 6)",
+              "labelAnchor": "end",
+              "labelDx": -19.55,
+              "labelDy": 4.91,
+              "labelColor": "#c62828"
+            },
+            {
+              "x": 5,
+              "y": 6,
+              "label": "ยอด E(5, 6)",
+              "labelAnchor": "start",
+              "labelDx": 11.45,
+              "labelDy": 2.19,
+              "labelColor": "#1565c0"
+            },
+            {
+              "x": -5,
+              "y": 6,
+              "label": "ยอด E(−5, 6)",
+              "labelAnchor": "end",
+              "labelDx": -26,
+              "labelDy": -0.55,
+              "labelColor": "#1565c0"
+            },
+            {
+              "x": 4,
+              "y": 6,
+              "label": "F(4, 6)",
+              "labelAnchor": "middle",
+              "labelDx": -0.9,
+              "labelDy": 30.55
+            },
+            {
+              "x": 3,
+              "y": 3.6,
+              "label": "(3, 18/5)",
+              "labelAnchor": "start",
+              "labelDx": 8.91,
+              "labelDy": 16.91,
+              "labelColor": "#1565c0"
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                -7.081,
+                9.965
+              ],
+              "text": "แกนเอก=10, แกนโท=6 (ต่างกัน 4)",
+              "anchor": "start",
+              "color": "#1565c0"
+            }
+          ]
+        }
+      ],
       "sourceTag": "สมาคมคณิตศาสตร์ฯ 2543",
       "choices": [
         "จุดยอดจุดหนึ่งของไฮเพอร์โบลาอยู่ที่ $(-2, 6)$",
@@ -35335,7 +40842,152 @@
       "level": "medium",
       "score": 1,
       "question": "กำหนดให้ P เป็นพาราโบลาซึ่งมีสมการเป็น $x^2 - 2x - 8y - 15 = 0$\nV เป็นจุดยอดของพาราโบลา P และ F เป็นโฟกัสของพาราโบลา P\nข้อใดต่อไปนี้เป็นสมการของไฮเพอร์โบลา H ซึ่งมีโฟกัสอยู่บนพาราโบลา P\nและมี $\\overline{VF}$ เป็นแกนสังยุค",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 800,
+          "height": 574,
+          "xRange": [
+            -6,
+            8
+          ],
+          "yRange": [
+            -4,
+            6
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "pb",
+              "kind": "parabola",
+              "vertex": [
+                1,
+                -2
+              ],
+              "throughPoint": [
+                7,
+                2.5
+              ],
+              "domain": [
+                -5.5,
+                7.5
+              ],
+              "color": "#222",
+              "strokeWidth": 1.6
+            },
+            {
+              "id": "hr",
+              "kind": "hyperbola",
+              "center": [
+                1,
+                -1
+              ],
+              "a": 2.64575,
+              "b": 1,
+              "orientation": "horizontal",
+              "branches": "right",
+              "asymptotes": true,
+              "tRange": [
+                -1.9,
+                1.9
+              ],
+              "color": "#c62828"
+            },
+            {
+              "id": "hl",
+              "kind": "hyperbola",
+              "center": [
+                1,
+                -1
+              ],
+              "a": 2.64575,
+              "b": 1,
+              "orientation": "horizontal",
+              "branches": "left",
+              "tRange": [
+                -1.9,
+                1.9
+              ],
+              "color": "#c62828"
+            }
+          ],
+          "segments": [
+            {
+              "from": [
+                1,
+                -2
+              ],
+              "to": [
+                1,
+                0
+              ],
+              "dashed": true
+            }
+          ],
+          "dots": [
+            {
+              "x": 1,
+              "y": -2,
+              "label": "V(1, −2)",
+              "labelAnchor": "end",
+              "labelDx": 25.82,
+              "labelDy": 27.82
+            },
+            {
+              "x": 1,
+              "y": 0,
+              "label": "F=โฟกัส P(1, 0)",
+              "labelAnchor": "end",
+              "labelDx": 57.64,
+              "labelDy": -29.45
+            },
+            {
+              "x": 1,
+              "y": -1,
+              "label": "ศก.H(1, −1)",
+              "labelAnchor": "start",
+              "labelDx": 17.09,
+              "labelDy": -1.45,
+              "labelColor": "#c62828"
+            },
+            {
+              "x": 3.8284,
+              "y": -1,
+              "label": "F H บน P",
+              "labelAnchor": "start",
+              "labelDx": 12.27,
+              "labelDy": 6.73,
+              "labelColor": "#c62828"
+            },
+            {
+              "x": -1.8284,
+              "y": -1,
+              "label": "F H บน P",
+              "labelAnchor": "end",
+              "labelDx": -23.18,
+              "labelDy": 11.28,
+              "labelColor": "#c62828"
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                1.283,
+                -1.549
+              ],
+              "text": "VF = แกนสังยุค",
+              "anchor": "start",
+              "color": "#222"
+            }
+          ]
+        }
+      ],
       "sourceTag": "สมาคมคณิตศาสตร์ฯ 2549",
       "choices": [
         "$\\dfrac{(x - 1)^2}{7} - \\dfrac{(y + 1)^2}{1} = 1$",
@@ -35583,7 +41235,175 @@
       "level": "medium",
       "score": 1,
       "question": "จุดศูนย์กลางของวงกลมวงหนึ่ง เป็นจุดกึ่งกลางระหว่างจุดศูนย์กลางของกราฟของภาคตัดกรวยทั้ง\nสอง ซึ่งมีสมการเป็น $3x^2 - 8y^2 + 24x + 16y + 16 = 0$ และ $5x^2 + 3y^2 - 20x - 42y + 152 = 0$\nถ้ารัศมีของวงกลมวงนี้ยาวเท่ากับ ความยาวของแกนตามขวางของไฮเพอร์โบลาซึ่งเป็นกราฟของภาค\nตัดกรวยข้างต้น จงหาสมการของวงกลมนี้",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 520,
+          "height": 504,
+          "xRange": [
+            -9,
+            7
+          ],
+          "yRange": [
+            -4,
+            12
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "hr",
+              "kind": "hyperbola",
+              "center": [
+                -4,
+                1
+              ],
+              "a": 2.82843,
+              "b": 1.73205,
+              "orientation": "horizontal",
+              "branches": "right",
+              "asymptotes": false,
+              "tRange": [
+                -1.25,
+                1.25
+              ],
+              "color": "#c62828"
+            },
+            {
+              "id": "hl",
+              "kind": "hyperbola",
+              "center": [
+                -4,
+                1
+              ],
+              "a": 2.82843,
+              "b": 1.73205,
+              "orientation": "horizontal",
+              "branches": "left",
+              "tRange": [
+                -1.25,
+                1.25
+              ],
+              "color": "#c62828"
+            },
+            {
+              "id": "eu",
+              "kind": "ellipse-arc",
+              "center": [
+                2,
+                7
+              ],
+              "a": 1.73205,
+              "b": 2.23607,
+              "half": "upper",
+              "color": "#8e24aa"
+            },
+            {
+              "id": "el",
+              "kind": "ellipse-arc",
+              "center": [
+                2,
+                7
+              ],
+              "a": 1.73205,
+              "b": 2.23607,
+              "half": "lower",
+              "color": "#8e24aa"
+            },
+            {
+              "id": "cu",
+              "kind": "ellipse-arc",
+              "center": [
+                -1,
+                4
+              ],
+              "a": 5.65685,
+              "b": 5.65685,
+              "half": "upper",
+              "color": "#1565c0"
+            },
+            {
+              "id": "cl",
+              "kind": "ellipse-arc",
+              "center": [
+                -1,
+                4
+              ],
+              "a": 5.65685,
+              "b": 5.65685,
+              "half": "lower",
+              "color": "#1565c0"
+            }
+          ],
+          "segments": [
+            {
+              "from": [
+                -4,
+                1
+              ],
+              "to": [
+                2,
+                7
+              ],
+              "dashed": true
+            }
+          ],
+          "dots": [
+            {
+              "x": -4,
+              "y": 1,
+              "label": "ศก.ไฮเพอร์โบลา(−4, 1)",
+              "labelAnchor": "start",
+              "labelDx": -49.33,
+              "labelDy": 14.66,
+              "labelColor": "#c62828"
+            },
+            {
+              "x": 2,
+              "y": 7,
+              "label": "ศก.วงรี(2, 7)",
+              "labelAnchor": "start",
+              "labelDx": -36.66,
+              "labelDy": -16.67,
+              "labelColor": "#8e24aa"
+            },
+            {
+              "x": -1,
+              "y": 4,
+              "label": "ศก.วงกลม=กึ่งกลาง(−1, 4)",
+              "labelAnchor": "start",
+              "labelDx": -148,
+              "labelDy": -14.01,
+              "labelColor": "#1565c0"
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                -8.948,
+                10.9
+              ],
+              "text": "รัศมี = แกนตามขวางของไฮเพอร์โบลา",
+              "anchor": "start",
+              "color": "#1565c0"
+            },
+            {
+              "at": [
+                -8.948,
+                9.9
+              ],
+              "text": "= 2(2\\sqrt{2}) = \\sqrt{32}",
+              "anchor": "start",
+              "color": "#1565c0"
+            }
+          ]
+        }
+      ],
       "sourceTag": "ทุนเล่าเรียนหลวง (กพ.) 2537",
       "correct": "(x+1)^2+(y-4)^2=32",
       "accept": [
@@ -35632,7 +41452,88 @@
       "level": "medium",
       "score": 1,
       "question": "กำหนดความสัมพันธ์ $r = \\{(x, y) \\in \\mathbb{R} \\times \\mathbb{R} \\mid x^2 - 2x - y^2 - 4y - 3 = 0\\}$\nโดเมนและเรนจ์ของ r เป็นอย่างไร",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 500,
+          "height": 484,
+          "xRange": [
+            -6,
+            8
+          ],
+          "yRange": [
+            -9,
+            5
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "L1",
+              "kind": "polynomial",
+              "coefs": [
+                1,
+                -3
+              ],
+              "domain": [
+                -6,
+                8
+              ],
+              "color": "#c62828",
+              "strokeWidth": 1.6
+            },
+            {
+              "id": "L2",
+              "kind": "polynomial",
+              "coefs": [
+                -1,
+                -1
+              ],
+              "domain": [
+                -6,
+                8
+              ],
+              "color": "#2e7d32",
+              "strokeWidth": 1.6
+            }
+          ],
+          "dots": [
+            {
+              "x": 1,
+              "y": -2,
+              "label": "จุดตัด(1, −2)",
+              "labelAnchor": "start",
+              "labelDx": 28,
+              "labelDy": 5
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                0.446,
+                4.178
+              ],
+              "text": "(x−1)² = (y+2)² → เส้นตรง 2 เส้น",
+              "anchor": "start",
+              "color": "#616161"
+            },
+            {
+              "at": [
+                -5.696,
+                0.727
+              ],
+              "text": "โดเมน = เรนจ์ = ℝ",
+              "anchor": "start",
+              "color": "#616161"
+            }
+          ]
+        }
+      ],
       "sourceTag": "คัดโอลิมปิก 2534",
       "choices": [
         "เป็นช่วงปิดทั้งคู่",
@@ -35679,7 +41580,124 @@
       "level": "medium",
       "score": 1,
       "question": "กำหนด $A = \\{(x, y) \\mid x$ และ $y$ เป็นจำนวนเต็ม และ $x^2 + 4x + y^2 = 9\\}$\nแล้ว A มีสมาชิกกี่ตัว",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 460,
+          "height": 444,
+          "xRange": [
+            -7,
+            3
+          ],
+          "yRange": [
+            -5,
+            5
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "cu",
+              "kind": "ellipse-arc",
+              "center": [
+                -2,
+                0
+              ],
+              "a": 3.60555,
+              "b": 3.60555,
+              "half": "upper",
+              "color": "#1565c0"
+            },
+            {
+              "id": "cl",
+              "kind": "ellipse-arc",
+              "center": [
+                -2,
+                0
+              ],
+              "a": 3.60555,
+              "b": 3.60555,
+              "half": "lower",
+              "color": "#1565c0"
+            }
+          ],
+          "dots": [
+            {
+              "x": 0,
+              "y": 3,
+              "labelColor": "#c62828"
+            },
+            {
+              "x": 0,
+              "y": -3,
+              "labelColor": "#c62828"
+            },
+            {
+              "x": -4,
+              "y": 3,
+              "labelColor": "#c62828"
+            },
+            {
+              "x": -4,
+              "y": -3,
+              "labelColor": "#c62828"
+            },
+            {
+              "x": 1,
+              "y": 2,
+              "labelColor": "#c62828"
+            },
+            {
+              "x": 1,
+              "y": -2,
+              "labelColor": "#c62828"
+            },
+            {
+              "x": -5,
+              "y": 2,
+              "labelColor": "#c62828"
+            },
+            {
+              "x": -5,
+              "y": -2,
+              "labelColor": "#c62828"
+            },
+            {
+              "x": -2,
+              "y": 0,
+              "label": "ศก.(−2, 0)",
+              "labelAnchor": "end",
+              "labelDx": 24,
+              "labelDy": 32
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                -6.35,
+                4.625
+              ],
+              "text": "จุดพิกัดจำนวนเต็ม 8 จุด",
+              "anchor": "start",
+              "color": "#c62828"
+            },
+            {
+              "at": [
+                -6.875,
+                3.725
+              ],
+              "text": "(0,±3),(−4,±3),(1,±2),(−5,±2)",
+              "anchor": "start",
+              "color": "#c62828"
+            }
+          ]
+        }
+      ],
       "sourceTag": "คัดโอลิมปิก 2534",
       "correct": "8",
       "accept": [
@@ -35720,7 +41738,105 @@
       "level": "medium",
       "score": 1,
       "question": "ให้ P คือจุด $(1, 1)$ และ O คือจุด $(0, 0)$\nกราฟของจุด Q ทั้งหมดในระนาบ XY ที่สอดคล้องกับสมการ $2(PQ)^2 - 3(OQ)^2 = 8$\nคือข้อใดต่อไปนี้",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 420,
+          "height": 404,
+          "xRange": [
+            -6,
+            4
+          ],
+          "yRange": [
+            -6,
+            4
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "cu",
+              "kind": "ellipse-arc",
+              "center": [
+                -2,
+                -2
+              ],
+              "a": 2,
+              "b": 2,
+              "half": "upper",
+              "color": "#1565c0"
+            },
+            {
+              "id": "cl",
+              "kind": "ellipse-arc",
+              "center": [
+                -2,
+                -2
+              ],
+              "a": 2,
+              "b": 2,
+              "half": "lower",
+              "color": "#1565c0"
+            }
+          ],
+          "segments": [
+            {
+              "from": [
+                0,
+                0
+              ],
+              "to": [
+                1,
+                1
+              ],
+              "dashed": true
+            }
+          ],
+          "dots": [
+            {
+              "x": -2,
+              "y": -2,
+              "label": "ศก.(−2, −2)",
+              "labelAnchor": "start",
+              "labelDx": -22.67,
+              "labelDy": 20,
+              "labelColor": "#1565c0"
+            },
+            {
+              "x": 1,
+              "y": 1,
+              "label": "P(1, 1)",
+              "labelAnchor": "start",
+              "labelDx": 6,
+              "labelDy": -4
+            },
+            {
+              "x": 0,
+              "y": 0,
+              "label": "O(0, 0)",
+              "labelAnchor": "start",
+              "labelDx": 7.34,
+              "labelDy": 15.33
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                -6.137,
+                2.863
+              ],
+              "text": "2PQ² − 3OQ² = 8 → วงกลม r=2",
+              "anchor": "start",
+              "color": "#1565c0"
+            }
+          ]
+        }
+      ],
       "sourceTag": "คัดโอลิมปิก 2543",
       "choices": [
         "เส้นตรง",
@@ -35776,7 +41892,121 @@
       "level": "medium",
       "score": 1,
       "question": "ถ้าเซตของจุด $P(x, y)$ ใดๆ บนระนาบ ซึ่งผลคูณของความชันของเส้นที่เชื่อมระหว่าง P กับ $A(0, 8)$\nและ P กับ $B(0, -8)$ มีค่าคงที่เป็น 4 แล้ว เซตของจุด P จะเป็นกราฟที่มีคุณสมบัติดังข้อใด",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 520,
+          "height": 504,
+          "xRange": [
+            -12,
+            12
+          ],
+          "yRange": [
+            -12,
+            12
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "hu",
+              "kind": "hyperbola",
+              "center": [
+                0,
+                0
+              ],
+              "a": 8,
+              "b": 4,
+              "orientation": "vertical",
+              "branches": "up",
+              "asymptotes": true,
+              "tRange": [
+                -1.15,
+                1.15
+              ],
+              "color": "#c62828"
+            },
+            {
+              "id": "hd",
+              "kind": "hyperbola",
+              "center": [
+                0,
+                0
+              ],
+              "a": 8,
+              "b": 4,
+              "orientation": "vertical",
+              "branches": "down",
+              "tRange": [
+                -1.15,
+                1.15
+              ],
+              "color": "#c62828"
+            }
+          ],
+          "dots": [
+            {
+              "x": 0,
+              "y": 8,
+              "label": "A(0, 8) = ยอด",
+              "labelAnchor": "start",
+              "labelDx": 5,
+              "labelDy": 21
+            },
+            {
+              "x": 0,
+              "y": -8,
+              "label": "B(0, −8) = ยอด",
+              "labelAnchor": "start",
+              "labelDx": 7,
+              "labelDy": -16
+            },
+            {
+              "x": 0,
+              "y": 8.9443,
+              "label": "F₁",
+              "labelAnchor": "end",
+              "labelDx": 23,
+              "labelDy": -3,
+              "labelColor": "#c62828"
+            },
+            {
+              "x": 0,
+              "y": -8.9443,
+              "label": "F₂",
+              "labelAnchor": "end",
+              "labelDx": 22,
+              "labelDy": 9,
+              "labelColor": "#c62828"
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                -11.496,
+                7.261
+              ],
+              "text": "y²/64 − x²/16 = 1",
+              "anchor": "start",
+              "color": "#616161"
+            },
+            {
+              "at": [
+                -11.757,
+                4.235
+              ],
+              "text": "โฟกัส F₁,F₂ = (0, ±4\\sqrt{5})",
+              "anchor": "start",
+              "color": "#c62828"
+            }
+          ]
+        }
+      ],
       "sourceTag": "โควตา มช. 2547",
       "choices": [
         "จุดโฟกัสอยู่ที่ $(0, 4\\sqrt{5})$ และ $(0, -4\\sqrt{5})$",
@@ -35828,7 +42058,109 @@
       "level": "easy",
       "score": 1,
       "question": "$\\sqrt{(1 + x)^2 + (2 - y)^2} = |x + 2|$ เป็นสมการของกราฟแบบใด",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 800,
+          "height": 662,
+          "xRange": [
+            -4,
+            8
+          ],
+          "yRange": [
+            -3,
+            7
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "pb",
+              "kind": "parabola-h",
+              "vertex": [
+                -1.5,
+                2
+              ],
+              "throughPoint": [
+                3,
+                5
+              ],
+              "yDomain": [
+                -1.2,
+                5.2
+              ],
+              "color": "#222",
+              "strokeWidth": 1.6
+            }
+          ],
+          "segments": [
+            {
+              "from": [
+                -2,
+                -3
+              ],
+              "to": [
+                -2,
+                7
+              ],
+              "dashed": true
+            }
+          ],
+          "dots": [
+            {
+              "x": -1,
+              "y": 2,
+              "label": "โฟกัส(−1, 2)",
+              "labelAnchor": "start",
+              "labelDx": -20,
+              "labelDy": -27,
+              "labelColor": "#c62828"
+            },
+            {
+              "x": -1.5,
+              "y": 2,
+              "label": "ยอด(−3/2, 2)",
+              "labelAnchor": "end",
+              "labelDx": -40,
+              "labelDy": 7
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                -4.21,
+                4.211
+              ],
+              "text": "ระยะถึงจุด (−1,2) = ระยะถึงเส้น x=−2",
+              "anchor": "start",
+              "color": "#616161"
+            },
+            {
+              "at": [
+                -4.163,
+                3.868
+              ],
+              "text": "→ พาราโบลา",
+              "anchor": "start",
+              "color": "#616161"
+            },
+            {
+              "at": [
+                -1.837,
+                -2.336
+              ],
+              "text": "ไดเรกตริกซ์ x=−2",
+              "anchor": "start",
+              "color": "#1565c0"
+            }
+          ]
+        }
+      ],
       "sourceTag": "คัดโอลิมปิก 2534",
       "choices": [
         "เส้นตรง",
@@ -35871,7 +42203,95 @@
       "level": "medium",
       "score": 1,
       "question": "กราฟของสมการ $x = -5 + \\dfrac{2}{3}\\sqrt{8 + 2y - y^2}$ มีลักษณะอย่างไร",
-      "hasImage": false,
+      "hasImage": true,
+      "imageSpec": [
+        {
+          "type": "function-plot",
+          "width": 440,
+          "height": 424,
+          "xRange": [
+            -9,
+            1
+          ],
+          "yRange": [
+            -4,
+            6
+          ],
+          "axes": {
+            "arrows": true,
+            "xLabel": "x",
+            "yLabel": "y",
+            "originLabel": "O"
+          },
+          "functions": [
+            {
+              "id": "er",
+              "kind": "ellipse-arc",
+              "center": [
+                -5,
+                1
+              ],
+              "a": 2,
+              "b": 3,
+              "half": "right",
+              "color": "#1565c0",
+              "strokeWidth": 1.8
+            },
+            {
+              "id": "el",
+              "kind": "ellipse-arc",
+              "center": [
+                -5,
+                1
+              ],
+              "a": 2,
+              "b": 3,
+              "half": "left",
+              "color": "#bdbdbd",
+              "dashed": true
+            }
+          ],
+          "dots": [
+            {
+              "x": -5,
+              "y": 1,
+              "label": "ศก.(−5, 1)",
+              "labelAnchor": "end",
+              "labelDx": 22,
+              "labelDy": -22.4
+            },
+            {
+              "x": -3,
+              "y": 1,
+              "label": "(−3, 1)",
+              "labelAnchor": "start",
+              "labelDx": 8,
+              "labelDy": -4,
+              "labelColor": "#1565c0"
+            }
+          ],
+          "annotations": [
+            {
+              "at": [
+                -8.6,
+                5.4
+              ],
+              "text": "x ≥ −5 → วงรีครึ่งซีกขวา",
+              "anchor": "start",
+              "color": "#1565c0"
+            },
+            {
+              "at": [
+                -8.6,
+                4.5
+              ],
+              "text": "(x+5)²/4 + (y−1)²/9 = 1",
+              "anchor": "start",
+              "color": "#616161"
+            }
+          ]
+        }
+      ],
       "sourceTag": "คัดโอลิมปิก 2534",
       "choices": [
         "วงกลม",
