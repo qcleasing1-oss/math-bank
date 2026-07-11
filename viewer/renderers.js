@@ -3372,6 +3372,67 @@ function renderCashflowTimeline(spec) {
   return o.join("\n");
 }
 
+
+// ===== prob-dist-bar (บท 12 · ตัวแปรสุ่ม) — added with gen-chap-12 RV images =====
+function renderProbDistBar(spec) {
+  const ML=64, MR=30, MT=42, MB=52, PLOT_W=520, PLOT_H=210;
+  const BAR="#3b82b6", BARTOP="#2b6cb0", PIN="#e0731f", AX="#333", GRID="#e5e7eb";
+  const esc = s => (s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+  const fnum = v => { v=Math.round(parseFloat(v)*10000)/10000;
+    return Math.abs(v-Math.round(v))<1e-9 ? String(Math.round(v)) : String(v).replace(/(\.\d*?)0+$/,"$1").replace(/\.$/,""); };
+  const vals=spec.values||[];
+  const xs=vals.map(v=>parseFloat(v.x)), ps=vals.map(v=>parseFloat(v.p));
+  const xmin=Math.min(...xs), xmax=Math.max(...xs);
+  const span=(xmax-xmin)||1;
+  const pmax=Math.max(...ps);
+  let step=0.05;
+  for(const s of [0.05,0.1,0.2,0.25,0.5,1.0]){ const n=Math.floor(pmax/s)+1; if(n>=4&&n<=6){step=s;break;} }
+  const nt=Math.max(2,Math.floor(pmax/step)+1), ymax=nt*step;
+  const gaps=[]; for(let i=0;i<xs.length-1;i++) gaps.push(Math.abs(xs[i+1]-xs[i]));
+  const posg=gaps.filter(g=>g>0);
+  const ming = posg.length?Math.min(...posg):span;
+  const bw=Math.max(10,Math.min(54,(ming/span)*PLOT_W*0.5));
+  const pad=bw/2+10, EW=PLOT_W-2*pad;
+  const labels=ps.map(p=>fnum(p));
+  const nb=xs.length, spacing=nb>1?EW/(nb-1):EW;
+  const maxlab=Math.max(...labels.map(l=>l.length))*6.0;
+  const vertical = maxlab > spacing*0.92;
+  const top_extra = vertical?(maxlab+18):0;
+  const MT2=MT+top_extra;
+  const W=ML+PLOT_W+MR, H=MT2+PLOT_H+MB;
+  const x0=ML, x1=ML+PLOT_W, y0=MT2+PLOT_H, ytop=MT2;
+  const Y = p => y0-(p/ymax)*PLOT_H;
+  const X = v => span ? x0+pad+(v-xmin)/span*EW : (x0+x1)/2;
+  const o=[`<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H.toFixed(0)}" viewBox="0 0 ${W} ${H.toFixed(0)}" font-family="Sarabun,sans-serif">`];
+  o.push(`<rect width="${W}" height="${H.toFixed(0)}" fill="#ffffff"/>`);
+  if(spec.caption) o.push(`<text x="${ML}" y="24" font-size="15" font-weight="700" fill="#333">${esc(spec.caption)}</text>`);
+  for(let i=0;i<=nt;i++){ const val=i*step, yy=y0-(val/ymax)*PLOT_H;
+    o.push(`<line x1="${x0}" y1="${yy.toFixed(1)}" x2="${x1}" y2="${yy.toFixed(1)}" stroke="${GRID}" stroke-width="1"/>`);
+    o.push(`<text x="${x0-8}" y="${(yy+4).toFixed(1)}" font-size="11" text-anchor="end" fill="#555">${fnum(val)}</text>`); }
+  o.push(`<line x1="${x0}" y1="${ytop.toFixed(0)}" x2="${x0}" y2="${y0.toFixed(0)}" stroke="${AX}" stroke-width="1.5"/>`);
+  o.push(`<line x1="${x0}" y1="${y0.toFixed(0)}" x2="${x1}" y2="${y0.toFixed(0)}" stroke="${AX}" stroke-width="1.5"/>`);
+  const ymid=ytop+Math.floor(PLOT_H/2);
+  o.push(`<text x="${x0-46}" y="${ymid.toFixed(0)}" font-size="12" fill="#555" transform="rotate(-90 ${x0-46} ${ymid.toFixed(0)})" text-anchor="middle">${esc(spec.yLabel||"P(X=x)")}</text>`);
+  o.push(`<text x="${x1}" y="${(y0+40).toFixed(0)}" font-size="12" fill="#555" text-anchor="end">x</text>`);
+  for(let i=0;i<xs.length;i++){ const cx=X(xs[i]), by=Y(ps[i]);
+    o.push(`<rect x="${(cx-bw/2).toFixed(1)}" y="${by.toFixed(1)}" width="${bw.toFixed(1)}" height="${(y0-by).toFixed(1)}" fill="${BAR}" stroke="${BARTOP}" stroke-width="1" rx="2"/>`);
+    if(vertical){ const yy=by-5;
+      o.push(`<text x="${cx.toFixed(1)}" y="${yy.toFixed(1)}" font-size="10" text-anchor="end" transform="rotate(90 ${cx.toFixed(1)} ${yy.toFixed(1)})" fill="#111">${labels[i]}</text>`);
+    } else {
+      o.push(`<text x="${cx.toFixed(1)}" y="${(by-6).toFixed(1)}" font-size="11" text-anchor="middle" fill="#111">${labels[i]}</text>`); }
+    o.push(`<text x="${cx.toFixed(1)}" y="${(y0+18).toFixed(1)}" font-size="12" text-anchor="middle" fill="#222">${fnum(xs[i])}</text>`); }
+  if(spec.ex!==undefined && spec.ex!==null){ const ex=parseFloat(spec.ex), px=X(ex);
+    o.push(`<line x1="${px.toFixed(1)}" y1="${(ytop-4).toFixed(0)}" x2="${px.toFixed(1)}" y2="${y0.toFixed(0)}" stroke="${PIN}" stroke-width="2" stroke-dasharray="5 3"/>`);
+    o.push(`<path d="M ${px.toFixed(1)} ${y0.toFixed(0)} L ${(px-6).toFixed(1)} ${(y0+11).toFixed(0)} L ${(px+6).toFixed(1)} ${(y0+11).toFixed(0)} Z" fill="${PIN}"/>`);
+    const lab=spec.exLabel||("E[X] = "+fnum(ex));
+    const laby=vertical?(ytop-maxlab-8):(ytop-8);
+    let anchor="middle", lx=Math.min(Math.max(px,x0+4),x1-4);
+    if(px>x1-70){anchor="end";lx=px;} if(px<x0+70){anchor="start";lx=px;}
+    o.push(`<text x="${lx.toFixed(1)}" y="${laby.toFixed(0)}" font-size="12.5" font-weight="700" text-anchor="${anchor}" fill="${PIN}">${esc(lab)}</text>`); }
+  o.push("</svg>");
+  return o.join("\n");
+}
+
 function renderImage(spec){
   if(!spec) return null;
   // Array of specs → render each, wrap in horizontal flex container
@@ -3384,6 +3445,8 @@ function renderImage(spec){
   }
   if(!spec.type) return null;
   switch(spec.type){
+    case 'prob-dist-bar':
+      return renderProbDistBar(spec);
     case 'cashflow-timeline':
       return renderCashflowTimeline(spec);
     case 'argand-plane':
