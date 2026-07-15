@@ -2068,6 +2068,36 @@
         "exportedAt": "2026-07-11",
         "note": "แต่งใหม่ v1 · 2569 จาก seed brief บท 12 ฝั่ง RV · sympy/numpy verify + POST-FLIGHT 0 + blind-solve 100/100 · หน่วย R1-R5 (ตารางแจกแจง/E[X]/Var/aX+b/ทวินาม) · subTopics [15] ที่ R4 · hasImage=false (renderer prob-dist-bar ไว้ retrofit) · ไม่มี 'ยากมาก' (tier นั้นจากฝั่งการนับ)"
       }
+    },
+    "gen-chap-01-set": {
+      "source": "ข้อสอบรายบท (แต่งใหม่)",
+      "subject": "เซต",
+      "displayName": "บทที่ 1 เซต (แต่งใหม่ 200 ข้อ · แข่งขัน)",
+      "totalQuestions": 200,
+      "totalScore": 200,
+      "structure": {
+        "part1": "ข้อสอบแต่งใหม่ 200 ข้อ ระดับแข่งขัน/สอวน. · ทุกข้อคนละแนวคิด · สไตล์ข้อสอบจริง · ยากมากแนวโอลิมปิก · subTopics ระบุความรู้ข้ามบท"
+      },
+      "topicDistribution": {
+        "1": 200
+      },
+      "difficulty": {
+        "level": "แข่งขัน",
+        "breakdown": {
+          "ง่าย": 60,
+          "ปานกลาง": 70,
+          "ยาก": 50,
+          "ยากมาก": 20
+        }
+      },
+      "snapshot": {
+        "round": 3,
+        "stage": "authored v3 — pending approve",
+        "questionsCompleted": 200,
+        "questionsRemaining": 0,
+        "exportedAt": "2026-07-15",
+        "note": "v3 · rendering ไทยนอก $ · ไม่ใช้ △ · subTopics ครบ (เซตล้วน 75, +การนับ 80, +ทฤษฎีจำนวน 45) · ทุกข้อคนละแนวคิด · validation 0 + POST-FLIGHT 0 + blind-solve 200/200 · mc 47:fill 153"
+      }
     }
   }
 }
