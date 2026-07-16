@@ -2098,6 +2098,36 @@
         "exportedAt": "2026-07-15",
         "note": "v3 · rendering ไทยนอก $ · ไม่ใช้ △ · subTopics ครบ (เซตล้วน 75, +การนับ 80, +ทฤษฎีจำนวน 45) · ทุกข้อคนละแนวคิด · validation 0 + POST-FLIGHT 0 + blind-solve 200/200 · mc 47:fill 153"
       }
+    },
+    "gen-chap-02-logic": {
+      "source": "ข้อสอบรายบท (แต่งใหม่)",
+      "subject": "ตรรกศาสตร์",
+      "displayName": "บทที่ 2 ตรรกศาสตร์ (แต่งใหม่ 200 ข้อ · แข่งขัน)",
+      "totalQuestions": 200,
+      "totalScore": 200,
+      "structure": {
+        "part1": "ข้อสอบแต่งใหม่ 200 ข้อ ระดับแข่งขัน/สอวน. · ทุกข้อคนละแนวคิด · ยากมากครบ 4 แนว (อัศวิน-คนโกหก, นับค่าความจริง/บูล, ตัวบ่งปริมาณซ้อน+ผสมบท, พิสูจน์หลายเหตุ) · รูปตารางค่าความจริง"
+      },
+      "topicDistribution": {
+        "2": 200
+      },
+      "difficulty": {
+        "level": "แข่งขัน",
+        "breakdown": {
+          "ง่าย": 60,
+          "ปานกลาง": 70,
+          "ยาก": 50,
+          "ยากมาก": 20
+        }
+      },
+      "snapshot": {
+        "round": 1,
+        "stage": "authored v1 — pending approve",
+        "questionsCompleted": 200,
+        "questionsRemaining": 0,
+        "exportedAt": "2026-07-16",
+        "note": "v1 · ฟอนต์ไทยนอก $ · นิเสธ ~ ({\\sim}) · เหตุหลายข้อขึ้นบรรทัดใหม่ · renderer truth-table ใหม่ · machine-verify 200/200 + blind-solve 200/200 · mc 170:fill 30 · รูป 19"
+      }
     }
   }
 }

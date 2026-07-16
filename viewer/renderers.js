@@ -3465,6 +3465,8 @@ function renderImage(spec){
       return renderPolygonLabeled(spec);
     case 'stem-leaf':
       return renderStemLeaf(spec);
+    case 'truth-table':
+      return renderTruthTable(spec);
     case 'venn-diagram':
       return renderVennDiagram(spec);
     case '3set-labeled':
@@ -4362,4 +4364,101 @@ function renderLShapeGrid(spec){
     svg+=`<text x="${(x0+horizCount*cell+8).toFixed(2)}" y="${(cornerY+cell/2+5).toFixed(2)}" font-size="14" fill="#222" text-anchor="start">${spec.horizLabel}</text>`;
   }
   return svg+'</svg>';
+}
+// ----- renderer: truth-table (บทตรรกศาสตร์) -----
+// Spec fields:
+//   type: "truth-table"
+//   headers: ["p","q","p→q"]        // column headers — use UNICODE logic ops (¬ ∧ ∨ → ↔), NOT LaTeX
+//   rows: [["T","T","T"], ...]       // each row = strings per column ("T"/"F"/"?"/custom)
+//   highlightCol: <int>              // optional: 0-based index of a column to emphasize (final expr)
+//   highlightRows: [<int>,...]       // optional: 0-based row indices to shade (e.g. rows making expr true)
+//   dividerAfter: <int>              // optional: draw a thicker vertical rule after this column (split vars | exprs)
+//   caption: "..."                   // optional title strip
+//   width: <int>                     // optional
+// DESIGN: pure SVG grid. Header row shaded; T = ink, F = muted; highlightCol tinted; highlightRows tinted.
+// No LaTeX/MathJax — SVG text only. All glyphs (T/F/¬/∧/∨/→/↔/?) render natively.
+function renderTruthTable(spec){
+  if(!spec || spec.type !== 'truth-table') return null;
+  const esc = s => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  const headers = Array.isArray(spec.headers) ? spec.headers : [];
+  const rows = Array.isArray(spec.rows) ? spec.rows : [];
+  if(!headers.length || !rows.length) return null;
+  const nCol = headers.length;
+
+  // ---- geometry ----
+  const chW = 8.4;                 // approx char width at 15px
+  const padX = 12, minCol = 40;
+  // column widths from longest cell/header
+  const colW = [];
+  for(let c=0;c<nCol;c++){
+    let m = String(headers[c]||'').length;
+    for(const r of rows) m = Math.max(m, String((r&&r[c])!=null?r[c]:'').length);
+    colW.push(Math.max(minCol, m*chW + padX*2));
+  }
+  const rowH = 30, headH = 34, capH = spec.caption ? 28 : 0;
+  const tblW = colW.reduce((a,b)=>a+b,0);
+  const capW = spec.caption ? String(spec.caption).length*8.6 + 24 : 0;
+  const W = spec.width || Math.max(tblW + 4, Math.ceil(capW));
+  const H = capH + headH + rows.length*rowH + 4;
+
+  const INK = '#222', MUTE = '#b0a894', RULE = '#3a3424';
+  const HEADBG = '#efe9db', HLCOL = '#fbf3d9', HLROW = '#eef4ea', GRID = '#c9c2b0';
+  const x0 = (W - tblW)/2;
+
+  // column x-offsets
+  const cx = [x0]; for(let c=0;c<nCol;c++) cx.push(cx[c]+colW[c]);
+
+  let svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="${W}" font-family="'Sarabun','Noto Sans Thai',sans-serif">`;
+
+  if(spec.caption){
+    svg += `<text x="${W/2}" y="18" text-anchor="middle" font-size="14" fill="${RULE}" font-weight="700">${spec.caption}</text>`;
+  }
+  const yTop = capH;
+
+  // highlight column background (whole column incl header)
+  if(Number.isInteger(spec.highlightCol) && spec.highlightCol>=0 && spec.highlightCol<nCol){
+    const c = spec.highlightCol;
+    svg += `<rect x="${cx[c]}" y="${yTop}" width="${colW[c]}" height="${headH+rows.length*rowH}" fill="${HLCOL}"/>`;
+  }
+  // highlighted rows background
+  const hlrows = new Set(Array.isArray(spec.highlightRows)?spec.highlightRows:[]);
+  for(let r=0;r<rows.length;r++){
+    if(hlrows.has(r)){
+      svg += `<rect x="${x0}" y="${yTop+headH+r*rowH}" width="${tblW}" height="${rowH}" fill="${HLROW}"/>`;
+    }
+  }
+  // header background
+  svg += `<rect x="${x0}" y="${yTop}" width="${tblW}" height="${headH}" fill="${HEADBG}"/>`;
+
+  // grid lines
+  for(let c=0;c<=nCol;c++){
+    const thick = (Number.isInteger(spec.dividerAfter) && c===spec.dividerAfter+1);
+    svg += `<line x1="${cx[c]}" y1="${yTop}" x2="${cx[c]}" y2="${yTop+headH+rows.length*rowH}" stroke="${thick?RULE:GRID}" stroke-width="${thick?2:1}"/>`;
+  }
+  for(let r=0;r<=rows.length;r++){
+    const y = yTop+headH+r*rowH;
+    svg += `<line x1="${x0}" y1="${y}" x2="${x0+tblW}" y2="${y}" stroke="${GRID}" stroke-width="1"/>`;
+  }
+  // outer + header rule
+  svg += `<rect x="${x0}" y="${yTop}" width="${tblW}" height="${headH+rows.length*rowH}" fill="none" stroke="${RULE}" stroke-width="1.5"/>`;
+  svg += `<line x1="${x0}" y1="${yTop+headH}" x2="${x0+tblW}" y2="${yTop+headH}" stroke="${RULE}" stroke-width="1.5"/>`;
+
+  // header text
+  for(let c=0;c<nCol;c++){
+    const hx = cx[c]+colW[c]/2;
+    svg += `<text x="${hx}" y="${yTop+headH/2+5}" text-anchor="middle" font-size="15" font-weight="700" fill="${INK}">${esc(String(headers[c]))}</text>`;
+  }
+  // body cells
+  for(let r=0;r<rows.length;r++){
+    for(let c=0;c<nCol;c++){
+      const v = (rows[r]&&rows[r][c]!=null)?String(rows[r][c]):'';
+      const isF = v==='F', isT = v==='T';
+      const col = isF?MUTE:INK;
+      const fw = (Number.isInteger(spec.highlightCol)&&c===spec.highlightCol)?'700':(isT||isF?'600':'400');
+      const tx = cx[c]+colW[c]/2, ty = yTop+headH+r*rowH+rowH/2+5;
+      svg += `<text x="${tx}" y="${ty}" text-anchor="middle" font-size="15" font-weight="${fw}" fill="${col}">${esc(v)}</text>`;
+    }
+  }
+  svg += `</svg>`;
+  return svg;
 }
