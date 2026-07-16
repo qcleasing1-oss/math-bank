@@ -2128,6 +2128,36 @@
         "exportedAt": "2026-07-16",
         "note": "v1 · ฟอนต์ไทยนอก $ · นิเสธ ~ ({\\sim}) · เหตุหลายข้อขึ้นบรรทัดใหม่ · renderer truth-table ใหม่ · machine-verify 200/200 + blind-solve 200/200 · mc 170:fill 30 · รูป 19"
       }
+    },
+    "gen-chap-03-real": {
+      "source": "ข้อสอบรายบท (แต่งใหม่)",
+      "subject": "จำนวนจริง",
+      "displayName": "บทที่ 3 จำนวนจริง (แต่งใหม่ · แข่งขัน · ชุด 1/4)",
+      "totalQuestions": 106,
+      "totalScore": 106,
+      "structure": {
+        "part1": "ชุดที่ 1 จาก 400 ข้อ (ส่งทีละ 100) · แข่งขัน/สอวน. · สมการ-อสมการ (เส้นจำนวน) · ค่าสัมบูรณ์ซ้อน · เศษเหลือ/หารสังเคราะห์/รากตรรกยะ · ยากมากหลากแนว"
+      },
+      "topicDistribution": {
+        "3": 106
+      },
+      "difficulty": {
+        "level": "แข่งขัน",
+        "breakdown": {
+          "ง่าย": 22,
+          "ปานกลาง": 33,
+          "ยาก": 39,
+          "ยากมาก": 12
+        }
+      },
+      "snapshot": {
+        "round": 1,
+        "stage": "ชุด 1/4 · ปรับระดับตามครู",
+        "questionsCompleted": 106,
+        "questionsRemaining": 294,
+        "exportedAt": "2026-07-16",
+        "note": "ชุด 1/4 · ยากมาก 12 (ขาด 3 ชดเชยชุดถัดไป) · sympy 106/106 + blind-solve · เส้นจำนวน green-above-axis"
+      }
     }
   }
 }
