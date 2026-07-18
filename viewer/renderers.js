@@ -3445,6 +3445,8 @@ function renderImage(spec){
   }
   if(!spec.type) return null;
   switch(spec.type){
+    case 'analytic-geo':
+      return renderAnalyticGeo(spec);
     case 'prob-dist-bar':
       return renderProbDistBar(spec);
     case 'cashflow-timeline':
@@ -4462,3 +4464,140 @@ function renderTruthTable(spec){
   svg += `</svg>`;
   return svg;
 }
+
+// ===== analytic-geo (บท 4 เรขาคณิตวิเคราะห์) — comprehensive coordinate-plane renderer =====
+// spec: {type:'analytic-geo', width,height, xRange:[xm,xX], yRange:[ym,yX], grid:true,
+//   title:"...", elements:[ ... ]}
+// element kinds:
+//  point   {kind:'point', at:[x,y], label, color, open:false, dx,dy, anchor}
+//  segment {kind:'segment', from:[x,y], to:[x,y], color, dash, width, label, labelAt:[x,y]}
+//  line    {kind:'line', p1:[x,y], p2:[x,y]  OR  abc:[A,B,C] (Ax+By+C=0), color, dash, label, labelAt}
+//  ray     {kind:'ray', from:[x,y], through:[x,y], color, dash}
+//  circle  {kind:'circle', center:[x,y], r, color, dash, fill}
+//  parabola{kind:'parabola', vertex:[h,k], p:number, orient:'up'|'down'|'left'|'right', color}  // x²=4p·y form (p=focal dist)
+//  ellipse {kind:'ellipse', center:[h,k], a, b, orient:'h'|'v', color}   // a=semi-major
+//  hyperbola{kind:'hyperbola', center:[h,k], a, b, orient:'h'|'v', color, asymptotes:true}
+//  polygon {kind:'polygon', pts:[[x,y]...], color, fill, close:true}
+//  vector  {kind:'vector', from:[x,y], to:[x,y], color, label}
+//  right   {kind:'right', at:[x,y], u:[dx,dy], v:[dx,dy], size}   // right-angle square
+//  shade   {kind:'shade', pts:[[x,y]...], color, opacity}
+//  label   {kind:'label', at:[x,y], text, color, anchor, fontSize}
+function renderAnalyticGeo(spec){
+  const W=spec.width||360, H=spec.height||330, pad=22;
+  const xR=spec.xRange||[-6,6], yR=spec.yRange||[-6,6];
+  const xM=xR[0],xX=xR[1],yM=yR[0],yX=yR[1];
+  const pW=W-2*pad, pH=H-2*pad-(spec.title?14:0);
+  const s=Math.min(pW/(xX-xM), pH/(yX-yM));       // equal px/unit both axes
+  const offX=pad+(pW-(xX-xM)*s)/2, offY=(spec.title?14:0)+pad+(pH-(yX-yM)*s)/2;
+  const X=x=>offX+(x-xM)*s, Y=y=>offY+(yX-y)*s;
+  const F=n=>(+n).toFixed(1);
+  const esc=t=>String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  const mathLabel=(t,x,y,fs,col,anchor)=>{
+    if(/\\sqrt|\\dfrac|\\frac|\^|_/.test(t) && typeof _ucMathToSvg==='function'){
+      const inner=t.replace(/\\sqrt\s*\{([^}]*)\}/g,'√$1').replace(/[\${}]/g,'').replace(/\\[a-zA-Z]+/g,'');
+      let w=0; for(const ch of inner){ w+=(ch===','||ch===' ')?fs*0.3:((ch==='('||ch===')')?fs*0.4:(ch==='√'?fs*0.7:fs*0.55)); }
+      const sx=(anchor==='end')?x-w:((anchor==='middle')?x-w/2:x);
+      return _ucMathToSvg(t,sx,y,fs,col);
+    }
+    return `<text x="${F(x)}" y="${F(y)}" font-size="${fs}" fill="${col}" text-anchor="${anchor||'start'}">${esc(t)}</text>`;
+  };
+  let svg=`<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" xmlns="http://www.w3.org/2000/svg" style="background:#fff;">`;
+  svg+=`<defs><marker id="agar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#888"/></marker>`;
+  svg+=`<marker id="agvec" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#7b1fa2"/></marker></defs>`;
+  if(spec.title) svg+=`<text x="${F(W/2)}" y="13" font-size="12.5" fill="#1e5fae" text-anchor="middle" font-weight="600">${esc(spec.title)}</text>`;
+  // light grid
+  if(spec.grid!==false){
+    for(let gx=Math.ceil(xM);gx<=Math.floor(xX);gx++) svg+=`<line x1="${F(X(gx))}" y1="${F(Y(yM))}" x2="${F(X(gx))}" y2="${F(Y(yX))}" stroke="#eef1f4" stroke-width="1"/>`;
+    for(let gy=Math.ceil(yM);gy<=Math.floor(yX);gy++) svg+=`<line x1="${F(X(xM))}" y1="${F(Y(gy))}" x2="${F(X(xX))}" y2="${F(Y(gy))}" stroke="#eef1f4" stroke-width="1"/>`;
+  }
+  // axes
+  svg+=`<line x1="${F(X(xM))}" y1="${F(Y(0))}" x2="${F(X(xX))}" y2="${F(Y(0))}" stroke="#9aa" stroke-width="1" marker-end="url(#agar)"/>`;
+  svg+=`<line x1="${F(X(0))}" y1="${F(Y(yM))}" x2="${F(X(0))}" y2="${F(Y(yX))}" stroke="#9aa" stroke-width="1" marker-end="url(#agar)"/>`;
+  svg+=`<text x="${F(X(xX)-4)}" y="${F(Y(0)+13)}" font-size="11" fill="#888">x</text>`;
+  svg+=`<text x="${F(X(0)+5)}" y="${F(Y(yX)+9)}" font-size="11" fill="#888">y</text>`;
+  const clipLine=(A,B,C)=>{ // Ax+By+C=0 → two edge points within range
+    let pts=[];
+    if(Math.abs(B)>1e-9){ [xM,xX].forEach(x=>{const y=-(A*x+C)/B; if(y>=yM-1e-6&&y<=yX+1e-6)pts.push([x,y]);}); }
+    if(Math.abs(A)>1e-9){ [yM,yX].forEach(y=>{const x=-(B*y+C)/A; if(x>=xM-1e-6&&x<=xX+1e-6)pts.push([x,y]);}); }
+    // dedup
+    const uniq=[]; pts.forEach(p=>{if(!uniq.some(q=>Math.abs(q[0]-p[0])<1e-6&&Math.abs(q[1]-p[1])<1e-6))uniq.push(p);});
+    return uniq.slice(0,2);
+  };
+  const drawParab=(v,p,orient,col)=>{
+    const N=140; let pts=[];
+    for(let k=0;k<=N;k++){
+      let x,y;
+      if(orient==='up'||orient==='down'){
+        x=xM+(xX-xM)*k/N; const t=(x-v[0]); y=v[1]+(orient==='up'?1:-1)*t*t/(4*p);
+      } else {
+        y=yM+(yX-yM)*k/N; const t=(y-v[1]); x=v[0]+(orient==='right'?1:-1)*t*t/(4*p);
+      }
+      if(x>=xM-1&&x<=xX+1&&y>=yM-1&&y<=yX+1) pts.push([X(x),Y(y)]);
+    }
+    if(pts.length>1) svg+=`<polyline points="${pts.map(q=>F(q[0])+','+F(q[1])).join(' ')}" fill="none" stroke="${col||'#2e8b57'}" stroke-width="1.9"/>`;
+  };
+  (spec.elements||[]).forEach(e=>{
+    const col=e.color||'#222';
+    if(e.kind==='shade'){
+      svg+=`<polygon points="${e.pts.map(p=>F(X(p[0]))+','+F(Y(p[1]))).join(' ')}" fill="${e.color||'#1e7e34'}" opacity="${e.opacity||0.13}" stroke="none"/>`;
+    } else if(e.kind==='polygon'){
+      svg+=`<polygon points="${e.pts.map(p=>F(X(p[0]))+','+F(Y(p[1]))).join(' ')}" fill="${e.fill||'none'}" stroke="${col}" stroke-width="1.6"/>`;
+    } else if(e.kind==='circle'){
+      svg+=`<circle cx="${F(X(e.center[0]))}" cy="${F(Y(e.center[1]))}" r="${F(e.r*s)}" fill="${e.fill||'none'}" stroke="${col||'#2e6fb0'}" stroke-width="1.8"${e.dash?` stroke-dasharray="5 4"`:''}/>`;
+    } else if(e.kind==='ellipse'){
+      const rx=(e.orient==='v'?e.b:e.a)*s, ry=(e.orient==='v'?e.a:e.b)*s;
+      svg+=`<ellipse cx="${F(X(e.center[0]))}" cy="${F(Y(e.center[1]))}" rx="${F(rx)}" ry="${F(ry)}" fill="none" stroke="${col||'#2e6fb0'}" stroke-width="1.8"/>`;
+    } else if(e.kind==='parabola'){
+      drawParab(e.vertex, e.p, e.orient, col);
+    } else if(e.kind==='hyperbola'){
+      const c=e.center, horiz=(e.orient!=='v');
+      if(e.asymptotes!==false){
+        const m=horiz? e.b/e.a : e.a/e.b;
+        [m,-m].forEach(sl=>{ svg+=`<line x1="${F(X(xM))}" y1="${F(Y(c[1]+sl*(xM-c[0])))}" x2="${F(X(xX))}" y2="${F(Y(c[1]+sl*(xX-c[0])))}" stroke="#c9c9c9" stroke-width="1" stroke-dasharray="5 4"/>`; });
+      }
+      const N=140;
+      const branches = horiz?['rt','lf']:['up','dn'];
+      branches.forEach(br=>{
+        let pts=[];
+        for(let k=0;k<=N;k++){
+          let x,y;
+          if(horiz){ y=yM+(yX-yM)*k/N; const t=1+Math.pow(y-c[1],2)/(e.b*e.b); x=c[0]+(br==='rt'?1:-1)*e.a*Math.sqrt(t); }
+          else { x=xM+(xX-xM)*k/N; const t=1+Math.pow(x-c[0],2)/(e.b*e.b); y=c[1]+(br==='up'?1:-1)*e.a*Math.sqrt(t); }
+          if(x>=xM-1&&x<=xX+1&&y>=yM-1&&y<=yX+1) pts.push([X(x),Y(y)]);
+        }
+        if(pts.length>1) svg+=`<polyline points="${pts.map(q=>F(q[0])+','+F(q[1])).join(' ')}" fill="none" stroke="${col||'#c0392b'}" stroke-width="1.9"/>`;
+      });
+    } else if(e.kind==='segment'||e.kind==='vector'){
+      const isVec=e.kind==='vector';
+      svg+=`<line x1="${F(X(e.from[0]))}" y1="${F(Y(e.from[1]))}" x2="${F(X(e.to[0]))}" y2="${F(Y(e.to[1]))}" stroke="${col||(isVec?'#7b1fa2':'#444')}" stroke-width="${e.width||1.7}"${e.dash?` stroke-dasharray="6 4"`:''}${isVec?` marker-end="url(#agvec)"`:''}/>`;
+      if(e.label){const mx=(e.from[0]+e.to[0])/2,my=(e.from[1]+e.to[1])/2; svg+=mathLabel(e.label, X((e.labelAt||[mx,my])[0])+ (e.dx||4), Y((e.labelAt||[mx,my])[1])-(e.dy||4), 11, col||'#444', e.anchor);}
+    } else if(e.kind==='line'||e.kind==='ray'){
+      let A,B,C;
+      if(e.abc){[A,B,C]=e.abc;}
+      else{const[x1,y1]=e.p1||e.from,[x2,y2]=e.p2||e.through; A=y2-y1; B=x1-x2; C=-(A*x1+B*y1);}
+      const ep=clipLine(A,B,C);
+      if(ep.length===2){ let[a1,a2]=ep;
+        if(e.kind==='ray'){const o=e.from; if((a1[0]-o[0])*((e.through||e.p2)[0]-o[0])+(a1[1]-o[1])*((e.through||e.p2)[1]-o[1])<0)a1=o; else a2=o;}
+        svg+=`<line x1="${F(X(a1[0]))}" y1="${F(Y(a1[1]))}" x2="${F(X(a2[0]))}" y2="${F(Y(a2[1]))}" stroke="${col||'#e67e22'}" stroke-width="1.7"${e.dash?` stroke-dasharray="6 4"`:''}/>`;
+        if(e.label){const p=e.labelAt||a2; svg+=mathLabel(e.label, X(p[0])+(e.dx||4), Y(p[1])-(e.dy||4), 11, col||'#e67e22', e.anchor);}
+      }
+    } else if(e.kind==='right'){
+      const o=e.at, u=e.u, v=e.v, L=(e.size||0.5);
+      const nu=Math.hypot(u[0],u[1]), nv=Math.hypot(v[0],v[1]);
+      const ux=u[0]/nu*L, uy=u[1]/nu*L, vx=v[0]/nv*L, vy=v[1]/nv*L;
+      const p1=[o[0]+ux,o[1]+uy], p2=[o[0]+ux+vx,o[1]+uy+vy], p3=[o[0]+vx,o[1]+vy];
+      svg+=`<polyline points="${F(X(p1[0]))},${F(Y(p1[1]))} ${F(X(p2[0]))},${F(Y(p2[1]))} ${F(X(p3[0]))},${F(Y(p3[1]))}" fill="none" stroke="#666" stroke-width="1"/>`;
+    } else if(e.kind==='label'){
+      svg+=mathLabel(e.text, X(e.at[0])+(e.dx||0), Y(e.at[1])-(e.dy||0), e.fontSize||11, col, e.anchor||'start');
+    }
+  });
+  // points last (on top)
+  (spec.elements||[]).forEach(e=>{
+    if(e.kind!=='point') return;
+    const col=e.color||'#c0392b';
+    svg+=`<circle cx="${F(X(e.at[0]))}" cy="${F(Y(e.at[1]))}" r="3.2" fill="${e.open?'#fff':col}" stroke="${col}" stroke-width="1.5"/>`;
+    if(e.label) svg+=mathLabel(e.label, X(e.at[0])+(e.dx!==undefined?e.dx:6), Y(e.at[1])-(e.dy!==undefined?e.dy:6), 11, col, e.anchor);
+  });
+  return svg+'</svg>';
+}
+

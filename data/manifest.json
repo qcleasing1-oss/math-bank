@@ -2158,6 +2158,36 @@
         "exportedAt": "2026-07-18",
         "note": "ครบ 4 ชุด 400 ข้อ · 80/120/140/60 · verify/blind-solve ผ่านทั้งหมด · แนวการดำเนินการ 60 ข้อ · แนว 3 เซต 3 ข้อ"
       }
+    },
+    "gen-chap-04-coord": {
+      "source": "ข้อสอบรายบท (แต่งใหม่)",
+      "subject": "เรขาคณิตวิเคราะห์",
+      "displayName": "บทที่ 4 เรขาคณิตวิเคราะห์ (แต่งใหม่ · แข่งขัน · 100/400 ข้อ)",
+      "totalQuestions": 100,
+      "totalScore": 100,
+      "structure": {
+        "part1": "ข้อสอบแต่งใหม่ ระดับแข่งขัน/สอวน. · ชุด 1 จาก 4 (100/400) · เน้นยาก-ยากมาก · compound 2-4 ชั้น · เฉลยเปิดด้วยความรู้พื้นฐาน + รูประนาบพิกัด"
+      },
+      "topicDistribution": {
+        "4": 100
+      },
+      "difficulty": {
+        "level": "แข่งขัน",
+        "breakdown": {
+          "ง่าย": 10,
+          "ปานกลาง": 30,
+          "ยาก": 38,
+          "ยากมาก": 22
+        }
+      },
+      "snapshot": {
+        "round": 1,
+        "stage": "batch 1 (100/400) — pending review",
+        "questionsCompleted": 100,
+        "questionsRemaining": 300,
+        "exportedAt": "2026-07-18",
+        "note": "+บล็อกความรู้พื้นฐานที่ต้องใช้ทุกข้อ · verify/blind-solve ผ่าน · renderer analytic-geo"
+      }
     }
   }
 }
