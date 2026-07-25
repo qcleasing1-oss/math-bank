@@ -2160,6 +2160,36 @@
         "exportedAt": "2026-07-19",
         "note": "ปิดบท · ชุด 4 q301-400 ในหลักสูตรล้วน · เทคนิคแข่งขัน 93 ข้อ (ชุด 2-3) · เลิกใช้ 'สูตรรองเท้า' · แก้กรอบรูป q348/54/227 · ag_verify [] · blind-solve 0 ผิด"
       }
+    },
+    "gen-chap-05-function": {
+      "source": "ข้อสอบรายบท (แต่งใหม่)",
+      "subject": "ความสัมพันธ์และฟังก์ชัน",
+      "displayName": "บทที่ 5 ความสัมพันธ์และฟังก์ชัน (แต่งใหม่ · แข่งขัน · 400/400 ข้อ ครบบท)",
+      "totalQuestions": 400,
+      "totalScore": 400,
+      "structure": {
+        "part1": "ข้อสอบแต่งใหม่ ในหลักสูตรแกนกลางล้วน · ครบ 400/400 · เน้นปานกลาง+ยาก (บาร์ v2) · ความยากจากหลายชั้น/แก้ระบบ · เฉลย STANDARD v2 + กราฟ function-plot"
+      },
+      "topicDistribution": {
+        "5": 400
+      },
+      "difficulty": {
+        "level": "แข่งขัน",
+        "breakdown": {
+          "ง่าย": 20,
+          "ปานกลาง": 144,
+          "ยาก": 162,
+          "ยากมาก": 74
+        }
+      },
+      "snapshot": {
+        "round": 1,
+        "stage": "COMPLETE 400/400 — pending review",
+        "questionsCompleted": 400,
+        "questionsRemaining": 0,
+        "exportedAt": "2026-07-19",
+        "note": "บท 5 · หลักสูตรแกนกลางล้วน · calibration v2 · func_verify [] · blind-solve 5 solver = ตรงคีย์ 100% · fill LaTeX ครอบ $ · MC สับสมดุล"
+      }
     }
   }
 }
