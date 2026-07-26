@@ -1,6 +1,9 @@
 /* export.js — ส่งออกชุดข้อสอบเป็น PDF / Word / JSON
  * โหลดเป็นไฟล์แยกจาก admin.html (พึ่ง global: LOADED_SETS, MANIFEST, CURRENT_SET,
  * escapeHtml, getMarkedIndices, setLabel, renderImage). ถ้าไฟล์นี้พัง จะไม่กระทบหน้า login/แอป
+ *
+ * เลือกช่วงข้อได้ (v2): ใช้ window.getExportSelection() / window.initExportRange()
+ * ที่นิยามใน admin.html — ถ้าไม่มี จะ fallback เป็น "ส่งออกทั้งชุด" เหมือนเดิม
  */
 (function () {
   'use strict';
@@ -12,6 +15,23 @@
   function _esc(s) { return (typeof escapeHtml === 'function') ? escapeHtml(s) : String(s == null ? '' : s); }
   function _label(s) { return (typeof setLabel === 'function') ? setLabel(s) : (s && s.displayName) || ''; }
 
+  // ---- การเลือกข้อ (มาจาก admin.html) ----
+  function _sel() {
+    return (typeof window.getExportSelection === 'function') ? window.getExportSelection() : null;
+  }
+  // คืน { qs: [ข้อที่จะส่งออก], label: '1-100', all: true/false }
+  function _pick(sid) {
+    var set = _loaded(sid), qs = (set && set.questions) || [];
+    var sel = _sel();
+    if (!sel || !sel.ok || sel.all || !sel.nums || !sel.nums.length) {
+      return { qs: qs, label: '', all: true };
+    }
+    var want = {};
+    sel.nums.forEach(function (n) { want[n] = true; });
+    var picked = qs.filter(function (q) { return want[q.questionNumber]; });
+    return { qs: picked, label: sel.label, all: false };
+  }
+
   window.openExportModal = function () {
     var sid = _set();
     if (!sid || !_loaded(sid)) { alert('เลือกชุดข้อสอบจากเมนู "ดูตาม Set" ก่อน แล้วจึงส่งออก'); return; }
@@ -20,6 +40,7 @@
     if (subEl) subEl.textContent = _label(_manifestSet(sid)) + ' \u00b7 ' + n + ' \u0e02\u0e49\u0e2d';
     var m = document.getElementById('exportModal');
     if (m) m.hidden = false;
+    if (typeof window.initExportRange === 'function') window.initExportRange();
   };
   window.closeExportModal = function () {
     var m = document.getElementById('exportModal');
@@ -31,14 +52,35 @@
     var fmt = fmtEl ? fmtEl.value : 'pdf';
     var withAns = contEl ? (contEl.value === 'full') : false;
     var sid = _set();
+    if (!sid || !_loaded(sid)) { window.closeExportModal(); return; }
+
+    // ตรวจช่วงข้อก่อน — ถ้าผิดให้เปิดกล่องค้างไว้เพื่อแก้
+    var sel = _sel();
+    if (sel && sel.ok === false) {
+      alert('ช่วงข้อไม่ถูกต้องตรง "' + (sel.bad || '') + '"\n\nตัวอย่างที่ใช้ได้: 1-100  หรือ  1-50,120,200-250');
+      return;
+    }
+    var picked = _pick(sid);
+    if (!picked.qs.length) {
+      alert('ไม่มีข้อที่ตรงกับช่วงที่เลือก — ตรวจช่อง "ข้อที่จะส่งออก" อีกครั้ง');
+      return;
+    }
+
     window.closeExportModal();
-    if (!sid || !_loaded(sid)) return;
-    if (fmt === 'json') exportSetJSON(sid, withAns);
-    else if (fmt === 'word') exportSetWord(sid, withAns);
-    else exportSetPrint(sid, withAns);
+    if (fmt === 'json') exportSetJSON(sid, withAns, picked);
+    else if (fmt === 'word') exportSetWord(sid, withAns, picked);
+    else exportSetPrint(sid, withAns, picked);
   };
 
-  function _filename(sid, ext, withAns) { return sid + '-' + (withAns ? 'พร้อมเฉลย' : 'โจทย์') + '.' + ext; }
+  // ต่อท้ายชื่อไฟล์ด้วยช่วงข้อ เช่น -ข้อ1-100 (ถ้าช่วงยาวเกินไปใช้จำนวนข้อแทน)
+  function _suffix(picked) {
+    if (!picked || picked.all || !picked.label) return '';
+    var lab = (picked.label.length > 22) ? (picked.qs.length + 'ข้อ') : picked.label;
+    return '-ข้อ' + lab;
+  }
+  function _filename(sid, ext, withAns, picked) {
+    return sid + '-' + (withAns ? 'พร้อมเฉลย' : 'โจทย์') + _suffix(picked) + '.' + ext;
+  }
   function _download(content, type, filename) {
     var blob = new Blob([content], { type: type });
     var url = URL.createObjectURL(blob);
@@ -62,15 +104,17 @@
       return c;
     });
   }
-  function exportSetJSON(sid, withAns) {
-    var set = _loaded(sid), s = _manifestSet(sid);
-    var questions = withAns ? set.questions : _stripAnswers(set.questions);
+  function exportSetJSON(sid, withAns, picked) {
+    var s = _manifestSet(sid);
+    picked = picked || _pick(sid);
+    var questions = withAns ? picked.qs : _stripAnswers(picked.qs);
     var payload = {
       setId: sid, displayName: _label(s),
       exportedContent: withAns ? 'questions+answers' : 'questions-only',
+      questionRange: picked.all ? 'all' : picked.label,
       exported: new Date().toISOString(), questionCount: questions.length, questions: questions
     };
-    _download(JSON.stringify(payload, null, 2), 'application/json', _filename(sid, 'json', withAns));
+    _download(JSON.stringify(payload, null, 2), 'application/json', _filename(sid, 'json', withAns, picked));
   }
 
   function _texToMathML(tex, display) {
@@ -168,20 +212,24 @@
       + ".method-detail{background:#eaf6ec;border-left:4px solid #2e9e4f;padding:6px 10px;margin:8px 0}"
       + ".method-quick{background:#fbf0e0;border-left:4px solid #d98a2b;padding:6px 10px;margin:8px 0}";
   }
-  function _parts(sid, withAns, mathMode) {
-    var set = _loaded(sid), s = _manifestSet(sid), qs = set.questions || [];
+  function _parts(sid, withAns, mathMode, picked) {
+    var s = _manifestSet(sid);
+    picked = picked || _pick(sid);
+    var qs = picked.qs;
     return {
       title: _label(s),
-      sub: _esc(sid) + ' \u00b7 ' + qs.length + ' \u0e02\u0e49\u0e2d \u00b7 ' + (withAns ? 'พร้อมเฉลย' : 'เฉพาะโจทย์'),
+      sub: _esc(sid) + ' \u00b7 ' + qs.length + ' \u0e02\u0e49\u0e2d'
+         + (picked.all ? '' : ' (\u0e02\u0e49\u0e2d ' + _esc(picked.label) + ')')
+         + ' \u00b7 ' + (withAns ? 'พร้อมเฉลย' : 'เฉพาะโจทย์'),
       css: _css(),
       body: qs.map(function (q) { return _questionHTML(q, withAns, mathMode); }).join('')
     };
   }
 
-  function exportSetPrint(sid, withAns) {
+  function exportSetPrint(sid, withAns, picked) {
     var w = window.open('', '_blank');
     if (!w) { alert('เบราว์เซอร์บล็อก popup - โปรดอนุญาต popup ของหน้านี้แล้วลองใหม่'); return; }
-    var p = _parts(sid, withAns, 'tex'), d = w.document;
+    var p = _parts(sid, withAns, 'tex', picked), d = w.document;
     d.open();
     d.write('<!DOCTYPE html><html lang="th"><head><meta charset="utf-8"><title>' + _esc(p.title) + '</title>'
       + '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">'
@@ -199,12 +247,12 @@
     });
   }
 
-  function exportSetWord(sid, withAns) {
-    var p = _parts(sid, withAns, 'mathml');
+  function exportSetWord(sid, withAns, picked) {
+    var p = _parts(sid, withAns, 'mathml', picked);
     var html = '\uFEFF<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40">'
       + '<head><meta charset="utf-8"><title>' + _esc(p.title) + '</title><style>' + p.css + '</style></head><body>'
       + '<h1 class="exp-title">' + _esc(p.title) + '</h1><div class="exp-sub">' + p.sub + '</div>'
       + p.body + '</body></html>';
-    _download(html, 'application/msword', _filename(sid, 'doc', withAns));
+    _download(html, 'application/msword', _filename(sid, 'doc', withAns, picked));
   }
 })();

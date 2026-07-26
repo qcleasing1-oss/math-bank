@@ -435,6 +435,21 @@
   .export-modal .em-opt-title { font-size: 14px; font-weight: 500; }
   .export-modal .em-opt-desc { font-size: 12px; color: var(--ink-soft); }
   .export-modal .em-actions { display: flex; gap: 8px; justify-content: flex-end; margin-top: 4px; }
+  /* --- ช่วงข้อที่จะส่งออก --- */
+  .export-modal .em-range-row { display: flex; gap: 6px; align-items: center; }
+  .export-modal .em-range-row input[type=text] {
+    flex: 1; min-width: 0; padding: 8px 10px; border: 1px solid var(--rule); border-radius: 6px;
+    background: #fff; font-family: 'IBM Plex Mono', monospace; font-size: 14px; color: var(--ink); outline: none;
+  }
+  .export-modal .em-range-row input[type=text]:focus { border-color: var(--accent); }
+  .export-modal .em-mini {
+    font-family: 'Sarabun', sans-serif; font-size: 12px; padding: 7px 10px; white-space: nowrap;
+    background: transparent; color: var(--accent); border: 1px solid var(--accent); border-radius: 6px; cursor: pointer;
+  }
+  .export-modal .em-mini:hover { background: var(--accent); color: #fff; }
+  .export-modal .em-range-hint { font-size: 12px; color: var(--ink-soft); margin-top: 6px; min-height: 17px; }
+  .export-modal .em-range-hint.ok  { color: var(--ok); }
+  .export-modal .em-range-hint.bad { color: var(--accent); }
   .export-modal .em-go { background: var(--accent); color: #fff; border: none; border-radius: 5px;
     padding: 8px 16px; font-family: inherit; font-size: 14px; font-weight: 500; cursor: pointer; }
   .export-modal .em-cancel { background: transparent; color: var(--ink-soft); border: 1px solid var(--rule);
@@ -616,6 +631,28 @@
     transition: background 0.15s, color 0.15s;
   }
   .bulk-btn:hover { background: var(--accent-soft); }
+  .bulk-btn.pick-go { border-color: var(--accent); background: var(--accent); color: #fff; }
+  .bulk-btn.pick-go:hover { opacity: .9; background: var(--accent); }
+
+  /* --- แถบเลือกข้อ (สำหรับส่งออกเฉพาะบางข้อ) --- */
+  .pick-bar {
+    display: flex; gap: 8px; align-items: center; flex-wrap: wrap;
+    margin-top: 10px; padding: 8px 12px;
+    background: var(--panel); border: 1px dashed var(--rule); border-radius: 6px;
+  }
+  .pick-bar .pick-info { font-size: 13px; color: var(--ink-soft); }
+  .pick-bar .pick-info b { color: var(--accent); font-family: 'IBM Plex Mono', monospace; }
+  .pick-bar .pick-hint { font-size: 11px; color: var(--ink-soft); font-style: italic; }
+
+  /* checkbox หน้าแต่ละข้อ */
+  input.q-pick {
+    flex-shrink: 0;
+    width: 16px; height: 16px;
+    accent-color: var(--accent);
+    cursor: pointer;
+    margin: 0;
+  }
+  .q-card:has(input.q-pick:checked) { border-color: var(--accent); background: #fdf6ee; }
 
   /* Question list (accordion) */
   .q-list { margin-top: 8px; }
@@ -918,6 +955,16 @@
   <div class="export-modal" role="dialog" aria-modal="true">
     <h3>ส่งออกชุดข้อสอบ</h3>
     <div class="em-sub" id="exportModalSub"></div>
+    <div class="em-group">
+      <div class="em-label">ข้อที่จะส่งออก</div>
+      <div class="em-range-row">
+        <input type="text" id="expRange" placeholder="เช่น 1-100 หรือ 1-50,120,200-250 (ว่าง = ทั้งหมด)"
+               oninput="onRangeInput()" autocomplete="off" spellcheck="false">
+        <button type="button" class="em-mini" onclick="expRangeAll()">ทั้งหมด</button>
+        <button type="button" class="em-mini" onclick="expRangeClear()">ล้าง</button>
+      </div>
+      <div class="em-range-hint" id="expRangeHint"></div>
+    </div>
     <div class="em-group">
       <div class="em-label">รูปแบบไฟล์</div>
       <label class="em-opt"><input type="radio" name="exp-fmt" value="pdf" checked><span><span class="em-opt-title">PDF</span><br><span class="em-opt-desc">เปิดหน้าพิมพ์ แล้วเลือก "บันทึกเป็น PDF" (คณิต/ไทย/รูปครบ)</span></span></label>
@@ -1388,6 +1435,13 @@
 
     const qs = LOADED_SETS[sid].questions || [];
 
+    // เปลี่ยน set → ล้างการเลือกข้อเดิม
+    if (PICK_SET_ID !== sid) {
+      PICK_SET_ID = sid;
+      PICKED.clear();
+      LAST_PICK_NUM = null;
+    }
+
     const html = `
       <div class="set-header">
         <h1>${setLabel(s)}</h1>
@@ -1397,15 +1451,16 @@
           ${s.examDate && looksLikeDate(s.examDate) ? ' · สอบ ' + s.examDate : ''}
         </div>
         ${BULK_CONTROLS_HTML}
-        <div class="bulk-controls"><button class="bulk-btn export-set-btn" onclick="openExportModal()" title="ส่งออกชุดนี้เป็น PDF / Word / JSON">⬇ ส่งออกชุดนี้</button></div>
+        ${PICK_BAR_HTML}
       </div>
       <div class="q-list">
-        ${qs.map(renderQCard).join('')}
+        ${qs.map(q => renderQCard(q, { pick: true })).join('')}
       </div>
     `;
     main.classList.remove('empty');
     main.innerHTML = html;
     typeset(main);
+    updatePickUI();
   }
 
   // ============ Bulk expand/collapse (ดูทั้งบทรวด) ============
@@ -1420,6 +1475,216 @@
   function collapseAllQ() {
     document.querySelectorAll('#content .q-card').forEach(d => { d.open = false; });
   }
+
+
+  // ============ เลือกข้อที่จะส่งออก (checkbox + ช่วงข้อ) ============
+  // PICKED เก็บ "เลขข้อ" (questionNumber) ของ set ที่กำลังเปิดอยู่
+  // ว่าง = ส่งออกทั้งชุด (พฤติกรรมเดิม)
+  let PICK_SET_ID = null;     // set ที่ PICKED ผูกอยู่
+  let LAST_PICK_NUM = null;   // จุดอ้างอิงของ Shift+คลิก
+  const PICKED = new Set();
+
+  const PICK_BAR_HTML = `
+        <div class="bulk-controls">
+          <button class="bulk-btn export-set-btn" onclick="openExportModal()" title="ส่งออกเป็น PDF / Word / JSON — เลือกช่วงข้อได้">⬇ ส่งออก…</button>
+        </div>
+        <div class="pick-bar">
+          <button class="bulk-btn" onclick="pickAll()" title="ติ๊กทุกข้อ">☑ เลือกทุกข้อ</button>
+          <button class="bulk-btn" onclick="pickNone()" title="ล้างการติ๊กทั้งหมด">☐ ล้างการเลือก</button>
+          <span class="pick-info" id="pickInfo"></span>
+          <span class="pick-hint">Shift+คลิก = เลือกเป็นช่วง</span>
+        </div>`;
+
+  function isPicked(n) { return PICKED.has(Number(n)); }
+
+  // เลขข้อทั้งหมดของ set ที่เปิดอยู่ (เรียงน้อย→มาก)
+  function currentSetQNums() {
+    const set = CURRENT_SET ? LOADED_SETS[CURRENT_SET] : null;
+    if (!set) return [];
+    return (set.questions || [])
+      .map(q => Number(q.questionNumber))
+      .filter(n => Number.isFinite(n))
+      .sort((a, b) => a - b);
+  }
+
+  // "1-100" | "1-50,120,200-250" | "300-" | "-50" | "ทั้งหมด"  →  [เลขข้อ]
+  function parseRangeSpec(spec, available) {
+    const avail = available || currentSetQNums();
+    const availSet = new Set(avail);
+    const raw = String(spec == null ? '' : spec).trim();
+    if (!raw) return { ok: true, nums: [] };
+    if (/^(all|ทั้งหมด|\*)$/i.test(raw)) return { ok: true, nums: avail.slice() };
+
+    const cleaned = raw.replace(/[–—−]/g, '-').replace(/\s+/g, '');
+    const tokens = cleaned.split(/[,;、]+/).filter(Boolean);
+    const out = new Set();
+    for (const t of tokens) {
+      let m;
+      if ((m = t.match(/^(\d+)-(\d+)$/))) {
+        let a = Number(m[1]), b = Number(m[2]);
+        if (a > b) { const tmp = a; a = b; b = tmp; }
+        avail.forEach(n => { if (n >= a && n <= b) out.add(n); });
+      } else if ((m = t.match(/^(\d+)-$/))) {           // 300-  = ข้อ 300 ถึงข้อสุดท้าย
+        const a = Number(m[1]);
+        avail.forEach(n => { if (n >= a) out.add(n); });
+      } else if ((m = t.match(/^-(\d+)$/))) {           // -50   = ข้อแรกถึงข้อ 50
+        const b = Number(m[1]);
+        avail.forEach(n => { if (n <= b) out.add(n); });
+      } else if ((m = t.match(/^(\d+)$/))) {
+        const n = Number(m[1]);
+        if (availSet.has(n)) out.add(n);
+      } else {
+        return { ok: false, nums: [], bad: t };
+      }
+    }
+    return { ok: true, nums: Array.from(out).sort((a, b) => a - b) };
+  }
+
+  // [1,2,3,7,9,10] → "1-3,7,9-10"
+  function formatRangeSpec(nums) {
+    const a = Array.from(nums).map(Number).filter(Number.isFinite).sort((x, y) => x - y);
+    const parts = [];
+    let i = 0;
+    while (i < a.length) {
+      let j = i;
+      while (j + 1 < a.length && a[j + 1] === a[j] + 1) j++;
+      parts.push(i === j ? String(a[i]) : `${a[i]}-${a[j]}`);
+      i = j + 1;
+    }
+    return parts.join(',');
+  }
+
+  // ---- sync: PICKED → checkbox ในหน้า ----
+  function syncPickCheckboxes() {
+    document.querySelectorAll('#content input.q-pick').forEach(el => {
+      el.checked = isPicked(el.dataset.qnum);
+    });
+  }
+
+  // ---- sync: PICKED → ป้ายสรุป + ช่องช่วงข้อในกล่องส่งออก ----
+  function updatePickUI() {
+    const info = document.getElementById('pickInfo');
+    if (info) {
+      const total = currentSetQNums().length;
+      info.innerHTML = PICKED.size
+        ? `เลือกแล้ว <b>${PICKED.size}</b> ข้อ · <b>${escapeHtml(formatRangeSpec(PICKED))}</b>`
+        : `ยังไม่ได้เลือก — ส่งออกทั้งชุด (${total} ข้อ)`;
+    }
+    const modal = document.getElementById('exportModal');
+    if (modal && !modal.hidden) {
+      const el = document.getElementById('expRange');
+      if (el && document.activeElement !== el) el.value = PICKED.size ? formatRangeSpec(PICKED) : '';
+      updateRangeHint();
+    }
+  }
+
+  // ---- คลิก checkbox หน้าข้อ ----
+  function onPickClick(el, ev) {
+    const n = Number(el.dataset.qnum);
+    const on = el.checked;
+    if (ev && ev.shiftKey && LAST_PICK_NUM !== null && LAST_PICK_NUM !== n) {
+      const a = Math.min(n, LAST_PICK_NUM), b = Math.max(n, LAST_PICK_NUM);
+      currentSetQNums().forEach(x => {
+        if (x >= a && x <= b) { if (on) PICKED.add(x); else PICKED.delete(x); }
+      });
+      syncPickCheckboxes();
+    } else {
+      if (on) PICKED.add(n); else PICKED.delete(n);
+    }
+    LAST_PICK_NUM = n;
+    updatePickUI();
+  }
+
+  function pickAll() {
+    currentSetQNums().forEach(n => PICKED.add(n));
+    syncPickCheckboxes();
+    updatePickUI();
+  }
+  function pickNone() {
+    PICKED.clear();
+    LAST_PICK_NUM = null;
+    syncPickCheckboxes();
+    updatePickUI();
+  }
+
+  // ---- ช่องพิมพ์ช่วงข้อในกล่องส่งออก ----
+  function onRangeInput() {
+    const el = document.getElementById('expRange');
+    if (!el) return;
+    const avail = currentSetQNums();
+    const r = parseRangeSpec(el.value, avail);
+    PICKED.clear();
+    if (r.ok) r.nums.forEach(n => PICKED.add(n));
+    syncPickCheckboxes();
+    const info = document.getElementById('pickInfo');
+    if (info) {
+      info.innerHTML = PICKED.size
+        ? `เลือกแล้ว <b>${PICKED.size}</b> ข้อ · <b>${escapeHtml(formatRangeSpec(PICKED))}</b>`
+        : `ยังไม่ได้เลือก — ส่งออกทั้งชุด (${avail.length} ข้อ)`;
+    }
+    updateRangeHint(r, avail);
+  }
+
+  function updateRangeHint(r, avail) {
+    const hint = document.getElementById('expRangeHint');
+    if (!hint) return;
+    avail = avail || currentSetQNums();
+    const el = document.getElementById('expRange');
+    const raw = el ? el.value.trim() : '';
+    r = r || parseRangeSpec(raw, avail);
+    if (!raw) {
+      hint.className = 'em-range-hint';
+      hint.textContent = `ว่างไว้ = ส่งออกทั้งหมด ${avail.length} ข้อ`;
+    } else if (!r.ok) {
+      hint.className = 'em-range-hint bad';
+      hint.textContent = `รูปแบบไม่ถูกต้องตรง "${r.bad}" — ใช้แบบ 1-100 หรือ 1-50,120,200-250`;
+    } else if (!r.nums.length) {
+      hint.className = 'em-range-hint bad';
+      hint.textContent = 'ไม่มีข้อไหนอยู่ในช่วงนี้ (ชุดนี้มีข้อ ' + (avail.length ? avail[0] + '-' + avail[avail.length - 1] : '-') + ')';
+    } else {
+      hint.className = 'em-range-hint ok';
+      hint.textContent = `จะส่งออก ${r.nums.length} ข้อ · ${formatRangeSpec(r.nums)}`;
+    }
+  }
+
+  function expRangeAll() {
+    const el = document.getElementById('expRange');
+    if (el) el.value = '';
+    PICKED.clear();
+    LAST_PICK_NUM = null;
+    syncPickCheckboxes();
+    updatePickUI();
+  }
+  function expRangeClear() {
+    const el = document.getElementById('expRange');
+    if (el) { el.value = ''; el.focus(); }
+    PICKED.clear();
+    LAST_PICK_NUM = null;
+    syncPickCheckboxes();
+    updatePickUI();
+  }
+
+  // ---- API ที่ export.js เรียกใช้ ----
+  // เปิดกล่องส่งออก → เติมค่าช่วงข้อจากที่ติ๊กไว้
+  window.initExportRange = function () {
+    const el = document.getElementById('expRange');
+    if (!el) return;
+    el.value = PICKED.size ? formatRangeSpec(PICKED) : '';
+    updateRangeHint();
+  };
+
+  // คืนรายการข้อที่จะส่งออก — { ok, all, nums, label }
+  window.getExportSelection = function () {
+    const avail = currentSetQNums();
+    const el = document.getElementById('expRange');
+    const raw = el ? el.value.trim() : '';
+    const r = parseRangeSpec(raw, avail);
+    if (!r.ok) return { ok: false, all: false, nums: [], label: '', bad: r.bad };
+    if (!raw || r.nums.length === avail.length) {
+      return { ok: true, all: true, nums: null, label: 'ทั้งหมด' };
+    }
+    return { ok: true, all: false, nums: r.nums, label: formatRangeSpec(r.nums) };
+  };
 
   // ============ Question card ============
   function renderQCard(q, opts) {
@@ -1451,6 +1716,13 @@
       ? `<span class="tag-row">${primaryChips}${subChips}${diffChip}</span>`
       : '';
 
+    // Checkbox เลือกข้อ (เฉพาะ set view — เพราะส่งออกได้ทีละ set)
+    const pickBox = opts.pick
+      ? `<input type="checkbox" class="q-pick" data-qnum="${q.questionNumber}"${isPicked(q.questionNumber) ? ' checked' : ''}
+           onclick="event.stopPropagation(); onPickClick(this, event)"
+           title="เลือกข้อนี้เพื่อส่งออก (Shift+คลิก = เลือกเป็นช่วง)">`
+      : '';
+
     // Set prefix — แสดงเฉพาะใน chapter view (เพราะ Q มาจากหลาย set)
     const setPrefix = showSetPrefix
       ? `<span class="set-prefix">${escapeHtml(q.setId)}</span>`
@@ -1459,6 +1731,7 @@
     return `
       <details class="q-card${isModified ? ' modified' : ''}">
         <summary>
+          ${pickBox}
           ${setPrefix}
           <span class="q-num">Q${String(q.questionNumber).padStart(2,'0')}</span>
           <span class="q-preview">${escapeHtml(preview)}</span>
