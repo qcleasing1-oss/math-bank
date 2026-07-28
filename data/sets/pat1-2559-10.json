@@ -2202,7 +2202,7 @@
         "ตำแหน่ง (1,1):",
         "$\\begin{aligned} 2a & = 2a - b \\\\ b & = 0...(1) \\end{aligned}$",
         "ตำแหน่ง (1,2):",
-        "$\\begin{aligned} 2b & = b \\\\ b & = 0...(2) (สอดคล้องกับ (1)) \\end{aligned}$",
+        "$\\begin{aligned} 2b & = b \\\\ b & = 0...(2) (\\text{สอดคล้องกับ} (1)) \\end{aligned}$",
         "ตำแหน่ง (2,1):",
         "$\\begin{aligned} -a + c & = 2c - d \\\\ -a - c + d & = 0 \\\\ a + c - d & = 0...(3) \\end{aligned}$",
         "ตำแหน่ง (2,2):",

@@ -2107,7 +2107,7 @@
         "$\\begin{aligned} 2A - B &= C \\text{... (1)} \\\\ A + 2B &= D \\text{... (2)} \\\\ \\text{จาก (2)×2:} 2A + 4B &= 2D \\text{... (2')} \\\\ \\text{(2') - (1):} 5B &= 2D - C = 2\\begin{bmatrix} -1 & 2 \\\\ 4 & -2 \\end{bmatrix} - \\begin{bmatrix} 3 & 4 \\\\ 3 & 6 \\end{bmatrix} = \\begin{bmatrix} -5 & 0 \\\\ 5 & -10 \\end{bmatrix} \\\\ B &= \\begin{bmatrix} -1 & 0 \\\\ 1 & -2 \\end{bmatrix} \\\\ \\text{จาก (2):} A &= D - 2B = \\begin{bmatrix} -1 & 2 \\\\ 4 & -2 \\end{bmatrix} - 2\\begin{bmatrix} -1 & 0 \\\\ 1 & -2 \\end{bmatrix} = \\begin{bmatrix} 1 & 2 \\\\ 2 & 2 \\end{bmatrix} \\end{aligned}$",
         "<b>ขั้นที่ 2: หา AB</b>",
         "$AB = \\begin{bmatrix} 1 & 2 \\\\ 2 & 2 \\end{bmatrix} \\begin{bmatrix} -1 & 0 \\\\ 1 & -2 \\end{bmatrix} = \\begin{bmatrix} 1 & -4 \\\\ 0 & -4 \\end{bmatrix}$",
-        "<b>ขั้นที่ 3: หา (AB)^{-1}</b>",
+        "<b>ขั้นที่ 3: หา $(AB)^{-1}$</b>",
         "$\\begin{aligned} \\det(AB) &= 1(-4) - (-4)(0) = -4 \\\\ (AB)^{-1} &= \\frac{1}{-4}\\begin{bmatrix} -4 & 4 \\\\ 0 & 1 \\end{bmatrix} = \\begin{bmatrix} 1 & -1 \\\\ 0 & -1/4 \\end{bmatrix} \\end{aligned}$",
         "<b>✔ ตรวจคำตอบ:</b> $(AB)(AB)^{-1} = I$? ✓",
         "<b>✅ คำตอบ: $\\begin{bmatrix} 1 & -1 \\\\ 0 & -\\dfrac{1}{4} \\end{bmatrix}$ → ตัวเลือก 4</b>",

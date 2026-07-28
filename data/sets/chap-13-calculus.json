@@ -27088,8 +27088,9 @@
       "question": "จงหาสูตรปริพันธ์จำกัดเขตสำหรับหาพื้นที่ $A$ ของรูปวงรีซึ่งมีจุดศูนย์กลางอยู่ที่จุดกำเนิด แกนเอกทาบกับแกน $x$ ยาว $2a$ และแกนโทยาว $2b$",
       "hasImage": false,
       "sourceTag": "ข้อสอบทุนเล่าเรียนหลวง (ก.พ.) — พ.ศ.2540",
-      "correct": "A=4\\int_0^a \\dfrac{b}{a}\\sqrt{a^2-x^2}\\,dx=\\pi ab",
+      "correct": "$A=4\\int_0^a \\dfrac{b}{a}\\sqrt{a^2-x^2}\\,dx=\\pi ab$",
       "accept": [
+        "A=4\\int_0^a \\dfrac{b}{a}\\sqrt{a^2-x^2}\\,dx=\\pi ab",
         "A=4\\int_0^a \\frac{b}{a}\\sqrt{a^2-x^2}dx",
         "\\pi ab",
         "piab",
@@ -29016,7 +29017,7 @@
           }
         ]
       },
-      "correct": "(3, 3\\sqrt{3})",
+      "correct": "$(3,\\ 3\\sqrt{3})$",
       "accept": [
         "(3, 3\\sqrt{3})",
         "(3,3sqrt3)",

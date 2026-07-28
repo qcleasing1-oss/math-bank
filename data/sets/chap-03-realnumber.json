@@ -16262,7 +16262,7 @@
       "questionNumber": 155,
       "source": "สมาคมคณิตศาสตร์ฯ / 2543",
       "question": "ให้ $A = \\{x \\mid x \\in \\mathbb{R}$ และ $|x^2 - 1| = |x - 1| - |x + 1|\\}$\nจงเขียนเซต $A$ แบบแจกแจงสมาชิก",
-      "correct": "\\{-\\sqrt{3},\\ 1-\\sqrt{2}\\}",
+      "correct": "$\\{-\\sqrt{3},\\ 1-\\sqrt{2}\\}$",
       "accept": [
         "\\{-\\sqrt{3},\\ 1-\\sqrt{2}\\}",
         "{-\\sqrt{3},\\ 1-\\sqrt{2}}",
@@ -16456,7 +16456,7 @@
       "questionNumber": 156,
       "source": "ทุนเล่าเรียนหลวง / 2540",
       "question": "ให้ $A = \\{x \\in \\mathbb{R} \\mid \\left|\\dfrac{1}{x+3}\\right| \\ge 1\\}$\n$B, C$ เป็นช่วงบน $\\mathbb{R}$ ดังนี้ $B = [-5, -\\dfrac{5}{2}]$ และ $C = [-\\dfrac{7}{2}, 0]$\nจงหา $(A \\cap B) \\cup (A \\cap C)$",
-      "correct": "[-4,-3) \\cup (-3,-2]",
+      "correct": "$[-4,-3) \\cup (-3,-2]$",
       "accept": [
         "[-4,-3) \\cup (-3,-2]",
         "[-4, -3) \\cup (-3, -2]",
@@ -17181,7 +17181,7 @@
       "questionNumber": 160,
       "source": "ทุนเล่าเรียนหลวง / 2542",
       "question": "จงหาเซตคำตอบของอสมการ $|x+2| + |x-3| > 7$",
-      "correct": "(-\\infty,-3) \\cup (4,\\infty)",
+      "correct": "$(-\\infty,-3) \\cup (4,\\infty)$",
       "accept": [
         "(-\\infty,-3) \\cup (4,\\infty)",
         "(-\\infty, -3) \\cup (4, \\infty)",

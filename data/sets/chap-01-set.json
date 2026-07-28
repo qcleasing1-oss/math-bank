@@ -4709,7 +4709,7 @@
       "hasImage": false,
       "sourceTag": "ทุน กพ. 2546",
       "source": "ทุนเล่าเรียนหลวง (กพ.) 2546",
-      "correct": "{\\varnothing, \\{\\varnothing\\}, \\{\\{\\varnothing\\}\\}, \\{\\varnothing, \\{\\varnothing\\}\\}}",
+      "correct": "$\\{\\varnothing,\\ \\{\\varnothing\\},\\ \\{\\{\\varnothing\\}\\},\\ \\{\\varnothing,\\ \\{\\varnothing\\}\\}\\}$",
       "accept": [
         "{\\varnothing, \\{\\varnothing\\}, \\{\\{\\varnothing\\}\\}, \\{\\varnothing, \\{\\varnothing\\}\\}}",
         "D"

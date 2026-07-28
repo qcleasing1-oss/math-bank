@@ -3270,7 +3270,7 @@
       "score": 6,
       "question": "ถ้า $a_n$ เป็นลำดับเลขคณิตซึ่ง $\\displaystyle\\lim_{n\\to\\infty}\\left(\\dfrac{a_{n+1}^{\\,2}-a_{n}^{\\,2}}{n}\\right)=4$ แล้ว $\\sqrt{\\dfrac{a_{17}-a_{9}}{2}}$ มีค่าเท่าใด",
       "hasImage": false,
-      "correct": "\\sqrt[4]{32}",
+      "correct": "$\\sqrt[4]{32}$",
       "accept": [
         "\\sqrt[4]{32}",
         "2^(5/4)",
