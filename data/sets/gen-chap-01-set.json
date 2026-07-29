@@ -2379,7 +2379,8 @@
       ],
       "subTopics": [
         "1.3",
-        "1.18"
+        "1.6",
+        "3.4"
       ],
       "difficulty": "ง่าย",
       "type": "mc",
@@ -4206,7 +4207,7 @@
         "1"
       ],
       "subTopics": [
-        "1.18",
+        "1.8",
         "12.1"
       ],
       "difficulty": "ปานกลาง",
@@ -4313,7 +4314,8 @@
         "1"
       ],
       "subTopics": [
-        "1.2",
+        "1.3",
+        "1.6",
         "17.6"
       ],
       "difficulty": "ปานกลาง",
@@ -7306,7 +7308,9 @@
         "",
         "⚠️ <b>จุดพลาด</b> เผลอตั้งพอดีหนึ่ง $=t$ แล้วไล่กลับทางผิด หรือรวมสัมประสิทธิ์เป็น $6+2+1=9$ ผิดเป็น $8$ ทำให้ $t$ เพี้ยน · อีกจุดคือเผลอคูณอัตราส่วนสลับ ($3$ กับ $2$ ผิดตำแหน่ง)"
       ],
-      "notes": "H·ratio to equation"
+      "notes": "H·ratio to equation",
+      "retired": true,
+      "retiredReason": "ซ้ำกับ gen-chap-01-set-q129 ทุกประการ (โจทย์ ตัวเลือก คำตอบ) · เก็บข้อมูลไว้ ไม่ลบ"
     },
     {
       "id": "gen-chap-01-set-q132",
@@ -8105,7 +8109,9 @@
         "⚠️ <b>จุดพลาด</b>",
         "ตอบ $40$ คือเผลอตอบ $n(A\\cup B)$ (ยังรวมตัวที่หารได้ทั้งสอง) · ตอบ $50$ คือ $n(A)+n(B)$ ไม่ตัดซ้อนเลย"
       ],
-      "notes": "H·exactly one"
+      "notes": "H·exactly one",
+      "retired": true,
+      "retiredReason": "ซ้ำกับ gen-chap-01-set-q108 ทุกประการ (โจทย์ ตัวเลือก คำตอบ) · เก็บข้อมูลไว้ ไม่ลบ"
     },
     {
       "id": "gen-chap-01-set-q145",
@@ -8804,7 +8810,9 @@
         "⚠️ <b>จุดพลาด</b>",
         "ใช้ $\\binom{7}{3}=35$ (ลืมเงื่อนไขไม่ติดกัน) · หรือใส่สูตรผิดเป็น $\\binom{n-k}{k}=\\binom43=4$"
       ],
-      "notes": "H·gap bijection"
+      "notes": "H·gap bijection",
+      "retired": true,
+      "retiredReason": "ซ้ำกับ gen-chap-01-set-q086 ทุกประการ (โจทย์ ตัวเลือก คำตอบ) · เก็บข้อมูลไว้ ไม่ลบ"
     },
     {
       "id": "gen-chap-01-set-q157",
@@ -9298,7 +9306,9 @@
         "⚠️ <b>จุดพลาด</b>",
         "นึกว่ามีหลายคำตอบแล้วเผลอนับ $2^k$ · หรือแก้ $X=A-B=\\{1\\}$ เพียงครึ่งเดียว ลืมรวม $B-A=\\{4\\}$ เข้าไปด้วย"
       ],
-      "notes": "H·invertible difference"
+      "notes": "H·invertible difference",
+      "retired": true,
+      "retiredReason": "ซ้ำกับ gen-chap-01-set-q090 ทุกประการ (โจทย์ ตัวเลือก คำตอบ) · เก็บข้อมูลไว้ ไม่ลบ"
     },
     {
       "id": "gen-chap-01-set-q165",
@@ -13665,10 +13675,10 @@
       "setId": "gen-chap-01-set",
       "questionNumber": 241,
       "topics": [
-        "1"
+        "5"
       ],
       "subTopics": [
-        "1.18",
+        "5.13",
         "12.1"
       ],
       "difficulty": "ง่าย",
@@ -13927,7 +13937,7 @@
       "subTopics": [
         "1.9",
         "1.18",
-        "12.1"
+        "5.13"
       ],
       "difficulty": "ง่าย",
       "type": "fill",
@@ -14772,10 +14782,11 @@
       "setId": "gen-chap-01-set",
       "questionNumber": 261,
       "topics": [
-        "1"
+        "5"
       ],
       "subTopics": [
-        "1.18"
+        "5.13",
+        "12.1"
       ],
       "difficulty": "ง่าย",
       "type": "fill",
@@ -15140,7 +15151,8 @@
       ],
       "subTopics": [
         "1.9",
-        "1.18"
+        "1.18",
+        "5.13"
       ],
       "difficulty": "ปานกลาง",
       "type": "mc",
@@ -17290,7 +17302,8 @@
       ],
       "subTopics": [
         "1.9",
-        "1.18"
+        "1.18",
+        "5.13"
       ],
       "difficulty": "ปานกลาง",
       "type": "fill",
@@ -19160,10 +19173,11 @@
       "setId": "gen-chap-01-set",
       "questionNumber": 342,
       "topics": [
-        "1"
+        "5"
       ],
       "subTopics": [
-        "1.18"
+        "5.13",
+        "12.1"
       ],
       "difficulty": "ง่าย",
       "type": "fill",
@@ -21273,10 +21287,11 @@
       "setId": "gen-chap-01-set",
       "questionNumber": 381,
       "topics": [
-        "1"
+        "5"
       ],
       "subTopics": [
-        "1.18"
+        "5.13",
+        "12.1"
       ],
       "difficulty": "ง่าย",
       "type": "fill",

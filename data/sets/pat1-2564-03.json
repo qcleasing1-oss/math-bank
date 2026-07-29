@@ -513,8 +513,8 @@
         "15"
       ],
       "subTopics": [
-        "15.5",
-        "15.8"
+        "15.8",
+        "15.5"
       ],
       "difficulty": "ปานกลาง",
       "question": "ชมรมหมากรุกในโรงเรียนแห่งหนึ่งมีสมาชิกจำนวน 9 คน ที่มีความสูง น้ำหนัก และอายุ ดังตารางต่อไปนี้\n<table style=\"border-collapse:collapse;margin:6px 0\" border=\"1\"><tr><th style=\"padding:3px 8px\">นักเรียน</th><th style=\"padding:3px 8px\">ความสูง (ซม.)</th><th style=\"padding:3px 8px\">น้ำหนัก (กก.)</th><th style=\"padding:3px 8px\">อายุ (ปี)</th></tr><tr><td style=\"padding:3px 8px\">A</td><td style=\"padding:3px 8px;text-align:right\">182</td><td style=\"padding:3px 8px;text-align:right\">65</td><td style=\"padding:3px 8px;text-align:right\">17</td></tr><tr><td style=\"padding:3px 8px\">B</td><td style=\"padding:3px 8px;text-align:right\">180</td><td style=\"padding:3px 8px;text-align:right\">70</td><td style=\"padding:3px 8px;text-align:right\">16</td></tr><tr><td style=\"padding:3px 8px\">C</td><td style=\"padding:3px 8px;text-align:right\">175</td><td style=\"padding:3px 8px;text-align:right\">64</td><td style=\"padding:3px 8px;text-align:right\">16</td></tr><tr><td style=\"padding:3px 8px\">D</td><td style=\"padding:3px 8px;text-align:right\">171</td><td style=\"padding:3px 8px;text-align:right\">69</td><td style=\"padding:3px 8px;text-align:right\">15</td></tr><tr><td style=\"padding:3px 8px\">E</td><td style=\"padding:3px 8px;text-align:right\">167</td><td style=\"padding:3px 8px;text-align:right\">58</td><td style=\"padding:3px 8px;text-align:right\">16</td></tr><tr><td style=\"padding:3px 8px\">F</td><td style=\"padding:3px 8px;text-align:right\">163</td><td style=\"padding:3px 8px;text-align:right\">54</td><td style=\"padding:3px 8px;text-align:right\">17</td></tr><tr><td style=\"padding:3px 8px\">G</td><td style=\"padding:3px 8px;text-align:right\">160</td><td style=\"padding:3px 8px;text-align:right\">50</td><td style=\"padding:3px 8px;text-align:right\">17</td></tr><tr><td style=\"padding:3px 8px\">H</td><td style=\"padding:3px 8px;text-align:right\">158</td><td style=\"padding:3px 8px;text-align:right\">46</td><td style=\"padding:3px 8px;text-align:right\">16</td></tr><tr><td style=\"padding:3px 8px\">I</td><td style=\"padding:3px 8px;text-align:right\">155</td><td style=\"padding:3px 8px;text-align:right\">48</td><td style=\"padding:3px 8px;text-align:right\">15</td></tr></table>\nพิจารณาข้อความต่อไปนี้\nก) นักเรียนคนที่มีความสูงเท่ากับมัธยฐานของความสูง มีน้ำหนักเท่ากับมัธยฐานของน้ำหนัก\nข) นักเรียนคนที่มีความสูงน้อยกว่าเปอร์เซ็นไทล์ที่ 20 ของความสูง มีน้ำหนักมากกว่าน้ำหนักของนักเรียนคนที่มีความสูงเท่ากับเปอร์เซ็นไทล์ที่ 20 ของความสูง\nค) นักเรียนทุกคนที่มีน้ำหนักมากกว่าควอร์ไทล์ที่ 3 ของน้ำหนัก มีอายุมากกว่า 15 ปี\nจากข้อความ ก) ข) และ ค) ข้างต้น ข้อใดถูกต้อง",
@@ -4427,7 +4427,9 @@
         "13"
       ],
       "subTopics": [
-        "13.12"
+        "13.12",
+        "13.11",
+        "13.10"
       ],
       "difficulty": "ปานกลาง",
       "question": "(สถานการณ์ข้อ 34–35) ในการวางแผนระบบเดินรถไฟระหว่างสถานี ก และสถานี ข ซึ่งอยู่ห่างกัน $S$ เมตรในแนวเส้นตรง รถไฟเริ่มจากหยุดนิ่งที่สถานี ก ไปจนหยุดนิ่งอีกครั้งที่สถานี ข มีความเร่งสูงสุด $A$ เมตรต่อวินาที$^2$ เคลื่อนที่แบบอัตโนมัติ 3 ช่วง ดังนี้\nช่วงแรก: ช่วงเวลา $T$ วินาทีแรก ความเร่งเพิ่มขึ้นอย่างสม่ำเสมอจาก 0 ถึง $A$\nช่วงกลาง: รถไฟเคลื่อนที่ด้วยความเร็วคงตัว\nช่วงท้าย: ช่วงเวลา $T$ วินาทีก่อนถึงสถานี ข ความเร่งลดลงอย่างสม่ำเสมอจาก $A$ ถึง 0\n(กราฟความเร่ง–เวลาที่ให้มา เป็นรูปสี่เหลี่ยมคางหมู: เพิ่มเป็นเส้นตรงจาก 0 ถึง $A$ ในช่วง $T$ แรก, คงที่ที่ระดับ $A$ ในช่วงกลาง, แล้วลดเป็นเส้นตรงจาก $A$ ถึง 0 ในช่วง $T$ สุดท้าย)\nในช่วงเวลาที่รถไฟเคลื่อนที่ด้วยความเร็วคงตัวนั้น รถไฟวิ่งด้วยความเร็วคงตัวกี่เมตรต่อวินาที",
