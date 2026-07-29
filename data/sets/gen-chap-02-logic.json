@@ -8,7 +8,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.2",
+        "2.1"
+      ],
       "difficulty": "ง่าย",
       "type": "mc",
       "question": "กำหนดให้ $p$ เป็นจริง, $q$ เป็นจริง, $r$ เป็นเท็จ ข้อใดต่อไปนี้เป็นจริง",
@@ -61,7 +64,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.2",
+        "2.1"
+      ],
       "difficulty": "ง่าย",
       "type": "mc",
       "question": "กำหนดให้ $p$ เป็นเท็จ, $q$ เป็นเท็จ, $r$ เป็นเท็จ ข้อใดต่อไปนี้เป็นจริง",
@@ -114,7 +120,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.2",
+        "2.3"
+      ],
       "difficulty": "ง่าย",
       "type": "fill",
       "question": "กำหนดให้ $p$ เป็นเท็จ, $q$ เป็นเท็จ, $r$ เป็นจริง จงหาค่าความจริงของ ${\\sim}(p\\vee q)\\wedge r$ (ตอบ จริง/เท็จ)",
@@ -158,7 +167,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.2",
+        "2.1"
+      ],
       "difficulty": "ง่าย",
       "type": "mc",
       "question": "กำหนดให้ $p$ เป็นจริง, $q$ เป็นเท็จ, $r$ เป็นจริง ข้อใดต่อไปนี้เป็นจริง",
@@ -211,7 +223,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.2",
+        "2.1"
+      ],
       "difficulty": "ง่าย",
       "type": "fill",
       "question": "กำหนดให้ $p$ เป็นจริง, $q$ เป็นจริง, $r$ เป็นเท็จ จงหาค่าความจริงของ $p\\to(q\\to r)$ (ตอบ จริง/เท็จ)",
@@ -258,7 +273,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.2",
+        "2.1"
+      ],
       "difficulty": "ง่าย",
       "type": "mc",
       "question": "กำหนดให้ $p$ เป็นจริง, $q$ เป็นจริง, $r$ เป็นเท็จ ข้อใดต่อไปนี้เป็นจริง",
@@ -311,7 +329,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.2",
+        "2.3"
+      ],
       "difficulty": "ง่าย",
       "type": "fill",
       "question": "กำหนดให้ $p$ เป็นจริง, $q$ เป็นเท็จ จงหาค่าความจริงของ $(p\\vee q)\\wedge{\\sim}(p\\wedge q)$ (ตอบ จริง/เท็จ)",
@@ -355,7 +376,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.2",
+        "2.3"
+      ],
       "difficulty": "ง่าย",
       "type": "mc",
       "question": "กำหนดให้ $p$ เป็นจริง, $q$ เป็นเท็จ, $r$ เป็นเท็จ ข้อใดต่อไปนี้เป็นจริง",
@@ -408,7 +432,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.2",
+        "2.1"
+      ],
       "difficulty": "ง่าย",
       "type": "fill",
       "question": "กำหนดให้ $p$ เป็นจริง, $q$ เป็นเท็จ, $r$ เป็นเท็จ จงหาค่าความจริงของ $(p\\wedge{\\sim} q)\\to r$ (ตอบ จริง/เท็จ)",
@@ -454,7 +481,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.2",
+        "2.1"
+      ],
       "difficulty": "ง่าย",
       "type": "mc",
       "question": "กำหนดให้ $p$ เป็นจริง, $q$ เป็นจริง, $r$ เป็นเท็จ ข้อใดต่อไปนี้เป็นจริง",
@@ -506,7 +536,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.2",
+        "2.1"
+      ],
       "difficulty": "ง่าย",
       "type": "mc",
       "question": "กำหนดให้ $p$ เป็นจริง, $q$ เป็นเท็จ, $r$ เป็นจริง ข้อใดต่อไปนี้เป็นจริง",
@@ -558,7 +591,11 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.2",
+        "2.1",
+        "2.3"
+      ],
       "difficulty": "ง่าย",
       "type": "fill",
       "question": "กำหนดให้ $p$ เป็นเท็จ, $q$ เป็นจริง, $r$ เป็นเท็จ จงหาค่าความจริงของ $(p\\to q)\\wedge({\\sim} p\\to r)$ (ตอบ จริง/เท็จ)",
@@ -602,7 +639,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.2",
+        "2.1"
+      ],
       "difficulty": "ง่าย",
       "type": "mc",
       "question": "กำหนดให้ $p$ เป็นเท็จ, $q$ เป็นเท็จ, $r$ เป็นจริง, $s$ เป็นเท็จ ข้อใดต่อไปนี้เป็นจริง",
@@ -654,7 +694,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.2",
+        "2.1"
+      ],
       "difficulty": "ง่าย",
       "type": "mc",
       "question": "กำหนดให้ $p$ เป็นจริง, $q$ เป็นจริง, $r$ เป็นจริง ข้อใดต่อไปนี้เป็นจริง",
@@ -706,7 +749,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.2",
+        "2.1"
+      ],
       "difficulty": "ง่าย",
       "type": "mc",
       "question": "กำหนดให้ $p$ เป็นจริง, $q$ เป็นเท็จ, $r$ เป็นจริง ข้อใดต่อไปนี้เป็นจริง",
@@ -758,7 +804,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.3",
+        "2.5"
+      ],
       "difficulty": "ง่าย",
       "type": "mc",
       "question": "นิเสธของประพจน์ $p\\wedge q$ สมมูลกับข้อใด",
@@ -808,7 +857,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.4",
+        "2.3"
+      ],
       "difficulty": "ง่าย",
       "type": "fill",
       "question": "จงหาจำนวนการจัดค่าความจริง $(p,q)$ ที่ทำให้นิเสธ ${\\sim}(p\\vee q)$ เป็นจริง",
@@ -852,7 +904,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.3",
+        "2.5"
+      ],
       "difficulty": "ง่าย",
       "type": "mc",
       "question": "นิเสธของประพจน์ $p\\to q$ สมมูลกับข้อใด",
@@ -948,7 +1003,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.3",
+        "2.5"
+      ],
       "difficulty": "ง่าย",
       "type": "mc",
       "question": "นิเสธของประพจน์ $p\\wedge{\\sim} q$ สมมูลกับข้อใด",
@@ -1000,7 +1058,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.3",
+        "2.5"
+      ],
       "difficulty": "ง่าย",
       "type": "mc",
       "question": "นิเสธของประพจน์ ${\\sim} p\\vee{\\sim} q$ สมมูลกับข้อใด",
@@ -1094,7 +1155,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.3",
+        "2.5"
+      ],
       "difficulty": "ง่าย",
       "type": "mc",
       "question": "นิเสธของประพจน์ ${\\sim}(p\\wedge q)$ สมมูลกับข้อใด",
@@ -1144,7 +1208,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.3",
+        "2.5"
+      ],
       "difficulty": "ง่าย",
       "type": "mc",
       "question": "นิเสธของประพจน์ $p\\to(q\\wedge r)$ สมมูลกับข้อใด",
@@ -1194,7 +1261,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.3",
+        "2.5"
+      ],
       "difficulty": "ง่าย",
       "type": "mc",
       "question": "นิเสธของประพจน์ $(p\\vee q)\\to r$ สมมูลกับข้อใด",
@@ -1244,7 +1314,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.3",
+        "2.5"
+      ],
       "difficulty": "ง่าย",
       "type": "mc",
       "question": "นิเสธของประพจน์ $(p\\wedge q)\\vee r$ สมมูลกับข้อใด",
@@ -1293,7 +1366,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.3",
+        "2.2"
+      ],
       "difficulty": "ง่าย",
       "type": "fill",
       "question": "กำหนดให้ $p$ เป็นจริง, $q$ เป็นเท็จ, $r$ เป็นเท็จ ค่าความจริงของนิเสธ ${\\sim}[p\\to(q\\vee r)]$ เท่ากับข้อใด (ตอบ $1$ ถ้าเป็นจริง, $0$ ถ้าเป็นเท็จ)",
@@ -1338,7 +1414,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.3",
+        "2.5"
+      ],
       "difficulty": "ง่าย",
       "type": "mc",
       "question": "นิเสธของประพจน์ $p\\vee(q\\wedge r)$ สมมูลกับข้อใด",
@@ -1388,7 +1467,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.3",
+        "2.5"
+      ],
       "difficulty": "ง่าย",
       "type": "mc",
       "question": "นิเสธของประพจน์ $p\\leftrightarrow q$ สมมูลกับข้อใด",
@@ -1482,7 +1564,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.3",
+        "2.5"
+      ],
       "difficulty": "ง่าย",
       "type": "mc",
       "question": "นิเสธของประพจน์ $(p\\to q)\\wedge(q\\to p)$ สมมูลกับข้อใด",
@@ -1535,7 +1620,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.3",
+        "2.5"
+      ],
       "difficulty": "ง่าย",
       "type": "mc",
       "question": "นิเสธของข้อความ 'ถ้าฝนตก แล้วน้ำท่วม' คือข้อใด",
@@ -1586,7 +1674,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.3",
+        "2.5"
+      ],
       "difficulty": "ง่าย",
       "type": "mc",
       "question": "นิเสธของประพจน์ $p\\wedge(q\\vee r)$ สมมูลกับข้อใด",
@@ -1636,7 +1727,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.7",
+        "2.3"
+      ],
       "difficulty": "ง่าย",
       "type": "mc",
       "question": "ข้อใดคือ contrapositive (ผลย้อนกลับที่มีการนิเสธ) ของประพจน์ ${\\sim} p\\to q$",
@@ -1687,7 +1781,9 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.7"
+      ],
       "difficulty": "ง่าย",
       "type": "mc",
       "question": "ข้อใดคือ inverse (ผลนิเสธ) ของประโยค ‘ถ้า $n$ หารด้วย 6 ลงตัว แล้ว $n$ เป็นจำนวนคู่’",
@@ -1737,7 +1833,9 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.7"
+      ],
       "difficulty": "ง่าย",
       "type": "mc",
       "question": "ข้อใดคือ converse (ผลย้อนกลับ) ของประพจน์ ${\\sim} p\\to{\\sim} q$",
@@ -1787,7 +1885,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.7",
+        "2.5"
+      ],
       "difficulty": "ง่าย",
       "type": "mc",
       "question": "ข้อใดสมมูลกับประพจน์ $p\\to q$",
@@ -1883,7 +1984,9 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.7"
+      ],
       "difficulty": "ง่าย",
       "type": "mc",
       "question": "ข้อใดคือ converse (ผลย้อนกลับ) ของประโยค ‘ถ้ารูปหนึ่งเป็นรูปสี่เหลี่ยมจัตุรัส แล้วรูปนั้นเป็นรูปสี่เหลี่ยมมุมฉาก’",
@@ -1933,7 +2036,9 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.7"
+      ],
       "difficulty": "ง่าย",
       "type": "mc",
       "question": "ข้อใดคือ contrapositive (ผลย้อนกลับที่มีการนิเสธ) ของประโยค ‘ถ้า $n$ เป็นจำนวนเฉพาะที่มากกว่า 2 แล้ว $n$ เป็นจำนวนคี่’",
@@ -1982,7 +2087,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.7",
+        "2.3"
+      ],
       "difficulty": "ง่าย",
       "type": "mc",
       "question": "ข้อใดคือ inverse (ผลนิเสธ) ของประพจน์ $p\\to{\\sim} q$",
@@ -2033,7 +2141,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.7",
+        "2.5"
+      ],
       "difficulty": "ง่าย",
       "type": "mc",
       "question": "ข้อใดสมมูลกับประโยค ‘ถ้าน้ำเดือด แล้วอุณหภูมิถึง 100 องศาเซลเซียส’",
@@ -2082,7 +2193,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.5",
+        "2.3"
+      ],
       "difficulty": "ง่าย",
       "type": "mc",
       "question": "ข้อใดสมมูลกับ ${\\sim}(p\\wedge q)$",
@@ -2132,7 +2246,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.5",
+        "2.2"
+      ],
       "difficulty": "ง่าย",
       "type": "mc",
       "question": "ข้อใดสมมูลกับ $p\\to q$ ในรูปที่ไม่มีลูกศร",
@@ -2182,7 +2299,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.5",
+        "2.3"
+      ],
       "difficulty": "ง่าย",
       "type": "mc",
       "question": "ข้อใดสมมูลกับ ${\\sim}({\\sim} p\\wedge q)$",
@@ -2234,7 +2354,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.5",
+        "2.2"
+      ],
       "difficulty": "ง่าย",
       "type": "mc",
       "question": "ข้อใดสมมูลกับ $p\\wedge(q\\vee r)$",
@@ -2284,7 +2407,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.5",
+        "2.2"
+      ],
       "difficulty": "ง่าย",
       "type": "mc",
       "question": "ข้อใดสมมูลกับ $p\\vee(p\\wedge q)$",
@@ -2334,7 +2460,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.5",
+        "2.2"
+      ],
       "difficulty": "ง่าย",
       "type": "mc",
       "question": "ข้อใดสมมูลกับ $p\\leftrightarrow q$",
@@ -2424,7 +2553,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.5",
+        "2.3"
+      ],
       "difficulty": "ง่าย",
       "type": "mc",
       "question": "ข้อใดสมมูลกับ ${\\sim}(p\\to q)$",
@@ -2475,7 +2607,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.6",
+        "2.4"
+      ],
       "difficulty": "ง่าย",
       "type": "mc",
       "question": "ข้อใดต่อไปนี้เป็นสัจนิรันดร์ (tautology)",
@@ -2558,7 +2693,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.6",
+        "2.4"
+      ],
       "difficulty": "ง่าย",
       "type": "mc",
       "question": "ข้อใดต่อไปนี้เป็นสัจนิรันดร์ (tautology)",
@@ -2661,7 +2799,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.6",
+        "2.5"
+      ],
       "difficulty": "ง่าย",
       "type": "mc",
       "question": "ข้อใดต่อไปนี้เป็นสัจนิรันดร์ (tautology)",
@@ -2761,7 +2902,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.6",
+        "2.4"
+      ],
       "difficulty": "ง่าย",
       "type": "mc",
       "question": "ข้อใดต่อไปนี้เป็นความขัดแย้ง (contradiction คือ เท็จทุกกรณี)",
@@ -2862,7 +3006,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.2",
+        "2.4"
+      ],
       "difficulty": "ง่าย",
       "type": "mc",
       "question": "ข้อใดกล่าวถูกต้องเกี่ยวกับเงื่อนไขที่ทำให้ประพจน์เชื่อมเป็นจริง/เท็จ",
@@ -2916,7 +3063,7 @@
         "2"
       ],
       "subTopics": [
-        "3"
+        "2.10"
       ],
       "difficulty": "ง่าย",
       "type": "mc",
@@ -2972,7 +3119,7 @@
         "2"
       ],
       "subTopics": [
-        "3"
+        "2.10"
       ],
       "difficulty": "ง่าย",
       "type": "mc",
@@ -3028,7 +3175,7 @@
         "2"
       ],
       "subTopics": [
-        "3"
+        "2.10"
       ],
       "difficulty": "ง่าย",
       "type": "mc",
@@ -3084,7 +3231,8 @@
         "2"
       ],
       "subTopics": [
-        "3"
+        "2.10",
+        "3.8"
       ],
       "difficulty": "ง่าย",
       "type": "mc",
@@ -3140,7 +3288,7 @@
         "2"
       ],
       "subTopics": [
-        "3"
+        "2.10"
       ],
       "difficulty": "ง่าย",
       "type": "mc",
@@ -3196,7 +3344,7 @@
         "2"
       ],
       "subTopics": [
-        "3"
+        "2.10"
       ],
       "difficulty": "ง่าย",
       "type": "mc",
@@ -3252,7 +3400,7 @@
         "2"
       ],
       "subTopics": [
-        "3"
+        "2.10"
       ],
       "difficulty": "ง่าย",
       "type": "mc",
@@ -3308,7 +3456,7 @@
         "2"
       ],
       "subTopics": [
-        "3"
+        "2.10"
       ],
       "difficulty": "ง่าย",
       "type": "mc",
@@ -3364,7 +3512,7 @@
         "2"
       ],
       "subTopics": [
-        "3"
+        "2.10"
       ],
       "difficulty": "ง่าย",
       "type": "mc",
@@ -3420,7 +3568,8 @@
         "2"
       ],
       "subTopics": [
-        "3"
+        "2.11",
+        "2.10"
       ],
       "difficulty": "ง่าย",
       "type": "mc",
@@ -3476,7 +3625,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.6",
+        "2.8"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "ข้อใดต่อไปนี้เป็นสัจนิรันดร์ (tautology)",
@@ -3533,7 +3685,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.6",
+        "2.8"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "ข้อใดต่อไปนี้เป็นสัจนิรันดร์ (tautology)",
@@ -3590,7 +3745,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.5",
+        "2.3"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "ข้อใดสมมูลกับ ${\\sim}(p\\to q)\\vee r$",
@@ -3641,7 +3799,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.5",
+        "2.2"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "ข้อใดสมมูลกับ $(p\\to q)\\wedge(p\\to r)$",
@@ -3694,7 +3855,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.5",
+        "2.3"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "ข้อใดสมมูลกับ $(p\\vee q)\\to r$",
@@ -3747,7 +3911,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.5",
+        "2.2"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "ข้อใดสมมูลกับ $(p\\wedge q)\\to r$",
@@ -3800,7 +3967,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.6",
+        "2.8"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "ข้อใดต่อไปนี้<b>ไม่</b>เป็นสัจนิรันดร์ (tautology)",
@@ -3854,7 +4024,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.5",
+        "2.2"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "ข้อใดสมมูลกับ $p\\leftrightarrow q$",
@@ -3906,7 +4079,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.5",
+        "2.3"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "ข้อใดสมมูลกับ ${\\sim}(p\\leftrightarrow q)$",
@@ -4002,7 +4178,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.5",
+        "2.2"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "ข้อใดสมมูลกับ $(p\\to q)\\to q$",
@@ -4094,7 +4273,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.6",
+        "2.8"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "ข้อใดต่อไปนี้เป็นสัจนิรันดร์ (tautology)",
@@ -4150,7 +4332,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.5",
+        "2.2"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "ข้อใดสมมูลกับ $p\\vee(q\\wedge r)$",
@@ -4200,7 +4385,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.5",
+        "2.7"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "ประพจน์คู่ใดต่อไปนี้<b>ไม่</b>สมมูลกัน",
@@ -4254,7 +4442,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.5",
+        "2.2"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "ข้อใดสมมูลกับ $(p\\to q)\\wedge(p\\to{\\sim} q)$",
@@ -4310,7 +4501,9 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.8"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "กำหนดเหตุต่อไปนี้\n(1) ถ้ารถไฟออกตรงเวลา แล้วเราถึงที่ประชุมทัน\n(2) รถไฟออกตรงเวลา\nข้อสรุปใดสมเหตุสมผล",
@@ -4363,7 +4556,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.8",
+        "2.3"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "กำหนดเหตุต่อไปนี้\n(1) $(p\\wedge q)\\to r$\n(2) ${\\sim} r$\nข้อสรุปใดสมเหตุสมผล",
@@ -4416,7 +4612,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.8",
+        "2.5"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "กำหนดเหตุต่อไปนี้\n(1) ถ้าเศรษฐกิจดี แล้วคนมีงานทำมากขึ้น\n(2) ถ้าคนมีงานทำมากขึ้น แล้วการบริโภคสูงขึ้น\nข้อสรุปใดสมเหตุสมผล",
@@ -4469,7 +4668,9 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.8"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "กำหนดเหตุต่อไปนี้\n(1) $p\\vee q$\n(2) ${\\sim} p$\nข้อสรุปใดสมเหตุสมผล",
@@ -4521,7 +4722,9 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.8"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "กำหนดเหตุต่อไปนี้\n(1) ถ้าฝนตก แล้วเราอยู่บ้าน\n(2) ถ้าแดดออก แล้วเราไปทะเล\n(3) ฝนตกหรือแดดออก\nข้อสรุปใดสมเหตุสมผล",
@@ -4576,7 +4779,9 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.8"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "กำหนดเหตุต่อไปนี้\n(1) $p\\to q$\n(2) $q\\to r$\n(3) $p$\nข้อสรุปใดสมเหตุสมผล",
@@ -4630,7 +4835,9 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.8"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "กำหนดเหตุต่อไปนี้\n(1) วันนี้เราไปห้องสมุด หรือ ไปโรงยิม\n(2) วันนี้เราไม่ได้ไปโรงยิม\nข้อสรุปใดสมเหตุสมผล",
@@ -4682,7 +4889,9 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.8"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "กำหนดเหตุต่อไปนี้\n(1) $a\\to b$\n(2) $c\\to d$\n(3) $a\\vee c$\nข้อสรุปใดสมเหตุสมผล",
@@ -4737,7 +4946,9 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.8"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "กำหนดเหตุต่อไปนี้\n(1) ถ้าเขาขยันอ่านหนังสือ แล้วเขาสอบได้ที่หนึ่ง\n(2) เขาสอบได้ที่หนึ่ง\nข้อสรุปใดสมเหตุสมผล",
@@ -4793,7 +5004,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.8",
+        "2.7"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "กำหนดเหตุต่อไปนี้\n(1) ถ้าสารนี้เป็นกรด แล้วกระดาษลิตมัสเปลี่ยนเป็นสีแดง\n(2) กระดาษลิตมัสไม่เปลี่ยนเป็นสีแดง\nข้อสรุปใดสมเหตุสมผล",
@@ -4845,7 +5059,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.8",
+        "2.2"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "กำหนดเหตุต่อไปนี้\n(1) $p\\leftrightarrow q$\n(2) ${\\sim} q$\nข้อสรุปใดสมเหตุสมผล",
@@ -4897,7 +5114,9 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.8"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "กำหนดเหตุต่อไปนี้\n(1) $p\\to q$\n(2) ${\\sim} p$\nข้อสรุปใดสมเหตุสมผล",
@@ -4953,7 +5172,9 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.8"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "กำหนดเหตุต่อไปนี้\n(1) $p\\to q$\n(2) $q\\to r$\n(3) ${\\sim} r$\nข้อสรุปใดสมเหตุสมผล",
@@ -5007,7 +5228,9 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.8"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "กำหนดเหตุต่อไปนี้\n(1) ถ้าโครงการผ่านการอนุมัติ แล้วงบประมาณจะเพิ่มขึ้น\n(2) งบประมาณไม่เพิ่มขึ้น\n(3) โครงการผ่านการอนุมัติ หรือ โครงการถูกเลื่อนออกไป\nข้อสรุปใดสมเหตุสมผล",
@@ -5064,7 +5287,9 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.8"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "พิจารณาการอ้างเหตุผลต่อไปนี้\nเหตุ 1: $p\\to q$\nเหตุ 2: $q$\nข้อสรุป: $p$\nการอ้างเหตุผลนี้สมเหตุสมผลหรือไม่ เพราะเหตุใด",
@@ -5124,7 +5349,9 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.8"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "พิจารณาการอ้างเหตุผลต่อไปนี้\nเหตุ 1: $p\\to q$\nเหตุ 2: ${\\sim} p$\nข้อสรุป: ${\\sim} q$\nการอ้างเหตุผลนี้สมเหตุสมผลหรือไม่ เพราะเหตุใด",
@@ -5183,7 +5410,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.8",
+        "2.7"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "พิจารณาการอ้างเหตุผลต่อไปนี้\nเหตุ 1: $p\\to q$\nเหตุ 2: ${\\sim} q$\nข้อสรุป: ${\\sim} p$\nการอ้างเหตุผลนี้สมเหตุสมผลหรือไม่ เพราะเหตุใด",
@@ -5239,7 +5469,9 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.8"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "พิจารณาการอ้างเหตุผลต่อไปนี้\nเหตุ 1: $p\\vee q$\nเหตุ 2: ${\\sim} p$\nข้อสรุป: $q$\nการอ้างเหตุผลนี้สมเหตุสมผลหรือไม่ เพราะเหตุใด",
@@ -5292,7 +5524,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.8",
+        "2.2"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "พิจารณาการอ้างเหตุผลต่อไปนี้\nเหตุ 1: 'สมชายเรียนสายวิทย์ หรือ สมชายเล่นดนตรี'\nเหตุ 2: 'สมชายเรียนสายวิทย์'\nข้อสรุป: 'สมชายไม่เล่นดนตรี'\nการอ้างเหตุผลนี้สมเหตุสมผลหรือไม่ เพราะเหตุใด",
@@ -5346,7 +5581,9 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.8"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "พิจารณาการอ้างเหตุผลต่อไปนี้\nเหตุ 1: $p\\to q$\nเหตุ 2: $q\\to r$\nเหตุ 3: ${\\sim} r$\nข้อสรุป: ${\\sim} p$\nการอ้างเหตุผลนี้สมเหตุสมผลหรือไม่ เพราะเหตุใด",
@@ -5401,7 +5638,9 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.8"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "พิจารณาการอ้างเหตุผลต่อไปนี้\nเหตุ 1: $p\\to q$\nเหตุ 2: $r\\to s$\nเหตุ 3: $p\\vee r$\nข้อสรุป: $q\\vee s$\nการอ้างเหตุผลนี้สมเหตุสมผลหรือไม่ เพราะเหตุใด",
@@ -5460,7 +5699,9 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.8"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "พิจารณาการอ้างเหตุผล 4 ชุดต่อไปนี้ ข้อใดสมเหตุสมผล\nก. เหตุ $p\\to q$ และ $q$ จึงสรุป $p$\nข. เหตุ $p\\to q$ และ ${\\sim} p$ จึงสรุป ${\\sim} q$\nค. เหตุ $p\\to q$ และ ${\\sim} q$ จึงสรุป ${\\sim} p$\nง. เหตุ $p\\to q$ จึงสรุป $q\\to p$",
@@ -5520,7 +5761,9 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.8"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "พิจารณาการอ้างเหตุผล 4 ชุดต่อไปนี้ ข้อใดไม่สมเหตุสมผล\nก. เหตุ $p\\vee q$ และ ${\\sim} p$ จึงสรุป $q$\nข. เหตุ $p\\vee q$ และ $p$ จึงสรุป ${\\sim} q$\nค. เหตุ $p\\to q$ และ $q\\to r$ จึงสรุป $p\\to r$\nง. เหตุ $p\\to q$ และ ${\\sim} q$ จึงสรุป ${\\sim} p$",
@@ -5579,7 +5822,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.8",
+        "2.3"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "พิจารณาการอ้างเหตุผล 4 ชุดต่อไปนี้ ข้อใดไม่สมเหตุสมผล\nก. เหตุ $p\\leftrightarrow q$ และ $p$ จึงสรุป $q$\nข. เหตุ ${\\sim}(p\\wedge q)$ และ $p$ จึงสรุป ${\\sim} q$\nค. เหตุ ${\\sim}(p\\vee q)$ จึงสรุป ${\\sim} p\\wedge{\\sim} q$\nง. เหตุ $p\\leftrightarrow q$ และ ${\\sim} p$ จึงสรุป $q$",
@@ -5639,7 +5885,9 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.8"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "พิจารณาการอ้างเหตุผล 4 ชุดต่อไปนี้ ข้อใดไม่สมเหตุสมผล\nก. เหตุ $(p\\to q)\\wedge(r\\to s)$ และ $p\\vee r$ จึงสรุป $q\\vee s$\nข. เหตุ $(p\\to q)\\wedge(r\\to s)$ และ ${\\sim} q\\vee{\\sim} s$ จึงสรุป ${\\sim} p\\vee{\\sim} r$\nค. เหตุ $(p\\to q)\\wedge(r\\to s)$ และ $q\\vee s$ จึงสรุป $p\\vee r$\nง. เหตุ $(p\\to q)\\wedge(p\\to r)$ และ $p$ จึงสรุป $q\\wedge r$",
@@ -5699,7 +5947,9 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.8"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "พิจารณาการอ้างเหตุผล 4 ชุดต่อไปนี้ ข้อใดไม่สมเหตุสมผล\nก. เหตุ $p\\to q$ , $q\\to r$ และ ${\\sim} r$ จึงสรุป ${\\sim} p$\nข. เหตุ $p\\to q$ , $q\\to r$ และ ${\\sim} p$ จึงสรุป ${\\sim} r$\nค. เหตุ $p\\to q$ , $q\\to r$ และ $p$ จึงสรุป $r$\nง. เหตุ $p\\to q$ , $r\\to q$ และ ${\\sim} q$ จึงสรุป ${\\sim} p\\wedge{\\sim} r$",
@@ -5759,7 +6009,9 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.8"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "พิจารณาการอ้างเหตุผล 4 ชุดต่อไปนี้ ข้อใดสมเหตุสมผล\nก. ถ้าฝนตกแล้วถนนเปียก และฝนตก จึงสรุปว่าถนนเปียก\nข. ถ้าขยันแล้วสอบผ่าน และสอบผ่าน จึงสรุปว่าขยัน\nค. ถ้าเป็นนกแล้วบินได้ และไม่ใช่นก จึงสรุปว่าบินไม่ได้\nง. รถคันนี้สีแดงหรือสีน้ำเงิน และรถคันนี้สีแดง จึงสรุปว่าไม่ใช่สีน้ำเงิน",
@@ -5819,7 +6071,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.8",
+        "2.3"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "พิจารณาการอ้างเหตุผล 4 ชุดต่อไปนี้ ข้อใดสมเหตุสมผล\nก. เหตุ ${\\sim}(p\\to q)$ จึงสรุป $p$\nข. เหตุ $p\\to(q\\vee r)$ และ ${\\sim} q$ จึงสรุป ${\\sim} p$\nค. เหตุ $(p\\wedge q)\\to r$ และ $r$ จึงสรุป $p\\wedge q$\nง. เหตุ $p\\to q$ จึงสรุป ${\\sim} p\\to{\\sim} q$",
@@ -5883,7 +6138,8 @@
         "2"
       ],
       "subTopics": [
-        "3"
+        "2.10",
+        "3.6"
       ],
       "difficulty": "ปานกลาง",
       "type": "mc",
@@ -5939,7 +6195,8 @@
         "2"
       ],
       "subTopics": [
-        "3"
+        "2.10",
+        "3.8"
       ],
       "difficulty": "ปานกลาง",
       "type": "mc",
@@ -5995,7 +6252,8 @@
         "2"
       ],
       "subTopics": [
-        "3"
+        "2.10",
+        "3.6"
       ],
       "difficulty": "ปานกลาง",
       "type": "mc",
@@ -6051,7 +6309,8 @@
         "2"
       ],
       "subTopics": [
-        "17"
+        "2.10",
+        "17.1"
       ],
       "difficulty": "ปานกลาง",
       "type": "mc",
@@ -6107,7 +6366,7 @@
         "2"
       ],
       "subTopics": [
-        "3"
+        "2.10"
       ],
       "difficulty": "ปานกลาง",
       "type": "mc",
@@ -6163,7 +6422,7 @@
         "2"
       ],
       "subTopics": [
-        "3"
+        "2.10"
       ],
       "difficulty": "ปานกลาง",
       "type": "mc",
@@ -6219,7 +6478,9 @@
         "2"
       ],
       "subTopics": [
-        "3"
+        "2.11",
+        "2.10",
+        "3.8"
       ],
       "difficulty": "ปานกลาง",
       "type": "mc",
@@ -6276,7 +6537,8 @@
         "2"
       ],
       "subTopics": [
-        "3"
+        "2.10",
+        "3.6"
       ],
       "difficulty": "ปานกลาง",
       "type": "mc",
@@ -6332,7 +6594,8 @@
         "2"
       ],
       "subTopics": [
-        "17"
+        "2.10",
+        "17.1"
       ],
       "difficulty": "ปานกลาง",
       "type": "mc",
@@ -6388,7 +6651,8 @@
         "2"
       ],
       "subTopics": [
-        "17"
+        "2.11",
+        "2.10"
       ],
       "difficulty": "ปานกลาง",
       "type": "mc",
@@ -6445,7 +6709,8 @@
         "2"
       ],
       "subTopics": [
-        "3"
+        "2.10",
+        "3.6"
       ],
       "difficulty": "ปานกลาง",
       "type": "mc",
@@ -6501,7 +6766,9 @@
         "2"
       ],
       "subTopics": [
-        "3"
+        "2.11",
+        "2.10",
+        "3.8"
       ],
       "difficulty": "ปานกลาง",
       "type": "mc",
@@ -6558,7 +6825,7 @@
         "2"
       ],
       "subTopics": [
-        "3"
+        "2.10"
       ],
       "difficulty": "ปานกลาง",
       "type": "mc",
@@ -6615,7 +6882,8 @@
         "2"
       ],
       "subTopics": [
-        "17"
+        "2.10",
+        "17.1"
       ],
       "difficulty": "ปานกลาง",
       "type": "mc",
@@ -6670,7 +6938,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.11",
+        "2.3"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "ให้ $P(x),Q(x)$ เป็นประโยคเปิดบนเอกภพสัมพัทธ์ $U$ ใด ๆ นิเสธของ $[\\forall x(P(x)\\to Q(x))]$ สมมูลกับข้อใด",
@@ -6725,7 +6996,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.11",
+        "2.3"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "ให้ $P(x),Q(x)$ เป็นประโยคเปิดบนเอกภพสัมพัทธ์ $U$ ใด ๆ นิเสธของ $[\\exists x(P(x)\\wedge Q(x))]$ สมมูลกับข้อใด",
@@ -6778,7 +7052,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.11",
+        "2.12"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "ให้ $P(x,y)$ เป็นประโยคเปิดสองตัวแปรบนเอกภพสัมพัทธ์ $U$ ใด ๆ นิเสธของ $[\\forall x\\,\\exists y\\,P(x,y)]$ สมมูลกับข้อใด",
@@ -6833,7 +7110,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.11",
+        "2.3"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "ให้ $P(x),Q(y)$ เป็นประโยคเปิดบนเอกภพสัมพัทธ์ $U$ ใด ๆ นิเสธของข้อความ '$\\forall x[P(x)]$ และ $\\exists y[Q(y)]$' สมมูลกับข้อใด",
@@ -6886,7 +7166,8 @@
         "2"
       ],
       "subTopics": [
-        "3"
+        "2.10",
+        "2.11"
       ],
       "difficulty": "ปานกลาง",
       "type": "mc",
@@ -6941,7 +7222,8 @@
         "2"
       ],
       "subTopics": [
-        "3"
+        "2.10",
+        "2.11"
       ],
       "difficulty": "ปานกลาง",
       "type": "mc",
@@ -6997,7 +7279,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.11",
+        "2.3"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "ให้ $P(x),Q(y)$ เป็นประโยคเปิดบนเอกภพสัมพัทธ์ $U$ ใด ๆ นิเสธของข้อความ '$\\forall x[P(x)]$ หรือ $\\exists y[Q(y)]$' สมมูลกับข้อใด",
@@ -7049,7 +7334,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.1",
+        "2.2"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "กำหนดให้ประพจน์ $(p\\to q)\\wedge({\\sim}r\\vee p)$ เป็นเท็จ และ $q$ เป็นจริง จงหาค่าความจริงของ $p$ และ $r$",
@@ -7187,7 +7475,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.4",
+        "2.2"
+      ],
       "difficulty": "ปานกลาง",
       "type": "fill",
       "question": "จงหาจำนวนการจัดค่าความจริง $(p,q,r)$ ที่ทำให้ $(p\\vee q)\\wedge(q\\to r)$ เป็นจริง",
@@ -7324,7 +7615,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.4",
+        "2.2"
+      ],
       "difficulty": "ปานกลาง",
       "type": "fill",
       "question": "จงหาจำนวนการจัดค่าความจริง $(p,q,r)$ ที่ทำให้ $(p\\leftrightarrow q)\\wedge(r\\to p)$ เป็นจริง",
@@ -7460,7 +7754,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.1",
+        "2.2"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "กำหนดให้ $p\\vee(q\\wedge r)$ เป็นจริง และ $p\\to r$ เป็นเท็จ ข้อใดถูกต้อง",
@@ -7514,7 +7811,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.1",
+        "2.2"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "กำหนดให้ $p\\to q$ เป็นเท็จ และ $q\\vee r$ เป็นเท็จ พิจารณาประพจน์ $\\Phi:({\\sim}p\\vee r)\\leftrightarrow(q\\wedge{\\sim}r)$ ข้อใดถูกต้อง",
@@ -7572,7 +7872,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.1",
+        "2.2"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "กำหนดให้ $q\\to p$ เป็นเท็จ และ $r\\leftrightarrow q$ เป็นจริง พิจารณาประพจน์ $\\Psi:(p\\vee{\\sim}r)\\to({\\sim}q\\vee p)$ ข้อใดถูกต้อง",
@@ -7630,7 +7933,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.4",
+        "2.2"
+      ],
       "difficulty": "ปานกลาง",
       "type": "fill",
       "question": "จงหาจำนวนการจัดค่าความจริง $(p,q,r)$ ที่ทำให้ $(p\\to q)\\vee(q\\to r)$ เป็นเท็จ",
@@ -7763,7 +8069,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.8",
+        "2.3"
+      ],
       "difficulty": "ยาก",
       "type": "mc",
       "question": "กำหนดเหตุต่อไปนี้\n(1) $(p\\vee q)\\to r$\n(2) $r\\to s$\n(3) $s\\to t$\n(4) ${\\sim} t$\nข้อสรุปใดสมเหตุสมผล",
@@ -7832,7 +8141,9 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.8"
+      ],
       "difficulty": "ยาก",
       "type": "mc",
       "question": "กำหนดเหตุต่อไปนี้\n(1) $p$\n(2) $p\\to q$\n(3) $q\\to(r\\wedge s)$\n(4) $(r\\wedge s)\\to t$\nข้อสรุปใดสมเหตุสมผล",
@@ -7897,7 +8208,9 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.8"
+      ],
       "difficulty": "ยาก",
       "type": "mc",
       "question": "กำหนดเหตุต่อไปนี้\n(1) $p\\vee q$\n(2) $q\\to r$\n(3) ${\\sim} r$\n(4) $p\\to s$\nข้อสรุปใดสมเหตุสมผล",
@@ -7962,7 +8275,9 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.8"
+      ],
       "difficulty": "ยาก",
       "type": "mc",
       "question": "กำหนดเหตุต่อไปนี้\n(1) $p\\to r$\n(2) $q\\to s$\n(3) $t\\to p$\n(4) $t\\vee q$\nข้อสรุปใดสมเหตุสมผล",
@@ -8025,7 +8340,9 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.8"
+      ],
       "difficulty": "ยาก",
       "type": "mc",
       "question": "กำหนดเหตุต่อไปนี้\n(1) $p\\to q$\n(2) $r\\to s$\n(3) $s\\to u$\n(4) ${\\sim} q\\vee{\\sim} u$\nข้อสรุปใดสมเหตุสมผล",
@@ -8088,7 +8405,9 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.8"
+      ],
       "difficulty": "ยาก",
       "type": "mc",
       "question": "กำหนดเหตุต่อไปนี้\n(1) $p\\vee q$\n(2) ${\\sim} p\\vee r$\n(3) ${\\sim} q\\vee r$\n(4) $r\\to t$\nข้อสรุปใดสมเหตุสมผล",
@@ -8153,7 +8472,9 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.8"
+      ],
       "difficulty": "ยาก",
       "type": "mc",
       "question": "กำหนดเหตุต่อไปนี้\n(1) $p\\to q$\n(2) $q\\to r$\n(3) $r\\vee s$\n(4) ${\\sim} p$\nข้อสรุปใดสมเหตุสมผล",
@@ -8212,7 +8533,9 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.8"
+      ],
       "difficulty": "ยาก",
       "type": "mc",
       "question": "กำหนดเหตุต่อไปนี้\n(1) $p\\to(q\\wedge r)$\n(2) $q\\to s$\n(3) $u\\to{\\sim} s$\n(4) $u$\nข้อสรุปใดสมเหตุสมผล",
@@ -8281,7 +8604,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.8",
+        "2.3"
+      ],
       "difficulty": "ยาก",
       "type": "mc",
       "question": "กำหนดเหตุต่อไปนี้\n(1) $(p\\vee q)\\to(r\\wedge s)$\n(2) ${\\sim} r$\n(3) $p\\vee t$\n(4) $t\\to u$\nข้อสรุปใดสมเหตุสมผล",
@@ -8350,7 +8676,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.8",
+        "2.2"
+      ],
       "difficulty": "ยาก",
       "type": "mc",
       "question": "กำหนดเหตุต่อไปนี้\n(1) $p\\leftrightarrow q$\n(2) $q\\to r$\n(3) ${\\sim} r$\n(4) $p\\vee s$\nข้อสรุปใดสมเหตุสมผล",
@@ -8415,7 +8744,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.8",
+        "2.3"
+      ],
       "difficulty": "ยาก",
       "type": "mc",
       "question": "กำหนดเหตุต่อไปนี้\n(1) $(p\\wedge q)\\to r$\n(2) $p$\n(3) ${\\sim} r$\n(4) $q\\vee s$\nข้อสรุปใดสมเหตุสมผล",
@@ -8480,7 +8812,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.8",
+        "2.3"
+      ],
       "difficulty": "ยาก",
       "type": "mc",
       "question": "กำหนดเหตุต่อไปนี้\n(1) $p\\to(q\\vee r)$\n(2) ${\\sim} q$\n(3) ${\\sim} r$\n(4) $s\\vee p$\n(5) $s\\to t$\nข้อสรุปใดสมเหตุสมผล",
@@ -8550,7 +8885,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.8",
+        "2.3"
+      ],
       "difficulty": "ยาก",
       "type": "mc",
       "question": "กำหนดเหตุต่อไปนี้\n(1) ${\\sim} p\\to q$\n(2) ${\\sim} r\\to s$\n(3) ${\\sim} q$\n(4) ${\\sim} s$\nข้อสรุปใดสมเหตุสมผล",
@@ -8616,7 +8954,9 @@
         "2"
       ],
       "subTopics": [
-        "3"
+        "2.12",
+        "2.10",
+        "2.11"
       ],
       "difficulty": "ยาก",
       "type": "mc",
@@ -8676,7 +9016,8 @@
         "2"
       ],
       "subTopics": [
-        "3"
+        "2.12",
+        "2.10"
       ],
       "difficulty": "ยาก",
       "type": "mc",
@@ -8737,7 +9078,8 @@
         "2"
       ],
       "subTopics": [
-        "3"
+        "2.10",
+        "2.12"
       ],
       "difficulty": "ยาก",
       "type": "mc",
@@ -8798,7 +9140,8 @@
         "2"
       ],
       "subTopics": [
-        "3"
+        "2.10",
+        "2.12"
       ],
       "difficulty": "ยาก",
       "type": "mc",
@@ -8855,7 +9198,8 @@
         "2"
       ],
       "subTopics": [
-        "3"
+        "2.12",
+        "2.10"
       ],
       "difficulty": "ยาก",
       "type": "mc",
@@ -8910,7 +9254,8 @@
         "2"
       ],
       "subTopics": [
-        "3"
+        "2.12",
+        "2.10"
       ],
       "difficulty": "ยาก",
       "type": "mc",
@@ -8964,7 +9309,8 @@
         "2"
       ],
       "subTopics": [
-        "3"
+        "2.12",
+        "2.10"
       ],
       "difficulty": "ยาก",
       "type": "mc",
@@ -9019,7 +9365,8 @@
         "2"
       ],
       "subTopics": [
-        "3"
+        "2.12",
+        "2.10"
       ],
       "difficulty": "ยาก",
       "type": "mc",
@@ -9078,7 +9425,9 @@
         "2"
       ],
       "subTopics": [
-        "3"
+        "2.11",
+        "2.12",
+        "2.10"
       ],
       "difficulty": "ยาก",
       "type": "mc",
@@ -9132,7 +9481,8 @@
         "2"
       ],
       "subTopics": [
-        "3"
+        "2.11",
+        "2.10"
       ],
       "difficulty": "ยาก",
       "type": "mc",
@@ -9192,7 +9542,8 @@
         "2"
       ],
       "subTopics": [
-        "3"
+        "2.12",
+        "2.10"
       ],
       "difficulty": "ยาก",
       "type": "mc",
@@ -9253,7 +9604,8 @@
         "2"
       ],
       "subTopics": [
-        "3"
+        "2.12",
+        "2.10"
       ],
       "difficulty": "ยาก",
       "type": "mc",
@@ -9307,7 +9659,8 @@
         "2"
       ],
       "subTopics": [
-        "3"
+        "2.10",
+        "17.7"
       ],
       "difficulty": "ยาก",
       "type": "mc",
@@ -9360,7 +9713,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.4",
+        "2.2"
+      ],
       "difficulty": "ยาก",
       "type": "fill",
       "question": "จงหาจำนวนการจัดค่าความจริง $(p,q,r)$ ที่ทำให้ $(p\\leftrightarrow q)\\wedge(q\\to r)\\wedge(r\\to{\\sim} p)$ เป็นจริง",
@@ -9480,7 +9836,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.4",
+        "2.2"
+      ],
       "difficulty": "ยาก",
       "type": "fill",
       "question": "จงหาจำนวนการจัดค่าความจริง $(p,q,r)$ ที่ทำให้ $(p\\vee q\\vee r)\\wedge({\\sim} p\\vee{\\sim} q)\\wedge({\\sim} q\\vee{\\sim} r)\\wedge({\\sim} p\\vee{\\sim} r)$ เป็นจริง",
@@ -9601,7 +9960,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.4",
+        "2.2"
+      ],
       "difficulty": "ยาก",
       "type": "fill",
       "question": "จงหาจำนวนการจัดค่าความจริง $(p,q,r,s)$ ที่ทำให้ $(p\\to(q\\vee r))\\wedge(q\\to s)\\wedge(r\\to s)\\wedge{\\sim} s$ เป็นจริง",
@@ -9649,7 +10011,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.4",
+        "2.2"
+      ],
       "difficulty": "ยาก",
       "type": "fill",
       "question": "จงหาจำนวนการจัดค่าความจริง $(p,q,r)$ ที่ทำให้ $(p\\leftrightarrow{\\sim} q)\\wedge(r\\to p)\\wedge(q\\vee r)$ เป็นจริง",
@@ -9702,7 +10067,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.4",
+        "2.2"
+      ],
       "difficulty": "ยาก",
       "type": "fill",
       "question": "จงหาจำนวนการจัดค่าความจริง $(p,q,r)$ ที่ทำให้ $(p\\to(q\\to r))\\wedge(r\\to p)\\wedge(q\\vee r)$ เป็นจริง",
@@ -9818,7 +10186,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.4",
+        "2.2"
+      ],
       "difficulty": "ยาก",
       "type": "fill",
       "question": "จงหาจำนวนการจัดค่าความจริง $(p,q,r,s)$ ที่ทำให้ $((p\\wedge q)\\leftrightarrow(r\\vee s))\\wedge(p\\to{\\sim} s)$ เป็นจริง",
@@ -9872,7 +10243,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.4",
+        "2.2"
+      ],
       "difficulty": "ยาก",
       "type": "fill",
       "question": "จงหาจำนวนการจัดค่าความจริง $(p,q,r)$ ที่ทำให้ $(p\\to q)\\wedge(q\\to r)\\wedge(p\\vee r)$ เป็นจริง",
@@ -9995,7 +10369,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.2",
+        "2.1"
+      ],
       "difficulty": "ยาก",
       "type": "fill",
       "question": "กำหนดให้ $p\\to q$ เป็นจริง, $q\\to r$ เป็นเท็จ และ $r\\vee p$ เป็นจริง จงหาค่าความจริงของ ${\\sim} p\\vee(q\\wedge{\\sim} r)$",
@@ -10051,7 +10428,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.4",
+        "2.2"
+      ],
       "difficulty": "ยาก",
       "type": "fill",
       "question": "กำหนดให้ $p\\to q$ เป็นจริง, $q\\to r$ เป็นจริง และ $p\\wedge{\\sim} r$ เป็นจริง มีการจัดค่าความจริง $(p,q,r)$ กี่แบบที่สอดคล้องกับเงื่อนไขทั้งหมด",
@@ -10107,7 +10487,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.2",
+        "2.1"
+      ],
       "difficulty": "ยาก",
       "type": "mc",
       "question": "กำหนดให้ $p\\to q$ เป็นจริง, $r\\to q$ เป็นจริง, $q$ เป็นเท็จ และ $p\\vee s$ เป็นจริง ข้อใดคือค่าความจริง $(p,q,r,s)$ ที่สอดคล้องกับเงื่อนไขทั้งหมด",
@@ -10161,7 +10544,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.2",
+        "2.1"
+      ],
       "difficulty": "ยาก",
       "type": "fill",
       "question": "กำหนดให้ $(p\\vee q)\\leftrightarrow r$ เป็นจริง, $r\\to s$ เป็นจริง, $s\\to{\\sim} p$ เป็นจริง และ $q$ เป็นจริง จงหาค่าความจริงของ $(r\\wedge s)\\to p$",
@@ -10215,7 +10601,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.4",
+        "2.2"
+      ],
       "difficulty": "ยาก",
       "type": "fill",
       "question": "กำหนดให้ $p\\to q$ เป็นจริง, $q$ เป็นเท็จ และ $r\\vee s$ เป็นจริง มีการจัดค่าความจริง $(p,q,r,s)$ กี่แบบที่สอดคล้องกับเงื่อนไขทั้งหมด",
@@ -10265,7 +10654,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.2",
+        "2.1"
+      ],
       "difficulty": "ยาก",
       "type": "mc",
       "question": "กำหนดให้ $(p\\wedge q)\\leftrightarrow r$ เป็นจริง, $q\\vee r$ เป็นจริง และ $p$ เป็นเท็จ เมื่อบังคับค่าครบแล้ว ข้อใดต่อไปนี้เป็นจริง",
@@ -10321,7 +10713,9 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.8"
+      ],
       "difficulty": "ยาก",
       "type": "mc",
       "question": "กำหนดเหตุต่อไปนี้\n(1) $p\\vee q$\n(2) $p\\to r$\n(3) $q\\to s$\nข้อสรุปใดสมเหตุสมผล",
@@ -10381,7 +10775,9 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.8"
+      ],
       "difficulty": "ยาก",
       "type": "mc",
       "question": "กำหนดเหตุต่อไปนี้\n(1) $p\\to q$\n(2) $q\\to r$\nต้องเพิ่มเหตุใดต่อไปนี้ (อย่างน้อยที่สุด) จึงจะสรุป $r$ ได้อย่างสมเหตุสมผล",
@@ -10440,7 +10836,9 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.8"
+      ],
       "difficulty": "ยาก",
       "type": "mc",
       "question": "กำหนดเหตุต่อไปนี้\n(1) $p\\to q$\n(2) $r\\to q$\n(3) $p\\vee r$\nข้อสรุปใดเป็นข้อสรุปที่ 'แข็งแรงที่สุด' ที่สมเหตุสมผล",
@@ -10503,7 +10901,9 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.8"
+      ],
       "difficulty": "ยาก",
       "type": "mc",
       "question": "กำหนดเหตุต่อไปนี้\n(1) $p\\to(q\\wedge r)$\n(2) $q\\to{\\sim}r$\nข้อสรุปใดสมเหตุสมผล",
@@ -10564,7 +10964,9 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.8"
+      ],
       "difficulty": "ยาก",
       "type": "mc",
       "question": "กำหนดเหตุต่อไปนี้\n(1) $p\\leftrightarrow q$\n(2) $p\\vee q$\nข้อสรุปใดสมเหตุสมผล",
@@ -10625,7 +11027,9 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.8"
+      ],
       "difficulty": "ยาก",
       "type": "mc",
       "question": "กำหนดเหตุต่อไปนี้\n(1) $p\\vee q$\n(2) $p\\to s$\n(3) $q\\to s$\n(4) $s\\to t$\nข้อสรุปใดสมเหตุสมผล",
@@ -10687,7 +11091,8 @@
         "2"
       ],
       "subTopics": [
-        "3"
+        "2.10",
+        "3.6"
       ],
       "difficulty": "ยาก",
       "type": "mc",
@@ -10748,7 +11153,7 @@
         "2"
       ],
       "subTopics": [
-        "3"
+        "2.10"
       ],
       "difficulty": "ยาก",
       "type": "mc",
@@ -10811,7 +11216,8 @@
         "2"
       ],
       "subTopics": [
-        "3"
+        "2.10",
+        "3.6"
       ],
       "difficulty": "ยาก",
       "type": "mc",
@@ -10872,7 +11278,8 @@
         "2"
       ],
       "subTopics": [
-        "3"
+        "2.10",
+        "3.6"
       ],
       "difficulty": "ยาก",
       "type": "mc",
@@ -10933,7 +11340,8 @@
         "2"
       ],
       "subTopics": [
-        "3"
+        "2.10",
+        "3.6"
       ],
       "difficulty": "ยาก",
       "type": "mc",
@@ -10993,7 +11401,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.4",
+        "2.2"
+      ],
       "difficulty": "ยากมาก",
       "type": "fill",
       "question": "บนเกาะแห่งหนึ่งมีอัศวิน (พูดจริงเสมอ) และคนโกหก (พูดเท็จเสมอ) พบชาวเกาะสามคน A, B, C\nA พูดว่า 'B เป็นอัศวิน'\nB พูดว่า 'C เป็นคนโกหก'\nC พูดว่า 'A กับ B เป็นคนละพวกกัน'\nจงหาจำนวนอัศวินในสามคนนี้",
@@ -11049,7 +11460,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.4",
+        "2.2"
+      ],
       "difficulty": "ยากมาก",
       "type": "fill",
       "question": "บนเกาะมีอัศวิน (พูดจริงเสมอ) และคนโกหก (พูดเท็จเสมอ) พบสามคน A, B, C\nA พูดว่า 'ในสามคนนี้มีอัศวินเพียงคนเดียว'\nB พูดว่า 'ในสามคนนี้มีอัศวินสองคนพอดี'\nC พูดว่า 'พวกเราสามคนเป็นคนโกหกทั้งหมด'\nจงหาจำนวนอัศวินในสามคนนี้",
@@ -11107,7 +11521,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.4",
+        "2.2"
+      ],
       "difficulty": "ยากมาก",
       "type": "fill",
       "question": "บนเกาะมีอัศวิน (พูดจริงเสมอ) และคนโกหก (พูดเท็จเสมอ) พบสี่คน A, B, C, D\nA พูดว่า 'B เป็นอัศวิน'\nB พูดว่า 'C เป็นคนโกหก'\nC พูดว่า 'D เป็นอัศวิน'\nD พูดว่า 'A และ C เป็นคนโกหกทั้งคู่'\nจงหาจำนวนอัศวินในสี่คนนี้",
@@ -11166,7 +11583,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.4",
+        "2.2"
+      ],
       "difficulty": "ยากมาก",
       "type": "mc",
       "question": "ในการสืบคดีมีพยาน 3 ปาก แต่ละปากเป็นได้สองแบบคือ 'พูดจริงเสมอ' หรือ 'โกหกเสมอ'\nปากที่ 1 พูดว่า 'ในสามปากนี้ มีเพียงปากเดียวที่พูดจริง'\nปากที่ 2 พูดว่า 'ปากที่ 1 โกหก'\nปากที่ 3 พูดว่า 'ปากที่ 1 กับปากที่ 2 เป็นคนละแบบกัน (คนหนึ่งจริง อีกคนโกหก)'\nข้อใดถูกต้อง",
@@ -11228,7 +11648,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.4",
+        "2.2"
+      ],
       "difficulty": "ยากมาก",
       "type": "fill",
       "question": "บนเกาะมีอัศวิน (พูดจริงเสมอ) และคนโกหก (พูดเท็จเสมอ) พบสามคน A, B, C\nA พูดว่า 'ในสามคนนี้มีคนโกหกอย่างน้อยสองคน'\nB พูดว่า 'A กับ C เป็นพวกเดียวกัน'\nC พูดว่า 'ในสามคนนี้มีอัศวินอย่างน้อยสองคน'\nจงหาจำนวนอัศวินในสามคนนี้",
@@ -11285,7 +11708,8 @@
         "2"
       ],
       "subTopics": [
-        "12"
+        "2.4",
+        "2.2"
       ],
       "difficulty": "ยากมาก",
       "type": "fill",
@@ -11338,7 +11762,8 @@
         "2"
       ],
       "subTopics": [
-        "12"
+        "2.4",
+        "2.2"
       ],
       "difficulty": "ยากมาก",
       "type": "fill",
@@ -11388,7 +11813,8 @@
         "2"
       ],
       "subTopics": [
-        "12"
+        "2.4",
+        "12.3"
       ],
       "difficulty": "ยากมาก",
       "type": "fill",
@@ -11438,7 +11864,8 @@
         "2"
       ],
       "subTopics": [
-        "12"
+        "2.4",
+        "2.2"
       ],
       "difficulty": "ยากมาก",
       "type": "fill",
@@ -11491,7 +11918,8 @@
         "2"
       ],
       "subTopics": [
-        "12"
+        "2.4",
+        "2.2"
       ],
       "difficulty": "ยากมาก",
       "type": "fill",
@@ -11546,7 +11974,8 @@
         "2"
       ],
       "subTopics": [
-        "3"
+        "2.12",
+        "2.10"
       ],
       "difficulty": "ยากมาก",
       "type": "mc",
@@ -11607,7 +12036,8 @@
         "2"
       ],
       "subTopics": [
-        "3"
+        "2.12",
+        "2.10"
       ],
       "difficulty": "ยากมาก",
       "type": "mc",
@@ -11662,7 +12092,9 @@
         "2"
       ],
       "subTopics": [
-        "3"
+        "2.12",
+        "2.10",
+        "3.6"
       ],
       "difficulty": "ยากมาก",
       "type": "mc",
@@ -11717,7 +12149,8 @@
         "2"
       ],
       "subTopics": [
-        "17"
+        "2.10",
+        "17.1"
       ],
       "difficulty": "ยากมาก",
       "type": "mc",
@@ -11777,7 +12210,8 @@
         "2"
       ],
       "subTopics": [
-        "3"
+        "2.11",
+        "2.12"
       ],
       "difficulty": "ยากมาก",
       "type": "mc",
@@ -11835,7 +12269,9 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.8"
+      ],
       "difficulty": "ยากมาก",
       "type": "mc",
       "question": "กำหนดเหตุต่อไปนี้\n(1) $p\\to(q\\wedge r)$\n(2) $r\\to s$\n(3) ${\\sim} s$\n(4) $p\\vee t$\n(5) $t\\to u$\nข้อสรุปใดสมเหตุสมผล",
@@ -11905,7 +12341,9 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.8"
+      ],
       "difficulty": "ยากมาก",
       "type": "mc",
       "question": "กำหนดเหตุต่อไปนี้\n(1) $p\\vee q$\n(2) $p\\to r$\n(3) $q\\to s$\n(4) $r\\to t$\n(5) $s\\to t$\nข้อสรุปใดสมเหตุสมผล",
@@ -11974,7 +12412,9 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.8"
+      ],
       "difficulty": "ยากมาก",
       "type": "mc",
       "question": "กำหนดเหตุสองข้อ\n(1) $(p\\wedge q)\\to r$\n(2) ${\\sim} r$\nต้องเพิ่มเหตุข้อใดลงไป จึงจะสรุป ${\\sim} q$ ได้อย่างสมเหตุสมผล",
@@ -12033,7 +12473,9 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.8"
+      ],
       "difficulty": "ยากมาก",
       "type": "mc",
       "question": "กำหนดเหตุต่อไปนี้\n(1) $p\\to q$\n(2) $r\\to q$\n(3) ${\\sim}({\\sim} p\\wedge{\\sim} r)$\n(4) $q\\to s$\nข้อสรุปใดเป็นข้อสรุปที่ 'แข็งแรงที่สุด' ที่สมเหตุสมผล",
@@ -12096,7 +12538,9 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.8"
+      ],
       "difficulty": "ยากมาก",
       "type": "mc",
       "question": "กำหนดเหตุต่อไปนี้\n(1) $p\\to(q\\vee r)$\n(2) $q\\to s$\n(3) $r\\to s$\n(4) $s\\to t$\n(5) $p$\n(6) $u\\to{\\sim} t$\nข้อสรุปใดสมเหตุสมผล",
@@ -12167,7 +12611,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.2",
+        "2.1"
+      ],
       "difficulty": "ง่าย",
       "type": "mc",
       "question": "กำหนดให้ $p$ เป็นจริง, $q$ เป็นเท็จ และ $r$ เป็นจริง ข้อใดต่อไปนี้เป็นจริง",
@@ -12203,7 +12650,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.2",
+        "2.1"
+      ],
       "difficulty": "ง่าย",
       "type": "mc",
       "question": "กำหนดให้ $p$ และ $q$ เป็นจริง ส่วน $r$ เป็นเท็จ ข้อใดต่อไปนี้เป็นจริง",
@@ -12239,7 +12689,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.3",
+        "2.5"
+      ],
       "difficulty": "ง่าย",
       "type": "mc",
       "question": "ข้อใดสมมูลกับนิเสธของประพจน์ $p\\wedge(q\\vee r)$",
@@ -12274,7 +12727,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.7",
+        "2.5"
+      ],
       "difficulty": "ง่าย",
       "type": "mc",
       "question": "ประพจน์ ${\\sim}p\\to q$ สมมูลกับข้อใด",
@@ -12309,7 +12765,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.6",
+        "2.4"
+      ],
       "difficulty": "ง่าย",
       "type": "mc",
       "question": "ข้อใดต่อไปนี้เป็นสัจนิรันดร์ (ประพจน์ที่เป็นจริงทุกกรณี)",
@@ -12345,7 +12804,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.2",
+        "2.1"
+      ],
       "difficulty": "ง่าย",
       "type": "fill",
       "question": "กำหนดให้ $p$ และ $q$ เป็นจริง ส่วน $r$ เป็นเท็จ จงหาค่าความจริงของประพจน์ $(p\\vee{\\sim}q)\\to(q\\wedge r)$ (ตอบ จริง หรือ เท็จ)",
@@ -12374,7 +12836,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.4",
+        "2.2"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "ประพจน์ $(p\\vee q)\\to(p\\wedge r)$ มีค่าความจริงเป็นจริงกี่กรณี จากการกำหนดค่าความจริงของ $p,q,r$ ทั้งหมด",
@@ -12496,7 +12961,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.3",
+        "2.5"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "นิเสธของประพจน์ $(p\\to q)\\wedge r$ สมมูลกับข้อใด",
@@ -12531,7 +12999,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.2",
+        "2.1"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "กำหนดให้ $p$ และ $r$ เป็นจริง ส่วน $q$ และ $s$ เป็นเท็จ ข้อใดต่อไปนี้เป็นจริง",
@@ -12567,7 +13038,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.4",
+        "2.2"
+      ],
       "difficulty": "ปานกลาง",
       "type": "fill",
       "question": "จงหาจำนวนการกำหนดค่าความจริงของ $p,q,r$ ที่ทำให้ประพจน์ $(p\\leftrightarrow q)\\wedge(q\\vee r)$ เป็นจริง",
@@ -12597,7 +13071,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.5",
+        "2.3"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "ประพจน์ $(p\\to q)\\to r$ สมมูลกับข้อใด",
@@ -12632,7 +13109,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.6",
+        "2.8"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "ข้อใดต่อไปนี้เป็นสัจนิรันดร์",
@@ -12668,7 +13148,9 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.5"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "ประพจน์ $(p\\to q)\\wedge({\\sim}p\\to q)$ สมมูลกับข้อใด",
@@ -12751,7 +13233,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.4",
+        "2.2"
+      ],
       "difficulty": "ยาก",
       "type": "mc",
       "question": "จำนวนการกำหนดค่าความจริงของ $p,q,r,s$ ที่ทำให้ประพจน์ $(p\\to q)\\wedge(r\\to s)\\wedge(p\\vee r)$ เป็นจริง มีกี่กรณี",
@@ -12788,7 +13273,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.3",
+        "2.5"
+      ],
       "difficulty": "ยาก",
       "type": "mc",
       "question": "นิเสธของประพจน์ $(p\\wedge q)\\to(r\\vee{\\sim}s)$ สมมูลกับข้อใด",
@@ -12825,7 +13313,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.6",
+        "2.8"
+      ],
       "difficulty": "ยาก",
       "type": "mc",
       "question": "ข้อใดต่อไปนี้เป็นสัจนิรันดร์",
@@ -12952,7 +13443,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.3",
+        "2.5"
+      ],
       "difficulty": "ยาก",
       "type": "fill",
       "question": "จงเขียนนิเสธของประพจน์ $(p\\to q)\\vee(r\\to s)$ ให้อยู่ในรูปคอนจังก์ชันของตัวแปรและนิเสธของตัวแปร (รูปที่ง่ายที่สุด)",
@@ -12990,7 +13484,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.2",
+        "2.1"
+      ],
       "difficulty": "ยาก",
       "type": "mc",
       "question": "กำหนดให้ประพจน์ $p\\to q$ มีค่าความจริงเป็นเท็จ และประพจน์ $q\\leftrightarrow r$ เป็นจริง ข้อใดต่อไปนี้ต้องเป็นจริง",
@@ -13027,7 +13524,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.3",
+        "2.5"
+      ],
       "difficulty": "ยากมาก",
       "type": "mc",
       "question": "นิเสธของประพจน์ $(p\\leftrightarrow q)\\to(r\\vee s)$ สมมูลกับข้อใด",
@@ -13064,7 +13564,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.6",
+        "2.4"
+      ],
       "difficulty": "ยากมาก",
       "type": "mc",
       "question": "ข้อใดต่อไปนี้เป็นสัจนิรันดร์",
@@ -13102,7 +13605,7 @@
         "2"
       ],
       "subTopics": [
-        "3"
+        "2.10"
       ],
       "difficulty": "ง่าย",
       "type": "mc",
@@ -13152,7 +13655,7 @@
         "2"
       ],
       "subTopics": [
-        "3"
+        "2.10"
       ],
       "difficulty": "ง่าย",
       "type": "mc",
@@ -13202,7 +13705,8 @@
         "2"
       ],
       "subTopics": [
-        "3"
+        "2.11",
+        "2.10"
       ],
       "difficulty": "ง่าย",
       "type": "mc",
@@ -13250,7 +13754,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.4",
+        "2.6"
+      ],
       "difficulty": "ง่าย",
       "type": "fill",
       "question": "ประพจน์ $(p\\to q)\\vee(q\\to p)$ เป็นจริงกี่กรณี จากการแทนค่าความจริงของ $p,q$ ทั้งหมด",
@@ -13336,7 +13843,7 @@
         "2"
       ],
       "subTopics": [
-        "3"
+        "2.10"
       ],
       "difficulty": "ง่าย",
       "type": "mc",
@@ -13386,7 +13893,7 @@
         "2"
       ],
       "subTopics": [
-        "3"
+        "2.10"
       ],
       "difficulty": "ง่าย",
       "type": "mc",
@@ -13434,7 +13941,9 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.5"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "ข้อใดสมมูลกับ $p\\to(q\\to r)$",
@@ -13575,7 +14084,8 @@
         "2"
       ],
       "subTopics": [
-        "3"
+        "2.10",
+        "2.11"
       ],
       "difficulty": "ปานกลาง",
       "type": "mc",
@@ -13623,7 +14133,9 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.8"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "พิจารณาเหตุต่อไปนี้\n$p\\to q$\n${\\sim}q$\n$p\\vee r$\nข้อสรุปใดสมเหตุสมผล",
@@ -13674,7 +14186,7 @@
         "2"
       ],
       "subTopics": [
-        "3"
+        "2.10"
       ],
       "difficulty": "ปานกลาง",
       "type": "mc",
@@ -13724,7 +14236,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.4",
+        "2.2"
+      ],
       "difficulty": "ปานกลาง",
       "type": "fill",
       "question": "ประพจน์ $(p\\leftrightarrow q)\\wedge(q\\to r)$ เป็นจริงกี่กรณี จากการแทนค่า $p,q,r$ ทั้งหมด $8$ กรณี",
@@ -13767,7 +14282,9 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.5"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "ข้อใดสมมูลกับ $(p\\vee q)\\to r$",
@@ -13917,7 +14434,8 @@
         "2"
       ],
       "subTopics": [
-        "3"
+        "2.11",
+        "2.12"
       ],
       "difficulty": "ปานกลาง",
       "type": "mc",
@@ -13967,7 +14485,8 @@
         "2"
       ],
       "subTopics": [
-        "3"
+        "2.12",
+        "2.10"
       ],
       "difficulty": "ยาก",
       "type": "mc",
@@ -14020,7 +14539,9 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.8"
+      ],
       "difficulty": "ยาก",
       "type": "mc",
       "question": "พิจารณาเหตุต่อไปนี้\n$(p\\vee q)\\to r$\n$p$\n$r\\to s$\nข้อสรุปใดสมเหตุสมผล",
@@ -14076,7 +14597,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.2",
+        "2.1"
+      ],
       "difficulty": "ยาก",
       "type": "mc",
       "question": "กำหนดให้ $p\\wedge r$ เป็นจริง และ $q\\vee s$ เป็นเท็จ ข้อใดต่อไปนี้เป็นจริง",
@@ -14130,7 +14654,8 @@
         "2"
       ],
       "subTopics": [
-        "3"
+        "2.10",
+        "17.6"
       ],
       "difficulty": "ยาก",
       "type": "mc",
@@ -14184,7 +14709,8 @@
         "2"
       ],
       "subTopics": [
-        "3"
+        "2.10",
+        "2.11"
       ],
       "difficulty": "ยาก",
       "type": "mc",
@@ -14235,7 +14761,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.4",
+        "2.2"
+      ],
       "difficulty": "ยากมาก",
       "type": "mc",
       "question": "บนเกาะแห่งหนึ่งมีอัศวิน (พูดจริงเสมอ) และคนโกหก (พูดเท็จเสมอ) พบชาวเกาะสามคน A, B, C\nA พูดว่า 'B กับ C เป็นคนละพวกกัน'\nB พูดว่า 'A เป็นคนโกหก'\nC พูดว่า 'A กับฉันเป็นพวกเดียวกัน'\nจงหาจำนวนอัศวินในสามคนนี้",
@@ -14295,7 +14824,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.4",
+        "2.2"
+      ],
       "difficulty": "ยากมาก",
       "type": "fill",
       "question": "ประพจน์ $(p\\to q)\\wedge(q\\to r)\\wedge(r\\to s)\\wedge(s\\to p)$ เป็นจริงกี่กรณี จากการแทนค่า $p,q,r,s$ ทั้งหมด $16$ กรณี",
@@ -14342,7 +14874,9 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.8"
+      ],
       "difficulty": "ง่าย",
       "type": "mc",
       "question": "กำหนดเหตุ $p\\wedge(q\\veer)$ เป็นจริง ข้อสรุปในข้อใดต่อไปนี้สมเหตุสมผล (สรุปได้แน่นอน)",
@@ -14377,7 +14911,9 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.8"
+      ],
       "difficulty": "ง่าย",
       "type": "mc",
       "question": "กำหนดเหตุสามข้อ\n(1) $p\\veeq$\n(2) $p\\tor$\n(3) $q\\tor$\nข้อสรุปในข้อใดทำให้การอ้างเหตุผลสมเหตุสมผล",
@@ -14507,7 +15043,9 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.8"
+      ],
       "difficulty": "ง่าย",
       "type": "mc",
       "question": "กำหนดเหตุ\n(1) $p\\leftrightarrowq$\n(2) $p$\nข้อสรุปในข้อใดสมเหตุสมผล",
@@ -14542,7 +15080,9 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.8"
+      ],
       "difficulty": "ง่าย",
       "type": "mc",
       "question": "กำหนดเหตุ ${\\sim}p$ เพียงข้อเดียว ($p$ เป็นเท็จ) ข้อสรุปในข้อใดสมเหตุสมผลไม่ว่าค่าความจริงของ $q$ จะเป็นอย่างไร",
@@ -14576,7 +15116,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.2",
+        "2.1"
+      ],
       "difficulty": "ง่าย",
       "type": "fill",
       "question": "กำหนดให้ $p$ เป็นเท็จ, $q$ เป็นเท็จ และ $r$ เป็นเท็จ จงหาค่าความจริงของ $(p\\leftrightarrowq)\\wedge({\\sim}r\\veeq)$ (ตอบ 1 ถ้าเป็นจริง, ตอบ 0 ถ้าเป็นเท็จ)",
@@ -14605,7 +15148,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.2",
+        "2.1"
+      ],
       "difficulty": "ง่าย",
       "type": "mc",
       "question": "กำหนดให้ $p$ เป็นจริง, $q$ เป็นเท็จ และ $r$ เป็นจริง ประพจน์ในข้อใดมีค่าความจริงเป็นจริง",
@@ -14641,7 +15187,9 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.8"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "กำหนดเหตุ\n(1) $p\\toq$\n(2) $r\\tos$\n(3) ${\\sim}q\\vee{\\sim}s$\nข้อสรุปในข้อใดสมเหตุสมผล",
@@ -14676,7 +15224,9 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.8"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "กำหนดเหตุ\n(1) $p\\leftrightarrowq$\n(2) $q\\leftrightarrowr$\nข้อสรุปในข้อใดสมเหตุสมผล",
@@ -14711,7 +15261,9 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.8"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "กำหนดเหตุ\n(1) $(p\\wedgeq)\\tor$\n(2) $p$\n(3) $q$\nข้อสรุปในข้อใดสมเหตุสมผล",
@@ -14821,7 +15373,9 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.8"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "กำหนดเหตุ\n(1) $p\\toq$\n(2) $p\\to{\\sim}q$\nข้อสรุปในข้อใดสมเหตุสมผล",
@@ -14856,7 +15410,9 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.8"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "กำหนดเหตุ\n(1) $p\\veeq$\n(2) $p\\tor$\n(3) ${\\sim}r$\nข้อสรุปในข้อใดสมเหตุสมผล",
@@ -14891,7 +15447,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.4",
+        "2.2"
+      ],
       "difficulty": "ปานกลาง",
       "type": "fill",
       "question": "การกำหนดค่าความจริงให้ประพจน์ $p,q,r$ มีทั้งหมด 8 แบบ จงหาจำนวนแบบที่ทำให้ $(p\\toq)\\wedge(q\\tor)$ เป็นจริง",
@@ -14921,7 +15480,7 @@
         "2"
       ],
       "subTopics": [
-        "1"
+        "2.8"
       ],
       "difficulty": "ปานกลาง",
       "type": "mc",
@@ -14957,7 +15516,9 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.8"
+      ],
       "difficulty": "ยาก",
       "type": "mc",
       "question": "กำหนดเหตุ\n(1) $p\\toq$\n(2) $r\\tos$\n(3) ${\\sim}q$\n(4) $p\\veer$\nข้อสรุปในข้อใดสมเหตุสมผล",
@@ -14993,7 +15554,9 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.8"
+      ],
       "difficulty": "ยาก",
       "type": "mc",
       "question": "กำหนดเหตุ\n(1) $p\\to(q\\veer)$\n(2) ${\\sim}q$\nข้อสรุปในข้อใดสมเหตุสมผล",
@@ -15124,7 +15687,9 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.8"
+      ],
       "difficulty": "ยาก",
       "type": "mc",
       "question": "กำหนดเหตุ\n(1) $p\\leftrightarrowq$\n(2) $p\\veer$\n(3) $r\\to{\\sim}q$\nข้อสรุปในข้อใดสมเหตุสมผล",
@@ -15161,7 +15726,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.4",
+        "2.2"
+      ],
       "difficulty": "ยาก",
       "type": "fill",
       "question": "การกำหนดค่าความจริงให้ $p,q,r$ มีทั้งหมด 8 แบบ จงหาจำนวนแบบที่ทำให้เหตุทั้งสามข้อ คือ $p\\toq$, $q\\tor$ และ $r\\top$ เป็นจริงพร้อมกัน",
@@ -15195,7 +15763,9 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.8"
+      ],
       "difficulty": "ยาก",
       "type": "mc",
       "question": "กำหนดเหตุ\n(1) $p\\toq$\n(2) $r\\tos$\n(3) ${\\sim}q$\n(4) ${\\sim}s$\nข้อสรุปในข้อใดสมเหตุสมผล",
@@ -15231,7 +15801,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.4",
+        "2.2"
+      ],
       "difficulty": "ยากมาก",
       "type": "mc",
       "question": "บนเกาะแห่งหนึ่ง อัศวินพูดจริงเสมอ และคนโกหกพูดเท็จเสมอ พบชาวเกาะสามคนคือ ก, ข, ค\nก พูดว่า “พวกเราอย่างน้อยหนึ่งคนเป็นคนโกหก”\nข พูดว่า “ค เป็นอัศวิน”\nค พูดว่า “ก เป็นคนโกหก”\nใครเป็นอัศวินบ้าง",
@@ -15267,7 +15840,9 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.8"
+      ],
       "difficulty": "ยากมาก",
       "type": "mc",
       "question": "กำหนดเหตุ\n(1) $p$\n(2) $p\\toq$\n(3) $q\\to(r\\vees)$\n(4) ${\\sim}r$\n(5) $s\\tot$\nข้อสรุปในข้อใดสมเหตุสมผล",
@@ -15304,7 +15879,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.4",
+        "2.2"
+      ],
       "difficulty": "ง่าย",
       "type": "mc",
       "question": "จงหาจำนวนการจัดค่าความจริง $(p,q)$ ที่ทำให้ $p\\to q$ เป็นจริง ว่าตรงกับข้อใด",
@@ -15354,7 +15932,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.4",
+        "2.2"
+      ],
       "difficulty": "ง่าย",
       "type": "mc",
       "question": "จงหาจำนวนการจัดค่าความจริง $(p,q,r)$ ที่ทำให้ $p\\vee q\\vee r$ เป็น<u>เท็จ</u> ว่าตรงกับข้อใด",
@@ -15404,7 +15985,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.2",
+        "2.1"
+      ],
       "difficulty": "ง่าย",
       "type": "mc",
       "question": "กำหนดให้ $p\\to q$ เป็นเท็จ ข้อใดต่อไปนี้เป็นจริง",
@@ -15456,7 +16040,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.4",
+        "2.2"
+      ],
       "difficulty": "ง่าย",
       "type": "fill",
       "question": "จงหาจำนวนการจัดค่าความจริง $(p,q)$ ที่ทำให้ $p\\leftrightarrow q$ เป็นจริง",
@@ -15500,7 +16087,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.2",
+        "2.1"
+      ],
       "difficulty": "ง่าย",
       "type": "mc",
       "question": "กำหนดให้ $p\\wedge q$ เป็นจริง ข้อใดต่อไปนี้เป็นจริง",
@@ -15552,7 +16142,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.4",
+        "2.2"
+      ],
       "difficulty": "ง่าย",
       "type": "mc",
       "question": "จงหาจำนวนการจัดค่าความจริง $(p,q,r)$ ที่ทำให้ $(p\\wedge q)\\vee r$ เป็นจริง ว่าตรงกับข้อใด",
@@ -15684,7 +16277,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.4",
+        "2.2"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "จงหาจำนวนการจัดค่าความจริง $(p,q,r)$ ที่ทำให้ $(p\\to q)\\wedge(p\\to r)$ เป็นจริง ว่าตรงกับข้อใด",
@@ -15737,7 +16333,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.2",
+        "2.1"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "กำหนดให้ $(p\\wedge q)\\to r$ เป็นเท็จ ข้อใดต่อไปนี้เป็นจริง",
@@ -15793,7 +16392,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.2",
+        "2.1"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "กำหนดให้ $p\\leftrightarrow q$ เป็นจริง และ $q\\vee r$ เป็นเท็จ ข้อใดต่อไปนี้เป็นจริง",
@@ -15849,7 +16451,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.4",
+        "2.2"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "จงหาจำนวนการจัดค่าความจริง $(p,q,r)$ ที่ทำให้ $(p\\to q)\\wedge(q\\to r)$ เป็นจริง ว่าตรงกับข้อใด",
@@ -15989,7 +16594,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.4",
+        "2.2"
+      ],
       "difficulty": "ปานกลาง",
       "type": "fill",
       "question": "จงหาจำนวนการจัดค่าความจริง $(p,q,r)$ ที่ทำให้ $(p\\leftrightarrow q)\\wedge(q\\leftrightarrow r)$ เป็นจริง",
@@ -16037,7 +16645,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.4",
+        "2.2"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "จงหาจำนวนการจัดค่าความจริง $(p,q,r)$ ที่ทำให้ $(p\\vee q\\vee r)\\wedge({\\sim}p\\vee{\\sim}q\\vee{\\sim}r)$ เป็นจริง ว่าตรงกับข้อใด",
@@ -16090,7 +16701,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.2",
+        "2.1"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "กำหนดให้ $p$ เป็นจริง และ $p\\to(q\\wedge r)$ เป็นจริง ข้อใดต่อไปนี้เป็นจริง",
@@ -16146,7 +16760,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.4",
+        "2.2"
+      ],
       "difficulty": "ยาก",
       "type": "mc",
       "question": "จงหาจำนวนการจัดค่าความจริง $(p,q,r,s)$ ที่ทำให้ $(p\\to q)\\wedge(r\\to s)\\wedge(p\\vee r)$ เป็นจริง ว่าตรงกับข้อใด",
@@ -16208,7 +16825,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.8",
+        "2.2"
+      ],
       "difficulty": "ยาก",
       "type": "mc",
       "question": "กำหนดให้ประพจน์ต่อไปนี้เป็นจริงทุกประพจน์\n$p$\n$p\\to(q\\vee r)$\n${\\sim}q$\n$r\\to s$\nข้อใดต่อไปนี้เป็นจริง",
@@ -16268,7 +16888,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.4",
+        "2.2"
+      ],
       "difficulty": "ยาก",
       "type": "mc",
       "question": "จงหาจำนวนการจัดค่าความจริง $(p,q,r)$ ที่ทำให้ $(p\\leftrightarrow q)\\vee(q\\leftrightarrow r)$ เป็นจริง ว่าตรงกับข้อใด",
@@ -16324,7 +16947,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.4",
+        "2.2"
+      ],
       "difficulty": "ยาก",
       "type": "fill",
       "question": "จงหาจำนวนการจัดค่าความจริง $(p,q,r)$ ที่ทำให้ $\\big((p\\to q)\\to r\\big)$ เป็นจริง",
@@ -16374,7 +17000,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.4",
+        "2.2"
+      ],
       "difficulty": "ยาก",
       "type": "mc",
       "question": "จงหาจำนวนการจัดค่าความจริง $(p,q,r)$ ที่ทำให้ $(p\\vee q\\vee r)\\wedge(p\\to q)\\wedge(q\\to r)$ เป็นจริง ว่าตรงกับข้อใด",
@@ -16526,7 +17155,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.4",
+        "2.2"
+      ],
       "difficulty": "ยากมาก",
       "type": "mc",
       "question": "จงหาจำนวนการจัดค่าความจริง $(p,q,r,s)$ ที่ทำให้ $(p\\to q)\\wedge(q\\to r)\\wedge(r\\to s)\\wedge(s\\to p)$ เป็นจริง ว่าตรงกับข้อใด",
@@ -16583,7 +17215,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.4",
+        "2.2"
+      ],
       "difficulty": "ยากมาก",
       "type": "mc",
       "question": "บนเกาะแห่งหนึ่งทุกคนเป็น 'อัศวิน' (พูดจริงเสมอ) หรือ 'คนโกหก' (พูดเท็จเสมอ) พบชาวเกาะสามคนคือ $A$, $B$, $C$\n$A$ กล่าวว่า \"$B$ เป็นอัศวิน\"\n$B$ กล่าวว่า \"$C$ เป็นคนโกหก\"\n$C$ กล่าวว่า \"$A$ กับ $B$ เป็นคนละประเภทกัน\"\nจงหาจำนวนอัศวินในสามคนนี้ ว่าตรงกับข้อใด",
@@ -16647,7 +17282,8 @@
         "2"
       ],
       "subTopics": [
-        "3"
+        "2.10",
+        "2.9"
       ],
       "difficulty": "ง่าย",
       "type": "mc",
@@ -16701,7 +17337,8 @@
         "2"
       ],
       "subTopics": [
-        "3"
+        "2.10",
+        "2.9"
       ],
       "difficulty": "ง่าย",
       "type": "mc",
@@ -16753,7 +17390,8 @@
         "2"
       ],
       "subTopics": [
-        "3"
+        "2.10",
+        "2.9"
       ],
       "difficulty": "ง่าย",
       "type": "mc",
@@ -16805,7 +17443,8 @@
         "2"
       ],
       "subTopics": [
-        "3"
+        "2.10",
+        "2.9"
       ],
       "difficulty": "ง่าย",
       "type": "mc",
@@ -16857,7 +17496,8 @@
         "2"
       ],
       "subTopics": [
-        "3"
+        "2.10",
+        "2.9"
       ],
       "difficulty": "ง่าย",
       "type": "mc",
@@ -16909,7 +17549,8 @@
         "2"
       ],
       "subTopics": [
-        "3"
+        "2.10",
+        "3.7"
       ],
       "difficulty": "ง่าย",
       "type": "mc",
@@ -16963,7 +17604,7 @@
         "2"
       ],
       "subTopics": [
-        "3"
+        "2.10"
       ],
       "difficulty": "ปานกลาง",
       "type": "mc",
@@ -17017,7 +17658,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.4",
+        "2.2"
+      ],
       "difficulty": "ปานกลาง",
       "type": "fill",
       "question": "จงหาจำนวนการจัดค่าความจริง $(p,q,r)$ ที่ทำให้ $({\\sim} p\\vee q)\\wedge(p\\vee r)$ เป็นจริง",
@@ -17150,7 +17794,8 @@
         "2"
       ],
       "subTopics": [
-        "3"
+        "2.10",
+        "2.2"
       ],
       "difficulty": "ปานกลาง",
       "type": "mc",
@@ -17205,7 +17850,8 @@
         "2"
       ],
       "subTopics": [
-        "3"
+        "2.12",
+        "2.10"
       ],
       "difficulty": "ปานกลาง",
       "type": "mc",
@@ -17260,7 +17906,8 @@
         "2"
       ],
       "subTopics": [
-        "3"
+        "2.11",
+        "2.10"
       ],
       "difficulty": "ปานกลาง",
       "type": "mc",
@@ -17319,7 +17966,7 @@
         "2"
       ],
       "subTopics": [
-        "3"
+        "2.10"
       ],
       "difficulty": "ปานกลาง",
       "type": "mc",
@@ -17371,7 +18018,9 @@
         "2"
       ],
       "subTopics": [
-        "3"
+        "2.11",
+        "2.10",
+        "3.6"
       ],
       "difficulty": "ปานกลาง",
       "type": "mc",
@@ -17426,7 +18075,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.4",
+        "2.2"
+      ],
       "difficulty": "ยาก",
       "type": "mc",
       "question": "จำนวนการจัดค่าความจริง $(p,q,r)$ ที่ทำให้ $({\\sim} p\\vee q)\\wedge(p\\leftrightarrow r)\\wedge(q\\vee{\\sim} r)$ เป็นจริง เท่ากับข้อใด",
@@ -17561,7 +18213,8 @@
         "2"
       ],
       "subTopics": [
-        "3"
+        "2.12",
+        "2.10"
       ],
       "difficulty": "ยาก",
       "type": "mc",
@@ -17616,7 +18269,9 @@
         "2"
       ],
       "subTopics": [
-        "3"
+        "2.11",
+        "2.12",
+        "2.10"
       ],
       "difficulty": "ยาก",
       "type": "mc",
@@ -17669,7 +18324,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.4",
+        "2.2"
+      ],
       "difficulty": "ยาก",
       "type": "fill",
       "question": "จงหาจำนวนการจัดค่าความจริง $(p,q,r)$ ที่ทำให้ $({\\sim} p\\to r)\\wedge(q\\to r)\\wedge{\\sim} r$ เป็นจริง",
@@ -17809,7 +18467,8 @@
         "2"
       ],
       "subTopics": [
-        "3"
+        "2.10",
+        "3.3"
       ],
       "difficulty": "ยาก",
       "type": "mc",
@@ -17867,8 +18526,8 @@
         "2"
       ],
       "subTopics": [
-        "1",
-        "3"
+        "2.10",
+        "3.4"
       ],
       "difficulty": "ยากมาก",
       "type": "mc",
@@ -17926,7 +18585,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.1",
+        "2.4"
+      ],
       "difficulty": "ยากมาก",
       "type": "fill",
       "question": "บนเกาะหนึ่งมีชาวเกาะสามคน a, b, c โดยแต่ละคนเป็น 'อัศวิน' (พูดจริงเสมอ) หรือ 'คนโกหก' (พูดเท็จเสมอ) เท่านั้น\n(1) a พูดว่า \"b เป็นคนโกหก\"\n(2) b พูดว่า \"a กับ c เป็นชนิดเดียวกัน\"\n(3) c พูดว่า \"b เป็นอัศวิน\"\nจงหาว่ามีอัศวินกี่คน",
@@ -17984,7 +18646,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.2",
+        "2.1"
+      ],
       "difficulty": "ง่าย",
       "type": "mc",
       "question": "กำหนดให้ $p$ เป็นจริง, $q$ เป็นจริง และ $r$ เป็นเท็จ ข้อใดต่อไปนี้มีค่าความจริงเป็นจริง",
@@ -18038,7 +18703,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.3",
+        "2.5"
+      ],
       "difficulty": "ง่าย",
       "type": "mc",
       "question": "ข้อใดเป็นนิเสธของประพจน์ $(p\\wedge{\\sim}q)\\to r$",
@@ -18088,7 +18756,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.2",
+        "2.1"
+      ],
       "difficulty": "ง่าย",
       "type": "fill",
       "question": "กำหนดให้ $p$ เป็นจริง, $q$ เป็นเท็จ และ $r$ เป็นจริง จงหาค่าความจริงของ $(p\\to q)\\vee(r\\wedge q)$ (ตอบว่า จริง หรือ เท็จ)",
@@ -18141,7 +18812,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.7",
+        "2.5"
+      ],
       "difficulty": "ง่าย",
       "type": "mc",
       "question": "ข้อใดสมมูลกับ $p\\to{\\sim}q$",
@@ -18193,7 +18867,9 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.10"
+      ],
       "difficulty": "ง่าย",
       "type": "mc",
       "question": "กำหนดเอกภพสัมพัทธ์ $U=\\{-2,-1,0,1,2\\}$ ข้อใดต่อไปนี้เป็นจริง",
@@ -18247,7 +18923,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.6",
+        "2.4"
+      ],
       "difficulty": "ง่าย",
       "type": "mc",
       "question": "ข้อใดต่อไปนี้เป็นสัจนิรันดร์ (เป็นจริงทุกกรณี)",
@@ -18352,7 +19031,9 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.8"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "จงพิจารณาการอ้างเหตุผลต่อไปนี้ กำหนดเหตุ\n$p\\vee q$\n$q\\to r$\n${\\sim}p$\nข้อสรุปใดต่อไปนี้สมเหตุสมผล",
@@ -18404,7 +19085,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.5",
+        "2.3"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "ข้อใดสมมูลกับ ${\\sim}(p\\to q)\\vee(p\\wedge r)$",
@@ -18454,7 +19138,9 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.10"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "กำหนดเอกภพสัมพัทธ์เป็นเซตของตัวหารที่เป็นจำนวนเต็มบวกทั้งหมดของ $12$ ข้อใดต่อไปนี้เป็นจริง",
@@ -18510,7 +19196,9 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.10"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "กำหนดเอกภพสัมพัทธ์ $U=\\{1,2,3,4\\}$ ข้อใดต่อไปนี้เป็นจริง",
@@ -18564,7 +19252,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.4",
+        "2.2"
+      ],
       "difficulty": "ปานกลาง",
       "type": "fill",
       "question": "ประพจน์ $(p\\vee q)\\wedge(p\\to r)\\wedge(q\\to r)$ เป็นจริงได้จากการกำหนดค่าความจริงของ $p,q,r$ ทั้งหมดกี่แบบ",
@@ -18613,7 +19304,9 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.8"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "จงพิจารณาการอ้างเหตุผลต่อไปนี้ กำหนดเหตุ\n$r\\to p$\n${\\sim}p$\n$r\\vee s$\nข้อสรุปใดต่อไปนี้สมเหตุสมผล",
@@ -18665,7 +19358,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.4",
+        "2.2"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "ประพจน์ $(p\\to q)\\wedge(q\\vee r)$ มีค่าความจริงเป็นจริงทั้งหมดกี่กรณี (จากทั้งหมด 8 กรณี)",
@@ -18806,7 +19502,9 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.8"
+      ],
       "difficulty": "ยาก",
       "type": "mc",
       "question": "จงพิจารณาการอ้างเหตุผลต่อไปนี้ กำหนดเหตุ\n$p\\vee q$\n$p\\to r$\n$q\\to r$\n$r\\to s$\n$s\\to t$\nข้อสรุปใดต่อไปนี้สมเหตุสมผล",
@@ -18865,7 +19563,9 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.8"
+      ],
       "difficulty": "ยาก",
       "type": "mc",
       "question": "จงพิจารณาการอ้างเหตุผลต่อไปนี้ กำหนดเหตุ\n$p\\to(q\\wedge r)$\n${\\sim}q\\vee{\\sim}r$\n$s\\to p$\n$s\\vee t$\nข้อสรุปใดต่อไปนี้สมเหตุสมผล",
@@ -18926,7 +19626,8 @@
         "2"
       ],
       "subTopics": [
-        "3"
+        "2.10",
+        "3.6"
       ],
       "difficulty": "ยาก",
       "type": "mc",
@@ -18982,7 +19683,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.4",
+        "2.2"
+      ],
       "difficulty": "ยาก",
       "type": "fill",
       "question": "ประพจน์ $(p\\to q)\\wedge(r\\to s)\\wedge(p\\vee r)$ เป็นจริงได้จากการกำหนดค่าความจริงของ $p,q,r,s$ ทั้งหมดกี่แบบ",
@@ -19037,7 +19741,8 @@
         "2"
       ],
       "subTopics": [
-        "3"
+        "2.12",
+        "2.10"
       ],
       "difficulty": "ยาก",
       "type": "mc",
@@ -19095,7 +19800,11 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.1",
+        "2.2",
+        "2.4"
+      ],
       "difficulty": "ยากมาก",
       "type": "mc",
       "question": "บนเกาะแห่งหนึ่งมีชาวเกาะ 3 คน คือ A, B, C แต่ละคนเป็นอัศวิน (พูดจริงเสมอ) หรือคนโกหก (พูดเท็จเสมอ) โดย\nA พูดว่า B และ C เป็นคนโกหกทั้งคู่\nB พูดว่า A เป็นคนโกหก\nC พูดว่า A เป็นอัศวิน\nจงหาว่ามีอัศวินกี่คน",
@@ -19153,7 +19862,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.4",
+        "2.2"
+      ],
       "difficulty": "ยากมาก",
       "type": "mc",
       "question": "ประพจน์ $(p\\leftrightarrow q)\\leftrightarrow r$ มีค่าความจริงเป็นจริงทั้งหมดกี่กรณี (จากทั้งหมด 8 กรณี)",
@@ -19287,7 +19999,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.2",
+        "2.1"
+      ],
       "difficulty": "ง่าย",
       "type": "mc",
       "question": "กำหนดให้ $p$ เป็นจริง, $q$ เป็นจริง, $r$ เป็นเท็จ ข้อใดต่อไปนี้เป็นจริง",
@@ -19337,7 +20052,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.2",
+        "2.1"
+      ],
       "difficulty": "ง่าย",
       "type": "mc",
       "question": "กำหนดให้ $p$ เป็นจริง, $q$ เป็นเท็จ, $r$ เป็นเท็จ ข้อใดต่อไปนี้เป็นจริง",
@@ -19388,7 +20106,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.2",
+        "2.1"
+      ],
       "difficulty": "ง่าย",
       "type": "fill",
       "question": "กำหนดให้ $p$ เป็นเท็จ, $q$ เป็นจริง, $r$ เป็นเท็จ จงหาค่าความจริงของ $({\\sim}p\\to q)\\wedge{\\sim}(q\\wedge r)$ (ตอบ จริง หรือ เท็จ)",
@@ -19438,7 +20159,9 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.5"
+      ],
       "difficulty": "ง่าย",
       "type": "mc",
       "question": "ข้อใดสมมูลกับ $p\\to(q\\vee r)$",
@@ -19568,7 +20291,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.7",
+        "2.3"
+      ],
       "difficulty": "ง่าย",
       "type": "mc",
       "question": "ข้อใดเป็นการต้านสภาพ (contrapositive) ของประพจน์ $(p\\vee q)\\to r$",
@@ -19616,7 +20342,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.5",
+        "2.3"
+      ],
       "difficulty": "ง่าย",
       "type": "mc",
       "question": "ข้อใดสมมูลกับ ${\\sim}\\big({\\sim}p\\vee(q\\wedge r)\\big)$",
@@ -19664,7 +20393,9 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.5"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "ข้อใดสมมูลกับ $p\\to(q\\wedge r)$",
@@ -19794,7 +20525,9 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.8"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "กำหนดเหตุต่อไปนี้\n(1) ถ้า $p$ แล้ว $q$\n(2) ถ้าไม่ $p$ แล้ว $q$\nข้อสรุปใดสมเหตุสมผล",
@@ -19848,7 +20581,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.2",
+        "2.1"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "กำหนดให้ $p$ เป็นจริง, $q$ เป็นเท็จ, $r$ เป็นจริง ข้อใดต่อไปนี้เป็นจริง",
@@ -19899,7 +20635,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.2",
+        "2.1"
+      ],
       "difficulty": "ปานกลาง",
       "type": "fill",
       "question": "กำหนดให้ $p$ จริง, $q$ เท็จ, $r$ จริง, $s$ เท็จ จงหาค่าความจริงของ $\\big((p\\wedge{\\sim}q)\\to(r\\vee s)\\big)\\leftrightarrow(s\\vee{\\sim}r)$ (ตอบ จริง หรือ เท็จ)",
@@ -19944,7 +20683,9 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.5"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "ข้อใดสมมูลกับ $(p\\wedge q)\\vee(p\\wedge{\\sim}q)$",
@@ -20042,7 +20783,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.8",
+        "2.7"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "กำหนดเหตุต่อไปนี้\n(1) ถ้า $p$ แล้ว $q$\n(2) ถ้า $r$ แล้วไม่ $q$\nข้อสรุปใดสมเหตุสมผล",
@@ -20098,7 +20842,9 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.10"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "ให้เอกภพสัมพัทธ์ $U=\\{-2,-1,0,1,2\\}$ ข้อใดต่อไปนี้เป็นจริง",
@@ -20149,7 +20895,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.4",
+        "2.2"
+      ],
       "difficulty": "ยาก",
       "type": "mc",
       "question": "บนเกาะแห่งหนึ่งมีอัศวิน (พูดจริงเสมอ) และคนโกหก (พูดเท็จเสมอ) พบชาวเกาะสามคน A, B, C\nA พูดว่า 'B เป็นคนโกหก'\nB พูดว่า 'A กับ C เป็นคนละพวกกัน'\nC พูดว่า 'A เป็นอัศวิน'\nใครเป็นอัศวินบ้าง",
@@ -20203,7 +20952,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.4",
+        "2.2"
+      ],
       "difficulty": "ยาก",
       "type": "mc",
       "question": "บนเกาะที่มีอัศวิน (พูดจริงเสมอ) และคนโกหก (พูดเท็จเสมอ) พบชาวเกาะสามคน A, B, C\nA พูดว่า 'B เป็นอัศวิน'\nB พูดว่า 'A กับ C เป็นคนโกหกทั้งคู่'\nC พูดว่า 'B เป็นคนโกหก'\nมีอัศวินกี่คน",
@@ -20257,7 +21009,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.4",
+        "2.2"
+      ],
       "difficulty": "ยาก",
       "type": "mc",
       "question": "จงหาจำนวนการจัดค่าความจริงของ $(p,q,r,s)$ ทั้งหมดที่ทำให้ $(p\\leftrightarrow q)\\vee(r\\leftrightarrow s)$ เป็นจริง",
@@ -20312,7 +21067,8 @@
         "2"
       ],
       "subTopics": [
-        "3"
+        "2.12",
+        "2.10"
       ],
       "difficulty": "ยาก",
       "type": "mc",
@@ -20370,7 +21126,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.8",
+        "2.2"
+      ],
       "difficulty": "ยาก",
       "type": "mc",
       "question": "กำหนดว่าประพจน์ต่อไปนี้เป็นจริงทั้งหมด\n(1) $p\\vee q$\n(2) ${\\sim}q$\n(3) $p\\to r$\n(4) $r\\to s$\nข้อใดต่อไปนี้เป็นจริงแน่นอน",
@@ -20427,7 +21186,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.4",
+        "2.2"
+      ],
       "difficulty": "ยากมาก",
       "type": "fill",
       "question": "บนเกาะที่มีอัศวิน (พูดจริงเสมอ) และคนโกหก (พูดเท็จเสมอ) พบชาวเกาะสี่คน A, B, C, D\nA พูดว่า 'พวกเราสี่คนไม่ได้เป็นอัศวินกันทุกคน'\nB พูดว่า 'A เป็นอัศวิน'\nC พูดว่า 'B เป็นอัศวิน'\nD พูดว่า 'A กับ B เป็นคนโกหกทั้งคู่'\nจงหาจำนวนอัศวินในสี่คนนี้",
@@ -20478,7 +21240,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.4",
+        "2.2"
+      ],
       "difficulty": "ยากมาก",
       "type": "mc",
       "question": "บนเกาะที่มีอัศวิน (พูดจริงเสมอ) และคนโกหก (พูดเท็จเสมอ) พบชาวเกาะสี่คน A, B, C, D\nA พูดว่า 'ในบรรดา B, C, D มีอัศวินพอดีหนึ่งคน'\nB พูดว่า 'A เป็นคนโกหก'\nC พูดว่า 'A เป็นอัศวิน'\nD พูดว่า 'B กับ C เป็นคนละพวกกัน'\nใครเป็นอัศวินบ้าง",
@@ -20532,7 +21297,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.4",
+        "2.2"
+      ],
       "difficulty": "ง่าย",
       "type": "mc",
       "question": "จงหาจำนวนการจัดค่าความจริงของ $(p,q)$ ที่ทำให้ ${\\sim}(p\\wedge{\\sim} q)$ เป็นจริง",
@@ -20632,7 +21400,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.6",
+        "2.4"
+      ],
       "difficulty": "ง่าย",
       "type": "mc",
       "question": "ข้อใดต่อไปนี้เป็นสัจนิรันดร์ (ประพจน์ที่เป็นจริงทุกกรณี)",
@@ -20683,7 +21454,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.4",
+        "2.2"
+      ],
       "difficulty": "ง่าย",
       "type": "fill",
       "question": "จงหาจำนวนการจัดค่าความจริงของ $(p,q,r)$ ที่ทำให้ $p\\vee q\\vee r$ เป็นจริง",
@@ -20727,7 +21501,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.4",
+        "2.2"
+      ],
       "difficulty": "ง่าย",
       "type": "mc",
       "question": "จงหาจำนวนการจัดค่าความจริงของ $(p,q,r)$ ที่ทำให้มีประพจน์ย่อยเป็นจริงเพียงหนึ่งตัวพอดี (จริงเฉพาะ $p$ หรือเฉพาะ $q$ หรือเฉพาะ $r$)",
@@ -20778,7 +21555,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.6",
+        "2.4"
+      ],
       "difficulty": "ง่าย",
       "type": "mc",
       "question": "ข้อใดเป็นสัจนิรันดร์",
@@ -20829,7 +21609,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.1",
+        "2.2"
+      ],
       "difficulty": "ง่าย",
       "type": "mc",
       "question": "กำหนดให้ $p$ เป็นจริง, $q$ เป็นเท็จ, $r$ เป็นจริง ข้อใดต่อไปนี้มีค่าความจริงเป็นจริง",
@@ -20879,7 +21662,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.5",
+        "2.3"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "ประพจน์ $(p\\to r)\\wedge(q\\to r)$ สมมูลกับข้อใด",
@@ -20933,7 +21719,11 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.6",
+        "2.5",
+        "2.3"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "ข้อใดเป็นสัจนิรันดร์",
@@ -20984,7 +21774,8 @@
         "2"
       ],
       "subTopics": [
-        "3"
+        "2.10",
+        "2.1"
       ],
       "difficulty": "ปานกลาง",
       "type": "mc",
@@ -21035,7 +21826,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.4",
+        "2.2"
+      ],
       "difficulty": "ปานกลาง",
       "type": "fill",
       "question": "จงหาจำนวนการจัดค่าความจริงของ $(p,q,r)$ ที่ทำให้ $(p\\leftrightarrow q)\\vee r$ เป็นจริง",
@@ -21082,7 +21876,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.4",
+        "2.2"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "จงหาจำนวนการจัดค่าความจริงของ $(p,q,r)$ ที่ทำให้ $(p\\wedge{\\sim} q)\\vee(r\\wedge{\\sim} p)$ เป็นจริง",
@@ -21223,7 +22020,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.5",
+        "2.2"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "ประพจน์ $p\\to(q\\vee r)$ สมมูลกับข้อใด",
@@ -21275,7 +22075,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.4",
+        "2.5"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "จงหาจำนวนการจัดค่าความจริงของ $(p,q,r)$ ที่ทำให้ $(p\\vee q)\\wedge(p\\vee r)$ เป็นจริง",
@@ -21325,7 +22128,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.4",
+        "2.2"
+      ],
       "difficulty": "ยาก",
       "type": "mc",
       "question": "จงหาจำนวนการจัดค่าความจริงของ $(p,q,r)$ ที่ทำให้ $(p\\to q)\\wedge(q\\to r)\\wedge(r\\to p)$ เป็นจริง",
@@ -21476,7 +22282,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.4",
+        "2.2"
+      ],
       "difficulty": "ยาก",
       "type": "mc",
       "question": "จงหาจำนวนการจัดค่าความจริงของ $(p,q,r,s)$ ที่ทำให้ $(p\\to q)\\wedge(r\\to s)\\wedge(p\\vee r)$ เป็นจริง",
@@ -21536,7 +22345,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.6",
+        "2.4"
+      ],
       "difficulty": "ยาก",
       "type": "mc",
       "question": "ข้อใดเป็นสัจนิรันดร์",
@@ -21594,7 +22406,9 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.8"
+      ],
       "difficulty": "ยาก",
       "type": "mc",
       "question": "จากเหตุต่อไปนี้ ข้อสรุปในข้อใดสมเหตุสมผล\n$(p\\vee q)\\to(r\\wedge s)$\n${\\sim} s$",
@@ -21654,7 +22468,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.4",
+        "2.2"
+      ],
       "difficulty": "ยาก",
       "type": "fill",
       "question": "จงหาจำนวนการจัดค่าความจริงของ $(p,q,r,s)$ ที่ทำให้ $(p\\to q)\\vee(r\\wedge s)$ เป็นจริง",
@@ -21707,7 +22524,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.4",
+        "2.2"
+      ],
       "difficulty": "ยากมาก",
       "type": "mc",
       "question": "จงหาจำนวนการจัดค่าความจริงของ $(p,q,r,s)$ ที่ทำให้ $(p\\to q)\\vee(r\\to s)$ เป็นจริง",
@@ -21764,7 +22584,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.4",
+        "2.1"
+      ],
       "difficulty": "ยากมาก",
       "type": "mc",
       "question": "จงหาจำนวนการจัดค่าความจริงของ $(p,q,r,s)$ ที่มีประพจน์ย่อยเป็นจริงตั้งแต่สองตัวขึ้นไป (อย่างน้อยสองตัว)",
@@ -21819,7 +22642,8 @@
         "2"
       ],
       "subTopics": [
-        "3"
+        "2.10",
+        "2.1"
       ],
       "difficulty": "ง่าย",
       "type": "mc",
@@ -21874,7 +22698,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.1",
+        "2.2"
+      ],
       "difficulty": "ง่าย",
       "type": "mc",
       "question": "กำหนดให้ $p$ เป็นจริง, $q$ เป็นเท็จ, $r$ เป็นจริง, $s$ เป็นเท็จ ข้อใดต่อไปนี้เป็นจริง",
@@ -21928,7 +22755,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.1",
+        "2.2"
+      ],
       "difficulty": "ง่าย",
       "type": "fill",
       "question": "กำหนดให้ $p$ เป็นจริง, $q$ เป็นเท็จ, $r$ เป็นจริง จงหาค่าความจริงของ ${\\sim}(p\\to q)\\wedge(r\\vee q)$ (ตอบ จริง หรือ เท็จ)",
@@ -21976,7 +22806,9 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.8"
+      ],
       "difficulty": "ง่าย",
       "type": "mc",
       "question": "กำหนดเหตุต่อไปนี้\n(1) $p\\vee q$\n(2) ${\\sim} p$\nข้อสรุปใดสมเหตุสมผล",
@@ -22027,7 +22859,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.4",
+        "2.2"
+      ],
       "difficulty": "ง่าย",
       "type": "mc",
       "question": "จากการกำหนดค่าความจริงให้ $p,q,r$ ทั้งหมด $8$ แบบ มีกี่แบบที่ทำให้ $(p\\vee q)\\to r$ เป็นจริง",
@@ -22159,7 +22994,8 @@
         "2"
       ],
       "subTopics": [
-        "3"
+        "2.11",
+        "2.10"
       ],
       "difficulty": "ง่าย",
       "type": "mc",
@@ -22211,7 +23047,9 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.8"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "กำหนดเหตุต่อไปนี้\n(1) ถ้าอากาศร้อนขึ้น แล้วน้ำแข็งขั้วโลกละลาย\n(2) ถ้าน้ำแข็งขั้วโลกละลาย แล้วระดับน้ำทะเลสูงขึ้น\n(3) อากาศร้อนขึ้น\nข้อสรุปใดสมเหตุสมผล",
@@ -22263,7 +23101,8 @@
         "2"
       ],
       "subTopics": [
-        "3"
+        "2.10",
+        "2.1"
       ],
       "difficulty": "ปานกลาง",
       "type": "mc",
@@ -22318,7 +23157,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.4",
+        "2.2"
+      ],
       "difficulty": "ปานกลาง",
       "type": "fill",
       "question": "จากการกำหนดค่าความจริงให้ $p,q,r$ ทั้งหมด $8$ แบบ มีกี่แบบที่ทำให้ $(p\\to q)\\wedge(q\\to r)$ เป็นจริง (ตอบเป็นจำนวนเต็ม)",
@@ -22363,7 +23205,9 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.8"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "กำหนดเหตุต่อไปนี้\n(1) $p\\to q$\n(2) $r\\to q$\n(3) $p\\vee r$\nข้อสรุปใดสมเหตุสมผล",
@@ -22414,7 +23258,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.5",
+        "2.4"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "ข้อใดต่อไปนี้สมมูลกับ $p\\to(q\\wedge r)$",
@@ -22548,7 +23395,8 @@
         "2"
       ],
       "subTopics": [
-        "3"
+        "2.12",
+        "2.10"
       ],
       "difficulty": "ปานกลาง",
       "type": "mc",
@@ -22603,7 +23451,9 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.8"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "กำหนดเหตุต่อไปนี้\n(1) $p\\to q$\n(2) $r\\to s$\n(3) $p\\vee r$\n(4) ${\\sim} q$\nข้อสรุปใดสมเหตุสมผล",
@@ -22658,7 +23508,8 @@
         "2"
       ],
       "subTopics": [
-        "3"
+        "2.12",
+        "2.10"
       ],
       "difficulty": "ยาก",
       "type": "mc",
@@ -22716,7 +23567,9 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.8"
+      ],
       "difficulty": "ยาก",
       "type": "mc",
       "question": "กำหนดเหตุต่อไปนี้\n(1) $p\\to q$\n(2) $q\\to r$\n(3) $r\\to s$\n(4) ${\\sim} s$\n(5) $p\\vee t$\nข้อสรุปใดสมเหตุสมผล",
@@ -22773,7 +23626,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.4",
+        "2.2"
+      ],
       "difficulty": "ยาก",
       "type": "fill",
       "question": "จากการกำหนดค่าความจริงให้ $p,q,r$ ทั้งหมด $8$ แบบ มีกี่แบบที่สอดคล้องเงื่อนไข $p\\to(q\\vee r)$ และ ${\\sim}(q\\wedge r)$ พร้อมกัน (ตอบเป็นจำนวนเต็ม)",
@@ -22912,7 +23768,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.1",
+        "2.2"
+      ],
       "difficulty": "ยาก",
       "type": "mc",
       "question": "บนเกาะแห่งหนึ่ง อัศวินพูดจริงเสมอ และคนโกหกพูดเท็จเสมอ พบชาวเกาะสามคน เอ บี ซี\nเอ พูดว่า \"บี เป็นอัศวิน\"\nบี พูดว่า \"เอ กับ ซี เป็นชนิดเดียวกัน\"\nซี พูดว่า \"เอ เป็นคนโกหก\"\nใครเป็นอัศวิน",
@@ -22969,7 +23828,9 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.8"
+      ],
       "difficulty": "ยาก",
       "type": "mc",
       "question": "กำหนดเหตุต่อไปนี้\n(1) $p\\to q$\n(2) $q\\to(r\\vee s)$\n(3) ${\\sim} r$\n(4) $p$\nข้อสรุปใดสมเหตุสมผล",
@@ -23026,7 +23887,9 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.8"
+      ],
       "difficulty": "ยากมาก",
       "type": "mc",
       "question": "กำหนดเหตุต่อไปนี้\n(1) $p\\vee u$\n(2) ${\\sim} u$\n(3) $p\\to(q\\wedge r)$\n(4) $r\\to{\\sim} s$\n(5) $s\\vee t$\nข้อสรุปใดสมเหตุสมผล",
@@ -23087,7 +23950,8 @@
         "2"
       ],
       "subTopics": [
-        "3"
+        "2.11",
+        "2.12"
       ],
       "difficulty": "ยากมาก",
       "type": "mc",
@@ -23146,7 +24010,8 @@
         "2"
       ],
       "subTopics": [
-        "3"
+        "2.10",
+        "2.1"
       ],
       "difficulty": "ง่าย",
       "type": "mc",
@@ -23183,7 +24048,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.3",
+        "2.5"
+      ],
       "difficulty": "ง่าย",
       "type": "mc",
       "question": "ข้อใดเป็นนิเสธของประพจน์ $p\\wedge{\\sim}q$",
@@ -23218,7 +24086,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.1",
+        "2.2"
+      ],
       "difficulty": "ง่าย",
       "type": "fill",
       "question": "กำหนดให้ $p$ เป็นเท็จ, $q$ เป็นจริง และ $r$ เป็นจริง จงหาค่าความจริงของ $(p\\to{\\sim}q)\\wedge(r\\vee p)$ (ตอบ จริง หรือ เท็จ)",
@@ -23253,7 +24124,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.4",
+        "2.2"
+      ],
       "difficulty": "ง่าย",
       "type": "mc",
       "question": "ประพจน์ $(p\\wedge q)\\vee({\\sim}p\\wedge r)$ เป็นจริงกี่แบบ จากการแทนค่าความจริงของ $p,q,r$ ทั้งหมด",
@@ -23375,7 +24249,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.1",
+        "2.2"
+      ],
       "difficulty": "ง่าย",
       "type": "mc",
       "question": "กำหนดให้ $p$ เป็นจริง, $q$ เป็นเท็จ และ $r$ เป็นจริง ข้อใดต่อไปนี้เป็นเท็จ",
@@ -23411,7 +24288,8 @@
         "2"
       ],
       "subTopics": [
-        "3"
+        "2.10",
+        "2.1"
       ],
       "difficulty": "ง่าย",
       "type": "mc",
@@ -23447,7 +24325,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.7",
+        "2.5"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "ประพจน์ 'ถ้า $p$ แล้ว ${\\sim}q$' สมมูลกับข้อใด",
@@ -23482,7 +24363,9 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.8"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "พิจารณาเหตุต่อไปนี้\n$p\\vee q$\n${\\sim}q$\n$p\\to r$\nข้อสรุปใดต่อไปนี้สมเหตุสมผล",
@@ -23520,7 +24403,8 @@
         "2"
       ],
       "subTopics": [
-        "3"
+        "2.10",
+        "2.1"
       ],
       "difficulty": "ปานกลาง",
       "type": "mc",
@@ -23556,7 +24440,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.5",
+        "2.7"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "ข้อใดต่อไปนี้ 'ไม่สมมูล' กับประพจน์ $p\\to q$",
@@ -23591,7 +24478,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.4",
+        "2.2"
+      ],
       "difficulty": "ปานกลาง",
       "type": "fill",
       "question": "ประพจน์ $(p\\wedge q)\\to r$ เป็นจริงกี่แบบ จากการแทนค่าความจริงของ $p,q,r$ ทั้งหมด (ตอบเป็นจำนวนเต็ม)",
@@ -23704,7 +24594,9 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.8"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "พิจารณาเหตุต่อไปนี้\n$p\\to q$\n$q$\nข้อสรุปใดต่อไปนี้สมเหตุสมผล",
@@ -23741,7 +24633,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.5",
+        "2.2"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "question": "ประพจน์ $p\\leftrightarrow q$ สมมูลกับข้อใด",
@@ -23776,7 +24671,9 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.8"
+      ],
       "difficulty": "ยาก",
       "type": "mc",
       "question": "พิจารณาเหตุต่อไปนี้\n$p\\to q$\n${\\sim}p\\to r$\nข้อสรุปใดต่อไปนี้สมเหตุสมผล",
@@ -23814,7 +24711,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.4",
+        "2.2"
+      ],
       "difficulty": "ยาก",
       "type": "mc",
       "question": "ประพจน์ $(p\\vee q)\\wedge(q\\vee r)\\wedge(r\\vee p)$ เป็นจริงกี่แบบ จากการแทนค่าความจริงของ $p,q,r$ ทั้งหมด",
@@ -23946,7 +24846,9 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.8"
+      ],
       "difficulty": "ยาก",
       "type": "mc",
       "question": "พิจารณาเหตุต่อไปนี้\n$p\\to(q\\wedge r)$\n${\\sim}r$\n$p\\vee s$\nข้อสรุปใดต่อไปนี้สมเหตุสมผล",
@@ -23985,7 +24887,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.4",
+        "2.2"
+      ],
       "difficulty": "ยาก",
       "type": "fill",
       "question": "มีการแทนค่าความจริงของ $p,q,r,s$ กี่แบบ ที่ทำให้ประพจน์ $(p\\vee q)\\wedge(r\\vee s)\\wedge{\\sim}(p\\wedge q\\wedge r\\wedge s)$ เป็นจริง (ตอบเป็นจำนวนเต็ม)",
@@ -24018,7 +24923,9 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.8"
+      ],
       "difficulty": "ยาก",
       "type": "mc",
       "question": "พิจารณาเหตุต่อไปนี้\n$p\\to q$\n$r\\to s$\n${\\sim}q\\vee{\\sim}s$\nข้อสรุปใดต่อไปนี้สมเหตุสมผล",
@@ -24057,7 +24964,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.1",
+        "2.2"
+      ],
       "difficulty": "ยากมาก",
       "type": "mc",
       "question": "บนเกาะแห่งหนึ่งมีชาวเกาะสองประเภท คืออัศวินซึ่งพูดจริงเสมอ และคนโกหกซึ่งพูดเท็จเสมอ พบชาวเกาะสามคนคือ A, B, C\nA พูดว่า: 'ฉันกับ B เป็นประเภทเดียวกัน'\nB พูดว่า: 'ฉันกับ C เป็นคนละประเภทกัน'\nC พูดว่า: 'A เป็นคนโกหก'\nมีอัศวินกี่คน",
@@ -24097,7 +25007,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.4",
+        "2.2"
+      ],
       "difficulty": "ยากมาก",
       "type": "mc",
       "question": "มีการแทนค่าความจริงของ $p,q,r,s$ กี่แบบ ที่ทำให้ประพจน์ $(p\\leftrightarrow q)\\to(r\\leftrightarrow s)$ เป็นจริง",

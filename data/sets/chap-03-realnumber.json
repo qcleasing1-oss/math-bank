@@ -7,7 +7,10 @@
       "topics": [
         "3"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "3.6",
+        "3.1"
+      ],
       "difficulty": "ปานกลาง",
       "questionNumber": 1,
       "type": "mc",
@@ -68,7 +71,10 @@
       "topics": [
         "3"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "3.6",
+        "3.1"
+      ],
       "difficulty": "ปานกลาง",
       "questionNumber": 2,
       "type": "mc",
@@ -126,7 +132,8 @@
         "3"
       ],
       "subTopics": [
-        "8"
+        "3.1",
+        "8.2"
       ],
       "difficulty": "ปานกลาง",
       "questionNumber": 3,
@@ -188,7 +195,8 @@
         "3"
       ],
       "subTopics": [
-        "2"
+        "3.1",
+        "3.4"
       ],
       "difficulty": "ปานกลาง",
       "questionNumber": 4,
@@ -249,7 +257,9 @@
       "topics": [
         "3"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "3.1"
+      ],
       "difficulty": "ปานกลาง",
       "questionNumber": 5,
       "type": "mc",
@@ -296,7 +306,8 @@
         "3"
       ],
       "subTopics": [
-        "8"
+        "3.1",
+        "3.7"
       ],
       "difficulty": "ปานกลาง",
       "questionNumber": 6,
@@ -343,7 +354,9 @@
       "topics": [
         "3"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "3.1"
+      ],
       "difficulty": "ปานกลาง",
       "questionNumber": 7,
       "type": "mc",
@@ -390,8 +403,7 @@
         "3"
       ],
       "subTopics": [
-        "1",
-        "10"
+        "3.1"
       ],
       "difficulty": "ยาก",
       "questionNumber": 8,
@@ -441,7 +453,10 @@
       "topics": [
         "3"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "3.4",
+        "3.3"
+      ],
       "difficulty": "ปานกลาง",
       "questionNumber": 9,
       "type": "mc",
@@ -494,7 +509,10 @@
       "topics": [
         "3"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "3.6",
+        "3.2"
+      ],
       "difficulty": "ยาก",
       "questionNumber": 10,
       "type": "mc",
@@ -548,7 +566,10 @@
       "topics": [
         "3"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "3.6",
+        "3.1"
+      ],
       "difficulty": "ยาก",
       "questionNumber": 11,
       "type": "mc",
@@ -604,7 +625,7 @@
         "3"
       ],
       "subTopics": [
-        "8"
+        "3.1"
       ],
       "difficulty": "ยาก",
       "questionNumber": 12,
@@ -654,7 +675,7 @@
         "3"
       ],
       "subTopics": [
-        "8"
+        "3.1"
       ],
       "difficulty": "ยาก",
       "questionNumber": 13,
@@ -700,7 +721,9 @@
       "topics": [
         "3"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "3.1"
+      ],
       "difficulty": "ปานกลาง",
       "questionNumber": 14,
       "type": "mc",
@@ -761,7 +784,9 @@
       "topics": [
         "3"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "3.1"
+      ],
       "difficulty": "ปานกลาง",
       "questionNumber": 15,
       "type": "mc",
@@ -822,7 +847,7 @@
         "3"
       ],
       "subTopics": [
-        "8"
+        "3.1"
       ],
       "difficulty": "ยาก",
       "questionNumber": 16,
@@ -881,7 +906,9 @@
       "topics": [
         "3"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "3.1"
+      ],
       "difficulty": "ปานกลาง",
       "questionNumber": 17,
       "type": "mc",
@@ -931,7 +958,9 @@
       "topics": [
         "3"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "3.5"
+      ],
       "difficulty": "ปานกลาง",
       "questionNumber": 18,
       "type": "mc",
@@ -988,7 +1017,9 @@
       "topics": [
         "3"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "3.5"
+      ],
       "difficulty": "ปานกลาง",
       "questionNumber": 19,
       "type": "fill",
@@ -1034,7 +1065,9 @@
       "topics": [
         "3"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "3.5"
+      ],
       "difficulty": "ปานกลาง",
       "questionNumber": 20,
       "type": "mc",
@@ -1091,7 +1124,9 @@
       "topics": [
         "3"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "3.5"
+      ],
       "difficulty": "ปานกลาง",
       "questionNumber": 21,
       "type": "mc",
@@ -1142,7 +1177,10 @@
       "topics": [
         "3"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "3.5",
+        "3.2"
+      ],
       "difficulty": "ยาก",
       "questionNumber": 22,
       "type": "mc",
@@ -1194,7 +1232,10 @@
       "topics": [
         "3"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "3.5",
+        "17.5"
+      ],
       "difficulty": "ยาก",
       "questionNumber": 23,
       "type": "mc",
@@ -1250,7 +1291,11 @@
       "topics": [
         "3"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "3.5",
+        "3.4",
+        "3.3"
+      ],
       "difficulty": "ปานกลาง",
       "questionNumber": 24,
       "type": "mc",
@@ -1300,7 +1345,10 @@
       "topics": [
         "3"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "3.5",
+        "3.2"
+      ],
       "difficulty": "ปานกลาง",
       "questionNumber": 25,
       "type": "mc",
@@ -1355,7 +1403,8 @@
         "3"
       ],
       "subTopics": [
-        "2"
+        "3.4",
+        "3.11"
       ],
       "difficulty": "ปานกลาง",
       "questionNumber": 26,
@@ -1448,7 +1497,9 @@
       "topics": [
         "3"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "3.4"
+      ],
       "difficulty": "ปานกลาง",
       "questionNumber": 27,
       "type": "mc",
@@ -1499,7 +1550,10 @@
       "topics": [
         "3"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "3.4",
+        "3.3"
+      ],
       "difficulty": "ปานกลาง",
       "questionNumber": 28,
       "type": "mc",
@@ -1609,7 +1663,8 @@
         "3"
       ],
       "subTopics": [
-        "10"
+        "3.4",
+        "3.3"
       ],
       "difficulty": "ยาก",
       "questionNumber": 29,
@@ -1670,7 +1725,10 @@
       "topics": [
         "3"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "3.4",
+        "3.3"
+      ],
       "difficulty": "ยาก",
       "questionNumber": 30,
       "type": "fill",
@@ -1727,7 +1785,10 @@
       "topics": [
         "3"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "3.10",
+        "3.4"
+      ],
       "difficulty": "ยาก",
       "questionNumber": 31,
       "type": "mc",
@@ -1774,7 +1835,9 @@
       "topics": [
         "3"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "3.11"
+      ],
       "difficulty": "ปานกลาง",
       "questionNumber": 32,
       "type": "mc",
@@ -1934,7 +1997,10 @@
       "topics": [
         "3"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "3.11",
+        "3.1"
+      ],
       "difficulty": "ปานกลาง",
       "questionNumber": 33,
       "type": "mc",
@@ -1989,7 +2055,8 @@
         "3"
       ],
       "subTopics": [
-        "8"
+        "3.11",
+        "3.1"
       ],
       "difficulty": "ยาก",
       "questionNumber": 34,
@@ -2041,7 +2108,10 @@
       "topics": [
         "3"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "3.6",
+        "3.11"
+      ],
       "difficulty": "ปานกลาง",
       "questionNumber": 35,
       "type": "mc",
@@ -2097,7 +2167,11 @@
       "topics": [
         "3"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "3.6",
+        "3.3",
+        "3.11"
+      ],
       "difficulty": "ปานกลาง",
       "questionNumber": 36,
       "type": "mc",
@@ -2223,7 +2297,9 @@
         "3"
       ],
       "subTopics": [
-        "1"
+        "3.6",
+        "3.9",
+        "3.11"
       ],
       "difficulty": "ยาก",
       "questionNumber": 37,
@@ -2592,7 +2668,10 @@
       "topics": [
         "3"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "3.9",
+        "3.11"
+      ],
       "difficulty": "ปานกลาง",
       "questionNumber": 38,
       "type": "mc",
@@ -2741,7 +2820,10 @@
       "topics": [
         "3"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "3.9",
+        "3.11"
+      ],
       "difficulty": "ปานกลาง",
       "questionNumber": 39,
       "type": "mc",
@@ -2864,7 +2946,10 @@
       "topics": [
         "3"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "3.9",
+        "3.11"
+      ],
       "difficulty": "ยาก",
       "questionNumber": 40,
       "type": "mc",
@@ -3016,7 +3101,9 @@
         "3"
       ],
       "subTopics": [
-        "10"
+        "3.5",
+        "3.4",
+        "10.7"
       ],
       "difficulty": "ปานกลาง",
       "questionNumber": 41,
@@ -3066,7 +3153,8 @@
         "3"
       ],
       "subTopics": [
-        "4"
+        "3.4",
+        "4.7"
       ],
       "difficulty": "ปานกลาง",
       "questionNumber": 42,
@@ -3124,7 +3212,8 @@
         "3"
       ],
       "subTopics": [
-        "4"
+        "3.4",
+        "4.6"
       ],
       "difficulty": "ปานกลาง",
       "questionNumber": 43,
@@ -3235,7 +3324,8 @@
         "3"
       ],
       "subTopics": [
-        "4"
+        "3.4",
+        "4.6"
       ],
       "difficulty": "ปานกลาง",
       "questionNumber": 44,
@@ -3289,7 +3379,8 @@
         "3"
       ],
       "subTopics": [
-        "4"
+        "3.4",
+        "4.9"
       ],
       "difficulty": "ยาก",
       "questionNumber": 45,
@@ -3344,7 +3435,9 @@
         "3"
       ],
       "subTopics": [
-        "4"
+        "3.4",
+        "3.6",
+        "4.6"
       ],
       "difficulty": "ปานกลาง",
       "questionNumber": 46,
@@ -3399,7 +3492,10 @@
       "topics": [
         "3"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "3.1",
+        "3.3"
+      ],
       "difficulty": "ปานกลาง",
       "questionNumber": 47,
       "type": "mc",
@@ -3456,7 +3552,10 @@
       "topics": [
         "3"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "3.1",
+        "3.8"
+      ],
       "difficulty": "ปานกลาง",
       "questionNumber": 48,
       "type": "mc",
@@ -3647,7 +3746,10 @@
       "topics": [
         "3"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "3.8",
+        "3.11"
+      ],
       "difficulty": "ยาก",
       "questionNumber": 49,
       "type": "mc",
@@ -3786,7 +3888,8 @@
         "3"
       ],
       "subTopics": [
-        "1"
+        "3.11",
+        "1.4"
       ],
       "difficulty": "ปานกลาง",
       "questionNumber": 50,
@@ -3923,7 +4026,9 @@
         "3"
       ],
       "subTopics": [
-        "1"
+        "3.6",
+        "3.8",
+        "3.11"
       ],
       "difficulty": "ยาก",
       "questionNumber": 51,
@@ -4116,7 +4221,9 @@
         "3"
       ],
       "subTopics": [
-        "1"
+        "3.8",
+        "3.6",
+        "3.11"
       ],
       "difficulty": "ยาก",
       "questionNumber": 52,
@@ -4392,7 +4499,9 @@
         "3"
       ],
       "subTopics": [
-        "1"
+        "3.10",
+        "3.8",
+        "3.11"
       ],
       "difficulty": "ยาก",
       "questionNumber": 53,
@@ -4609,7 +4718,9 @@
         "3"
       ],
       "subTopics": [
-        "1"
+        "3.8",
+        "3.9",
+        "3.11"
       ],
       "difficulty": "ยาก",
       "questionNumber": 54,
@@ -4888,7 +4999,9 @@
         "3"
       ],
       "subTopics": [
-        "1"
+        "3.9",
+        "3.8",
+        "3.11"
       ],
       "difficulty": "ยาก",
       "questionNumber": 55,
@@ -5192,7 +5305,9 @@
         "3"
       ],
       "subTopics": [
-        "1"
+        "3.9",
+        "3.8",
+        "3.11"
       ],
       "difficulty": "ยาก",
       "questionNumber": 56,
@@ -5462,7 +5577,9 @@
         "3"
       ],
       "subTopics": [
-        "1"
+        "3.8",
+        "3.6",
+        "3.11"
       ],
       "difficulty": "ยาก",
       "questionNumber": 57,
@@ -5790,7 +5907,9 @@
         "3"
       ],
       "subTopics": [
-        "1"
+        "3.9",
+        "3.8",
+        "3.11"
       ],
       "difficulty": "ยาก",
       "questionNumber": 58,
@@ -6144,7 +6263,11 @@
       "topics": [
         "3"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "3.9",
+        "3.8",
+        "3.11"
+      ],
       "difficulty": "ยาก",
       "questionNumber": 59,
       "type": "mc",
@@ -6248,7 +6371,9 @@
         "3"
       ],
       "subTopics": [
-        "1"
+        "3.9",
+        "3.8",
+        "3.11"
       ],
       "difficulty": "ยาก",
       "questionNumber": 60,
@@ -6586,8 +6711,9 @@
         "3"
       ],
       "subTopics": [
-        "1",
-        "2"
+        "3.9",
+        "3.8",
+        "3.11"
       ],
       "difficulty": "ยาก",
       "questionNumber": 61,
@@ -6989,7 +7115,10 @@
       "topics": [
         "3"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "3.7",
+        "3.11"
+      ],
       "difficulty": "ปานกลาง",
       "questionNumber": 62,
       "type": "mc",
@@ -7100,7 +7229,11 @@
       "topics": [
         "3"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "3.9",
+        "3.8",
+        "3.11"
+      ],
       "difficulty": "ยาก",
       "questionNumber": 63,
       "type": "mc",
@@ -7322,7 +7455,11 @@
       "topics": [
         "3"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "3.8",
+        "3.9",
+        "3.11"
+      ],
       "difficulty": "ปานกลาง",
       "questionNumber": 64,
       "type": "mc",
@@ -7522,7 +7659,11 @@
       "topics": [
         "3"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "3.8",
+        "3.9",
+        "3.11"
+      ],
       "difficulty": "ปานกลาง",
       "questionNumber": 65,
       "type": "mc",
@@ -7735,7 +7876,9 @@
         "3"
       ],
       "subTopics": [
-        "5"
+        "3.8",
+        "3.9",
+        "3.11"
       ],
       "difficulty": "ยาก",
       "questionNumber": 66,
@@ -7982,7 +8125,9 @@
         "3"
       ],
       "subTopics": [
-        "1"
+        "3.9",
+        "3.8",
+        "3.11"
       ],
       "difficulty": "ปานกลาง",
       "questionNumber": 67,
@@ -8249,7 +8394,10 @@
       "topics": [
         "3"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "3.8",
+        "3.6"
+      ],
       "difficulty": "ปานกลาง",
       "questionNumber": 68,
       "type": "mc",
@@ -8394,7 +8542,8 @@
         "3"
       ],
       "subTopics": [
-        "1"
+        "3.8",
+        "3.11"
       ],
       "difficulty": "ปานกลาง",
       "questionNumber": 69,
@@ -8620,7 +8769,9 @@
         "3"
       ],
       "subTopics": [
-        "1"
+        "3.8",
+        "3.9",
+        "3.11"
       ],
       "difficulty": "ปานกลาง",
       "questionNumber": 70,
@@ -8861,7 +9012,9 @@
         "3"
       ],
       "subTopics": [
-        "1"
+        "3.10",
+        "3.8",
+        "3.11"
       ],
       "difficulty": "ยาก",
       "questionNumber": 71,
@@ -8913,7 +9066,11 @@
       "topics": [
         "3"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "3.10",
+        "3.9",
+        "3.11"
+      ],
       "difficulty": "ยาก",
       "questionNumber": 72,
       "type": "mc",
@@ -9066,7 +9223,11 @@
       "topics": [
         "3"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "3.10",
+        "3.9",
+        "3.11"
+      ],
       "difficulty": "ยาก",
       "questionNumber": 73,
       "type": "mc",
@@ -9295,7 +9456,11 @@
       "topics": [
         "3"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "3.10",
+        "3.6",
+        "3.11"
+      ],
       "difficulty": "ปานกลาง",
       "questionNumber": 74,
       "type": "mc",
@@ -9433,7 +9598,10 @@
       "topics": [
         "3"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "3.10",
+        "3.9"
+      ],
       "difficulty": "ยาก",
       "questionNumber": 75,
       "type": "mc",
@@ -9490,7 +9658,10 @@
       "topics": [
         "3"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "3.12",
+        "3.6"
+      ],
       "difficulty": "ปานกลาง",
       "questionNumber": 76,
       "type": "mc",
@@ -9547,7 +9718,8 @@
         "3"
       ],
       "subTopics": [
-        "17"
+        "3.12",
+        "17.5"
       ],
       "difficulty": "ปานกลาง",
       "questionNumber": 77,
@@ -9605,7 +9777,8 @@
         "3"
       ],
       "subTopics": [
-        "17"
+        "3.1",
+        "17.6"
       ],
       "difficulty": "ปานกลาง",
       "questionNumber": 78,
@@ -9658,7 +9831,8 @@
         "3"
       ],
       "subTopics": [
-        "17"
+        "3.12",
+        "17.2"
       ],
       "difficulty": "ปานกลาง",
       "questionNumber": 79,
@@ -9715,7 +9889,8 @@
         "3"
       ],
       "subTopics": [
-        "17"
+        "3.12",
+        "17.2"
       ],
       "difficulty": "ยาก",
       "questionNumber": 80,
@@ -9769,7 +9944,8 @@
         "3"
       ],
       "subTopics": [
-        "17"
+        "3.12",
+        "17.3"
       ],
       "difficulty": "ปานกลาง",
       "questionNumber": 81,
@@ -9820,7 +9996,8 @@
         "3"
       ],
       "subTopics": [
-        "17"
+        "3.12",
+        "17.6"
       ],
       "difficulty": "ยาก",
       "questionNumber": 82,
@@ -9875,7 +10052,8 @@
         "3"
       ],
       "subTopics": [
-        "17"
+        "3.12",
+        "17.5"
       ],
       "difficulty": "ยาก",
       "questionNumber": 83,
@@ -9930,7 +10108,8 @@
         "3"
       ],
       "subTopics": [
-        "17"
+        "3.12",
+        "17.1"
       ],
       "difficulty": "ปานกลาง",
       "questionNumber": 84,
@@ -9982,7 +10161,8 @@
         "3"
       ],
       "subTopics": [
-        "17"
+        "3.12",
+        "17.3"
       ],
       "difficulty": "ปานกลาง",
       "questionNumber": 85,
@@ -10046,7 +10226,8 @@
         "3"
       ],
       "subTopics": [
-        "17"
+        "3.12",
+        "17.2"
       ],
       "difficulty": "ปานกลาง",
       "questionNumber": 86,
@@ -10098,7 +10279,8 @@
         "3"
       ],
       "subTopics": [
-        "17"
+        "3.12",
+        "17.2"
       ],
       "difficulty": "ปานกลาง",
       "questionNumber": 87,
@@ -10149,7 +10331,8 @@
         "3"
       ],
       "subTopics": [
-        "17"
+        "3.12",
+        "17.2"
       ],
       "difficulty": "ปานกลาง",
       "questionNumber": 88,
@@ -10205,7 +10388,8 @@
         "3"
       ],
       "subTopics": [
-        "17"
+        "3.12",
+        "17.2"
       ],
       "difficulty": "ปานกลาง",
       "questionNumber": 89,
@@ -10265,7 +10449,9 @@
         "3"
       ],
       "subTopics": [
-        "17"
+        "3.3",
+        "3.6",
+        "17.1"
       ],
       "difficulty": "ยาก",
       "questionNumber": 90,
@@ -10423,7 +10609,9 @@
         "3"
       ],
       "subTopics": [
-        "17"
+        "3.9",
+        "3.11",
+        "17.1"
       ],
       "difficulty": "ยาก",
       "questionNumber": 91,
@@ -10555,7 +10743,8 @@
         "3"
       ],
       "subTopics": [
-        "17"
+        "3.12",
+        "17.2"
       ],
       "difficulty": "ปานกลาง",
       "questionNumber": 92,
@@ -10599,7 +10788,8 @@
         "3"
       ],
       "subTopics": [
-        "17"
+        "3.12",
+        "17.3"
       ],
       "difficulty": "ปานกลาง",
       "questionNumber": 93,
@@ -10645,7 +10835,8 @@
         "3"
       ],
       "subTopics": [
-        "17"
+        "3.12",
+        "17.3"
       ],
       "difficulty": "ยาก",
       "questionNumber": 94,
@@ -10693,7 +10884,8 @@
         "3"
       ],
       "subTopics": [
-        "17"
+        "3.12",
+        "17.2"
       ],
       "difficulty": "ยาก",
       "questionNumber": 95,
@@ -10739,7 +10931,8 @@
         "3"
       ],
       "subTopics": [
-        "17"
+        "3.12",
+        "17.4"
       ],
       "difficulty": "ปานกลาง",
       "questionNumber": 96,
@@ -10786,7 +10979,8 @@
         "3"
       ],
       "subTopics": [
-        "17"
+        "3.5",
+        "17.4"
       ],
       "difficulty": "ปานกลาง",
       "questionNumber": 97,
@@ -10847,7 +11041,7 @@
         "3"
       ],
       "subTopics": [
-        "17"
+        "3.12"
       ],
       "difficulty": "ง่าย",
       "questionNumber": 98,
@@ -10895,7 +11089,11 @@
       "topics": [
         "3"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "3.12",
+        "3.9",
+        "3.4"
+      ],
       "difficulty": "ปานกลาง",
       "questionNumber": 99,
       "type": "mc",
@@ -10951,7 +11149,9 @@
       "topics": [
         "3"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "3.12"
+      ],
       "difficulty": "ง่าย",
       "questionNumber": 100,
       "type": "mc",
@@ -11000,7 +11200,9 @@
       "topics": [
         "3"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "3.1"
+      ],
       "difficulty": "ง่าย",
       "questionNumber": 101,
       "type": "mc",
@@ -11048,7 +11250,10 @@
       "topics": [
         "3"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "3.1",
+        "3.12"
+      ],
       "difficulty": "ง่าย",
       "questionNumber": 102,
       "type": "fill",
@@ -11098,7 +11303,10 @@
       "topics": [
         "3"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "3.6",
+        "3.1"
+      ],
       "difficulty": "ง่าย",
       "questionNumber": 104,
       "type": "mc",
@@ -11150,7 +11358,9 @@
       "topics": [
         "3"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "3.1"
+      ],
       "difficulty": "ปานกลาง",
       "questionNumber": 105,
       "type": "mc",
@@ -11210,7 +11420,10 @@
       "topics": [
         "3"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "3.5",
+        "3.2"
+      ],
       "difficulty": "ปานกลาง",
       "questionNumber": 106,
       "type": "mc",
@@ -11266,7 +11479,10 @@
       "topics": [
         "3"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "3.5",
+        "3.4"
+      ],
       "difficulty": "ปานกลาง",
       "questionNumber": 107,
       "type": "fill",
@@ -11311,7 +11527,8 @@
         "3"
       ],
       "subTopics": [
-        "4"
+        "3.5",
+        "4.4"
       ],
       "difficulty": "ปานกลาง",
       "questionNumber": 108,
@@ -11355,7 +11572,10 @@
       "topics": [
         "3"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "3.5",
+        "3.3"
+      ],
       "difficulty": "ปานกลาง",
       "questionNumber": 109,
       "type": "fill",
@@ -11409,7 +11629,10 @@
       "topics": [
         "3"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "3.5",
+        "3.2"
+      ],
       "difficulty": "ปานกลาง",
       "questionNumber": 110,
       "type": "mc",
@@ -11465,7 +11688,9 @@
       "topics": [
         "3"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "3.4"
+      ],
       "difficulty": "ยาก",
       "questionNumber": 111,
       "type": "fill",
@@ -11525,7 +11750,8 @@
         "3"
       ],
       "subTopics": [
-        "17"
+        "3.5",
+        "3.3"
       ],
       "difficulty": "ยาก",
       "questionNumber": 112,
@@ -11587,7 +11813,8 @@
         "3"
       ],
       "subTopics": [
-        "17"
+        "3.5",
+        "3.3"
       ],
       "difficulty": "ยาก",
       "questionNumber": 113,
@@ -11648,7 +11875,10 @@
       "topics": [
         "3"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "3.9",
+        "3.4"
+      ],
       "difficulty": "ปานกลาง",
       "questionNumber": 114,
       "type": "mc",
@@ -11712,7 +11942,10 @@
       "topics": [
         "3"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "3.4",
+        "3.3"
+      ],
       "difficulty": "ปานกลาง",
       "questionNumber": 115,
       "type": "mc",
@@ -11762,7 +11995,8 @@
         "3"
       ],
       "subTopics": [
-        "1"
+        "3.4",
+        "3.9"
       ],
       "difficulty": "ยาก",
       "questionNumber": 116,
@@ -11922,7 +12156,9 @@
         "3"
       ],
       "subTopics": [
-        "1"
+        "3.9",
+        "3.4",
+        "1.9"
       ],
       "difficulty": "ยาก",
       "questionNumber": 117,
@@ -11977,7 +12213,8 @@
         "3"
       ],
       "subTopics": [
-        "1"
+        "3.10",
+        "3.4"
       ],
       "difficulty": "ปานกลาง",
       "questionNumber": 118,
@@ -12095,7 +12332,7 @@
         "3"
       ],
       "subTopics": [
-        "12"
+        "3.4"
       ],
       "difficulty": "ยาก",
       "questionNumber": 119,
@@ -12153,7 +12390,10 @@
       "topics": [
         "3"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "3.4",
+        "3.3"
+      ],
       "difficulty": "ปานกลาง",
       "questionNumber": 120,
       "type": "fill",
@@ -12209,7 +12449,9 @@
         "3"
       ],
       "subTopics": [
-        "1"
+        "3.4",
+        "3.3",
+        "1.9"
       ],
       "difficulty": "ยาก",
       "topic": "ระบบจำนวนจริง — รากซ้ำของพหุนามดีกรี 4 + เพาเวอร์เซต",
@@ -12276,7 +12518,10 @@
       "topics": [
         "3"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "3.4",
+        "3.3"
+      ],
       "difficulty": "ยาก",
       "topic": "ระบบจำนวนจริง — แยกตัวประกอบพหุนามดีกรี 4 + รากตรรกยะ",
       "type": "mc",
@@ -12339,7 +12584,9 @@
       "topics": [
         "3"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "3.4"
+      ],
       "difficulty": "ปานกลาง",
       "topic": "ระบบจำนวนจริง — แทนค่ารากในสมการกำลังสาม",
       "type": "fill",
@@ -12406,7 +12653,9 @@
       "topics": [
         "3"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "3.4"
+      ],
       "difficulty": "ปานกลาง",
       "topic": "ระบบจำนวนจริง — สูตรของเวียตา (Vieta's formulas)",
       "type": "mc",
@@ -12459,7 +12708,10 @@
       "topics": [
         "3"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "3.2",
+        "3.4"
+      ],
       "difficulty": "ปานกลาง",
       "topic": "ระบบจำนวนจริง — Vieta + แทนค่าเพื่อหาพหุนาม",
       "type": "fill",
@@ -12511,7 +12763,10 @@
       "topics": [
         "3"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "3.10",
+        "3.4"
+      ],
       "difficulty": "ยาก",
       "topic": "ระบบจำนวนจริง — สมการอตรรกยะ + เปลี่ยนตัวแปร",
       "type": "fill",
@@ -12579,7 +12834,10 @@
       "topics": [
         "3"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "3.4",
+        "3.3"
+      ],
       "difficulty": "ยาก",
       "topic": "ระบบจำนวนจริง — เปลี่ยนตัวแปรในสมการดีกรี 4",
       "type": "fill",
@@ -12640,7 +12898,10 @@
       "topics": [
         "3"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "3.3",
+        "3.2"
+      ],
       "difficulty": "ยาก",
       "topic": "ระบบจำนวนจริง — แยกตัวประกอบเป็นกำลังสองสมบูรณ์",
       "type": "mc",
@@ -12708,7 +12969,8 @@
         "3"
       ],
       "subTopics": [
-        "1"
+        "3.9",
+        "3.11"
       ],
       "difficulty": "ยาก",
       "topic": "ระบบจำนวนจริง — อสมการเศษส่วน + เส้นจำนวน",
@@ -12889,7 +13151,8 @@
         "3"
       ],
       "subTopics": [
-        "1"
+        "3.9",
+        "3.4"
       ],
       "difficulty": "ยาก",
       "topic": "ระบบจำนวนจริง — แทนค่าตัวแปรในสมการเศษส่วน",
@@ -12951,7 +13214,8 @@
         "3"
       ],
       "subTopics": [
-        "1"
+        "3.3",
+        "3.4"
       ],
       "difficulty": "ยาก",
       "type": "fill",
@@ -13003,7 +13267,10 @@
       "topics": [
         "3"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "3.4",
+        "3.3"
+      ],
       "difficulty": "ยาก",
       "type": "mc",
       "questionNumber": 132,
@@ -13057,7 +13324,10 @@
       "topics": [
         "3"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "3.10",
+        "3.4"
+      ],
       "difficulty": "ยาก",
       "type": "fill",
       "questionNumber": 133,
@@ -13107,7 +13377,10 @@
       "topics": [
         "3"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "3.10",
+        "3.4"
+      ],
       "difficulty": "ยาก",
       "type": "fill",
       "questionNumber": 134,
@@ -13153,7 +13426,10 @@
       "topics": [
         "3"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "3.2",
+        "3.3"
+      ],
       "difficulty": "ปานกลาง",
       "type": "fill",
       "questionNumber": 135,
@@ -13201,7 +13477,10 @@
       "topics": [
         "3"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "3.2",
+        "3.3"
+      ],
       "difficulty": "ยาก",
       "type": "mc",
       "questionNumber": 136,
@@ -13247,7 +13526,10 @@
       "topics": [
         "3"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "3.2",
+        "3.3"
+      ],
       "difficulty": "ยาก",
       "type": "mc",
       "questionNumber": 137,
@@ -13297,7 +13579,10 @@
       "topics": [
         "3"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "3.3",
+        "3.2"
+      ],
       "difficulty": "ยาก",
       "type": "mc",
       "questionNumber": 138,
@@ -13347,7 +13632,10 @@
       "topics": [
         "3"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "3.11",
+        "3.1"
+      ],
       "difficulty": "ง่าย",
       "type": "fill",
       "questionNumber": 139,
@@ -13445,7 +13733,8 @@
         "3"
       ],
       "subTopics": [
-        "1"
+        "3.11",
+        "1.15"
       ],
       "difficulty": "ปานกลาง",
       "type": "mc",
@@ -13711,7 +14000,9 @@
         "3"
       ],
       "subTopics": [
-        "1"
+        "3.11",
+        "3.8",
+        "3.6"
       ],
       "source": "โควตา มช. / 2544",
       "difficulty": "ปานกลาง",
@@ -13877,7 +14168,8 @@
         "3"
       ],
       "subTopics": [
-        "1"
+        "3.11",
+        "1.10"
       ],
       "source": "คัดโอลิมปิก / 2535",
       "difficulty": "ง่าย",
@@ -14022,7 +14314,11 @@
       "topics": [
         "3"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "3.12",
+        "3.6",
+        "3.11"
+      ],
       "source": "คัดโอลิมปิก / 2535",
       "difficulty": "ยาก",
       "type": "fill",
@@ -14128,7 +14424,10 @@
       "topics": [
         "3"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "3.6",
+        "3.1"
+      ],
       "source": "คัดโอลิมปิก / 2548",
       "difficulty": "ยาก",
       "type": "mc",
@@ -14194,7 +14493,11 @@
       "topics": [
         "3"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "3.6",
+        "3.2",
+        "3.3"
+      ],
       "source": "คัดโอลิมปิก / 2549",
       "difficulty": "ยาก",
       "type": "mc",
@@ -14318,7 +14621,8 @@
         "3"
       ],
       "subTopics": [
-        "1"
+        "3.6",
+        "3.11"
       ],
       "source": "ทุนเล่าเรียนหลวง (กพ.) / 2539",
       "difficulty": "ปานกลาง",
@@ -14601,7 +14905,11 @@
       "topics": [
         "3"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "3.9",
+        "3.3",
+        "3.11"
+      ],
       "source": "คัดโอลิมปิก / 2534",
       "difficulty": "ยาก",
       "type": "mc",
@@ -14846,7 +15154,11 @@
       "topics": [
         "3"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "3.9",
+        "3.3",
+        "3.11"
+      ],
       "source": "ทุนเล่าเรียนหลวง (กพ.) / 2543",
       "difficulty": "ยาก",
       "type": "fill",
@@ -15016,7 +15328,11 @@
       "topics": [
         "3"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "3.9",
+        "3.3",
+        "3.11"
+      ],
       "source": "คัดโอลิมปิก / 2539",
       "difficulty": "ยาก",
       "type": "fill",
@@ -15198,7 +15514,8 @@
         "3"
       ],
       "subTopics": [
-        "17"
+        "3.5",
+        "3.9"
       ],
       "source": "โควตา มช. / 2548",
       "difficulty": "ปานกลาง",
@@ -15420,7 +15737,8 @@
         "3"
       ],
       "subTopics": [
-        "1"
+        "3.9",
+        "3.11"
       ],
       "difficulty": "ปานกลาง",
       "type": "fill",
@@ -15696,7 +16014,10 @@
       "topics": [
         "3"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "3.9",
+        "3.11"
+      ],
       "difficulty": "ปานกลาง",
       "type": "mc",
       "questionNumber": 152,
@@ -15858,7 +16179,11 @@
       "topics": [
         "3"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "3.9",
+        "3.10",
+        "3.11"
+      ],
       "difficulty": "ยาก",
       "type": "mc",
       "questionNumber": 153,
@@ -16110,7 +16435,10 @@
       "topics": [
         "3"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "3.1",
+        "3.6"
+      ],
       "difficulty": "ยาก",
       "type": "mc",
       "questionNumber": 154,
@@ -16256,7 +16584,10 @@
       "topics": [
         "3"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "3.7",
+        "3.3"
+      ],
       "difficulty": "ยาก",
       "type": "fill",
       "questionNumber": 155,
@@ -16449,7 +16780,9 @@
         "3"
       ],
       "subTopics": [
-        "1"
+        "3.8",
+        "3.9",
+        "3.11"
       ],
       "difficulty": "ปานกลาง",
       "type": "fill",
@@ -16607,7 +16940,11 @@
       "topics": [
         "3"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "3.10",
+        "3.8",
+        "3.11"
+      ],
       "difficulty": "ยาก",
       "type": "mc",
       "questionNumber": 157,
@@ -16836,7 +17173,11 @@
       "topics": [
         "3"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "3.9",
+        "3.8",
+        "3.11"
+      ],
       "difficulty": "ยาก",
       "type": "mc",
       "questionNumber": 158,
@@ -17009,7 +17350,11 @@
       "topics": [
         "3"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "3.8",
+        "3.9",
+        "3.11"
+      ],
       "difficulty": "ปานกลาง",
       "type": "fill",
       "questionNumber": 159,
@@ -17175,7 +17520,10 @@
       "topics": [
         "3"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "3.8",
+        "3.11"
+      ],
       "difficulty": "ปานกลาง",
       "type": "fill",
       "questionNumber": 160,
@@ -17307,7 +17655,10 @@
       "topics": [
         "3"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "3.8",
+        "3.11"
+      ],
       "difficulty": "ยาก",
       "questionNumber": 161,
       "type": "mc",
@@ -17487,7 +17838,11 @@
       "topics": [
         "3"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "3.9",
+        "3.8",
+        "3.11"
+      ],
       "difficulty": "ยาก",
       "questionNumber": 162,
       "type": "fill",
@@ -17626,7 +17981,8 @@
         "3"
       ],
       "subTopics": [
-        "17"
+        "3.12",
+        "17.6"
       ],
       "difficulty": "ปานกลาง",
       "questionNumber": 163,
@@ -17698,8 +18054,8 @@
         "3"
       ],
       "subTopics": [
-        "17",
-        "1"
+        "3.12",
+        "17.2"
       ],
       "difficulty": "ปานกลาง",
       "questionNumber": 164,
@@ -17758,7 +18114,8 @@
         "3"
       ],
       "subTopics": [
-        "17"
+        "3.12",
+        "17.5"
       ],
       "difficulty": "ยาก",
       "questionNumber": 165,
@@ -17813,7 +18170,8 @@
         "3"
       ],
       "subTopics": [
-        "17"
+        "3.12",
+        "17.1"
       ],
       "difficulty": "ยาก",
       "questionNumber": 166,
@@ -17871,7 +18229,8 @@
         "3"
       ],
       "subTopics": [
-        "17"
+        "3.12",
+        "17.5"
       ],
       "difficulty": "ปานกลาง",
       "questionNumber": 167,
@@ -17938,7 +18297,9 @@
         "3"
       ],
       "subTopics": [
-        "17"
+        "3.4",
+        "3.11",
+        "17.1"
       ],
       "difficulty": "ปานกลาง",
       "questionNumber": 168,
@@ -18146,7 +18507,8 @@
         "3"
       ],
       "subTopics": [
-        "17"
+        "3.12",
+        "17.1"
       ],
       "difficulty": "ยาก",
       "questionNumber": 169,
@@ -18310,7 +18672,8 @@
         "3"
       ],
       "subTopics": [
-        "1"
+        "3.12",
+        "17.7"
       ],
       "difficulty": "ยาก",
       "questionNumber": 170,
@@ -18367,7 +18730,8 @@
         "3"
       ],
       "subTopics": [
-        "17"
+        "3.12",
+        "17.7"
       ],
       "difficulty": "ปานกลาง",
       "questionNumber": 171,
@@ -18437,7 +18801,8 @@
         "3"
       ],
       "subTopics": [
-        "17"
+        "3.12",
+        "17.7"
       ],
       "difficulty": "ปานกลาง",
       "questionNumber": 172,
@@ -18503,7 +18868,8 @@
         "3"
       ],
       "subTopics": [
-        "17"
+        "3.12",
+        "17.7"
       ],
       "difficulty": "ง่าย",
       "questionNumber": 173,
@@ -18560,7 +18926,9 @@
         "3"
       ],
       "subTopics": [
-        "17"
+        "3.12",
+        "3.3",
+        "17.7"
       ],
       "difficulty": "ปานกลาง",
       "questionNumber": 174,
@@ -18621,7 +18989,9 @@
         "3"
       ],
       "subTopics": [
-        "17"
+        "3.12",
+        "3.3",
+        "17.7"
       ],
       "difficulty": "ปานกลาง",
       "questionNumber": 175,
@@ -18684,7 +19054,9 @@
         "3"
       ],
       "subTopics": [
-        "17"
+        "3.12",
+        "17.2",
+        "3.3"
       ],
       "difficulty": "ยาก",
       "questionNumber": 176,
@@ -18750,7 +19122,8 @@
         "3"
       ],
       "subTopics": [
-        "17"
+        "3.12",
+        "17.4"
       ],
       "difficulty": "ปานกลาง",
       "questionNumber": 177,
@@ -18813,7 +19186,8 @@
         "3"
       ],
       "subTopics": [
-        "17"
+        "3.12",
+        "17.3"
       ],
       "difficulty": "ง่าย",
       "questionNumber": 178,
@@ -18864,7 +19238,8 @@
         "3"
       ],
       "subTopics": [
-        "17"
+        "3.5",
+        "17.2"
       ],
       "difficulty": "ยาก",
       "questionNumber": 179,
@@ -18922,7 +19297,8 @@
         "3"
       ],
       "subTopics": [
-        "17"
+        "3.12",
+        "17.2"
       ],
       "difficulty": "ง่าย",
       "questionNumber": 180,
@@ -18985,7 +19361,8 @@
         "3"
       ],
       "subTopics": [
-        "17"
+        "3.12",
+        "17.6"
       ],
       "difficulty": "ปานกลาง",
       "questionNumber": 181,
@@ -19034,7 +19411,8 @@
         "3"
       ],
       "subTopics": [
-        "17"
+        "3.12",
+        "17.6"
       ],
       "difficulty": "ปานกลาง",
       "questionNumber": 182,
@@ -19093,7 +19471,8 @@
         "3"
       ],
       "subTopics": [
-        "17"
+        "3.12",
+        "17.6"
       ],
       "difficulty": "ปานกลาง",
       "questionNumber": 183,
@@ -19148,7 +19527,8 @@
         "3"
       ],
       "subTopics": [
-        "17"
+        "3.12",
+        "17.6"
       ],
       "difficulty": "ยาก",
       "questionNumber": 184,
@@ -19205,7 +19585,8 @@
         "3"
       ],
       "subTopics": [
-        "17"
+        "3.12",
+        "17.6"
       ],
       "difficulty": "ปานกลาง",
       "questionNumber": 185,
@@ -19250,7 +19631,8 @@
         "3"
       ],
       "subTopics": [
-        "17"
+        "3.12",
+        "17.6"
       ],
       "difficulty": "ยาก",
       "questionNumber": 186,
@@ -19314,7 +19696,8 @@
         "3"
       ],
       "subTopics": [
-        "17"
+        "3.12",
+        "17.6"
       ],
       "difficulty": "ง่าย",
       "questionNumber": 187,
@@ -19368,7 +19751,9 @@
         "3"
       ],
       "subTopics": [
-        "17"
+        "3.5",
+        "3.2",
+        "17.1"
       ],
       "difficulty": "ปานกลาง",
       "questionNumber": 188,
@@ -19445,7 +19830,8 @@
         "3"
       ],
       "subTopics": [
-        "17"
+        "3.12",
+        "17.5"
       ],
       "difficulty": "ปานกลาง",
       "questionNumber": 189,
@@ -19502,7 +19888,8 @@
         "3"
       ],
       "subTopics": [
-        "17"
+        "3.12",
+        "17.5"
       ],
       "difficulty": "ยาก",
       "questionNumber": 190,

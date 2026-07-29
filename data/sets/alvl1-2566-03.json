@@ -8,7 +8,10 @@
       "topics": [
         "3"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "3.5",
+        "3.2"
+      ],
       "difficulty": "ปานกลาง",
       "topic": "3",
       "type": "mc",
@@ -52,8 +55,9 @@
         "1"
       ],
       "subTopics": [
-        "3",
-        "2"
+        "1.3",
+        "1.12",
+        "1.4"
       ],
       "difficulty": "ยาก",
       "topic": "1",
@@ -193,7 +197,10 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.1",
+        "2.2"
+      ],
       "difficulty": "ยาก",
       "topic": "2",
       "type": "mc",
@@ -244,7 +251,11 @@
       "topics": [
         "2"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "2.4",
+        "2.5",
+        "2.6"
+      ],
       "difficulty": "ปานกลาง",
       "topic": "2",
       "type": "mc",
@@ -288,7 +299,10 @@
       "topics": [
         "8"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "8.7",
+        "8.6"
+      ],
       "difficulty": "ง่าย",
       "topic": "8",
       "type": "mc",
@@ -335,7 +349,9 @@
       "topics": [
         "7"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "7.9"
+      ],
       "difficulty": "ปานกลาง",
       "topic": "7",
       "type": "mc",
@@ -489,7 +505,10 @@
       "topics": [
         "7"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "7.8",
+        "7.5"
+      ],
       "difficulty": "ปานกลาง",
       "topic": "7",
       "type": "mc",
@@ -695,7 +714,8 @@
         "5"
       ],
       "subTopics": [
-        "1"
+        "5.6",
+        "5.8"
       ],
       "difficulty": "ปานกลาง",
       "topic": "5",
@@ -738,7 +758,10 @@
       "topics": [
         "6"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "6.5",
+        "6.6"
+      ],
       "difficulty": "ง่าย",
       "topic": "6",
       "type": "mc",
@@ -780,7 +803,8 @@
         "14"
       ],
       "subTopics": [
-        "11"
+        "14.6",
+        "14.5"
       ],
       "difficulty": "ปานกลาง",
       "topic": "14",
@@ -829,7 +853,11 @@
       "topics": [
         "11"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "11.1",
+        "11.4",
+        "11.8"
+      ],
       "difficulty": "ปานกลาง",
       "topic": "11",
       "type": "mc",
@@ -931,7 +959,11 @@
       "topics": [
         "11"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "11.8",
+        "11.3",
+        "18.2"
+      ],
       "difficulty": "ปานกลาง",
       "topic": "11",
       "type": "mc",
@@ -974,7 +1006,8 @@
         "10"
       ],
       "subTopics": [
-        "7"
+        "10.6",
+        "10.4"
       ],
       "difficulty": "ยาก",
       "topic": "10",
@@ -1027,7 +1060,10 @@
       "topics": [
         "10"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "10.8",
+        "10.3"
+      ],
       "difficulty": "ปานกลาง",
       "topic": "10",
       "type": "mc",
@@ -1128,7 +1164,10 @@
       "topics": [
         "9"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "9.7",
+        "9.5"
+      ],
       "difficulty": "ง่าย",
       "topic": "9",
       "type": "mc",
@@ -1172,7 +1211,9 @@
         "9"
       ],
       "subTopics": [
-        "7"
+        "9.6",
+        "9.5",
+        "9.3"
       ],
       "difficulty": "ยาก",
       "topic": "9",
@@ -1423,7 +1464,8 @@
         "4"
       ],
       "subTopics": [
-        "3"
+        "4.8",
+        "4.1"
       ],
       "difficulty": "ปานกลาง",
       "topic": "4",
@@ -1663,7 +1705,10 @@
       "topics": [
         "12"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "12.1",
+        "12.3"
+      ],
       "difficulty": "ปานกลาง",
       "topic": "12",
       "type": "mc",
@@ -1710,7 +1755,9 @@
       "topics": [
         "12"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "12.7"
+      ],
       "difficulty": "ปานกลาง",
       "topic": "12",
       "type": "mc",
@@ -1749,7 +1796,11 @@
       "topics": [
         "15"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "15.5",
+        "15.8",
+        "15.2"
+      ],
       "difficulty": "ปานกลาง",
       "topic": "15",
       "type": "mc",
@@ -1792,7 +1843,10 @@
       "topics": [
         "15"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "15.4",
+        "15.8"
+      ],
       "difficulty": "ปานกลาง",
       "topic": "15",
       "type": "mc",
@@ -1886,7 +1940,9 @@
       "topics": [
         "12"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "12.11"
+      ],
       "difficulty": "ง่าย",
       "topic": "12",
       "type": "mc",
@@ -1928,7 +1984,8 @@
         "13"
       ],
       "subTopics": [
-        "4"
+        "13.11",
+        "13.4"
       ],
       "difficulty": "ยาก",
       "topic": "13",
@@ -2086,7 +2143,8 @@
         "13"
       ],
       "subTopics": [
-        "5"
+        "13.1",
+        "13.2"
       ],
       "difficulty": "ปานกลาง",
       "topic": "13",
@@ -2392,7 +2450,8 @@
         "13"
       ],
       "subTopics": [
-        "3"
+        "13.4",
+        "3.4"
       ],
       "difficulty": "ยาก",
       "topic": "13",
@@ -2440,7 +2499,11 @@
       "topics": [
         "1"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "1.16",
+        "1.15",
+        "1.13"
+      ],
       "difficulty": "ง่าย",
       "topic": "1",
       "type": "fill",
@@ -2502,7 +2565,9 @@
       "topics": [
         "12"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "12.1"
+      ],
       "difficulty": "ปานกลาง",
       "topic": "12",
       "type": "fill",
@@ -2720,7 +2785,10 @@
       "topics": [
         "15"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "15.10",
+        "15.9"
+      ],
       "difficulty": "ปานกลาง",
       "topic": "15",
       "type": "fill",
@@ -2818,7 +2886,9 @@
         "4"
       ],
       "subTopics": [
-        "7"
+        "4.6",
+        "4.5",
+        "4.3"
       ],
       "difficulty": "ยาก",
       "topic": "4",
@@ -2979,7 +3049,10 @@
       "topics": [
         "8"
       ],
-      "subTopics": [],
+      "subTopics": [
+        "8.4",
+        "8.3"
+      ],
       "difficulty": "ปานกลาง",
       "topic": "8",
       "type": "fill",
