@@ -2369,31 +2369,31 @@
     "gen-chap-05-function": {
       "source": "ข้อสอบรายบท (แต่งใหม่)",
       "subject": "ความสัมพันธ์และฟังก์ชัน",
-      "displayName": "บทที่ 5 ความสัมพันธ์และฟังก์ชัน (แต่งใหม่ · แข่งขัน · 400/400 ข้อ ครบบท)",
-      "totalQuestions": 400,
-      "totalScore": 400,
+      "displayName": "บทที่ 5 ความสัมพันธ์และฟังก์ชัน (แต่งใหม่ · แข่งขัน · 405 ข้อ)",
+      "totalQuestions": 405,
+      "totalScore": 405,
       "structure": {
-        "part1": "ข้อสอบแต่งใหม่ ในหลักสูตรแกนกลางล้วน · ครบ 400/400 · เน้นปานกลาง+ยาก (บาร์ v2) · ความยากจากหลายชั้น/แก้ระบบ · เฉลย STANDARD v2 + กราฟ function-plot"
+        "part1": "ข้อสอบแต่งใหม่ ในหลักสูตรแกนกลางล้วน · 405 ข้อ (ครบบท 400 + R6 เติมข้อง่าย 5) · เน้นปานกลาง+ยาก (บาร์ v2) · ความยากจากหลายชั้น/แก้ระบบ · เฉลย STANDARD v2 + กราฟ function-plot"
       },
       "topicDistribution": {
-        "5": 400
+        "5": 405
       },
       "difficulty": {
         "level": "แข่งขัน",
         "breakdown": {
-          "ง่าย": 20,
+          "ง่าย": 25,
           "ปานกลาง": 144,
           "ยาก": 162,
           "ยากมาก": 74
         }
       },
       "snapshot": {
-        "round": 1,
-        "stage": "COMPLETE 400/400 — pending review",
-        "questionsCompleted": 400,
+        "round": 6,
+        "stage": "405 ข้อ — R6 batch 2 authored v1 (รอ blind-solve + ครูอนุมัติ)",
+        "questionsCompleted": 405,
         "questionsRemaining": 0,
-        "exportedAt": "2026-07-19",
-        "note": "บท 5 · หลักสูตรแกนกลางล้วน · calibration v2 · func_verify [] · blind-solve 5 solver = ตรงคีย์ 100% · fill LaTeX ครอบ $ · MC สับสมดุล"
+        "exportedAt": "2026-07-30",
+        "note": "บท 5 · หลักสูตรแกนกลางล้วน · calibration v2 · func_verify [] · blind-solve 5 solver = ตรงคีย์ 100% (400 ข้อแรก) · fill LaTeX ครอบ $ · MC สับสมดุล · R6 batch 2 (+q401–q405) อุดหัวข้อว่าง 5.15 สมการเชิงฟังก์ชัน / 5.16 ฟังก์ชันคาบ / 5.17 พหุนามดีกรี≥3 ด้วยข้อระดับง่ายครบ 4 แนวตามมติครู (แทนค่าตามนิยาม · อ่านรูป · เลียนแบบข้อสอบจริงลดขั้น · fill) · q404 เป็นข้อฟังก์ชันคาบข้อแรกของคลัง ใช้ function-plot kind:piecewise-linear verify render จริงผ่าน renderers.js สดแล้ว 0 error · พร้อมกันนี้แก้ q362 field correct จาก -3 เป็น -1 (เดิมขัดกับ accept และเฉลยทั้ง 4 จุด)"
       }
     },
     "gen-chap-09-vector": {
@@ -2417,7 +2417,7 @@
       },
       "snapshot": {
         "round": 6,
-        "stage": "authored v1 (R6 batch 1) — รอ blind-solve + ครูอนุมัติ",
+        "stage": "LIVE บน main (R6 batch 1) — blind-solve 5/5 ตรงคีย์ · ครูอนุมัติแล้ว",
         "questionsCompleted": 5,
         "questionsRemaining": 0,
         "exportedAt": "2026-07-30",
