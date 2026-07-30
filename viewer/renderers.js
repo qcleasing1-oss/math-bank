@@ -4503,6 +4503,11 @@ function renderAnalyticGeo(spec){
   };
   let svg=`<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" xmlns="http://www.w3.org/2000/svg" style="background:#fff;">`;
   svg+=`<defs><marker id="agar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#888"/></marker>`;
+  // หัวลูกศรของ kind:"vector" ต้องเป็นสีเดียวกับเส้น ⇒ ประกาศ marker หนึ่งอันต่อหนึ่งสีที่ใช้จริงใน spec
+  // (id สร้างจากค่าสีตรง ๆ ไม่สุ่ม ⇒ ผลลัพธ์ SVG เดิมทุกครั้ง และถ้ามีหลายรูปในหน้าเดียว id ที่ชนกันมีเนื้อหาเหมือนกันอยู่แล้ว)
+  const _agvId=c=>'agv_'+String(c).replace(/[^a-zA-Z0-9]/g,'');
+  [...new Set((spec.elements||[]).filter(e=>e&&e.kind==='vector').map(e=>e.color||'#7b1fa2'))]
+    .forEach(c=>{svg+=`<marker id="${_agvId(c)}" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="${c}"/></marker>`;});
   svg+=`<marker id="agvec" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#7b1fa2"/></marker></defs>`;
   if(spec.title) svg+=`<text x="${F(W/2)}" y="13" font-size="12.5" fill="#1e5fae" text-anchor="middle" font-weight="600">${esc(spec.title)}</text>`;
   // light grid
@@ -4569,7 +4574,7 @@ function renderAnalyticGeo(spec){
       });
     } else if(e.kind==='segment'||e.kind==='vector'){
       const isVec=e.kind==='vector';
-      svg+=`<line x1="${F(X(e.from[0]))}" y1="${F(Y(e.from[1]))}" x2="${F(X(e.to[0]))}" y2="${F(Y(e.to[1]))}" stroke="${col||(isVec?'#7b1fa2':'#444')}" stroke-width="${e.width||1.7}"${e.dash?` stroke-dasharray="6 4"`:''}${isVec?` marker-end="url(#agvec)"`:''}/>`;
+      svg+=`<line x1="${F(X(e.from[0]))}" y1="${F(Y(e.from[1]))}" x2="${F(X(e.to[0]))}" y2="${F(Y(e.to[1]))}" stroke="${col||(isVec?'#7b1fa2':'#444')}" stroke-width="${e.width||1.7}"${e.dash?` stroke-dasharray="6 4"`:''}${isVec?` marker-end="url(#${_agvId(col||'#7b1fa2')})"`:''}/>`;
       if(e.label){const mx=(e.from[0]+e.to[0])/2,my=(e.from[1]+e.to[1])/2; svg+=mathLabel(e.label, X((e.labelAt||[mx,my])[0])+ (e.dx||4), Y((e.labelAt||[mx,my])[1])-(e.dy||4), 11, col||'#444', e.anchor);}
     } else if(e.kind==='line'||e.kind==='ray'){
       let A,B,C;
