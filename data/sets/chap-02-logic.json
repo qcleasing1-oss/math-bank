@@ -4116,12 +4116,12 @@
       "type": "mc",
       "level": "hard",
       "score": 1,
-      "question": "กำหนดให้ $\\mathbb{R}$ เป็นเซตของจำนวนจริง, $\\mathbb{Q}$ เป็นเซตของจำนวนตรรกยะ, $\\mathbb{I}$ เป็นเซตของจำนวนเต็ม และเอกภพสัมพัทธ์เป็น $\\mathbb{R}$ ข้อต่อไปนี้มีค่าความจริงเป็นจริง",
+      "question": "กำหนดให้ $\\mathbb{R}$ เป็นเซตของจำนวนจริง, $\\mathbb{Q}$ เป็นเซตของจำนวนตรรกยะ, $\\mathbb{Z}$ เป็นเซตของจำนวนเต็ม และเอกภพสัมพัทธ์เป็น $\\mathbb{R}$ ข้อต่อไปนี้มีค่าความจริงเป็นจริง",
       "hasImage": false,
       "sourceTag": "Entrance 2528",
       "choices": [
         "$\\exists x [\\, x $ ∉ $ \\mathbb{Q} \\wedge x > \\sqrt{2} \\,] \\to \\forall x [\\, x^2 > 9 \\to x > 3 \\,]$",
-        "$\\forall x [\\, x \\in \\mathbb{I} \\vee |x + 3| > 8 \\,]$",
+        "$\\forall x [\\, x \\in \\mathbb{Z} \\vee |x + 3| > 8 \\,]$",
         "$\\{ x \\mid x \\in \\mathbb{Q} \\text{ และ } x \\text{ มีเศษเป็นศูนย์} \\}$ เป็นเซตอนันต์ $\\leftrightarrow \\exists x [\\, x^2 \\leq x \\vee x^2 + x + 1 = 0 \\,]$",
         "$\\exists x [\\, x^3 + 5x - 1 < 4 \\,] \\wedge \\forall x [\\, |x^2 - 1| < 0 \\to x \\geq -2 \\,]$"
       ],
@@ -6243,10 +6243,10 @@
       "question": "จากการเขียนตารางค่าความจริงของประพจน์ $(p \\wedge q) \\vee (r \\vee s) \\vee (t \\rightarrow u) \\vee (x \\leftrightarrow y) \\vee (\\sim z)$ มีบรรทัดที่ได้ค่าความจริงโดยรวมเป็นเท็จ กี่บรรทัด",
       "hasImage": false,
       "choices": [
-        "6",
-        "8",
-        "12",
-        "216"
+        "$6$",
+        "$8$",
+        "$12$",
+        "$216$"
       ],
       "correct": 0,
       "explanation": [

@@ -1215,7 +1215,7 @@
         "$\\begin{aligned} 4b^2 - 8b^2 + 8 & > 0 \\\\ -4b^2 + 8 & > 0 \\\\ b^2 & < 2 \\\\ -\\sqrt{2} & < b < \\sqrt{2} \\end{aligned}$",
         "ดังนั้น $B = (-\\sqrt{2}, \\sqrt{2})$",
         "<b>ขั้นที่ 3: หา $B - A$</b>",
-        "$\\begin{aligned} B - A &= (-\\sqrt{2}, \\sqrt{2}) \\setminus [-1, 1] \\\\ &= (-\\sqrt{2}, -1) \\cup (1, \\sqrt{2}) \\end{aligned}$",
+        "$\\begin{aligned} B - A &= (-\\sqrt{2}, \\sqrt{2})-[-1, 1] \\\\ &= (-\\sqrt{2}, -1) \\cup (1, \\sqrt{2}) \\end{aligned}$",
         "[IMAGE:0]",
         "<b>ขั้นที่ 4: หา $\\{c^2 \\mid c \\in B - A\\}$</b>",
         "• $c \\in (-\\sqrt{2}, -1)$: $c^2 \\in (1, 2)$",

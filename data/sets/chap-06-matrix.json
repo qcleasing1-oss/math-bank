@@ -668,10 +668,10 @@
       "score": 1,
       "question": "กำหนดให้ $\\begin{bmatrix} 1 & -1 & 1 & 1 \\\\ 1 & 1 & -1 & 1 \\\\ 1 & 1 & -1 & -1 \\\\ 1 & -1 & -1 & 1 \\end{bmatrix}\\begin{bmatrix} x_1 \\\\ x_2 \\\\ x_3 \\\\ x_4 \\end{bmatrix} = \\begin{bmatrix} 8 \\\\ 6 \\\\ 0 \\\\ 4 \\end{bmatrix}$ ค่าของ $x_3$ เท่ากับเท่าใด",
       "choices": [
-        "2",
-        "3",
-        "4",
-        "5"
+        "$2$",
+        "$3$",
+        "$4$",
+        "$5$"
       ],
       "hasImage": false,
       "sourceTag": "Entrance 2526",
@@ -2473,10 +2473,10 @@
       "score": 1,
       "question": "กำหนดให้ $A = \\begin{bmatrix} x & 5 & -1 \\\\ 0 & 4 & -2 \\\\ 0 & 0 & -x \\end{bmatrix}$ โดยที่ $\\det A = -1$ และ $x$ เป็นจำนวนจริง\nถ้า $I$ เป็นเมทริกซ์เอกลักษณ์ขนาด $3 \\times 3$ แล้ว $\\det(2(I - A)A^t)$ มีค่าเท่ากับข้อใดต่อไปนี้",
       "choices": [
-        "4",
-        "8",
-        "12",
-        "18"
+        "$4$",
+        "$8$",
+        "$12$",
+        "$18$"
       ],
       "hasImage": false,
       "sourceTag": "Entrance ต.ค. 2542",
@@ -3529,10 +3529,10 @@
       "score": 1,
       "question": "กำหนดให้ $B = \\begin{bmatrix} 1 & -1 & 0 \\\\ 0 & 1 & 2 \\\\ 3 & 0 & 1 \\end{bmatrix}$, $C = \\begin{bmatrix} 1 \\\\ 0 \\\\ 2 \\end{bmatrix}$, $X = \\begin{bmatrix} x \\\\ y \\\\ z \\end{bmatrix}$ และ $I$ เป็นเมทริกซ์เอกลักษณ์\nถ้า $A$ เป็นเมทริกซ์มิติ $3 \\times 3$ ซึ่งสอดคล้องกับสมการ $2AB = I$ และ $AX = C$\nแล้ว ค่าของ $x + y + z$ เท่ากับข้อใดต่อไปนี้",
       "choices": [
-        "20",
-        "24",
-        "26",
-        "30"
+        "$20$",
+        "$24$",
+        "$26$",
+        "$30$"
       ],
       "hasImage": false,
       "sourceTag": "Entrance มี.ค. 2548",
@@ -3640,10 +3640,10 @@
       "score": 1,
       "question": "กำหนดให้ $A = \\begin{bmatrix} 3 & 4 \\\\ 2 & 3 \\end{bmatrix}$, $B = \\begin{bmatrix} 1 & 2 \\\\ -1 & 3 \\end{bmatrix}$, $X = \\begin{bmatrix} a & b \\\\ c & d \\end{bmatrix}$\nถ้า $AX + B = A$ แล้ว $b + c$ มีค่าเท่ากับข้อใดต่อไปนี้",
       "choices": [
-        "7",
-        "9",
-        "10",
-        "11"
+        "$7$",
+        "$9$",
+        "$10$",
+        "$11$"
       ],
       "hasImage": false,
       "sourceTag": "Entrance 2540",
@@ -4704,10 +4704,10 @@
       "score": 1,
       "question": "ให้ $A$ เป็นเมทริกซ์จัตุรัสมิติ $4 \\times 4$ และ $M_{ij}(A)$ คือไมเนอร์ของ $a_{ij}$\nถ้า $M_{23}(A) = 5$ แล้ว $M_{32}(2A^t)$ เท่ากับข้อใดต่อไปนี้",
       "choices": [
-        "10",
-        "20",
-        "40",
-        "80"
+        "$10$",
+        "$20$",
+        "$40$",
+        "$80$"
       ],
       "hasImage": false,
       "sourceTag": "Entrance 2538",
@@ -4759,10 +4759,10 @@
       "score": 1,
       "question": "กำหนดให้ $A = \\begin{bmatrix} 1 & -1 \\\\ 2 & 1 \\end{bmatrix}$\nถ้า $B$ เป็นเมทริกซ์ที่ $B = 2A^{-1}$ แล้ว ข้อใดต่อไปนี้เป็นค่าของ $\\det(3\\,\\text{adj}\\,B)$",
       "choices": [
-        "6",
-        "9",
-        "12",
-        "18"
+        "$6$",
+        "$9$",
+        "$12$",
+        "$18$"
       ],
       "hasImage": false,
       "sourceTag": "Entrance ต.ค. 2541",
@@ -4817,10 +4817,10 @@
       "score": 1,
       "question": "กำหนดให้ $a$ เป็นจำนวนจริง และ $A = \\begin{bmatrix} 1 & 0 & 2 \\\\ 0 & 3 & 0 \\\\ 4 & 0 & a \\end{bmatrix}$\nถ้า $a > 10$ และ $\\det(\\text{adj}\\,A) = 225$ แล้ว $a$ มีค่าเท่ากับข้อใดต่อไปนี้",
       "choices": [
-        "11",
-        "12",
-        "13",
-        "14"
+        "$11$",
+        "$12$",
+        "$13$",
+        "$14$"
       ],
       "hasImage": false,
       "sourceTag": "Entrance ต.ค. 2546",
@@ -4930,10 +4930,10 @@
       "score": 1,
       "question": "กำหนดให้ $A = \\begin{bmatrix} 1 & 2 & -1 \\\\ 2 & 1 & 1 \\\\ -1 & 1 & 0 \\end{bmatrix}$ และ $I = \\begin{bmatrix} 1 & 0 & 0 \\\\ 0 & 1 & 0 \\\\ 0 & 0 & 1 \\end{bmatrix}$\nถ้า $B$ เป็นเมทริกซ์ที่ทำให้ $AB = BA = I$\nแล้วค่าของ $\\det(\\text{adj}\\,B^{-1})$ เท่ากับข้อใดต่อไปนี้",
       "choices": [
-        "1",
-        "16",
-        "25",
-        "36"
+        "$1$",
+        "$16$",
+        "$25$",
+        "$36$"
       ],
       "hasImage": false,
       "sourceTag": "Entrance 2539",

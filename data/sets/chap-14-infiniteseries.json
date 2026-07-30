@@ -2869,10 +2869,10 @@
       "score": 1,
       "question": "จำนวนเต็มบวก $n$ ที่ทำให้ $\\dfrac{1}{1+\\sqrt{2}} + \\dfrac{1}{\\sqrt{2}+\\sqrt{3}} + \\dfrac{1}{\\sqrt{3}+\\sqrt{4}} + \\cdots + \\dfrac{1}{\\sqrt{n}+\\sqrt{n+1}} = 8$ มีค่าเท่าใด",
       "choices": [
-        "70",
-        "75",
-        "80",
-        "85"
+        "$70$",
+        "$75$",
+        "$80$",
+        "$85$"
       ],
       "hasImage": false,
       "sourceTag": "คัดโอลิมปิก 2539",
