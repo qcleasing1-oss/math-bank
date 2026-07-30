@@ -12885,7 +12885,7 @@
         "$25$ ตร.ม.",
         "$50$ ตร.ม."
       ],
-      "hasImage": false,
+      "hasImage": true,
       "imageSpec": {
         "type": "polygon-labeled",
         "width": 380,

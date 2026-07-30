@@ -2395,6 +2395,34 @@
         "exportedAt": "2026-07-19",
         "note": "บท 5 · หลักสูตรแกนกลางล้วน · calibration v2 · func_verify [] · blind-solve 5 solver = ตรงคีย์ 100% · fill LaTeX ครอบ $ · MC สับสมดุล"
       }
+    },
+    "gen-chap-09-vector": {
+      "source": "ข้อสอบรายบท (แต่งใหม่)",
+      "subject": "เวกเตอร์ในสามมิติ",
+      "displayName": "บทที่ 9 เวกเตอร์ (แต่งใหม่)",
+      "totalQuestions": 5,
+      "totalScore": 5,
+      "structure": {
+        "part1": "ข้อสอบแต่งใหม่รายบท (STANDARD v2) — R6 อุดหัวข้อว่าง 9.10 ภาพฉายของเวกเตอร์: ความยาวภาพฉาย · เวกเตอร์ภาพฉาย · ภาพฉายเชิงสเกลาร์ที่มีเครื่องหมาย · แยกเวกเตอร์เป็นส่วนขนาน+ส่วนตั้งฉาก · ประยุกต์แรง-งาน"
+      },
+      "topicDistribution": {
+        "9": 5
+      },
+      "difficulty": {
+        "level": "ง่าย",
+        "breakdown": {
+          "ง่าย": 3,
+          "ปานกลาง": 2
+        }
+      },
+      "snapshot": {
+        "round": 6,
+        "stage": "authored v1 (R6 batch 1) — รอ blind-solve + ครูอนุมัติ",
+        "questionsCompleted": 5,
+        "questionsRemaining": 0,
+        "exportedAt": "2026-07-30",
+        "note": "R6 batch 1 · ชุดใหม่ (บท 9 ไม่เคยมีชุดแต่งใหม่) · เปิดเพื่ออุดรหัส 9.10 ที่ taxonomy v0.3 สร้างไว้แต่ไม่มีข้อเลย (0 ข้อ จาก 6,278) · sympy verify ครบ 5/5 + POST-FLIGHT 11 ข้อ · ระดับ rubric-driven ง่าย 3 ปานกลาง 2 (เน้นเติมข้อง่ายตามมติครู R6) · imageSpec 2 ข้อ ใช้ analytic-geo kind:vector ครั้งแรกในคลัง — verify render จริงผ่าน renderers.js สดแล้ว 0 error"
+      }
     }
   }
 }

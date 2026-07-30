@@ -1,0 +1,542 @@
+{
+  "setId": "gen-chap-09-vector",
+  "questions": [
+    {
+      "id": "gen-chap-09-vector-q001",
+      "setId": "gen-chap-09-vector",
+      "questionNumber": 1,
+      "topics": [
+        "9"
+      ],
+      "subTopics": [
+        "9.10",
+        "9.5"
+      ],
+      "difficulty": "ง่าย",
+      "type": "fill",
+      "question": "กำหนด $\\overline{u}=2\\overline{i}+4\\overline{j}$ และ $\\overline{v}=4\\overline{i}+3\\overline{j}$\nความยาวของภาพฉายของ $\\overline{u}$ ในแนว $\\overline{v}$ หาได้จาก $\\dfrac{|\\overline{u}\\cdot\\overline{v}|}{|\\overline{v}|}$ จงหาความยาวนี้",
+      "hasImage": true,
+      "sourceTag": "แต่งใหม่ v1 · 2569",
+      "imageSpec": {
+        "type": "analytic-geo",
+        "title": "ภาพฉายของ u ลงบนแนวของ v",
+        "width": 360,
+        "height": 300,
+        "xRange": [
+          -1,
+          6
+        ],
+        "yRange": [
+          -1,
+          5
+        ],
+        "elements": [
+          {
+            "kind": "line",
+            "p1": [
+              0,
+              0
+            ],
+            "p2": [
+              4,
+              3
+            ],
+            "color": "#bbbbbb",
+            "dash": true
+          },
+          {
+            "kind": "vector",
+            "from": [
+              0,
+              0
+            ],
+            "to": [
+              2,
+              4
+            ],
+            "color": "#7b1fa2",
+            "label": "u",
+            "labelAt": [
+              2,
+              4
+            ],
+            "dx": 5,
+            "dy": 2
+          },
+          {
+            "kind": "vector",
+            "from": [
+              0,
+              0
+            ],
+            "to": [
+              4,
+              3
+            ],
+            "color": "#1e7e34",
+            "label": "v",
+            "labelAt": [
+              4,
+              3
+            ],
+            "dx": 6,
+            "dy": -2
+          },
+          {
+            "kind": "segment",
+            "from": [
+              2,
+              4
+            ],
+            "to": [
+              3.2,
+              2.4
+            ],
+            "color": "#888888",
+            "dash": true
+          },
+          {
+            "kind": "right",
+            "at": [
+              3.2,
+              2.4
+            ],
+            "u": [
+              0.8,
+              0.6
+            ],
+            "v": [
+              -1.2,
+              1.6
+            ],
+            "size": 0.32
+          },
+          {
+            "kind": "point",
+            "at": [
+              3.2,
+              2.4
+            ],
+            "color": "#c0392b",
+            "label": "P",
+            "dx": 6,
+            "dy": -10
+          },
+          {
+            "kind": "point",
+            "at": [
+              0,
+              0
+            ],
+            "color": "#555555",
+            "label": "O",
+            "dx": -12,
+            "dy": -12
+          }
+        ]
+      },
+      "correct": "4",
+      "accept": [
+        "4",
+        "4.0"
+      ],
+      "explanation": [
+        "📐 <b>โจทย์กำหนด</b>",
+        "$\\overline{u}=2\\overline{i}+4\\overline{j}$ และ $\\overline{v}=4\\overline{i}+3\\overline{j}$",
+        "ภาพฉาย คือ “เงา” ของ $\\overline{u}$ ที่ทอดลงบนแนวของ $\\overline{v}$ เมื่อฉายแสงตั้งฉากลงมา",
+        "",
+        "🎯 <b>เป้าหมาย</b> หาความยาวของภาพฉายของ $\\overline{u}$ ในแนว $\\overline{v}$",
+        "",
+        "[IMAGE:0]",
+        "",
+        "<b>【 ความยาวภาพฉาย = ผลคูณเชิงสเกลาร์ หารด้วยขนาดของเวกเตอร์ที่ถูกฉายลง 】</b>",
+        "",
+        "<b>ขั้นที่ 1 · หาผลคูณเชิงสเกลาร์ $\\overline{u}\\cdot\\overline{v}$</b>",
+        "สูตร: ถ้า $\\overline{u}=a_1\\overline{i}+a_2\\overline{j}$ และ $\\overline{v}=b_1\\overline{i}+b_2\\overline{j}$ แล้ว $\\overline{u}\\cdot\\overline{v}=a_1b_1+a_2b_2$",
+        "ระบุตัวแปร: $a_1=2,\\ a_2=4,\\ b_1=4,\\ b_2=3$",
+        "แทนค่า: $\\overline{u}\\cdot\\overline{v}=(2)(4)+(4)(3)=8+12=20$",
+        "",
+        "<b>ขั้นที่ 2 · หาขนาดของ $\\overline{v}$ (ตัวที่ถูกฉายลง)</b>",
+        "สูตร: $|\\overline{v}|=\\sqrt{b_1^2+b_2^2}$",
+        "แทนค่า: $|\\overline{v}|=\\sqrt{4^2+3^2}=\\sqrt{16+9}=\\sqrt{25}=5$",
+        "",
+        "<b>ขั้นที่ 3 · แทนลงสูตรความยาวภาพฉาย</b>",
+        "$\\dfrac{|\\overline{u}\\cdot\\overline{v}|}{|\\overline{v}|}=\\dfrac{|20|}{5}=4$",
+        "",
+        "✔ <b>ตรวจคำตอบ</b> (วิธีอิสระ: หาเท้าของเส้นตั้งฉากก่อน แล้ววัดความยาวจริง)",
+        "ให้ $P$ เป็นเท้าของเส้นตั้งฉาก ดังนั้น $\\overrightarrow{OP}=t\\,\\overline{v}$ สำหรับจำนวนจริง $t$ บางค่า",
+        "เงื่อนไขตั้งฉาก: $\\left(\\overline{u}-t\\,\\overline{v}\\right)\\cdot\\overline{v}=0$",
+        "$\\overline{u}\\cdot\\overline{v}-t\\,|\\overline{v}|^2=0$ นั่นคือ $20-25t=0$ ได้ $t=\\dfrac{4}{5}$",
+        "$\\overrightarrow{OP}=\\dfrac{4}{5}\\left(4\\overline{i}+3\\overline{j}\\right)=\\dfrac{16}{5}\\overline{i}+\\dfrac{12}{5}\\overline{j}$",
+        "$|\\overrightarrow{OP}|=\\sqrt{\\left(\\dfrac{16}{5}\\right)^2+\\left(\\dfrac{12}{5}\\right)^2}=\\dfrac{1}{5}\\sqrt{256+144}=\\dfrac{20}{5}=4$ ตรงกับค่าที่ได้จากสูตร",
+        "",
+        "✅ <b>คำตอบ</b> ความยาวของภาพฉาย $=4$",
+        "",
+        "💡 <b>เทคนิค</b> ตัวหารคือขนาดของ “ตัวที่ถูกฉายลง” เสมอ — สังเกตคำว่า “ในแนว …” แล้วหารด้วยขนาดของเวกเตอร์ที่ตามหลังคำนั้น จำเป็นภาพว่าเงาทอดอยู่บนแนวของ $\\overline{v}$ จึงต้องหารด้วย $|\\overline{v}|$",
+        "",
+        "⚠️ <b>จุดพลาด</b> หารด้วย $|\\overline{u}|$ แทน จะได้ $\\dfrac{20}{\\sqrt{20}}=2\\sqrt{5}\\approx4.47$ (ผิดเพราะนั่นคือการฉาย $\\overline{v}$ ลงบน $\\overline{u}$) · หรือลืมหารเลยแล้วตอบ $20$ ซึ่งเป็นแค่ผลคูณเชิงสเกลาร์ ยังไม่ใช่ความยาว"
+      ],
+      "notes": "แม่พิมพ์ V9-PROJ-1 ความยาวภาพฉาย (ให้สูตรมาแทนค่าตรง) · R6 · S1 F1 C0 P0 T0 L0 → 1 → ง่าย · fill trap: หารด้วย |u| ได้ 2√5 · ลืมหารตอบ 20 · sympy verify ผ่าน · 2569-07-30 · +analytic-geo (vector/right/dash)"
+    },
+    {
+      "id": "gen-chap-09-vector-q002",
+      "setId": "gen-chap-09-vector",
+      "questionNumber": 2,
+      "topics": [
+        "9"
+      ],
+      "subTopics": [
+        "9.10",
+        "9.5"
+      ],
+      "difficulty": "ง่าย",
+      "type": "mc",
+      "question": "กำหนด $\\overline{u}=3\\overline{i}+4\\overline{j}$ และ $\\overline{v}=2\\overline{i}+\\overline{j}$\n“เวกเตอร์ภาพฉายของ $\\overline{u}$ บน $\\overline{v}$” คือเวกเตอร์ที่เริ่มจากจุดกำเนิด ขนานกับ $\\overline{v}$ และมีจุดปลายอยู่ที่เท้าของเส้นตั้งฉากที่ลากจากจุดปลายของ $\\overline{u}$ มายังแนวของ $\\overline{v}$ เวกเตอร์นี้คือข้อใด",
+      "choices": [
+        "$20\\overline{i}+10\\overline{j}$",
+        "$4\\sqrt{5}\\,\\overline{i}+2\\sqrt{5}\\,\\overline{j}$",
+        "$4\\overline{i}+2\\overline{j}$",
+        "$\\dfrac{6}{5}\\overline{i}+\\dfrac{8}{5}\\overline{j}$"
+      ],
+      "hasImage": false,
+      "sourceTag": "แต่งใหม่ v1 · 2569",
+      "imageSpec": null,
+      "correct": 2,
+      "explanation": [
+        "📐 <b>โจทย์กำหนด</b>",
+        "$\\overline{u}=3\\overline{i}+4\\overline{j}$ และ $\\overline{v}=2\\overline{i}+\\overline{j}$",
+        "",
+        "🎯 <b>เป้าหมาย</b> หาเวกเตอร์ภาพฉายของ $\\overline{u}$ บน $\\overline{v}$ (คำตอบต้องเป็นเวกเตอร์ ไม่ใช่จำนวน)",
+        "",
+        "<b>【 เวกเตอร์ภาพฉาย = (ความยาวภาพฉาย) × (เวกเตอร์หนึ่งหน่วยในแนว $\\overline{v}$) 】</b>",
+        "",
+        "<b>ขั้นที่ 1 · หาผลคูณเชิงสเกลาร์และขนาดของ $\\overline{v}$</b>",
+        "$\\overline{u}\\cdot\\overline{v}=(3)(2)+(4)(1)=6+4=10$",
+        "$|\\overline{v}|=\\sqrt{2^2+1^2}=\\sqrt{5}$ ดังนั้น $|\\overline{v}|^2=5$",
+        "",
+        "<b>ขั้นที่ 2 · ประกอบสองส่วนเข้าด้วยกัน</b>",
+        "ความยาวภาพฉาย $=\\dfrac{\\overline{u}\\cdot\\overline{v}}{|\\overline{v}|}=\\dfrac{10}{\\sqrt{5}}$",
+        "เวกเตอร์หนึ่งหน่วยในแนว $\\overline{v}$ คือ $\\dfrac{\\overline{v}}{|\\overline{v}|}=\\dfrac{1}{\\sqrt{5}}\\left(2\\overline{i}+\\overline{j}\\right)$",
+        "คูณกัน: $\\dfrac{10}{\\sqrt{5}}\\cdot\\dfrac{1}{\\sqrt{5}}\\left(2\\overline{i}+\\overline{j}\\right)=\\dfrac{10}{5}\\left(2\\overline{i}+\\overline{j}\\right)=2\\left(2\\overline{i}+\\overline{j}\\right)=4\\overline{i}+2\\overline{j}$",
+        "สังเกตว่า $\\sqrt{5}$ สองตัวคูณกันกลายเป็น $|\\overline{v}|^2=5$ จึงได้สูตรสำเร็จ $\\dfrac{\\overline{u}\\cdot\\overline{v}}{|\\overline{v}|^2}\\,\\overline{v}$ — ตัวหารเป็น <b>กำลังสอง</b> เพราะหารสองครั้ง (ครั้งหนึ่งเพื่อหาความยาว อีกครั้งเพื่อทำ $\\overline{v}$ ให้เป็นหนึ่งหน่วย)",
+        "",
+        "✔ <b>ตรวจคำตอบ</b> (วิธีอิสระ: ตรวจเงื่อนไขตั้งฉาก)",
+        "ถ้า $4\\overline{i}+2\\overline{j}$ เป็นเวกเตอร์ภาพฉายจริง ส่วนที่เหลือ $\\overline{u}-\\left(4\\overline{i}+2\\overline{j}\\right)=-\\overline{i}+2\\overline{j}$ ต้องตั้งฉากกับ $\\overline{v}$",
+        "$\\left(-\\overline{i}+2\\overline{j}\\right)\\cdot\\left(2\\overline{i}+\\overline{j}\\right)=(-1)(2)+(2)(1)=-2+2=0$ ตั้งฉากจริง",
+        "และ $4\\overline{i}+2\\overline{j}=2\\left(2\\overline{i}+\\overline{j}\\right)$ ขนานกับ $\\overline{v}$ จริง ครบทั้งสองเงื่อนไข",
+        "",
+        "✅ <b>คำตอบ</b> $4\\overline{i}+2\\overline{j}$",
+        "",
+        "💡 <b>เทคนิค</b> จำแยกกัน 2 สูตร: อยากได้ <b>จำนวน</b> (ความยาว) หารด้วย $|\\overline{v}|$ ครั้งเดียว · อยากได้ <b>เวกเตอร์</b> หารด้วย $|\\overline{v}|^2$ แล้วคูณ $\\overline{v}$ — ถ้าลืมว่าอันไหนกำลังสอง ให้ไล่จาก “ความยาว × เวกเตอร์หนึ่งหน่วย” อย่างในขั้นที่ 2 จะได้เองทุกครั้ง",
+        "",
+        "⚠️ <b>จุดพลาด</b> หารด้วย $|\\overline{v}|$ แทน $|\\overline{v}|^2$ จะได้ $4\\sqrt{5}\\,\\overline{i}+2\\sqrt{5}\\,\\overline{j}$ ซึ่งยาวเกินความจริง · ลืมหารทั้งหมดจะได้ $20\\overline{i}+10\\overline{j}$ · สลับ $\\overline{u}$ กับ $\\overline{v}$ (ฉาย $\\overline{v}$ ลงบน $\\overline{u}$) จะได้ $\\dfrac{6}{5}\\overline{i}+\\dfrac{8}{5}\\overline{j}$ — สังเกตทิศทาง: คำตอบต้องขนานกับ $\\overline{v}$ เท่านั้น"
+      ],
+      "notes": "แม่พิมพ์ V9-PROJ-2 เวกเตอร์ภาพฉาย (แยก |v| กับ |v|²) · R6 · S1 F1 C0 P0 T1 L0 → 2 → ง่าย · trap-map: [0]=ลืมหาร (u·v)v · [1]=หาร |v| แทน |v|² · [3]=สลับ u,v ฉายกลับทาง · sympy verify ผ่าน · 2569-07-30"
+    },
+    {
+      "id": "gen-chap-09-vector-q003",
+      "setId": "gen-chap-09-vector",
+      "questionNumber": 3,
+      "topics": [
+        "9"
+      ],
+      "subTopics": [
+        "9.10",
+        "9.5",
+        "9.3"
+      ],
+      "difficulty": "ปานกลาง",
+      "type": "fill",
+      "question": "แรง $\\overline{F}=5\\overline{i}+10\\overline{j}$ นิวตัน กระทำต่อวัตถุหนึ่งซึ่งเคลื่อนที่เป็นเส้นตรงจากจุด $A(1,2)$ ไปยังจุด $B(5,5)$ (พิกัดมีหน่วยเป็นเมตร)\nขนาดของภาพฉายของ $\\overline{F}$ ในแนวการเคลื่อนที่ $\\overrightarrow{AB}$ เท่ากับกี่นิวตัน",
+      "hasImage": false,
+      "sourceTag": "แต่งใหม่ v1 · 2569",
+      "imageSpec": null,
+      "correct": "10",
+      "accept": [
+        "10",
+        "10.0"
+      ],
+      "explanation": [
+        "📐 <b>โจทย์กำหนด</b>",
+        "แรง $\\overline{F}=5\\overline{i}+10\\overline{j}$ นิวตัน · วัตถุเคลื่อนที่จาก $A(1,2)$ ไปยัง $B(5,5)$ (เมตร)",
+        "",
+        "🎯 <b>เป้าหมาย</b> หาขนาดของภาพฉายของ $\\overline{F}$ ในแนว $\\overrightarrow{AB}$ (คือ “แรงที่ออกแรงไปตามทางเดิน” จริง ๆ)",
+        "",
+        "<b>【 หาเวกเตอร์การเคลื่อนที่ก่อน แล้วจึงฉายแรงลงบนแนวนั้น 】</b>",
+        "",
+        "<b>ขั้นที่ 1 · หาเวกเตอร์การเคลื่อนที่ $\\overrightarrow{AB}$</b>",
+        "สูตร: เวกเตอร์จากจุด $A(x_1,y_1)$ ไปจุด $B(x_2,y_2)$ คือ $\\overrightarrow{AB}=(x_2-x_1)\\overline{i}+(y_2-y_1)\\overline{j}$ (ปลายทางลบจุดเริ่ม)",
+        "แทนค่า: $\\overrightarrow{AB}=(5-1)\\overline{i}+(5-2)\\overline{j}=4\\overline{i}+3\\overline{j}$",
+        "",
+        "<b>ขั้นที่ 2 · หาผลคูณเชิงสเกลาร์ $\\overline{F}\\cdot\\overrightarrow{AB}$</b>",
+        "$\\overline{F}\\cdot\\overrightarrow{AB}=(5)(4)+(10)(3)=20+30=50$",
+        "",
+        "<b>ขั้นที่ 3 · หาขนาดของแนวที่ฉายลง</b>",
+        "$|\\overrightarrow{AB}|=\\sqrt{4^2+3^2}=\\sqrt{25}=5$ เมตร",
+        "",
+        "<b>ขั้นที่ 4 · แทนลงสูตรความยาวภาพฉาย</b>",
+        "ขนาดของภาพฉาย $=\\dfrac{\\left|\\overline{F}\\cdot\\overrightarrow{AB}\\right|}{\\left|\\overrightarrow{AB}\\right|}=\\dfrac{50}{5}=10$ นิวตัน",
+        "",
+        "✔ <b>ตรวจคำตอบ</b> (วิธีอิสระ: ผ่านมุมระหว่างเวกเตอร์)",
+        "$|\\overline{F}|=\\sqrt{5^2+10^2}=\\sqrt{125}=5\\sqrt{5}$",
+        "$\\cos\\theta=\\dfrac{\\overline{F}\\cdot\\overrightarrow{AB}}{|\\overline{F}|\\left|\\overrightarrow{AB}\\right|}=\\dfrac{50}{\\left(5\\sqrt{5}\\right)(5)}=\\dfrac{50}{25\\sqrt{5}}=\\dfrac{2}{\\sqrt{5}}$",
+        "ขนาดภาพฉาย $=|\\overline{F}|\\cos\\theta=5\\sqrt{5}\\cdot\\dfrac{2}{\\sqrt{5}}=10$ นิวตัน ตรงกัน",
+        "ตรวจความสมเหตุสมผลเพิ่ม: ภาพฉายต้องไม่ยาวกว่าเวกเตอร์ต้นฉบับ และ $10<5\\sqrt{5}\\approx11.18$ จริง",
+        "",
+        "✅ <b>คำตอบ</b> $10$ นิวตัน",
+        "",
+        "💡 <b>เทคนิค</b> โจทย์แนวงาน–แรง ให้ถามตัวเองว่า “ฉายอะไรลงบนอะไร” แล้วเอาขนาดของ <b>ตัวที่ถูกฉายลง</b> เป็นตัวหาร · ต่อยอดได้ทันที: งาน $=$ (ภาพฉายของแรงในแนวทางเดิน) $\\times$ ระยะทาง $=10\\times5=50$ จูล ซึ่งเท่ากับ $\\overline{F}\\cdot\\overrightarrow{AB}$ พอดี",
+        "",
+        "⚠️ <b>จุดพลาด</b> หารด้วย $|\\overline{F}|$ แทน $\\left|\\overrightarrow{AB}\\right|$ จะได้ $\\dfrac{50}{5\\sqrt{5}}=2\\sqrt{5}\\approx4.47$ (ฉายผิดทาง) · ลืมหารแล้วตอบ $50$ ซึ่งเป็นค่างาน (จูล) ไม่ใช่แรง (นิวตัน) — ดูหน่วยที่โจทย์ถามให้ชัด · คิด $\\overrightarrow{AB}$ กลับทางเป็น $A-B$ จะได้ $-10$"
+      ],
+      "notes": "แม่พิมพ์ V9-PROJ-3 ประยุกต์แรง-งาน ต้องหา AB ก่อนฉาย · R6 · S2 F2 C0 P0 T1 L1 → 4 → ปานกลาง · fill trap: หารด้วย |F| ได้ 2√5 · ลืมหารตอบ 50 (จูล ไม่ใช่นิวตัน) · A−B ได้ −10 · sympy verify ผ่าน · 2569-07-30"
+    },
+    {
+      "id": "gen-chap-09-vector-q004",
+      "setId": "gen-chap-09-vector",
+      "questionNumber": 4,
+      "topics": [
+        "9"
+      ],
+      "subTopics": [
+        "9.10",
+        "9.6"
+      ],
+      "difficulty": "ง่าย",
+      "type": "mc",
+      "question": "กำหนด $\\overline{u}=3\\overline{i}-\\overline{j}$ และ $\\overline{v}=-4\\overline{i}+3\\overline{j}$\n“ภาพฉายเชิงสเกลาร์ของ $\\overline{u}$ ในแนว $\\overline{v}$” นิยามโดย $\\dfrac{\\overline{u}\\cdot\\overline{v}}{|\\overline{v}|}$ (เป็นค่าที่มีเครื่องหมาย) ค่านี้เท่ากับข้อใด",
+      "choices": [
+        "$3$",
+        "$-3$",
+        "$-\\dfrac{3}{5}$",
+        "$-\\dfrac{15}{\\sqrt{10}}$"
+      ],
+      "hasImage": false,
+      "sourceTag": "แต่งใหม่ v1 · 2569",
+      "imageSpec": null,
+      "correct": 1,
+      "explanation": [
+        "📐 <b>โจทย์กำหนด</b>",
+        "$\\overline{u}=3\\overline{i}-\\overline{j}$ และ $\\overline{v}=-4\\overline{i}+3\\overline{j}$",
+        "นิยามที่ต้องใช้: ภาพฉายเชิงสเกลาร์ของ $\\overline{u}$ ในแนว $\\overline{v}$ คือ $\\dfrac{\\overline{u}\\cdot\\overline{v}}{|\\overline{v}|}$ — ไม่มีค่าสัมบูรณ์ครอบตัวเศษ ดังนั้นคำตอบติดลบได้",
+        "",
+        "🎯 <b>เป้าหมาย</b> หาค่าของภาพฉายเชิงสเกลาร์ พร้อมเครื่องหมาย",
+        "",
+        "<b>【 แทนค่าในนิยามตรง ๆ แล้วอ่านความหมายของเครื่องหมาย 】</b>",
+        "",
+        "<b>ขั้นที่ 1 · หาตัวเศษ $\\overline{u}\\cdot\\overline{v}$</b>",
+        "$\\overline{u}\\cdot\\overline{v}=(3)(-4)+(-1)(3)=-12-3=-15$",
+        "",
+        "<b>ขั้นที่ 2 · หาตัวส่วน $|\\overline{v}|$</b>",
+        "$|\\overline{v}|=\\sqrt{(-4)^2+3^2}=\\sqrt{16+9}=\\sqrt{25}=5$ (ยกกำลังสองแล้วเครื่องหมายลบหายไป ขนาดเป็นบวกเสมอ)",
+        "",
+        "<b>ขั้นที่ 3 · แทนค่าในนิยาม</b>",
+        "$\\dfrac{\\overline{u}\\cdot\\overline{v}}{|\\overline{v}|}=\\dfrac{-15}{5}=-3$",
+        "เครื่องหมายลบบอกว่า มุมระหว่าง $\\overline{u}$ กับ $\\overline{v}$ เป็นมุมป้าน ดังนั้น “เงา” ของ $\\overline{u}$ ไปตกบนแนวของ $\\overline{v}$ ด้าน <b>ตรงข้าม</b> กับทิศของ $\\overline{v}$",
+        "",
+        "✔ <b>ตรวจคำตอบ</b> (วิธีอิสระ: ผ่านมุมระหว่างเวกเตอร์)",
+        "$|\\overline{u}|=\\sqrt{3^2+(-1)^2}=\\sqrt{10}$",
+        "$\\cos\\theta=\\dfrac{\\overline{u}\\cdot\\overline{v}}{|\\overline{u}||\\overline{v}|}=\\dfrac{-15}{\\sqrt{10}\\cdot5}=\\dfrac{-3}{\\sqrt{10}}$ ซึ่งเป็นค่าลบ ยืนยันว่ามุมป้าน",
+        "ภาพฉายเชิงสเกลาร์ $=|\\overline{u}|\\cos\\theta=\\sqrt{10}\\cdot\\dfrac{-3}{\\sqrt{10}}=-3$ ตรงกัน",
+        "",
+        "✅ <b>คำตอบ</b> $-3$",
+        "",
+        "💡 <b>เทคนิค</b> ดูเครื่องหมายของ $\\overline{u}\\cdot\\overline{v}$ ก่อนคำนวณเลย: เป็นบวก = เงาตกไปทางเดียวกับ $\\overline{v}$ · เป็นลบ = ตกไปทางตรงข้าม · เป็นศูนย์ = ตั้งฉาก เงาหุบเป็นจุดเดียว ($0$) — ใช้ตรวจคำตอบข้อไหนก็ได้ในหนึ่งวินาที",
+        "",
+        "⚠️ <b>จุดพลาด</b> เผลอคิดว่าภาพฉายต้องเป็นบวกเสมอแล้วตอบ $3$ — นั่นคือ <b>ความยาว</b> ของภาพฉาย ($\\dfrac{|\\overline{u}\\cdot\\overline{v}|}{|\\overline{v}|}$) ไม่ใช่ค่าที่นิยามไว้ในโจทย์นี้ · หารด้วย $|\\overline{v}|^2=25$ จะได้ $-\\dfrac{3}{5}$ (นั่นคือสัมประสิทธิ์ของเวกเตอร์ภาพฉาย ไม่ใช่ตัวภาพฉาย) · หารด้วย $|\\overline{u}|=\\sqrt{10}$ จะได้ $-\\dfrac{15}{\\sqrt{10}}$ (ฉายผิดทาง)"
+      ],
+      "notes": "แม่พิมพ์ V9-PROJ-4 ภาพฉายมีเครื่องหมาย (มุมป้าน) · R6 · S1 F1 C0 P0 T1 L0 → 2 → ง่าย · trap-map: [0]=ทิ้งเครื่องหมาย ตอบความยาว 3 · [2]=หาร |v|² ได้ −3/5 · [3]=หาร |u| ได้ −15/√10 · ไม่ใส่รูปโดยเจตนา (รูปจะเฉลยเครื่องหมายให้เห็นทันที) · sympy verify ผ่าน · 2569-07-30"
+    },
+    {
+      "id": "gen-chap-09-vector-q005",
+      "setId": "gen-chap-09-vector",
+      "questionNumber": 5,
+      "topics": [
+        "9"
+      ],
+      "subTopics": [
+        "9.10",
+        "9.5",
+        "9.2"
+      ],
+      "difficulty": "ปานกลาง",
+      "type": "mc",
+      "question": "กำหนด $\\overline{u}=8\\overline{i}+6\\overline{j}$ และ $\\overline{v}=\\overline{i}+2\\overline{j}$\nต้องการเขียน $\\overline{u}=\\overline{p}+\\overline{q}$ โดยที่ $\\overline{p}$ ขนานกับ $\\overline{v}$ และ $\\overline{q}$ ตั้งฉากกับ $\\overline{v}$ ข้อใดถูกต้อง",
+      "choices": [
+        "$\\overline{p}=8\\overline{i}$ และ $\\overline{q}=6\\overline{j}$",
+        "$\\overline{p}=\\overline{i}+2\\overline{j}$ และ $\\overline{q}=7\\overline{i}+4\\overline{j}$",
+        "$\\overline{p}=4\\overline{i}+8\\overline{j}$ และ $\\overline{q}=4\\overline{i}-2\\overline{j}$",
+        "$\\overline{p}=4\\overline{i}+8\\overline{j}$ และ $\\overline{q}=-4\\overline{i}+2\\overline{j}$"
+      ],
+      "hasImage": true,
+      "sourceTag": "แต่งใหม่ v1 · 2569",
+      "imageSpec": {
+        "type": "analytic-geo",
+        "title": "แยก u เป็นส่วนขนาน p กับส่วนตั้งฉาก q",
+        "width": 360,
+        "height": 320,
+        "xRange": [
+          -1,
+          9
+        ],
+        "yRange": [
+          -1,
+          9
+        ],
+        "elements": [
+          {
+            "kind": "line",
+            "p1": [
+              0,
+              0
+            ],
+            "p2": [
+              1,
+              2
+            ],
+            "color": "#bbbbbb",
+            "dash": true
+          },
+          {
+            "kind": "vector",
+            "from": [
+              0,
+              0
+            ],
+            "to": [
+              4,
+              8
+            ],
+            "color": "#1565c0",
+            "label": "p",
+            "labelAt": [
+              4,
+              8
+            ],
+            "dx": -17,
+            "dy": 7
+          },
+          {
+            "kind": "vector",
+            "from": [
+              4,
+              8
+            ],
+            "to": [
+              8,
+              6
+            ],
+            "color": "#c0392b",
+            "label": "q",
+            "labelAt": [
+              6,
+              7
+            ],
+            "dx": 2,
+            "dy": 8
+          },
+          {
+            "kind": "vector",
+            "from": [
+              0,
+              0
+            ],
+            "to": [
+              8,
+              6
+            ],
+            "color": "#7b1fa2",
+            "label": "u",
+            "labelAt": [
+              8,
+              6
+            ],
+            "dx": 5,
+            "dy": -2
+          },
+          {
+            "kind": "vector",
+            "from": [
+              0,
+              0
+            ],
+            "to": [
+              1,
+              2
+            ],
+            "color": "#1e7e34",
+            "label": "v",
+            "labelAt": [
+              1,
+              2
+            ],
+            "dx": -14,
+            "dy": 2
+          },
+          {
+            "kind": "right",
+            "at": [
+              4,
+              8
+            ],
+            "u": [
+              1,
+              2
+            ],
+            "v": [
+              4,
+              -2
+            ],
+            "size": 0.45
+          },
+          {
+            "kind": "point",
+            "at": [
+              0,
+              0
+            ],
+            "color": "#555555",
+            "label": "O",
+            "dx": -12,
+            "dy": -12
+          }
+        ]
+      },
+      "correct": 2,
+      "explanation": [
+        "📐 <b>โจทย์กำหนด</b>",
+        "$\\overline{u}=8\\overline{i}+6\\overline{j}$ และ $\\overline{v}=\\overline{i}+2\\overline{j}$",
+        "ต้องการแยก $\\overline{u}$ เป็นสองส่วน: $\\overline{p}$ ขนานกับ $\\overline{v}$ และ $\\overline{q}$ ตั้งฉากกับ $\\overline{v}$ โดย $\\overline{p}+\\overline{q}=\\overline{u}$",
+        "",
+        "🎯 <b>เป้าหมาย</b> หา $\\overline{p}$ และ $\\overline{q}$ ให้ครบทั้งสามเงื่อนไข (ขนาน · ตั้งฉาก · บวกกันได้ $\\overline{u}$)",
+        "",
+        "[IMAGE:0]",
+        "",
+        "<b>【 ส่วนขนานคือเวกเตอร์ภาพฉาย ส่วนตั้งฉากคือสิ่งที่เหลือ 】</b>",
+        "",
+        "<b>ขั้นที่ 1 · หาส่วนขนาน $\\overline{p}$ ด้วยเวกเตอร์ภาพฉาย</b>",
+        "สูตร: $\\overline{p}=\\dfrac{\\overline{u}\\cdot\\overline{v}}{|\\overline{v}|^2}\\,\\overline{v}$ (ตัวหารเป็นกำลังสอง เพราะหารครั้งหนึ่งเพื่อหาความยาว อีกครั้งเพื่อทำ $\\overline{v}$ ให้เป็นหนึ่งหน่วย)",
+        "$\\overline{u}\\cdot\\overline{v}=(8)(1)+(6)(2)=8+12=20$",
+        "$|\\overline{v}|^2=1^2+2^2=5$",
+        "$\\overline{p}=\\dfrac{20}{5}\\left(\\overline{i}+2\\overline{j}\\right)=4\\left(\\overline{i}+2\\overline{j}\\right)=4\\overline{i}+8\\overline{j}$",
+        "",
+        "<b>ขั้นที่ 2 · หาส่วนตั้งฉาก $\\overline{q}$ จากเงื่อนไขผลบวก</b>",
+        "จาก $\\overline{p}+\\overline{q}=\\overline{u}$ ย้ายข้างได้ $\\overline{q}=\\overline{u}-\\overline{p}$ (ระวังลำดับการลบ: ตัวตั้งคือ $\\overline{u}$)",
+        "$\\overline{q}=\\left(8\\overline{i}+6\\overline{j}\\right)-\\left(4\\overline{i}+8\\overline{j}\\right)=(8-4)\\overline{i}+(6-8)\\overline{j}=4\\overline{i}-2\\overline{j}$",
+        "",
+        "✔ <b>ตรวจคำตอบ</b> (วิธีอิสระ: ตรวจเงื่อนไขทั้งสามข้อของคำตอบ ไม่ย้อนใช้สูตรเดิม)",
+        "(1) ขนาน: $\\overline{p}=4\\overline{i}+8\\overline{j}=4\\left(\\overline{i}+2\\overline{j}\\right)=4\\overline{v}$ เป็นพหุคูณสเกลาร์ของ $\\overline{v}$ จริง",
+        "(2) ตั้งฉาก: $\\overline{q}\\cdot\\overline{v}=(4)(1)+(-2)(2)=4-4=0$ จริง",
+        "(3) ผลบวก: $\\overline{p}+\\overline{q}=(4+4)\\overline{i}+(8-2)\\overline{j}=8\\overline{i}+6\\overline{j}=\\overline{u}$ จริง",
+        "ครบทั้งสามเงื่อนไข และการแยกแบบนี้มีได้แบบเดียวเท่านั้น",
+        "",
+        "✅ <b>คำตอบ</b> $\\overline{p}=4\\overline{i}+8\\overline{j}$ และ $\\overline{q}=4\\overline{i}-2\\overline{j}$",
+        "",
+        "💡 <b>เทคนิค</b> เจอโจทย์ “แยกเวกเตอร์เป็นส่วนขนานกับส่วนตั้งฉาก” ให้ทำสองจังหวะเสมอ: หาส่วนขนานด้วยเวกเตอร์ภาพฉายก่อน แล้วส่วนตั้งฉากได้ฟรีจากการลบ $\\overline{u}-\\overline{p}$ ไม่ต้องตั้งระบบสมการสองตัวแปร · ตรวจงานเร็ว ๆ ด้วย $\\overline{q}\\cdot\\overline{v}=0$ ทุกครั้ง",
+        "",
+        "⚠️ <b>จุดพลาด</b> เข้าใจว่า “แยกเวกเตอร์” หมายถึงแยกตามแกน $x,y$ แล้วตอบ $\\overline{p}=8\\overline{i},\\ \\overline{q}=6\\overline{j}$ — ผิดเพราะ $8\\overline{i}$ ไม่ขนานกับ $\\overline{v}$ และ $6\\overline{j}\\cdot\\overline{v}=12\\neq0$ · คิดว่าส่วนขนานต้องเป็น $\\overline{v}$ เองแล้วตอบ $\\overline{p}=\\overline{i}+2\\overline{j},\\ \\overline{q}=7\\overline{i}+4\\overline{j}$ — ผลบวกได้ $\\overline{u}$ ถูก แต่ $\\overline{q}\\cdot\\overline{v}=7+8=15\\neq0$ ไม่ตั้งฉาก · ลบสลับข้างเป็น $\\overline{p}-\\overline{u}$ จะได้ $\\overline{q}=-4\\overline{i}+2\\overline{j}$ ซึ่งบวกกลับไม่ได้ $\\overline{u}$"
+      ],
+      "notes": "แม่พิมพ์ V9-PROJ-5 แยกเวกเตอร์ = ส่วนขนาน + ส่วนตั้งฉาก · R6 · S1 F2 C0 P0 T1 L1 → 4 → ปานกลาง · trap-map: [0]=แยกตามแกน x,y · [1]=คิดส่วนขนาน = v เอง (ผลบวกถูกแต่ไม่ตั้งฉาก) · [3]=ลบสลับข้าง p−u · sympy verify ผ่าน · 2569-07-30 · +analytic-geo (แสดง p+q=u)"
+    }
+  ]
+}

@@ -3024,7 +3024,7 @@
           ]
         }
       ],
-      "hasImage": true,
+      "hasImage": false,
       "choices": [
         "3.8",
         "4.3",

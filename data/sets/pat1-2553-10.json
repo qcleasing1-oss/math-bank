@@ -1803,7 +1803,7 @@
           ]
         }
       ],
-      "hasImage": true,
+      "hasImage": false,
       "choices": [
         "$a = 166.1$ และ $b = 168.73$",
         "$a = 166.1$ และ $b = 169.43$",
@@ -2061,7 +2061,7 @@
           "caption": "AB + CD = EFG (แนวตั้ง)"
         }
       ],
-      "hasImage": true,
+      "hasImage": false,
       "choices": [
         "$4$",
         "$5$",
@@ -3929,7 +3929,7 @@
           ]
         }
       ],
-      "hasImage": true,
+      "hasImage": false,
       "correct": "4",
       "accept": [
         "4"

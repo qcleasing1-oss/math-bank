@@ -2610,7 +2610,7 @@
           "caption": "ตารางแจกแจงความถี่ (N = 25)"
         }
       ],
-      "hasImage": true,
+      "hasImage": false,
       "choices": [
         "8.50",
         "7.75",
@@ -5052,6 +5052,7 @@
         "5"
       ],
       "subTopics": [
+        "5.15",
         "5.12"
       ],
       "type": "fill",
