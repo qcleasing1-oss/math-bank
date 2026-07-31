@@ -27,10 +27,17 @@ scan_symbols.py — ตัวตรวจสัญลักษณ์ต้อง
   5. SCANNER_VERSION เป็นตัวแปรที่หัวไฟล์ (พอร์ทัลใช้ตรวจ drift ด้วย เวอร์ชัน+md5)
   6. ฝั่ง BLOCK มี ratchet เทียบ `block_questions_legacy` ⇒ โหมดทั้งคลังออก 0 ได้
 
+เวอร์ชัน 2.2 (ตามที่ทีมพอร์ทัลขอ 31 ก.ค. 2569 — ข้อเดียวของรอบ) แก้อีกอย่างเดียว:
+  7. เส้นฐานที่ "ขาดคีย์ที่ต้องใช้ / อ่านไม่ได้ / ไม่ใช่ dict / ค่าไม่ใช่ int"
+     ⇒ exit 2 = ตัวตรวจใช้ไม่ได้ (ของเดิมข้ามเงียบ ๆ แล้วรายงานว่าผ่าน)
+     เหตุ: sync สคริปต์กับเส้นฐานไม่ครบคู่ = เคสที่เกิดง่ายที่สุดในทางปฏิบัติ
+     ⇒ กลไกนี้บังคับกฎ "sync เป็นคู่เสมอ" โดยไม่ต้องพึ่งวินัยคน
+
 รหัสออก:
     0 = ผ่าน
     1 = ด่านแดงจากเนื้อหา (BLOCK ใหม่ / WARN โต / LEGACY โต)
-    2 = ด่านแดงจากตัวตรวจเอง (canary ล้ม — ผลสแกนเชื่อไม่ได้)
+    2 = ด่านแดงจากตัวตรวจเอง — ผลสแกนเชื่อไม่ได้
+        (canary ล้ม · ขอบเขต diff ระบุไม่ได้ · สองโหมดพร้อมกัน · เส้นฐานใช้ไม่ได้)
 
 การใช้:
     # ทั้งคลัง + ratchet — ใช้ฝั่งพอร์ทัลตอน sync
@@ -47,8 +54,15 @@ scan_symbols.py — ตัวตรวจสัญลักษณ์ต้อง
 """
 import json, os, sys, argparse, subprocess
 
-SCANNER_VERSION = '2.1'
+SCANNER_VERSION = '2.2'
 SCANNER_DATE = '2026-07-31'
+
+# คีย์ที่สคริปต์รุ่นนี้ "ใช้ตัดสินจริง" — ขาดข้อใดข้อหนึ่ง = ตัวตรวจใช้ไม่ได้ (exit 2)
+# 🔴 ไม่ใช่ 'ข้ามไปเงียบ ๆ' เพราะ "ไม่ได้ตรวจ" กับ "ตรวจแล้วสะอาด" ต้องไม่ให้ผลเหมือนกัน
+#    (ข้อเรียกร้องพอร์ทัลรอบ 9 · รูปแบบเดียวกับกฎ B8 ข้อ 1)
+#    เคสจริงที่กลัว: sync scan_symbols.py ไปไฟล์เดียว ลืม warn-baseline.json
+# หมายเหตุ: warn_occurrences ไม่อยู่ในรายการนี้ เพราะสคริปต์ไม่ได้ใช้ตัดสิน (ไว้ดูแนวโน้มเท่านั้น)
+REQUIRED_BASELINE_KEYS = ('warn_questions', 'block_questions_legacy')
 
 # ─────────────────────────────────────────────────────────────
 # นิยามกฎ
@@ -255,6 +269,42 @@ def verdict(block_q, standing_q, warn_q, base, diff_mode):
     return red, why
 
 
+def check_baseline(base, path='<เส้นฐาน>'):
+    """ตรวจว่าเส้นฐาน "ใช้ตัดสินได้จริง" ไหม — คืน (ใช้ได้ไหม, เหตุผลตาย[], ข้อสังเกต[])
+
+    🔴 หลักสำคัญ (พอร์ทัลรอบ 9): ห้ามคืน 'ผ่าน' เพียงเพราะ *ไม่มีคีย์ให้เทียบ*
+       ของเดิมเขียน `if key not in base: continue` ⇒ เส้นฐานที่ขาดคีย์จะ
+       'ไม่พัง แต่ก็ไม่ตรวจ' แล้วรายงานว่าผ่าน — หน้าตาเหมือนตรวจแล้วสะอาดเป๊ะ
+    base = None ⇒ ผู้ใช้ไม่ได้ระบุ --baseline เลย = คนละกรณี ไม่ใช่เส้นฐานพัง"""
+    if base is None:
+        return True, [], []
+    if not isinstance(base, dict):
+        return False, [f"{path} ไม่ใช่วัตถุ JSON (พบชนิด {type(base).__name__})"], []
+
+    notes = []
+    stamp = base.get('_scannerVersion')
+    if stamp and stamp != SCANNER_VERSION:
+        notes.append(f"⚠️ เส้นฐานประทับ v{stamp} แต่สคริปต์เป็น v{SCANNER_VERSION}"
+                     " — ตรวจว่า sync มาเป็นคู่หรือยัง (ยังไม่ทำให้แดง)")
+
+    missing = [k for k in REQUIRED_BASELINE_KEYS if k not in base]
+    if missing:
+        return False, [
+            f"{path} ขาดคีย์ที่ v{SCANNER_VERSION} ต้องใช้: {', '.join(missing)}",
+            "⇒ sync scan_symbols.py กับ warn-baseline.json ใหม่ให้เป็น 'คู่เดียวกัน' — ห้าม sync ไฟล์เดียว",
+        ], notes
+
+    # ⚠️ กับดักชนิดข้อมูล: bool เป็นลูกของ int ใน Python ⇒ 444 > True ไม่ error
+    #    ถ้าไม่กันไว้ เส้นฐานที่เพี้ยนเป็น true/false จะ 'เทียบผ่าน' อย่างเงียบ ๆ
+    bad = [k for k in REQUIRED_BASELINE_KEYS
+           if isinstance(base[k], bool) or not isinstance(base[k], int)]
+    if bad:
+        return False, [
+            f"{path} คีย์ {', '.join(bad)} ไม่ใช่จำนวนเต็ม ⇒ เทียบ ratchet ไม่ได้",
+        ], notes
+    return True, [], notes
+
+
 # ─────────────────────────────────────────────────────────────
 # CANARY — ข้อพิสูจน์ว่าตัวตรวจ "มีของให้จับแล้วจับได้จริง"
 # ─────────────────────────────────────────────────────────────
@@ -376,6 +426,27 @@ def run_canary():
         ("ทั้งคลัง ไม่มีเส้นฐาน ⇒ มี BLOCK = แดง (พฤติกรรมเดิม)",
          verdict(45, 45, 444, None, False)[0] is True),
     ]
+    # ── ด่านของเส้นฐานเอง (พอร์ทัลรอบ 9) ───────────────────
+    # ⚠️ ความเสี่ยงชั้นนี้คือ "เส้นฐานขาดคีย์ ⇒ ไม่ได้เทียบ ⇒ รายงานว่าผ่าน"
+    diff_checks += [
+        ("── เส้นฐาน ── ครบทุกคีย์ ⇒ ต้องใช้ได้",
+         check_baseline(dict(B))[0] is True),
+        ("ขาด block_questions_legacy ⇒ ต้องใช้ไม่ได้ (ไม่ใช่ข้ามเงียบ ๆ)",
+         check_baseline({'warn_questions': 444})[0] is False),
+        ("ขาด warn_questions ⇒ ต้องใช้ไม่ได้",
+         check_baseline({'block_questions_legacy': 45})[0] is False),
+        ("…และต้องบอกด้วยว่าขาดคีย์ชื่ออะไร",
+         'warn_questions' in ' '.join(check_baseline({'block_questions_legacy': 45})[1])),
+        ("เส้นฐานไม่ใช่วัตถุ JSON (เป็น list) ⇒ ต้องใช้ไม่ได้",
+         check_baseline([444, 45])[0] is False),
+        ("ค่าคีย์เป็น bool ⇒ ต้องใช้ไม่ได้ (bool เป็นลูกของ int — 444 > True ไม่ error)",
+         check_baseline({'warn_questions': True, 'block_questions_legacy': 45})[0] is False),
+        ("(ต้องไม่จับ) ไม่ได้ระบุ --baseline เลย ⇒ คนละกรณี ต้องไม่ถือว่าเส้นฐานพัง",
+         check_baseline(None)[0] is True),
+        ("ประทับเวอร์ชันไม่ตรง ⇒ เตือน แต่ยังใช้ได้ (ไม่แดง)",
+         check_baseline(dict(B, _scannerVersion='0.9'))[0] is True
+         and len(check_baseline(dict(B, _scannerVersion='0.9'))[2]) == 1),
+    ]
     for name, passed in diff_checks:
         print(f"  {'✅' if passed else '🔴 ล้ม'}  {name}")
         if not passed:
@@ -486,12 +557,28 @@ def main():
 
     diff_mode = changed_ids is not None
     base = None
-    if args.baseline and os.path.exists(args.baseline):
-        base = json.load(open(args.baseline, encoding='utf-8'))
+    if args.baseline:
+        # 🔴 ระบุ --baseline แล้วต้องมีไฟล์จริงและใช้ได้จริง
+        #    ถ้าปล่อยผ่าน โหมด diff จะ 'ไม่เทียบ ratchet เลย' แล้วรายงานว่าผ่าน
+        if not os.path.exists(args.baseline):
+            print(f"\n  🔴 หาเส้นฐานไม่เจอ: {args.baseline}")
+            print("     ⇒ ห้ามตีความว่า 'ไม่มีเส้นฐาน = ผ่าน' — ระบุ --baseline แล้วต้องมีไฟล์")
+            sys.exit(2)
+        try:
+            base = json.load(open(args.baseline, encoding='utf-8'))
+        except (ValueError, OSError) as e:
+            print(f"\n  🔴 อ่านเส้นฐานไม่ได้: {args.baseline} — {e}")
+            sys.exit(2)
+        ok_b, fatal, notes = check_baseline(base, args.baseline)
+        for n in notes:
+            print(f"\n  {n}")
+        if not ok_b:
+            print("\n  🔴 เส้นฐานใช้ไม่ได้ ⇒ **ตัวตรวจใช้ไม่ได้** (ไม่ใช่ 'ตรวจแล้วสะอาด')")
+            for m in fatal:
+                print(f"     {m}")
+            sys.exit(2)
         for label, cur, key in (('WARN  ', warn_q, 'warn_questions'),
                                 ('หนี้เก่า', standing, 'block_questions_legacy')):
-            if key not in base:
-                continue
             b = base[key]
             print(f"\n  RATCHET {label}: เส้นฐาน {b} → ปัจจุบัน {cur}", end=' ')
             print("🔴 โตขึ้น %d ข้อ" % (cur - b) if cur > b else
