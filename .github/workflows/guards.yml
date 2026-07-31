@@ -1,0 +1,157 @@
+name: ด่านตรวจ (guards)
+
+# ───────────────────────────────────────────────────────────────
+# ด่านที่ต้องเขียวก่อนงานเข้าคลัง — 5 ด่าน
+#
+# ⛔ จงใจไม่มี paths: filter และไม่จำกัด branch
+#    เหตุผล: บั๊กที่ทำให้ "ด่านตาบอด" มักไม่ได้แตะไฟล์ที่ paths จะจับ
+#            (แก้เฉพาะ scripts/ · แก้เฉพาะ .github/ · หรือแก้เส้นฐานอย่างเดียว)
+#            ⇒ ตั้ง filter เมื่อไหร่ = สร้างทางที่ไม่ได้เดิน แล้วรายงานว่าเดินแล้ว
+#            "ทางที่ไม่ได้เดิน ≠ ทางที่เดินแล้วไม่เจอ" (กับดัก ⑥)
+#
+# ⛔ ด่าน 2 จงใจ "ไม่ import" สคริปต์ตัวที่กำลังตรวจ — อ่านเป็นข้อความล้วน
+#    เหตุผล: ถ้าตัวสคริปต์เองเพี้ยน ด่านที่พึ่งตรรกะของสคริปต์ก็เพี้ยนตาม
+#            ด่านต้องตอบได้แม้ของที่ถูกตรวจจะพัง (กับดัก ⑦)
+#
+# ⛔ workflow นี้ไม่เขียนอะไรกลับเข้า repo เลย (permissions: contents: read)
+#    การ rebuild bank.json เป็นหน้าที่ของ build-bank.yml ต่างหาก
+# ───────────────────────────────────────────────────────────────
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: guards-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  guards:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0   # ด่าน 1 ต้องถาม git ได้ว่าไฟล์ถูก commit จริงไหม
+
+      - name: Setup Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+
+      # ──────────────────────────────────────────────────────
+      # ด่าน 1 — เส้นฐานต้อง "ถูก commit เข้า repo" จริง
+      #   ไม่ใช่แค่ "มีไฟล์อยู่ในเครื่อง" — ไฟล์ที่ถูก .gitignore ไว้
+      #   จะทำให้ทุกด่านหลังจากนี้เทียบกับของที่คนอื่นไม่มี
+      # ──────────────────────────────────────────────────────
+      - name: "ด่าน 1 · เส้นฐานถูก commit เข้า repo จริง"
+        run: |
+          if [ -z "$(git ls-tree HEAD -- docs/warn-baseline.json)" ]; then
+            echo "🔴 docs/warn-baseline.json ไม่ได้อยู่ใน commit นี้"
+            echo "   ⇒ ด่านที่เหลือจะเทียบกับเส้นฐานที่คนอื่นไม่มี = เขียวปลอม"
+            echo "   วิธีแก้: git add docs/warn-baseline.json แล้ว commit"
+            exit 1
+          fi
+          echo "✅ เส้นฐานอยู่ใน commit: $(git ls-tree HEAD -- docs/warn-baseline.json)"
+
+      # ──────────────────────────────────────────────────────
+      # ด่าน 2 — ทิศทางของรุ่น (เทียบเป็นทูเพิลตัวเลข ⛔ ไม่ใช่สตริง)
+      #   '2.10' < '2.9' ตามลำดับพจนานุกรม — กลับทิศกับความจริง
+      #   ไม่สมมาตร: เส้นฐาน "ใหม่กว่า" สคริปต์ = แดง · "เก่ากว่า" = เตือน
+      # ──────────────────────────────────────────────────────
+      - name: "ด่าน 2 · ทิศทางรุ่น เส้นฐาน vs สคริปต์"
+        run: |
+          python - <<'PY'
+          import json, re, sys, pathlib
+
+          SRC = pathlib.Path('scripts/scan_symbols.py')
+          BL  = pathlib.Path('docs/warn-baseline.json')
+
+          def die(msg):
+              print('🔴 ' + msg); sys.exit(1)
+
+          def tup(s):
+              s = str(s).strip()
+              if not re.fullmatch(r'\d+(\.\d+)*', s):
+                  return None
+              return tuple(int(x) for x in s.split('.'))
+
+          # อ่านเป็นข้อความล้วน ⛔ ไม่ import — ด่านต้องตอบได้แม้สคริปต์จะพัง
+          try:
+              text = SRC.read_text(encoding='utf-8')
+          except Exception as e:
+              die(f'อ่าน {SRC} ไม่ได้ — {e}')
+          m = re.search(r"^SCANNER_VERSION\s*=\s*['\"]([^'\"]+)['\"]", text, re.M)
+          if not m:
+              die(f'{SRC} ไม่มีบรรทัด SCANNER_VERSION = ... ⇒ เทียบรุ่นไม่ได้')
+          mine = tup(m.group(1))
+          if mine is None:
+              die(f'SCANNER_VERSION = {m.group(1)!r} อ่านเป็นเลขรุ่นไม่ได้')
+
+          try:
+              base = json.loads(BL.read_text(encoding='utf-8'))
+          except Exception as e:
+              die(f'อ่าน {BL} ไม่ได้ — {e}  ("เทียบไม่ได้" ไม่เท่ากับ "เทียบแล้วผ่าน")')
+          if not isinstance(base, dict):
+              die(f'{BL} ไม่ใช่ออบเจกต์ JSON ⇒ ไม่มีที่ให้เก็บประทับรุ่น')
+
+          stamp = base.get('_scannerVersion')
+          if stamp is None:
+              print(f'⚠️ {BL} ไม่มีประทับ _scannerVersion — ถือว่าเก่ากว่าสคริปต์ v{m.group(1)}')
+              print('   (รุ่นใหม่เขียนประทับเสมอ ⇒ ไม่มี = เก่ากว่า) ไม่แดง')
+              sys.exit(0)
+          theirs = tup(stamp)
+          if theirs is None:
+              die(f'{BL} ประทับ _scannerVersion = {stamp!r} อ่านเป็นเลขรุ่นไม่ได้'
+                  '  ("เทียบไม่ได้" ไม่เท่ากับ "เทียบแล้วผ่าน")')
+
+          if theirs > mine:
+              die(f'เส้นฐานประทับ v{stamp} ใหม่กว่าสคริปต์ v{m.group(1)}\n'
+                  '   ⇒ สคริปต์ไม่รู้จักคีย์ที่รุ่นหลังเพิ่ม ⇒ อาจไม่ได้ตรวจชั้นนั้นเลยแล้วรายงานว่าผ่าน\n'
+                  '   วิธีแก้: อัปเดตสคริปต์ให้ทันเส้นฐาน (ลงทั้งซองพร้อมกัน)')
+          if theirs < mine:
+              print(f'⚠️ เส้นฐานประทับ v{stamp} เก่ากว่าสคริปต์ v{m.group(1)} — ไม่แดง')
+              print('   (สคริปต์รู้เองว่าต้องใช้คีย์อะไร ถ้าขาดจริงจะแดงที่ด่านคีย์)')
+              sys.exit(0)
+          print(f'✅ เส้นฐานกับสคริปต์เป็นรุ่นเดียวกัน: v{m.group(1)}')
+          PY
+
+      # ──────────────────────────────────────────────────────
+      # ด่าน 3 — สคริปต์รันได้และบอกรุ่นตัวเองได้
+      # ──────────────────────────────────────────────────────
+      - name: "ด่าน 3 · scan_symbols รันได้ · บอกรุ่นได้"
+        if: always()
+        run: |
+          # ⛔ ห้ามเขียนเป็น  echo "... $(python ... --version)"
+          #    เพราะ echo คืนรหัส 0 เสมอ ⇒ สคริปต์พังยังไงด่านก็เขียว
+          #    (จับได้ด้วยวิธีนับด่านที่ล้ม 31 ก.ค. 69 — ด่านนี้เคยเป็นด่านหลอกตัวเอง)
+          if ! V="$(python scripts/scan_symbols.py --version)"; then
+            echo "🔴 python scripts/scan_symbols.py --version รันไม่ผ่าน"
+            echo "   ⇒ ด่าน 5 ที่ใช้สคริปต์ตัวเดียวกันก็เชื่อไม่ได้"
+            exit 1
+          fi
+          # "รันได้" กับ "ตอบได้" ไม่ใช่เรื่องเดียวกัน — สคริปต์ที่พิมพ์ว่างแล้วออก 0 ก็ไร้ประโยชน์
+          if ! printf '%s' "$V" | grep -qE '^[0-9]+(\.[0-9]+)*$'; then
+            echo "🔴 --version พิมพ์ออกมาเป็น [$V] ซึ่งไม่ใช่เลขรุ่น"
+            exit 1
+          fi
+          echo "✅ scan_symbols.py รันได้ · รายงานรุ่น $V"
+
+      # ──────────────────────────────────────────────────────
+      # ด่าน 4 — ตัวตรวจซองต้องไม่ตาบอด
+      #   ด่านนี้ไม่พึ่งข้อมูลในคลังเลย ⇒ ให้รันเสมอแม้ด่านก่อนหน้าจะแดง
+      # ──────────────────────────────────────────────────────
+      - name: "ด่าน 4 · check_zip_manifest --selftest"
+        if: always()
+        run: python scripts/check_zip_manifest.py --selftest
+
+      # ──────────────────────────────────────────────────────
+      # ด่าน 5 — ตรวจสัญลักษณ์ทั้งคลังเทียบเส้นฐาน
+      #   รหัสออก 0 = ผ่าน · 1 = เนื้อหาแดง · 2 = ตัวเครื่องมือแดง
+      # ──────────────────────────────────────────────────────
+      - name: "ด่าน 5 · scan_symbols ทั้งคลัง เทียบเส้นฐาน"
+        run: python scripts/scan_symbols.py data/sets --baseline docs/warn-baseline.json

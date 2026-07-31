@@ -35,7 +35,7 @@ check_zip_manifest.py — ตรวจว่า "ของในซอง" ต�
 """
 import sys, re, zipfile, hashlib, argparse, io
 
-CHECKER_VERSION = '1.0'
+CHECKER_VERSION = '1.1'
 
 # แถวตารางมาร์กดาวน์: | `ชื่อไฟล์` | 40,467 B | `md5` |
 ROW = re.compile(r'^\s*\|\s*`([^`]+)`\s*\|(.*)$')
@@ -70,56 +70,86 @@ def read_manifest(text):
         found[name] = row
     return found, sorted(dups)
 
+# ─────────────────────────────────────────────────────────────
+# v1.1 — ถ้อยคำสองกลุ่ม
+# ─────────────────────────────────────────────────────────────
+# จัดกลุ่มตาม "ต้องไปแก้ที่ไหน" ไม่ใช่ตามความรุนแรง — ทั้งสองกลุ่มยังออกรหัส 1 เหมือนกัน
+#   ซองนี้ผิด        ⇒ ของในซองไม่ตรงกับที่ประกาศ         ⇒ ไปแก้ที่ "ไฟล์ในซอง"
+#   ซองนี้ตรวจไม่ได้ ⇒ สารบัญไม่มีข้อมูลพอให้เทียบได้เลย   ⇒ ไปแก้ที่ "README"
+# เหตุผลที่ต้องแยก: รอบ 9 รายงานว่า "README ตรงกับซอง" ทั้งที่ตารางไม่มี md5 สักไฟล์
+#   — นั่นไม่ใช่ "ตรวจแล้วผ่าน" แต่คือ "ไม่เคยได้ตรวจ" คนอ่านต้องแยกออกจากกันได้ทันที
+B_WRONG = 'ซองนี้ผิด'
+B_BLIND = 'ซองนี้ตรวจไม่ได้'
+
+# ⚠️ กลุ่มที่ยังรอคำตอบพอร์ทัล (รอบ 12 ข้อ 7): "README ระบุชื่อ แต่ไม่มีไฟล์ในซอง"
+#    อ่านได้สองทาง — ลืมใส่ไฟล์ (ซองผิด) หรือ พิมพ์ชื่อเกิน (README ผิด)
+#    ตอนนี้จัดไว้ที่ B_WRONG ชั่วคราว และพิมพ์กำกับไว้ให้เห็นว่ายังไม่ยุติ
+B_PENDING = B_WRONG
+
+
+def _summary(fails):
+    """หัวรายงาน — บอกจำนวนแยกสองกลุ่มเสมอ แม้กลุ่มหนึ่งจะเป็นศูนย์"""
+    w = sum(1 for b, _ in fails if b == B_WRONG)
+    u = sum(1 for b, _ in fails if b == B_BLIND)
+    return f"  ผิด {w} จุด · ตรวจไม่ได้ {u} จุด"
+
+
+def _render(fails, body=None):
+    return [_summary(fails)] + [f"  🔴 {b} · {m}" for b, m in fails] + list(body or [])
+
 
 def check_zip(path_or_bytes, name='<ซอง>'):
     """คืน (ผ่านไหม, บรรทัดรายงาน[]) — ไม่พิมพ์เอง เพื่อให้ selftest เรียกได้"""
-    out = []
     try:
-        src = (io.BytesIO(path_or_bytes) if isinstance(path_or_bytes, bytes)
-               else path_or_bytes)
-        z = zipfile.ZipFile(src)
+        srcf = (io.BytesIO(path_or_bytes) if isinstance(path_or_bytes, bytes)
+                else path_or_bytes)
+        z = zipfile.ZipFile(srcf)
     except Exception as e:
-        return False, [f"🔴 เปิดซองไม่ได้: {name} — {e}"]
+        return False, _render([(B_BLIND, f"เปิดซองไม่ได้: {name} — {e}")])
 
     names = [n for n in z.namelist() if not n.endswith('/')]
     readmes = [n for n in names
                if n.upper().startswith('README') and '/' not in n]
     if not readmes:
-        return False, ["🔴 ไม่พบ README ที่ระดับบนสุดของซอง",
-                       "   ⇒ ไม่มีอะไรให้เทียบ = เทียบไม่ได้ ⇒ ไม่ถือว่าผ่าน"]
+        return False, _render(
+            [(B_BLIND, "ไม่พบ README ที่ระดับบนสุดของซอง")],
+            ["     ⇒ ไม่มีอะไรให้เทียบ = เทียบไม่ได้ ⇒ ไม่ถือว่าผ่าน"])
     if len(readmes) > 1:
-        return False, [f"🔴 พบ README มากกว่าหนึ่ง: {', '.join(readmes)}",
-                       "   ⇒ ไม่รู้ว่าฉบับไหนคือสารบัญจริง ⇒ ไม่ถือว่าผ่าน"]
+        return False, _render(
+            [(B_BLIND, f"พบ README มากกว่าหนึ่ง: {', '.join(readmes)}")],
+            ["     ⇒ ไม่รู้ว่าฉบับไหนคือสารบัญจริง ⇒ ไม่ถือว่าผ่าน"])
     rd = readmes[0]
 
     try:
         text = z.read(rd).decode('utf-8')
     except Exception as e:
-        return False, [f"🔴 อ่าน {rd} ไม่ได้ — {e}"]
+        return False, _render([(B_BLIND, f"อ่าน {rd} ไม่ได้ — {e}")])
 
     declared, dups = read_manifest(text)
     if dups:
-        return False, [f"🔴 {rd} ระบุชื่อซ้ำ: {', '.join(dups)}",
-                       "   ⇒ ตารางขัดกันเอง = เทียบไม่ได้ ⇒ ไม่ถือว่าผ่าน"]
+        return False, _render(
+            [(B_BLIND, f"{rd} ระบุชื่อซ้ำ: {', '.join(dups)}")],
+            ["     ⇒ ตารางขัดกันเอง = เทียบไม่ได้ ⇒ ไม่ถือว่าผ่าน"])
     if not declared:
         # 🔴 หัวใจของด่านนี้: "แกะตารางไม่ได้" ต้องไม่เท่ากับ "ไม่พบข้อผิด"
-        return False, [f"🔴 แกะตารางไฟล์จาก {rd} ไม่ได้สักบรรทัด",
-                       "   ⇒ 0 ข้อผิด ในที่นี้แปลว่า 'ไม่ได้ตรวจ' ไม่ใช่ 'ตรวจแล้วสะอาด'",
-                       "   รูปแบบที่รองรับ: | `ชื่อไฟล์` | 1,234 B | `md5` |"]
+        return False, _render(
+            [(B_BLIND, f"แกะตารางไฟล์จาก {rd} ไม่ได้สักบรรทัด")],
+            ["     ⇒ 0 ข้อผิด ในที่นี้แปลว่า 'ไม่ได้ตรวจ' ไม่ใช่ 'ตรวจแล้วสะอาด'",
+             "     รูปแบบที่รองรับ: | `ชื่อไฟล์` | 1,234 B | `md5` |"])
 
     inzip, indoc = set(names), set(declared)
     missing_doc = sorted(inzip - indoc)   # อยู่ในซอง แต่ README ไม่ได้ระบุ
     missing_zip = sorted(indoc - inzip)   # README ระบุ แต่ไม่มีในซอง
-    ok = True
+    fails, notes = [], []
 
-    out.append(f"  ซอง {name} · {len(inzip)} ไฟล์ · สารบัญ {rd} ระบุ {len(indoc)} ไฟล์")
+    notes.append(f"  ซอง {name} · {len(inzip)} ไฟล์ · สารบัญ {rd} ระบุ {len(indoc)} ไฟล์")
     for n in missing_doc:
-        ok = False
         extra = " ⟵ ตัว README เอง (⛔ ไม่มีข้อยกเว้น ต้องระบุตัวเองด้วย)" if n == rd else ""
-        out.append(f"  🔴 อยู่ในซอง แต่ README ไม่ได้ระบุ: {n}{extra}")
+        # สารบัญไม่ครบ ⇒ ของชิ้นนั้นไม่เคยถูกเทียบเลย ⇒ เป็นเรื่อง "ตรวจไม่ได้"
+        fails.append((B_BLIND, f"อยู่ในซอง แต่ README ไม่ได้ระบุ: {n}{extra}"))
     for n in missing_zip:
-        ok = False
-        out.append(f"  🔴 README ระบุ แต่ไม่มีในซอง: {n}")
+        fails.append((B_PENDING, f"README ระบุ แต่ไม่มีในซอง: {n}"
+                                 "  (⚠️ กลุ่มนี้ยังรอคำตอบพอร์ทัล)"))
 
     verified = 0
     for n in sorted(inzip & indoc):
@@ -131,27 +161,26 @@ def check_zip(path_or_bytes, name='<ซอง>'):
             #    ⇒ ยกเว้นเฉพาะ "การเทียบเนื้อ" ของตัว README เท่านั้น
             #      ⛔ ไม่ได้ยกเว้น "การต้องมีชื่ออยู่ในสารบัญ" — นั่นยังบังคับเหมือนเดิม
             if n == rd:
-                out.append(f"  ℹ️ {n} — เทียบได้แค่ชื่อ (README คำนวณ md5 ของตัวเองไม่ได้)")
+                notes.append(f"  ℹ️ {n} — เทียบได้แค่ชื่อ (README คำนวณ md5 ของตัวเองไม่ได้)")
             else:
-                ok = False
-                out.append(f"  🔴 {n} — README ระบุชื่อ แต่ขาด md5/ขนาด"
-                           " ⇒ เทียบเนื้อไม่ได้ ⇒ ไม่ถือว่าตรง")
+                fails.append((B_BLIND, f"{n} — README ระบุชื่อ แต่ขาด md5/ขนาด"
+                                       " ⇒ เทียบเนื้อไม่ได้ ⇒ ไม่ถือว่าตรง"))
             continue
         verified += 1
         if d['md5'] and hashlib.md5(raw).hexdigest() != d['md5']:
-            ok = False
-            out.append(f"  🔴 md5 ไม่ตรง: {n}"
-                       f" · ซอง {hashlib.md5(raw).hexdigest()} · README {d['md5']}")
+            fails.append((B_WRONG, f"md5 ไม่ตรง: {n}"
+                                   f" · ซอง {hashlib.md5(raw).hexdigest()} · README {d['md5']}"))
         if d['size'] is not None and len(raw) != d['size']:
-            ok = False
-            out.append(f"  🔴 ขนาดไม่ตรง: {n} · ซอง {len(raw):,} B · README {d['size']:,} B")
+            fails.append((B_WRONG, f"ขนาดไม่ตรง: {n} · ซอง {len(raw):,} B"
+                                   f" · README {d['size']:,} B"))
 
-    if ok:
+    if not fails:
         # ⚠️ บรรทัดสรุปต้องไม่พูดเกินสิ่งที่ตรวจจริง — บอกจำนวนที่ "เทียบเนื้อ" ได้จริง
-        out.append(f"  ✅ ตรงกันครบ {len(inzip)} ไฟล์"
-                   f" · เทียบเนื้อจริง (md5+ขนาด) {verified} ไฟล์"
-                   f" · เทียบได้แค่ชื่อ {len(inzip) - verified} ไฟล์ (สารบัญเอง)")
-    return ok, out
+        notes.append(f"  ✅ ตรงกันครบ {len(inzip)} ไฟล์"
+                     f" · เทียบเนื้อจริง (md5+ขนาด) {verified} ไฟล์"
+                     f" · เทียบได้แค่ชื่อ {len(inzip) - verified} ไฟล์ (สารบัญเอง)")
+        return True, notes
+    return False, _render(fails, notes)
 
 
 # ─────────────────────────────────────────────────────────────
@@ -197,6 +226,11 @@ def selftest():
                      'README.md': rd(f"| `a.py` | {len(A)} B | `{mb}` |\n"
                                      + good_rows + self_row)})
 
+    # v1.1 — ซองที่ผิด "สองกลุ่มพร้อมกัน" ไว้ทดสอบหัวรายงาน
+    mixed = _mkzip({'a.py': Bc, 'b.json': Bc,
+                    'README.md': rd(f"| `a.py` | {len(A)} B | `{ma}` |\n"
+                                    "| `b.json` | | ยังไม่ได้ใส่ |\n" + self_row)})
+
     gates = [
         ("ซองถูกต้อง (README ระบุครบ รวมตัวเอง) ⇒ ผ่าน", check_zip(ok_zip)[0] is True),
         ("🔴 README ไม่ระบุตัวเอง ⇒ ต้องแดง (บั๊กจริงของซอง v4)",
@@ -229,6 +263,30 @@ def selftest():
          ['a.py', 'b.json']),
         ("บรรทัดสรุปต้องบอกจำนวนที่เทียบเนื้อจริง ไม่พูดเกิน (ถ้อยคำต้องไม่ชนของแดง)",
          'เทียบเนื้อจริง (md5+ขนาด) 2 ไฟล์' in ' '.join(check_zip(ok_zip)[1])),
+        # ── v1.1: ถ้อยคำสองกลุ่ม (แยกตาม "ไปแก้ที่ไหน" ไม่ใช่ความรุนแรง) ──
+        ("md5 ไม่ตรง ⇒ ต้องติดป้าย 'ซองนี้ผิด' (ไปแก้ที่ไฟล์ในซอง)",
+         B_WRONG in ' '.join(check_zip(badmd5)[1])),
+        ("ขนาดไม่ตรง ⇒ ต้องติดป้าย 'ซองนี้ผิด'",
+         B_WRONG in ' '.join(check_zip(badsize)[1])),
+        ("ระบุชื่อแต่ไม่มี md5 ⇒ ต้องติดป้าย 'ซองนี้ตรวจไม่ได้' (ไปแก้ที่ README)",
+         B_BLIND in ' '.join(check_zip(nohash)[1])),
+        ("README ระบุชื่อซ้ำ ⇒ 'ซองนี้ตรวจไม่ได้'",
+         B_BLIND in ' '.join(check_zip(duprow)[1])),
+        ("README ไม่มีตารางเลย ⇒ 'ซองนี้ตรวจไม่ได้'",
+         B_BLIND in ' '.join(check_zip(notable)[1])),
+        ("ไม่มี README ⇒ 'ซองนี้ตรวจไม่ได้'",
+         B_BLIND in ' '.join(check_zip(nordme)[1])),
+        ("README ไม่ระบุตัวเอง ⇒ 'ซองนี้ตรวจไม่ได้' (ของชิ้นนั้นไม่เคยถูกเทียบ)",
+         B_BLIND in ' '.join(check_zip(bad_self)[1])),
+        ("md5 ผิดล้วน ⇒ หัวรายงานต้องยังบอกกลุ่มที่เป็นศูนย์ด้วย",
+         'ผิด 1 จุด · ตรวจไม่ได้ 0 จุด' in ' '.join(check_zip(badmd5)[1])),
+        ("ซองที่ผิดทั้งสองกลุ่ม ⇒ หัวรายงานต้องนับแยกถูก",
+         'ผิด 1 จุด · ตรวจไม่ได้ 1 จุด' in ' '.join(check_zip(mixed)[1])),
+        ("ทั้งสองกลุ่มยังห้ามส่งซองเหมือนกัน (แยกถ้อยคำ ไม่ใช่ลดชั้น)",
+         check_zip(badmd5)[0] is False and check_zip(nohash)[0] is False),
+        ("(กันด่านหลอกตัวเอง) ซองที่ผ่านต้องไม่มีคำของทั้งสองกลุ่มเลย",
+         B_WRONG not in ' '.join(check_zip(ok_zip)[1])
+         and B_BLIND not in ' '.join(check_zip(ok_zip)[1])),
     ]
     ok = True
     for name, passed in gates:
