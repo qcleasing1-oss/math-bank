@@ -1,0 +1,10 @@
+{
+  "_comment": "เส้นฐาน ratchet ของด่าน WARN — ยอดค้างลดได้อย่างเดียว ห้ามโต",
+  "_measuredOn": "2026-07-31",
+  "_measuredAtCommit": "4f6cd0b",
+  "_method": "scripts/scan_symbols.py v2.0 · walker ลง imageSpec · นับข้อไม่ซ้ำที่มีแมโครกลุ่ม TIERED ในฟิลด์ explanation",
+  "_note": "ฝั่ง BLOCK (question/choices/imageSpec) เส้นฐาน = 45 ข้อ หลังแก้ q273 แล้ว — ใช้โหมด diff-scoped ไม่ใช่ทั้งคลัง",
+  "warn_questions": 444,
+  "warn_occurrences": 605,
+  "block_questions_legacy": 45
+}

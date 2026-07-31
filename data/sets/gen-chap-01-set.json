@@ -15496,7 +15496,7 @@
         "",
         "⚠️ <b>จุดพลาด</b> เลือกข้อเดอมอร์แกนที่ลืมสลับตัวดำเนินการ ($\\cup$ ยังเป็น $\\cup$) หรือคิดว่า $A-(A-B)=A-B$ ทั้งที่จริงได้ $A\\cap B$"
       ],
-      "notes": "M·set algebra identity A∖B=A∩B′ · trap-map: [0]=DeMorgan ไม่สลับ · [2]=DeMorgan ไม่สลับ · [3]=A∖(A∖B) เข้าใจผิด"
+      "notes": "M·set algebra identity A - B=A∩B′ · trap-map: [0]=DeMorgan ไม่สลับ · [2]=DeMorgan ไม่สลับ · [3]=A - (A - B) เข้าใจผิด"
     },
     {
       "id": "gen-chap-01-set-q274",
