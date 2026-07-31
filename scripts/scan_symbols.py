@@ -33,11 +33,24 @@ scan_symbols.py — ตัวตรวจสัญลักษณ์ต้อง
      เหตุ: sync สคริปต์กับเส้นฐานไม่ครบคู่ = เคสที่เกิดง่ายที่สุดในทางปฏิบัติ
      ⇒ กลไกนี้บังคับกฎ "sync เป็นคู่เสมอ" โดยไม่ต้องพึ่งวินัยคน
 
+เวอร์ชัน 2.3 (ตามที่ทีมพอร์ทัลขอ 31 ก.ค. 2569) แก้อีกสองอย่าง:
+  8. ทิศทางของรุ่นเป็น "ไม่สมมาตร" — เทียบเชิงตัวเลข ไม่ใช่ !=
+     เส้นฐาน "ใหม่กว่า" สคริปต์ ⇒ exit 2 (สคริปต์ไม่รู้จักคีย์ที่รุ่นหลังเพิ่ม
+     ⇒ อาจไม่ได้ตรวจชั้นนั้นเลยแล้วรายงานว่าผ่าน)
+     เส้นฐาน "เก่ากว่า" ⇒ เตือนเฉย ๆ (สคริปต์รู้เองว่าต้องใช้คีย์อะไร ขาดจริงก็แดงอยู่แล้ว)
+     ประทับที่อ่านเป็นเลขรุ่นไม่ได้ ⇒ exit 2 เพราะ "เทียบไม่ได้" ไม่เท่ากับ "เทียบแล้วผ่าน"
+  9. --write-baseline ปฏิเสธการเขียนทับเมื่อยอดค้างโต (exit 2)
+     ต้องประกาศเจตนาด้วย --accept-debt-increase '<เหตุผล>' และเหตุผลถูกเขียนลงเส้นฐาน
+     เหตุ: คนที่จะละเมิดกฎนี้คือคนที่กำลังรีบและด่านกำลังแดง — คนที่จะอ่านจดหมายเก่าน้อยที่สุด
+     ⇒ กติกาที่อยู่ในไฟล์จะยังอยู่ ตอนที่ทุกคนจำไม่ได้แล้ว
+     (ซ่อมเส้นฐานที่พัง และยอดที่ลดลง ยังเขียนได้ตามปกติโดยไม่ต้องใช้ธง)
+
 รหัสออก:
     0 = ผ่าน
     1 = ด่านแดงจากเนื้อหา (BLOCK ใหม่ / WARN โต / LEGACY โต)
     2 = ด่านแดงจากตัวตรวจเอง — ผลสแกนเชื่อไม่ได้
-        (canary ล้ม · ขอบเขต diff ระบุไม่ได้ · สองโหมดพร้อมกัน · เส้นฐานใช้ไม่ได้)
+        (canary ล้ม · ขอบเขต diff ระบุไม่ได้ · สองโหมดพร้อมกัน · เส้นฐานใช้ไม่ได้
+         · เส้นฐานใหม่กว่าสคริปต์ · สั่งเขียนเส้นฐานตอนยอดโตโดยไม่ประกาศเจตนา)
 
 การใช้:
     # ทั้งคลัง + ratchet — ใช้ฝั่งพอร์ทัลตอน sync
@@ -53,8 +66,9 @@ scan_symbols.py — ตัวตรวจสัญลักษณ์ต้อง
     python scripts/scan_symbols.py data/sets --changed-ids gen-chap-01-set-q273,chap-02-logic-q46
 """
 import json, os, sys, argparse, subprocess
+import datetime as _dt
 
-SCANNER_VERSION = '2.2'
+SCANNER_VERSION = '2.3'
 SCANNER_DATE = '2026-07-31'
 
 # คีย์ที่สคริปต์รุ่นนี้ "ใช้ตัดสินจริง" — ขาดข้อใดข้อหนึ่ง = ตัวตรวจใช้ไม่ได้ (exit 2)
@@ -63,6 +77,26 @@ SCANNER_DATE = '2026-07-31'
 #    เคสจริงที่กลัว: sync scan_symbols.py ไปไฟล์เดียว ลืม warn-baseline.json
 # หมายเหตุ: warn_occurrences ไม่อยู่ในรายการนี้ เพราะสคริปต์ไม่ได้ใช้ตัดสิน (ไว้ดูแนวโน้มเท่านั้น)
 REQUIRED_BASELINE_KEYS = ('warn_questions', 'block_questions_legacy')
+
+# สภาพของเส้นฐาน "เดิม" ตอนจะเขียนทับ มี 3 แบบ ไม่ใช่ 2 — และต่างกันมาก
+#   None       = ยังไม่เคยมีไฟล์เลย  ⇒ การตั้งต้นครั้งแรก ไม่มีอะไรให้ฟอก
+#   UNREADABLE = มีไฟล์ แต่อ่านไม่ได้/ไม่ใช่ dict ⇒ เคยมีเลขอยู่ แล้วเลขนั้นหายไป
+#   dict       = อ่านได้ (แต่คีย์ข้างในอาจยังพังเป็นราย ๆ)
+UNREADABLE = object()
+
+
+def parse_version(s):
+    """แปลง '2.3' → (2, 3) เพื่อเทียบ "ทิศทาง" ของรุ่นเชิงตัวเลข — คืน None ถ้าอ่านไม่ได้
+
+    ⚠️ ห้ามเทียบเป็นสตริง: ตามลำดับพจนานุกรม '2.10' < '2.9' ซึ่งกลับทิศกับความจริง
+       (พอร์ทัลรอบ 10 ระบุชัดว่า "เทียบแบบตัวเลข ไม่ใช่ !=")
+    """
+    if not isinstance(s, str):
+        return None
+    parts = s.strip().split('.')
+    if not parts or not all(p.isdigit() for p in parts):
+        return None
+    return tuple(int(p) for p in parts)
 
 # ─────────────────────────────────────────────────────────────
 # นิยามกฎ
@@ -282,10 +316,36 @@ def check_baseline(base, path='<เส้นฐาน>'):
         return False, [f"{path} ไม่ใช่วัตถุ JSON (พบชนิด {type(base).__name__})"], []
 
     notes = []
+    # ── ทิศทางของรุ่น "ไม่สมมาตร" (พอร์ทัลรอบ 10 ข้อ 2) ──────────────────
+    #   สคริปต์ใหม่ + เส้นฐานเก่า = ปลอดภัย — สคริปต์รู้เองว่าต้องใช้คีย์อะไร
+    #                                 ถ้าขาดจริงจะแดงที่ด่านคีย์อยู่แล้ว ⇒ เตือนพอ
+    #   สคริปต์เก่า + เส้นฐานใหม่ = อันตราย — สคริปต์ไม่รู้จักคีย์ที่รุ่นหลังเพิ่มมา
+    #                                 ⇒ อาจ "ไม่ได้ตรวจชั้นนั้น" เงียบ ๆ แล้วรายงานว่าผ่าน
     stamp = base.get('_scannerVersion')
-    if stamp and stamp != SCANNER_VERSION:
-        notes.append(f"⚠️ เส้นฐานประทับ v{stamp} แต่สคริปต์เป็น v{SCANNER_VERSION}"
-                     " — ตรวจว่า sync มาเป็นคู่หรือยัง (ยังไม่ทำให้แดง)")
+    mine = parse_version(SCANNER_VERSION)
+    if stamp is None:
+        # ไม่มีประทับ = เส้นฐานรุ่นก่อนที่จะเริ่มประทับ ⇒ เป็น "เก่ากว่า" เสมอ
+        # (ทุกรุ่นตั้งแต่ 2.1 เขียนประทับให้อัตโนมัติ ⇒ ของใหม่จะมีประทับแน่นอน)
+        notes.append("⚠️ เส้นฐานไม่มีประทับ _scannerVersion — ถือว่าเก่ากว่าสคริปต์"
+                     " · ควร sync ใหม่ให้เป็นคู่ (ยังไม่ทำให้แดง)")
+    else:
+        theirs = parse_version(stamp)
+        if theirs is None:
+            # 🔴 "เทียบไม่ได้" ≠ "เทียบแล้วไม่เจอปัญหา" — กับดักข้อ 6
+            #    ถ้าปล่อยเป็นแค่คำเตือน = เราไม่ได้ตรวจทิศทางเลย แต่รายงานเหมือนตรวจแล้ว
+            return False, [
+                f"{path} ประทับ _scannerVersion = {stamp!r} อ่านเป็นเลขรุ่นไม่ได้",
+                "⇒ ตัดสินไม่ได้ว่าเส้นฐานใหม่กว่าสคริปต์หรือไม่ ⇒ ไม่ถือว่าผ่าน",
+            ], notes
+        if theirs > mine:
+            return False, [
+                f"{path} ประทับ v{stamp} · สคริปต์เป็น v{SCANNER_VERSION}",
+                "เส้นฐานรุ่นใหม่กว่าสคริปต์ — สคริปต์รุ่นนี้อาจไม่รู้จักคีย์ที่เพิ่มมา"
+                " ⇒ อัปเดตสคริปต์ก่อน",
+            ], notes
+        if theirs < mine:
+            notes.append(f"⚠️ เส้นฐานประทับ v{stamp} เก่ากว่าสคริปต์ v{SCANNER_VERSION}"
+                         " — ควร sync ใหม่ให้เป็นคู่ (ยังไม่ทำให้แดง)")
 
     missing = [k for k in REQUIRED_BASELINE_KEYS if k not in base]
     if missing:
@@ -443,9 +503,69 @@ def run_canary():
          check_baseline({'warn_questions': True, 'block_questions_legacy': 45})[0] is False),
         ("(ต้องไม่จับ) ไม่ได้ระบุ --baseline เลย ⇒ คนละกรณี ต้องไม่ถือว่าเส้นฐานพัง",
          check_baseline(None)[0] is True),
-        ("ประทับเวอร์ชันไม่ตรง ⇒ เตือน แต่ยังใช้ได้ (ไม่แดง)",
+    ]
+    # ── ด่านทิศทางของรุ่น (พอร์ทัลรอบ 10 ข้อ 2) ──────────────
+    # ⚠️ ความเสี่ยงชั้นนี้คือ "สคริปต์เก่าอ่านเส้นฐานใหม่" แล้วไม่รู้ว่ามีชั้นที่ไม่ได้ตรวจ
+    diff_checks += [
+        ("── รุ่น ── เทียบเชิงตัวเลข ไม่ใช่สตริง ('2.10' ต้องใหม่กว่า '2.9')",
+         parse_version('2.10') > parse_version('2.9')),
+        ("อ่าน '2.3' เป็น (2, 3)", parse_version('2.3') == (2, 3)),
+        ("เส้นฐานใหม่กว่าสคริปต์ ⇒ ต้องใช้ไม่ได้ (ทิศอันตราย)",
+         check_baseline(dict(B, _scannerVersion='99.0'))[0] is False),
+        ("…และต้องบอกให้ 'อัปเดตสคริปต์ก่อน'",
+         'อัปเดตสคริปต์' in ' '.join(check_baseline(dict(B, _scannerVersion='99.0'))[1])),
+        ("เส้นฐานเก่ากว่าสคริปต์ ⇒ เตือนอย่างเดียว ไม่แดง (ทิศปลอดภัย)",
          check_baseline(dict(B, _scannerVersion='0.9'))[0] is True
          and len(check_baseline(dict(B, _scannerVersion='0.9'))[2]) == 1),
+        ("ประทับตรงกันเป๊ะ ⇒ ไม่เตือน ไม่แดง",
+         check_baseline(dict(B, _scannerVersion=SCANNER_VERSION))[0] is True
+         and check_baseline(dict(B, _scannerVersion=SCANNER_VERSION))[2] == []),
+        ("ประทับอ่านเป็นเลขรุ่นไม่ได้ ⇒ ต้องใช้ไม่ได้ (เทียบไม่ได้ ≠ เทียบแล้วผ่าน)",
+         check_baseline(dict(B, _scannerVersion='สองจุดสาม'))[0] is False),
+        ("ไม่มีประทับเลย ⇒ เตือน ไม่แดง (รุ่นใหม่เขียนประทับเสมอ ⇒ ไม่มี = เก่ากว่า)",
+         check_baseline(dict(B))[0] is True and len(check_baseline(dict(B))[2]) == 1),
+    ]
+    # ── ด่านการ์ดตอนเขียนเส้นฐาน (พอร์ทัลรอบ 10 ข้อ 4) ──────
+    # ⚠️ ความเสี่ยงชั้นนี้คือ "ด่านแดง ⇒ คนรีบ ⇒ เขียนเส้นฐานทับให้เขียว"
+    _OLD = {'warn_questions': 444, 'block_questions_legacy': 45}
+    _same = {'warn_questions': 444, 'block_questions_legacy': 45}
+    _less = {'warn_questions': 440, 'block_questions_legacy': 43}
+    _more = {'warn_questions': 444, 'block_questions_legacy': 47}
+    _wmore = {'warn_questions': 450, 'block_questions_legacy': 45}
+    diff_checks += [
+        ("── เขียนเส้นฐาน ── ยอดเท่าเดิม ⇒ เขียนได้ ไม่ต้องใช้ธง",
+         check_write_baseline(_OLD, _same)[0] is True),
+        ("ยอดลดลง ⇒ เขียนได้ ไม่ต้องใช้ธง (ratchet เดินลงได้เสมอ)",
+         check_write_baseline(_OLD, _less)[0] is True),
+        ("หนี้เก่าโต 45 → 47 ⇒ ต้องปฏิเสธ",
+         check_write_baseline(_OLD, _more)[0] is False),
+        ("…และต้องบอกตัวเลข เก่า → ใหม่ ในข้อความ",
+         '45' in ' '.join(check_write_baseline(_OLD, _more)[1])
+         and '47' in ' '.join(check_write_baseline(_OLD, _more)[1])),
+        ("…และต้องบอกทางออกที่ถูกต้อง (--accept-debt-increase)",
+         'accept-debt-increase' in ' '.join(check_write_baseline(_OLD, _more)[1])),
+        ("WARN โตก็ต้องปฏิเสธเหมือนกัน ไม่ใช่เฝ้าแต่หนี้เก่า",
+         check_write_baseline(_OLD, _wmore)[0] is False),
+        ("ยอดโต + ธงพร้อมเหตุผล ⇒ เขียนได้",
+         check_write_baseline(_OLD, _more, 'รับข้อชุดใหม่เข้าคลัง')[0] is True),
+        ("ยอดโต + ธงแต่เหตุผลว่าง ⇒ ต้องปฏิเสธ (ธงเปล่า = การเลี่ยงกฎ)",
+         check_write_baseline(_OLD, _more, '   ')[0] is False),
+        ("ยังไม่เคยมีไฟล์เส้นฐาน (ตั้งต้นครั้งแรก) ⇒ เขียนได้ ไม่ต้องใช้ธง",
+         check_write_baseline(None, _more)[0] is True),
+        ("มีไฟล์แต่อ่านไม่ได้ ⇒ ต้องปฏิเสธ (ต่างจาก 'ยังไม่เคยมีไฟล์')",
+         check_write_baseline(UNREADABLE, _more)[0] is False),
+        ("…แต่ประกาศเจตนาแล้ว ซ่อมได้ (การซ่อมไม่เคยถูกปิดตาย)",
+         check_write_baseline(UNREADABLE, _more, 'ซ่อมเส้นฐานที่พัง')[0] is True),
+        ("เส้นฐานเดิมค่าเป็น bool ⇒ เทียบไม่ได้ ⇒ ต้องปฏิเสธ",
+         check_write_baseline({'warn_questions': True,
+                               'block_questions_legacy': True}, _more)[0] is False),
+        ("🔴 ช่องเลี่ยง: ลบคีย์ทิ้งเพื่อให้ 'ไม่มีอะไรให้เทียบ' ⇒ ต้องยังปฏิเสธ",
+         check_write_baseline({'warn_questions': 444}, _more)[0] is False),
+        ("…และต้องบอกด้วยว่าคีย์ไหนที่เทียบไม่ได้",
+         'block_questions_legacy' in
+         ' '.join(check_write_baseline({'warn_questions': 444}, _more)[1])),
+        ("รายการ 'ที่โต' ต้องชี้คีย์ถูกตัว",
+         list(check_write_baseline(_OLD, _more)[2]) == ['block_questions_legacy']),
     ]
     for name, passed in diff_checks:
         print(f"  {'✅' if passed else '🔴 ล้ม'}  {name}")
@@ -455,6 +575,62 @@ def run_canary():
     return ok
 
 
+def check_write_baseline(old, new, accept_reason=None):
+    """ตัดสินว่า --write-baseline เขียนทับได้ไหม — คืน (เขียนได้ไหม, เหตุผลตาย[], ที่โต{})
+
+    🔴 เหตุใดต้องเป็นโค้ด ไม่ใช่กติกาในจดหมาย (พอร์ทัลรอบ 10 ข้อ 4):
+       คนที่จะละเมิดกฎ "ห้ามเขียนเส้นฐานทับตอนยอดโต" คือคนที่กำลังรีบและด่านกำลังแดง
+       — สถานการณ์ที่คนอ่านจดหมายเก่าน้อยที่สุดในโลก
+       ⇒ กฎที่อยู่ในไฟล์จะยังอยู่ ตอนที่เราสองคนจำไม่ได้แล้ว
+
+    old = dict ที่อ่านได้ · None = ยังไม่เคยมีไฟล์ (ตั้งต้นครั้งแรก) · UNREADABLE = มีไฟล์แต่พัง
+
+    ⚠️ ผมเบนจากที่พอร์ทัลเสนอไว้หนึ่งจุด และตั้งใจให้ถกได้ (รอบ 11 ข้อ 2):
+       พอร์ทัลเขียนว่า "ซ่อมเส้นฐานพัง ⇒ ผ่านโดยไม่ต้องใช้ธง"
+       แต่ด่านของผมเองจับได้ว่ากฎนั้นเปิดทางเลี่ยงหนึ่งบรรทัด:
+       ยอดโต 45 → 47 · ด่านแดง · คนรีบ ⇒ *ลบคีย์ block_questions_legacy ทิ้ง*
+       ⇒ กลายเป็น "เส้นฐานพัง" ⇒ ซ่อมได้ฟรี ⇒ 47 ถูกเขียนลงไปเงียบ ๆ
+       ⇒ ผมจึงแยก "ยังไม่เคยมีไฟล์" (ผ่านฟรี — ไม่มีเลขเดิมให้ฟอก)
+              ออกจาก "เคยมีเลข แล้วเลขหาย" (ต้องประกาศเจตนา)
+       การซ่อมยังทำได้เสมอ แค่ต้องพิมพ์เหตุผล — ซึ่งเป็นสิ่งที่อยากให้ค้างใน git log อยู่แล้ว
+    new = {'warn_questions': …, 'block_questions_legacy': …}
+    accept_reason = ค่าจาก --accept-debt-increase (None = ไม่ได้ให้มา)
+    """
+    grew, unknown = {}, []
+    if old is UNREADABLE:
+        # มีไฟล์อยู่แต่เทียบไม่ได้เลยสักคีย์ — "เทียบไม่ได้" ≠ "เทียบแล้วไม่โต"
+        unknown = list(REQUIRED_BASELINE_KEYS)
+    elif isinstance(old, dict):
+        for k in REQUIRED_BASELINE_KEYS:
+            o = old.get(k)
+            if o is None or isinstance(o, bool) or not isinstance(o, int):
+                # 🔴 มีเส้นฐานอยู่ แต่ "คีย์นี้" เทียบไม่ได้ ⇒ ตัดสินไม่ได้ว่าโตหรือไม่
+                #    ⛔ ห้ามถือว่า "ไม่โต" — นั่นคือกับดักข้อ 6 เต็ม ๆ
+                #    ช่องโหว่ที่ปิด: ลบคีย์ทิ้งหนึ่งบรรทัด แล้ว --write-baseline ก็ผ่านฉลุย
+                #    ⇒ เท่ากับปลดการ์ดทั้งชั้นด้วยการแก้ไฟล์ที่การ์ดใช้ตัดสิน
+                unknown.append(k)
+                continue
+            if new[k] > o:
+                grew[k] = (o, new[k])
+    # old is None ⇒ ยังไม่เคยมีไฟล์ = การตั้งต้นครั้งแรก ⇒ ผ่าน (ไม่มีเลขเดิมให้ฟอก)
+    if not grew and not unknown:
+        # ยอดเท่าเดิม / ยอดลดลง ⇒ เขียนได้ ไม่ต้องใช้ธง (เคส 2 ของพอร์ทัล)
+        return True, [], {}
+    if accept_reason is None:
+        lines = [f"ยอด{'หนี้เก่า' if k == 'block_questions_legacy' else 'WARN'}"
+                 f"โตจาก {o} → {n}" for k, (o, n) in grew.items()]
+        lines += [f"คีย์ {k} ในเส้นฐานเดิมเทียบไม่ได้ (ขาด/ชนิดผิด)"
+                  " ⇒ ตัดสินไม่ได้ว่ายอดโตหรือไม่ ⇒ ไม่ถือว่าไม่โต" for k in unknown]
+        lines += ["--write-baseline ใช้ตอนยอดโต/เทียบไม่ได้ไม่ได้",
+                  "ถ้าตั้งใจจริง ใช้ --accept-debt-increase '<เหตุผล>'"
+                  " และเหตุผลจะถูกเขียนลงเส้นฐาน"]
+        return False, lines, grew
+    if not accept_reason.strip():
+        return False, ["--accept-debt-increase ต้องมีเหตุผลจริง ไม่ใช่สตริงว่าง",
+                       "เหตุผลคือสิ่งเดียวที่คนอ่านย้อนหลังอีก 3 เดือนจะได้เห็น"], grew
+    return True, [], grew
+
+
 # ─────────────────────────────────────────────────────────────
 def main():
     ap = argparse.ArgumentParser(
@@ -462,6 +638,9 @@ def main():
     ap.add_argument('sets_dir', nargs='?', default='data/sets')
     ap.add_argument('--baseline', help='ไฟล์เส้นฐาน ratchet (WARN + LEGACY)')
     ap.add_argument('--write-baseline', action='store_true')
+    ap.add_argument('--accept-debt-increase', metavar='เหตุผล', default=None,
+                    help='ยอมให้ --write-baseline เขียนทับทั้งที่ยอดโต — ต้องมีเหตุผลจริง'
+                         ' (จะถูกบันทึกลงเส้นฐานที่คีย์ _lastIncrease)')
     ap.add_argument('--since', metavar='REF',
                     help='โหมด diff: ตรวจเฉพาะข้อที่เปลี่ยนตั้งแต่คอมมิต REF')
     ap.add_argument('--changed', nargs='+', metavar='FILE',
@@ -476,6 +655,12 @@ def main():
     if args.version:
         print(SCANNER_VERSION)
         return
+
+    # ธงที่ให้มาแล้วไม่มีผลอะไร = อีกหน้าหนึ่งของ "รายงานผลของทางที่ไม่ได้เดิน"
+    if args.accept_debt_increase is not None and not args.write_baseline:
+        print("\n  🔴 --accept-debt-increase ใช้ได้เฉพาะคู่กับ --write-baseline")
+        print("     ⇒ ถ้ารับไว้เฉย ๆ ผู้ใช้จะเข้าใจว่า 'ประกาศเจตนาแล้ว' ทั้งที่ไม่มีอะไรเกิดขึ้น")
+        sys.exit(2)
 
     print(f"scan_symbols.py v{SCANNER_VERSION} ({SCANNER_DATE})")
 
@@ -543,16 +728,47 @@ def main():
 
     if args.write_baseline and args.baseline:
         # เก็บคีย์อธิบาย (_comment/_method/…) ของเดิมไว้ — ไม่ล้างคำอธิบายทิ้ง
-        out = {}
+        out, old, broken = {}, None, False
         if os.path.exists(args.baseline):
-            out = json.load(open(args.baseline, encoding='utf-8'))
+            try:
+                out = json.load(open(args.baseline, encoding='utf-8'))
+            except (ValueError, OSError) as e:
+                print(f"\n  ⚠️ อ่านเส้นฐานเดิมไม่ได้ ({e}) — จะเขียนใหม่ทั้งไฟล์"
+                      " · คีย์คำอธิบายเดิมจะหายไปด้วย")
+                out, broken = {}, True
+            if not isinstance(out, dict):
+                print("\n  ⚠️ เส้นฐานเดิมไม่ใช่วัตถุ JSON — จะเขียนใหม่ทั้งไฟล์")
+                out, broken = {}, True
+            # มีไฟล์อยู่จริง ⇒ ไม่ใช่ None เด็ดขาด (None สงวนไว้ให้ "ยังไม่เคยมีไฟล์")
+            old = UNREADABLE if broken or not out else dict(out)
+        # 🔴 การ์ด: ห้ามเขียนทับตอนยอดโต เว้นแต่จะประกาศเจตนาพร้อมเหตุผล
+        ok_w, fatal_w, grew = check_write_baseline(
+            old, {'warn_questions': warn_q, 'block_questions_legacy': standing},
+            args.accept_debt_increase)
+        if not ok_w:
+            print("\n  🔴 ปฏิเสธการเขียนเส้นฐาน — ยอดค้างโตขึ้น")
+            for m in fatal_w:
+                print(f"     {m}")
+            sys.exit(2)
         out.update({'warn_questions': warn_q,
                     'warn_occurrences': len(warns),
-                    'block_questions_legacy': standing})
+                    'block_questions_legacy': standing,
+                    '_scannerVersion': SCANNER_VERSION})
+        if grew:
+            out['_lastIncrease'] = {
+                'date': _dt.date.today().isoformat(),
+                'reason': args.accept_debt_increase.strip(),
+                'grew': {k: f"{o} → {n}" for k, (o, n) in grew.items()},
+                'byScanner': SCANNER_VERSION,
+            }
+            print("\n  ⚠️ ยอมให้ยอดโต — บันทึกเหตุผลลงเส้นฐานที่คีย์ _lastIncrease แล้ว")
+        elif args.accept_debt_increase is not None:
+            print("\n  หมายเหตุ: ให้ --accept-debt-increase มา แต่ไม่มียอดใดโต ⇒ ไม่ได้ใช้ธง")
         with open(args.baseline, 'w', encoding='utf-8') as f:
             json.dump(out, f, ensure_ascii=False, indent=2)
             f.write('\n')
-        print(f"\n  เขียนเส้นฐานแล้ว: WARN {warn_q} ข้อ · LEGACY {standing} ข้อ")
+        print(f"\n  เขียนเส้นฐานแล้ว: WARN {warn_q} ข้อ · LEGACY {standing} ข้อ"
+              f" · ประทับ v{SCANNER_VERSION}")
         sys.exit(0)
 
     diff_mode = changed_ids is not None
