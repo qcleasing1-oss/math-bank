@@ -8909,10 +8909,10 @@
       "question": "ค่าของ $\\theta$ จากสมการ $(1 - \\tan\\theta)(1 + \\sin 2\\theta) = (1 + \\tan\\theta)(1 - \\cos 2\\theta)$\nเป็นค่าของมุมทั่วไปของสมการใดต่อไปนี้",
       "choices": [
         "$\\sin 4\\theta + 2\\cos 2\\theta - \\sin 2\\theta - 1 = 0$",
-        "$\\tan\\theta\\sec\\theta + \\operatorname{cosec} 2\\theta = 0$",
+        "$\\tan\\theta\\sec\\theta + \\csc 2\\theta = 0$",
         "$2\\cos 2\\theta = \\sin\\theta + \\cos\\theta$",
         "$2\\sin^4\\theta - 9\\sin^2\\theta + 4 = 0$",
-        "$2\\sin\\theta - 5 + 2\\operatorname{cosec}\\theta = 0$"
+        "$2\\sin\\theta - 5 + 2\\csc\\theta = 0$"
       ],
       "hasImage": false,
       "sourceTag": "Entrance 2522",
@@ -13368,8 +13368,8 @@
       "score": 1,
       "question": "นายแดงนั่งอยู่บนดาดฟ้าของโรงแรมริมหาดแห่งหนึ่ง สังเกตเห็นเรือสองลำทอดสมออยู่ในทะเลเป็นมุมก้ม $x$ และ $y$ ตามลำดับ จากเส้นระดับสายตาเส้นเดียวกัน\nถ้าเรือทั้งสองอยู่ห่างกัน $z$ ฟุต แล้วดาดฟ้าโรงแรมแห่งนี้สูงจากระดับน้ำทะเลเท่ากับข้อใดต่อไปนี้\n(รูปประกอบ: ตาอยู่ที่จุด $A$ สูง $h$ เหนือจุด $B$ ที่ผิวน้ำ เรือใกล้ที่จุด $C$ เรือไกลที่จุด $D$ แนวเดียวกัน $CD = z$ มุมก้มไป $D$ คือ $x$ และไป $C$ คือ $y$)",
       "choices": [
-        "$\\dfrac{z}{2}\\,\\operatorname{cosec}(x - y)\\left[\\cos(x - y) - \\cos(x + y)\\right]$",
-        "$\\dfrac{z}{2}\\,\\operatorname{cosec}(x - y)\\left[\\cos(x + y) - \\cos(x - y)\\right]$",
+        "$\\dfrac{z}{2}\\,\\csc(x - y)\\left[\\cos(x - y) - \\cos(x + y)\\right]$",
+        "$\\dfrac{z}{2}\\,\\csc(x - y)\\left[\\cos(x + y) - \\cos(x - y)\\right]$",
         "$\\dfrac{z}{2}\\left[\\cot(x - y) - \\cot(x + y)\\right]$",
         "$\\dfrac{z}{2}\\left[\\cot(x + y) - \\cot(x - y)\\right]$"
       ],
@@ -13552,7 +13552,7 @@
         "<b>ขั้นที่ 5:</b> แปลงเข้ารูปตัวเลือก: $\\sin x\\sin y = \\dfrac{1}{2}\\left[\\cos(x - y) - \\cos(x + y)\\right]$",
         "และ $\\sin(y - x) = -\\sin(x - y)$",
         "เครื่องหมายลบสองตัวตัดกัน",
-        "→ $h = \\dfrac{z}{2}\\,\\operatorname{cosec}(x - y)\\left[\\cos(x + y) - \\cos(x - y)\\right]$",
+        "→ $h = \\dfrac{z}{2}\\,\\csc(x - y)\\left[\\cos(x + y) - \\cos(x - y)\\right]$",
         "",
         "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ · กฎของไซน์ในสามเหลี่ยม $ACD$ ใบเดียว (sine rule) 】</b>",
         "<b>เครื่องมือ:</b> กฎของไซน์ในสามเหลี่ยมเอียง $\\dfrac{a}{\\sin A} = \\dfrac{b}{\\sin B}$ — ได้ $h$ เป็นผลคูณ $\\sin$ ทันที ไม่ต้องผ่าน $\\cot$",
@@ -13571,14 +13571,14 @@
         ": ทั้งสองวิธีให้ $h = 64.28$ และตัวเลือก 2 ให้ $64.28$ ✓ (sympy เทียบครบทั้ง 4 ตัวเลือก — เท่าเฉพาะข้อ 2 เท่านั้น)",
         "ตรง key (101.2)",
         "",
-        "✅ คำตอบ: $\\dfrac{z}{2}\\,\\operatorname{cosec}(x - y)\\left[\\cos(x + y) - \\cos(x - y)\\right]$ → ตัวเลือก 2",
+        "✅ คำตอบ: $\\dfrac{z}{2}\\,\\csc(x - y)\\left[\\cos(x + y) - \\cos(x - y)\\right]$ → ตัวเลือก 2",
         "",
         "<b>💡 เทคนิคที่ใช้</b> ผลต่างโคแทนเจนต์รวมเป็นเศษส่วนเดียวได้เสมอ: $\\cot x - \\cot y = \\dfrac{\\sin(y - x)}{\\sin x\\sin y}$ — สูตรนี้โผล่บ่อยในโจทย์มุมก้ม/มุมเงยสองตำแหน่ง",
         "เห็นตัวเลือกมี $\\cos(x + y)$ ให้นึกถึงผลคูณเป็นผลต่าง",
         "<b>⚠️ จุดที่เด็กมักผิด</b> เรือใกล้ต้องมุมก้มใหญ่กว่า ($y > x$) — ตั้งสมการสลับลำเครื่องหมายจะพัง",
         "ลืมว่า $\\sin(y - x) = -\\sin(x - y)$ แล้วไปเลือกข้อ 1 ที่วงเล็บกลับด้าน"
       ],
-      "notes": "h = z/(cotx−coty) = z·sinx·siny/sin(y−x) = (z/2)cosec(x−y)[cos(x+y)−cos(x−y)] ; sympy เทียบทั้ง 4 ตัวเลือก เท่าเฉพาะข้อ 2 ; ตรง key footer หน้า 19 (101.2) + เฉลย PDF หน้า 18 ; สองชั้น: M2 กฎของไซน์ใน △ACD (มุม CAD = y−x) ; ตัวลวง: ข้อ 1 สลับเครื่องหมายวงเล็บ (พลาด sin(y−x) = −sin(x−y)), ข้อ 3/4 รูป cot ไม่ equivalent"
+      "notes": "h = z/(cotx−coty) = z·sinx·siny/sin(y−x) = (z/2)csc(x−y)[cos(x+y)−cos(x−y)] ; sympy เทียบทั้ง 4 ตัวเลือก เท่าเฉพาะข้อ 2 ; ตรง key footer หน้า 19 (101.2) + เฉลย PDF หน้า 18 ; สองชั้น: M2 กฎของไซน์ใน △ACD (มุม CAD = y−x) ; ตัวลวง: ข้อ 1 สลับเครื่องหมายวงเล็บ (พลาด sin(y−x) = −sin(x−y)), ข้อ 3/4 รูป cot ไม่ equivalent"
     },
     {
       "id": "chap-07-trigonometry-q102",
@@ -19321,7 +19321,7 @@
       "type": "mc",
       "level": "medium",
       "score": 1,
-      "question": "ค่าของ $\\left(\\dfrac{1}{\\sec^2\\alpha} - \\dfrac{1}{\\operatorname{cosec}^2\\alpha}\\right)^2 - \\dfrac{4}{3}\\left(\\sin^6\\alpha + \\cos^6\\alpha\\right)$ เท่ากับข้อใดต่อไปนี้",
+      "question": "ค่าของ $\\left(\\dfrac{1}{\\sec^2\\alpha} - \\dfrac{1}{\\csc^2\\alpha}\\right)^2 - \\dfrac{4}{3}\\left(\\sin^6\\alpha + \\cos^6\\alpha\\right)$ เท่ากับข้อใดต่อไปนี้",
       "choices": [
         "$1$",
         "$\\dfrac{1}{3}$",
@@ -19334,7 +19334,7 @@
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
         "ส่วนกลับ: $\\dfrac{1}{\\sec^2\\alpha} = \\cos^2\\alpha$",
-        "และ $\\dfrac{1}{\\operatorname{cosec}^2\\alpha} = \\sin^2\\alpha$",
+        "และ $\\dfrac{1}{\\csc^2\\alpha} = \\sin^2\\alpha$",
         "มุมสองเท่า: $\\cos^2\\alpha - \\sin^2\\alpha = \\cos 2\\alpha$",
         "และ $\\sin 2\\alpha = 2\\sin\\alpha\\cos\\alpha$",
         "สูตรกำลังหก: $\\sin^6\\alpha + \\cos^6\\alpha = 1 - 3\\sin^2\\alpha\\cos^2\\alpha$ (ได้จากยกกำลังสาม $\\sin^2\\alpha + \\cos^2\\alpha = 1$)",
@@ -19344,7 +19344,7 @@
         "<b>【 วิธีที่ 1 ▸ พื้นฐาน · ลดเหลือ $\\sin^2 2\\alpha$ แล้วรวบ (reduce using double-angle) 】</b>",
         "<b>เครื่องมือ:</b> แปลงทั้งสองพจน์เป็นฟังก์ชันของ $\\sin^2 2\\alpha$ โดยใช้มุมสองเท่ากับสูตรกำลังหก",
         "<b>ขั้นที่ 1:</b> พจน์แรก:",
-        "$\\begin{aligned} \\dfrac{1}{\\sec^2\\alpha} - \\dfrac{1}{\\operatorname{cosec}^2\\alpha} &= \\cos^2\\alpha - \\sin^2\\alpha \\\\ &= \\cos 2\\alpha \\end{aligned}$",
+        "$\\begin{aligned} \\dfrac{1}{\\sec^2\\alpha} - \\dfrac{1}{\\csc^2\\alpha} &= \\cos^2\\alpha - \\sin^2\\alpha \\\\ &= \\cos 2\\alpha \\end{aligned}$",
         "ดังนั้นพจน์แรกทั้งก้อนคือ $\\cos^2 2\\alpha = 1 - \\sin^2 2\\alpha$",
         "<b>ขั้นที่ 2:</b> พจน์หลัง: $\\sin^6\\alpha + \\cos^6\\alpha = 1 - 3\\sin^2\\alpha\\cos^2\\alpha$ และจาก $\\sin\\alpha\\cos\\alpha = \\dfrac{\\sin 2\\alpha}{2}$",
         "จะได้ $\\sin^2\\alpha\\cos^2\\alpha = \\dfrac{\\sin^2 2\\alpha}{4}$",
@@ -19356,7 +19356,7 @@
         "<b>เครื่องมือ:</b> นิพจน์ถามค่าโดยไม่กำหนด $\\alpha$",
         "→ ค่าต้องคงที่ทุก $\\alpha$",
         "→ แทนมุมง่ายสุดได้เลย",
-        "แทน $\\alpha = 45^\\circ$: $\\sec^2 45^\\circ = \\operatorname{cosec}^2 45^\\circ = 2$",
+        "แทน $\\alpha = 45^\\circ$: $\\sec^2 45^\\circ = \\csc^2 45^\\circ = 2$",
         "→ พจน์แรก $= \\left(\\tfrac{1}{2} - \\tfrac{1}{2}\\right)^2 = 0$",
         "$\\begin{aligned} \\sin^6 45^\\circ + \\cos^6 45^\\circ &= \\dfrac{1}{8} + \\dfrac{1}{8} \\\\ &= \\dfrac{1}{4} \\end{aligned}$",
         "→ ได้ $0 - \\dfrac{4}{3}\\cdot\\dfrac{1}{4} = -\\dfrac{1}{3}$",

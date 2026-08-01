@@ -1667,7 +1667,7 @@
       ],
       "difficulty": "ปานกลาง",
       "type": "mc",
-      "question": "ถ้า $\\alpha$ และ $\\theta$ เป็นจำนวนจริงโดยที่ $0 < \\theta < \\alpha < 90°$ และสอดคล้องกับสมการ $\\tan(\\alpha + \\theta) = 5\\tan(\\alpha - \\theta)$ แล้ว $(\\sin 2\\theta)(\\operatorname{cosec} 2\\alpha)$ เท่ากับข้อใดต่อไปนี้",
+      "question": "ถ้า $\\alpha$ และ $\\theta$ เป็นจำนวนจริงโดยที่ $0 < \\theta < \\alpha < 90°$ และสอดคล้องกับสมการ $\\tan(\\alpha + \\theta) = 5\\tan(\\alpha - \\theta)$ แล้ว $(\\sin 2\\theta)(\\csc 2\\alpha)$ เท่ากับข้อใดต่อไปนี้",
       "choices": [
         "$\\dfrac{5}{6}$",
         "$\\dfrac{5}{4}$",
@@ -1677,9 +1677,9 @@
       "correct": 3,
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
-        "$\\begin{aligned} \\tan x &= \\dfrac{\\sin x}{\\cos x} \\\\ \\text{สูตรผลคูณเป็นผลบวก:} 2\\sin A \\cos B &= \\sin(A + B) + \\sin(A - B) \\\\ \\operatorname{cosec} x &= \\dfrac{1}{\\sin x} \\text{(เป็นส่วนกลับของ} \\sin \\text{)} \\\\ \\sin(-x) &= -\\sin x \\text{(ฟังก์ชันคี่)} \\end{aligned}$",
+        "$\\begin{aligned} \\tan x &= \\dfrac{\\sin x}{\\cos x} \\\\ \\text{สูตรผลคูณเป็นผลบวก:} 2\\sin A \\cos B &= \\sin(A + B) + \\sin(A - B) \\\\ \\csc x &= \\dfrac{1}{\\sin x} \\text{(เป็นส่วนกลับของ} \\sin \\text{)} \\\\ \\sin(-x) &= -\\sin x \\text{(ฟังก์ชันคี่)} \\end{aligned}$",
         "",
-        "<b>🎯 เป้าหมาย</b> หาค่า $(\\sin 2\\theta)(\\operatorname{cosec} 2\\alpha)$",
+        "<b>🎯 เป้าหมาย</b> หาค่า $(\\sin 2\\theta)(\\csc 2\\alpha)$",
         "",
         "<b>【 วิธีที่ 1 ▸ พื้นฐาน · กระจาย tan แล้วใช้สูตรผลคูณเป็นผลบวก (expand tangent, product-to-sum) 】</b>",
         "<b>ขั้นที่ 1: เปลี่ยน $\\tan$ เป็น $\\dfrac{\\sin}{\\cos}$ แล้วคูณไขว้</b>",
@@ -1700,7 +1700,7 @@
         "$\\begin{aligned} \\sin 2\\theta + 5\\sin 2\\theta &= 5\\sin 2\\alpha - \\sin 2\\alpha \\\\ 6\\sin 2\\theta &= 4\\sin 2\\alpha \\\\ \\dfrac{\\sin 2\\theta}{\\sin 2\\alpha} &= \\dfrac{4}{6} \\\\ &= \\dfrac{2}{3} \\end{aligned}$",
         "",
         "<b>ขั้นที่ 6: เขียนในรูปที่โจทย์ถาม</b>",
-        "$\\begin{aligned} (\\sin 2\\theta)(\\operatorname{cosec} 2\\alpha) &= \\sin 2\\theta \\cdot \\dfrac{1}{\\sin 2\\alpha} \\\\ &= \\dfrac{\\sin 2\\theta}{\\sin 2\\alpha} \\\\ &= \\dfrac{2}{3} \\end{aligned}$",
+        "$\\begin{aligned} (\\sin 2\\theta)(\\csc 2\\alpha) &= \\sin 2\\theta \\cdot \\dfrac{1}{\\sin 2\\alpha} \\\\ &= \\dfrac{\\sin 2\\theta}{\\sin 2\\alpha} \\\\ &= \\dfrac{2}{3} \\end{aligned}$",
         "",
         "<b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ · จับคู่สัดส่วนเข้าสูตรผลบวกผลต่างมุม (componendo with sum-difference formulas) 】</b>",
         "เขียนเงื่อนไขเป็นอัตราส่วน $\\dfrac{\\sin(\\alpha+\\theta)\\cos(\\alpha-\\theta)}{\\cos(\\alpha+\\theta)\\sin(\\alpha-\\theta)} = \\dfrac{5}{1}$ แล้วใช้ componendo–dividendo: $\\dfrac{N + D}{N - D} = \\dfrac{5+1}{5-1} = \\dfrac{3}{2}$",
@@ -1708,7 +1708,7 @@
         "$\\begin{aligned} N + D &= \\sin\\big((\\alpha+\\theta) + (\\alpha-\\theta)\\big) \\\\ &= \\sin 2\\alpha \\end{aligned}$",
         "และ",
         "$\\begin{aligned} N - D &= \\sin\\big((\\alpha+\\theta) - (\\alpha-\\theta)\\big) \\\\ &= \\sin 2\\theta \\end{aligned}$",
-        "→ $\\dfrac{\\sin 2\\alpha}{\\sin 2\\theta} = \\dfrac{3}{2}$ → $(\\sin 2\\theta)(\\operatorname{cosec} 2\\alpha) = \\dfrac{2}{3}$ → ตัวเลือก 4",
+        "→ $\\dfrac{\\sin 2\\alpha}{\\sin 2\\theta} = \\dfrac{3}{2}$ → $(\\sin 2\\theta)(\\csc 2\\alpha) = \\dfrac{2}{3}$ → ตัวเลือก 4",
         "<b>ข้อต่าง:</b> จับคู่ $N \\pm D$ เป็นสูตรผลบวก/ผลต่างมุมโดยตรง จบ 2 บรรทัด แทนการคูณไขว้กระจาย 6 ขั้น",
         "",
         "<b>✔ ตรวจคำตอบ:</b> ลองหาค่ามุมจริงที่สอดคล้อง เช่นแก้เชิงตัวเลขได้ $\\alpha \\approx 50.8°, \\theta \\approx 25.7°$ แล้วคำนวณ $\\dfrac{\\sin 2\\theta}{\\sin 2\\alpha} \\approx \\dfrac{\\sin 51.4°}{\\sin 101.6°} \\approx \\dfrac{0.781}{0.980} \\approx 0.667 = \\dfrac{2}{3}$ ✓",
@@ -1717,11 +1717,11 @@
         "",
         "<b>💡 เทคนิคที่ใช้</b>",
         "เจอ $\\sin \\times \\cos$ ของมุมผลบวก/ผลต่าง → คูณ $2$ แล้วแปลงเป็นผลบวกของ $\\sin$ ด้วยสูตร $2\\sin A\\cos B$ ทำให้พจน์ยุบรวมกันได้ง่าย",
-        "$\\operatorname{cosec} = 1/\\sin$ ทำให้คำตอบกลายเป็นอัตราส่วน $\\sin/\\sin$ พอดี",
+        "$\\csc = 1/\\sin$ ทำให้คำตอบกลายเป็นอัตราส่วน $\\sin/\\sin$ พอดี",
         "",
         "<b>⚠️ จุดที่เด็กมักผิด</b>",
         "เด็กมักลืมว่า $\\sin(A-B)$ ในสูตรของข้างขวาให้ $\\sin(-2\\theta)$ ซึ่งต้องเปลี่ยนเป็น $-\\sin 2\\theta$ (ถ้าลืมเครื่องหมายลบ จะได้คำตอบผิด)",
-        "อีกจุดคือเข้าใจผิดว่า $\\operatorname{cosec}$ คือ $\\cos$ ส่วนกลับ — จริง ๆ คือ $\\sin$ ส่วนกลับ"
+        "อีกจุดคือเข้าใจผิดว่า $\\csc$ คือ $\\cos$ ส่วนกลับ — จริง ๆ คือ $\\sin$ ส่วนกลับ"
       ]
     },
     {

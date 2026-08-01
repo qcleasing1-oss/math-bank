@@ -68,7 +68,7 @@ scan_symbols.py — ตัวตรวจสัญลักษณ์ต้อง
 import json, os, sys, argparse, subprocess
 import datetime as _dt
 
-SCANNER_VERSION = '2.4'
+SCANNER_VERSION = '2.5'
 SCANNER_DATE = '2026-08-01'
 
 # คีย์ที่สคริปต์รุ่นนี้ "ใช้ตัดสินจริง" — ขาดข้อใดข้อหนึ่ง = ตัวตรวจใช้ไม่ได้ (exit 2)
@@ -292,6 +292,22 @@ def git_out(args, cwd):
 def repo_root(path):
     out = git_out(['rev-parse', '--show-toplevel'], path)
     return out.strip() if out else None
+
+
+def ids_payload(ids):
+    """ข้อความที่โหมด --print-changed-ids จะพิมพ์ออก stdout — รหัสข้อล้วน บรรทัดละตัว
+
+    ⛔ ห้ามมีอะไรปนแม้แต่บรรทัดเดียว เพราะปลายทาง (ด่าน 8 ใน guards.yml)
+       เอาไปคั่นด้วย ',' แล้วส่งต่อให้ check_answer_claim.py
+       ถ้าแบนเนอร์หลุดมาปน รหัสข้อจะเพี้ยนทั้งชุดโดยไม่มีใครเห็น
+    ⇒ ทุกอย่างที่ไม่ใช่รหัสข้อ ต้องออกทาง stderr เท่านั้น
+
+    เหตุผลที่ต้องมีโหมดนี้ (แทนที่จะให้ด่าน 8 หาข้อที่เปลี่ยนเอง):
+      ถ้ามีตัวหา "ข้อที่เปลี่ยน" สองตัว วันหนึ่งมันจะตอบไม่ตรงกัน
+      แล้วเราจะมีด่านที่บังคับกฎกับข้อคนละชุด โดยไม่มีใครรู้
+      ⇒ ให้มีที่เดียวที่ตอบคำถามว่า "รอบนี้ข้อไหนเปลี่ยน"
+    """
+    return '\n'.join(sorted(ids))
 
 
 def collect_changed_ids(sets_dir, since_ref, changed_files, base_ref):
@@ -697,6 +713,12 @@ def run_canary():
         ("ต้นไม้งานสกปรก ⇒ ต้องติดป้ายไว้ ไม่ใช่เขียน sha เฉย ๆ",
          _pvd['_measuredAtCommit'].startswith('abc1234')
          and 'ยังไม่ commit' in _pvd['_measuredAtCommit']),
+        ("── ส่งต่อรหัสข้อ ── เรียงแล้ว บรรทัดละตัว ⛔ ไม่มีอะไรปน",
+         ids_payload({'B-2', 'A-1'}) == 'A-1\nB-2'),
+        ("เซตว่าง ⇒ ข้อความว่าง ⛔ ไม่ใช่บรรทัดว่าง 1 บรรทัด (คั่น , แล้วจะได้ id ปลอม)",
+         ids_payload(set()) == ''),
+        ("รหัสข้อเดียว ⇒ ไม่มี \\n ต่อท้าย",
+         ids_payload({'X'}) == 'X'),
         ("🔴 ไม่มี git ให้ถาม ⇒ ต้องเขียนว่า 'ไม่ทราบ' ⛔ ห้ามคืน sha ปลอม/ค่าว่าง",
          'ไม่ทราบ' in _pvn['_measuredAtCommit']
          and 'abc' not in _pvn['_measuredAtCommit']),
@@ -863,6 +885,48 @@ def check_write_baseline(old, new, accept_reason=None):
 
 
 # ─────────────────────────────────────────────────────────────
+def print_changed_ids(args):
+    """โหมดสอบถามอย่างเดียว: รอบนี้ข้อไหนเปลี่ยน
+
+    ⛔ stdout = รหัสข้อล้วน · ทุกอย่างอื่นออก stderr
+    ⛔ หาขอบเขตไม่ได้ ⇒ รหัส 2 ห้ามพิมพ์รายการว่างแล้วจบ 0
+       ("ไม่มีอะไรให้ตอบ" ไม่เท่ากับ "ตอบแล้วว่าไม่มี" — กับดัก ⑥)
+    """
+    n_modes = sum(bool(x) for x in (args.since, args.changed, args.changed_ids))
+    if n_modes != 1:
+        print("🔴 --print-changed-ids ต้องมาคู่กับโหมด diff แบบใดแบบหนึ่งพอดี",
+              file=sys.stderr)
+        return 2
+
+    # canary ยังต้องผ่าน — แต่เสียงทั้งหมดออก stderr ไม่งั้นไปปนกับรหัสข้อ
+    keep = sys.stdout
+    sys.stdout = sys.stderr
+    try:
+        ok = run_canary()
+    finally:
+        sys.stdout = keep
+    if not ok:
+        print("🔴 CANARY ล้มเหลว ⇒ รายชื่อข้อที่เปลี่ยนเชื่อไม่ได้", file=sys.stderr)
+        return 2
+
+    if args.changed_ids:
+        ids = set(x.strip() for x in args.changed_ids.split(',') if x.strip())
+    else:
+        ids, scope, warn_msgs, _ = collect_changed_ids(
+            args.sets_dir, args.since, args.changed or [], args.base)
+        for m in (warn_msgs or []):
+            print(f"  ⚠️ {m}", file=sys.stderr)
+        if ids is None:
+            print("🔴 กำหนดขอบเขต diff ไม่ได้ ⇒ รหัส 2", file=sys.stderr)
+            return 2
+        print(f"  ขอบเขต: {scope} ⇒ {len(ids)} ข้อ", file=sys.stderr)
+
+    payload = ids_payload(ids)
+    if payload:
+        print(payload)
+    return 0
+
+
 def main():
     ap = argparse.ArgumentParser(
         description=f'scan_symbols.py v{SCANNER_VERSION} ({SCANNER_DATE})')
@@ -880,6 +944,9 @@ def main():
                     help='ฉบับเก่าที่ใช้เทียบในโหมด --changed (ปริยาย HEAD)')
     ap.add_argument('--changed-ids', metavar='ID,ID,…',
                     help='โหมด diff แบบไม่ต้องมี git: ระบุรหัสข้อที่เปลี่ยนเอง')
+    ap.add_argument('--print-changed-ids', action='store_true',
+                    help='พิมพ์เฉพาะรหัสข้อที่เปลี่ยน (บรรทัดละตัว) แล้วจบ'
+                         ' — ต้องใช้คู่กับ --since/--changed/--changed-ids')
     ap.add_argument('--version', action='store_true')
     args = ap.parse_args()
 
@@ -892,6 +959,9 @@ def main():
         print("\n  🔴 --accept-debt-increase ใช้ได้เฉพาะคู่กับ --write-baseline")
         print("     ⇒ ถ้ารับไว้เฉย ๆ ผู้ใช้จะเข้าใจว่า 'ประกาศเจตนาแล้ว' ทั้งที่ไม่มีอะไรเกิดขึ้น")
         sys.exit(2)
+
+    if args.print_changed_ids:
+        return print_changed_ids(args)
 
     print(f"scan_symbols.py v{SCANNER_VERSION} ({SCANNER_DATE})")
 
@@ -1110,4 +1180,7 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    # ⛔ ต้องเป็น sys.exit(main()) ไม่ใช่ main() เฉย ๆ
+    #    บั๊กจริง 1 ส.ค. 69: เติมโหมดใหม่ที่ใช้ `return 2` แล้วรหัสถูกกลืน ⇒ เชลล์เห็น 0
+    #    เป็นกับดัก ⑦ก อีกหน้าหนึ่ง — "คืนรหัสแล้ว" ไม่เท่ากับ "มีคนอ่านรหัส"
+    sys.exit(main())

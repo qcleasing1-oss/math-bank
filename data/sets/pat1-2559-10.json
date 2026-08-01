@@ -986,7 +986,7 @@
       "difficulty": "ปานกลาง",
       "questionNumber": 11,
       "type": "mc",
-      "question": "ถ้า $\\cos\\theta = \\dfrac{3}{5}$ และ $\\pi < \\theta < 2\\pi$ แล้ว $100 \\cot\\dfrac{\\theta}{2} \\operatorname{cosec}\\dfrac{\\theta}{2} \\sin\\dfrac{5\\theta}{2}$ ตรงกับข้อใดต่อไปนี้",
+      "question": "ถ้า $\\cos\\theta = \\dfrac{3}{5}$ และ $\\pi < \\theta < 2\\pi$ แล้ว $100 \\cot\\dfrac{\\theta}{2} \\csc\\dfrac{\\theta}{2} \\sin\\dfrac{5\\theta}{2}$ ตรงกับข้อใดต่อไปนี้",
       "choices": [
         "$-41$",
         "$-164$",
@@ -1051,7 +1051,7 @@
       ],
       "explanation": [
         "<b>📐 ความรู้พื้นฐาน</b>",
-        "$\\begin{aligned} \\text{•} \\cot A &= \\dfrac{\\cos A}{\\sin A} \\\\ \\text{และ} \\operatorname{cosec} A &= \\dfrac{1}{\\sin A} \\end{aligned}$",
+        "$\\begin{aligned} \\text{•} \\cot A &= \\dfrac{\\cos A}{\\sin A} \\\\ \\text{และ} \\csc A &= \\dfrac{1}{\\sin A} \\end{aligned}$",
         "$\\begin{aligned} \\text{• สูตรมุมสองเท่า :} \\sin 2A &= 2 \\sin A \\cos A \\text{,} \\\\ 1 - \\cos 2A &= 2 \\sin^2 A \\end{aligned}$",
         "• สูตรผลคูณเป็นผลบวก : $2 \\sin P \\cos Q = \\sin(P+Q) + \\sin(P-Q)$",
         "$\\begin{aligned} \\text{•} \\sin 2\\theta &= 2 \\sin\\theta \\cos\\theta \\\\ \\sin 3\\theta &= 3 \\sin\\theta - 4 \\sin^3\\theta \\end{aligned}$",
@@ -1062,7 +1062,7 @@
         "<b>【 พื้นฐาน · ลดรูปมุมครึ่งด้วยสูตรผลคูณเป็นผลบวก (Product-to-Sum Formula) 】</b>",
         "",
         "<b>ขั้นที่ 1: ลดรูปนิพจน์ให้อยู่ในรูปของ $\\theta$ (ไม่ใช่ $\\dfrac{\\theta}{2}$)</b>",
-        "$\\begin{aligned} \\cot\\dfrac{\\theta}{2} \\operatorname{cosec}\\dfrac{\\theta}{2} \\sin\\dfrac{5\\theta}{2} &= \\dfrac{\\cos\\frac{\\theta}{2}}{\\sin\\frac{\\theta}{2}} \\cdot \\dfrac{1}{\\sin\\frac{\\theta}{2}} \\cdot \\sin\\dfrac{5\\theta}{2} \\\\ &= \\dfrac{\\cos\\frac{\\theta}{2}\\,\\sin\\frac{5\\theta}{2}}{\\sin^2\\frac{\\theta}{2}} \\end{aligned}$",
+        "$\\begin{aligned} \\cot\\dfrac{\\theta}{2} \\csc\\dfrac{\\theta}{2} \\sin\\dfrac{5\\theta}{2} &= \\dfrac{\\cos\\frac{\\theta}{2}}{\\sin\\frac{\\theta}{2}} \\cdot \\dfrac{1}{\\sin\\frac{\\theta}{2}} \\cdot \\sin\\dfrac{5\\theta}{2} \\\\ &= \\dfrac{\\cos\\frac{\\theta}{2}\\,\\sin\\frac{5\\theta}{2}}{\\sin^2\\frac{\\theta}{2}} \\end{aligned}$",
         "คูณบนล่างด้วย 2 : $= \\dfrac{2\\sin\\frac{5\\theta}{2}\\cos\\frac{\\theta}{2}}{2\\sin^2\\frac{\\theta}{2}}$",
         "ตัวบนใช้สูตรผลคูณเป็นผลบวก ($P = \\frac{5\\theta}{2}, Q = \\frac{\\theta}{2}$) :",
         "$\\begin{aligned} 2\\sin\\frac{5\\theta}{2}\\cos\\frac{\\theta}{2} &= \\sin 3\\theta + \\sin 2\\theta \\\\ \\text{ตัวล่างใช้} 2\\sin^2\\frac{\\theta}{2} &= 1 - \\cos\\theta \\\\ \\text{ดังนั้นนิพจน์ทั้งหมด} &= 100 \\cdot \\dfrac{\\sin 3\\theta + \\sin 2\\theta}{1 - \\cos\\theta} \\text{...(*)} \\end{aligned}$",

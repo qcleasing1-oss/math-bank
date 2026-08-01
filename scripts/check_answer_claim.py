@@ -13,6 +13,16 @@
    ⇒ ต้องมี --selftest ที่พิสูจน์ว่า "มีของให้จับแล้วจับได้จริง" ก่อนเชื่อผลกับไฟล์จริง
    (กับดักข้อ ⑦ เดียวกับด่าน 6)
 
+v1.1 (1 ส.ค. 69) — ชั้นบังคับตามขอบเขต diff (มติพอร์ทัล E→MB #02 ข้อ 2)
+  พอร์ทัลรับทางเลือก (ก) "ปล่อยหนี้เก่าไว้ที่ 66.3% + บังคับเฉพาะข้อที่แต่งใหม่"
+  พร้อมเงื่อนไขว่า **ต้องเป็นด่านจริง ไม่ใช่ข้อตกลงในจดหมาย**
+  ⇒ โหมด --enforce-declared: ข้อที่ "เปลี่ยนในรอบนี้" ต้องประกาศเลขตัวเลือกได้
+     ข้อเก่าไม่แดง · ข้อใหม่ที่ไม่ประกาศ = แดง
+  ⛔ ด่านนี้ (ด่าน 8) ไม่ตัดสินเรื่อง "เฉลยขัดคีย์" — นั่นเป็นงานของด่าน 7
+     แยกกันเพื่อให้ตอบได้ทันทีว่า "แดงเพราะด่านไหน" (บทเรียนข้อ ๘ ของรอบ 14)
+  ⛔ รายชื่อ "ข้อที่เปลี่ยนรอบนี้" ไม่ได้คำนวณในไฟล์นี้ — รับมาจาก
+     scan_symbols.py --print-changed-ids เพื่อให้มีที่เดียวที่ตอบคำถามนี้
+
 รหัสออก: 0 = ผ่าน · 1 = เนื้อหาแดง · 2 = ตัวเครื่องมือแดง
 """
 import argparse
@@ -22,7 +32,7 @@ import os
 import re
 import sys
 
-CHECKER_VERSION = '1.0'
+CHECKER_VERSION = '1.1'
 
 # ── บรรทัดที่ถือว่า "ประกาศคำตอบ" ────────────────────────────
 ANSWER_MARKERS = ('✅', 'คำตอบ:', 'คำตอบคือ', 'จึงตอบ', 'ดังนั้นตอบ')
@@ -73,8 +83,13 @@ def eligible(q):
 
 
 def scan(sets_dir, fn=declared_choice):
-    """คืน (bad[], stat{})"""
+    """คืน (bad[], stat{}, recs[])
+
+    recs = [(ชื่อไฟล์, รหัสข้อ, สถานะ)] ของทุกข้อที่เข้าข่ายตรวจ
+           ⇒ ชั้นบังคับ (v1.1) ใช้รายการนี้ ไม่ต้องเดินไฟล์ซ้ำ
+    """
     bad = []
+    recs = []
     stat = {'eligible': 0, 'one': 0, 'many': 0, 'none': 0}
     files = sorted(glob.glob(os.path.join(sets_dir, '*.json')))
     if not files:
@@ -93,9 +108,29 @@ def scan(sets_dir, fn=declared_choice):
             stat['eligible'] += 1
             kind, val = fn(q['explanation'])
             stat[kind] += 1
+            recs.append((os.path.basename(f), q.get('id'), kind))
             if kind == 'one' and val != q['correct'] + 1:
                 bad.append((os.path.basename(f), q.get('id'), val, q['correct'] + 1))
-    return bad, stat
+    return bad, stat, recs
+
+
+# ── ชั้นบังคับ v1.1 ──────────────────────────────────────────
+def enforce_verdict(recs, scope_ids):
+    """คืนรายการข้อที่ต้องแดงเพราะ "เปลี่ยนในรอบนี้แต่ประกาศเลขตัวเลือกไม่ได้"
+
+    scope_ids = None      ⇒ บังคับทั้งคลัง (ใช้ตรวจด้วยมือ — วันนี้จะแดงเป็นพันข้อ)
+    scope_ids = เซตว่าง   ⇒ รอบนี้ไม่มีข้อไหนเปลี่ยน ⇒ ไม่มีอะไรให้บังคับ
+    ⛔ เซตว่าง กับ None ต้องไม่ยุบเป็นค่าเดียวกัน
+       "ไม่มีข้อเปลี่ยน" ≠ "ไม่ได้จำกัดขอบเขต" (กับดัก ⑥)
+    ⛔ 'many' ก็ต้องแดง — เพราะจุดประสงค์คือ "ตรวจได้จริง" ไม่ใช่ "มีคำว่าตัวเลือก"
+    """
+    out = []
+    for fname, qid, kind in recs:
+        if scope_ids is not None and qid not in scope_ids:
+            continue
+        if kind != 'one':
+            out.append((fname, qid, kind))
+    return out
 
 
 # ═════════════════════════════════════════════════════════════
@@ -138,6 +173,73 @@ CASES = [
     ("บรรทัดที่ไม่ใช่สตริง (None ปนมา) ต้องไม่ทำให้ด่านล้ม",
      [None, '✅ คำตอบ: ตัวเลือก 1'], 0, False, 'one'),
 ]
+
+
+# (ชื่อเคส, recs, scope, รหัสข้อที่ต้องแดง)
+#  ⛔ ตั้งใจใช้รหัสข้อชุดใหม่ที่ไม่ทับกับ CASES ข้างบน — กับดัก ⑦ข ของพอร์ทัล:
+#     มิวแทนต์ที่ทับกับตัวอย่างเดิม จะทำให้ด่านแดงด้วยเหตุผลผิดตัว
+ENFORCE_CASES = [
+    ("ข้อที่เปลี่ยนรอบนี้ ไม่ประกาศเลข ⇒ ต้องแดง",
+     [('f.json', 'NEW-1', 'none')], {'NEW-1'}, ['NEW-1']),
+
+    ("ข้อเก่าที่ไม่ได้แตะ ไม่ประกาศเลข ⇒ ต้องไม่แดง (ไม่ไล่เก็บหนี้เก่า)",
+     [('f.json', 'OLD-1', 'none')], {'NEW-1'}, []),
+
+    ("ข้อที่เปลี่ยนรอบนี้ ประกาศเลขเดียว ⇒ ต้องไม่แดง",
+     [('f.json', 'NEW-1', 'one')], {'NEW-1'}, []),
+
+    ("ข้อที่เปลี่ยนรอบนี้ ประกาศหลายเลข ⇒ ต้องแดง (ตรวจไม่ได้ = ยังไม่ผ่าน)",
+     [('f.json', 'NEW-2', 'many')], {'NEW-2'}, ['NEW-2']),
+
+    ("ปนกัน — ต้องแดงเฉพาะข้อที่อยู่ในขอบเขต",
+     [('f.json', 'OLD-1', 'none'), ('f.json', 'NEW-1', 'none'),
+      ('f.json', 'NEW-2', 'one')], {'NEW-1', 'NEW-2'}, ['NEW-1']),
+
+    ("รอบนี้ไม่มีข้อไหนเปลี่ยน (เซตว่าง) ⇒ ไม่มีอะไรให้บังคับ",
+     [('f.json', 'OLD-1', 'none'), ('f.json', 'OLD-2', 'many')], set(), []),
+
+    ("🔴 ขอบเขต None = ทั้งคลัง ⛔ ต้องไม่ยุบรวมกับเซตว่าง",
+     [('f.json', 'OLD-1', 'none'), ('f.json', 'OLD-2', 'many')], None,
+     ['OLD-1', 'OLD-2']),
+
+    ("รหัสข้อในขอบเขตที่ไม่มีอยู่ในคลัง (ข้อถูกลบ/เปลี่ยนชื่อ) ⇒ ต้องไม่ล้ม",
+     [('f.json', 'NEW-1', 'one')], {'NEW-1', 'GHOST-9'}, []),
+]
+
+
+def _mut_ignore_scope(recs, scope_ids):
+    """มิวแทนต์ ③ ลืมขอบเขต ⇒ ไล่เก็บหนี้เก่าทั้งคลัง (ด่านจะแดงตลอดกาล)"""
+    return [(f, q, k) for f, q, k in recs if k != 'one']
+
+
+def _mut_many_is_ok(recs, scope_ids):
+    """มิวแทนต์ ④ ถือว่า 'ประกาศหลายเลข' ใช้ได้ ⇒ ช่องเลี่ยงที่เขียนง่ายมาก"""
+    out = []
+    for f, q, k in recs:
+        if scope_ids is not None and q not in scope_ids:
+            continue
+        if k == 'none':
+            out.append((f, q, k))
+    return out
+
+
+def _mut_never_red(recs, scope_ids):
+    """มิวแทนต์ ⑤ ไม่บังคับอะไรเลย ⇒ กติกากลับไปอยู่แต่ในจดหมาย"""
+    return []
+
+
+def _run_enforce_cases(fn):
+    """คืนรายชื่อเคสที่ล้มเมื่อใช้ fn เป็นตัวตัดสินชั้นบังคับ"""
+    fails = []
+    for name, recs, scope, want in ENFORCE_CASES:
+        try:
+            got = sorted(q for _, q, _ in fn(recs, scope))
+            good = got == sorted(want)
+        except Exception:
+            good = False
+        if not good:
+            fails.append(name)
+    return fails
 
 
 def _mut_no_distractor_filter(explanation):
@@ -201,6 +303,28 @@ def selftest():
         ok &= good
 
     print()
+    print('  ── ชั้นบังคับตามขอบเขต diff (v1.1) ──')
+    for name, recs, scope, want in ENFORCE_CASES:
+        got = sorted(q for _, q, _ in enforce_verdict(recs, scope))
+        good = got == sorted(want)
+        print(f'  {"✅" if good else "🔴"}  {name}')
+        ok &= good
+
+    print()
+    print('  ── มิวแทนต์ของชั้นบังคับ — และ "ถูกจับด้วยเคสไหน" ──')
+    print('     (พอร์ทัลเสนอกับดัก ⑦ข: แดงแล้วยังต้องถามว่าแดงเพราะเคสที่ตั้งใจหรือเปล่า)')
+    for label, fails in (
+        ('③ ลืมขอบเขต ⇒ ไล่เก็บหนี้เก่า', _run_enforce_cases(_mut_ignore_scope)),
+        ('④ ยอมรับ "ประกาศหลายเลข"',      _run_enforce_cases(_mut_many_is_ok)),
+        ('⑤ ไม่บังคับอะไรเลย',            _run_enforce_cases(_mut_never_red)),
+    ):
+        good = len(fails) > 0
+        print(f'  {"✅" if good else "🔴"}  มิวแทนต์ {label} ⇒ ล้ม {len(fails)}/{len(ENFORCE_CASES)} เคส')
+        for f in fails[:2]:
+            print(f'         ↳ จับได้ที่: {f}')
+        ok &= good
+
+    print()
     if not ANSWER_MARKERS or not DISTRACTOR_MARKERS:
         print('  🔴 รายการคำสำคัญว่าง ⇒ ด่านนี้จะเขียวตลอดกาลโดยไม่ตรวจอะไร')
         ok = False
@@ -211,7 +335,8 @@ def selftest():
     if not ok:
         print('🔴 SELF-TEST ไม่ผ่าน ⇒ ผลของด่านนี้กับไฟล์จริงเชื่อไม่ได้')
         sys.exit(2)
-    print(f'✅ SELF-TEST ผ่านครบ {len(CASES)} เคส + มิวแทนต์ 2 ตัว')
+    print(f'✅ SELF-TEST ผ่านครบ {len(CASES)} + {len(ENFORCE_CASES)} เคส'
+          f' + มิวแทนต์ 5 ตัว')
     return 0
 
 
@@ -223,6 +348,12 @@ def main():
     ap.add_argument('--version', action='store_true')
     ap.add_argument('--min-coverage', type=float, default=DEFAULT_MIN_COVERAGE,
                     help='สัดส่วนขั้นต่ำของข้อที่ต้องตรวจได้จริง (กันด่านตาบอดเงียบ)')
+    ap.add_argument('--enforce-declared', action='store_true',
+                    help='โหมดด่าน 8: บังคับว่าข้อที่เปลี่ยนรอบนี้ต้องประกาศเลขตัวเลือกได้')
+    ap.add_argument('--changed-ids', default=None, metavar='ID,ID,…',
+                    help='ขอบเขตของ --enforce-declared'
+                         ' (รับจาก scan_symbols.py --print-changed-ids)'
+                         ' ⛔ ไม่ระบุธงนี้เลย = ทั้งคลัง · ระบุเป็นค่าว่าง = รอบนี้ไม่มีข้อเปลี่ยน')
     a = ap.parse_args()
 
     if a.version:
@@ -231,7 +362,12 @@ def main():
     if a.selftest:
         return selftest()
 
-    bad, st = scan(a.sets_dir)
+    if a.changed_ids is not None and not a.enforce_declared:
+        print('🔴 --changed-ids ใช้ได้เฉพาะคู่กับ --enforce-declared')
+        print('   ⇒ ถ้ารับไว้เฉย ๆ จะเข้าใจว่า "จำกัดขอบเขตแล้ว" ทั้งที่ไม่มีอะไรเกิดขึ้น')
+        return 2
+
+    bad, st, recs = scan(a.sets_dir)
     elig = st['eligible']
     cov = (st['one'] / elig) if elig else 0.0
 
@@ -240,7 +376,39 @@ def main():
     print(f'  ประกาศหลายเลข ⇒ ข้าม        : {st["many"]} ข้อ')
     print(f'  ไม่ประกาศเลข ⇒ ตรวจไม่ได้    : {st["none"]} ข้อ')
     print('  ⛔ "ตรวจไม่ได้" ไม่เท่ากับ "ตรวจแล้วผ่าน"')
+    print(f'  📈 ตัวเลขครอบคลุมของรอบนี้ = {cov*100:.1f}%'
+          '  (ตกลงกับพอร์ทัลว่าจะพิมพ์ทุกรอบ — ถ้ามันนิ่ง แปลว่าชั้นบังคับไม่ทำงาน)')
     print()
+
+    # ── โหมดด่าน 8 — บังคับเฉพาะของใหม่ ──────────────────────
+    if a.enforce_declared:
+        if a.changed_ids is None:
+            scope = None
+            print('  ขอบเขต: ทั้งคลัง (ไม่ได้ระบุ --changed-ids)')
+        else:
+            scope = set(x.strip() for x in a.changed_ids.split(',') if x.strip())
+            print(f'  ขอบเขต: ข้อที่เปลี่ยนรอบนี้ {len(scope)} ข้อ')
+            ghosts = scope - {q for _, q, _ in recs}
+            if ghosts:
+                print(f'  🟠 มี {len(ghosts)} รหัสในขอบเขตที่ไม่ใช่ข้อปรนัยที่ตรวจได้'
+                      ' (ข้อเติมคำ/ถูกลบ/ไม่มีคีย์) ⇒ ไม่บังคับ')
+        need = enforce_verdict(recs, scope)
+        print(f'  ⛔ ด่านนี้ไม่ตัดสินเรื่อง "เฉลยขัดคีย์" — นั่นเป็นงานของด่าน 7')
+        print()
+        if need:
+            print(f'🔴 ข้อที่เปลี่ยนรอบนี้แต่ประกาศเลขตัวเลือกไม่ได้ {len(need)} ข้อ:')
+            for f, qid, kind in need:
+                why = ('ไม่ประกาศเลขตัวเลือกเลย' if kind == 'none'
+                       else 'ประกาศหลายเลขในบรรทัดคำตอบ ⇒ ตัดสินไม่ได้')
+                print(f'   {qid:<28} {why}   [{f}]')
+            print()
+            print('   วิธีแก้: เติมบรรทัดสรุปท้ายเฉลยให้ชัด เช่น')
+            print('           <b>✅ คำตอบ: … → ตัวเลือก 3</b>')
+            print('   เหตุผล: ข้อที่ไม่ประกาศเลข ด่าน 7 มองไม่เห็นตลอดไป')
+            print('           ⇒ ถ้าปล่อยให้ของใหม่ไม่ประกาศ ตัวเลขครอบคลุมจะไม่มีวันโต')
+            return 1
+        print('✅ ข้อที่เปลี่ยนรอบนี้ ประกาศเลขตัวเลือกได้ครบทุกข้อ')
+        return 0
 
     if elig and cov < a.min_coverage:
         print(f'🔴 ตรวจได้จริงแค่ {cov*100:.1f}% ต่ำกว่าเพดานล่าง {a.min_coverage*100:.0f}%')

@@ -1,16 +1,16 @@
 {
   "_comment": "เส้นฐาน ratchet ของ scan_symbols.py — ยอดค้างลดได้อย่างเดียว ห้ามโต",
   "_measuredOn": "2026-08-01",
-  "_measuredAtCommit": "df8f21a+ยังไม่ commit  ⚠️ วัดจากต้นไม้งานที่มีของแก้ค้างอยู่ ⇒ commit นี้เพียว ๆ ให้เลขนี้ไม่ได้",
-  "_scannerVersion": "2.4",
-  "_method": "scripts/scan_symbols.py v2.4 · walker ลง imageSpec · โหมดทั้งคลัง (ไม่มี --since/--changed) · คีย์ 3 ตัวนี้ถูกเขียนทับทุกครั้งที่ --write-baseline",
+  "_measuredAtCommit": "c170d77+ยังไม่ commit  ⚠️ วัดจากต้นไม้งานที่มีของแก้ค้างอยู่ ⇒ commit นี้เพียว ๆ ให้เลขนี้ไม่ได้",
+  "_scannerVersion": "2.5",
+  "_method": "scripts/scan_symbols.py v2.5 · walker ลง imageSpec · โหมดทั้งคลัง (ไม่มี --since/--changed) · คีย์ 3 ตัวนี้ถูกเขียนทับทุกครั้งที่ --write-baseline",
   "_owner": "math-bank เท่านั้น — พอร์ทัลอ่านอย่างเดียว ห้ามเขียน (กติกา 31 ก.ค. 69 ข้อ 3) ถ้าเลขไม่ตรง ให้ถามกลับ ไม่ใช่แก้ไฟล์นี้",
   "_pairRule": "ไฟล์นี้กับ scripts/scan_symbols.py ต้อง sync เป็นคู่เสมอ — v2.2 ขึ้นไป ถ้าขาดคีย์ warn_questions หรือ block_questions_legacy สคริปต์จะออกรหัส 2 (ตัวตรวจใช้ไม่ได้) ไม่ใช่ผ่านเงียบ ๆ · v2.3 ขึ้นไป ถ้าไฟล์นี้ประทับรุ่น *ใหม่กว่า* สคริปต์ ก็ออกรหัส 2 เช่นกัน (สคริปต์เก่าไม่รู้จักคีย์ที่รุ่นหลังเพิ่ม) — ประทับเก่ากว่าแค่เตือน",
   "_writeRule": "v2.3 ขึ้นไป --write-baseline จะปฏิเสธ (รหัส 2) เมื่อยอดค้างโตขึ้น หรือเมื่อเทียบกับ ยอดเดิมไม่ได้ (คีย์หาย/ชนิดผิด/ไฟล์พัง) — ต้องประกาศเจตนาด้วย --accept-debt-increase '<เหตุผล>' แล้วเหตุผลจะถูกบันทึกที่คีย์ _lastIncrease · ยอดที่ลดลงและการตั้งต้นครั้งแรกยังเขียนได้ตามปกติ",
   "_warn_def": "ข้อไม่ซ้ำที่มีแมโครกลุ่ม TIERED ในฟิลด์ explanation",
   "_legacy_def": "ข้อไม่ซ้ำที่ติด BLOCK ทั้งคลัง = หนี้เก่าที่ยังไม่ได้แก้ · โหมด diff จะไม่ทำให้ด่านแดงจากยอดนี้ แต่ยอดต้องไม่โต",
-  "warn_questions": 435,
-  "warn_occurrences": 2591,
-  "block_questions_legacy": 39,
+  "warn_questions": 425,
+  "warn_occurrences": 2556,
+  "block_questions_legacy": 29,
   "_occUnitNote": "ตั้งแต่ v2.4 warn_occurrences = จำนวนจุดจริง (เดิมถึง v2.3 เป็นจำนวนรายการ (สัญลักษณ์,ฟิลด์) ⇒ เลขจะกระโดดขึ้นครั้งเดียวโดยที่หนี้ไม่ได้โต)"
 }
