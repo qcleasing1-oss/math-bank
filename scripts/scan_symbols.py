@@ -65,10 +65,11 @@ scan_symbols.py — ตัวตรวจสัญลักษณ์ต้อง
     # ระบุรหัสข้อเอง (ไม่ต้องมี git — ใช้ตรวจซ้ำด้วยมือ)
     python scripts/scan_symbols.py data/sets --changed-ids gen-chap-01-set-q273,chap-02-logic-q46
 """
-import json, os, sys, argparse, subprocess
+import json, os, re, sys, argparse, subprocess
+import inspect as _inspect
 import datetime as _dt
 
-SCANNER_VERSION = '2.5'
+SCANNER_VERSION = '2.6'
 SCANNER_DATE = '2026-08-01'
 
 # คีย์ที่สคริปต์รุ่นนี้ "ใช้ตัดสินจริง" — ขาดข้อใดข้อหนึ่ง = ตัวตรวจใช้ไม่ได้ (exit 2)
@@ -157,6 +158,179 @@ STUDENT_LATER = ('explanation',)
 FIELDS_NEVER_TOUCH = ('accept',)
 
 
+# ─────────────────────────────────────────────────────────────
+# ชั้น (ก) ถอดเปลือก — และเหตุผลที่มัน "ไม่ใช่ตัวจับ"   (v2.6)
+# ─────────────────────────────────────────────────────────────
+SHELLS = [r'\text', r'\mathrm', r'\mathbf']
+
+# 🔴 ข้อพิสูจน์ว่าชั้นนี้ "เพิ่มการจับไม่ได้เลย" — เขียนไว้ตรงนี้เพราะมันขัดสัญชาตญาณ
+#    ① strip_shells แทนที่อักขระบางตัวด้วย ' ' เท่านั้น ⇒ ความยาวคงเดิม
+#    ② โทเคนต้องห้ามทุกตัว "ไม่มีช่องว่างอยู่ข้างใน" (บังคับด้วย no_space_invariant)
+#    ③ ถ้าโทเคน T ตรงที่ตำแหน่ง i ของสตริงที่ถอดเปลือกแล้ว แปลว่าอักขระช่วง i..i+len(T)
+#       ไม่มีตัวไหนเป็น ' ' ⇒ ไม่มีตัวไหนถูกแทนที่ ⇒ "ต้นฉบับก็ตรงที่ตำแหน่งเดียวกัน"
+#    ⇒ ถอดเปลือกแล้ว "จับได้เพิ่ม" เป็นไปไม่ได้ · ทำได้อย่างเดียวคือ "จับได้น้อยลง"
+#
+#    🔬 วัดจริงทั้งคลัง 6,313 ข้อ ที่ 538d4d4 (1 ส.ค. 69):
+#         ดิบ 2,708 จุด · ถอดเปลือกแล้ว 2,594 จุด · เพิ่ม 0 · หาย 114
+#       ⇒ "เพิ่ม 0" คือข้อพิสูจน์ข้างบนที่ยืนยันด้วยของจริง
+#       ⇒ "หาย 114" คือของแถมที่ไม่ได้คาดไว้ และมันสำคัญกว่า:
+#
+#    🔴 ของที่หายทั้ง 114 จุดคือ \mathrm — เพราะ \mathrm เป็น "เปลือก" และเป็น
+#       "โทเคนต้องห้ามชั้น TIERED" พร้อมกัน ⇒ ถอดเปลือกคือการลบตัวมันเองทิ้ง
+#       ⇒ ถ้าเอาผลถอดเปลือกไปตัดสินจริง ด่านจะ ⛔ อ่อนลง 114 จุด และเงียบสนิท
+#         (ไม่ใช่แค่ "ไม่ช่วย" — มันทำลาย) นี่คือกับดัก ⑥ ในรูปโค้ด:
+#         ทางที่เดินแล้วไม่เจอ ⛔ ไม่เท่ากับ ทางที่ไม่มีอะไรให้เจอ
+#
+#    เทียบกัน: ชั้น (ข) จับ cosec ได้ 57 จุด/12 ข้อ ที่ c170d77 (แก้หมดแล้วที่ 538d4d4)
+#    ⇒ งานจับ 57/57 อยู่ที่ชั้น (ข) ทั้งหมด · ชั้น (ก) ได้ 0 และเสี่ยงติดลบ 114
+#
+# ⇒ ชั้นนี้จึงไม่ได้ทำหน้าที่ "จับ" หน้าที่จริงของมันมีสองอย่าง:
+#      (i)  ล็อกพฤติกรรมที่ใช้ได้อยู่แล้ว — \text{\subseteq} ต้องแดง · \text{ปกติ} ต้องเงียบ
+#      (ii) บอก "เปลือกไหน" ตอนรายงาน ⇒ คนแก้รู้ว่าต้องไปแก้ตรงไหน
+#
+# ⛔ ห้ามเติม \text ลง TIERED เพื่อ "ให้ชั้นนี้มีงานทำ"
+#    \text{cis} เด็กอ่านออกอยู่แล้ว · และการเติมจะกลบยอด \mathrm ที่มีอยู่จริง
+
+
+def strip_shells(s):
+    """ถอดเปลือกแบบ "รักษาความยาว" — \\text{ → ช่องว่าง · } ที่คู่กัน → ช่องว่าง
+
+    ⚠️ ความยาวต้องเท่าเดิมเสมอ ไม่งั้นข้อพิสูจน์ข้างบนใช้ไม่ได้
+    ⛔ ผลลัพธ์ของฟังก์ชันนี้ ⛔ ไม่ถูกใช้ตัดสินอะไร — ใช้รายงาน/self-test เท่านั้น
+    🔴 และห้ามเอาไปใช้ตัดสินด้วย: มันลบ \mathrm ทิ้ง 114 จุดทั้งคลัง (ดูหมายเหตุข้างบน)
+    """
+    out = list(s)
+    i, n = 0, len(s)
+    while i < n:
+        for sh in SHELLS:
+            if s.startswith(sh + '{', i):
+                start = i + len(sh) + 1
+                depth, j = 1, start
+                while j < n and depth:
+                    if s[j] == '{':
+                        depth += 1
+                    elif s[j] == '}':
+                        depth -= 1
+                    j += 1
+                if depth == 0:
+                    for k in range(i, start):
+                        out[k] = ' '
+                    out[j - 1] = ' '
+                    i = start - 1
+                break
+        i += 1
+    return ''.join(out)
+
+
+NO_SPACE_LISTS = UNICODE_BANNED + MACRO_BANNED + MACRO_REALEXAM_ONLY + TIERED
+
+
+def no_space_invariant(tokens=None):
+    """เงื่อนไขที่ทำให้ข้อพิสูจน์ของชั้น (ก) เป็นจริง — โทเคนต้องห้ามห้ามมีช่องว่าง
+
+    🔴 ถ้าวันหนึ่งมีคนเติมโทเคนที่มีช่องว่าง ข้อพิสูจน์พังทันที
+       ⇒ ด่านต้องแดงให้เห็น ⛔ ไม่ใช่พังเงียบแล้วยังพิมพ์ข้อพิสูจน์เดิมต่อไป
+    """
+    return all(' ' not in t for t in (NO_SPACE_LISTS if tokens is None else tokens))
+
+
+def banned_tokens_present(s):
+    """เซตโทเคนต้องห้ามที่พบใน s — นับแบบสตริงย่อย เหมือนที่ scan_question ทำ"""
+    return {t for t in NO_SPACE_LISTS if t in s}
+
+
+def shell_ranges(s):
+    """คืน [(ชื่อเปลือก, เริ่มเนื้อใน, จบเนื้อใน)] — ใช้บอก "อยู่ในเปลือกไหน" ตอนรายงาน"""
+    out = []
+    i, n = 0, len(s)
+    while i < n:
+        for sh in SHELLS:
+            if s.startswith(sh + '{', i):
+                start = i + len(sh) + 1
+                depth, j = 1, start
+                while j < n and depth:
+                    if s[j] == '{':
+                        depth += 1
+                    elif s[j] == '}':
+                        depth -= 1
+                    j += 1
+                if depth == 0:
+                    out.append((sh, start, j - 1))
+                break
+        i += 1
+    return out
+
+
+# ─────────────────────────────────────────────────────────────
+# ชั้น (ข) ถ้อยคำที่เลิกใช้แล้ว — WORD_BANNED   (v2.6)
+# ─────────────────────────────────────────────────────────────
+# WORD_BANNED = "สัญกรณ์ที่เลิกใช้แล้ว"
+# ⛔ ไม่ใช่ "สัญกรณ์ที่ไม่ใช่รูปแบบที่เราชอบ"
+# ทดสอบก่อนเพิ่มสมาชิก: ถ้าเด็กเขียนแบบนี้ในข้อสอบจริงวันนี้ ครูจะหักคะแนนไหม
+# ถ้าไม่หัก ⇒ ไม่ใช่ของผิด ⇒ ไม่เข้ารายการนี้
+#
+# 🔴 ทำไมเป็น dict ไม่ใช่ list:
+#    เพราะเหตุผลต้องมา "พร้อมคำ ในคอมมิตเดียวกัน" ถ้าเป็น list ใครก็เติมคำได้ใน 1 บรรทัด
+#    แล้วเหตุผลจะ "ตามมาทีหลัง" ซึ่งไม่เคยตามมาจริง
+#    ⇒ เหตุผลว่างหรือสั้นกว่า MIN_WORD_REASON ตัวอักษร = ตัวตรวจใช้ไม่ได้ (รหัส 2)
+#      ⛔ ไม่ใช่ "เตือนแล้วขอเหตุผลทีหลัง"
+#
+# ⚠️ ขนาดของสิ่งที่ *ไม่* อยู่ในรายการนี้ (วัดจริงทั้งคลัง 1 ส.ค. 69):
+#    ชื่อฟังก์ชันเปล่า ๆ 695 จุด — cis 435 · adj 187 · lcm 36 · max 13 · min 13
+#    · proj 3 · log 2 · tan 2   ⇒ ถ้ารายการนี้กลายร่างเป็น "รายชื่อฟังก์ชัน"
+#    ด่านจะแดง 695 จุดในวันเดียว และสิ่งที่เกิดขึ้นจริงคือคนจะปิดด่าน ไม่ใช่แก้ 695 จุด
+#
+# ⚠️ จุดตาบอดที่ยอมรับไว้อย่างรู้ตัว: เขียนติดกันไม่มีตัวคั่น เช่น "cosecx"
+#    จะไม่ถูกจับ (ขอบคำ) — ยอมแลกกับการไม่จับ "hypercosecant" และคำอื่นที่มีคำนี้ซ้อนอยู่
+MIN_WORD_REASON = 20
+
+WORD_BANNED = {
+    'cosec': 'สัญกรณ์เก่าของโคซีแคนต์ — หลักสูตรไทยปัจจุบันและ A-Level ใช้ csc เท่านั้น '
+             '· แปลงทั้งคลังแล้ว 12 ข้อ/57 จุด เมื่อ 1 ส.ค. 69 (มติ 1 · จดหมาย E→MB #02)',
+}
+
+
+def check_word_banned(d=WORD_BANNED):
+    """คืน (ใช้ได้ไหม, เหตุผลตาย[]) — "เติมคำโดยไม่มีเหตุผล" ต้องล้มตรงนี้ ไม่ใช่ถูกทวงทีหลัง"""
+    if not isinstance(d, dict):
+        return False, ['WORD_BANNED ต้องเป็น dict {คำ: เหตุผล} '
+                       f'— พบชนิด {type(d).__name__} '
+                       '(ถ้ากลับไปเป็น list เมื่อไร เหตุผลจะหายไปทั้งรายการ)']
+    fatal = []
+    for w, why in d.items():
+        if not isinstance(w, str) or not w.strip():
+            fatal.append(f'คีย์ {w!r} ไม่ใช่คำ')
+            continue
+        n = len(why.strip()) if isinstance(why, str) else 0
+        if n < MIN_WORD_REASON:
+            fatal.append(f'{w!r} มีเหตุผลยาว {n} ตัวอักษร — ต้องอย่างน้อย {MIN_WORD_REASON}'
+                         ' ⇒ เติมคำได้เฉพาะพร้อมเหตุผล')
+    return (not fatal), fatal
+
+
+def _word_re(w):
+    """ขอบคำแบบไม่กัน \\ นำหน้า โดยตั้งใจ
+    ⇒ \\cosec ก็ถูกจับด้วย (เป็นสัญกรณ์เดียวกัน และไม่ใช่แมโครจริงของ LaTeX ด้วยซ้ำ)"""
+    return re.compile(r'(?<![A-Za-z])' + re.escape(w) + r'(?![A-Za-z])')
+
+
+WORD_RE = {w: _word_re(w) for w in WORD_BANNED}
+
+
+def attribute_shell(strings, word):
+    """นับว่าจุดที่เจอ "อยู่ในเปลือกไหน" — เพื่อบอกคนแก้ว่าต้องไปแก้ตรงไหน
+    ⛔ ไม่มีผลต่อคำตัดสินเลย (ดูข้อพิสูจน์ชั้น (ก)) — ใช้รายงานอย่างเดียว"""
+    rx = WORD_RE[word]
+    counts = {}
+    for s in strings:
+        rngs = shell_ranges(s)
+        for m in rx.finditer(s):
+            names = [sh for sh, a, b in rngs if a <= m.start() < b]
+            key = names[-1] if names else 'เปล่า (ไม่มีเปลือก)'
+            counts[key] = counts.get(key, 0) + 1
+    return counts
+
+
 def is_real_exam(filename):
     """ข้อสอบจริง = ทุกไฟล์ที่ไม่ได้ขึ้นต้นด้วย chap- / gen-chap-
     ผูกกับ 'ไฟล์' ไม่ใช่ 'รหัสข้อ' — ไม่งั้นข้อสอบจริงข้อใหม่จะแดงทั้งที่ถูก"""
@@ -198,6 +372,14 @@ def scan_question(q, filename):
                 n = sum(s.count(sym) for s in strings)
                 if n:
                     found.append(('BLOCK', sym, field, n))
+
+        # ── ชั้น (ข) ถ้อยคำที่เลิกใช้แล้ว — ห้ามทุกฟิลด์ ทุกไฟล์ รวมข้อสอบจริง
+        #    (มติ 1 · E→MB #02 อนุญาตให้แปลง cosec → \csc ในข้อสอบจริงด้วย
+        #     ⇒ ที่นี่จึง ⛔ ไม่มีข้อยกเว้น realexam เหมือน MACRO_REALEXAM_ONLY)
+        for _w, _rx in WORD_RE.items():
+            n = sum(len(_rx.findall(s)) for s in strings)
+            if n:
+                found.append(('BLOCK', _w, field, n))
 
         # 🔴 กลบไวต์ลิสต์ "ก่อนนับชั้น TIERED เท่านั้น"
         #    ของต้องห้ามข้างบนนับจาก strings ตัวจริงไปแล้ว ⇒ ไม่มีทางหลุดตามไปด้วย
@@ -494,6 +676,20 @@ CANARIES = [
      {"id": "CANARY-7", "question": r"$\operatorname{Imaginary}(z)$"}, r"\operatorname"),
     (r"\operatorname{Im} ปนกับ ⊆ ในสตริงเดียวกัน ⇒ ⊆ ต้องยังถูกจับ",
      {"id": "CANARY-8", "question": r"$\operatorname{Im}(z)$ และ $A ⊆ B$"}, "⊆"),
+    # ── ด่านของชั้นถอดเปลือก (ก) และชั้นถ้อยคำ (ข)  v2.6 ─────────────
+    #    ⚠️ CANARY-9 ⛔ ไม่ใช่ข้อพิสูจน์ว่า "ชั้นถอดเปลือกทำงาน" —
+    #       มันแดงอยู่แล้วตั้งแต่ v2.5 เพราะนับสตริงย่อยตรง ๆ
+    #       หน้าที่ของมันคือ "ล็อกไว้ว่าอย่าให้พฤติกรรมนี้หายไป" ตอนมีคนแก้ชั้น (ก)
+    (r"\subseteq ที่ซ่อนใน \text{} ⇒ ต้องแดงเหมือนเดิม (ล็อกพฤติกรรมที่ใช้ได้อยู่แล้ว)",
+     {"id": "CANARY-9", "question": r"$\text{\subseteq}$"}, r'\subseteq'),
+    (r"cosec ใน \mathrm{} ⇒ ชั้นถ้อยคำต้องจับ",
+     {"id": "CANARY-10", "question": r"$\mathrm{cosec}\,\theta$"}, 'cosec'),
+    (r"cosec เปล่า ๆ ในเฉลย ⇒ ต้องจับ (ห้ามทุกฟิลด์ ไม่ใช่เฉพาะโจทย์)",
+     {"id": "CANARY-11", "explanation": ["ใช้ cosec x = 1/sin x"]}, 'cosec'),
+    (r"\cosec (มี \ นำหน้า) ⇒ ต้องจับด้วย — เป็นสัญกรณ์เดียวกัน",
+     {"id": "CANARY-12", "question": r"$\cosec\theta$"}, 'cosec'),
+    (r"cosec ใน imageSpec.labels ⇒ ต้องจับ (walker ต้องลง dict)",
+     {"id": "CANARY-13", "imageSpec": {"labels": ["cosec 30°"]}}, 'cosec'),
 ]
 
 ANTI_CANARIES = [
@@ -510,6 +706,15 @@ ANTI_CANARIES = [
      {"id": "OK-5", "question": r"หาค่า $\operatorname{Im}(z)$ เมื่อ $z = 3+4i$"}),
     (r"\operatorname{Re} ในโจทย์",
      {"id": "OK-6", "choices": [r"$\operatorname{Re}(z) = 3$"]}),
+    # ── ของที่ชั้นใหม่ (ก)/(ข) ห้ามจับ  v2.6 ────────────────────────
+    (r"\text{ปกติ} — ข้อความไทยในเปลือก ⇒ ต้องเงียบ (กันชั้นถอดเปลือกดุเกิน)",
+     {"id": "OK-7", "question": r"$\text{ปกติ}$ และ $\text{ค่าเฉลี่ย}$"}),
+    (r"\csc / \sec / \cos ⇒ ต้องไม่โดนชั้นถ้อยคำ (คำใกล้เคียงกันมาก)",
+     {"id": "OK-8", "question": r"$\csc\theta \cdot \sec\theta \cdot \cos\theta$"}),
+    (r"cosec ในฟิลด์ accept ⛔ ห้ามแตะ (แม้จะเป็นคำต้องห้าม)",
+     {"id": "OK-9", "accept": ["cosec 30", "csc 30"]}),
+    (r"คำที่มี cosec ซ้อนอยู่ข้างใน ⇒ ต้องไม่จับ",
+     {"id": "OK-10", "question": "hypercosecant"}),
 ]
 
 # ข้อล่อสำหรับโหมด diff — เนื้อเดียวกันเป๊ะ ต่างกันแค่ "อยู่ใน diff ไหม"
@@ -600,6 +805,32 @@ def classify(raw_hits, qid, changed_ids):
 def _levels(q, changed_ids):
     raw = scan_question(q, 'gen-chap-99-canary.json')
     return set(h[0] for h in classify(raw, q.get('id'), changed_ids))
+
+
+# ─────────────────────────────────────────────────────────────
+# corpus สำหรับ "ข้อพิสูจน์ชั้น (ก)" — ต้องมีทั้งของสกปรกและของสะอาด
+# ⚠️ ถ้า corpus มีแต่ของสะอาด ข้อพิสูจน์จะเขียวเพราะ "ไม่มีอะไรให้ต่าง"
+#    ⇒ กับดัก ⑨ ในรูปของด่าน: "ต่าง 0 จาก 0" กับ "ต่าง 0 จาก N"
+#    ด่านข้างล่างจึงยืนยัน "ตัวหาร" ด้วย — corpus ต้องมีของที่จับได้อย่างน้อย 4 สาย
+# 🔴 ด่านที่เฝ้า "กฎที่เขียนไว้เป็นคำ" ให้กลายเป็นกฎที่เดินได้จริง:
+#    กติกา "ห้ามเอาผลถอดเปลือกไปตัดสิน" ถ้าอยู่แต่ในคอมเมนต์ ก็แค่รอวันมีคนไม่อ่าน
+#    ⇒ อ่านซอร์สของ scan_question มาตรวจตรง ๆ ว่าไม่มีการเรียก strip_shells
+_SCAN_QUESTION_SRC = _inspect.getsource(scan_question)
+
+_STRIP_CORPUS = [
+    r'\text{\subseteq}',                    # ของต้องห้ามซ่อนในเปลือก
+    r'\text{ปกติ}',                          # เปลือกที่ข้างในสะอาด
+    r'\mathrm{cosec}\theta',                # เปลือกอีกชนิด
+    r'A \subseteq B',                       # ของต้องห้ามเปล่า ๆ
+    r'\text{cis}\theta',
+    r'\text{a \mathbf{⊆} b}',               # เปลือกซ้อนเปลือก
+    r'$\lfloor x \rfloor$',
+    r'$\operatorname{Im}(z)$ และ $A ⊆ B$',
+    r'\mathbb{I}',
+    r'\text{}',                             # เปลือกว่าง
+    r'\text{ไม่ปิดวงเล็บ',                    # เปลือกพัง — ต้องไม่ทำให้ล้ม
+    'ธรรมดาไม่มีอะไร',
+]
 
 
 def run_canary():
@@ -705,6 +936,9 @@ def run_canary():
     _pv = provenance('abc1234', False, '2026-08-01', '2.4')
     _pvd = provenance('abc1234', True, '2026-08-01', '2.4')
     _pvn = provenance(None, False, '2026-08-01', '2.4')
+    # ต้นไม้งานสกปรก (กำลังแก้ scripts/) แต่ data สะอาด — เคสจริงตอนซิงก์เส้นฐาน
+    _pv2 = provenance('abc1234', True, '2026-08-01', '2.4', 'd0d0d0d', False)
+    _pv3 = provenance('abc1234', True, '2026-08-01', '2.4', 'd0d0d0d', True)
     diff_checks += [
         ("── ที่มาของเลข ── ต้องคืนครบ 3 คีย์ที่ต้องเขียนทับ",
          set(_pv) == {'_measuredOn', '_measuredAtCommit', '_method'}),
@@ -724,6 +958,20 @@ def run_canary():
          and 'abc' not in _pvn['_measuredAtCommit']),
         ("_method ต้องประทับรุ่นปัจจุบัน ไม่ใช่รุ่นที่เขียนไว้ในไฟล์เก่า",
          'v2.4' in _pv['_method']),
+        # ── สองแกนของที่มา (v2.6) — เนื้อที่วัด vs ต้นไม้งานตอนกดวัด ──
+        ("ไม่ส่งคอมมิตของ data มา ⇒ คีย์เท่าเดิม 3 ตัว (ของเก่าต้องไม่พัง)",
+         '_measuredFromData' not in _pv),
+        ("ส่งคอมมิตของ data มา ⇒ ได้คีย์ที่ 4 แยกต่างหาก",
+         set(_pv2) == {'_measuredOn', '_measuredAtCommit', '_method', '_measuredFromData'}),
+        ("🔴 ต้นไม้งานสกปรก (แก้ scripts/) แต่ data สะอาด ⇒ แกน data ต้องบอกว่า 'นิ่งแล้ว'"
+         " ⛔ ห้ามเหมารวมว่าเลขเชื่อไม่ได้",
+         'ยังไม่ commit' in _pv2['_measuredAtCommit']
+         and 'นิ่งแล้ว' in _pv2['_measuredFromData']
+         and _pv2['_measuredFromData'].startswith('d0d0d0d')),
+        ("…และ data สกปรกจริง ⇒ ต้องเตือนที่แกน data ด้วย",
+         'ยังไม่ commit' in _pv3['_measuredFromData']),
+        ("⛔ แกน data ห้ามไปทับ _measuredAtCommit (สองแกนตอบคนละคำถาม)",
+         _pv2['_measuredAtCommit'].startswith('abc1234')),
         ("── เขียนเส้นฐาน ── ยอดเท่าเดิม ⇒ เขียนได้ ไม่ต้องใช้ธง",
          check_write_baseline(_OLD, _same)[0] is True),
         ("ยอดลดลง ⇒ เขียนได้ ไม่ต้องใช้ธง (ratchet เดินลงได้เสมอ)",
@@ -776,6 +1024,66 @@ def run_canary():
         ("ข้อที่มีแต่หนี้ 'ไปปลุก' ⇒ ยังต้องแดง — ชั้นถ้อยคำใหม่ ⛔ ไม่ทำให้ด่านอ่อนลง",
          verdict(1, 45, 444, B, True)[0] is True),
     ]
+
+    # ── ด่านของชั้น (ก) ถอดเปลือก — และ "ข้อพิสูจน์ว่ามันเป็น no-op"  v2.6 ──
+    #
+    # 🔴 อ่านตรงนี้ก่อนแก้อะไรในชั้น (ก):
+    #    ด่านชุดนี้ ⛔ ไม่ได้พิสูจน์ว่า "ถอดเปลือกแล้วจับได้เพิ่ม"
+    #    มันพิสูจน์ตรงกันข้าม — ว่า "ถอดแล้วได้เท่าเดิมเป๊ะ ทุกสตริงใน corpus"
+    #    ⇒ ถ้าวันหนึ่งด่านนี้ล้ม แปลว่ามีคนทำให้ strip_shells ไม่รักษาความยาว
+    #      หรือเติมโทเคนที่มีช่องว่าง ⛔ ไม่ใช่ "เจอของใหม่"
+    _sc_lenok = all(len(strip_shells(x)) == len(x) for x in _STRIP_CORPUS)
+    # 🔬 ข้อพิสูจน์ที่แท้จริงคือ "เพิ่มไม่ได้" (เซตย่อย) ⛔ ไม่ใช่ "เท่าเดิม"
+    #    ผมเขียนเป็น == ก่อน แล้วด่านล้ม — และมันล้มถูกแล้ว (ดู _sc_lost)
+    _sc_gain = {t for x in _STRIP_CORPUS
+                for t in banned_tokens_present(strip_shells(x)) - banned_tokens_present(x)}
+    _sc_lost = {t for x in _STRIP_CORPUS
+                for t in banned_tokens_present(x) - banned_tokens_present(strip_shells(x))}
+    # ⑨ ตัวหาร: corpus ต้องมี "ของให้จับ" จริง ไม่งั้นด่านข้างล่างเขียวฟรี
+    _sc_hits = sum(1 for x in _STRIP_CORPUS if banned_tokens_present(x))
+    print("  ── ชั้น (ก) ถอดเปลือก + ชั้น (ข) ถ้อยคำ ──")
+    strip_checks = [
+        (f"corpus มีของให้จับจริง {_sc_hits}/{len(_STRIP_CORPUS)} สตริง"
+         " (ตัวหารของสองด่านล่าง — ถ้าเป็น 0 สองด่านนั้นเขียวฟรี)", _sc_hits >= 4),
+        ("strip_shells รักษาความยาวทุกสตริงใน corpus (ข้อพิสูจน์พึ่งข้อนี้)", _sc_lenok),
+        ("โทเคนต้องห้ามไม่มีช่องว่างเลย (เงื่อนไขของข้อพิสูจน์)", no_space_invariant()),
+        ("…และด่านนี้จับได้จริงถ้ามีคนเติมโทเคนที่มีช่องว่าง",
+         not no_space_invariant([r'\sub seteq'])),
+        (f"🔬 ข้อพิสูจน์: ถอดเปลือกแล้ว 'จับได้เพิ่ม 0 ชนิด' จาก {_sc_hits} สตริงที่มีของ"
+         f" ⇒ ชั้น (ก) เพิ่มการจับไม่ได้เลย  (พบเพิ่ม: {sorted(_sc_gain) or 'ไม่มี'})",
+         not _sc_gain),
+        (r"🔴 …แต่ 'จับได้น้อยลง' เกิดจริง — \mathrm หายไปเพราะมันเป็นทั้งเปลือกและของต้องห้าม"
+         f"  (หายจริงใน corpus: {sorted(_sc_lost) or 'ไม่มี'} · ทั้งคลัง 114 จุด)",
+         _sc_lost == {r'\mathrm'}),
+        (r"…เหตุผลเชิงโครงสร้างของบรรทัดบน: \mathrm อยู่ทั้งใน SHELLS และ TIERED"
+         " ⇒ ถ้ามีคนย้ายมันออกจากรายการใดรายการหนึ่ง ด่านบนต้องล้มให้เห็น",
+         r'\mathrm' in SHELLS and r'\mathrm' in TIERED),
+        ("⛔ ผลถอดเปลือกต้องไม่ถูกใช้ตัดสิน — scan_question ห้ามเรียก strip_shells",
+         'strip_shells' not in _SCAN_QUESTION_SRC),
+        (r"(ต้องไม่จับ) \text ต้องไม่อยู่ใน TIERED — เติมเมื่อไรจะแดง 435 จุด cis ทันที",
+         r'\text' not in TIERED),
+        ("เปลือกที่ปิดวงเล็บไม่ครบต้องไม่ทำให้ล้ม", strip_shells(r'\text{ก') == r'\text{ก'),
+        ("shell_ranges บอกเปลือกได้ถูกตัว",
+         attribute_shell([r'$\mathrm{cosec}\theta$'], 'cosec').get(r'\mathrm') == 1),
+        ("…และบอกได้ว่า 'ไม่มีเปลือก' เมื่อไม่มีจริง",
+         list(attribute_shell(['ใช้ cosec x'], 'cosec')) == ['เปล่า (ไม่มีเปลือก)']),
+        # ── ชั้น (ข) ─────────────────────────────────────────────
+        ("WORD_BANNED ต้องไม่ว่าง (ว่างเมื่อไร ชั้นนี้เงียบทั้งชั้นโดยไม่มีใครรู้)",
+         bool(WORD_BANNED)),
+        ("รายการจริงผ่านด่านเหตุผล", check_word_banned()[0] is True),
+        ("เติมคำโดยไม่มีเหตุผล ⇒ ต้องล้ม", check_word_banned({'x': ''})[0] is False),
+        (f"เหตุผลสั้นกว่า {MIN_WORD_REASON} ตัวอักษร ⇒ ต้องล้ม",
+         check_word_banned({'x': 'สั้นไป'})[0] is False),
+        ("…และต้องบอกด้วยว่าคำไหนที่ผิด (ไม่ใช่แค่ 'ล้ม')",
+         'x' in ' '.join(check_word_banned({'x': ''})[1])),
+        (f"เหตุผลยาวพอ ⇒ ต้องผ่าน", check_word_banned({'x': 'ก' * MIN_WORD_REASON})[0] is True),
+        ("ถ้ามีคนเปลี่ยน WORD_BANNED กลับเป็น list ⇒ ต้องล้ม (เหตุผลจะหายทั้งรายการ)",
+         check_word_banned(['cosec'])[0] is False),
+    ]
+    for name, passed in strip_checks:
+        print(f"  {'✅' if passed else '🔴 ล้ม'}  {name}")
+        if not passed:
+            ok = False
     for name, passed in diff_checks:
         print(f"  {'✅' if passed else '🔴 ล้ม'}  {name}")
         if not passed:
@@ -803,8 +1111,17 @@ def run_canary():
     return ok
 
 
-def provenance(commit, dirty, today, version):
+def provenance(commit, dirty, today, version, data_commit=None, data_dirty=False):
     """คืนคีย์ "ที่มาของเลข" ที่ต้องเขียนทับของเดิม "เสมอ"
+
+    🔴 ทำไมต้องแยก "คอมมิตของเนื้อที่วัด" ออกจาก "คอมมิตของ HEAD" (v2.6):
+       เลขในเส้นฐานมาจาก data/sets/ เท่านั้น — สคริปต์ไม่ได้ถูกนับ
+       แต่ HEAD ของคลังนี้เป็นคอมมิตบอทบ่อยมาก (แตะแค่ bank.json) และ
+       ต้นไม้งานตอนซิงก์เส้นฐาน "สกปรกเสมอ" เพราะกำลังแก้ scripts/ อยู่
+       ⇒ ป้ายเดิมจะเขียนว่า "commit นี้เพียว ๆ ให้เลขนี้ไม่ได้" ทุกครั้ง
+         ทั้งที่ตัวเนื้อที่วัดสะอาดสนิท ⇒ คำเตือนที่ขึ้นทุกครั้ง = คำเตือนที่ไม่มีใครอ่าน
+       ⇒ แยกเป็นสองแกน: เนื้อที่วัด (data) กับ เครื่องมือที่วัด (tool)
+    ⛔ ถ้าไม่ส่ง data_commit มา ⇒ คืนคีย์ชุดเดิมเป๊ะ 3 คีย์ (ของเก่ายังอ่านได้เหมือนเดิม)
 
     🔴 เหตุผล: --write-baseline เดิมอัปเดตแต่ "ตัวเลข" แล้วเก็บคีย์คำอธิบายเดิมไว้ทั้งหมด
        ⇒ ได้ไฟล์ที่เขียนว่า วัดที่ commit 7007596 ด้วยสคริปต์ v2.3 ทั้งที่เลขข้างในมาจาก
@@ -819,13 +1136,24 @@ def provenance(commit, dirty, today, version):
               '  ⚠️ วัดจากต้นไม้งานที่มีของแก้ค้างอยู่ ⇒ commit นี้เพียว ๆ ให้เลขนี้ไม่ได้')
     else:
         at = commit
-    return {
+    out = {
         '_measuredOn': today,
         '_measuredAtCommit': at,
         '_method': (f'scripts/scan_symbols.py v{version} · walker ลง imageSpec'
                     ' · โหมดทั้งคลัง (ไม่มี --since/--changed)'
-                    ' · คีย์ 3 ตัวนี้ถูกเขียนทับทุกครั้งที่ --write-baseline'),
+                    ' · คีย์ที่ขึ้นต้นด้วย _measured* และ _method ถูกเขียนทับ'
+                    ' ทุกครั้งที่ --write-baseline'),
     }
+    if data_commit:
+        # 🔴 แกนที่ "ตอบได้จริง" ว่าเลขชุดนี้มาจากเนื้ออะไร
+        #    ⛔ ห้ามเอาไปแทน _measuredAtCommit — สองแกนนี้ตอบคนละคำถาม
+        #       _measuredAtCommit  = ต้นไม้งานทั้งก้อนตอนกดวัด (ตอบเรื่องความน่าเชื่อ)
+        #       _measuredFromData  = คอมมิตล่าสุดที่แตะของที่ถูกนับ (ตอบเรื่องที่มาของเลข)
+        out['_measuredFromData'] = (
+            data_commit + ('+ยังไม่ commit  ⚠️ data/ มีของแก้ค้าง ⇒ เลขนี้ยังไม่นิ่ง'
+                           if data_dirty else
+                           '  (คอมมิตล่าสุดที่แตะ data/sets/ · data/ สะอาด ⇒ เลขนี้นิ่งแล้ว)'))
+    return out
 
 
 def check_write_baseline(old, new, accept_reason=None):
@@ -947,6 +1275,10 @@ def main():
     ap.add_argument('--print-changed-ids', action='store_true',
                     help='พิมพ์เฉพาะรหัสข้อที่เปลี่ยน (บรรทัดละตัว) แล้วจบ'
                          ' — ต้องใช้คู่กับ --since/--changed/--changed-ids')
+    ap.add_argument('--min-questions', type=int, default=6000, metavar='N',
+                    help='พื้นตัวหาร (กับดัก ⑨): ถ้าอ่านได้น้อยกว่า N ข้อ ⇒ รหัส 2'
+                         ' — "ไม่เจอของผิด" จากคลังที่อ่านไม่ครบ ⛔ ไม่ใช่ "คลังสะอาด"'
+                         ' (0 = ปิดด่านนี้ ใช้เฉพาะตอนตรวจโฟลเดอร์ย่อย)')
     ap.add_argument('--version', action='store_true')
     args = ap.parse_args()
 
@@ -993,6 +1325,7 @@ def main():
 
     blocks, warns, legacy = [], [], []
     made_recs, woke_recs, undet_q = [], [], set()
+    word_recs, word_shell = [], {}      # ชั้น (ข) — เก็บแยกเพื่อ "รายงาน" เท่านั้น
     nq = 0
     for fn in sorted(os.listdir(args.sets_dir)):
         if not fn.endswith('.json'):
@@ -1004,6 +1337,19 @@ def main():
             nq += 1
             qid = q.get('id')
             raw = scan_question(q, fn)
+            # ── ชั้น (ข): เก็บยอดดิบไว้รายงาน ⛔ ไม่ได้ใช้ตัดสินอะไรเพิ่ม
+            #    (คำตัดสินยังมาจาก cls เหมือนเดิมทุกประการ)
+            _wr = [h for h in raw if h[1] in WORD_BANNED]
+            if _wr:
+                word_recs += [(fn, qid) + tuple(h[1:]) for h in _wr]
+                # หา "เปลือก" เฉพาะข้อที่ติดจริง — ⛔ ไม่ไล่ทั้งคลัง (ราคาแพงและไม่จำเป็น)
+                for _f2, _v2 in q.items():
+                    if _f2 in FIELDS_NEVER_TOUCH:
+                        continue
+                    _ss = list(walk(_v2))
+                    for _w2 in set(h[1] for h in _wr):
+                        for _k2, _n2 in attribute_shell(_ss, _w2).items():
+                            word_shell[_k2] = word_shell.get(_k2, 0) + _n2
             cls = classify(raw, qid, changed_ids)
             for level, sym, field, n in cls:
                 rec = (fn, qid, sym, field, n)
@@ -1030,6 +1376,17 @@ def main():
     print("─" * 62)
     print(f"สแกน {nq:,} ข้อ · walker ลง imageSpec แล้ว · ขอบเขต BLOCK = {scope}")
     print("─" * 62)
+
+    # ── ⑨ พื้นตัวหาร — "ไม่เจอของผิด" ต้องมาพร้อม "อ่านมาจากกี่ข้อ" ────────
+    #    🔴 เหตุผล: "0 จุด จาก 6,313 ข้อ" กับ "0 จุด จาก 3 ข้อ" พิมพ์ออกมาหน้าตาเหมือนกัน
+    #       ทั้งที่อันหลังไม่ได้แปลว่าอะไรเลย · ด่านนี้ทำให้ "ตัวหารหด" ดังขึ้นมา
+    #    ⛔ ไม่ใช่คำเตือน — เป็นรหัส 2 เพราะผลสแกนรอบนั้นใช้อ้างอิงไม่ได้
+    if args.min_questions and nq < args.min_questions:
+        print(f"  🔴 อ่านได้ {nq:,} ข้อ — ต่ำกว่าพื้น {args.min_questions:,} ข้อ")
+        print("     ⇒ ผลรอบนี้ใช้อ้างอิงไม่ได้ · 'ไม่เจอของผิด' จากคลังที่อ่านไม่ครบ")
+        print("        ⛔ ไม่ใช่ 'คลังสะอาด' — อาจแปลว่าชี้ผิดโฟลเดอร์/ไฟล์หายไป")
+        print(f"     (ตั้งใจตรวจโฟลเดอร์ย่อยจริง ⇒ ใส่ --min-questions 0)")
+        sys.exit(2)
     tag = "ของใหม่ในรอบนี้ — ต้องเป็น 0" if changed_ids is not None else "ทั้งคลัง = หนี้เก่า"
     print(f"  BLOCK  : {pts(blocks)} จุด / {nqs(blocks)} ข้อ   ({tag})")
 
@@ -1062,6 +1419,21 @@ def main():
                 print(f"     🔴 ผลรวมสองถัง {pm}+{pw}={pm+pw} ไม่เท่ายอด BLOCK {tot}"
                       " ⇒ ชั้นแยกหนี้พัง ⇒ ด่านแดง")
                 sys.exit(2)
+
+    # ── ชั้น (ข) ถ้อยคำที่เลิกใช้แล้ว — พิมพ์ทุกรอบ "แม้จะเป็นศูนย์" ──────
+    #    🔴 ทำไมต้องพิมพ์ตอนศูนย์ด้วย: ชั้นที่เงียบตอนสะอาด กับชั้นที่เงียบเพราะสายหลุด
+    #       หน้าตาเหมือนกันเป๊ะ (กับดัก ⑦ก) ⇒ บรรทัดนี้คือหลักฐานว่า "ชั้นนี้เดินอยู่"
+    _wpts = sum(r[4] for r in word_recs)
+    _wq = len(set(r[1] for r in word_recs))
+    _wlist = ' · '.join(sorted(WORD_BANNED))
+    print(f"  ถ้อยคำ : {_wpts} จุด / {_wq} ข้อ   (ชั้น (ข) เดินแล้ว · เฝ้าอยู่ {len(WORD_BANNED)} คำ: {_wlist})")
+    if word_recs:
+        _sh = ' · '.join(f'{k} {v}' for k, v in sorted(word_shell.items(), key=lambda x: -x[1]))
+        print(f"     อยู่ในเปลือก: {_sh}")
+        for r in word_recs[:20]:
+            print(f"    🔤 {r[1]:28} {r[2]:14} ใน `{r[3]}` ×{r[4]}")
+        if len(word_recs) > 20:
+            print(f"    … อีก {len(word_recs)-20} รายการ")
 
     print(f"  LEGACY : {pts(legacy)} จุด / {nqs(legacy)} ข้อ   (หนี้เก่าที่ยังค้าง — ห้ามโต)")
     print(f"  WARN   : {pts(warns)} จุด / {nqs(warns)} ข้อ")
@@ -1119,10 +1491,18 @@ def main():
         _root = repo_root(args.sets_dir) or '.'
         _sha = git_out(['rev-parse', '--short', 'HEAD'], _root)
         _st = git_out(['status', '--porcelain'], _root)
+        # ── แกนที่สอง: คอมมิตล่าสุดที่แตะ "ของที่ถูกนับ" และความสกปรกของ *เฉพาะ* ของนั้น
+        #    (ใช้เพรดิเคตเดียวกับกฎความสด — เนื้อที่วัด = data/sets/ + data/manifest.json)
+        _dsha = git_out(['log', '-1', '--format=%h', '--',
+                         'data/sets/', 'data/manifest.json'], _root)
+        _dst = git_out(['status', '--porcelain', '--',
+                        'data/sets/', 'data/manifest.json'], _root)
         out.update(provenance(_sha.strip() if _sha else None,
                               bool(_st and _st.strip()),
                               _dt.date.today().isoformat(),
-                              SCANNER_VERSION))
+                              SCANNER_VERSION,
+                              _dsha.strip() if _dsha else None,
+                              bool(_dst and _dst.strip())))
         if grew:
             out['_lastIncrease'] = {
                 'date': _dt.date.today().isoformat(),
