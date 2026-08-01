@@ -68,8 +68,8 @@ scan_symbols.py — ตัวตรวจสัญลักษณ์ต้อง
 import json, os, sys, argparse, subprocess
 import datetime as _dt
 
-SCANNER_VERSION = '2.3'
-SCANNER_DATE = '2026-07-31'
+SCANNER_VERSION = '2.4'
+SCANNER_DATE = '2026-08-01'
 
 # คีย์ที่สคริปต์รุ่นนี้ "ใช้ตัดสินจริง" — ขาดข้อใดข้อหนึ่ง = ตัวตรวจใช้ไม่ได้ (exit 2)
 # 🔴 ไม่ใช่ 'ข้ามไปเงียบ ๆ' เพราะ "ไม่ได้ตรวจ" กับ "ตรวจแล้วสะอาด" ต้องไม่ให้ผลเหมือนกัน
@@ -83,6 +83,10 @@ REQUIRED_BASELINE_KEYS = ('warn_questions', 'block_questions_legacy')
 #   UNREADABLE = มีไฟล์ แต่อ่านไม่ได้/ไม่ใช่ dict ⇒ เคยมีเลขอยู่ แล้วเลขนั้นหายไป
 #   dict       = อ่านได้ (แต่คีย์ข้างในอาจยังพังเป็นราย ๆ)
 UNREADABLE = object()
+
+# "ฉบับก่อนหน้าของข้อนี้อ่านไม่ได้" — ต่างจาก "ฉบับก่อนหน้าสะอาด" คนละเรื่องกัน
+# 🔴 ใช้กับชั้นแยกหนี้ ทำเกิด/ไปปลุก: เทียบไม่ได้ ⇒ ต้องพิมพ์ว่าระบุไม่ได้ ⛔ ห้ามพิมพ์ 0
+UNKNOWN_PREV = object()
 
 
 def parse_version(s):
@@ -113,6 +117,32 @@ UNICODE_ALLOWED = ['⊂', '⊄']
 # ⚠️ ยกเว้นเฉพาะ "ไฟล์ข้อสอบจริง" และเฉพาะกฎสัญลักษณ์คณิตเท่านั้น
 #    ⛔ ไม่ยกเว้นกฎ escape เกินชั้น และ [IMAGE:n] — สองอันนั้นคือความผิดตอนพิมพ์เข้าคลัง
 MACRO_REALEXAM_ONLY = [r'\mathbb{I}']
+
+# ✅ โทเคนที่ยกเว้นจากชั้น TIERED "แบบเป๊ะทั้งตัว" (มติครู 1 ส.ค. 69)
+#    \operatorname{Im} · \operatorname{Re} = สัญกรณ์มาตรฐานของจำนวนเชิงซ้อน
+#    ที่ข้อสอบจริงใช้อยู่แล้ว ⇒ ถ้าไม่ยกเว้น ข้อพวกนี้จะแดงทุกครั้งที่ใครไปแตะ
+#    = หนี้ที่ล้างไม่ได้ตลอดกาล แล้วสุดท้ายคนจะเรียนรู้ที่จะกดข้ามด่าน
+#
+# ⛔ ห้ามยกเว้น \operatorname ทั้งแมโครเด็ดขาด
+#    ทั้งคลังมี \operatorname ในขอบเขต BLOCK 21 ข้อ · เป็น Im/Re เพียง 2 ชื่อ
+#    ถ้ายกเว้นทั้งตัว อีก 19 ข้อ (cis, sgn, adj, proj, …) จะหลุดไปเงียบ ๆ
+#    ⇒ ยกเว้น "สตริงเต็มโทเคนรวมวงเล็บปิด" เท่านั้น
+#       ⇒ \operatorname{Imaginary} ไม่เข้าเงื่อนไข เพราะ } ไม่ได้อยู่หลัง Im
+MACRO_EXEMPT_EXACT = [r'\operatorname{Im}', r'\operatorname{Re}']
+
+
+def mask_exempt(s):
+    """กลบโทเคนที่ยกเว้นด้วยตัวเติมความยาวเท่าเดิมที่ไม่มี \\ และไม่มี { }
+
+    ทำไมต้องกลบแทนที่จะลบ: ความยาวเท่าเดิม ⇒ ไม่มีสตริงสองข้างมาต่อกัน
+    จนเกิดโทเคนใหม่โดยบังเอิญ
+    ⚠️ ใช้เฉพาะในลูป TIERED เท่านั้น — ⛔ ห้ามใช้กับ UNICODE_BANNED/MACRO_BANNED
+       (ของต้องห้ามยังต้องถูกจับแม้จะอยู่ในสตริงเดียวกับ Im/Re)
+    """
+    for tok in MACRO_EXEMPT_EXACT:
+        if tok in s:
+            s = s.replace(tok, 'x' * len(tok))
+    return s
 
 # แมโครที่เด็กอ่านไม่ออกถ้าเจอในโจทย์ — BLOCK ฝั่งโจทย์ / WARN ฝั่งเฉลย
 TIERED = [r'\operatorname', r'\lfloor', r'\dbinom', r'\mathrm',
@@ -169,8 +199,11 @@ def scan_question(q, filename):
                 if n:
                     found.append(('BLOCK', sym, field, n))
 
+        # 🔴 กลบไวต์ลิสต์ "ก่อนนับชั้น TIERED เท่านั้น"
+        #    ของต้องห้ามข้างบนนับจาก strings ตัวจริงไปแล้ว ⇒ ไม่มีทางหลุดตามไปด้วย
+        masked = [mask_exempt(s) for s in strings]
         for sym in TIERED:
-            n = sum(s.count(sym) for s in strings)
+            n = sum(s.count(sym) for s in masked)
             if not n:
                 continue
             if field in STUDENT_NOW:
@@ -209,6 +242,43 @@ def diff_ids(old_data, new_data):
     return ids
 
 
+def split_debt(new_hits, old_hits):
+    """แยกหนี้ BLOCK ของ "ข้อหนึ่งข้อ" ออกเป็นสองถัง — คืน (ทำเกิด[], ไปปลุก[])
+
+    ทั้งสองถังเป็นลิสต์ของ (สัญลักษณ์, ฟิลด์, จำนวนจุด)
+
+    🔴 เหตุผลที่ต้องแยก (พอร์ทัลรอบ 13 ข้อ 5):
+       "ปัญหาไม่ใช่ 'แดง' ปัญหาคือ 'แดงแล้วไม่รู้ว่าแดงเพราะใคร'"
+       ขอบเขตยังเป็นรายข้อเหมือนเดิม (ไม่ลงไปเป็นรายฟิลด์ เพราะรายฟิลด์
+       เปิดทางให้แก้ข้อที่มีหนี้โดยไม่เคยเห็นหนี้) — เปลี่ยนแค่ "ถ้อยคำที่รายงาน"
+
+    ⚠️ ชั้นนี้ ⛔ ไม่ทำให้ด่านอ่อนลง: ข้อที่มีแต่หนี้ "ไปปลุก" ก็ยังแดงเหมือนเดิม
+       (แตะแล้วต้องล้าง) — verdict() ไม่ถูกแก้เลยด้วยเหตุผลนี้
+
+    old_hits = None ⇒ ฉบับก่อนหน้าไม่มีข้อนี้ ⇒ ทุกจุดคือ "ทำเกิด"
+               (เหมือนกับกรณีฉบับเก่ามีข้อนี้แต่สะอาด — ซึ่งถูกต้อง)
+    ⛔ "ฉบับก่อนหน้าอ่านไม่ได้" ห้ามส่งเข้ามาที่นี่ — ผู้เรียกต้องกันไว้เป็น UNKNOWN_PREV
+    """
+    old = {}
+    if old_hits:
+        for level, sym, field, cnt in old_hits:
+            if level == 'BLOCK':
+                old[(sym, field)] = old.get((sym, field), 0) + cnt
+    made, woke = [], []
+    for level, sym, field, cnt in (new_hits or []):
+        if level != 'BLOCK':
+            continue
+        k = (sym, field)
+        was = old.get(k, 0)
+        keep = min(cnt, was)
+        old[k] = was - keep            # กันนับซ้ำเมื่อคีย์เดียวกันโผล่หลายรายการ
+        if keep:
+            woke.append((sym, field, keep))
+        if cnt - keep:
+            made.append((sym, field, cnt - keep))
+    return made, woke
+
+
 def git_out(args, cwd):
     """เรียก git แบบไม่ระเบิด — คืน None ถ้าไม่มี git / คำสั่งล้ม"""
     try:
@@ -225,11 +295,16 @@ def repo_root(path):
 
 
 def collect_changed_ids(sets_dir, since_ref, changed_files, base_ref):
-    """คืน (เซตรหัสข้อที่เปลี่ยน, คำอธิบายขอบเขต, รายการเตือน)"""
+    """คืน (เซตรหัสข้อที่เปลี่ยน, คำอธิบายขอบเขต, รายการเตือน, รอยเดิมรายข้อ)
+
+    รอยเดิมรายข้อ = dict rหัสข้อ → ผลของ scan_question บน "ฉบับก่อนหน้า"
+      · ไม่มีคีย์      ⇒ ฉบับก่อนหน้าไม่มีข้อนี้ (ข้อใหม่/ไฟล์ใหม่) ⇒ ทุกจุดคือของใหม่
+      · UNKNOWN_PREV  ⇒ ฉบับก่อนหน้าอ่านไม่ได้ ⇒ ⛔ ระบุไม่ได้ ห้ามนับเป็นศูนย์
+    """
     warnings = []
     root = repo_root(sets_dir)
     if not root:
-        return None, None, ['ไม่ได้อยู่ใน git repo — โหมด diff ใช้ไม่ได้']
+        return None, None, ['ไม่ได้อยู่ใน git repo — โหมด diff ใช้ไม่ได้'], None
 
     rel_sets = os.path.relpath(os.path.abspath(sets_dir), root)
 
@@ -237,7 +312,7 @@ def collect_changed_ids(sets_dir, since_ref, changed_files, base_ref):
         ref = since_ref
         out = git_out(['diff', '--name-only', ref, '--', rel_sets], root)
         if out is None:
-            return None, None, [f'git diff --name-only {ref} ล้มเหลว (คอมมิตไม่มีจริง?)']
+            return None, None, [f'git diff --name-only {ref} ล้มเหลว (คอมมิตไม่มีจริง?)'], None
         files = [ln for ln in out.splitlines() if ln.strip().endswith('.json')]
         scope = f'--since {ref}'
     else:
@@ -251,14 +326,17 @@ def collect_changed_ids(sets_dir, since_ref, changed_files, base_ref):
                 warnings.append(f'ข้าม (ไม่ใช่ .json): {f}')
         scope = f'--changed {len(files)} ไฟล์ (เทียบกับ {ref})'
 
-    ids = set()
+    ids, prev = set(), {}
     for relpath in files:
         newp = os.path.join(root, relpath)
         if not os.path.exists(newp):
             continue                       # ไฟล์ถูกลบทั้งไฟล์ — ไม่มีข้อให้ตรวจ
         with open(newp, encoding='utf-8') as f:
             new_data = json.load(f)
+        base_fn = os.path.basename(relpath)   # ⚠️ ต้องเป็นชื่อไฟล์ล้วน
+        #                                        ไม่งั้น is_real_exam() อ่านผิดเพราะมี data/sets/ นำหน้า
         blob = git_out(['show', f'{ref}:{relpath}'], root)
+        unreadable = False
         if blob is None:
             old_data = None                # ไฟล์ใหม่ ⇒ ทุกข้อในไฟล์นับว่าเปลี่ยน
             warnings.append(f'ไฟล์ใหม่ (ไม่มีใน {ref}) ⇒ นับทุกข้อ: {relpath}')
@@ -267,9 +345,17 @@ def collect_changed_ids(sets_dir, since_ref, changed_files, base_ref):
                 old_data = json.loads(blob)
             except json.JSONDecodeError:
                 old_data = None
+                unreadable = True
                 warnings.append(f'อ่านฉบับเก่าไม่ได้ ⇒ นับทุกข้อ: {relpath}')
+        # 🔴 เก็บ "รอยเดิม" ไว้ตอนที่ยังถือ blob อยู่ในมือ — ใช้แยก ทำเกิด/ไปปลุก
+        if unreadable:
+            for q in new_data.get('questions', []):
+                prev[q.get('id')] = UNKNOWN_PREV
+        elif old_data:
+            for q in old_data.get('questions', []):
+                prev[q.get('id')] = scan_question(q, base_fn)
         ids |= diff_ids(old_data, new_data)
-    return ids, scope, warnings
+    return ids, scope, warnings, prev
 
 
 # ─────────────────────────────────────────────────────────────
@@ -383,6 +469,15 @@ CANARIES = [
      {"id": "CANARY-4", "question": "สะอาด", "notes": "A∖B"}, "∖"),
     ("\\lfloor ในโจทย์ = ต้อง BLOCK",
      {"id": "CANARY-5", "question": r"หาค่า $\lfloor x \rfloor$"}, r"\lfloor"),
+    # ── ด่านคุมไวต์ลิสต์ Im/Re (มติครู 1 ส.ค. 69) ─────────────────
+    #    ทั้งสามข้อนี้คือข้อพิสูจน์ว่า "ยกเว้นเฉพาะโทเคน" ไม่ใช่ "ยกเว้นทั้งแมโคร"
+    (r"\operatorname{cis} ในโจทย์ = ยังต้อง BLOCK (⛔ ห้ามยกเว้น \operatorname ทั้งตัว)",
+     {"id": "CANARY-6", "question": r"เขียน $\operatorname{cis}\theta$ ในรูป…"},
+     r"\operatorname"),
+    (r"\operatorname{Imaginary} = ต้องไม่หลุดเพราะ 'ขึ้นต้นเหมือน Im'",
+     {"id": "CANARY-7", "question": r"$\operatorname{Imaginary}(z)$"}, r"\operatorname"),
+    (r"\operatorname{Im} ปนกับ ⊆ ในสตริงเดียวกัน ⇒ ⊆ ต้องยังถูกจับ",
+     {"id": "CANARY-8", "question": r"$\operatorname{Im}(z)$ และ $A ⊆ B$"}, "⊆"),
 ]
 
 ANTI_CANARIES = [
@@ -395,6 +490,10 @@ ANTI_CANARIES = [
      {"id": "OK-3", "accept": ["เซตว่าง", "∅", "X = ∅"]}),
     ("\\lfloor ในเฉลย = WARN ไม่ใช่ BLOCK",
      {"id": "OK-4", "explanation": r"ได้ $\lfloor 7/2 \rfloor = 3$"}),
+    (r"\operatorname{Im} ในโจทย์ = สัญกรณ์มาตรฐานจำนวนเชิงซ้อน (มติครู 1 ส.ค. 69)",
+     {"id": "OK-5", "question": r"หาค่า $\operatorname{Im}(z)$ เมื่อ $z = 3+4i$"}),
+    (r"\operatorname{Re} ในโจทย์",
+     {"id": "OK-6", "choices": [r"$\operatorname{Re}(z) = 3$"]}),
 ]
 
 # ข้อล่อสำหรับโหมด diff — เนื้อเดียวกันเป๊ะ ต่างกันแค่ "อยู่ใน diff ไหม"
@@ -412,6 +511,61 @@ _NEW_SET = {"questions": [
     {"id": "Q-EDIT", "question": "หลังแก้"},
     {"id": "Q-NEW", "question": "ข้อใหม่"},
 ]}
+
+
+# ─────────────────────────────────────────────────────────────
+# ด่านของ "ชั้นถ้อยคำใหม่" เอง — พอร์ทัลรอบ 13 ข้อ 5
+#   "ถ้อยคำชั้นใหม่ต้องมีด่านคุม ⇒ ใส่บั๊กที่สลับสองถัง แล้วนับด่านที่ล้ม ต้อง > 0"
+#   ⚠️ เคสที่ "สมมาตร" (ทำเกิด 0 · ไปปลุก 0) จับการสลับถังไม่ได้เลย
+#      ⇒ ต้องมีเคสอสมมาตรอย่างน้อยหนึ่ง ไม่งั้นฮาร์เนสนี้เป็นแค่พิธีกรรม
+# ─────────────────────────────────────────────────────────────
+_B = 'BLOCK'
+SPLIT_CASES = [
+    ("ฉบับเก่าสะอาด → รอบนี้มี 1 จุด ⇒ ทำเกิด 1 · ไปปลุก 0  (เคสอสมมาตร)",
+     [(_B, '⊆', 'question', 1)], [], [('⊆', 'question', 1)], []),
+    ("ฉบับเก่าไม่มีข้อนี้เลย (old=None) ⇒ ทุกจุดคือทำเกิด",
+     [(_B, '⊆', 'question', 2)], None, [('⊆', 'question', 2)], []),
+    ("เก่า 1 · ใหม่ 1 จุดเดียวกัน ⇒ ทำเกิด 0 · ไปปลุก 1",
+     [(_B, '⊆', 'question', 1)], [(_B, '⊆', 'question', 1)],
+     [], [('⊆', 'question', 1)]),
+    ("เก่า 1 · ใหม่ 3 ⇒ ทำเกิด 2 · ไปปลุก 1  (เฉพาะส่วนเกินที่เป็นของใหม่)",
+     [(_B, '⊆', 'question', 3)], [(_B, '⊆', 'question', 1)],
+     [('⊆', 'question', 2)], [('⊆', 'question', 1)]),
+    ("เก่า 2 · ใหม่เหลือ 1 ⇒ ทำเกิด 0 · ไปปลุก 1  (หนี้ลดลงไม่ใช่ของใหม่)",
+     [(_B, '⊆', 'question', 1)], [(_B, '⊆', 'question', 2)],
+     [], [('⊆', 'question', 1)]),
+    ("ย้ายหนี้ข้ามฟิลด์ question → choices ⇒ นับเป็นทำเกิด (ถังผูกกับฟิลด์ด้วย)",
+     [(_B, '⊆', 'choices', 1)], [(_B, '⊆', 'question', 1)],
+     [('⊆', 'choices', 1)], []),
+    ("WARN ไม่เข้าถังไหนเลย — สองถังนี้เป็นเรื่องของ BLOCK เท่านั้น",
+     [('WARN', r'\lfloor', 'explanation', 3)], [], [], []),
+]
+
+
+def _mut_swap(new_hits, old_hits):
+    """บั๊กจำลอง ① สลับสองถัง — ของใหม่ถูกรายงานว่าเป็นหนี้เก่า"""
+    m, w = split_debt(new_hits, old_hits)
+    return w, m
+
+
+def _mut_wash(new_hits, old_hits):
+    """บั๊กจำลอง ② ฟอกทุกอย่างเป็น 'หนี้เก่า' — ถังแดงว่างตลอดกาล"""
+    m, w = split_debt(new_hits, old_hits)
+    return [], m + w
+
+
+def _run_split_cases(fn):
+    """คืนรายชื่อเคสที่ล้มเมื่อใช้ fn เป็นตัวแยกถัง"""
+    fails = []
+    for name, nh, oh, em, ew in SPLIT_CASES:
+        try:
+            m, w = fn(nh, oh)
+            good = sorted(m) == sorted(em) and sorted(w) == sorted(ew)
+        except Exception:
+            good = False
+        if not good:
+            fails.append(name)
+    return fails
 
 
 def classify(raw_hits, qid, changed_ids):
@@ -532,7 +686,22 @@ def run_canary():
     _less = {'warn_questions': 440, 'block_questions_legacy': 43}
     _more = {'warn_questions': 444, 'block_questions_legacy': 47}
     _wmore = {'warn_questions': 450, 'block_questions_legacy': 45}
+    _pv = provenance('abc1234', False, '2026-08-01', '2.4')
+    _pvd = provenance('abc1234', True, '2026-08-01', '2.4')
+    _pvn = provenance(None, False, '2026-08-01', '2.4')
     diff_checks += [
+        ("── ที่มาของเลข ── ต้องคืนครบ 3 คีย์ที่ต้องเขียนทับ",
+         set(_pv) == {'_measuredOn', '_measuredAtCommit', '_method'}),
+        ("commit สะอาด ⇒ เขียน sha ล้วน",
+         _pv['_measuredAtCommit'] == 'abc1234'),
+        ("ต้นไม้งานสกปรก ⇒ ต้องติดป้ายไว้ ไม่ใช่เขียน sha เฉย ๆ",
+         _pvd['_measuredAtCommit'].startswith('abc1234')
+         and 'ยังไม่ commit' in _pvd['_measuredAtCommit']),
+        ("🔴 ไม่มี git ให้ถาม ⇒ ต้องเขียนว่า 'ไม่ทราบ' ⛔ ห้ามคืน sha ปลอม/ค่าว่าง",
+         'ไม่ทราบ' in _pvn['_measuredAtCommit']
+         and 'abc' not in _pvn['_measuredAtCommit']),
+        ("_method ต้องประทับรุ่นปัจจุบัน ไม่ใช่รุ่นที่เขียนไว้ในไฟล์เก่า",
+         'v2.4' in _pv['_method']),
         ("── เขียนเส้นฐาน ── ยอดเท่าเดิม ⇒ เขียนได้ ไม่ต้องใช้ธง",
          check_write_baseline(_OLD, _same)[0] is True),
         ("ยอดลดลง ⇒ เขียนได้ ไม่ต้องใช้ธง (ratchet เดินลงได้เสมอ)",
@@ -567,12 +736,74 @@ def run_canary():
         ("รายการ 'ที่โต' ต้องชี้คีย์ถูกตัว",
          list(check_write_baseline(_OLD, _more)[2]) == ['block_questions_legacy']),
     ]
+    # ── ด่านของไวต์ลิสต์เอง (มติครู 1 ส.ค. 69) ─────────────
+    # ⚠️ ความเสี่ยงชั้นนี้คือ "ยกเว้นกว้างกว่าที่สั่ง" แล้วไม่มีใครรู้
+    _f = 'gen-chap-99-canary.json'
+    _mix = {"id": "MIX", "question":
+            r"$\operatorname{Im}(z)+\operatorname{cis}\theta+\operatorname{Re}(z)$"}
+    _opn = [h for h in scan_question(_mix, _f) if h[1] == r'\operatorname']
+    diff_checks += [
+        ("── ไวต์ลิสต์ ── Im/Re ปนกับ cis ในสตริงเดียว ⇒ ต้องนับ cis ได้ 1 (ไม่ใช่ 0/3)",
+         _opn == [('BLOCK', r'\operatorname', 'question', 1)]),
+        ("ไวต์ลิสต์ครอบคลุมฝั่งเฉลยด้วย ⇒ Im ในเฉลยต้องไม่เป็น WARN",
+         scan_question({"id": "W", "explanation": r"$\operatorname{Im}(z)=4$"}, _f) == []),
+        ("(ต้องไม่จับ) รายการยกเว้นต้องมีแค่ 2 โทเคน — โตขึ้นเมื่อไรต้องมีคนเห็น",
+         MACRO_EXEMPT_EXACT == [r'\operatorname{Im}', r'\operatorname{Re}']),
+        ("mask_exempt ต้องรักษาความยาวสตริง (กันสองข้างมาต่อกันเป็นโทเคนใหม่)",
+         len(mask_exempt(r"a\operatorname{Im}b")) == len(r"a\operatorname{Im}b")),
+        ("ข้อที่มีแต่หนี้ 'ไปปลุก' ⇒ ยังต้องแดง — ชั้นถ้อยคำใหม่ ⛔ ไม่ทำให้ด่านอ่อนลง",
+         verdict(1, 45, 444, B, True)[0] is True),
+    ]
     for name, passed in diff_checks:
         print(f"  {'✅' if passed else '🔴 ล้ม'}  {name}")
         if not passed:
             ok = False
+
+    # ── ด่านของชั้นแยกหนี้ ทำเกิด/ไปปลุก (พอร์ทัลรอบ 13 ข้อ 5) ──
+    print("  ── ชั้นแยกหนี้ 🔴ทำเกิด / 🟠ไปปลุก ──")
+    _real = _run_split_cases(split_debt)
+    _swap = _run_split_cases(_mut_swap)
+    _wash = _run_split_cases(_mut_wash)
+    split_checks = [
+        (f"ของจริงผ่านครบ {len(SPLIT_CASES)} เคส", not _real),
+        (f"บั๊กจำลอง ① สลับสองถัง ⇒ ด่านล้ม {len(_swap)}/{len(SPLIT_CASES)} เคส"
+         " (ต้อง > 0 ไม่งั้นชั้นนี้ไม่มีใครเฝ้า)", len(_swap) > 0),
+        (f"บั๊กจำลอง ② ฟอกทุกอย่างเป็นหนี้เก่า ⇒ ด่านล้ม {len(_wash)}/{len(SPLIT_CASES)} เคส"
+         " (ต้อง > 0)", len(_wash) > 0),
+    ]
+    for name, passed in split_checks:
+        print(f"  {'✅' if passed else '🔴 ล้ม'}  {name}")
+        if not passed:
+            ok = False
+    for f_ in _real:
+        print(f"      🔴 เคสที่ล้ม: {f_}")
     print()
     return ok
+
+
+def provenance(commit, dirty, today, version):
+    """คืนคีย์ "ที่มาของเลข" ที่ต้องเขียนทับของเดิม "เสมอ"
+
+    🔴 เหตุผล: --write-baseline เดิมอัปเดตแต่ "ตัวเลข" แล้วเก็บคีย์คำอธิบายเดิมไว้ทั้งหมด
+       ⇒ ได้ไฟล์ที่เขียนว่า วัดที่ commit 7007596 ด้วยสคริปต์ v2.3 ทั้งที่เลขข้างในมาจาก
+       commit อื่นและสคริปต์ v2.4 · "เลขใหม่ + ป้ายเก่า" อ่านแล้วเชื่อผิด
+       ยิ่งกว่าไม่มีป้าย — เป็นกับดักข้อ ⑤ (ของที่คิดว่ารู้ที่มา) ในรูปไฟล์
+    ⛔ commit = None (ไม่มี git ให้ถาม) ห้ามปล่อยค่าเดิมค้าง — ต้องเขียนว่า "ไม่ทราบ"
+    """
+    if not commit:
+        at = 'ไม่ทราบ — ตอนเขียนเส้นฐานไม่มี git ให้ถาม'
+    elif dirty:
+        at = (commit + '+ยังไม่ commit'
+              '  ⚠️ วัดจากต้นไม้งานที่มีของแก้ค้างอยู่ ⇒ commit นี้เพียว ๆ ให้เลขนี้ไม่ได้')
+    else:
+        at = commit
+    return {
+        '_measuredOn': today,
+        '_measuredAtCommit': at,
+        '_method': (f'scripts/scan_symbols.py v{version} · walker ลง imageSpec'
+                    ' · โหมดทั้งคลัง (ไม่มี --since/--changed)'
+                    ' · คีย์ 3 ตัวนี้ถูกเขียนทับทุกครั้งที่ --write-baseline'),
+    }
 
 
 def check_write_baseline(old, new, accept_reason=None):
@@ -671,7 +902,7 @@ def main():
         sys.exit(2)
 
     # ── ตัดสินขอบเขต BLOCK ────────────────────────────────────
-    changed_ids, scope = None, 'ทั้งคลัง'
+    changed_ids, scope, prev_hits = None, 'ทั้งคลัง', None
     n_modes = sum(bool(x) for x in (args.since, args.changed, args.changed_ids))
     if n_modes > 1:
         print("🔴 เลือกโหมด diff ได้ทีละแบบเท่านั้น (--since / --changed / --changed-ids)")
@@ -680,7 +911,7 @@ def main():
         changed_ids = set(x.strip() for x in args.changed_ids.split(',') if x.strip())
         scope = f'--changed-ids {len(changed_ids)} ข้อ'
     elif args.since or args.changed:
-        changed_ids, scope, warn_msgs = collect_changed_ids(
+        changed_ids, scope, warn_msgs, prev_hits = collect_changed_ids(
             args.sets_dir, args.since, args.changed or [], args.base)
         for m in warn_msgs:
             print(f"  ⚠️ {m}")
@@ -691,6 +922,7 @@ def main():
         print(f"  ขอบเขต diff: {scope} ⇒ {len(changed_ids)} ข้อที่เปลี่ยนจริง")
 
     blocks, warns, legacy = [], [], []
+    made_recs, woke_recs, undet_q = [], [], set()
     nq = 0
     for fn in sorted(os.listdir(args.sets_dir)):
         if not fn.endswith('.json'):
@@ -702,25 +934,82 @@ def main():
             nq += 1
             qid = q.get('id')
             raw = scan_question(q, fn)
-            for level, sym, field, n in classify(raw, qid, changed_ids):
+            cls = classify(raw, qid, changed_ids)
+            for level, sym, field, n in cls:
                 rec = (fn, qid, sym, field, n)
                 {'BLOCK': blocks, 'WARN': warns, 'LEGACY': legacy}[level].append(rec)
+            # ── แยกหนี้ BLOCK ของข้อนี้เป็น 🔴ทำเกิด / 🟠ไปปลุก ─────────
+            new_block = [h for h in cls if h[0] == 'BLOCK']
+            if new_block and prev_hits is not None:
+                p = prev_hits.get(qid)
+                if p is UNKNOWN_PREV:
+                    undet_q.add(qid)       # ⛔ เทียบไม่ได้ ≠ เทียบแล้วเป็นศูนย์
+                else:
+                    _made, _woke = split_debt(new_block, p)
+                    made_recs += [(fn, qid) + t for t in _made]
+                    woke_recs += [(fn, qid) + t for t in _woke]
 
     def nqs(recs):
         return len(set(r[1] for r in recs))
+
+    def pts(recs):
+        """จำนวน "จุด" จริง — ⛔ ไม่ใช่ len(recs)
+        หนึ่งรายการคือ (สัญลักษณ์, ฟิลด์) ซึ่งอาจกินหลายจุดในฟิลด์เดียว"""
+        return sum(r[4] for r in recs)
 
     print("─" * 62)
     print(f"สแกน {nq:,} ข้อ · walker ลง imageSpec แล้ว · ขอบเขต BLOCK = {scope}")
     print("─" * 62)
     tag = "ของใหม่ในรอบนี้ — ต้องเป็น 0" if changed_ids is not None else "ทั้งคลัง = หนี้เก่า"
-    print(f"  BLOCK  : {len(blocks)} จุด / {nqs(blocks)} ข้อ   ({tag})")
-    print(f"  LEGACY : {len(legacy)} จุด / {nqs(legacy)} ข้อ   (หนี้เก่าที่ยังค้าง — ห้ามโต)")
-    print(f"  WARN   : {len(warns)} จุด / {nqs(warns)} ข้อ")
+    print(f"  BLOCK  : {pts(blocks)} จุด / {nqs(blocks)} ข้อ   ({tag})")
 
-    for r in blocks[:40]:
-        print(f"    🔴 {r[1]:28} {r[2]:14} ใน `{r[3]}` ×{r[4]}")
-    if len(blocks) > 40:
-        print(f"    … อีก {len(blocks)-40} จุด")
+    # ── ชั้นถ้อยคำ: ก้อน BLOCK เดียวกัน แต่บอกได้ว่า "แดงเพราะใคร" ──────
+    #    ⚠️ ขอบเขตยังเป็นรายข้อเหมือนเดิม — ไม่ได้ลดความเข้มของด่านลงเลย
+    if changed_ids is not None:
+        if prev_hits is None:
+            print("     ⚪ แยก 🔴ทำเกิด/🟠ไปปลุก : ระบุไม่ได้ในโหมดนี้"
+                  " (--changed-ids ไม่มีฉบับก่อนหน้าให้เทียบ)")
+            print("        ⛔ จงใจไม่พิมพ์เลข 0 — 'เทียบไม่ได้' ไม่ใช่ 'เทียบแล้วสะอาด'")
+        else:
+            pm = sum(r[4] for r in made_recs)
+            pw = sum(r[4] for r in woke_recs)
+            # ⚠️ คำเตือนต้องมาก่อนตัวเลข ไม่ใช่ตามหลัง —
+            #    คนกวาดตาอ่านบรรทัดแรกที่เห็น ถ้าเจอ "0 ← ต้องเป็น 0" ก่อน ก็จบแล้ว
+            if undet_q:
+                print(f"     ⚪ ระบุไม่ได้ {len(undet_q)} ข้อ — ฉบับก่อนหน้าอ่านไม่ได้"
+                      " ⇒ สองบรรทัดล่างนี้ ⛔ ไม่ครอบคลุมข้อพวกนั้น")
+            _cav = "  (ไม่รวมข้อที่ระบุไม่ได้)" if undet_q else ""
+            _tail0 = ("   ← 0 นี้ยังไม่ใช่ใบสะอาด · ดูบรรทัด ⚪ ข้างบน"
+                      if (undet_q and not pm) else "   ← ต้องเป็น 0")
+            print(f"     🔴 หนี้ที่รอบนี้ทำเกิด   {pm} จุด / {nqs(made_recs)} ข้อ{_cav}"
+                  + _tail0)
+            print(f"     🟠 หนี้เก่าที่รอบนี้ไปปลุก {pw} จุด / {nqs(woke_recs)} ข้อ{_cav}"
+                  "   ← มีมาก่อน · แตะแล้วต้องล้าง")
+            # 🔴 ด่านเดินจริงของชั้นนี้: สองถังต้องรวมได้เท่ายอด BLOCK เป๊ะ
+            #    ถ้าไม่เท่า แปลว่าสายไฟผิด ⇒ ตัวตรวจใช้ไม่ได้ (ไม่ใช่ 'ผลแปลก ๆ')
+            tot = sum(r[4] for r in blocks if r[1] not in undet_q)
+            if pm + pw != tot:
+                print(f"     🔴 ผลรวมสองถัง {pm}+{pw}={pm+pw} ไม่เท่ายอด BLOCK {tot}"
+                      " ⇒ ชั้นแยกหนี้พัง ⇒ ด่านแดง")
+                sys.exit(2)
+
+    print(f"  LEGACY : {pts(legacy)} จุด / {nqs(legacy)} ข้อ   (หนี้เก่าที่ยังค้าง — ห้ามโต)")
+    print(f"  WARN   : {pts(warns)} จุด / {nqs(warns)} ข้อ")
+
+    for r in made_recs[:20]:
+        print(f"    🔴 ทำเกิด {r[1]:28} {r[2]:14} ใน `{r[3]}` ×{r[4]}")
+    for r in woke_recs[:20]:
+        print(f"    🟠 ไปปลุก {r[1]:28} {r[2]:14} ใน `{r[3]}` ×{r[4]}")
+    if made_recs or woke_recs:
+        _shown = set(r[1] for r in made_recs[:20]) | set(r[1] for r in woke_recs[:20])
+        _rest = [r for r in blocks if r[1] not in _shown]
+        if _rest:
+            print(f"    … อีก {len(_rest)} จุดในถังที่ยังไม่ได้แจกแจงข้างบน")
+    else:
+        for r in blocks[:40]:
+            print(f"    🔴 {r[1]:28} {r[2]:14} ใน `{r[3]}` ×{r[4]}")
+        if len(blocks) > 40:
+            print(f"    … อีก {len(blocks)-40} จุด")
 
     warn_q, legacy_q, block_q = nqs(warns), nqs(legacy), nqs(blocks)
     # ในโหมดทั้งคลัง ไม่มีชั้น LEGACY แยก — หนี้เก่าคือ BLOCK ทั้งก้อน
@@ -751,9 +1040,19 @@ def main():
                 print(f"     {m}")
             sys.exit(2)
         out.update({'warn_questions': warn_q,
-                    'warn_occurrences': len(warns),
+                    'warn_occurrences': sum(r[4] for r in warns),
                     'block_questions_legacy': standing,
+                    '_occUnitNote': 'ตั้งแต่ v2.4 warn_occurrences = จำนวนจุดจริง'
+                                    ' (เดิมถึง v2.3 เป็นจำนวนรายการ (สัญลักษณ์,ฟิลด์)'
+                                    ' ⇒ เลขจะกระโดดขึ้นครั้งเดียวโดยที่หนี้ไม่ได้โต)',
                     '_scannerVersion': SCANNER_VERSION})
+        _root = repo_root(args.sets_dir) or '.'
+        _sha = git_out(['rev-parse', '--short', 'HEAD'], _root)
+        _st = git_out(['status', '--porcelain'], _root)
+        out.update(provenance(_sha.strip() if _sha else None,
+                              bool(_st and _st.strip()),
+                              _dt.date.today().isoformat(),
+                              SCANNER_VERSION))
         if grew:
             out['_lastIncrease'] = {
                 'date': _dt.date.today().isoformat(),
