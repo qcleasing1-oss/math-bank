@@ -45,6 +45,19 @@ scan_symbols.py — ตัวตรวจสัญลักษณ์ต้อง
      ⇒ กติกาที่อยู่ในไฟล์จะยังอยู่ ตอนที่ทุกคนจำไม่ได้แล้ว
      (ซ่อมเส้นฐานที่พัง และยอดที่ลดลง ยังเขียนได้ตามปกติโดยไม่ต้องใช้ธง)
 
+เวอร์ชัน 2.7 (ตามที่ทีมพอร์ทัลรับสเปกไว้ 1–2 ส.ค. 2569) เพิ่ม "ชั้นจุด" และคำประกาศ:
+ 10. กุญแจตัดซ้ำ 5 ส่วน (ข้อ, ฟิลด์, เส้นทางเต็มของ walker, ออฟเซ็ต, โทเคน)
+     ของเดิมผมนับด้วยกุญแจ 4 ส่วนที่ ⛔ ไม่มีเส้นทาง ⇒ สองสตริงคนละที่
+     ที่บังเอิญมีโทเคนเดียวกันที่ออฟเซ็ตเดียวกัน ยุบเหลือจุดเดียวอย่างเงียบ ๆ
+     วัดจริงทั้งคลัง: หายเงียบ 197 จุด (explanation 184 · choices 13)
+ 11. walk() กลายเป็น "เปลือกบาง ๆ" ของ walk_paths() — ⑨ ชั้นนับกับชั้นจุด
+     ใช้ตัวหารเดียวกัน "โดยโครงสร้าง" ไม่ใช่โดยความตั้งใจของคนเขียน
+ 12. ชั้นจุดเป็นตัวเทียบเสมอ ⛔ ไม่ใช่ตัวตัดสิน — คำตัดสินยังเป็นของ scan_question
+     ทุกประการ · สองชั้นไม่ตรงกันเมื่อไร = exit 2 (⑩ เปลี่ยนแล้วอ่อนลงไม่ได้)
+ 13. ยูเนียน (ดิบ ∪ ถอดเปลือก) พิมพ์ 3 เลขแยกกัน · "จับเพิ่ม" > 0 = exit 2
+     ⛔ ไม่ใช่ "จับได้เพิ่ม" แต่แปลว่าค่าคงที่ของชั้น (ก) พังแล้ว
+ 14. ⑪ คำประกาศ "คลังที่ใช้บังคับ" + ⑨ ตัวหาร พิมพ์ทุกรอบ
+
 รหัสออก:
     0 = ผ่าน
     1 = ด่านแดงจากเนื้อหา (BLOCK ใหม่ / WARN โต / LEGACY โต)
@@ -68,9 +81,10 @@ scan_symbols.py — ตัวตรวจสัญลักษณ์ต้อง
 import json, os, re, sys, argparse, subprocess
 import inspect as _inspect
 import datetime as _dt
+import textwrap as _tw
 
-SCANNER_VERSION = '2.6'
-SCANNER_DATE = '2026-08-01'
+SCANNER_VERSION = '2.7'
+SCANNER_DATE = '2026-08-02'
 
 # คีย์ที่สคริปต์รุ่นนี้ "ใช้ตัดสินจริง" — ขาดข้อใดข้อหนึ่ง = ตัวตรวจใช้ไม่ได้ (exit 2)
 # 🔴 ไม่ใช่ 'ข้ามไปเงียบ ๆ' เพราะ "ไม่ได้ตรวจ" กับ "ตรวจแล้วสะอาด" ต้องไม่ให้ผลเหมือนกัน
@@ -170,9 +184,29 @@ SHELLS = [r'\text', r'\mathrm', r'\mathbf']
 #       ไม่มีตัวไหนเป็น ' ' ⇒ ไม่มีตัวไหนถูกแทนที่ ⇒ "ต้นฉบับก็ตรงที่ตำแหน่งเดียวกัน"
 #    ⇒ ถอดเปลือกแล้ว "จับได้เพิ่ม" เป็นไปไม่ได้ · ทำได้อย่างเดียวคือ "จับได้น้อยลง"
 #
-#    🔬 วัดจริงทั้งคลัง 6,313 ข้อ ที่ 538d4d4 (1 ส.ค. 69):
-#         ดิบ 2,708 จุด · ถอดเปลือกแล้ว 2,594 จุด · เพิ่ม 0 · หาย 114
-#       ⇒ "เพิ่ม 0" คือข้อพิสูจน์ข้างบนที่ยืนยันด้วยของจริง
+#    🔬 วัดจริงทั้งคลัง 6,313 ข้อ — และ 🔴 ใบแก้เลขของบรรทัดนี้เอง (v2.7 · 2 ส.ค. 69):
+#
+#    ⚠️ เดิมบรรทัดนี้เขียนว่า "ที่ 538d4d4: ดิบ 2,708 · ถอดเปลือกแล้ว 2,594"
+#       เลขคู่นั้น ⛔ ถอนแล้ว — มันไม่มี "ตัวหาร" กำกับ และผมวัดซ้ำไม่ได้ที่รุ่นใดเลย
+#       นี่คือกับดัก ⑨ กัดตัวผมเอง: "เครื่องมือที่ตอบถูกตามตัวหารของมัน
+#       ยังตอบผิดตามคำถามของคุณได้" ⇒ ตั้งแต่ v2.7 ทุกเลขต้องมาพร้อมตัวหาร
+#
+#    วัดซ้ำที่เนื้อ ณ คอมมิต ef241b3 (และได้เลขชุดเดียวกันเป๊ะที่ 6f0f748
+#    ⇒ ส่วนต่างข้างล่างไม่ใช่ข้อมูลขยับ แต่เป็นตัวหารคนละตัว):
+#
+#      ตัวหาร A — "ตามที่ด่านนับจริง" (กลบไวต์ลิสต์ Im/Re ก่อนนับชั้น TIERED)
+#         ดิบ 2,656 จุด · ถอดเปลือกแล้ว 2,542 จุด · เพิ่ม 0 · หาย 114
+#         🔴 นี่คือตัวหารที่ถูกต้องสำหรับ "ด่านนี้" — เพราะมันคือสิ่งที่ scan_question ทำ
+#
+#      ตัวหาร B — "นับทุกโทเคน ไม่กลบไวต์ลิสต์"
+#         ดิบ 2,698 จุด · ถอดเปลือกแล้ว 2,584 จุด · เพิ่ม 0 · หาย 114
+#         ใช้ตอบคำถามคนละข้อ: "ในคลังมี \operatorname กี่ตัว" ⛔ ไม่ใช่ "ด่านจับกี่จุด"
+#
+#      ส่วนต่าง A↔B = 42 จุด = จำนวน \operatorname{Im} / \operatorname{Re} ทั้งคลัง
+#      (ยอด "หาย 114" เท่ากันทั้งสองตัวหาร เพราะของที่หายคือ \mathrm ล้วน ๆ
+#       ซึ่งไม่ได้อยู่ในไวต์ลิสต์ ⇒ การกลบไม่แตะมันเลย)
+#
+#       ⇒ "เพิ่ม 0" คือข้อพิสูจน์ข้างบนที่ยืนยันด้วยของจริง (จริงทั้งสองตัวหาร)
 #       ⇒ "หาย 114" คือของแถมที่ไม่ได้คาดไว้ และมันสำคัญกว่า:
 #
 #    🔴 ของที่หายทั้ง 114 จุดคือ \mathrm — เพราะ \mathrm เป็น "เปลือก" และเป็น
@@ -337,17 +371,36 @@ def is_real_exam(filename):
     return not os.path.basename(filename).startswith(('chap-', 'gen-chap-'))
 
 
-def walk(v):
-    """เดินทุกสตริงในโครงสร้าง — ลง dict ด้วย ⇒ imageSpec ถูกตรวจ
-    🔴 บั๊กเดิมอยู่ตรงนี้: v เป็น dict แล้วไม่ทำอะไรต่อ"""
+def walk_paths(v, path='$'):
+    """เดินทุกสตริงในโครงสร้าง พร้อม "เส้นทางเต็ม" ที่ไปถึงมัน — ลง dict ด้วย
+
+    🔴 บั๊กเดิม (v1) อยู่ตรงนี้: v เป็น dict แล้วไม่ทำอะไรต่อ ⇒ imageSpec ไม่เคยถูกตรวจ
+    🔴 เส้นทางคือส่วนที่ v2.6 ไม่มี และเป็นสาเหตุที่ 197 จุดหายเงียบตอนตัดซ้ำ:
+       explanation เป็นลิสต์ของขั้นตอน — สองขั้นที่ขึ้นต้นเหมือนกันจะให้
+       (โทเคนเดียวกัน, ออฟเซ็ตเดียวกัน) ⇒ ถ้ากุญแจไม่มีเส้นทาง มันคือจุดเดียวกัน
+    รูปแบบ: $ · $.imageSpec · $[3] · $.imageSpec.labels[0]
+    """
     if isinstance(v, str):
-        yield v
+        yield path, v
     elif isinstance(v, list):
-        for x in v:
-            yield from walk(x)
+        for i, x in enumerate(v):
+            yield from walk_paths(x, f'{path}[{i}]')
     elif isinstance(v, dict):
-        for x in v.values():
-            yield from walk(x)
+        for k, x in v.items():
+            yield from walk_paths(x, f'{path}.{k}')
+
+
+def walk(v):
+    """สตริงล้วน ๆ — เป็น "เปลือกบาง ๆ" ของ walk_paths โดยตั้งใจ
+
+    🔴 ทำไมต้องเป็นเปลือก ไม่ใช่ฟังก์ชันคู่ขนานอีกตัว (กับดัก ⑨):
+       ชั้นนับ (scan_question) กับชั้นจุด (enum_points) ต้องเห็น "สตริงชุดเดียวกัน"
+       ถ้าเขียนสองตัวแยกกัน วันหนึ่งจะมีคนแก้ตัวหนึ่งแล้วลืมอีกตัว แล้วเลขสองชั้น
+       จะต่างกันโดยไม่มีใครรู้ว่าอันไหนถูก ⇒ ผูกให้เป็นตัวหารเดียวกัน "โดยโครงสร้าง"
+    ⛔ ห้ามเขียนลูปเดินโครงสร้างเองซ้ำที่อื่นในไฟล์นี้ — เรียกสองตัวนี้เท่านั้น
+    """
+    for _path, s in walk_paths(v):
+        yield s
 
 
 def scan_question(q, filename):
@@ -393,6 +446,144 @@ def scan_question(q, filename):
             elif field in STUDENT_LATER:
                 found.append(('WARN', sym, field, n))
     return found
+
+
+# ─────────────────────────────────────────────────────────────
+# ชั้นจุด — กุญแจตัดซ้ำ 5 ส่วน   (v2.7 · สเปกพอร์ทัล MB→E #07 §1)
+# ─────────────────────────────────────────────────────────────
+#
+# 🔴 ชั้นนี้ ⛔ ไม่ใช่ตัวตัดสิน — คำตัดสินเป็นของ scan_question ทุกประการ
+#    ชั้นนี้คือ "ตัวเทียบ": มันนับของเดียวกัน ด้วยเส้นทางคนละเส้น
+#    ถ้าสองชั้นให้เลขไม่ตรงกัน ⇒ รหัส 2 (⛔ ไม่ใช่ "ผลแปลก ๆ แต่ปล่อยผ่าน")
+#
+# 🔴 ทำไมต้องมีกุญแจ ทั้งที่ scan_question นับเลขได้อยู่แล้ว:
+#    เวลาจะพูดว่า "ถอดเปลือกแล้วจับเพิ่ม 0" ต้องเทียบ "ของชิ้นต่อชิ้น"
+#    ไม่ใช่เทียบยอดรวม — ยอดรวมเท่ากันเกิดได้จาก "ได้ 3 หาย 3" ด้วย
+#    ⇒ ต้องมีชื่อเรียกจุดแต่ละจุดที่ไม่ชนกันเอง = กุญแจนี้
+#
+# 🔴 และทำไมต้อง 5 ส่วน ไม่ใช่ 4:
+#    ผมเคยใช้ 4 ส่วน (ไม่มีเส้นทาง) แล้ว 197 จุดยุบหายเงียบ ๆ ทั้งคลัง
+#    เพราะ explanation เป็นลิสต์ของขั้นตอน — สองขั้นที่ขึ้นต้นเหมือนกัน
+#    ให้ (โทเคนเดียวกัน, ออฟเซ็ตเดียวกัน, ฟิลด์เดียวกัน) ⇒ กลายเป็นจุดเดียว
+#    (explanation 184 · choices 13 — ดู _COLLAPSE_Q ที่จำลองเคสนี้ไว้)
+POINT_KEY_PARTS = ('ข้อ', 'ฟิลด์', 'เส้นทางเต็มของ walker', 'ออฟเซ็ต', 'โทเคน')
+
+# ⑨ รายการโทเคนทั้งหมดที่ชั้นจุดออกชื่อได้ — ใช้ตรวจ "ไม่ทับกัน"
+#    🔴 ที่กุญแจ ⛔ ไม่มี "ระดับ" อยู่ในนั้น เพราะห้ารายการนี้ไม่ทับกันเลย
+#       ⇒ โทเคนตัวหนึ่งมาจากรายการเดียวเสมอ ⇒ ระดับถูกกำหนดโดยโทเคน+ฟิลด์
+#       ถ้าวันหนึ่งมีคนเติมโทเคนซ้ำข้ามรายการ สมมติฐานนี้พัง ⇒ ด่านล่างต้องล้ม
+TOKEN_LISTS = (
+    ('UNICODE_BANNED', UNICODE_BANNED),
+    ('MACRO_BANNED', MACRO_BANNED),
+    ('MACRO_REALEXAM_ONLY', MACRO_REALEXAM_ONLY),
+    ('TIERED', TIERED),
+    ('WORD_BANNED', list(WORD_BANNED)),
+)
+
+
+def token_lists_disjoint(lists=TOKEN_LISTS):
+    """คืน (ไม่ทับกันไหม, รายการที่ทับ[]) — เหตุผลว่าทำไมกุญแจไม่ต้องมี 'ระดับ'"""
+    fails = []
+    for i in range(len(lists)):
+        for j in range(i + 1, len(lists)):
+            (na, a), (nb, b) = lists[i], lists[j]
+            both = sorted(set(a) & set(b))
+            if both:
+                fails.append(f'{na} ∩ {nb} = {both}')
+    return (not fails), fails
+
+
+def occurrences(s, tok):
+    """ออฟเซ็ตของทุกครั้งที่พบ tok ในแบบ "ไม่ซ้อนทับ"
+
+    ⚠️ นิยามของคำว่า "ครั้ง" ต้องเป็นตัวเดียวกับที่ scan_question ใช้ (str.count)
+       ไม่งั้นสองชั้นจะทะเลาะกันด้วยเหตุผลที่ไม่มีใครหาเจอ (กับดัก ⑨)
+       ⇒ len(list(occurrences(s, t))) == s.count(t) โดยโครงสร้าง — และมีด่านเฝ้า
+    """
+    out, i = [], s.find(tok)
+    while i >= 0:
+        out.append(i)
+        i = s.find(tok, i + len(tok))
+    return out
+
+
+def enum_points(q, filename, transform=None):
+    """คืนลิสต์ของ (ระดับ, กุญแจ 5 ส่วน) — กฎเดียวกับ scan_question ทุกบรรทัด
+
+    ⛔ ห้ามเติมกฎที่ scan_question ไม่มี และห้ามลดกฎที่ scan_question มี
+       ทั้งสองต้องเห็น "ของชุดเดียวกัน" — มีด่าน canary เทียบยอดต่อข้อทุกใบ
+    transform = ฟังก์ชันแปลงสตริงก่อนนับ (ใช้ส่ง strip_shells สำหรับชั้นยูเนียน)
+    """
+    out = []
+    realexam = is_real_exam(filename)
+    qid = q.get('id')
+    syms = list(UNICODE_BANNED) + list(MACRO_BANNED)
+    if not realexam:
+        syms = syms + list(MACRO_REALEXAM_ONLY)
+
+    for field, val in q.items():
+        if field in FIELDS_NEVER_TOUCH:
+            continue
+        tier = ('BLOCK' if field in STUDENT_NOW else
+                ('WARN' if field in STUDENT_LATER else None))
+        for path, s0 in walk_paths(val):
+            s = s0 if transform is None else transform(s0)
+            for sym in syms:
+                for off in occurrences(s, sym):
+                    out.append(('BLOCK', (qid, field, path, off, sym)))
+            for _w, _rx in WORD_RE.items():
+                for m in _rx.finditer(s):
+                    out.append(('BLOCK', (qid, field, path, m.start(), _w)))
+            if tier is None:
+                continue
+            # 🔴 กลบไวต์ลิสต์ "ก่อนนับชั้น TIERED เท่านั้น" — ตรงกับ scan_question เป๊ะ
+            masked = mask_exempt(s)
+            for sym in TIERED:
+                for off in occurrences(masked, sym):
+                    out.append((tier, (qid, field, path, off, sym)))
+    return out
+
+
+def counts_from_points(points):
+    """ยุบชั้นจุดลงมาเป็น {(ระดับ, โทเคน, ฟิลด์): จำนวน} เพื่อเทียบกับชั้นนับ"""
+    c = {}
+    for lvl, k in points:
+        key = (lvl, k[4], k[1])
+        c[key] = c.get(key, 0) + 1
+    return c
+
+
+def counts_from_hits(hits):
+    """ยุบผลของ scan_question ลงมาเป็นรูปเดียวกัน"""
+    c = {}
+    for lvl, sym, field, n in hits:
+        key = (lvl, sym, field)
+        c[key] = c.get(key, 0) + n
+    return c
+
+
+def has_shell(s):
+    """สตริงนี้มีเปลือกไหม — ใช้ตัดงานของชั้นยูเนียนทิ้งแบบ "ไม่เสียของ"
+
+    🔴 ข้อพิสูจน์ว่าตัดได้: strip_shells แทนที่เฉพาะอักขระใน "ช่วงของเปลือก"
+       ⇒ สตริงที่ไม่มี `\\text{` / `\\mathrm{` / `\\mathbf{` เลย จะถูกคืนค่าเดิมเป๊ะ
+       ⇒ จุดของมันเหมือนกันทั้งชุด ⇒ เอาเข้ายูเนียนแล้วไม่เปลี่ยนอะไร
+    วัดจริงทั้งคลัง (เนื้อ ณ ef241b3): 3,193 / 313,972 สตริงมีเปลือก (1.0%)
+    และ 0 สตริงที่ไม่มีเปลือกถูก strip_shells เปลี่ยน ⇒ การตัดนี้ "ตรงเป๊ะ"
+    ผลข้างเคียงที่ตั้งใจ: สองรอบใช้เวลา 11.4 วิ → 3.5 วิ
+    """
+    return any(sh + '{' in s for sh in SHELLS)
+
+
+def question_has_shell(q):
+    """ข้อนี้มีเปลือกอยู่ที่ไหนสักแห่งไหม (ข้ามฟิลด์ที่ห้ามแตะ)"""
+    for field, val in q.items():
+        if field in FIELDS_NEVER_TOUCH:
+            continue
+        for _p, s in walk_paths(val):
+            if has_shell(s):
+                return True
+    return False
 
 
 # ─────────────────────────────────────────────────────────────
@@ -789,6 +980,166 @@ def _run_split_cases(fn):
     return fails
 
 
+# ─────────────────────────────────────────────────────────────
+# ด่านของ "ชั้นจุด" เอง — ฮาร์เนสบั๊กจำลอง ทีละส่วนของกุญแจ   (v2.7)
+# ─────────────────────────────────────────────────────────────
+#
+# 🔴 กติกาของชั้นนี้: กุญแจมี 5 ส่วน ⇒ ต้องมีบั๊กจำลอง "ตัดส่วนนั้นทิ้ง"
+#    อย่างน้อยส่วนละตัว และแต่ละตัวต้องมีเคสที่ล้มจริง
+#    ⛔ ไม่งั้นกุญแจส่วนนั้นคือของประดับ — ไม่มีใครรู้ว่ามันจำเป็นหรือเปล่า
+#
+# 🔬 _COLLAPSE_Q จำลอง "เหตุการณ์จริง" ที่ทำให้ต้องเปลี่ยนจาก 4 ส่วนเป็น 5:
+#    ทั้งคลังยุบหายเงียบ 197 จุด (explanation 184 · choices 13)
+#    เพราะเฉลยเป็น "ลิสต์ของขั้นตอน" ที่หลายขั้นขึ้นต้นด้วยถ้อยคำเดียวกัน
+_CQ_FN = 'gen-chap-99-canary.json'
+
+_COLLAPSE_Q = {
+    'id': 'COLLAPSE-1',
+    'question': r'ให้ $\lfloor x \rfloor$ แทนฟังก์ชันขั้นบันได',
+    'choices': [r'$\bmod 5$', r'$\bmod 5$'],
+    'explanation': [
+        r'ขั้นที่ 1: ไม่มีอะไร',
+        r'ได้ $\mathrm{lcm}(4,6)=12$',
+        r'ขั้นที่ 3: ไม่มีอะไร',
+        r'ขั้นที่ 4: ไม่มีอะไร',
+        r'ได้ $\mathrm{lcm}(8,12)=24$',
+    ],
+}
+_EXPL_Q = {'id': 'EXPL-1',
+           'explanation': [r'ได้ $\mathrm{lcm}(4,6)=12$', r'ได้ $\mathrm{lcm}(8,12)=24$']}
+_CHOICE_Q = {'id': 'CH-1', 'choices': [r'$\bmod 5$', r'$\bmod 7$']}
+_CTRL_Q = {'id': 'CTRL-1',
+           'question': r'$\lfloor x \rfloor + \lceil y \rceil$',
+           'explanation': [r'$\binom{5}{2}$']}
+_OFF_Q = {'id': 'OFF-1', 'question': r'$\lfloor a \rfloor + \lfloor b \rfloor$'}
+_FIELD_Q = {'id': 'FIELD-1', 'question': 'A ⊆ B', 'notes': 'A ⊆ B'}
+_DUP_A = {'id': 'DUP-A', 'question': 'A ⊆ B'}
+_DUP_B = {'id': 'DUP-B', 'question': 'A ⊆ B'}
+
+#            ชื่อเคส, [ข้อ…], จำนวนจุด, จำนวนกุญแจที่ต้องเหลือ (ของจริงต้องเท่ากัน)
+POINT_CASES = [
+    ("เคสจริงย่อส่วน: เฉลยลิสต์ + ตัวเลือกซ้ำ + โจทย์  ⇒ 6 จุด ต้องไม่ยุบเลย",
+     [_COLLAPSE_Q], 6, 6),
+    ("เฉลยสองขั้นขึ้นต้นเหมือนกัน (ต้นเหตุจริง 184 จุด) ⇒ 2 จุด",
+     [_EXPL_Q], 2, 2),
+    ("ตัวเลือกสองใบขึ้นต้นเหมือนกัน (ต้นเหตุจริง 13 จุด) ⇒ 2 จุด",
+     [_CHOICE_Q], 2, 2),
+    ("⚪ ตัวคุม: ทุกจุดต่างกันอยู่แล้ว ⇒ กุญแจแบบไหนก็ได้ 5 เท่ากัน"
+     " (ตัวหารของฮาร์เนส — ถ้าเคสนี้ล้มด้วย แปลว่าบั๊กจำลองล้มทุกอย่างฟรี)",
+     [_CTRL_Q], 5, 5),
+    ("โทเคนเดียวกันสองครั้งในสตริงเดียว ⇒ ออฟเซ็ตคือส่วนที่แยกมัน",
+     [_OFF_Q], 4, 4),
+    ("โทเคนเดียวกัน เส้นทาง `$` เท่ากัน แต่คนละฟิลด์ (question vs notes)",
+     [_FIELD_Q], 2, 2),
+    ("สองข้อคนละรหัส เนื้อเหมือนกันเป๊ะ ⇒ รหัสข้อคือส่วนที่แยกมัน",
+     [_DUP_A, _DUP_B], 2, 2),
+]
+
+
+def _key5(k):
+    """กุญแจของจริง — เอกลักษณ์ (มีครบ 5 ส่วน)"""
+    return k
+
+
+def _mut_key4(k):
+    """บั๊กจำลอง ① ตัด "เส้นทาง" ทิ้ง = กุญแจ 4 ส่วนแบบ v2.6 (ตัวที่ทำ 197 จุดหาย)"""
+    return (k[0], k[1], k[3], k[4])
+
+
+def _mut_nooff(k):
+    """บั๊กจำลอง ② ตัด "ออฟเซ็ต" ทิ้ง — โทเคนซ้ำในสตริงเดียวจะเหลือตัวเดียว"""
+    return (k[0], k[1], k[2], k[4])
+
+
+def _mut_nofield(k):
+    """บั๊กจำลอง ③ ตัด "ฟิลด์" ทิ้ง — จุดใน question กับ notes ที่เส้นทางเท่ากันจะชนกัน"""
+    return (k[0], k[2], k[3], k[4])
+
+
+def _mut_noqid(k):
+    """บั๊กจำลอง ④ ตัด "รหัสข้อ" ทิ้ง — สองข้อที่เนื้อเหมือนกันจะยุบเป็นข้อเดียว"""
+    return (k[1], k[2], k[3], k[4])
+
+
+def point_layer_report(pt_all, gained, lost, n_raw_sh, n_str_sh):
+    """คืน (บรรทัดที่จะพิมพ์, เหตุผลที่ต้องแดง|None) ของชั้นจุด + ชั้นยูเนียน
+
+    🔴 ทำไมต้องเป็นฟังก์ชันแยก ไม่ใช่โค้ดในตัว main():
+       กิ่ง ⚪ "คลังไม่มีจุดให้เทียบเลย" จะไม่มีวันถูกเดินด้วยข้อมูลจริง
+       จนกว่าจะใช้หนี้หมดทั้งคลัง ⇒ ถ้าฝังไว้ใน main() มันคือโค้ดที่ไม่มีใครเคยรัน
+       แล้วจะพังเอาวันที่ต้องใช้พอดี · แยกออกมา = ด่าน canary เดินเข้าไปได้ทุกกิ่ง
+    ⛔ ฟังก์ชันนี้ไม่พิมพ์เอง และไม่เรียก sys.exit เอง — คนเรียกเป็นคนตัดสิน
+    """
+    L = ["  ── ชั้นจุด (กุญแจ 5 ส่วน) ──────────────────────────────"]
+    k5 = set((l,) + k for l, k in pt_all)
+    k4 = set((l,) + _mut_key4(k) for l, k in pt_all)
+    keyname = ', '.join(POINT_KEY_PARTS)
+
+    if not pt_all:
+        # 🔴 กติกาปกติของด่านคือ "ไม่มีอะไรให้ตรวจ ⇒ รหัส 2" — ชั้นนี้ ⛔ ยกเว้น โดยตั้งใจ
+        #    เหตุผล: ตัวหารของชั้นนี้คือ "จำนวนจุดที่ยังค้างในคลัง" ซึ่งเป้าหมายคือ 0
+        #    ถ้าบังคับรหัส 2 ตอนเป็น 0 ⇒ คลังที่ใช้หนี้หมดแล้วจะเขียวไม่ได้ตลอดกาล
+        #    สิ่งที่ทดแทน: canary เดินเคสจำลองทุกรอบ ⇒ ชั้นนี้มี "ตัวหารถาวร" ที่ไม่ใช่ศูนย์
+        #    ⇒ นี่คือข้อยกเว้นเดียวของกฎนั้นในไฟล์นี้ และเหตุผลอยู่ตรงนี้ ไม่ใช่ในหัวใคร
+        L += ["  ⚪ คลังไม่มีจุดให้เทียบเลย ⇒ ตัวหารของชั้นนี้ = 0",
+              f"     ⇒ ข้อพิสูจน์รอบนี้มาจากด่านจำลองใน canary เท่านั้น"
+              f" ({len(POINT_CASES)} เคส · บั๊กจำลอง 4 ตัว)",
+              "     ⛔ จงใจไม่คืนรหัส 2 ต่างจากด่านอื่น — เพราะ 0 คือ 'เป้าหมาย' ของชั้นนี้"
+              " ไม่ใช่ 'อ่านไม่เจอ'"]
+        return L, None
+
+    if len(k5) != len(pt_all):
+        L += [f"  🔴 กุญแจ 5 ส่วนยุบจุดหาย {len(pt_all)-len(k5):,} จุด"
+              f"  ({len(pt_all):,} → {len(k5):,})",
+              f"     กุญแจ = ({keyname})",
+              "     ⇒ มีสองจุดที่เรียกชื่อเหมือนกัน · เลขยูเนียนข้างล่างเชื่อไม่ได้"]
+        return L, 'กุญแจ 5 ส่วนไม่เป็นเอกลักษณ์'
+
+    L += [f"  จุดจริง : {len(pt_all):,} จุด · เข้ากุญแจ 5 ส่วนแล้ว {len(k5):,} ⇒ ไม่ยุบเลย",
+          f"     กุญแจ = ({keyname})",
+          f"     🔬 กุญแจ 4 ส่วนแบบเดิม (ไม่มีเส้นทาง) จะเหลือ {len(k4):,}"
+          f" ⇒ หายเงียบ {len(pt_all)-len(k4):,} จุด"]
+
+    n_str = len(pt_all) - n_raw_sh + n_str_sh
+    losttok = {}
+    for kk in lost:
+        losttok[kk[5]] = losttok.get(kk[5], 0) + 1
+    L += ["  ยูเนียน (ดิบ ∪ ถอดเปลือก) :",
+          f"     ดิบ {len(pt_all):,} · จับเพิ่มจากที่ถอดแล้ว {len(gained):,}"
+          " (ค่าที่ถูกต้องคือ 0 ตลอดกาล — ขยับ = ค่าคงที่พัง)"
+          f" · หายเพราะถอดเปลือก {len(lost):,}",
+          f"     ⇒ ยูเนียน {len(k5) + len(gained):,} = ยอดที่ใช้จริง"
+          f" · ถอดเปลือกล้วน ๆ จะได้ {n_str:,} (อ่อนลง {len(lost):,} จุด)"]
+    if losttok:
+        L += ["        โทเคนที่หาย: " + ' · '.join(
+            f'{k} {v:,}' for k, v in sorted(losttok.items(), key=lambda x: -x[1]))]
+    # 🔴 ทริปไวร์ของค่าคงที่: "จับเพิ่ม" ⛔ ไม่ใช่ข่าวดี — แปลว่าข้อพิสูจน์ชั้น (ก) พังแล้ว
+    if gained:
+        L += [f"     🔴 'จับเพิ่ม' = {len(gained):,} ⛔ ไม่ใช่ 0"]
+        L += [f"        {kk[1]} · {kk[2]} · {kk[3]} @{kk[4]} · {kk[5]}"
+              for kk in sorted(gained)[:5]]
+        L += ["     ⇒ ข้อพิสูจน์ 'ชั้น (ก) เพิ่มการจับไม่ได้เลย' ไม่จริงอีกต่อไป"]
+        return L, 'ชั้น (ก) จับเพิ่มได้ ⇒ ค่าคงที่พัง'
+    return L, None
+
+
+def _run_point_cases(keyfn):
+    """คืนรายชื่อเคสที่ล้มเมื่อใช้ keyfn เป็นตัวตัดซ้ำ"""
+    fails = []
+    for name, qs, n_pts, n_uniq in POINT_CASES:
+        try:
+            pts_ = []
+            for q in qs:
+                pts_ += enum_points(q, _CQ_FN)
+            good = (len(pts_) == n_pts
+                    and len(set(keyfn(k) for _l, k in pts_)) == n_uniq)
+        except Exception:
+            good = False
+        if not good:
+            fails.append(name)
+    return fails
+
+
 def classify(raw_hits, qid, changed_ids):
     """แปลงระดับดิบเป็นระดับสุดท้าย
     changed_ids = None ⇒ โหมดทั้งคลัง (BLOCK คือ BLOCK)
@@ -1107,6 +1458,93 @@ def run_canary():
             ok = False
     for f_ in _real:
         print(f"      🔴 เคสที่ล้ม: {f_}")
+
+    # ── ด่านของชั้นจุด + กุญแจ 5 ส่วน (สเปกพอร์ทัล MB→E #07 §1) ──  v2.7
+    print("  ── ชั้นจุด · กุญแจ 5 ส่วน ──")
+    _cq = _CQ_FN
+    # ⑨ ตัวหารของชั้นนี้: ต้องเทียบกับ scan_question "ทุกใบใน canary" ไม่ใช่ใบเดียว
+    _mirror_qs = [q for _n, q, _s in CANARIES] + [q for _n, q in ANTI_CANARIES] \
+        + [_DIRTY, _COLLAPSE_Q, _CTRL_Q, _FIELD_Q, _OFF_Q]
+    _mirror_bad = [q.get('id') for q in _mirror_qs
+                   if counts_from_points(enum_points(q, _cq))
+                   != counts_from_hits(scan_question(q, _cq))]
+    # เดินโครงสร้าง: walk ต้องเป็น "เปลือกของ walk_paths" จริง ๆ ไม่ใช่ของคู่ขนาน
+    _nest = {'a': ['x', {'b': 'y'}], 'c': 'z', 'n': 7, 'z': None}
+    _paths = [p for p, _s in walk_paths(_nest)]
+    _shell_yes = sum(1 for x in _STRIP_CORPUS if has_shell(x))
+    _shell_no = len(_STRIP_CORPUS) - _shell_yes
+    # 🔴 ข้อพิสูจน์ของการตัดงานด้วย has_shell: สตริงที่ "ไม่มีเปลือก" ต้องไม่ถูกแปลงเลย
+    _shell_exact = all(strip_shells(x) == x for x in _STRIP_CORPUS if not has_shell(x))
+    # 🔴 เดินทุกกิ่งของ point_layer_report() รวมกิ่ง ⚪ ที่ข้อมูลจริงไม่มีวันพาไปถึง
+    #    (คลังจะเข้ากิ่งนั้นได้ก็ต่อเมื่อใช้หนี้หมดทั้งคลัง = วันที่ยังไม่มาถึง)
+    _plp = enum_points(_COLLAPSE_Q, _cq)
+    _pl_zero = point_layer_report([], set(), set(), 0, 0)
+    _pl_ok = point_layer_report(_plp, set(), set(), 0, 0)
+    _pl_dup = point_layer_report(_plp + _plp, set(), set(), 0, 0)
+    _pl_gain = point_layer_report(_plp, {('BLOCK', 'X', 'q', '$', 0, r'\mathrm')},
+                                  set(), 0, 0)
+    _pt_real = _run_point_cases(_key5)
+    _pt_k4 = _run_point_cases(_mut_key4)
+    _pt_off = _run_point_cases(_mut_nooff)
+    _pt_fld = _run_point_cases(_mut_nofield)
+    _pt_qid = _run_point_cases(_mut_noqid)
+    point_checks = [
+        ("กุญแจต้องมี 5 ส่วน และเป็นชื่อที่ประกาศกับพอร์ทัลไว้",
+         len(POINT_KEY_PARTS) == 5 and POINT_KEY_PARTS[2] == 'เส้นทางเต็มของ walker'),
+        (f"⑨ ชั้นจุดให้ยอดตรงกับ scan_question ทุกใบ {len(_mirror_qs)} ใบ"
+         f"  (ไม่ตรง: {_mirror_bad or 'ไม่มี'})", not _mirror_bad),
+        ("occurrences นับ 'ครั้ง' แบบเดียวกับ str.count (นิยามเดียวกัน — กับดัก ⑨)",
+         all(len(occurrences(s, t)) == s.count(t)
+             for s in _STRIP_CORPUS + [r'\lfloor\lfloor', 'aaaa', '']
+             for t in (r'\lfloor', r'\subseteq', 'aa', '⊆'))),
+        ("walk เป็นเปลือกของ walk_paths จริง (สตริงชุดเดียวกัน เรียงเดียวกัน)",
+         list(walk(_nest)) == [s for _p, s in walk_paths(_nest)]),
+        ("เส้นทางบอกที่อยู่ได้จริง: ลิสต์ใช้ [i] · dict ใช้ .key · ซ้อนกันได้",
+         _paths == ['$.a[0]', '$.a[1].b', '$.c']),
+        ("(ต้องไม่จับ) ใบที่ไม่ใช่สตริง (ตัวเลข/None) ต้องไม่กลายเป็นจุด",
+         list(walk_paths(7)) == [] and list(walk_paths(None)) == []),
+        (f"⑨ corpus ของด่านล่างมีทั้งสองฝั่ง: มีเปลือก {_shell_yes} · ไม่มีเปลือก"
+         f" {_shell_no} (ต้อง ≥ 3 ทั้งคู่ ไม่งั้นด่านล่างเขียวฟรี)",
+         _shell_yes >= 3 and _shell_no >= 3),
+        ("🔬 has_shell ตัดงานได้ 'ตรงเป๊ะ': สตริงที่ไม่มีเปลือก ⇒ strip_shells คืนของเดิม"
+         " ⇒ ข้ามได้โดยไม่เสียจุดใดเลย", _shell_exact),
+        ("…และ has_shell ต้องดู `{` ด้วย ⛔ ไม่ใช่ชื่อแมโครลอย ๆ",
+         has_shell(r'\text{ก}') and not has_shell(r'ใช้ \text ลอย ๆ')),
+        (f"ห้ารายการโทเคนไม่ทับกันเลย ⇒ กุญแจไม่ต้องมี 'ระดับ'"
+         f"  ({token_lists_disjoint()[1] or 'ไม่ทับ'})", token_lists_disjoint()[0]),
+        ("…และด่านนี้จับได้จริงถ้ามีคนเติมโทเคนซ้ำข้ามรายการ",
+         not token_lists_disjoint((('A', [r'\mathrm']), ('B', [r'\mathrm'])))[0]),
+        (f"ของจริงผ่านครบ {len(POINT_CASES)} เคส  ({_pt_real or 'ไม่ล้มเลย'})", not _pt_real),
+        (f"🔴 บั๊กจำลอง ① กุญแจ 4 ส่วน (ตัดเส้นทาง) ⇒ ล้ม {len(_pt_k4)}/{len(POINT_CASES)}"
+         " เคส (ต้อง ≥ 2 — ของจริงหายไป 197 จุดจากสองฟิลด์นี้)", len(_pt_k4) >= 2),
+        (f"บั๊กจำลอง ② ตัดออฟเซ็ต ⇒ ล้ม {len(_pt_off)} เคส (ต้อง > 0)", len(_pt_off) > 0),
+        (f"บั๊กจำลอง ③ ตัดฟิลด์ ⇒ ล้ม {len(_pt_fld)} เคส (ต้อง > 0)", len(_pt_fld) > 0),
+        (f"บั๊กจำลอง ④ ตัดรหัสข้อ ⇒ ล้ม {len(_pt_qid)} เคส (ต้อง > 0)", len(_pt_qid) > 0),
+        ("⛔ ชั้นจุดต้องไม่ใช่ตัวตัดสิน — scan_question ห้ามเรียก enum_points",
+         'enum_points' not in _SCAN_QUESTION_SRC),
+        ("🔴 กิ่ง ⚪ 'คลังไม่มีจุดเลย' ⇒ พิมพ์เตือน แต่ ⛔ ไม่แดง"
+         " (กิ่งที่ข้อมูลจริงเดินไม่ถึงจนกว่าจะใช้หนี้หมด)",
+         _pl_zero[1] is None and any('⚪' in x for x in _pl_zero[0])
+         and any('canary' in x for x in _pl_zero[0])),
+        ("กิ่งปกติ ⇒ ไม่แดง และต้องบอกว่า 'ไม่ยุบเลย'",
+         _pl_ok[1] is None and any('ไม่ยุบเลย' in x for x in _pl_ok[0])
+         and any('ยูเนียน' in x for x in _pl_ok[0])),
+        (f"กิ่งกุญแจซ้ำ ⇒ แดง  ({_pl_dup[1] or '⛔ ไม่แดง'})",
+         bool(_pl_dup[1]) and any('🔴' in x for x in _pl_dup[0])),
+        (f"กิ่ง 'จับเพิ่ม ≠ 0' ⇒ แดง  ({_pl_gain[1] or '⛔ ไม่แดง'})",
+         bool(_pl_gain[1]) and any('ไม่ใช่ 0' in x for x in _pl_gain[0])),
+        ("⛔ point_layer_report ต้องไม่ตัดสินเอง — ห้ามมี sys.exit/print ในตัวมัน",
+         not any(t in _tw.dedent(_inspect.getsource(point_layer_report)).split('"""')[2]
+                 for t in ('sys.exit', 'print('))),
+        ("🔬 ยูเนียนของเคสจริงย่อส่วน: ถอดเปลือกแล้ว 'จับเพิ่ม 0' แต่ 'หาย 2' (\\mathrm)",
+         (lambda a, b: (not (b - a)) and len(a - b) == 2)(
+             set((l,) + k for l, k in enum_points(_COLLAPSE_Q, _cq)),
+             set((l,) + k for l, k in enum_points(_COLLAPSE_Q, _cq, strip_shells)))),
+    ]
+    for name, passed in point_checks:
+        print(f"  {'✅' if passed else '🔴 ล้ม'}  {name}")
+        if not passed:
+            ok = False
     print()
     return ok
 
@@ -1326,10 +1764,19 @@ def main():
     blocks, warns, legacy = [], [], []
     made_recs, woke_recs, undet_q = [], [], set()
     word_recs, word_shell = [], {}      # ชั้น (ข) — เก็บแยกเพื่อ "รายงาน" เท่านั้น
-    nq = 0
+    # ── ชั้นจุด (v2.7) — ตัวเทียบ ⛔ ไม่ใช่ตัวตัดสิน
+    pt_all, pt_gained, pt_lost = [], set(), set()
+    n_raw_sh = n_str_sh = 0             # ยอดของ "เฉพาะข้อที่มีเปลือก" (ตัวตัดงานที่ตรงเป๊ะ)
+    # ── ⑪ ตัวหารของคำประกาศคลัง
+    _STU_FIELDS = tuple(STUDENT_NOW) + tuple(STUDENT_LATER)
+    decl_fields = {'stu': set(), 'work': set()}
+    decl_str = {'stu': 0, 'work': 0}
+    decl_chr = {'stu': 0, 'work': 0}
+    nq = nfiles = 0
     for fn in sorted(os.listdir(args.sets_dir)):
         if not fn.endswith('.json'):
             continue
+        nfiles += 1
         path = os.path.join(args.sets_dir, fn)
         with open(path, encoding='utf-8') as f:
             data = json.load(f)
@@ -1337,6 +1784,33 @@ def main():
             nq += 1
             qid = q.get('id')
             raw = scan_question(q, fn)
+            # ── ชั้นจุด: นับของชุดเดียวกันด้วยเส้นทางคนละเส้น แล้วเทียบทันทีทุกข้อ
+            #    🔴 สองชั้นไม่ตรงกัน = ตัวตรวจใช้ไม่ได้ ⛔ ไม่ใช่ "ผลแปลก ๆ แต่ปล่อยผ่าน"
+            _pq = enum_points(q, fn)
+            if counts_from_points(_pq) != counts_from_hits(raw):
+                print(f"\n  🔴 ชั้นนับกับชั้นจุดให้ยอดไม่ตรงกันที่ข้อ {qid} (ไฟล์ {fn})")
+                print(f"     ชั้นนับ  : {sorted(counts_from_hits(raw).items())}")
+                print(f"     ชั้นจุด  : {sorted(counts_from_points(_pq).items())}")
+                print("     ⇒ ผลรอบนี้เชื่อไม่ได้ทั้งใบ ⇒ ด่านแดง (⑩ เปลี่ยนแล้วอ่อนลงไม่ได้)")
+                sys.exit(2)
+            pt_all += _pq
+            # ชั้นยูเนียน: ทำเฉพาะข้อที่ "มีเปลือกจริง" — ข้อที่ไม่มี strip_shells คืนของเดิมเป๊ะ
+            if question_has_shell(q):
+                _ps = enum_points(q, fn, strip_shells)
+                _a = set((l,) + k for l, k in _pq)
+                _b = set((l,) + k for l, k in _ps)
+                pt_gained |= _b - _a
+                pt_lost |= _a - _b
+                n_raw_sh += len(_pq)
+                n_str_sh += len(_ps)
+            for _f3, _v3 in q.items():
+                if _f3 in FIELDS_NEVER_TOUCH:
+                    continue
+                _b3 = 'stu' if _f3 in _STU_FIELDS else 'work'
+                decl_fields[_b3].add(_f3)
+                for _p3, _s3 in walk_paths(_v3):
+                    decl_str[_b3] += 1
+                    decl_chr[_b3] += len(_s3)
             # ── ชั้น (ข): เก็บยอดดิบไว้รายงาน ⛔ ไม่ได้ใช้ตัดสินอะไรเพิ่ม
             #    (คำตัดสินยังมาจาก cls เหมือนเดิมทุกประการ)
             _wr = [h for h in raw if h[1] in WORD_BANNED]
@@ -1434,6 +1908,40 @@ def main():
             print(f"    🔤 {r[1]:28} {r[2]:14} ใน `{r[3]}` ×{r[4]}")
         if len(word_recs) > 20:
             print(f"    … อีก {len(word_recs)-20} รายการ")
+
+    # ── ชั้นจุด (กุญแจ 5 ส่วน) + ยูเนียน — สเปกพอร์ทัล MB→E #07 §1–§2 ──  v2.7
+    # ⛔ ตรรกะทั้งก้อนอยู่ใน point_layer_report() ไม่ใช่ตรงนี้ — เพื่อให้ canary
+    #    เดินได้ทุกกิ่ง รวมกิ่ง ⚪ ที่ข้อมูลจริงไม่มีวันพาไปถึง (ดู docstring ของมัน)
+    _pl_lines, _pl_fatal = point_layer_report(
+        pt_all, pt_gained, pt_lost, n_raw_sh, n_str_sh)
+    for _ln in _pl_lines:
+        print(_ln)
+    if _pl_fatal:
+        print(f"     ⇒ ด่านแดง : {_pl_fatal}")
+        sys.exit(2)
+
+    # ── ⑪ คำประกาศ "คลังที่มันใช้บังคับ" — พิมพ์ทุกรอบ (สเปกพอร์ทัล MB→E #07 §3) ──
+    print("  ── ⑪ คำประกาศคลังที่บังคับ ──────────────────────────────")
+    print(f"  คลัง : {args.sets_dir}/*.json  {nfiles} ไฟล์ · {nq:,} ข้อ")
+    print("     ⛔ ไม่รวม scripts/ — ในนั้นมีคำว่า cosec อยู่ใน WORD_BANNED เอง"
+          " (ตัวกฎ ไม่ใช่ของผิด)")
+    print("     ⛔ ไม่รวม docs/ · ⛔ ไม่รวม data/bank.json (บอทสร้าง — เนื้อเดียวกับ sets)")
+    _pt_stu = [k for _l, k in pt_all if k[1] in _STU_FIELDS]
+    _pt_work = [k for _l, k in pt_all if k[1] not in _STU_FIELDS]
+    for _b4, _label, _tail in (
+            ('stu', 'ฟิลด์ที่เด็กเห็น', 'ตรวจครบทุกชั้น'),
+            ('work', 'ฟิลด์บันทึกงาน ', 'ตรวจชั้นของต้องห้าม + ชั้นถ้อยคำเต็มที่'
+                                        ' · ⛔ ไม่ตรวจชั้น TIERED โดยตั้งใจ')):
+        _names = sorted(decl_fields[_b4])
+        _p4 = _pt_stu if _b4 == 'stu' else _pt_work
+        print(f"  {_label} {len(_names)} ชื่อ : {len(_p4):,} จุด / "
+              f"{len(set(k[0] for k in _p4)):,} ข้อ"
+              f"   (⑨ ตัวหาร {decl_str[_b4]:,} สตริง · {decl_chr[_b4]:,} ตัวอักษร)")
+        for _line in _tw.wrap(' · '.join(_names), 84):
+            print(f"     {_line}")
+        print(f"     {_tail}")
+    print(f"  ⛔ {' · '.join(FIELDS_NEVER_TOUCH)} : ไม่ถูกอ่านเลย"
+          " (ยูนิโคดในนั้นคือรายการคำตอบที่ยอมรับ)")
 
     print(f"  LEGACY : {pts(legacy)} จุด / {nqs(legacy)} ข้อ   (หนี้เก่าที่ยังค้าง — ห้ามโต)")
     print(f"  WARN   : {pts(warns)} จุด / {nqs(warns)} ข้อ")
