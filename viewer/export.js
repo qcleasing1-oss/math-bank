@@ -4,6 +4,22 @@
  *
  * เลือกช่วงข้อได้ (v2): ใช้ window.getExportSelection() / window.initExportRange()
  * ที่นิยามใน admin.html — ถ้าไม่มี จะ fallback เป็น "ส่งออกทั้งชุด" เหมือนเดิม
+ *
+ * v3 (2 ส.ค. 69) — ปิดช่องที่ทำให้ไฟล์นี้ตัดสินใจต่างจาก admin.html สองจุด:
+ *   ① inQuestion — หมุด [IMAGE:n] คือ "คำสั่งย้ายรูป" ไม่ใช่ "ป้ายชื่อ"
+ *      รูปที่ถูกหมุดจะหายจากโจทย์ เว้นแต่ spec ตั้ง inQuestion:true
+ *      ไฟล์นี้เดิมไม่อ่านฟิลด์นั้นเลย ⇒ 8 ข้อ / 10 จุด (7 ข้อเป็นข้อสอบจริง)
+ *      พิมพ์ใบ "เฉพาะโจทย์" ออกมาแล้วไม่มีรูป ทั้งที่โจทย์อ้างถึงรูป
+ *   ② การ์ด idx===0 — imageSpec ที่เป็น dict ต้องรับเฉพาะ [IMAGE] / [IMAGE:0]
+ *      เดิม [IMAGE:7] บน dict คืนรูปตัวเดิมเงียบ ๆ ⇒ วางรูปผิดที่โดยไม่มีใครรู้
+ *      วันนี้ยังไม่มีเคส (0 ข้อ) แต่จะเกิดทันทีที่เดินคิว C1 แล้วพิมพ์เลขดัชนีพลาด
+ *      ⇒ ขึ้นป้ายเตือนที่มองเห็นได้ แบบเดียวกับ admin.html บรรทัด 1840–41
+ * ⚠️ กติกา: ตรรกะเลือกรูปในไฟล์นี้ต้องตรงกับ admin.html เสมอ
+ *    (admin.html ~1778–1781 = _getSpecByIdx · ~1922–1929 = ตัวเลือกรูปของโจทย์)
+ *    ⛔ กติกานี้ไม่ได้อยู่แค่ในคอมเมนต์ — ด่าน 12 บังคับจริง:
+ *       node scripts/check_export_figures.js   (ผูกไว้ใน .github/workflows/guards.yml)
+ *       ด่านนั้นรันไบต์จริงของไฟล์นี้ แล้วเทียบผลกับกฎของ admin.html ทั้งคลัง
+ *       ⇒ แก้ที่นี่โดยไม่แก้ที่โน่น (หรือกลับกัน) = แดงทันที ไม่ต้องรอให้ใครสังเกต
  */
 (function () {
   'use strict';
@@ -14,6 +30,19 @@
   function _marked(expl) { return (typeof getMarkedIndices === 'function') ? getMarkedIndices(expl) : new Set(); }
   function _esc(s) { return (typeof escapeHtml === 'function') ? escapeHtml(s) : String(s == null ? '' : s); }
   function _label(s) { return (typeof setLabel === 'function') ? setLabel(s) : (s && s.displayName) || ''; }
+
+  // ---- การเลือกรูป: ต้องตรงกับ admin.html ----
+  // กระจกเงาของ admin.html _getSpecByIdx (~1778) — dict รับได้เฉพาะ idx 0
+  function _specByIdx(imageSpec, idx) {
+    if (Array.isArray(imageSpec)) return imageSpec[idx];
+    return idx === 0 ? imageSpec : null;
+  }
+  // spec ตัวนี้ประกาศตัวเองว่าเป็นรูปของโจทย์หรือไม่
+  // (imageSpec ในคลังมี 3 ทรง: dict · ลิสต์ของ dict · ลิสต์ที่สมาชิกเป็นลิสต์ 1 ข้อ
+  //  ⇒ ห้ามเรียก .inQuestion บนของที่ไม่ใช่ dict)
+  function _inQ(spec) {
+    return !!(spec && !Array.isArray(spec) && spec.inQuestion);
+  }
 
   // ---- การเลือกข้อ (มาจาก admin.html) ----
   function _sel() {
@@ -96,10 +125,11 @@
       delete c.explanation; delete c.correct; delete c.accept;
       if (c.imageSpec) {
         var marked = _marked(q.explanation);
+        // เก็บรูปที่ "ไม่ถูกหมุด" หรือ "ประกาศ inQuestion" — ตรงกับ admin.html ~1924
         if (Array.isArray(c.imageSpec)) {
-          var kept = c.imageSpec.filter(function (_, i) { return !marked.has(i); });
+          var kept = c.imageSpec.filter(function (s, i) { return !marked.has(i) || _inQ(s); });
           if (kept.length) c.imageSpec = kept; else delete c.imageSpec;
-        } else if (marked.has(0)) { delete c.imageSpec; }
+        } else if (marked.has(0) && !_inQ(c.imageSpec)) { delete c.imageSpec; }
       }
       return c;
     });
@@ -137,6 +167,11 @@
     var svg = renderImage(spec);
     return svg ? '<div class="exp-fig">' + svg + '</div>' : '';
   }
+  // หมุดชี้ไปยัง index ที่ไม่มี spec — ต้อง "เห็นได้" ไม่ใช่เงียบ (admin.html ~1840)
+  function _figMissing(idx) {
+    var lab = idx > 0 ? '[IMAGE:' + idx + ']' : '[IMAGE]';
+    return '<div class="exp-fig-missing">⚠️ ' + lab + ' — ไม่มี imageSpec สำหรับ index นี้</div>';
+  }
   function _tables(q) {
     if (!Array.isArray(q.tables) || !q.tables.length) return '';
     return q.tables.map(function (t) {
@@ -156,8 +191,8 @@
       any = true;
       buf += _convMath(line.slice(last, m.index), mathMode);
       var idx = (m[1] !== undefined) ? parseInt(m[1], 10) : 0;
-      var spec = Array.isArray(q.imageSpec) ? q.imageSpec[idx] : q.imageSpec;
-      buf += _fig(spec);
+      var spec = _specByIdx(q.imageSpec, idx);
+      buf += spec ? _fig(spec) : _figMissing(idx);
       last = m.index + m[0].length;
     }
     buf += _convMath(line.slice(last), mathMode);
@@ -171,12 +206,14 @@
     var h = '<div class="exp-q"><div class="exp-qnum">ข้อ ' + q.questionNumber + '</div>';
     h += '<div class="exp-qtext">' + _convMath(q.question || '', mathMode) + '</div>';
     h += _tables(q);
+    // รูปที่แสดงในโจทย์ = index ที่ไม่ถูกหมุด หรือ spec ที่ตั้ง inQuestion:true
+    // (ตรงกับ admin.html ~1922–1929 — ถ้าแก้ที่นั่น ต้องแก้ที่นี่ด้วย)
     var marked = _marked(q.explanation), qSpec = null;
     if (q.imageSpec) {
       if (Array.isArray(q.imageSpec)) {
-        var u = q.imageSpec.filter(function (_, i) { return !marked.has(i); });
+        var u = q.imageSpec.filter(function (s, i) { return !marked.has(i) || _inQ(s); });
         if (u.length) qSpec = u;
-      } else if (!marked.has(0)) { qSpec = q.imageSpec; }
+      } else if (!marked.has(0) || _inQ(q.imageSpec)) { qSpec = q.imageSpec; }
     }
     if (qSpec) h += _fig(qSpec);
     if (q.type === 'mc' && Array.isArray(q.choices)) {
@@ -208,6 +245,7 @@
       + ".exp-sol{margin-top:8px;background:#f7f5ef;border-left:3px solid #8b3a1f;padding:8px 12px;border-radius:4px}"
       + ".exp-sol-h{font-weight:700;margin-bottom:4px}"
       + ".exp-fig{margin:8px 0}.exp-fig svg{max-width:100%;height:auto}"
+      + ".exp-fig-missing{margin:8px 0;padding:6px 10px;border:1px dashed #b71c1c;color:#b71c1c;font-size:13px;border-radius:4px}"
       + ".exp-table{border-collapse:collapse;margin:8px 0}.exp-cap{font-size:12px;color:#666}"
       + ".method-detail{background:#eaf6ec;border-left:4px solid #2e9e4f;padding:6px 10px;margin:8px 0}"
       + ".method-quick{background:#fbf0e0;border-left:4px solid #d98a2b;padding:6px 10px;margin:8px 0}";

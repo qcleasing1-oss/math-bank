@@ -36,7 +36,26 @@ import os
 import re
 import sys
 
-CHECKER_VERSION = '1.1'
+CHECKER_VERSION = '1.2'
+
+# ── v1.2 (2 ส.ค. 69) — ปิดรูที่ "ภาษาของไฟล์" กลายเป็นทางหนีของกฎ ────────────
+#
+# 🔴 ที่มา: รอบ 17 เพิ่มตัวตรวจตัวแรกที่ ⛔ ไม่ใช่ไพทอน — scripts/check_export_figures.js
+#    (ต้องเป็น JS เพราะของที่ถูกตรวจคือ viewer/export.js ซึ่งรันในเบราว์เซอร์)
+#    รุ่น 1.1 อ่านเฉพาะไฟล์ที่ลงท้าย .py ⇒ ตัวตรวจ JS จะ:
+#      · ไม่ถูกกฎ ⑦ก เฝ้าเลย (ลืมผูกเข้า CI = เขียวตลอดกาล)
+#      · เขียน process.exit(3) ได้โดยไม่มีใครทัก
+#    ⇒ รูนี้เกิดจากการที่ "ผมเองเป็นคนเพิ่มไฟล์ JS ตัวแรก" ⛔ ไม่ใช่ของเก่าที่ค้างมา
+#      การรายงานรูที่ตัวเองเพิ่งเจาะ แล้วไม่อุด = สร้างหนี้ในรอบเดียวกับที่ประกาศว่าใช้หนี้
+#
+# ⚠️ ขอบเขตที่ทำได้จริง และตัวหารของมัน (⑨ — ประกาศไว้ ไม่ปล่อยให้ความเงียบแปลว่าครอบคลุม):
+#    ฝั่ง .py  อ่านด้วย ast ⇒ เห็นโครงสร้าง (return จาก main() ก็จับได้)
+#    ฝั่ง .js  ⛔ ไม่มี parser ⇒ อ่านด้วย regex เห็นเฉพาะ `process.exit(<เลขตายตัว>)`
+#      สิ่งที่ฝั่ง JS ยัง ⛔ จับไม่ได้: `process.exitCode = 3` · `exit(x)` ที่ x เป็นตัวแปร ·
+#      รหัสที่ throw ออกไปแล้ว node แปลงเป็น 1
+#      ⇒ พิมพ์ตัวหารของสองฝั่งแยกกันเสมอ ⛔ ห้ามรวมเป็นเลขเดียว
+#        เพราะ "ตรวจ .js ได้ 3 จุด" กับ "ตรวจ .py ได้ 80 จุด" ไม่ใช่หลักฐานชนิดเดียวกัน
+# ─────────────────────────────────────────────────────────────────────────────
 
 OK_CODES = (0, 1, 2)
 SCRIPTS_DIR = 'scripts'
@@ -143,6 +162,60 @@ def exit_codes_py(src, where='<mem>'):
     return sorted(out)
 
 
+# ── ฝั่ง JavaScript ──────────────────────────────────────────────────────────
+# ⚠️ อ่านด้วย regex ⛔ ไม่ใช่ parser — ดูเหตุผลและตัวหารในหัวไฟล์ (v1.2)
+JS_EXIT_RE = re.compile(r'process\s*\.\s*exit\s*\(\s*(-?\d+)\s*\)')
+
+
+def strip_js_comments(src):
+    """ตัดคอมเมนต์ JS ทิ้ง โดยเก็บจำนวนบรรทัดไว้เท่าเดิม
+
+    🔴 ทำไมต้องตัด: ไฟล์ด่านจะมีบรรทัดที่ *อธิบาย* กฎ เช่น
+       `// ⛔ ห้ามเขียน process.exit(3)` — ถ้าไม่ตัด ด่านจะจับเอกสารของตัวเอง
+       ⇒ ด่านที่ทำให้เขียนเอกสารไม่ได้ คือด่านที่จะโดนถอดทิ้ง (เหตุผลเดียวกับ strip_comment)
+    ⛔ แต่ห้ามตัดดื้อ ๆ: `'ข้อความ // ไม่ใช่คอมเมนต์'` ต้องรอด และที่สำคัญกว่านั้น
+       `console.log('ก') // ...` ⇒ ของจริงที่อยู่ *ก่อน* // ต้องไม่หายไปด้วย
+    ⛔ เก็บ '\\n' ไว้ทุกตัว เพราะเลขบรรทัดที่รายงานต้องตรงกับไฟล์จริง
+       (ด่านที่ชี้บรรทัดผิด = ด่านที่คนอ่านแล้วไม่เชื่อ แล้วก็เลิกอ่าน)
+    """
+    out, i, n = [], 0, len(src)
+    q = None          # เครื่องหมายคำพูดที่กำลังเปิดค้างอยู่ (' " `)
+    while i < n:
+        ch = src[i]
+        if q:
+            if ch == '\\' and i + 1 < n:
+                out.append(ch); out.append(src[i + 1]); i += 2; continue
+            if ch == q:
+                q = None
+            out.append(ch); i += 1; continue
+        if ch in '"\'`':
+            q = ch; out.append(ch); i += 1; continue
+        if ch == '/' and i + 1 < n and src[i + 1] == '/':
+            while i < n and src[i] != '\n':
+                i += 1
+            continue
+        if ch == '/' and i + 1 < n and src[i + 1] == '*':
+            i += 2
+            while i + 1 < n and not (src[i] == '*' and src[i + 1] == '/'):
+                if src[i] == '\n':
+                    out.append('\n')   # ⛔ เลขบรรทัดต้องไม่เลื่อน
+                i += 1
+            i += 2
+            continue
+        out.append(ch); i += 1
+    return ''.join(out)
+
+
+def exit_codes_js(src, where='<mem>'):
+    """คืน [(บรรทัด, รหัส, ที่มา)] ของ process.exit(<เลขตายตัว>) ในซอร์ส JS"""
+    code = strip_js_comments(src)
+    out = []
+    for m in JS_EXIT_RE.finditer(code):
+        ln = code.count('\n', 0, m.start()) + 1
+        out.append((ln, int(m.group(1)), 'process.exit'))
+    return sorted(out)
+
+
 def strip_comment(line):
     """ตัดคอมเมนต์ท้ายบรรทัดออก โดยรู้จักเครื่องหมายคำพูด
 
@@ -199,6 +272,21 @@ def swallowed(text):
 def called_in_workflow(text, script_path):
     """ตัวตรวจตัวนี้ถูกเรียกในไฟล์ workflow หรือยัง — ⑦ก: คืนรหัสแล้ว ≠ มีคนอ่านรหัส"""
     return os.path.basename(script_path) in text
+
+
+# ⚠️ นามสกุลที่ถือว่า "เป็นตัวตรวจได้" — v1.2 เพิ่ม .js
+#    ⛔ ห้ามตัด .js ออกเพื่อให้ด่านเงียบ: ตัดเมื่อไร ตัวตรวจ JS จะหลุดจากกฎ ⑦ก ทันที
+CHECKER_EXTS = ('.py', '.js')
+
+
+def is_checker(fn):
+    """ไฟล์นี้เข้าข่าย "ตัวตรวจที่ต้องมีคนเรียก" ไหม (กฎ ⑦ก)
+
+    🔴 เกณฑ์คือ **คำนำหน้า check_ + นามสกุลในรายการ** ⛔ ไม่ใช่ภาษาที่เขียน
+       ถ้าผูกกับภาษา ตัวตรวจภาษาใหม่จะหลุดออกจากกฎเงียบ ๆ ทุกครั้งที่เพิ่มภาษา
+       (เกิดจริงในรอบ 17 — ตัวตรวจ JS ตัวแรกไม่มีใครเฝ้าเลย)
+    """
+    return fn.startswith('check_') and fn.endswith(CHECKER_EXTS)
 
 
 # ─────────────────────────────────────────────────────────────
@@ -261,6 +349,29 @@ DECOY_CLEAN_YML = [
 ]
 N_CLEAN_PY, N_CLEAN_YML = 3, 5
 
+# ── ตัวล่อฝั่ง JS (v1.2) ─────────────────────────────────────────────────────
+DECOY_JS = [
+    ('process.exit(3)', "process.exit(3);\n"),
+    ('process.exit(-1) — เชลล์เห็นเป็น 255', "process.exit(-1);\n"),
+    ('process.exit( 5 ) เว้นวรรคแทรก', "process.exit( 5 );\n"),
+    ('process . exit(4) เว้นวรรครอบจุด', "process . exit(4);\n"),
+    ('รหัสแปลกซ่อนใต้เงื่อนไข', "if (bad) { process.exit(9); }\n"),
+]
+DECOY_CLEAN_JS = [
+    ('รหัส 0/1/2 ครบชุด ⇒ ต้องเงียบ',
+     "process.exit(0);\nprocess.exit(1);\nprocess.exit(2);\n"),
+    # 🔴 คู่แฝดของ DECOY_CLEAN_YML สองตัวล่าง — ด่านต้องอ่านเอกสารของตัวเองได้
+    ('คอมเมนต์บรรทัดเดียวที่ "อธิบาย" รหัสแปลก ⛔ ไม่ใช่การใช้',
+     "// ⛔ ห้ามเขียน process.exit(3) — ใช้ 1 หรือ 2 เท่านั้น\n"),
+    ('คอมเมนต์บล็อกที่อธิบายรหัสแปลก',
+     "/* ตัวอย่างที่ห้าม:\n *   process.exit(7)\n */\n"),
+    ('ข้อความในเครื่องหมายคำพูดที่มี // อยู่ ⇒ ต้องไม่ถูกตัดจนของจริงหาย',
+     "const u = 'http://x/y'; process.exit(1);\n"),
+    ('exit ที่ส่งตัวแปร ⇒ ตัดสินไม่ได้ ⇒ ต้องไม่จับ (และประกาศไว้ในหัวไฟล์แล้ว)',
+     "process.exit(RED ? 1 : 0);\n"),
+]
+N_DECOY_JS, N_CLEAN_JS = 5, 5
+
 
 def selftest():
     print('─' * 62)
@@ -275,8 +386,10 @@ def selftest():
         ('ตัวล่อไพทอน', len(DECOY_PY), N_DECOY_PY),
         ('ตัวล่อ workflow (กลืนรหัส)', len(DECOY_YML), N_DECOY_YML),
         ('ตัวล่อ workflow (รหัสแปลก)', len(DECOY_YML_EXIT), N_DECOY_YML_EXIT),
+        ('ตัวล่อ JS', len(DECOY_JS), N_DECOY_JS),
         ('ตัวสะอาดไพทอน', len(DECOY_CLEAN_PY), N_CLEAN_PY),
         ('ตัวสะอาด workflow', len(DECOY_CLEAN_YML), N_CLEAN_YML),
+        ('ตัวสะอาด JS', len(DECOY_CLEAN_JS), N_CLEAN_JS),
     ]
     print()
     print('  ── ยืนยันจำนวนตัวล่อ (⛔ ลบตัวล่อ = ปิดด่านแบบเงียบ) ──')
@@ -302,6 +415,10 @@ def selftest():
         hit = [c for _, c in exit_codes_yaml(line) if c not in OK_CODES]
         print(f'  {"✅" if hit == [want] else "🔴 ไม่จับ"}  {name}')
         ok &= hit == [want]
+    for name, src in DECOY_JS:
+        bad = [c for _, c, _ in exit_codes_js(src) if c not in OK_CODES]
+        print(f'  {"✅" if bad else "🔴 ไม่จับ"}  [JS] {name}')
+        ok &= bool(bad)
 
     print()
     print('  ── ของสะอาดต้องไม่ถูกจับ (กันด่านดุเกินจนมีคนปิดทิ้ง) ──')
@@ -313,6 +430,10 @@ def selftest():
         hit = swallowed(line) + [x for x in exit_codes_yaml(line) if x[1] not in OK_CODES]
         print(f'  {"✅" if not hit else "🔴 จับเกิน: " + str(hit)}  (ต้องไม่จับ) {name}')
         ok &= not hit
+    for name, src in DECOY_CLEAN_JS:
+        bad = [c for _, c, _ in exit_codes_js(src) if c not in OK_CODES]
+        print(f'  {"✅" if not bad else "🔴 จับเกิน: " + str(bad)}  (ต้องไม่จับ) [JS] {name}')
+        ok &= not bad
 
     print()
     print('  ── ด่านนี้ตรวจตัวเองด้วยไหม ──')
@@ -337,6 +458,25 @@ def selftest():
          check_not_in_ci(['check_bank_freshness.py'])[0] is False),
         ('⛔ ยกเว้นได้เฉพาะไฟล์ที่ขึ้นต้นด้วย check_ (ไฟล์อื่นไม่เคยอยู่ในกฎ ⑦ก อยู่แล้ว)',
          all(f.startswith('check_') for f in NOT_IN_CI)),
+        # ── v1.2 · กฎ ⑦ก ต้องไม่ผูกกับภาษา ────────────────────────
+        ('กฎ ⑦ก เฝ้าไฟล์ .js ด้วย ⛔ ไม่ใช่เฉพาะ .py',
+         is_checker('check_export_figures.js') is True),
+        ('…และยังเฝ้า .py เหมือนเดิม (ไม่ได้แลกของเก่าไปกับของใหม่)',
+         is_checker('check_bot_add.py') is True),
+        ('ไฟล์ที่ไม่ขึ้นต้น check_ ยังอยู่นอกกฎเหมือนเดิม',
+         is_checker('build_bank.py') is False),
+        ('⛔ ตั้งชื่อ test_*.js แล้วหลุดกฎ — ยืนยันว่ายังหลุดจริง จะได้ไม่มีใครเผลอใช้ชื่อนี้',
+         is_checker('test_export_figures.js') is False),
+        ('นามสกุลอื่นยังไม่อยู่ในกฎ (ประกาศไว้ ไม่ใช่ปล่อยให้เดา)',
+         is_checker('check_something.sh') is False),
+        # ── v1.2 · ตัวอ่าน JS ต้องชี้บรรทัดถูก ────────────────────
+        ('เลขบรรทัดฝั่ง JS ตรงกับไฟล์จริง แม้มีคอมเมนต์บล็อกคั่น',
+         exit_codes_js('/* ก\n * ข\n */\nprocess.exit(3);\n') == [(4, 3, 'process.exit')]),
+        ('คอมเมนต์บล็อกที่มี process.exit อยู่ข้างใน ⇒ ต้องไม่นับ',
+         exit_codes_js('/* process.exit(3) */\nprocess.exit(1);\n')
+         == [(2, 1, 'process.exit')]),
+        ('ของจริงที่อยู่ก่อน // บนบรรทัดเดียวกัน ⇒ ต้องไม่หายไปด้วย',
+         exit_codes_js('process.exit(3); // อธิบาย\n') == [(1, 3, 'process.exit')]),
     ]
     for name, passed in self_checks:
         print(f'  {"✅" if passed else "🔴 ล้ม"}  {name}')
@@ -346,8 +486,10 @@ def selftest():
     if not ok:
         print('🔴 SELF-TEST ไม่ผ่าน ⇒ ผลของด่านนี้กับไฟล์จริงเชื่อไม่ได้')
         return 2
-    print(f'✅ SELF-TEST ผ่าน — ตัวล่อ {N_DECOY_PY + N_DECOY_YML + N_DECOY_YML_EXIT} ตัว'
-          f' · ตัวสะอาด {N_CLEAN_PY + N_CLEAN_YML} ตัว · ด่านตรวจตัวเอง 3 ข้อ')
+    print(f'✅ SELF-TEST ผ่าน — ตัวล่อ'
+          f' {N_DECOY_PY + N_DECOY_YML + N_DECOY_YML_EXIT + N_DECOY_JS} ตัว'
+          f' · ตัวสะอาด {N_CLEAN_PY + N_CLEAN_YML + N_CLEAN_JS} ตัว'
+          f' · ด่านตรวจตัวเอง {len(self_checks)} ข้อ')
     return 0
 
 
@@ -372,7 +514,9 @@ def main():
         print(f'🔴 ไม่พบโฟลเดอร์ {a.scripts_dir} ⇒ เทียบไม่ได้ ⛔ ไม่ใช่ "ไม่มีอะไรผิด"')
         return 2
 
-    files = sorted(f for f in os.listdir(a.scripts_dir) if f.endswith('.py'))
+    all_files = sorted(os.listdir(a.scripts_dir))
+    files = [f for f in all_files if f.endswith('.py')]      # ฝั่งที่อ่านด้วย ast
+    files_js = [f for f in all_files if f.endswith('.js')]   # ฝั่งที่อ่านด้วย regex
     if not files:
         print(f'🔴 ไม่มีไฟล์ .py ใน {a.scripts_dir} ⇒ ด่านนี้ไม่มีอะไรให้ตรวจ')
         print('   ⛔ "ไม่มีของให้ตรวจ" ไม่ใช่ "ตรวจแล้วผ่าน" (กับดัก ⑨)')
@@ -392,6 +536,20 @@ def main():
             if c not in OK_CODES:
                 bad.append((path, ln, c, src_kind))
 
+    # ── ฝั่ง .js (v1.2) — ตัวหารแยกต่างหาก ⛔ ห้ามรวมกับฝั่ง .py ──
+    n_codes_js = 0
+    for fn in files_js:
+        path = os.path.join(a.scripts_dir, fn)
+        try:
+            codes = exit_codes_js(open(path, encoding='utf-8').read(), path)
+        except OSError as e:
+            print(f'🔴 อ่าน {path} ไม่ได้ ({e}) ⇒ เทียบไม่ได้')
+            return 2
+        n_codes_js += len(codes)
+        for ln, c, src_kind in codes:
+            if c not in OK_CODES:
+                bad.append((path, ln, c, src_kind))
+
     # ── ไฟล์ workflow ────────────────────────────────────────
     wf_swallow, wf_bad, wf_text = [], [], None
     if os.path.exists(a.workflow):
@@ -403,18 +561,32 @@ def main():
         return 2
 
     # ── ⑦ก · ตัวตรวจที่ไม่มีใครเรียก = ตัวตรวจที่ไม่มีอยู่จริง ──
-    orphan = [f for f in files
-              if f.startswith('check_') and not called_in_workflow(wf_text, f)
-              and f not in NOT_IN_CI]
+    watched = [f for f in all_files if is_checker(f)]
+    orphan = [f for f in watched
+              if not called_in_workflow(wf_text, f) and f not in NOT_IN_CI]
     # ⑨ ตัวหารของรายการยกเว้น: ยกเว้นไฟล์ที่ไม่มีอยู่จริง = รายการเน่าที่ไม่มีใครรู้
-    stale_waiver = [f for f in NOT_IN_CI if f not in files]
+    stale_waiver = [f for f in NOT_IN_CI if f not in all_files]
     ok_reason, reason_bad = check_not_in_ci()
 
-    print(f'  อ่าน {len(files)} ไฟล์ใน {a.scripts_dir}/ · รหัสออกที่เป็นเลขตายตัว'
-          f' {n_codes} จุด · ไฟล์ด่าน {a.workflow}')
-    print(f'  ⑨ ตัวหาร: ถ้า {n_codes} จุดนี้เป็น 0 แปลว่าอ่านไม่เจอ ⛔ ไม่ใช่ "ทุกอย่างถูก"')
+    print(f'  อ่าน .py {len(files)} ไฟล์ · .js {len(files_js)} ไฟล์ ใน {a.scripts_dir}/'
+          f' · ไฟล์ด่าน {a.workflow}')
+    print(f'  ⑨ ตัวหาร (แยกฝั่ง ⛔ ห้ามรวม): รหัสออกที่เป็นเลขตายตัว'
+          f' — .py {n_codes} จุด (อ่านด้วย ast) · .js {n_codes_js} จุด (อ่านด้วย regex)')
+    print(f'  ⑨ ตัวหารกฎ ⑦ก: ไฟล์ที่ขึ้นต้น check_ และนามสกุลใน {CHECKER_EXTS}'
+          f' = {len(watched)} ไฟล์')
+    print('  ⚠️ ฝั่ง .js ยัง ⛔ จับไม่ได้: process.exitCode = N · exit(<ตัวแปร>) · throw'
+          ' ⇒ "เงียบ" ที่นั่นแปลว่า "ยังไม่ได้ตรวจ" ไม่ใช่ "ตรวจแล้วสะอาด"')
     if n_codes == 0:
-        print('🔴 ไม่พบรหัสออกที่เป็นเลขตายตัวเลยสักจุด ⇒ ตัวอ่านน่าจะพัง')
+        print('🔴 ไม่พบรหัสออกที่เป็นเลขตายตัวเลยสักจุดฝั่ง .py ⇒ ตัวอ่านน่าจะพัง')
+        return 2
+    if files_js and n_codes_js == 0:
+        print(f'🔴 มีไฟล์ .js {len(files_js)} ไฟล์ แต่อ่านรหัสออกไม่เจอสักจุด'
+              ' ⇒ ตัวอ่านฝั่ง JS น่าจะพัง (หรือไฟล์เปลี่ยนท่าออกไปแล้ว)')
+        print('   ⛔ "ไม่เจอ" ที่นี่ไม่ใช่ "สะอาด" — ตัวตรวจต้องออกจากโปรแกรมด้วย'
+              ' process.exit() เสมอ (กับดัก ⑨)')
+        return 2
+    if watched and not files_js and any(f.endswith('.js') for f in NOT_IN_CI):
+        print('🔴 NOT_IN_CI อ้างไฟล์ .js แต่ไม่มีไฟล์ .js อยู่จริง')
         return 2
     print()
 
@@ -470,8 +642,8 @@ def main():
     if red:
         return 1
 
-    _n_check = sum(1 for f in files if f.startswith('check_'))
-    print(f'✅ รหัสออกทุกจุดอยู่ในข้อตกลง ({n_codes} จุด)'
+    _n_check = len(watched)
+    print(f'✅ รหัสออกทุกจุดอยู่ในข้อตกลง (.py {n_codes} จุด · .js {n_codes_js} จุด)'
           f' · ไม่มีบรรทัดกลืนรหัส · ตัวตรวจ {_n_check - len(NOT_IN_CI)}/{_n_check}'
           ' ไฟล์ถูกเรียกใน CI ครบ')
     for f, why in sorted(NOT_IN_CI.items()):
