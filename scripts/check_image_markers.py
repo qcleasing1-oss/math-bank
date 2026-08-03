@@ -45,6 +45,8 @@ check_image_markers.py — ด่าน "หมุดรูปต้องชี
         · ไฟล์ชุดอ่านไม่ได้ / ไม่ใช่ JSON / ไม่มีลิสต์ questions
           ⇒ ด่านนี้ไม่ประกาศว่าเนื้อหาผิด เพราะมัน **วัดไม่ได้** ต่างหาก
         · รายการอนุญาตในไฟล์นี้เองผิดรูป (เหตุผลสั้น/ไม่ครบช่อง)
+        · **ของล่อของกฎใดกฎหนึ่งไม่ทำงาน** (v1.1) ⇒ เลข "จับ N" ของกฎนั้นอ่านไม่ได้
+          ⇒ ของที่อ่านไม่ได้ ⛔ ไม่ใช่ของที่ผ่าน
 
 ⛔ "ตรวจไม่ได้" ไม่เท่ากับ "ตรวจแล้วผ่าน"
 
@@ -79,7 +81,17 @@ check_image_markers.py — ด่าน "หมุดรูปต้องชี
 ⑦ข ระวัง "เขียวเพราะไม่มีของให้จับ":
    กฎ ข/ค/ง ปัจจุบันจับได้ 0 จุดทั้งสิ้น (วัดที่ bb32125: เกินดัชนี 0 · กำพร้า 0 ·
    เกือบเป็นหมุด 0) ⇒ เขียวของสามกฎนี้ **ไม่ใช่หลักฐานว่ากฎทำงาน**
-   ⇒ จึงมีเคส self-test ที่พิสูจน์ว่าแต่ละกฎยิงจริง และพิมพ์ตัวหารของแต่ละกฎทุกครั้ง
+
+   🔴 v1.1 (3 ส.ค. 69 · เงื่อนไขจากทีมพอร์ทัล E→MB #11 §3)
+      เดิม "แต่ละกฎยิงจริง" ถูกพิสูจน์ใน `--selftest` เท่านั้น ⇒ คนที่อ่าน**รายงานของ
+      การรันจริง** ยังแยกไม่ออกว่า `จับ 0` แปลว่า "สะอาด" หรือ "กฎตาย"
+      ⇒ ตั้งแต่ v1.1 **ทุกกฎมีของล่อของตัวเอง และของล่อถูกยิงทุกครั้งที่รันจริง**
+        รายงานพิมพ์แยกกฎ:  `กฎ ข · … : จับ 0 ข้อ · ของล่อ 3/3 ✅`
+        ⇒ เลข 0 อ่านได้ เพราะบรรทัดเดียวกันมีหลักฐานว่ากฎยังยิงเป็น
+      ⛔ ห้ามพิมพ์รวมเป็น "จับ 0 ทั้งหมด" — 0 ที่ไม่มีของล่อกำกับ คือ 0 ที่อ่านไม่ได้
+      ⛔ ห้ามให้ `ของล่อ 0/0` พิมพ์ ✅ — กฎที่ไม่มีของล่อ = รหัส 2
+      ของล่อมีสองขั้วเสมอ: **ของล่อบวก** (ของเสียที่กฎต้องจับ) และ **ของล่อลบ**
+      (ของสะอาดที่หน้าตาใกล้เคียง ที่กฎต้อง**ไม่**จับ) ⇒ กันทั้ง "กฎตาย" และ "กฎยิงมั่ว"
 
 การใช้:
     python scripts/check_image_markers.py            # ตรวจคลังจริง (รากคือ .)
@@ -94,7 +106,7 @@ import subprocess
 import sys
 import tempfile
 
-CHECKER_VERSION = '1.0'
+CHECKER_VERSION = '1.1'
 
 SETS_DIR = os.path.join('data', 'sets')
 
@@ -311,6 +323,144 @@ def verdict_bare(per_q_bare, allow):
 
 
 # ─────────────────────────────────────────────────────────────
+# ของล่อประจำกฎ (v1.1) — ⛔ ไม่ใช่ self-test มันถูกยิงทุกครั้งที่รันจริง
+#
+# 🔴 เหตุผลที่ต้องอยู่ในเส้นทางการรันจริง ไม่ใช่ใน --selftest:
+#    รายงานของการรันจริงคือสิ่งที่คนอ่าน แล้วตัดสินใจว่า "ผ่าน"
+#    ถ้าหลักฐานว่ากฎยังยิงเป็น อยู่คนละคำสั่งกับรายงาน ⇒ คนอ่านรายงานไม่มีหลักฐานนั้น
+#    ⇒ `จับ 0` จะถูกอ่านว่า "สะอาด" ทั้งที่อาจแปลว่า "กฎตาย" (B8 ข้อ 1)
+#
+# รูปแบบ: รหัสกฎ -> [(ชื่อ, 'ยิง'|'เงียบ', ข้อ[], รายการอนุญาตที่ใช้ (เฉพาะกฎ ก))]
+#   'ยิง'   = ของล่อบวก — ของเสียที่กฎนี้ **ต้อง** จับ  ⇒ กัน "กฎตาย"
+#   'เงียบ' = ของล่อลบ  — ของสะอาดหน้าตาใกล้เคียงที่กฎนี้ **ต้องไม่** จับ ⇒ กัน "กฎยิงมั่ว"
+# ⛔ ของล่อทุกตัวเป็นของในหน่วยความจำล้วน — ห้ามแตะคลังจริงหรือรายการอนุญาตจริง
+# ─────────────────────────────────────────────────────────────
+def _q(qid, **kw):
+    q = {'id': qid, 'question': 'โจทย์', 'explanation': ['ขั้นที่ 1']}
+    q.update(kw)
+    return q
+
+
+DECOY_RULES = ('ก', 'ข', 'ค', 'ง')
+DECOY_KIND = {'ข': 'oor', 'ค': 'orphan', 'ง': 'near'}   # กฎ ก ตัดสินด้วย verdict_bare
+
+# 🔴 หมุดปักจำนวนของล่อขั้นต่ำ (กับดัก ⑩ อีกครั้ง)
+#    ของล่อที่ "ผ่านหมด" พิสูจน์แค่ว่าของล่อ **ที่เหลืออยู่** ยังผ่าน
+#    ⛔ ไม่ได้พิสูจน์ว่าไม่มีใครถอดของล่อออกเงียบ ๆ — `ของล่อ 2/2 ✅` ที่เคยเป็น 3/3
+#      อ่านเหมือนเดิมทุกตัวอักษร ⇒ จำนวนต้องถูกปักไว้ ไม่ใช่นับจากของที่เหลือ
+DECOY_MIN = {'ก': 3, 'ข': 3, 'ค': 3, 'ง': 4}
+
+_DECOY_ALLOW_STALE = {
+    'ล่อ-ค้าง': ('explanation', 1,
+                 'รายการอนุญาตของล่อ — ใช้พิสูจน์ขาลงของกฎ ก (⑩) ว่ายังบังคับอยู่จริง'),
+}
+
+DECOYS = {
+    'ก': [
+        ('หมุดเปล่าในข้อที่ไม่มีใบอนุญาต ⇒ ต้องแดง', 'ยิง',
+         [_q('ล่อ-ก1', explanation=['[IMAGE]'], imageSpec={'type': 't'})], None),
+        ('ใบอนุญาตค้างโดยไม่มีหมุดเปล่าแล้ว ⇒ ต้องแดง (⑩ ขาลง)', 'ยิง',
+         [_q('ล่อ-ก2', explanation=['[IMAGE:0]'], imageSpec={'type': 't'})],
+         _DECOY_ALLOW_STALE),
+        ('`[IMAGE:0]` ดัชนีชัดเจน ⛔ ไม่ใช่หมุดเปล่า ⇒ ต้องเงียบ', 'เงียบ',
+         [_q('ล่อ-ก3', explanation=['[IMAGE:0]'], imageSpec={'type': 't'})], None),
+    ],
+    'ข': [
+        ('`[IMAGE:3]` แต่มีรูป 2 รูป ⇒ ต้องแดง', 'ยิง',
+         [_q('ล่อ-ข1', explanation=['[IMAGE:0]', '[IMAGE:3]'],
+             imageSpec=[{'type': 't'}, {'type': 't'}])], None),
+        ('`[IMAGE:1]` กับรูป 2 รูป (ดัชนีสูงสุดพอดี) ⇒ ต้องเงียบ', 'เงียบ',
+         [_q('ล่อ-ข2', explanation=['[IMAGE:1]'],
+             imageSpec=[{'type': 't'}, {'type': 't'}])], None),
+        ('`[IMAGE:0]` กับรูปเดี่ยวแบบ dict ⇒ ต้องเงียบ', 'เงียบ',
+         [_q('ล่อ-ข3', explanation=['[IMAGE:0]'], imageSpec={'type': 't'})], None),
+    ],
+    'ค': [
+        ('มีหมุดแต่ไม่มี imageSpec เลย ⇒ ต้องแดง', 'ยิง',
+         [_q('ล่อ-ค1', explanation=['[IMAGE:1]'])], None),
+        ('ไม่มีหมุดและไม่มีรูป (ข้อธรรมดา) ⇒ ต้องเงียบ', 'เงียบ',
+         [_q('ล่อ-ค2', explanation=['ไม่มีรูปในข้อนี้'])], None),
+        ('มีหมุดและมีรูปครบ ⇒ ต้องเงียบ', 'เงียบ',
+         [_q('ล่อ-ค3', explanation=['[IMAGE:0]'], imageSpec={'type': 't'})], None),
+    ],
+    'ง': [
+        ('`[image]` ตัวพิมพ์เล็ก ⇒ ต้องแดง', 'ยิง',
+         [_q('ล่อ-ง1', explanation=['[image]'], imageSpec={'type': 't'})], None),
+        ('`[ IMAGE:1 ]` มีช่องว่างใน ⇒ ต้องแดง', 'ยิง',
+         [_q('ล่อ-ง2', explanation=['[ IMAGE:1 ]'],
+             imageSpec=[{'type': 't'}, {'type': 't'}])], None),
+        ('`[IMAGE:1]` ที่ถูกต้อง ⇒ ต้องเงียบ', 'เงียบ',
+         [_q('ล่อ-ง3', explanation=['[IMAGE:1]'],
+             imageSpec=[{'type': 't'}, {'type': 't'}])], None),
+        ('`[IMG]` ⛔ ไม่มีใครตั้งใจให้เป็นหมุด ⇒ ต้องเงียบ (กันตัวจับหลวมเกิน)', 'เงียบ',
+         [_q('ล่อ-ง4', explanation=['[IMG] และ (IMAGE)'], imageSpec={'type': 't'})],
+         None),
+    ],
+}
+
+
+def run_decoys(decoys=None, scan=None, verdict=None):
+    """ยิงของล่อของทุกกฎ — คืน {รหัสกฎ: (ผ่าน, ทั้งหมด, ปัญหา[])}
+
+    ⛔ กฎที่ไม่มีของล่อ = ปัญหา ไม่ใช่ 0/0 ✅
+       (0/0 ที่พิมพ์ ✅ คือคำโกหกที่หน้าตาเหมือนหลักฐาน)
+    """
+    table = DECOYS if decoys is None else decoys
+    scan = scan_questions if scan is None else scan
+    verdict = verdict_bare if verdict is None else verdict
+    out = {}
+    for rule in DECOY_RULES:
+        cases = list(table.get(rule) or [])
+        probs, npass = [], 0
+        if not cases:
+            probs.append('🔴 กฎ %s ไม่มีของล่อเลย ⇒ เลข "จับ N" ของกฎนี้อ่านไม่ได้'
+                         ' ว่าเป็นความสะอาดหรือความตายของกฎ' % rule)
+        else:
+            # ⑩ ขาลง: "ของล่อผ่านหมด" พิสูจน์แค่ของล่อ **ที่ยังเหลืออยู่**
+            #    ⇒ จำนวนต้องเทียบกับหมุดที่ปักไว้ ไม่ใช่กับจำนวนที่เหลือ
+            floor = DECOY_MIN.get(rule, 1)
+            if len(cases) < floor:
+                probs.append('🔴 กฎ %s มีของล่อ %d ตัว แต่หมุด DECOY_MIN ปักไว้ %d'
+                             ' ⇒ **ของล่อถูกถอดออกเงียบ ๆ (⑩)**'
+                             ' ⇒ เลข "จับ" ของกฎนี้อ่านไม่ได้' % (rule, len(cases), floor))
+            # สองขั้ว: ถ้ามีแต่ของล่อบวก จะจับ "กฎยิงมั่ว" ไม่ได้
+            #          ถ้ามีแต่ของล่อลบ จะจับ "กฎตาย" ไม่ได้
+            wants = {w for _, w, _, _ in cases}
+            if wants != {'ยิง', 'เงียบ'}:
+                probs.append('🔴 กฎ %s ของล่อมีขั้วเดียว (%s) ⇒ จับได้แค่ด้านเดียว'
+                             ' ⇒ เลข "จับ" ของกฎนี้อ่านไม่ได้'
+                             % (rule, '/'.join(sorted(wants)) or 'ไม่มี'))
+        for name, want, qs, allow in cases:
+            try:
+                _, found, bare = scan(qs, '<ของล่อ>')
+                if rule == 'ก':
+                    fired = bool(verdict(bare, allow or {}))
+                else:
+                    fired = any(f[0] == DECOY_KIND[rule] for f in found)
+            except Exception as e:                       # noqa: BLE001
+                probs.append('🔴 กฎ %s · ของล่อระเบิด: %s — %s' % (rule, name, e))
+                continue
+            if fired == (want == 'ยิง'):
+                npass += 1
+            elif want == 'ยิง':
+                probs.append('🔴 กฎ %s ไม่ยิงใส่ของล่อ: %s'
+                             ' ⇒ **กฎตาย** ⇒ เลข "จับ" ของกฎนี้อ่านไม่ได้' % (rule, name))
+            else:
+                probs.append('🔴 กฎ %s ยิงใส่ของสะอาด: %s'
+                             ' ⇒ **กฎยิงมั่ว** ⇒ เลข "จับ" ของกฎนี้เชื่อไม่ได้'
+                             % (rule, name))
+        out[rule] = (npass, len(cases), probs)
+    return out
+
+
+def decoy_tag(res, rule):
+    """ข้อความท้ายบรรทัดของกฎ — `ของล่อ 3/3 ✅` หรือ `ของล่อ 2/3 ⛔`"""
+    npass, total, probs = res.get(rule, (0, 0, ['ไม่ได้ยิงของล่อของกฎนี้']))
+    ok = (total > 0 and npass == total and not probs)
+    return 'ของล่อ %d/%d %s' % (npass, total, '✅' if ok else '⛔')
+
+
+# ─────────────────────────────────────────────────────────────
 # ส่วนอ่านคลัง
 # ─────────────────────────────────────────────────────────────
 def load_sets(root):
@@ -396,8 +546,14 @@ def head_sha(root):
         return '(เรียก git ไม่ได้)'
 
 
-def run(root):
-    """ตรวจคลังจริง — คืน (รหัสออก, บรรทัดรายงาน[])"""
+def run(root, decoys=None, scan=None, verdict=None):
+    """ตรวจคลังจริง — คืน (รหัสออก, บรรทัดรายงาน[])
+
+    scan/verdict/decoys รับเข้ามาได้เพื่อให้ self-test ฉีด "ตัวจับที่พัง" เข้าไป
+    แล้วพิสูจน์ว่าของล่อจับความพังนั้นได้จริง ⛔ ไม่ใช่เชื่อว่าจับได้
+    """
+    _scan = scan_questions if scan is None else scan
+    _verdict = verdict_bare if verdict is None else verdict
     lines = []
     ok, bad = check_allowlist()
     if not ok:
@@ -411,10 +567,14 @@ def run(root):
         lines.append('   ⛔ "ตรวจไม่ได้" ไม่เท่ากับ "ตรวจแล้วผ่าน"')
         return 2, lines
 
+    # ของล่อถูกยิงก่อนอ่านผลจริง — เพื่อให้ทุกบรรทัดของกฎมีหลักฐานกำกับ
+    dres = run_decoys(decoys, _scan, _verdict)
+    dprobs = [p for r in DECOY_RULES for p in dres.get(r, (0, 0, []))[2]]
+
     div = {'q': 0, 'str': 0, 'char': 0, 'marked': 0, 'withfig': 0}
     found, per_q_bare = [], {}
     for name, qs in sets:
-        d, f, b = scan_questions(qs, name)
+        d, f, b = _scan(qs, name)
         for k in div:
             div[k] += d[k]
         found += f
@@ -429,25 +589,40 @@ def run(root):
         lines.append('   นอกตัวหาร: %-22s %s จุด (%s) ⛔ ไม่มีผลต่อรหัสออก'
                      % (rel, '?' if n is None else n, why2))
 
-    problems = verdict_bare(per_q_bare, ALLOW_BARE)
+    problems = _verdict(per_q_bare, ALLOW_BARE)
     kinds = {'oor': [], 'orphan': [], 'near': []}
     for kind, setname, qid, detail in found:
         kinds[kind].append('🔴 %s (%s): %s' % (qid, setname, detail))
 
     n_bare_pts = sum(len(h) for _, h in per_q_bare.values())
     lines.append('')
-    lines.append('กฎ ก · หมุดเปล่า `[IMAGE]`      : พบ %d จุด ใน %d ข้อ'
+    lines.append('รายงานแยกกฎ — เลข "จับ" ทุกตัวมีของล่อกำกับ ⇒ 0 อ่านได้ว่าสะอาด'
+                 ' ⛔ ไม่ใช่กฎตาย')
+    lines.append('กฎ ก · หมุดเปล่า `[IMAGE]`      : จับ %d จุด ใน %d ข้อ · %s'
                  ' · รายการอนุญาต %d ข้อ'
-                 % (n_bare_pts, len(per_q_bare), len(ALLOW_BARE)))
-    lines.append('กฎ ข · หมุดชี้เกินจำนวนรูป      : พบ %d ข้อ' % len(kinds['oor']))
-    lines.append('กฎ ค · มีหมุดแต่ไม่มีรูป        : พบ %d ข้อ' % len(kinds['orphan']))
-    lines.append('กฎ ง · ข้อความที่เกือบเป็นหมุด   : พบ %d จุด' % len(kinds['near']))
+                 % (n_bare_pts, len(per_q_bare), decoy_tag(dres, 'ก'),
+                    len(ALLOW_BARE)))
+    lines.append('กฎ ข · หมุดชี้เกินจำนวนรูป      : จับ %d ข้อ · %s'
+                 % (len(kinds['oor']), decoy_tag(dres, 'ข')))
+    lines.append('กฎ ค · มีหมุดแต่ไม่มีรูป        : จับ %d ข้อ · %s'
+                 % (len(kinds['orphan']), decoy_tag(dres, 'ค')))
+    lines.append('กฎ ง · ข้อความที่เกือบเป็นหมุด   : จับ %d จุด · %s'
+                 % (len(kinds['near']), decoy_tag(dres, 'ง')))
 
     for qid, (setname, hits) in sorted(per_q_bare.items()):
         mark = '✅ อยู่ในรายการอนุญาต' if qid in ALLOW_BARE else '🔴 ไม่ได้รับอนุญาต'
         lines.append('   %s %-28s (%s) %d จุด · ชั้น %s'
                      % (mark, qid, setname, len(hits),
                         '/'.join(sorted({h[1] for h in hits}))))
+
+    # เครื่องมือแดงมาก่อนเนื้อหาแดงเสมอ — ถ้ากฎตาย เลขเนื้อหาของกฎนั้นไม่มีความหมาย
+    if dprobs:
+        lines.append('')
+        lines += dprobs
+        lines.append('')
+        lines.append('⇒ รหัส 2 · ของล่อของกฎข้างต้นไม่ทำงาน ⇒ **ตัดสินไม่ได้**')
+        lines.append('   ⛔ ห้ามอ่านเลข "จับ" ของกฎที่ของล่อตก — 0 ของมันแปลไม่ได้')
+        return 2, lines
 
     allbad = problems + kinds['oor'] + kinds['orphan'] + kinds['near']
     if allbad:
@@ -463,11 +638,25 @@ def run(root):
 
 # ─────────────────────────────────────────────────────────────
 # self-test — ⛔ ด่านของตัวด่านเอง ห้ามพึ่งคลังจริง
+#   (`_q` ย้ายขึ้นไปอยู่กับตาราง DECOYS แล้ว เพราะของล่อต้องใช้ตอน import)
 # ─────────────────────────────────────────────────────────────
-def _q(qid, **kw):
-    q = {'id': qid, 'question': 'โจทย์', 'explanation': ['ขั้นที่ 1']}
-    q.update(kw)
-    return q
+def _scan_dead(questions, setname='<mem>'):
+    """ตัวจับที่ "กฎตาย" — ไม่เคยคืน finding เลย ⇒ ของล่อบวกต้องตก
+
+    นี่คือความพังที่อันตรายที่สุดของด่านนี้: มันทำให้รายงาน "จับ 0 ทุกกฎ"
+    ซึ่งหน้าตาเหมือนคลังสะอาดเป๊ะ
+    """
+    return ({'q': len(questions), 'str': 0, 'char': 0, 'marked': 0,
+             'withfig': 0}, [], {})
+
+
+def _scan_loud(questions, setname='<mem>'):
+    """ตัวจับที่ "ยิงมั่ว" — คืนทุกชนิดเสมอ ⇒ ของล่อลบต้องตก"""
+    qid = (questions[0].get('id') if questions else None) or 'x'
+    found = [(k, setname, qid, 'มั่ว') for k in ('oor', 'orphan', 'near')]
+    return ({'q': len(questions), 'str': 0, 'char': 0, 'marked': 0,
+             'withfig': 0}, found,
+            {qid: (setname, [('explanation', 'เด็กเห็น', '[IMAGE]')])})
 
 
 def _write_repo(root, files):
@@ -614,8 +803,89 @@ def selftest():
                            capture_output=True, text=True)
         eq('⑮ e2e ตัดสินไม่ได้ ⇒ เชลล์เห็น 2', r.returncode, 2)
 
+    # ⑯ ของล่อชุดจริงในไฟล์นี้ต้องผ่านครบทุกกฎ และต้องมีสองขั้วครบทุกกฎ
+    res = run_decoys()
+    for r in DECOY_RULES:
+        npass, total, probs = res[r]
+        eq('⑯ กฎ %s ของล่อผ่านครบ' % r, (npass, total > 0, probs), (total, True, []))
+        wants = {w for _, w, _, _ in DECOYS[r]}
+        eq('⑯ กฎ %s มีของล่อทั้งบวกและลบ' % r, wants, {'ยิง', 'เงียบ'})
+        eq('⑯ กฎ %s ป้ายเป็น ✅' % r, decoy_tag(res, r).endswith('✅'), True)
+
+    # ⑰ รายงานของ "การรันจริง" ต้องพิมพ์ของล่อแยกกฎ ⛔ ไม่ใช่มีแต่ใน --selftest
+    with tempfile.TemporaryDirectory() as t:
+        _write_repo(t, {'a.json': {'questions': [
+            _q('z-q1', explanation=['[IMAGE:0]'], imageSpec={'t': 1})]}})
+        txt = '\n'.join(run(t)[1])
+        for r in DECOY_RULES:
+            eq('⑰ บรรทัดกฎ %s มีทั้ง "จับ" และ "ของล่อ …/… ✅"' % r,
+               any(x.startswith('กฎ %s ' % r) and 'จับ' in x
+                   and ('ของล่อ %d/%d ✅' % (res[r][1], res[r][1])) in x
+                   for x in run(t)[1]), True)
+        eq('⑰ ⛔ ไม่มีการพิมพ์รวมแบบไม่มีของล่อกำกับ', 'ของล่อ 0/0' in txt, False)
+
+    # ⑱ ตัวจับตาย (จับ 0 ทุกกฎ) ⇒ ต้องเป็นรหัส 2 ⛔ ไม่ใช่ 0 ที่ดูเหมือนคลังสะอาด
+    with tempfile.TemporaryDirectory() as t:
+        _write_repo(t, {'a.json': {'questions': [_q('z-q1')]}})
+        code, out = run(t, scan=_scan_dead)
+        txt = '\n'.join(out)
+        eq('⑱ กฎตาย ⇒ 2', code, 2)
+        eq('⑱ รายงานบอกว่ากฎตาย', 'กฎตาย' in txt, True)
+        eq('⑱ กฎที่ของล่อตกต้องไม่ติดป้าย ✅',
+           any(x.startswith('กฎ ก ') and '⛔' in x for x in out), True)
+
+    # ⑲ ตัวจับยิงมั่ว ⇒ ต้องเป็นรหัส 2 เช่นกัน (เลขที่จับได้เชื่อไม่ได้)
+    with tempfile.TemporaryDirectory() as t:
+        _write_repo(t, {'a.json': {'questions': [_q('z-q1')]}})
+        code, out = run(t, scan=_scan_loud)
+        eq('⑲ ยิงมั่ว ⇒ 2', code, 2)
+        eq('⑲ รายงานบอกว่ายิงมั่ว',
+           any('กฎยิงมั่ว' in x for x in out), True)
+
+    # ⑳ กฎที่ไม่มีของล่อ ⇒ 2 และ ⛔ ห้ามพิมพ์ `0/0 ✅`
+    empty = {r: [] for r in DECOY_RULES}
+    eq('⑳ ป้ายของ 0/0 ต้องเป็น ⛔', decoy_tag(run_decoys(empty), 'ก'),
+       'ของล่อ 0/0 ⛔')
+    with tempfile.TemporaryDirectory() as t:
+        _write_repo(t, {'a.json': {'questions': [_q('z-q1')]}})
+        code, out = run(t, decoys=empty)
+        eq('⑳ ไม่มีของล่อ ⇒ 2', code, 2)
+        eq('⑳ รายงานบอกว่าอ่านเลขไม่ได้',
+           any('อ่านไม่ได้' in x for x in out), True)
+
+    # ㉑ ถอดของล่อออกเงียบ ๆ ⇒ ต้องเป็นรหัส 2
+    #    (⑩ ขาลง — `ของล่อ 2/2 ✅` ที่เคยเป็น 3/3 อ่านเหมือนเดิมทุกตัวอักษร)
+    for r in DECOY_RULES:
+        eq('㉑ หมุด DECOY_MIN กฎ %s ไม่เกินของล่อจริง' % r,
+           DECOY_MIN[r] <= len(DECOYS[r]), True)
+        eq('㉑ หมุด DECOY_MIN กฎ %s ไม่ต่ำกว่า 3' % r, DECOY_MIN[r] >= 3, True)
+    thin = {r: list(DECOYS[r]) for r in DECOY_RULES}
+    thin['ข'] = thin['ข'][:-1]                    # ถอดออก 1 ตัว (3 → 2)
+    res_thin = run_decoys(thin)
+    eq('㉑ กฎที่โดนถอดต้องติด ⛔', decoy_tag(res_thin, 'ข'), 'ของล่อ 2/2 ⛔')
+    eq('㉑ กฎอื่นไม่โดนหางเลข', decoy_tag(res_thin, 'ค').endswith('✅'), True)
+    with tempfile.TemporaryDirectory() as t:
+        _write_repo(t, {'a.json': {'questions': [_q('z-q1')]}})
+        code, out = run(t, decoys=thin)
+        eq('㉑ ถอดของล่อ ⇒ 2', code, 2)
+        eq('㉑ รายงานบอกว่าถูกถอดออกเงียบ ๆ',
+           any('ถอดออกเงียบ ๆ' in x for x in out), True)
+
+    # ㉑ข ของล่อขั้วเดียว ⇒ ต้องเป็นรหัส 2 เช่นกัน
+    onepol = {r: [c for c in DECOYS[r] if c[1] == 'ยิง'] + [
+        c for c in DECOYS[r] if c[1] == 'ยิง'][:1] for r in DECOY_RULES}
+    onepol = {r: (v * 2)[:max(DECOY_MIN[r], len(v))] for r, v in onepol.items()}
+    res_one = run_decoys(onepol)
+    eq('㉑ข ขั้วเดียวต้องติด ⛔', decoy_tag(res_one, 'ข').endswith('⛔'), True)
+    with tempfile.TemporaryDirectory() as t:
+        _write_repo(t, {'a.json': {'questions': [_q('z-q1')]}})
+        code, out = run(t, decoys=onepol)
+        eq('㉑ข ขั้วเดียว ⇒ 2', code, 2)
+        eq('㉑ข รายงานบอกว่าขั้วเดียว',
+           any('ขั้วเดียว' in x for x in out), True)
+
     print('self-test ของ check_image_markers v%s — %d เคส'
-          % (CHECKER_VERSION, 15))
+          % (CHECKER_VERSION, 21))
     if fails:
         print('🔴 ตก %d ข้อ:' % len(fails))
         for f in fails:
