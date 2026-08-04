@@ -2145,7 +2145,7 @@
         "&nbsp;(บริเวณเหนือแกน $x$)",
         "<b>ขั้นที่ 3: หาบริเวณซ้อนทับ $A\\cap B$</b>",
         "บริเวณที่ $0\\le y\\le -x^2+2$ → พื้นที่ปิดระหว่างพาราโบลากับแกน $x$ จาก $x=-\\sqrt2$ ถึง $\\sqrt2$",
-        "[IMAGE]",
+        "[IMAGE:0]",
         "<b>ขั้นที่ 4: อินทิเกรตหาพื้นที่ (ใช้สมมาตร คูณ $2$)</b>",
         "$\\begin{aligned} \\text{พื้นที่} &=2\\displaystyle\\int_0^{\\sqrt2}(-x^2+2)\\,dx=2\\left[-\\dfrac{x^3}{3}+2x\\right]_0^{\\sqrt2} \\\\ &=2\\left(-\\dfrac{(\\sqrt2)^3}{3}+2\\sqrt2\\right)=2\\left(-\\dfrac{2\\sqrt2}{3}+2\\sqrt2\\right)=2\\cdot\\dfrac{4\\sqrt2}{3}=\\dfrac{8\\sqrt2}{3} \\end{aligned}$",
         "",
