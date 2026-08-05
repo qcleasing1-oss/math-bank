@@ -1,0 +1,42 @@
+==============================================================================
+ทะเบียนปัจจุบัน · 84 ข้อ
+==============================================================================
+❌ แม่พิมพ์ซ้ำเต็มสามส่วน : 0 คู่ ⇒ ผ่าน
+
+⚠️  เครื่องมือตรง + อีกหนึ่งส่วนตรง (ต้องตรวจด้วยตา) : 3 คู่
+   q011 ↔ q022   M=M-REF-TRIANGLE  และ A ตรงกัน
+   q021 ↔ q036   M=M-REDUCTION  และ A ตรงกัน
+   q032 ↔ q033   M=M-SECTOR-FORMULAS  และ A ตรงกัน
+
+⚠️  พื้นผิวเหมือน (G+A ตรง) แต่เครื่องมือต่าง : 8 คู่
+   q004 ↔ q014   G=G-RATIO-EQ · A=A-EXPR-VALUE   M ต่าง: M-CUBE-FACTOR vs M-PYTHID-EXPAND
+   q012 ↔ q016   G=G-ANG-NUMERIC · A=A-EXPR-VALUE   M ต่าง: M-REF-ANGLE-SIGN vs M-SUMDIFF
+   q013 ↔ q029   G=G-FUNC-FORM · A=A-EXTREME   M ต่าง: M-RANGE-BOUND vs M-ABS-PIECEWISE
+   q013 ↔ q038   G=G-FUNC-FORM · A=A-EXTREME   M ต่าง: M-RANGE-BOUND vs M-RANGE-RECIP
+   q013 ↔ q044   G=G-FUNC-FORM · A=A-EXTREME   M ต่าง: M-RANGE-BOUND vs M-QUAD-IN-TRIG
+   q029 ↔ q038   G=G-FUNC-FORM · A=A-EXTREME   M ต่าง: M-ABS-PIECEWISE vs M-RANGE-RECIP
+   q029 ↔ q044   G=G-FUNC-FORM · A=A-EXTREME   M ต่าง: M-ABS-PIECEWISE vs M-QUAD-IN-TRIG
+   q038 ↔ q044   G=G-FUNC-FORM · A=A-EXTREME   M ต่าง: M-RANGE-RECIP vs M-QUAD-IN-TRIG
+
+
+▼▼▼ ตรวจแผนก้อนถัดไป เทียบกับของเดิมทั้งหมด ▼▼▼
+==============================================================================
+ทะเบียน + แผน · 89 ข้อ
+==============================================================================
+❌ แม่พิมพ์ซ้ำเต็มสามส่วน : 0 คู่ ⇒ ผ่าน
+
+⚠️  เครื่องมือตรง + อีกหนึ่งส่วนตรง (ต้องตรวจด้วยตา) : 3 คู่
+   q011 ↔ q022   M=M-REF-TRIANGLE  และ A ตรงกัน
+   q021 ↔ q036   M=M-REDUCTION  และ A ตรงกัน
+   q032 ↔ q033   M=M-SECTOR-FORMULAS  และ A ตรงกัน
+
+⚠️  พื้นผิวเหมือน (G+A ตรง) แต่เครื่องมือต่าง : 8 คู่
+   q004 ↔ q014   G=G-RATIO-EQ · A=A-EXPR-VALUE   M ต่าง: M-CUBE-FACTOR vs M-PYTHID-EXPAND
+   q012 ↔ q016   G=G-ANG-NUMERIC · A=A-EXPR-VALUE   M ต่าง: M-REF-ANGLE-SIGN vs M-SUMDIFF
+   q013 ↔ q029   G=G-FUNC-FORM · A=A-EXTREME   M ต่าง: M-RANGE-BOUND vs M-ABS-PIECEWISE
+   q013 ↔ q038   G=G-FUNC-FORM · A=A-EXTREME   M ต่าง: M-RANGE-BOUND vs M-RANGE-RECIP
+   q013 ↔ q044   G=G-FUNC-FORM · A=A-EXTREME   M ต่าง: M-RANGE-BOUND vs M-QUAD-IN-TRIG
+   q029 ↔ q038   G=G-FUNC-FORM · A=A-EXTREME   M ต่าง: M-ABS-PIECEWISE vs M-RANGE-RECIP
+   q029 ↔ q044   G=G-FUNC-FORM · A=A-EXTREME   M ต่าง: M-ABS-PIECEWISE vs M-QUAD-IN-TRIG
+   q038 ↔ q044   G=G-FUNC-FORM · A=A-EXTREME   M ต่าง: M-RANGE-RECIP vs M-QUAD-IN-TRIG
+

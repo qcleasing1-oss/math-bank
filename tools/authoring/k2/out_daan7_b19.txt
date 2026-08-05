@@ -1,0 +1,28 @@
+CHECKER_VERSION = 1.2
+  gen-chap-07-trigonometry-q105 | fill — ด่าน 7 มองไม่เห็น | ไม่มีคำว่า “ตัวเลือก” = True | ✅
+  gen-chap-07-trigonometry-q106 | eligible=True | one  4      | correct+1 = 4 | ✅
+  gen-chap-07-trigonometry-q107 | eligible=True | one  1      | correct+1 = 1 | ✅
+  gen-chap-07-trigonometry-q108 | eligible=True | one  4      | correct+1 = 4 | ✅
+  gen-chap-07-trigonometry-q109 | fill — ด่าน 7 มองไม่เห็น | ไม่มีคำว่า “ตัวเลือก” = True | ✅
+  gen-chap-07-trigonometry-q110 | eligible=True | one  4      | correct+1 = 4 | ✅
+  gen-chap-07-trigonometry-q111 | eligible=True | one  1      | correct+1 = 1 | ✅
+  gen-chap-07-trigonometry-q112 | fill — ด่าน 7 มองไม่เห็น | ไม่มีคำว่า “ตัวเลือก” = True | ✅
+  gen-chap-07-trigonometry-q113 | fill — ด่าน 7 มองไม่เห็น | ไม่มีคำว่า “ตัวเลือก” = True | ✅
+  gen-chap-07-trigonometry-q114 | eligible=True | one  2      | correct+1 = 2 | ✅
+  gen-chap-07-trigonometry-q115 | eligible=True | one  2      | correct+1 = 2 | ✅
+  gen-chap-07-trigonometry-q116 | eligible=True | one  1      | correct+1 = 1 | ✅
+  gen-chap-07-trigonometry-q117 | eligible=True | one  2      | correct+1 = 2 | ✅
+  gen-chap-07-trigonometry-q118 | eligible=True | one  3      | correct+1 = 3 | ✅
+  gen-chap-07-trigonometry-q119 | eligible=True | one  4      | correct+1 = 4 | ✅
+  gen-chap-07-trigonometry-q120 | fill — ด่าน 7 มองไม่เห็น | ไม่มีคำว่า “ตัวเลือก” = True | ✅
+  gen-chap-07-trigonometry-q121 | eligible=True | one  4      | correct+1 = 4 | ✅
+  gen-chap-07-trigonometry-q122 | eligible=True | one  4      | correct+1 = 4 | ✅
+  gen-chap-07-trigonometry-q123 | eligible=True | one  1      | correct+1 = 1 | ✅
+  gen-chap-07-trigonometry-q124 | fill — ด่าน 7 มองไม่เห็น | ไม่มีคำว่า “ตัวเลือก” = True | ✅
+
+ข้อปรนัย 14 ข้อ ⇒ ประกาศเลขช่องได้ครบและตรงคีย์ทุกข้อ
+ข้อ fill 6 ข้อ ⇒ อยู่นอกขอบเขตของด่าน 7 โดยการออกแบบของด่านเอง
+   ⇒ ตรวจแทนด้วย : audit44.py (correct เป็นสตริง · accept มีคำตอบหลัก · ห้ามคำว่า “ตัวเลือก”)
+   ⇒ และ check_part_b19.py (โครง STANDARD v2 · จุดพลาด >= 3 บรรทัด)
+
+หนี้ใหม่ที่ก้อน 19 เพิ่มให้ด่าน 7 = 0 ข้อ

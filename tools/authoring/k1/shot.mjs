@@ -1,0 +1,14 @@
+import { chromium } from 'playwright';
+const b = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium' });
+const p = await b.newPage({ viewport: { width: 1000, height: 1400 } });
+const logs = [];
+p.on('requestfailed', r => logs.push('FAIL ' + r.url().slice(0, 80)));
+await p.goto('file:///home/claude/k1/out/' + encodeURIComponent('ก้าว1-ตัวอย่างตรีโกณ9ข้อ-ให้ครูเคาะระดับ-2026-08-04.html'));
+await p.waitForTimeout(9000);
+const n = await p.evaluate(() => document.querySelectorAll('mjx-container').length);
+console.log('mjx-container =', n);
+console.log(logs.slice(0, 5).join('\n'));
+await p.evaluate(() => window.scrollTo(0, document.body.scrollHeight * 0.30));
+await p.waitForTimeout(600);
+await p.screenshot({ path: 'shot.png' });
+await b.close();
