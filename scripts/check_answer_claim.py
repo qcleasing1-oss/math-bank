@@ -32,7 +32,7 @@ import os
 import re
 import sys
 
-CHECKER_VERSION = '1.2'
+CHECKER_VERSION = '1.3'
 
 # ── เพดานหนี้ "ตรวจไม่ได้" — ratchet เดียว ⛔ ไม่ใช่สองตัว ─────────────
 #
@@ -98,6 +98,19 @@ def eligible(q):
             and len(q['explanation']) > 0)
 
 
+def is_blind(q):
+    """ข้อที่ "มีคีย์และมีเฉลย" แต่ด่านนี้มองไม่เห็นเพราะไม่ใช่ปรนัย
+
+    ⛔ นี่ไม่ใช่ข้อบกพร่องของข้อ — เป็นข้อบกพร่องของ *ตัวด่าน* ที่ต้องประกาศทุกครั้ง
+       (จดหมายพอร์ทัล E→MB #22 ข้อ ③ สั่งไว้)
+    """
+    return (not eligible(q)
+            and q.get('type') != 'mc'
+            and q.get('correct') not in (None, '')
+            and isinstance(q.get('explanation'), list)
+            and len(q['explanation']) > 0)
+
+
 def scan(sets_dir, fn=declared_choice):
     """คืน (bad[], stat{}, recs[])
 
@@ -106,7 +119,10 @@ def scan(sets_dir, fn=declared_choice):
     """
     bad = []
     recs = []
-    stat = {'eligible': 0, 'one': 0, 'many': 0, 'none': 0}
+    # 🔴 'blind' = ข้อที่ "มีคีย์และมีเฉลย" แต่ eligible() ไม่รับ เพราะไม่ใช่ปรนัย
+    #    ⇒ ข้อชนิด fill ทุกข้อในคลัง ตกอยู่ในถังนี้ทั้งหมด
+    #    ⛔ ห้ามยุบเข้ากับ 'none' — "ไม่เคยถูกมอง" ต่างจาก "มองแล้วอ่านค่าไม่ได้"
+    stat = {'eligible': 0, 'one': 0, 'many': 0, 'none': 0, 'blind': 0}
     files = sorted(glob.glob(os.path.join(sets_dir, '*.json')))
     if not files:
         print(f'🔴 ไม่พบไฟล์ .json ใน {sets_dir}')
@@ -120,6 +136,8 @@ def scan(sets_dir, fn=declared_choice):
             sys.exit(2)
         for q in d.get('questions', []):
             if not eligible(q):
+                if is_blind(q):
+                    stat['blind'] += 1
                 continue
             stat['eligible'] += 1
             kind, val = fn(q['explanation'])
@@ -221,6 +239,40 @@ ENFORCE_CASES = [
     ("รหัสข้อในขอบเขตที่ไม่มีอยู่ในคลัง (ข้อถูกลบ/เปลี่ยนชื่อ) ⇒ ต้องไม่ล้ม",
      [('f.json', 'NEW-1', 'one')], {'NEW-1', 'GHOST-9'}, []),
 ]
+
+
+# (ชื่อเคส, ข้อ, ต้องนับเป็น "ตาบอด" ไหม)
+#  ⛔ ถ้าใครแก้ eligible() ให้รับทุกชนิด ตัวเลขตาบอดจะกลายเป็น 0
+#     แล้วบรรทัดที่พอร์ทัลสั่งไว้จะ "พิมพ์ออกมาแต่โกหก" ⇒ ต้องมีเคสเฝ้า
+BLIND_CASES = [
+    ("ข้อ fill ที่มีคีย์และเฉลย ⇒ ตาบอด (นี่คือเหตุผลที่ต้องมีด่าน 17)",
+     {'type': 'fill', 'correct': '9/40', 'explanation': ['✅ คำตอบ']}, True),
+    ("ข้อปรนัยปกติ ⇒ ไม่ใช่ตาบอด (ด่านนี้มองเห็นอยู่แล้ว)",
+     {'type': 'mc', 'correct': 0, 'explanation': ['✅ ตัวเลือก 1']}, False),
+    ("ข้อ fill ที่ไม่มีเฉลย ⇒ ไม่นับ (ไม่มีของให้ด่านไหนตรวจตั้งแต่แรก)",
+     {'type': 'fill', 'correct': '5', 'explanation': []}, False),
+    ("ข้อ fill ที่ไม่มีคีย์ ⇒ ไม่นับ",
+     {'type': 'fill', 'explanation': ['✅ คำตอบ']}, False),
+    ("ข้อปรนัยที่คีย์ไม่ใช่จำนวนเต็ม ⇒ ไม่ใช่ 'ตาบอดเพราะชนิด' ⛔ ห้ามนับรวม",
+     {'type': 'mc', 'correct': 'ก', 'explanation': ['✅ ตัวเลือก 1']}, False),
+]
+
+
+def _mut_blind_always_zero(q):
+    """⑥ รายงานว่าไม่มีข้อตาบอดเลย ⇒ บรรทัดที่พอร์ทัลสั่งกลายเป็นคำโกหก"""
+    return False
+
+
+def _run_blind_cases(fn):
+    fails = []
+    for name, q, want in BLIND_CASES:
+        try:
+            good = bool(fn(q)) == want
+        except Exception:
+            good = False
+        if not good:
+            fails.append(name)
+    return fails
 
 
 def _mut_ignore_scope(recs, scope_ids):
@@ -327,6 +379,18 @@ def selftest():
         ok &= good
 
     print()
+    print('  ── ตัวนับ "ตาบอด" (บรรทัดที่พอร์ทัลสั่งไว้ E→MB #22) ──')
+    for name, q, want in BLIND_CASES:
+        good = bool(is_blind(q)) == want
+        print(f'  {"✅" if good else "🔴"}  {name}')
+        ok &= good
+    mb = _run_blind_cases(_mut_blind_always_zero)
+    good = len(mb) > 0
+    print(f'  {"✅" if good else "🔴"}  มิวแทนต์ ⑥ รายงานตาบอด = 0 เสมอ'
+          f' ⇒ ล้ม {len(mb)}/{len(BLIND_CASES)} เคส (ต้อง > 0)')
+    ok &= good
+
+    print()
     print('  ── มิวแทนต์ของชั้นบังคับ — และ "ถูกจับด้วยเคสไหน" ──')
     print('     (พอร์ทัลเสนอกับดัก ⑦ข: แดงแล้วยังต้องถามว่าแดงเพราะเคสที่ตั้งใจหรือเปล่า)')
     for label, fails in (
@@ -351,8 +415,8 @@ def selftest():
     if not ok:
         print('🔴 SELF-TEST ไม่ผ่าน ⇒ ผลของด่านนี้กับไฟล์จริงเชื่อไม่ได้')
         sys.exit(2)
-    print(f'✅ SELF-TEST ผ่านครบ {len(CASES)} + {len(ENFORCE_CASES)} เคส'
-          f' + มิวแทนต์ 5 ตัว')
+    print(f'✅ SELF-TEST ผ่านครบ {len(CASES)} + {len(ENFORCE_CASES)} + {len(BLIND_CASES)}'
+          f' เคส + มิวแทนต์ 6 ตัว')
     return 0
 
 
@@ -403,6 +467,20 @@ def main():
           f'  ·  ไม่ประกาศ {st["none"]:,}'
           f'  ·  รวมหนี้ {debt:,} (เพดาน {a.max_undeclared:,})')
     print('  ⛔ "ตรวจไม่ได้" ไม่เท่ากับ "ตรวจแล้วผ่าน" — หนี้ทั้ง 2 ถังคือข้อที่ด่าน 7 มองไม่เห็น')
+
+    # ── 📌 บรรทัดตาบอด — พอร์ทัลสั่งไว้ในจดหมาย E→MB #22 ⛔ ห้ามละ ──────
+    #    เหตุผล: ด่านนี้รับเฉพาะ type == 'mc' ⇒ ข้อ fill ไม่เคยถูกมองเลยสักข้อ
+    #    ถ้ารายงานแต่ "ตรวจได้ 2,797/4,221" คนอ่านจะเข้าใจว่าตัวหารคือทั้งคลัง
+    #    ⇒ ต้องประกาศ "ตาบอดกี่ข้อ" ทุกครั้ง แม้วันที่ตัวเลขจะเป็นศูนย์
+    #    ⛔ ห้ามลบบรรทัดนี้ตอนที่ด่าน 17 เขียว — ด่าน 17 ไม่ได้ทำให้ด่าน 7 มองเห็น fill
+    total = elig + st['blind']
+    pct = (st['blind'] / total * 100) if total else 0.0
+    print(f'📌 ด่าน 7 ตรวจได้ {st["one"]:,}/{elig:,} ข้อ (mc เท่านั้น)'
+          f' · ตาบอด {st["blind"]:,} ข้อ = {pct:.1f}%')
+    print(f'   ตัวหารของ "ตาบอด" = ข้อที่มีคีย์และมีเฉลยทั้งหมด {total:,} ข้อ'
+          ' (ปรนัย + เติมคำ)')
+    if st['blind']:
+        print('   ⇒ ข้อที่ตาบอดตรงนี้ เป็นงานของ ด่าน 17 (scripts/check_fill_answer.py)')
     print()
 
     # ── ⑨ พื้นตัวหาร — ต้องมาก่อนคำตัดสินทุกอัน ────────────────────
