@@ -5,3 +5,8 @@
 *.html text eol=lf
 *.md   text eol=lf
 *.py   text eol=lf
+# 🔴 6 ส.ค. 69 — guards.yml เป็นไฟล์เดียวในคลังที่ไม่ได้ตรึงตัวจบบรรทัด
+#    GitHub Desktop จึงเตือน "LF → CRLF ตอน checkout ครั้งหน้า" เฉพาะไฟล์นี้
+#    ⇒ ตรึงให้เหมือนสกุลอื่นทั้งหมด ⛔ ไม่ปล่อยให้ * text=auto ตัดสินแทน
+*.yml  text eol=lf
+*.yaml text eol=lf

@@ -4,6 +4,10 @@ _preview/
 *.PREVIEW-*.json
 # PDF ต้นฉบับ + working files (ไม่ขึ้น repo)
 temp-pdf/
-audit/
+audit/*
+# ⭐ ยกเว้น: บันทึกผล blind-solve QC ต้องขึ้น repo จริง (คำขอพอร์ทัล E→MB #22 §2 ข้อ 2)
+#    🔴 6 ส.ค. 69 เจอว่า "audit/" กินทั้งโฟลเดอร์ ⇒ ไฟล์ผล QC ที่เขียนลงไปจะหายเงียบ
+#    ทุกคนจะเชื่อว่า "ตัวเลขขึ้น repo แล้ว" ทั้งที่ git ไม่เคยเห็นมันเลย (ทรง ⑯)
+!audit/qc-*/
 docs/chap-02-logic-figure-audit.md
 desktop.ini
