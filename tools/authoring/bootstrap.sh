@@ -47,7 +47,8 @@ for f in k1/build_h.py k1/build_m.py k1/build_vh.py k1/v2.py k1/v2b.py k1/v2c.py
          k2/build_b3.py k2/build_b4.py k2/build_b5.py k2/build_b6.py k2/build_b7.py \
          k2/build_b8.py k2/build_b9.py k2/build_b10.py k2/build_b11.py k2/build_b12.py \
          k2/build_b13.py k2/build_b14.py k2/build_b15.py k2/build_b16.py k2/build_b17.py \
-         k2/build_b18.py k2/build_b19.py k2/build_e.py k2/build_e2.py; do
+         k2/build_b18.py k2/build_b19.py k2/build_b20.py k2/build_b21.py \
+         k2/build_e.py k2/build_e2.py; do
   [ -f "$f" ] || continue
   if python3 "$f" >/dev/null 2>&1; then printf '  ✅ %s\n' "$f"
   else printf '  ❌ %s\n' "$f"; fail=1; fi
