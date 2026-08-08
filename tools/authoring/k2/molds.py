@@ -527,7 +527,24 @@ RETIRED = {
 #        7.4        13       46           7.10       8       45
 #        7.5         6       53           7.11      28       31
 #        7.6         8       54
-PLAN = {
+# ═════════════════ 🪧 แฟ้มกักกัน · PLAN_ORPHANED ═════════════════
+# 15 แถวข้างล่างนี้คือ **ร่องรอยชิ้นสุดท้ายของก้อน 22** — เนื้อหาของทั้ง 20 ข้อหายไปแล้ว
+# (⬤ ยืนยัน 2 ที่ 8 ส.ค. 69: ทั้งคอนเทนเนอร์และเครื่องครูไม่มี k2/b22/ และ k2/parts_b22/)
+#
+# 🔴 ทำไมต้องย้ายออกจาก `PLAN` ⛔ ไม่ใช่ปล่อยไว้ — วัดเองแล้วทั้งสองข้อ (ของล่อ C·D · ใบ #46):
+#   D : แถวเหล่านี้ **ปฏิเสธ** ข้อของก้อนถัดไปที่บังเอิญใช้แม่พิมพ์เดียวกัน (q172 ↔ qB23TEST)
+#   C : ทันทีที่คลังโตขึ้น 1 ข้อ ใบเสร็จของทั้ง 15 แถว **หมดอายุพร้อมกัน** ⇒ ด่านแดงค้าง
+#   ⇒ ⇒ ทางออกเดียวที่เหลือคือ "กวาดใหม่" ของที่ไม่มีเนื้อหาให้กวาด
+#        = งานที่ทำไม่ได้ กลายเป็นเงื่อนไขของการเดินต่อ ⇒ ⑯ (ด่านที่แดงเสมอ = ด่านที่ถูกปิด)
+#
+# ⛔ **ห้ามลบแถวเหล่านี้** — คำสั่งผูกพัน "ห้ามลบบันทึกเก่า" (retired = ถอนค่า เก็บโครง)
+# ⛔ **ห้ามอ้างแฟ้มนี้เป็นของจริง** — ⛔ ไม่ใช่ทะเบียน ⛔ ไม่ใช่แผน · มีด่านเฝ้า (selftest ⑫⑬⑭)
+# 🔑 ย้ายกลับเข้า `PLAN` ได้เสมอถ้าวันหนึ่งแต่งเนื้อหาขึ้นมาใหม่ — และน้ำหนักจะกลับมาทันที
+#
+# ⬤ 🎣 E ยืนยันว่าการย้ายนี้ตัดน้ำหนักออกจริง (8 ส.ค. 69 · รันเอง):
+#     แม่พิมพ์ตรงกับแถวในแฟ้มกักกัน ⇒ ปล่อย (exit 0) · แถวเดิมอยู่ใน PLAN ⇒ ปฏิเสธ (exit 1)
+#     คลังโต 1 ข้อ ⇒ "ใบเสร็จหมดอายุ" เหลือ 0 id
+PLAN_ORPHANED = {
     # ── 7.5 ──
     'q166': ('G-ANG-NUMERIC',                'A-EXPR-VALUE',        'M-SPLIT-INTO-TWO-SPECIAL-ANGLES'),
     'q167': ('G-TAN-OF-SUM-AND-DIFF-VALUES', 'A-TAN-OF-DOUBLE',     'M-REGROUP-2A-AS-SUM-PLUS-DIFF'),
@@ -634,6 +651,39 @@ def require_bank():
     return _BANK_CACHE[0]
 
 
+def check_quarantine(reg, plan, orphaned, quiet=False):
+    """ด่านเฝ้าแฟ้มกักกัน — คืนจำนวน ❌
+
+    🔴 ราคาที่ E ระบุไว้ตอนเสนอทาง ค: *"ต้องมีด่านเฝ้าว่าไม่มีใครอ้างแฟ้มกักกันเป็นของจริง"*
+       ⇒ ด่านนี้คือราคานั้น ⛔ ไม่ใช่ของแถม
+    เฝ้า 2 อย่าง:
+      ① id ในแฟ้มกักกันต้องไม่โผล่ใน REG หรือ PLAN พร้อมกัน
+         (โผล่พร้อมกัน = มีคนก๊อปกลับเข้าไปโดยไม่ได้ย้ายออก ⇒ ของชิ้นเดียวสองสถานะ)
+      ② แฟ้มกักกันต้องไม่ว่างพร้อมกับที่ยังมีใบเสร็จกำพร้าอยู่
+         (ว่างทั้งที่มีใบเสร็จ = มีคนลบแถวทิ้ง ⇒ ชน "ห้ามลบบันทึกเก่า")
+    """
+    bad = []
+    both = sorted((set(orphaned) & set(reg)) | (set(orphaned) & set(plan)))
+    if both:
+        bad.append('id อยู่ทั้งในแฟ้มกักกันและใน REG/PLAN พร้อมกัน: ' + ', '.join(both))
+    orphan_receipts = sorted(set(RECEIPTS) - set(reg) - set(plan))
+    if orphan_receipts and not orphaned:
+        bad.append('มีใบเสร็จกำพร้า %d ใบ แต่แฟ้มกักกันว่าง'
+                   ' ⇒ มีคนลบแถวทิ้ง (ชนคำสั่ง "ห้ามลบบันทึกเก่า"): %s'
+                   % (len(orphan_receipts), ', '.join(orphan_receipts)))
+    if not quiet:
+        print()
+        print('▼▼▼ 🪧 แฟ้มกักกัน PLAN_ORPHANED ▼▼▼')
+        print('  %d แถว — ร่องรอยของก้อน 22 · ⛔ ไม่มีน้ำหนักในการตัดสิน ⛔ ไม่ใช่ของจริง'
+              % len(orphaned))
+        if bad:
+            for m in bad:
+                print('❌ ' + m)
+        else:
+            print('✅ ไม่มีใครอ้างแฟ้มกักกันเป็นของจริง · ไม่มีแถวไหนถูกลบทิ้ง')
+    return len(bad)
+
+
 def check_receipts(reg, plan, bank, quiet=False):
     """ชั้น 2+3 — คืนจำนวน ❌ · id ที่ต้องมีใบเสร็จแล้วไม่มี / ใบเสร็จหมดอายุ"""
     need = [i for i in sorted(plan)]
@@ -671,6 +721,12 @@ def check_receipts(reg, plan, bank, quiet=False):
             print('📌 ใบเสร็จที่เจ้าของถูกถอนไปแล้ว %d ใบ (เก็บไว้เป็นบันทึก ⛔ ไม่ใช่ ❌) : %s'
                   % (len(orphan), ', '.join(orphan)))
     return len(missing) + len(stale)
+
+
+# ═════════════════ แผนของก้อนถัดไป ═════════════════
+# ว่างอยู่ — ก้อน 22 ถูกพักตามมติครู 8 ส.ค. 69 · ก้อน 23 ยังไม่เริ่มออกแบบ
+# ⭐ วิธีใช้: เพิ่มบรรทัดของข้อที่จะแต่งลงที่นี่ **พร้อมใบเสร็จใน RECEIPTS** แล้วรันไฟล์นี้
+PLAN = {}
 
 
 def audit(reg):
@@ -755,6 +811,7 @@ def verdict(reg, plan, quiet=False, check_bank=True):
         out.append(report('ทะเบียน + แผน', merged, quiet))
     if check_bank:
         out.append(check_receipts(reg, plan, require_bank(), quiet))
+        out.append(check_quarantine(reg, plan, PLAN_ORPHANED, quiet))
     return sum(out)
 
 
@@ -808,15 +865,24 @@ def selftest():
         check_receipts(_r7, {}, bank, quiet=True) >= 1)
 
     # ⑧ 🧬 ใบเสร็จที่กวาดตอนคลังเล็กกว่า ⇒ ต้องแดง (กงล้อชั้น 2)
+    # ⚠️ 8 ส.ค. 69 (ทาง ค): `PLAN` ว่างแล้ว ⇒ ถ้ายังส่ง PLAN เข้าไป เคสนี้จะ
+    #    "เขียวเพราะไม่มีอะไรให้ตรวจ" ⛔ ไม่ใช่ "เขียวเพราะกงล้อทำงาน" (⑯)
+    #    ⇒ ต้องประกอบแผนสมมติที่มี id จริงอยู่ข้างใน ไม่งั้นด่านนี้ตายเงียบ
     _keep = dict(RECEIPTS)
+    _plan8 = {'q166': PLAN_ORPHANED['q166']}
     try:
         RECEIPTS['q166'] = ('collide_b22.py', '2026-08-08',
                             '63ไฟล์·%dข้อ·%s' % (bank['questions'] - 5, bank['idDigest']))
-        _n8 = check_receipts(REG, PLAN, bank, quiet=True)
+        _n8 = check_receipts(REG, _plan8, bank, quiet=True)
+        _n8ctl = check_receipts(REG, _plan8, bank, quiet=True)
     finally:
         RECEIPTS.clear()
         RECEIPTS.update(_keep)
+    _n8fresh = check_receipts(REG, _plan8, bank, quiet=True)
     say('⑧', '🧬 ใบเสร็จกวาดจากคลังเก่า ⇒ ต้องแดง', _n8 >= 1)
+    #    ⑧ก คู่ควบคุม: ใบเสร็จตัวจริง (ป้ายตรง) บนแผนสมมติเดียวกัน ⇒ ต้องเขียว
+    #    ⇒ พิสูจน์ว่า ⑧ แดงเพราะ "ป้ายเก่า" ⛔ ไม่ใช่เพราะแผนสมมติผิดรูป
+    say('⑧ก', 'คู่ควบคุม: ป้ายตรง บนแผนเดียวกัน ⇒ ต้องเขียว', _n8fresh == 0)
 
     # ⑨ กงล้อ PRE_RECEIPT ต้องไม่โต และต้องพอดีกับ REG ที่มีอยู่จริง
     say('⑨', 'กงล้อ PRE_RECEIPT ⊆ REG และไม่โต',
@@ -834,13 +900,33 @@ def selftest():
     # ⑪ 🧬 ถ้าตัดชั้น 2+3 ออก ⇒ ⑥ ต้องหลุด (ด่านนี้รับน้ำหนักจริง ⛔ ไม่ใช่พิธีกรรม)
     say('⑪', '🧬 ตัดชั้น 2+3 ออก ⇒ ⑥ หลุดทันที',
         verdict(REG, {'qNOSWEEP': _clean_mold}, quiet=True, check_bank=False) == 0)
+
+    # ═══ 🪧 แฟ้มกักกัน (ทาง ค · 8 ส.ค. 69) ═══
+    _orph_mold = PLAN_ORPHANED['q172'] if 'q172' in PLAN_ORPHANED else None
+    # ⑫ แม่พิมพ์ที่ตรงกับแถวในแฟ้มกักกัน ⇒ ต้อง **ปล่อย** (แฟ้มกักกันไม่มีน้ำหนัก)
+    say('⑫', 'แม่พิมพ์ตรงแถวกักกัน ⇒ ต้องปล่อย',
+        _orph_mold is not None
+        and report('x', dict(REG, **{'qNEW': _orph_mold}), quiet=True) == 0)
+    # ⑬ 🧬 ย้ายแถวเดียวกันกลับเข้า "แผน" ⇒ ต้องปฏิเสธทันที
+    #    ⇒ ข้อพิสูจน์ว่า "การอยู่ในแฟ้มกักกัน" คือสิ่งที่ตัดน้ำหนัก ⛔ ไม่ใช่ความบังเอิญ
+    say('⑬', '🧬 ย้ายกลับเข้าแผน ⇒ ต้องปฏิเสธทันที',
+        _orph_mold is not None
+        and report('x', dict(REG, **{'q172': _orph_mold, 'qNEW': _orph_mold}),
+                   quiet=True) >= 1)
+    # ⑭ ด่านเฝ้าแฟ้มกักกันเอง — ของจริงต้องสะอาด · ของล่อต้องแดง
+    say('⑭', 'ด่านแฟ้มกักกัน: ของจริงสะอาด',
+        check_quarantine(REG, PLAN, PLAN_ORPHANED, quiet=True) == 0)
+    say('⑭ก', '🧬 อ้างแฟ้มกักกันเป็นของจริง (id ซ้ำใน PLAN) ⇒ ต้องแดง',
+        check_quarantine(REG, {'q172': _orph_mold}, PLAN_ORPHANED, quiet=True) >= 1)
+    say('⑭ข', '🧬 ลบแถวทิ้งทั้งแฟ้มแต่ใบเสร็จยังอยู่ ⇒ ต้องแดง',
+        check_quarantine(REG, PLAN, {}, quiet=True) >= 1)
     return ok
 
 
 if '--selftest' in sys.argv:
     print('▼▼▼ ชุดทดสอบของด่านเอง (㊶) ▼▼▼')
     passed = selftest()
-    print('ผลชุดทดสอบ:', 'ผ่านครบ 11 ✅' if passed else 'ล้ม ❌')
+    print('ผลชุดทดสอบ:', 'ผ่านครบ 17 ✅' if passed else 'ล้ม ❌')
     sys.exit(0 if passed else 1)
 
 nfail = verdict(REG, PLAN)

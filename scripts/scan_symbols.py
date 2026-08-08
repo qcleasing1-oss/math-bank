@@ -70,6 +70,21 @@ scan_symbols.py — ตัวตรวจสัญลักษณ์ต้อง
  17. escape_questions เข้า REQUIRED_BASELINE_KEYS ⇒ เส้นฐาน v2.7 เดิมจะออกรหัส 2
      จนกว่าจะ sync เป็นคู่ — แรงบังคับเชิงโครงสร้าง ⛔ ไม่ใช่กติกาในจดหมาย
 
+เวอร์ชัน 2.9 (8 ส.ค. 2569 ค่ำ) — ทั้งหมดมาจากคำถามของ E→MB #47 ⛔ ไม่ใช่ของใหม่:
+ 18. 🕳️ ESCAPE_BANNED ⛔ ไม่ได้อยู่ใน NO_SPACE_LISTS ตั้งแต่ v2.8 ⇒ เติมแล้ว (ดู ⑮)
+ 19. ⑮ 🔑 **ชั้นยูเนียนคือ "ตัวเฝ้าค่าคงที่" ⛔ ไม่ใช่ "ตัวจับสำรอง"** — ประกาศให้ตรง
+     E ถามว่า *"สร้างเคสที่ชั้นฐานพลาด แต่ยูเนียนจับได้ ได้ไหม"* ⇒ **ไม่ได้ และพิสูจน์ได้:**
+       ① strip_shells เขียนได้เฉพาะ " " และรักษาความยาว   (มีด่านเฝ้า)
+       ② ไม่มีโทเคนใดที่มี " " อยู่ข้างใน (no_space_invariant) (มีด่านเฝ้า)
+       ⇒ โทเคนที่พบในสตริงถอดเปลือก ต้องอยู่ที่ออฟเซ็ตเดียวกันในสตริงดิบ **เสมอ**
+       ⇒ ⇒ "จับเพิ่ม = 0" เป็น **ทฤษฎีบท** ⛔ ไม่ใช่ผลการวัด
+     ⇒ ⇒ ⇒ ดังนั้น "จับเพิ่ม > 0 ⇒ exit 2" ⛔ ไม่ได้แปลว่า "ยูเนียนช่วยจับได้"
+           แต่แปลว่า **สมมติฐาน ① หรือ ② พังแล้ว** ⇒ เลข 0 ของชั้นนี้อ่านว่า
+           "ค่าคงที่ยังอยู่" ⛔ ห้ามอ่านว่า "ตรวจแล้วสะอาด" (⑯ ฉบับชั้นซ้อน)
+ 20. ยาแก้ของ v2.8 ยังปล่อยให้ main() มี "เงื่อนไขของตัวเอง" (`if grew or uncmp`)
+     ⇒ ตามกฎที่ E ตั้ง (*ตัวตัดสินคืนเหตุผลเป็นค่า · ตัวจดจดค่านั้น ⛔ ห้ามคิดเงื่อนไขใหม่*)
+     ⇒ ย้ายไป override_record() ฟังก์ชันเดียว + ด่านที่อ่านซอร์สของ main ว่าไม่มีเงื่อนไขซ้อน
+
 รหัสออก:
     0 = ผ่าน
     1 = ด่านแดงจากเนื้อหา (BLOCK ใหม่ / WARN โต / LEGACY โต)
@@ -95,7 +110,7 @@ import inspect as _inspect
 import datetime as _dt
 import textwrap as _tw
 
-SCANNER_VERSION = '2.8'
+SCANNER_VERSION = '2.9'
 SCANNER_DATE = '2026-08-08'
 
 # คีย์ที่สคริปต์รุ่นนี้ "ใช้ตัดสินจริง" — ขาดข้อใดข้อหนึ่ง = ตัวตรวจใช้ไม่ได้ (exit 2)
@@ -304,7 +319,12 @@ def strip_shells(s):
     return ''.join(out)
 
 
-NO_SPACE_LISTS = UNICODE_BANNED + MACRO_BANNED + MACRO_REALEXAM_ONLY + TIERED
+# 🔴 v2.9 · เติม ESCAPE_BANNED — รูที่เจอตอนตอบคำถามชั้นยูเนียนของ E→MB #47 §2
+#    ชั้น (ค) เกิดใน v2.8 แต่ ⛔ ไม่ได้ถูกเติมเข้ารายการนี้
+#    ⇒ ทฤษฎีบท "จับเพิ่ม = 0" (ดู ⑮ ในหัวไฟล์) **ไม่มีด่านค้ำสำหรับชั้น (ค)** อยู่ 1 รุ่น
+#    ⇒ ⛔ ไม่ใช่บั๊กที่ทำให้ผลผิด — เป็น "ข้อพิสูจน์ที่ขาดขาหนึ่งไปเงียบ ๆ"
+NO_SPACE_LISTS = (UNICODE_BANNED + MACRO_BANNED + MACRO_REALEXAM_ONLY + TIERED
+                  + ESCAPE_BANNED)
 
 
 def no_space_invariant(tokens=None):
@@ -1306,6 +1326,9 @@ _STRIP_CORPUS = [
 
 
 def run_canary():
+    # ⑪ ด่านโครงสร้าง: อ่านซอร์สของ main มาตรวจว่าตัวจดไม่มีเงื่อนไขของตัวเอง
+    #    (ยืมรูปทรงจาก _SCAN_QUESTION_SRC ที่ใช้เฝ้ากติกา "ห้ามเรียก strip_shells")
+    _MAIN_SRC = _inspect.getsource(main)
     ok = True
     print("─" * 62)
     print(f"CANARY SELF-TEST v{SCANNER_VERSION} — ข้อพิสูจน์ว่ามีของให้จับแล้วจับได้")
@@ -1542,6 +1565,28 @@ def run_canary():
         ("🆕 ป้ายชื่อคีย์ครบทุกตัวใน REQUIRED_BASELINE_KEYS"
          " (ป้ายขาด = ㊳ ในข้อความที่คนอ่านตอนด่านแดง)",
          all(k in BASELINE_KEY_LABEL for k in REQUIRED_BASELINE_KEYS)),
+        # ── 🎣 B ของ E→MB #45 ผูกเป็นด่านถาวร (v2.9) ────────────────────
+        #    รูปทรง "ปล่อยผ่านโดยมีเงื่อนไข ⇒ ต้องยืนยัน **ใบเสร็จ** ⛔ ไม่ใช่แค่ exit code"
+        #    = ข้อที่สามคู่กับ ㊶ ที่ E ตั้งไว้ใน #45 §3ง — สามเคสล่างนี้คือตัวอย่างตัวแรก
+        ("🎣B ธง ⛔ ไม่รับน้ำหนัก (ยอดไม่โต เทียบได้ครบ) ⇒ ต้องไม่มีใบเสร็จ",
+         override_record({}, [], 'เหตุผล', '2026-01-01', '0') is None),
+        ("🎣B ยอดโต ⇒ ต้องมีใบเสร็จ + เหตุผล",
+         (override_record({'k': (1, 2)}, [], 'เพราะแบบนี้', '2026-01-01', '0') or {})
+         .get('reason') == 'เพราะแบบนี้'),
+        ("🎣B 🕳️ ทางที่เทียบไม่ได้ล้วน (grew ว่าง) ⇒ **ต้องมีใบเสร็จ** — รูของ v2.7",
+         (override_record({}, ['escape_questions'], 'ซ่อม', '2026-01-01', '0') or {})
+         .get('uncomparable') == ['escape_questions']),
+        ("🎣B ⑪ main ⛔ ต้องไม่มีเงื่อนไขของตัวเอง — ต้องเรียก override_record เท่านั้น",
+         'override_record(' in _MAIN_SRC
+         and 'if grew or uncmp' not in _MAIN_SRC
+         and "out['_lastIncrease'] = {" not in _MAIN_SRC),
+        # ── ⑮ ทฤษฎีบทของชั้นยูเนียน — ขาที่ขาดไปใน v2.8 (v2.9) ───────────
+        ("⑮ ขา② ของทฤษฎีบทต้องครอบ ESCAPE_BANNED ด้วย (ขาดไป 1 รุ่น)",
+         all(t in NO_SPACE_LISTS for t in ESCAPE_BANNED)),
+        ("⑮ ขา① strip_shells ต้องรักษาความยาวเสมอ (รวมเปลือกพัง/เปลือกซ้อน)",
+         all(len(strip_shells(s)) == len(s) for s in _STRIP_CORPUS)),
+        ("⑮ 🧬 ถ้ามีโทเคนที่มีช่องว่าง ⇒ ทฤษฎีบทพัง ⇒ ด่านต้องล้ม",
+         not no_space_invariant(list(NO_SPACE_LISTS) + ['\\esc ape'])),
         # ── 🕳️ รูที่เจอตอน sync เส้นฐาน v2.8 (มีมาตั้งแต่ v2.7) ────────
         #    "ธงที่รับน้ำหนักจริง ต้องทิ้งร่องรอยเสมอ" — ไม่งั้นเหตุผลหายเงียบ
         ("🕳️ ทางที่ 'เทียบไม่ได้' ต้องรายงานคีย์ออกมาทางสมาชิกที่สี่",
@@ -1790,6 +1835,29 @@ def provenance(commit, dirty, today, version, data_commit=None, data_dirty=False
                            if data_dirty else
                            '  (คอมมิตล่าสุดที่แตะ data/sets/ · data/ สะอาด ⇒ เลขนี้นิ่งแล้ว)'))
     return out
+
+
+def override_record(grew, uncmp, accept_reason, today, version):
+    """สร้าง "ใบเสร็จของธง" — คืน None เมื่อธง ⛔ ไม่ได้รับน้ำหนัก
+
+    🔑 ฟังก์ชันนี้มีอยู่เพราะกฎที่ E ตั้งใน #45 §3ค:
+       *"ห้ามให้ตัวตัดสินกับตัวจดมีเงื่อนไขเป็นของตัวเอง"*
+       v2.8 แก้อาการ (เปลี่ยน `if grew` เป็น `if grew or uncmp`) แต่ **เงื่อนไขยังอยู่ที่ main**
+       ⇒ วันหนึ่งมีคนเติมทางที่สามให้ check_write_baseline แล้วลืมแก้ main = บั๊กตัวเดิมกลับมา
+       ⇒ ⇒ ย้ายมาไว้ที่นี่ ⇒ **ตัวจดไม่มีเงื่อนไขของตัวเองอีกต่อไป**
+
+    เกณฑ์เดียว: *ถ้าไม่มีธงแล้วเขียนไม่ผ่าน ⇒ ธงรับน้ำหนัก ⇒ ต้องมีใบเสร็จ*
+    ซึ่งเทียบเท่ากับ "มีอะไรสักอย่างใน grew หรือ uncmp" — และมีด่านเฝ้าความเทียบเท่านี้
+    """
+    if not grew and not uncmp:
+        return None
+    return {
+        'date': today,
+        'reason': (accept_reason or '').strip(),
+        'grew': {k: f"{o} → {n}" for k, (o, n) in grew.items()},
+        'uncomparable': sorted(uncmp),
+        'byScanner': version,
+    }
 
 
 def check_write_baseline(old, new, accept_reason=None):
@@ -2253,17 +2321,11 @@ def main():
                               SCANNER_VERSION,
                               _dsha.strip() if _dsha else None,
                               bool(_dst and _dst.strip())))
-        # 🔴 v2.8: เงื่อนไขคือ "ธงรับน้ำหนักจริงไหม" ⛔ ไม่ใช่ "ยอดโตไหม"
-        #    ถ้าดูแค่ grew ทาง uncmp จะเขียนผ่าน *เพราะธง* แต่ไม่ทิ้งร่องรอยอะไรเลย
-        #    แล้วพิมพ์ว่า "ไม่ได้ใช้ธง" — ข้อความที่ตรงข้ามกับสิ่งที่เพิ่งเกิดขึ้น
-        if grew or uncmp:
-            out['_lastIncrease'] = {
-                'date': _dt.date.today().isoformat(),
-                'reason': args.accept_debt_increase.strip(),
-                'grew': {k: f"{o} → {n}" for k, (o, n) in grew.items()},
-                'uncomparable': sorted(uncmp),
-                'byScanner': SCANNER_VERSION,
-            }
+        # 🔴 v2.9: ⛔ main ไม่มีเงื่อนไขของตัวเองแล้ว — ถามฟังก์ชันเดียวว่าต้องจดไหม
+        _rec = override_record(grew, uncmp, args.accept_debt_increase,
+                               _dt.date.today().isoformat(), SCANNER_VERSION)
+        if _rec is not None:
+            out['_lastIncrease'] = _rec
             _w = ("ยอดโต" if grew and not uncmp else
                   "คีย์ที่เทียบกับของเดิมไม่ได้: " + ', '.join(sorted(uncmp))
                   if uncmp and not grew else "ยอดโต + คีย์ที่เทียบไม่ได้")
