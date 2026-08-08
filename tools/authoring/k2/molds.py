@@ -167,6 +167,33 @@ REG = {
     'q102': ('G-QUAD-IN-COSINE',        'A-COUNT-SOLUTIONS',  'M-FACTOR-QUAD-COUNT-BRANCHES'),
     'q103': ('G-EQ-SIN-EQUALS-COS',     'A-MIN-POSITIVE-SOL', 'M-COFUNCTION-TWO-FAMILIES'),
     'q104': ('G-BALLOON-TWO-TETHERS',   'A-DISTANCE-BETWEEN', 'M-HEIGHT-THEN-COSINE-LAW'),
+    # ── ก้อน 19 (q105-q124) · ย้ายเข้า REG 8 ส.ค. 69 ───────────────────
+    # 🔻 **ย้ายช้าไป 3 วัน — หนี้บัญชีที่ผมเพิ่งเจอเอง**
+    #   ก้อน 19 ขึ้นคลังตั้งแต่ 5 ส.ค. 69 (q105-q124 อยู่ใน gen-chap-07 ครบ 20 ข้อ
+    #   ยืนยันด้วยการอ่านไฟล์ชุด ⛔ ไม่ใช่จากใบส่งงาน) แต่แถวทั้ง 20 ยังค้างใน PLAN
+    #   ⇒ REG มี **144 แถว** ⛔ ไม่ใช่ 164 · เลข 164 ที่ผมเคยพูด คือ REG+PLAN รวมกัน
+    #   ⇒ ป้ายผิดแบบเดียวกับ ㊳ : เลขถูก แต่บอกไม่ครบว่าเป็นเลขของกองไหน
+    #   ก้อน 20 กับ 21 เข้า REG ตรง ๆ ไม่ผ่าน PLAN ⇒ ช่องว่างนี้เลยไม่มีใครสะดุด
+    'q105': ('G-SEC-VALUE-ACUTE',               'A-RATIO-VALUE',    'M-PYTHID-DIRECT'),
+    'q106': ('G-RIGHT-TRI-LEG-RATIO-PERIMETER', 'A-SIDE-LEN',       'M-SCALE-FACTOR-PYTHAG'),
+    'q107': ('G-RIGHT-TRI-SIDES-IN-X',          'A-RATIO-VALUE',    'M-PYTHAG-QUADRATIC-SOLVE'),
+    'q108': ('G-TWO-NESTED-RIGHT-TRI-SHARED-LEG', 'A-SEGMENT-LEN',  'M-TWO-TANGENTS-SHARED-LEG'),
+    'q109': ('G-RIGHT-TRI-ANGLE-BISECTOR',      'A-BISECTOR-LEN',   'M-HALF-ANGLE-TAN-IN-RIGHT-TRI'),
+    'q110': ('G-RIGHT-TRI-ALTITUDE-TO-HYP',     'A-RATIO-VALUE',    'M-SIMILAR-RIGHT-TRIANGLES'),
+    'q111': ('G-REGULAR-POLYGON-INSCRIBED',     'A-PERIMETER',      'M-CENTRAL-ANGLE-HALF-CHORD'),
+    'q112': ('G-TRAPEZOID-TWO-BASE-ANGLES-LEGS', 'A-AREA',          'M-DROP-TWO-ALTITUDES-TAN'),
+    'q113': ('G-SECTOR-R-ARC',                  'A-AREA',           'M-HALF-R-TIMES-ARC'),
+    'q114': ('G-SECTOR-AREA-ARC',               'A-ANGLE-RADIAN',   'M-ELIMINATE-RADIUS'),
+    'q115': ('G-TWO-SECTORS-EQUAL-AREA',        'A-RADIUS',         'M-EQUATE-AREAS-SOLVE-RADIUS'),
+    'q116': ('G-CIRCLE-ARCS-RATIO-3POINTS',     'A-ARC-LEN',        'M-RATIO-OF-FULL-TURN'),
+    'q117': ('G-SECTOR-INSCRIBED-CIRCLE',       'A-RADIUS',         'M-INSCRIBED-CIRCLE-IN-SECTOR'),
+    'q118': ('G-SECTOR-R-ANG',                  'A-ARC-MINUS-CHORD', 'M-ARC-AND-CHORD-HALF-ANGLE'),
+    'q119': ('G-SECTOR-SCALE-RADIUS-FIXED-AREA', 'A-ARC-RATIO',     'M-AREA-INVARIANT-SCALING'),
+    'q120': ('G-FUNC-FORM',                     'A-AMPLITUDE',      'M-READ-COEFFICIENT'),
+    'q121': ('G-FUNC-FORM',                     'A-PERIOD-DEGREE',  'M-PERIOD-FROM-COEFF'),
+    'q122': ('G-FUNC-VALUE-AT-POINT',           'A-EXPR-VALUE',     'M-EVALUATE-DIRECT'),
+    'q123': ('G-GRAPH-KEY-POINTS-TABLE',        'A-EQUATION',       'M-MATCH-PERIOD-AND-SHIFT'),
+    'q124': ('G-GRAPH-MAX-MIN-POSITIONS',       'A-COEFF-VALUE',    'M-HALF-PERIOD-FROM-MAX-TO-MIN'),
     # ── ก้อน 20 (6 ส.ค. 69) ────────────────────────────────────────────
     'q125': ('G-RIGHT-TRI-MIDSEGMENT-AND-LEG',   'A-RATIO-VALUE',   'M-MIDSEGMENT-DOUBLE-TO-HYPOTENUSE'),
     'q126': ('G-RIGHT-TRI-SIN-HYP-INCIRCLE',     'A-RADIUS',        'M-INRADIUS-RIGHT-TRI-AREA-OVER-S'),
@@ -451,28 +478,89 @@ RETIRED = {
 #    ⛔ ห้ามกวาดซ้ำ ⛔ ห้ามเปลี่ยนแม่พิมพ์ — session นี้รับแผนมาเขียนโจทย์อย่างเดียว
 #    ⛔ ห้ามใช้ M-SECTOR-FORMULAS (ใช้ไปแล้ว 6 ครั้ง มากที่สุดในทะเบียน)
 #       ⇒ ทั้งเจ็ดข้อของ 7.11 ในก้อนนี้ใช้เครื่องมือคนละตัวกันหมด
+# ── ก้อน 22 (q165-q184) · ลงทะเบียน 8 ส.ค. 69 · **15 แถว ⛔ ไม่ใช่ 20** ──────────
+#
+# 🔴 ทำไมได้ 15 : กวาดชนกับ **คลังจริงทั้ง 63 ชุด 6,477 ข้อ** (`collide_b22.py`)
+#    แล้วเจอว่า 5 ข้อชนของเดิม ⇒ **ถอนออกจากแผน รอออกแบบใหม่** (รายละเอียดล่างสุด)
+#
+# 🔴 และนี่คือรูของด่านนี้เอง (㊸) : REG รู้จักแค่ **164 ข้อที่เราแต่งเอง**
+#    ⇒ ด่านนี้ **มองไม่เห็นอีก 6,313 ข้อในคลัง** โดยเฉพาะชุดข้อสอบจริง
+#    ⇒ q165 (ชน `samn-2559-12-q03`) และ q174 (ชน `alvl1-2566-03-q07`)
+#       **ผ่านด่านนี้แบบเขียว** ทั้งที่ซ้ำของจริง ⇒ `collide_b22.py` ⛔ ไม่ใช่ของเสริม
+#
+# 📌 ㊳ (หน่วย/ขอบเขตของตัวเลข) : ใบสั่งงานก้อน 22 เล็ง "หัวข้อบางสุด" จากตัวเลข
+#    **ของชุดเราเอง** (7.8 = 6 ข้อ) แต่ตัวเลขที่ควรใช้ตอนหาที่ว่างของแม่พิมพ์คือ
+#    **ของทั้งคลัง** (7.8 = 73 ข้อ · มากที่สุดในบท) ⇒ เล็งเข้าที่แน่นที่สุดพอดี
+#    วัดเอง 8 ส.ค. 69 · นับ subTopics[0] · บท 7 ทั้งคลัง 529 ข้อ / ชุดเรา 164 ข้อ :
+#        หัวข้อ   ชุดเรา  ทั้งคลัง        หัวข้อ   ชุดเรา  ทั้งคลัง
+#        7.1        26       27           7.7        9       55
+#        7.2        22       41           7.8        6       73  ← บางสุดของเรา = แน่นสุดของคลัง
+#        7.3        26       41           7.9       12       63
+#        7.4        13       46           7.10       8       45
+#        7.5         6       53           7.11      28       31
+#        7.6         8       54
 PLAN = {
-    'q105': ('G-SEC-VALUE-ACUTE',               'A-RATIO-VALUE',    'M-PYTHID-DIRECT'),
-    'q106': ('G-RIGHT-TRI-LEG-RATIO-PERIMETER', 'A-SIDE-LEN',       'M-SCALE-FACTOR-PYTHAG'),
-    'q107': ('G-RIGHT-TRI-SIDES-IN-X',          'A-RATIO-VALUE',    'M-PYTHAG-QUADRATIC-SOLVE'),
-    'q108': ('G-TWO-NESTED-RIGHT-TRI-SHARED-LEG', 'A-SEGMENT-LEN',  'M-TWO-TANGENTS-SHARED-LEG'),
-    'q109': ('G-RIGHT-TRI-ANGLE-BISECTOR',      'A-BISECTOR-LEN',   'M-HALF-ANGLE-TAN-IN-RIGHT-TRI'),
-    'q110': ('G-RIGHT-TRI-ALTITUDE-TO-HYP',     'A-RATIO-VALUE',    'M-SIMILAR-RIGHT-TRIANGLES'),
-    'q111': ('G-REGULAR-POLYGON-INSCRIBED',     'A-PERIMETER',      'M-CENTRAL-ANGLE-HALF-CHORD'),
-    'q112': ('G-TRAPEZOID-TWO-BASE-ANGLES-LEGS', 'A-AREA',          'M-DROP-TWO-ALTITUDES-TAN'),
-    'q113': ('G-SECTOR-R-ARC',                  'A-AREA',           'M-HALF-R-TIMES-ARC'),
-    'q114': ('G-SECTOR-AREA-ARC',               'A-ANGLE-RADIAN',   'M-ELIMINATE-RADIUS'),
-    'q115': ('G-TWO-SECTORS-EQUAL-AREA',        'A-RADIUS',         'M-EQUATE-AREAS-SOLVE-RADIUS'),
-    'q116': ('G-CIRCLE-ARCS-RATIO-3POINTS',     'A-ARC-LEN',        'M-RATIO-OF-FULL-TURN'),
-    'q117': ('G-SECTOR-INSCRIBED-CIRCLE',       'A-RADIUS',         'M-INSCRIBED-CIRCLE-IN-SECTOR'),
-    'q118': ('G-SECTOR-R-ANG',                  'A-ARC-MINUS-CHORD', 'M-ARC-AND-CHORD-HALF-ANGLE'),
-    'q119': ('G-SECTOR-SCALE-RADIUS-FIXED-AREA', 'A-ARC-RATIO',     'M-AREA-INVARIANT-SCALING'),
-    'q120': ('G-FUNC-FORM',                     'A-AMPLITUDE',      'M-READ-COEFFICIENT'),
-    'q121': ('G-FUNC-FORM',                     'A-PERIOD-DEGREE',  'M-PERIOD-FROM-COEFF'),
-    'q122': ('G-FUNC-VALUE-AT-POINT',           'A-EXPR-VALUE',     'M-EVALUATE-DIRECT'),
-    'q123': ('G-GRAPH-KEY-POINTS-TABLE',        'A-EQUATION',       'M-MATCH-PERIOD-AND-SHIFT'),
-    'q124': ('G-GRAPH-MAX-MIN-POSITIONS',       'A-COEFF-VALUE',    'M-HALF-PERIOD-FROM-MAX-TO-MIN'),
+    # ── 7.5 ──
+    'q166': ('G-ANG-NUMERIC',                'A-EXPR-VALUE',        'M-SPLIT-INTO-TWO-SPECIAL-ANGLES'),
+    'q167': ('G-TAN-OF-SUM-AND-DIFF-VALUES', 'A-TAN-OF-DOUBLE',     'M-REGROUP-2A-AS-SUM-PLUS-DIFF'),
+    'q169': ('G-COS-SUM-AND-COS-PRODUCT',    'A-TAN-PRODUCT',       'M-EXPAND-COS-SUM-ONCE'),
+    'q170': ('G-THREE-TAN-VALUES',           'A-TAN-OF-TRIPLE-SUM', 'M-TAN-SUM-CHAINED-TWICE'),
+    # ── 7.8 ──
+    'q172': ('G-TRIG-OF-TWO-SEPARATE-ARCS',  'A-EXPR-VALUE',        'M-RIGHT-TRI-FROM-ARC-ARG'),
+    'q175': ('G-ARCTAN-PAIR-FUNCTION-OF-X',  'A-IDENTIFY-VALUE-SET', 'M-BRANCH-BY-PRINCIPAL-RANGE'),
+    'q176': ('G-ARC-EQUATION-DOUBLE-ARCTAN', 'A-SOLUTION-VALUE',    'M-SIN-OF-DOUBLE-ARCTAN'),
+    # ── 7.10 ──
+    'q177': ('G-CABLECAR-SLOPE-TAN-GIVEN',   'A-HEIGHT',            'M-TAN-TO-SIN-VIA-TRIPLE'),
+    'q178': ('G-POLE-HEIGHT-AND-SHADOW-FLAT', 'A-ANGLE-DEGREE',     'M-TAN-RATIO-TO-SPECIAL-ANGLE'),
+    'q179': ('G-TRI-SAS-NUMERIC-FIELD',      'A-SIDE-LEN',          'M-LAW-COS'),
+    'q180': ('G-ANTENNA-ON-ROOF-TWO-ELEVATIONS', 'A-HEIGHT-DIFFERENCE', 'M-TWO-TANGENTS-SHARED-LEG'),
+    # ── 7.7 ──
+    'q181': ('G-EQ-BASIC',                   'A-SUM-ROOTS',         'M-TWO-ROOTS-IN-FULL-TURN'),
+    'q182': ('G-QUAD-IN-SINE',               'A-SUM-ROOTS',         'M-FACTOR-QUAD-SUM-ALL-ROOTS'),
+    'q183': ('G-EQ-SIN-PLUS-COS-CONST',      'A-COUNT-SOLUTIONS',   'M-SQUARE-THEN-REJECT-EXTRANEOUS'),
+    'q184': ('G-EVEN-POWER-SUM-EQ-PRODUCT',  'A-SUM-ROOTS',         'M-POWER-REDUCE-TO-SIN2X-QUADRATIC'),
 }
+
+# ═══════ 5 ข้อที่ถอนออกจากแผนก้อน 22 · รอออกแบบใหม่ (⛔ ไม่ลงทะเบียน) ═══════
+#   ทุกบรรทัดวัดเอง 8 ส.ค. 69 จาก `data/sets/*.json` 63 ชุด 6,477 ข้อ
+#
+#   🔴 q165  tan A = 1/3, tan B = 1/2 (แหลม) ⇒ A + B
+#            ชน `samn-2559-12-q03` (**ข้อสอบจริง** วิชาสามัญ 2559) :
+#            "tan A = 2 และ tan B = 3 แล้ว A + B" — **แม่พิมพ์เดียวกัน พื้นผิวเดียวกัน**
+#            ต่างแค่ตัวเลข ⇒ 1 ใน 3 แกน ⇒ ผิดกฎเหล็กข้อ 5
+#
+#   🔴 q171  arctan 1 + arctan √3
+#            ชน `gen-chap-07-trigonometry-q081` (ของเราเอง) :
+#            "arccos(1/2) + arcsin(√3/2)" — ผลบวกค่าอาร์กสองตัวที่อาร์กิวเมนต์พิเศษ
+#            เปลี่ยนแค่ชื่อฟังก์ชันอาร์ก = แกนตัวเลข ⇒ 1 ใน 3 แกน
+#            (และ "ผลบวก arctan" อยู่ในรายการแม่พิมพ์อิ่มตัวของ `collide_b19.py` อยู่แล้ว)
+#
+#   🔴 q173  arcsin(sin 11π/6)
+#            ชน `gen-chap-07-trigonometry-q051` (เป็นชิ้นส่วน a ของข้อนั้นพอดี)
+#            และ `pat1-2562-02-q06` (**ข้อสอบจริง** PAT1 ก.พ. 2562)
+#            ⛔ และแม่พิมพ์ "arcsin(sin x) นอกช่วงหลัก" **ถูกฆ่าไปแล้วตั้งแต่ก้อน 12**
+#            (บันทึกใน CHANGELOG ก้อน 12) ⇒ ข้อนี้ไม่ควรถูกออกแบบตั้งแต่แรก
+#
+#   🔴 q174  tan(arcsin(3/5) + arccos(5/13)) = −63/16
+#            ชน `alvl1-2566-03-q07` (**ข้อสอบจริง** A-Level 2566) :
+#            "tan(arccos(5/13) + arcsin(3/5))" — **ตัวเลขชุดเดียวกัน คำตอบเดียวกัน**
+#            (−63/16 เป็นตัวเลือกที่ 1 ของข้อสอบจริงนั้นด้วย) ต่างแค่ลำดับพจน์
+#            ⇒ นี่ ⛔ ไม่ใช่แค่แม่พิมพ์ชน — เป็น**ข้อเดียวกันกับข้อสอบจริง**
+#
+#   🟠 q168  sin A = 5/13 (จตุภาค 2), tan B = 3/4 (จตุภาค 3) ⇒ sin(A − B)
+#            ชน `gen-chap-07-trigonometry-q097` (ของเราเอง) :
+#            sin A = 3/5 (จตุภาค 2), cos B = −12/13 (จตุภาค 3) ⇒ sin(A + B)
+#            G เดียวกัน · M เดียวกัน · สามเหลี่ยมมุมฉากชุดเดียวกัน (3-4-5 กับ 5-12-13)
+#            ต่างที่ A อย่างเดียว (ผลบวก ↔ ผลต่าง) ⇒ ด่านนี้จะขึ้นแค่ ⚠️ WATCH-A
+#            **แต่ตามกฎเหล็กข้อ 5 (ต่าง 2 ใน 3 แกน) ข้อนี้ตก** ⇒ ถอนไว้ให้ครูเคาะ
+#
+# 🟠 สองข้อที่ **ไม่ถอน** แต่ต้องบันทึกว่าใกล้ :
+#   q169 ↔ `gen-chap-07-q087`  ถามค่าเดียวกัน (tan A tan B) สำนวนใกล้กัน
+#         **แต่โจทย์ให้คนละอย่าง** (q087 ให้ cos ผลบวก+ผลต่าง · q169 ให้ cos ผลบวก
+#         + cos A cos B) และเส้นทางสั้นกว่าหนึ่งขั้น ⇒ ต่าง 2 ใน 3 แกน ⇒ ผ่าน
+#   q176 ↔ ตระกูล "2·อาร์ก" ในคลังมี **23 ข้อ** (วัดเอง) รวม `chap-07-q186`
+#         ที่ใช้ `2 arctan(1/3)` เป๊ะ **แต่ q176 กลับทิศ** (ให้สมการแล้วหา x)
+#         ⇒ ผ่าน แต่ถ้าครูสั่งให้เข้มกว่านี้ ข้อนี้คือข้อถัดไปที่ควรถอน
 
 
 def audit(reg):
@@ -493,8 +581,10 @@ def audit(reg):
     return fail, watchA, watchB
 
 
-def report(title, reg):
+def report(title, reg, quiet=False):
     fail, wA, wB = audit(reg)
+    if quiet:                      # โหมดชุดทดสอบ · คืนตัวเลขอย่างเดียว ไม่พิมพ์
+        return len(fail)
     print('=' * 78)
     print(title, '·', len(reg), 'ข้อ')
     print('=' * 78)
@@ -519,22 +609,76 @@ def report(title, reg):
     return len(fail)
 
 
-nfail = report('ทะเบียนปัจจุบัน', REG)
+# ═══════════════════════ ชุดทดสอบของด่านเอง (㊶) ═══════════════════════
+# 🔻 8 ส.ค. 69 · ใบแก้รูรั่วรหัสออก — **ผมเจอเองตอนจะลงทะเบียนก้อน 22**
+#   อาการ  : ฉีดแถวที่ชน ❌ เข้า PLAN แล้วรันไฟล์นี้ ⇒ พิมพ์ "❌ 1 คู่" ออกมาจริง
+#            **แต่ `echo $?` ได้ 0** เพราะ `nfail` คิดจาก REG อย่างเดียว
+#            ค่าที่ report() คืนจากรอบ "ทะเบียน + แผน" ถูกทิ้งทั้งค่า
+#   ทำไมถึงร้ายแรงกว่าที่เห็น : docstring บนหัวไฟล์นี้สั่งว่า "ก่อนแต่งข้อใหม่ ให้เพิ่ม
+#            บรรทัดของข้อนั้นลง PLAN แล้วรันไฟล์นี้" ⇒ **กรณีใช้งานหลักของไฟล์ คือกรณี
+#            ที่คำตัดสินตกหาย** · วันนี้ยังไม่มีสคริปต์ไหนอ่านรหัสออกของไฟล์นี้
+#            (กวาดแล้ว 0 จุด) ⇒ **ความเสียหายจริงวันนี้ = 0** ⛔ ไม่ใช่ "ไม่เป็นไร"
+#   ยาแก้ที่เลือก : ⛔ ไม่ใช่เขียนเตือนไว้ในคอมเมนต์ — แต่ให้ **รหัสออกมาจากที่เดียว**
+#            คือ verdict() ซึ่งบวกทุกกองที่ตรวจ ⇒ ลืมบวกกองใหม่ไม่ได้เชิงโครงสร้าง
+#   ㊶ : ตัวตรวจต้องมีชุดทดสอบของตัวเอง ⇒ ของล่อ 2 ตัวข้างล่าง **ตัวที่ 2 คือรูนี้**
+_BAIT_REG = ('G-FUNC-FORM', 'A-PERIOD', 'M-LCM-PERIOD')          # = q025 เป๊ะ
+_BAIT_PLAN = ('G-TRI-ANY-TANRATIO', 'A-EXPR-VALUE', 'M-TAN-TRI-IDENT')  # = q001 เป๊ะ
 
-if '--test' in sys.argv:
-    print()
-    print('▼▼▼ ชุดทดสอบ · ใส่ q040 ฉบับที่ถอนแล้วกลับเข้าไป ด่านต้องจับให้ได้ ▼▼▼')
+
+def verdict(reg, plan, quiet=False):
+    """รหัสออก = ❌ ของ **ทุกกองที่ตรวจ** ⛔ ไม่ใช่ของ REG อย่างเดียว"""
+    out = []
+    n = report('ทะเบียนปัจจุบัน', reg, quiet)
+    out.append(n)
+    if plan:
+        if not quiet:
+            print()
+            print('▼▼▼ ตรวจแผนก้อนถัดไป เทียบกับของเดิมทั้งหมด ▼▼▼')
+        merged = dict(reg)
+        merged.update(plan)
+        out.append(report('ทะเบียน + แผน', merged, quiet))
+    return sum(out)
+
+
+def selftest():
+    """ต้องจับให้ได้ทั้งสองที่ · ต้องปล่อยของสะอาดให้ผ่าน (㊶ ขยาย: มีทั้งเคสจับและเคสปล่อย)"""
+    ok = True
+    # ① ของล่อใน REG — ของเดิม (q040 ที่ถอนแล้ว) ยังต้องถูกจับ
     t = dict(REG)
     t.pop('q040')
     t.update(RETIRED)
-    n = report('ทะเบียน + ข้อที่ถอน', t)
-    print('ผลชุดทดสอบ:', 'ผ่าน ✅ (ด่านจับได้)' if n else 'ล้ม ❌ (ด่านจับไม่ได้)')
+    n1 = verdict(t, {}, quiet=True)
+    print('  ① ของล่อใน REG (q040เก่า ↔ q025)      :', 'จับได้ ✅' if n1 else 'หลุด ❌')
+    ok &= bool(n1)
+    # ② ของล่อใน PLAN — รูที่เจอ 8 ส.ค. 69 · ก่อนแก้ ข้อนี้จะได้ 0
+    n2 = verdict(REG, {'qBAIT': _BAIT_PLAN}, quiet=True)
+    print('  ② ของล่อใน PLAN (qBAIT ↔ q001)        :', 'จับได้ ✅' if n2 else 'หลุด ❌')
+    ok &= bool(n2)
+    # ③ เคสที่ต้อง**ปล่อย** — ทะเบียนจริง + แผนจริง ต้องไม่แดง
+    n3 = verdict(REG, PLAN, quiet=True)
+    print('  ③ ของสะอาด (ทะเบียนจริง + แผนจริง)    :', 'ปล่อยผ่าน ✅' if n3 == 0
+          else 'ฟ้องผิด ❌ (%d คู่)' % n3)
+    ok &= (n3 == 0)
+    # ④ ของล่อ 2 ตัวพร้อมกัน — ต้องนับรวม ⛔ ไม่ใช่รายงานแค่กองแรก
+    n4 = verdict(t, {'qBAIT': _BAIT_PLAN}, quiet=True)
+    print('  ④ ของล่อพร้อมกันสองกอง                :',
+          'นับรวม ✅ (%d)' % n4 if n4 >= 2 else 'นับไม่ครบ ❌ (%d)' % n4)
+    ok &= (n4 >= 2)
+    return ok
 
-if PLAN:
+
+if '--selftest' in sys.argv:
+    print('▼▼▼ ชุดทดสอบของด่านเอง (㊶) ▼▼▼')
+    passed = selftest()
+    print('ผลชุดทดสอบ:', 'ผ่านครบ 4 ✅' if passed else 'ล้ม ❌')
+    sys.exit(0 if passed else 1)
+
+nfail = verdict(REG, PLAN)
+
+if '--test' in sys.argv:
     print()
-    print('▼▼▼ ตรวจแผนก้อนถัดไป เทียบกับของเดิมทั้งหมด ▼▼▼')
-    m = dict(REG)
-    m.update(PLAN)
-    report('ทะเบียน + แผน', m)
+    print('▼▼▼ ชุดทดสอบของด่านเอง (㊶) ▼▼▼')
+    if not selftest():
+        nfail += 1
 
 sys.exit(1 if nfail else 0)
