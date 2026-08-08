@@ -23,8 +23,36 @@ nearcheck v1/v2/v3 ล้มทั้งสามรุ่น เหตุผล
 
 ⭐ วิธีใช้: ก่อนแต่งข้อใหม่ ให้เพิ่มบรรทัดของข้อนั้นลง PLAN แล้วรันไฟล์นี้
    ถ้าขึ้น ❌ ⇒ ห้ามแต่ง ต้องเปลี่ยนแม่พิมพ์ก่อน
+
+═══ 🆕 8 ส.ค. 2569 · 3 ชั้นที่ทำให้ "กวาดคลังจริง" ขาดไม่ได้เชิงโครงสร้าง ═══
+(ข้อเสนอ E→MB #43 §2 · ครูอนุมัติ "ทำครบ 3 ชั้น" 8 ส.ค. 69)
+
+รากของอุบัติเหตุก้อน 22 ⛔ ไม่ใช่ "ลืมกวาด" — เป็น **ตัวหารผิด** :
+    ไฟล์นี้ตอบคำถาม "ซ้ำของเราเองไหม" ได้ถูก 100% จาก 164 ข้อ
+    แต่คนอ่านคิดว่ามันตอบ "เคยมีคนถามแล้วหรือยัง" ซึ่งตัวหารคือ 6,477 ข้อ
+    ⇒ q165 (ชน samn-2559-12-q03) และ q174 (ชน alvl1-2566-03-q07) ผ่านด่านนี้แบบเขียว
+
+ชั้น 1 · ตัวหารของด่าน = ตัวหารของคำถาม
+    ไฟล์นี้ **นำเข้า bankscope** และอ่านคลังทั้งใบก่อนตัดสินทุกครั้ง
+    อ่านคลังไม่ได้ ⇒ รหัสออก 2 (ตัวตรวจใช้ไม่ได้) ⛔ ไม่ใช่ "ผ่านเพราะไม่เจออะไร"
+    ⇒ "ลงทะเบียนโดยยังไม่เคยเห็นคลังจริง" เกิดไม่ได้ — ไม่ใช่เพราะมีคนจำได้
+
+ชั้น 2 · ป้ายตัวหารบังคับ (㊳ ขาที่ห้า ที่เขียนลงไฟล์ ⛔ ไม่ใช่เขียนลงจดหมาย)
+    ทุกใบเสร็จพก `scope` = ป้ายของคลัง ณ วันกวาด (ไฟล์·ข้อ·ลายนิ้วมือ)
+    ป้าย ≠ คลังวันนี้ ⇒ ❌ ใบเสร็จหมดอายุ ⇒ ต้องกวาดใหม่
+    ⚠️ ลายนิ้วมืออยู่ในป้ายด้วยโดยตั้งใจ: ถอน 1 เพิ่ม 1 ⇒ ยอดนิ่ง แต่ของที่ต้องกวาดเปลี่ยนแล้ว
+
+ชั้น 3 · ใบเสร็จบังคับ
+    id ใน PLAN และ id ที่ลงทะเบียนใหม่ใน REG **ต้องมีใบเสร็จ** ไม่งั้น ❌
+    ⚠️ 164 แถวเดิม (q001–q164) ลงทะเบียนก่อนกฎนี้มีอยู่ ⇒ อยู่ในรายการยกเว้น
+       `PRE_RECEIPT` ซึ่งเป็น **กงล้อ: ลดได้อย่างเดียว** ⛔ ห้ามเติมชื่อเข้าไป
 """
+import os
 import sys
+
+# ── ชั้น 1 · ตัวหารกลาง — ต้องนำเข้าได้ ไม่งั้นไฟล์นี้ตัดสินอะไรไม่ได้
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import bankscope                                                   # noqa: E402
 
 # ═══════════════════════ ทะเบียน 44 ข้อที่แต่งแล้ว ═══════════════════════
 # (G โจทย์ให้, A ถามหา, M เครื่องมือหลัก)
@@ -563,6 +591,88 @@ PLAN = {
 #         ⇒ ผ่าน แต่ถ้าครูสั่งให้เข้มกว่านี้ ข้อนี้คือข้อถัดไปที่ควรถอน
 
 
+# ═══════════════════ ชั้น 2+3 · ใบเสร็จการกวาดคลังจริง ═══════════════════
+# รูปแบบ: id -> (สคริปต์ที่กวาด, วันที่กวาด, ป้ายตัวหาร ณ วันกวาด)
+#
+# 🔴 ป้ายตัวหารต้องเป็นค่าที่ **วัดจากคลังจริง** ⛔ ห้ามพิมพ์มือ
+#    ได้มาจาก: python3 tools/authoring/k2/bankscope.py
+#
+# ⚠️ ใบเสร็จ ⛔ ไม่ใช่คำรับรองว่า "ข้อนี้ไม่ซ้ำ" — เป็นคำรับรองว่า
+#    "ข้อนี้ถูกเอาไปเทียบกับคลังทั้งใบ ณ สภาพนั้น แล้วมีคนดูผลด้วยตา"
+#    (`collide_bNN` พิมพ์ 'เจอของเดิม' ออกมาเพื่อให้คนเปิดดู ⛔ ไม่ได้ตัดสินแทน)
+_SCOPE_B22 = '63ไฟล์·6477ข้อ·236d33856a3e3c88'
+_B22 = ('collide_b22.py', '2026-08-08', _SCOPE_B22)
+
+RECEIPTS = {
+    # ── ก้อน 22 · 15 แถวที่รอด (5 แถวถูกถอนหลังกวาด: q165 q168 q171 q173 q174)
+    'q166': _B22, 'q167': _B22, 'q169': _B22, 'q170': _B22,
+    'q172': _B22, 'q175': _B22, 'q176': _B22, 'q177': _B22,
+    'q178': _B22, 'q179': _B22, 'q180': _B22, 'q181': _B22,
+    'q182': _B22, 'q183': _B22, 'q184': _B22,
+}
+
+# 🔴 กงล้อ · **ลดได้อย่างเดียว** ⛔ ห้ามเติมชื่อใหม่เข้ารายการนี้เด็ดขาด
+#    = 164 แถวที่ลงทะเบียนก่อนกฎใบเสร็จมีอยู่ (q001–q164 · ณ 8 ส.ค. 2569)
+#    วิธีปลดชื่อออก: กวาดข้อนั้นด้วย collide ใหม่ แล้วย้ายไปอยู่ใน RECEIPTS
+#    ⚠️ ตัวเลข 164 นี้ = `REG` ทั้งก้อน ณ วันตั้งกงล้อ ⛔ ไม่ใช่ REG+PLAN (บทเรียน ㊳)
+PRE_RECEIPT_CEILING = 164
+PRE_RECEIPT = frozenset('q%03d' % n for n in range(1, PRE_RECEIPT_CEILING + 1))
+
+_BANK_CACHE = []
+
+
+def require_bank():
+    """ชั้น 1 — อ่านคลังทั้งใบ · อ่านไม่ได้ = ตัวตรวจใช้ไม่ได้ (รหัส 2)"""
+    if not _BANK_CACHE:
+        try:
+            _BANK_CACHE.append(bankscope.load_bank())
+        except bankscope.BankUnavailable as e:
+            print('🔴 ชั้น 1 ล้ม — อ่านคลังจริงไม่ได้ ⇒ **ตัวตรวจใช้ไม่ได้**')
+            print('   %s' % e)
+            print('   ⛔ ห้ามตีความว่า "ไม่เจอของซ้ำ" — ด่านนี้ยังไม่ได้ตรวจอะไรเลย')
+            sys.exit(2)
+    return _BANK_CACHE[0]
+
+
+def check_receipts(reg, plan, bank, quiet=False):
+    """ชั้น 2+3 — คืนจำนวน ❌ · id ที่ต้องมีใบเสร็จแล้วไม่มี / ใบเสร็จหมดอายุ"""
+    need = [i for i in sorted(plan)]
+    need += [i for i in sorted(reg) if i not in PRE_RECEIPT]
+    missing, stale = [], []
+    for i in need:
+        r = RECEIPTS.get(i)
+        if r is None:
+            missing.append(i)
+            continue
+        good, why = bankscope.compare_scope(r[2], bank)
+        if not good:
+            stale.append((i, r, why))
+    # ใบเสร็จที่ไม่มีเจ้าของแล้ว = ข้อสังเกต ⛔ ไม่ใช่ ❌ (ของถูกถอนเป็นเรื่องปกติ)
+    orphan = sorted(set(RECEIPTS) - set(reg) - set(plan))
+
+    if not quiet:
+        print()
+        print('▼▼▼ ชั้น 2+3 · ใบเสร็จการกวาดคลังจริง ▼▼▼')
+        print('  ตัวหารคลังวันนี้ : %s' % bankscope.scope_str(bank))
+        print('  ต้องมีใบเสร็จ %d id (PLAN %d · REG นอกกงล้อ %d)'
+              % (len(need), len(plan), len(need) - len(plan)))
+        print('  ยกเว้นด้วยกงล้อ PRE_RECEIPT : %d id (ลดได้อย่างเดียว)' % len(PRE_RECEIPT))
+        if missing:
+            print('❌ ไม่มีใบเสร็จ %d id : %s' % (len(missing), ', '.join(missing)))
+        else:
+            print('✅ ใบเสร็จครบทุก id ที่ต้องมี')
+        if stale:
+            print('❌ ใบเสร็จหมดอายุ %d id :' % len(stale))
+            for i, r, why in stale:
+                print('   %s  กวาดโดย %s เมื่อ %s — %s' % (i, r[0], r[1], why))
+        else:
+            print('✅ ใบเสร็จทุกใบยังตรงกับคลังวันนี้')
+        if orphan:
+            print('📌 ใบเสร็จที่เจ้าของถูกถอนไปแล้ว %d ใบ (เก็บไว้เป็นบันทึก ⛔ ไม่ใช่ ❌) : %s'
+                  % (len(orphan), ', '.join(orphan)))
+    return len(missing) + len(stale)
+
+
 def audit(reg):
     keys = sorted(reg)
     fail, watchA, watchB = [], [], []
@@ -625,8 +735,14 @@ _BAIT_REG = ('G-FUNC-FORM', 'A-PERIOD', 'M-LCM-PERIOD')          # = q025 เป
 _BAIT_PLAN = ('G-TRI-ANY-TANRATIO', 'A-EXPR-VALUE', 'M-TAN-TRI-IDENT')  # = q001 เป๊ะ
 
 
-def verdict(reg, plan, quiet=False):
-    """รหัสออก = ❌ ของ **ทุกกองที่ตรวจ** ⛔ ไม่ใช่ของ REG อย่างเดียว"""
+def verdict(reg, plan, quiet=False, check_bank=True):
+    """รหัสออก = ❌ ของ **ทุกกองที่ตรวจ** ⛔ ไม่ใช่ของ REG อย่างเดียว
+
+    🆕 8 ส.ค. 69 · ชั้น 2+3 บวกเข้ามาที่นี่ ⛔ ไม่ใช่เป็นสคริปต์แยก
+       เหตุผลเดียวกับที่ย้ายรหัสออกมาไว้ที่นี่ตอนแรก: กองที่อยู่นอก verdict()
+       คือกองที่วันหนึ่งจะมีคนลืมบวก · อยู่ในนี้แล้ว **ลืมไม่ได้เชิงโครงสร้าง**
+    check_bank=False ใช้ได้เฉพาะในชุดทดสอบที่ตั้งใจตัดชั้น 1 ออกเพื่อพิสูจน์ว่ามันรับน้ำหนัก
+    """
     out = []
     n = report('ทะเบียนปัจจุบัน', reg, quiet)
     out.append(n)
@@ -637,6 +753,8 @@ def verdict(reg, plan, quiet=False):
         merged = dict(reg)
         merged.update(plan)
         out.append(report('ทะเบียน + แผน', merged, quiet))
+    if check_bank:
+        out.append(check_receipts(reg, plan, require_bank(), quiet))
     return sum(out)
 
 
@@ -664,13 +782,65 @@ def selftest():
     print('  ④ ของล่อพร้อมกันสองกอง                :',
           'นับรวม ✅ (%d)' % n4 if n4 >= 2 else 'นับไม่ครบ ❌ (%d)' % n4)
     ok &= (n4 >= 2)
+
+    # ═══ ชั้น 2+3 · ใบเสร็จ (8 ส.ค. 69) ═══
+    bank = require_bank()
+
+    def say(no, name, good):
+        nonlocal ok
+        print('  %s %-38s : %s' % (no, name, 'ผ่าน ✅' if good else 'ล้ม ❌'))
+        ok &= bool(good)
+
+    # ⑤ ของจริงต้องสะอาด — ใบเสร็จครบ + ป้ายตรงคลังวันนี้
+    say('⑤', 'ของจริง: ใบเสร็จครบ + ป้ายตรงคลัง',
+        check_receipts(REG, PLAN, bank, quiet=True) == 0)
+
+    # ⑥ 🧬 แถวใหม่ใน PLAN ที่ไม่มีใบเสร็จ ⇒ ต้องแดง
+    #    (นี่คือเคสของก้อน 22 เป๊ะ: แม่พิมพ์สะอาดในสายตา REG แต่ยังไม่เคยเจอคลังจริง)
+    _clean_mold = ('G-ยังไม่เคยมี-เอ', 'A-ยังไม่เคยมี-บี', 'M-ยังไม่เคยมี-ซี')
+    say('⑥', '🧬 PLAN ไม่มีใบเสร็จ ⇒ ต้องแดง',
+        check_receipts(REG, {'qNOSWEEP': _clean_mold}, bank, quiet=True) >= 1)
+
+    # ⑦ 🧬 แถวใหม่ใน REG (นอกกงล้อ) ที่ไม่มีใบเสร็จ ⇒ ต้องแดง
+    _r7 = dict(REG)
+    _r7['q900'] = _clean_mold
+    say('⑦', '🧬 REG นอกกงล้อ ไม่มีใบเสร็จ ⇒ ต้องแดง',
+        check_receipts(_r7, {}, bank, quiet=True) >= 1)
+
+    # ⑧ 🧬 ใบเสร็จที่กวาดตอนคลังเล็กกว่า ⇒ ต้องแดง (กงล้อชั้น 2)
+    _keep = dict(RECEIPTS)
+    try:
+        RECEIPTS['q166'] = ('collide_b22.py', '2026-08-08',
+                            '63ไฟล์·%dข้อ·%s' % (bank['questions'] - 5, bank['idDigest']))
+        _n8 = check_receipts(REG, PLAN, bank, quiet=True)
+    finally:
+        RECEIPTS.clear()
+        RECEIPTS.update(_keep)
+    say('⑧', '🧬 ใบเสร็จกวาดจากคลังเก่า ⇒ ต้องแดง', _n8 >= 1)
+
+    # ⑨ กงล้อ PRE_RECEIPT ต้องไม่โต และต้องพอดีกับ REG ที่มีอยู่จริง
+    say('⑨', 'กงล้อ PRE_RECEIPT ⊆ REG และไม่โต',
+        PRE_RECEIPT <= set(REG) and len(PRE_RECEIPT) <= PRE_RECEIPT_CEILING)
+
+    # ⑩ 🧬 พิสูจน์ว่า "ชั้น 2+3 คือสิ่งที่จับ ⑥ ได้" ⛔ ไม่ใช่ชั้นแม่พิมพ์เดิม
+    #    แม่พิมพ์ของ qNOSWEEP สะอาดสนิท ⇒ report() ต้องได้ 0
+    #    ⇒ ถ้า verdict ยังแดง แปลว่าแดงเพราะใบเสร็จจริง ๆ
+    _m10 = dict(REG)
+    _m10['qNOSWEEP'] = _clean_mold
+    say('⑩', '🧬 ชั้นแม่พิมพ์เงียบ แต่ verdict ยังแดง',
+        report('x', _m10, quiet=True) == 0
+        and verdict(REG, {'qNOSWEEP': _clean_mold}, quiet=True) >= 1)
+
+    # ⑪ 🧬 ถ้าตัดชั้น 2+3 ออก ⇒ ⑥ ต้องหลุด (ด่านนี้รับน้ำหนักจริง ⛔ ไม่ใช่พิธีกรรม)
+    say('⑪', '🧬 ตัดชั้น 2+3 ออก ⇒ ⑥ หลุดทันที',
+        verdict(REG, {'qNOSWEEP': _clean_mold}, quiet=True, check_bank=False) == 0)
     return ok
 
 
 if '--selftest' in sys.argv:
     print('▼▼▼ ชุดทดสอบของด่านเอง (㊶) ▼▼▼')
     passed = selftest()
-    print('ผลชุดทดสอบ:', 'ผ่านครบ 4 ✅' if passed else 'ล้ม ❌')
+    print('ผลชุดทดสอบ:', 'ผ่านครบ 11 ✅' if passed else 'ล้ม ❌')
     sys.exit(0 if passed else 1)
 
 nfail = verdict(REG, PLAN)

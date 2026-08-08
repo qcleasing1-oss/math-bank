@@ -58,6 +58,18 @@ scan_symbols.py — ตัวตรวจสัญลักษณ์ต้อง
      ⛔ ไม่ใช่ "จับได้เพิ่ม" แต่แปลว่าค่าคงที่ของชั้น (ก) พังแล้ว
  14. ⑪ คำประกาศ "คลังที่ใช้บังคับ" + ⑨ ตัวหาร พิมพ์ทุกรอบ
 
+เวอร์ชัน 2.8 (8 ส.ค. 2569) เพิ่ม "ชั้น (ค) escape เกินชั้น" = กฎเหล็กข้อ 10:
+ 15. 🔴 เหตุที่ต้องมี: บรรทัด MACRO_REALEXAM_ONLY เคยเขียนว่า "⛔ ไม่ยกเว้นกฎ escape
+     เกินชั้น" มาตลอด ⇒ คนอ่านสรุปว่ากฎนี้ถูกบังคับใช้ **ทั้งที่ไม่เคยมีตัวตรวจ**
+     กวาดคลังจริง 8 ส.ค. 69 พบ 196 จุด / 38 ข้อ / 3 ไฟล์ ที่เด็กเห็นเครื่องหมาย \ คาอยู่
+     ⇒ นี่คือ ㉓ ในรูปของ "คอมเมนต์ที่ประกาศข้อยกเว้นของกฎที่ไม่มีตัวตรวจ"
+        — อันตรายกว่าด่านที่หายไป เพราะมันอ่านเหมือนด่านที่เข้มกว่าปกติ
+ 16. ระดับ ESC เป็นระดับของตัวเอง มีกงล้อของตัวเอง (escape_questions)
+     ⛔ ไม่เทลงปน block_questions_legacy — เลขนั้นนิยามว่า "หนี้ของชั้นสัญลักษณ์"
+     ถ้าเทปน มันจะตอบคนละคำถามกับชื่อของมัน = ㊳ ขาที่ห้า
+ 17. escape_questions เข้า REQUIRED_BASELINE_KEYS ⇒ เส้นฐาน v2.7 เดิมจะออกรหัส 2
+     จนกว่าจะ sync เป็นคู่ — แรงบังคับเชิงโครงสร้าง ⛔ ไม่ใช่กติกาในจดหมาย
+
 รหัสออก:
     0 = ผ่าน
     1 = ด่านแดงจากเนื้อหา (BLOCK ใหม่ / WARN โต / LEGACY โต)
@@ -83,15 +95,26 @@ import inspect as _inspect
 import datetime as _dt
 import textwrap as _tw
 
-SCANNER_VERSION = '2.7'
-SCANNER_DATE = '2026-08-02'
+SCANNER_VERSION = '2.8'
+SCANNER_DATE = '2026-08-08'
 
 # คีย์ที่สคริปต์รุ่นนี้ "ใช้ตัดสินจริง" — ขาดข้อใดข้อหนึ่ง = ตัวตรวจใช้ไม่ได้ (exit 2)
 # 🔴 ไม่ใช่ 'ข้ามไปเงียบ ๆ' เพราะ "ไม่ได้ตรวจ" กับ "ตรวจแล้วสะอาด" ต้องไม่ให้ผลเหมือนกัน
 #    (ข้อเรียกร้องพอร์ทัลรอบ 9 · รูปแบบเดียวกับกฎ B8 ข้อ 1)
 #    เคสจริงที่กลัว: sync scan_symbols.py ไปไฟล์เดียว ลืม warn-baseline.json
 # หมายเหตุ: warn_occurrences ไม่อยู่ในรายการนี้ เพราะสคริปต์ไม่ได้ใช้ตัดสิน (ไว้ดูแนวโน้มเท่านั้น)
-REQUIRED_BASELINE_KEYS = ('warn_questions', 'block_questions_legacy')
+REQUIRED_BASELINE_KEYS = ('warn_questions', 'block_questions_legacy',
+                          'escape_questions')
+
+# ชื่อไทยของคีย์เส้นฐาน — ใช้ในข้อความตอนปฏิเสธการเขียนทับ
+# 🔴 ของเดิมเป็น expression สองทาง ("หนี้เก่า" ถ้าเป็น block_… ไม่งั้น "WARN")
+#    ⇒ พอเติมคีย์ที่สาม มันจะเรียก escape_questions ว่า "WARN" อย่างมั่นใจ
+#    = ป้ายผิดในข้อความที่คนอ่านตอนด่านแดง ซึ่งเป็นตอนที่ป้ายสำคัญที่สุด (㊳)
+BASELINE_KEY_LABEL = {
+    'warn_questions': 'WARN',
+    'block_questions_legacy': 'หนี้เก่า BLOCK',
+    'escape_questions': 'escape เกินชั้น (กฎเหล็กข้อ 10)',
+}
 
 # สภาพของเส้นฐาน "เดิม" ตอนจะเขียนทับ มี 3 แบบ ไม่ใช่ 2 — และต่างกันมาก
 #   None       = ยังไม่เคยมีไฟล์เลย  ⇒ การตั้งต้นครั้งแรก ไม่มีอะไรให้ฟอก
@@ -130,8 +153,33 @@ MACRO_BANNED = [r'\setminus', r'\backslash', r'\subseteq', r'\subsetneq',
 UNICODE_ALLOWED = ['⊂', '⊄']
 
 # ⚠️ ยกเว้นเฉพาะ "ไฟล์ข้อสอบจริง" และเฉพาะกฎสัญลักษณ์คณิตเท่านั้น
-#    ⛔ ไม่ยกเว้นกฎ escape เกินชั้น และ [IMAGE:n] — สองอันนั้นคือความผิดตอนพิมพ์เข้าคลัง
+#    ⛔ ไม่ยกเว้นกฎ escape เกินชั้น (ชั้น (ค) ข้างล่าง — มีตัวตรวจแล้วตั้งแต่ v2.8)
+#    ⚠️ [IMAGE:n] ⛔ ยังไม่มีตัวตรวจในไฟล์นี้ — บรรทัดนี้พูดถึง "เจตนาของกฎ" เท่านั้น
+#       (เดิมประโยคนี้เขียนรวมสองเรื่องจนอ่านได้ว่าทั้งคู่ถูกเฝ้าอยู่ ทั้งที่ตอนนั้นไม่มีสักตัว
+#        = ㉓ ในรูปของคอมเมนต์ · แก้ตามใบ FINDING-กฎเหล็ก10 8 ส.ค. 69)
 MACRO_REALEXAM_ONLY = [r'\mathbb{I}']
+
+# ─────────────────────────────────────────────────────────────
+# ชั้น (ค) · กฎเหล็กข้อ 10 — escape เกินชั้น            🆕 v2.8
+# ─────────────────────────────────────────────────────────────
+# นิยามที่ตรวจจริง (⑤ ขอบเขตที่นับ — ประกาศให้ครบก่อนใช้เลข):
+#   นับ "อักขระ \\ ที่ตามด้วย \" ในสตริง *หลังถอด JSON แล้ว*"
+#   = ในซอร์ส .json เขียนไว้เป็น \\\" ⇒ เด็กเห็นเครื่องหมาย \\ คาอยู่กลางประโยค
+#   ยาแก้: ใช้อัญประกาศไทย “ ” ⛔ ไม่ใช่ \" ที่ escape ซ้อนชั้น
+#
+# 🔴 ทำไมแคบแค่ \" ⛔ ไม่ใช่ "\\ ทุกตัวที่ตามด้วยอักขระไม่ใช่ละติน":
+#    วัดเองทั้งคลัง 8 ส.ค. 69 (63 ไฟล์ · 6,477 ข้อ) — \\ ที่ตามด้วยอักขระไม่ใช่ละติน
+#    มี 45,577 จุด แต่เกือบทั้งหมดเป็น LaTeX ที่ถูกต้อง (\\\\ ขึ้นบรรทัด · \\{ \\} \\, \\; \\% \\!)
+#    มีเพียง \" = 196 จุด ที่เป็นความผิด ⇒ กฎกว้างกว่านี้ = ด่านที่แดงตลอดกาล
+#    แล้วทุกคนจะเรียนรู้ที่จะกดข้าม — แย่กว่าไม่มีด่าน
+#    ⇒ ถ้าวันหนึ่งเจอรูปอื่นของ escape เกินชั้น ให้ "เติมโทเคนในลิสต์นี้"
+#      ⛔ ห้ามขยายเป็น regex กว้าง ๆ โดยไม่วัดตัวหารใหม่ก่อน
+#
+# 🔴 และทำไมเป็นระดับของตัวเอง (ESC) ⛔ ไม่ใช่ BLOCK:
+#    block_questions_legacy นิยามว่า "หนี้เก่าของชั้นสัญลักษณ์" · ถ้าเทของนี้ลงไปปน
+#    เลขนั้นจะตอบคนละคำถามกับชื่อของมันทันที = ㊳ ขาที่ห้าเต็ม ๆ
+#    ⇒ กงล้อของตัวเอง (escape_questions) · มองเห็นทุกรอบ · ลดได้อย่างเดียว
+ESCAPE_BANNED = [r'\"']
 
 # ✅ โทเคนที่ยกเว้นจากชั้น TIERED "แบบเป๊ะทั้งตัว" (มติครู 1 ส.ค. 69)
 #    \operatorname{Im} · \operatorname{Re} = สัญกรณ์มาตรฐานของจำนวนเชิงซ้อน
@@ -426,6 +474,15 @@ def scan_question(q, filename):
                 if n:
                     found.append(('BLOCK', sym, field, n))
 
+        # ── ชั้น (ค) กฎเหล็กข้อ 10 · escape เกินชั้น  🆕 v2.8
+        #    ⛔ ไม่มีข้อยกเว้น realexam — เป็นความผิด "ตอนพิมพ์เข้าคลัง"
+        #       ⛔ ไม่ใช่สัญกรณ์ของต้นฉบับ ⇒ แก้ได้โดยไม่แตะเนื้อโจทย์
+        #    ⛔ ไม่แบ่งชั้นตามฟิลด์ — เด็กเห็น \\ ทั้งในโจทย์และในเฉลย
+        for sym in ESCAPE_BANNED:
+            n = sum(s.count(sym) for s in strings)
+            if n:
+                found.append(('ESC', sym, field, n))
+
         # ── ชั้น (ข) ถ้อยคำที่เลิกใช้แล้ว — ห้ามทุกฟิลด์ ทุกไฟล์ รวมข้อสอบจริง
         #    (มติ 1 · E→MB #02 อนุญาตให้แปลง cosec → \csc ในข้อสอบจริงด้วย
         #     ⇒ ที่นี่จึง ⛔ ไม่มีข้อยกเว้น realexam เหมือน MACRO_REALEXAM_ONLY)
@@ -478,6 +535,7 @@ TOKEN_LISTS = (
     ('MACRO_REALEXAM_ONLY', MACRO_REALEXAM_ONLY),
     ('TIERED', TIERED),
     ('WORD_BANNED', list(WORD_BANNED)),
+    ('ESCAPE_BANNED', ESCAPE_BANNED),          # 🆕 v2.8
 )
 
 
@@ -534,6 +592,10 @@ def enum_points(q, filename, transform=None):
             for _w, _rx in WORD_RE.items():
                 for m in _rx.finditer(s):
                     out.append(('BLOCK', (qid, field, path, m.start(), _w)))
+            # ── ชั้น (ค) — ต้องตรงกับ scan_question ทุกบรรทัด (v2.8)
+            for sym in ESCAPE_BANNED:
+                for off in occurrences(s, sym):
+                    out.append(('ESC', (qid, field, path, off, sym)))
             if tier is None:
                 continue
             # 🔴 กลบไวต์ลิสต์ "ก่อนนับชั้น TIERED เท่านั้น" — ตรงกับ scan_question เป๊ะ
@@ -750,7 +812,8 @@ def collect_changed_ids(sets_dir, since_ref, changed_files, base_ref):
 # ─────────────────────────────────────────────────────────────
 # คำตัดสิน — แยกเป็นฟังก์ชันบริสุทธิ์เพื่อให้ canary ทดสอบได้
 # ─────────────────────────────────────────────────────────────
-def verdict(block_q, standing_q, warn_q, base, diff_mode):
+def verdict(block_q, standing_q, warn_q, base, diff_mode,
+            esc_q=0, esc_standing=0):
     """คืน (แดงไหม, เหตุผล[])
     base = dict จาก warn-baseline.json หรือ None
 
@@ -767,14 +830,27 @@ def verdict(block_q, standing_q, warn_q, base, diff_mode):
         if 'block_questions_legacy' in base and standing_q > base['block_questions_legacy']:
             red = True
             why.append(f"หนี้เก่า BLOCK โตขึ้น {standing_q - base['block_questions_legacy']} ข้อ")
+        # 🆕 v2.8 · กงล้อของชั้น (ค) — แยกจาก block_questions_legacy โดยตั้งใจ
+        if 'escape_questions' in base and esc_standing > base['escape_questions']:
+            red = True
+            why.append("escape เกินชั้น (กฎเหล็กข้อ 10) โตขึ้น "
+                       f"{esc_standing - base['escape_questions']} ข้อ")
     if diff_mode:
         if block_q:
             red = True
             why.append(f"มี BLOCK ใหม่ในของที่เปลี่ยนรอบนี้ {block_q} ข้อ")
-    elif not base and block_q:
-        # ไม่มีเส้นฐานให้เทียบ ⇒ กลับไปพฤติกรรมเดิม: มี BLOCK = แดง
-        red = True
-        why.append(f"มี BLOCK {block_q} ข้อ และไม่มีเส้นฐานให้เทียบ")
+        if esc_q:
+            red = True
+            why.append("มี escape เกินชั้นใหม่ในของที่เปลี่ยนรอบนี้ "
+                       f"{esc_q} ข้อ (กฎเหล็กข้อ 10)")
+    elif not base:
+        # ไม่มีเส้นฐานให้เทียบ ⇒ กลับไปพฤติกรรมเดิม: มีของค้าง = แดง
+        if block_q:
+            red = True
+            why.append(f"มี BLOCK {block_q} ข้อ และไม่มีเส้นฐานให้เทียบ")
+        if esc_q:
+            red = True
+            why.append(f"มี escape เกินชั้น {esc_q} ข้อ และไม่มีเส้นฐานให้เทียบ")
     return red, why
 
 
@@ -881,6 +957,17 @@ CANARIES = [
      {"id": "CANARY-12", "question": r"$\cosec\theta$"}, 'cosec'),
     (r"cosec ใน imageSpec.labels ⇒ ต้องจับ (walker ต้องลง dict)",
      {"id": "CANARY-13", "imageSpec": {"labels": ["cosec 30°"]}}, 'cosec'),
+    # ── ชั้น (ค) กฎเหล็กข้อ 10 · escape เกินชั้น  🆕 v2.8 ──────────────
+    #    ⚠️ เคสพวกนี้คัดจากของจริงในคลัง ⛔ ไม่ได้นั่งแต่ง
+    #       (gen-chap-01-set-q300 · q321 · q322 — ดูใบ FINDING 8 ส.ค. 69)
+    (r'escape เกินชั้นในเฉลย (เคสจริง set-q300) ⇒ ต้องจับ',
+     {"id": "CANARY-14",
+      "explanation": ['ในหนึ่งช่วง $30$ ตัวมีจำนวนที่หารลงตัว \\"พอดีหนึ่งตัว\\" อยู่']},
+     r'\"'),
+    (r'escape เกินชั้นในโจทย์ ⇒ ต้องจับ (เด็กเห็นตอนอ่านโจทย์)',
+     {"id": "CANARY-15", "question": 'ข้อใดเป็น \\"เซตว่าง\\"'}, r'\"'),
+    (r'escape เกินชั้นใน imageSpec.labels ⇒ ต้องจับ (walker ต้องลง dict)',
+     {"id": "CANARY-16", "imageSpec": {"labels": ['\\"A\\"']}}, r'\"'),
 ]
 
 ANTI_CANARIES = [
@@ -906,6 +993,13 @@ ANTI_CANARIES = [
      {"id": "OK-9", "accept": ["cosec 30", "csc 30"]}),
     (r"คำที่มี cosec ซ้อนอยู่ข้างใน ⇒ ต้องไม่จับ",
      {"id": "OK-10", "question": "hypercosecant"}),
+    # ── ของที่ชั้น (ค) ห้ามจับ  v2.8 ────────────────────────────────
+    (r'อัญประกาศไทย “ ” = ท่าที่ถูกต้อง ⇒ ต้องเงียบ (ไม่งั้นยาแก้จะโดนด่านเอง)',
+     {"id": "OK-11", "question": 'ข้อใดเป็น “เซตว่าง”'}),
+    (r'\\ ที่นำหน้าแมโคร LaTeX ปกติ ⇒ ต้องเงียบ (มี 45,381 จุดในคลัง)',
+     {"id": "OK-12", "question": r'$\dfrac{a}{b} \quad \text{และ} \\ \{1,2\}$'}),
+    (r'escape เกินชั้นในฟิลด์ accept ⛔ ห้ามแตะ (เป็นรายการคำตอบที่ยอมรับ)',
+     {"id": "OK-13", "accept": ['\\"พอดีหนึ่งตัว\\"']}),
 ]
 
 # ข้อล่อสำหรับโหมด diff — เนื้อเดียวกันเป๊ะ ต่างกันแค่ "อยู่ใน diff ไหม"
@@ -952,6 +1046,28 @@ SPLIT_CASES = [
     ("WARN ไม่เข้าถังไหนเลย — สองถังนี้เป็นเรื่องของ BLOCK เท่านั้น",
      [('WARN', r'\lfloor', 'explanation', 3)], [], [], []),
 ]
+
+
+def _mut_escape_empty(bait):
+    """🧬 จำลองว่ามีคนลบโทเคนออกจาก ESCAPE_BANNED — ข้อล่อต้องหลุดทันที
+
+    🔴 ทำไมต้องมีด่านนี้: ชั้นที่ "เงียบเพราะคลังสะอาด" กับชั้นที่ "เงียบเพราะสายหลุด"
+       พิมพ์ออกมาหน้าตาเหมือนกันเป๊ะ (กับดัก ⑦ก)
+       ด่านนี้คือหลักฐานว่า 0 ที่ชั้นนี้พิมพ์ออกมา เป็น 0 ชนิดแรก
+    คืน True เมื่อ "ลบแล้วหลุดจริง" = ด่านนี้รับน้ำหนักอยู่
+    """
+    global ESCAPE_BANNED
+    keep = ESCAPE_BANNED
+    try:
+        ESCAPE_BANNED = []
+        leaked = not any(h[0] == 'ESC'
+                         for h in scan_question(bait, 'gen-chap-01-set.json'))
+    finally:
+        ESCAPE_BANNED = keep
+    # และของจริง (ลิสต์ครบ) ต้องยังจับได้ — ไม่งั้น True ข้างบนไม่มีความหมาย
+    caught = any(h[0] == 'ESC'
+                 for h in scan_question(bait, 'gen-chap-01-set.json'))
+    return leaked and caught
 
 
 def _mut_swap(new_hits, old_hits):
@@ -1148,6 +1264,11 @@ def classify(raw_hits, qid, changed_ids):
     for level, sym, field, n in raw_hits:
         if level == 'BLOCK' and changed_ids is not None and qid not in changed_ids:
             out.append(('LEGACY', sym, field, n))
+        elif level == 'ESC' and changed_ids is not None and qid not in changed_ids:
+            # 🆕 v2.8 · ชั้น (ค) มีคู่ LEGACY ของตัวเอง ด้วยเหตุผลเดียวกับ BLOCK:
+            #    หนี้เก่า 196 จุดต้องไม่ทำให้ CI แดงทุก push
+            #    แต่ก็ต้อง ⛔ ไม่หายเงียบ ⇒ โผล่เป็น ESCLEG และถูกพิมพ์ทุกรอบ
+            out.append(('ESCLEG', sym, field, n))
         else:
             out.append((level, sym, field, n))
     return out
@@ -1196,7 +1317,10 @@ def run_canary():
         if not caught:
             ok = False
     for name, q in ANTI_CANARIES:
-        hits = [h for h in scan_question(q, 'gen-chap-99-canary.json') if h[0] == 'BLOCK']
+        # 🆕 v2.8: ต้องกรอง ESC ด้วย ไม่งั้น anti-canary ของชั้น (ค) จะ "ผ่าน"
+        #    เพราะไม่มีใครมอง ⛔ ไม่ใช่เพราะไม่มีอะไรให้จับ
+        hits = [h for h in scan_question(q, 'gen-chap-99-canary.json')
+                if h[0] in ('BLOCK', 'ESC')]
         clean = not hits
         print(f"  {'✅' if clean else '🔴 จับเกิน: ' + str(hits)}  (ต้องไม่จับ) {name}")
         if not clean:
@@ -1223,7 +1347,41 @@ def run_canary():
         ("ไฟล์ใหม่ทั้งไฟล์ ⇒ ทุกข้อนับว่าเปลี่ยน",
          diff_ids(None, _NEW_SET) == {'Q-SAME', 'Q-EDIT', 'Q-NEW'}),
     ]
-    B = {'warn_questions': 444, 'block_questions_legacy': 45}
+    # ── ด่านของชั้น (ค) เอง  🆕 v2.8 ──────────────────────────
+    #    🔴 ข้อ 4 คือ "ทดสอบกลายพันธุ์": ถ้าใครลบโทเคนออกจาก ESCAPE_BANNED
+    #       ด่านนี้ต้องล้ม ⛔ ไม่ใช่เงียบแล้วรายงานว่าคลังสะอาด
+    _ESC_DIRTY = {"id": "ESC-BAIT", "question": 'ข้อใดคือ \\"เซต\\"'}
+    _esc_lv = lambda q, ch, fn='gen-chap-01-set.json': set(
+        h[0] for h in classify(scan_question(q, fn), q.get('id'), ch))
+    diff_checks += [
+        ("── ชั้น (ค) ── escape เกินชั้นในไฟล์ข้อสอบจริง ⇒ ต้องจับ (⛔ ไม่ยกเว้น realexam)",
+         'ESC' in _esc_lv(_ESC_DIRTY, None, 'pat1-2562-02.json')),
+        ("escape เกินชั้นที่อยู่ใน diff ⇒ ต้องเป็น ESC (ของใหม่ = แดง)",
+         'ESC' in _esc_lv(_ESC_DIRTY, {'ESC-BAIT'})),
+        ("escape เกินชั้นที่ไม่อยู่ใน diff ⇒ ต้องลดชั้นเป็น ESCLEG ⛔ ไม่ใช่หายไป",
+         _esc_lv(_ESC_DIRTY, {'ข้ออื่น'}) == {'ESCLEG'}),
+        ("🧬 กลายพันธุ์: ถ้า ESCAPE_BANNED ว่าง ⇒ ข้อล่อต้องหลุด (พิสูจน์ว่าด่านนี้รับน้ำหนักจริง)",
+         _mut_escape_empty(_ESC_DIRTY)),
+        ("ชั้นนับกับชั้นจุดต้องให้ยอด ESC ตรงกันบนข้อล่อ",
+         counts_from_points(enum_points(_ESC_DIRTY, 'gen-chap-01-set.json'))
+         == counts_from_hits(scan_question(_ESC_DIRTY, 'gen-chap-01-set.json'))),
+        ("ESCAPE_BANNED ต้องไม่ทับรายการโทเคนอื่น (ระดับถูกกำหนดโดยโทเคน)",
+         token_lists_disjoint()[0]),
+    ]
+
+    B = {'warn_questions': 444, 'block_questions_legacy': 45, 'escape_questions': 38}
+    diff_checks += [
+        ("── กงล้อชั้น (ค) ── escape เท่าเดิม 38 ⇒ ต้องผ่าน (⛔ ไม่แดงตลอดกาล)",
+         verdict(45, 45, 444, B, False, 38, 38)[0] is False),
+        ("escape โตเป็น 39 ⇒ ต้องแดง",
+         verdict(45, 45, 444, B, False, 39, 39)[0] is True),
+        ("escape ลดเหลือ 30 ⇒ ต้องผ่าน (กงล้อขยับลงได้)",
+         verdict(45, 45, 444, B, False, 30, 30)[0] is False),
+        ("โหมด diff มี escape ใหม่ 1 ข้อ ⇒ ต้องแดง แม้กงล้อจะผ่าน",
+         verdict(0, 45, 444, B, True, 1, 37)[0] is True),
+        ("ทั้งคลัง ไม่มีเส้นฐาน + มี escape ⇒ ต้องแดง",
+         verdict(0, 0, 0, None, False, 38, 38)[0] is True),
+    ]
     diff_checks += [
         ("── คำตัดสิน ── ทั้งคลัง หนี้เก่าเท่าเดิม ⇒ ต้องผ่าน (ไม่ใช่แดงตลอดกาล)",
          verdict(45, 45, 444, B, False)[0] is False),
@@ -1279,11 +1437,23 @@ def run_canary():
     ]
     # ── ด่านการ์ดตอนเขียนเส้นฐาน (พอร์ทัลรอบ 10 ข้อ 4) ──────
     # ⚠️ ความเสี่ยงชั้นนี้คือ "ด่านแดง ⇒ คนรีบ ⇒ เขียนเส้นฐานทับให้เขียว"
-    _OLD = {'warn_questions': 444, 'block_questions_legacy': 45}
-    _same = {'warn_questions': 444, 'block_questions_legacy': 45}
-    _less = {'warn_questions': 440, 'block_questions_legacy': 43}
-    _more = {'warn_questions': 444, 'block_questions_legacy': 47}
-    _wmore = {'warn_questions': 450, 'block_questions_legacy': 45}
+    # 🆕 v2.8 — ฟิกซ์เจอร์ต้องมีครบทุกคีย์ใน REQUIRED_BASELINE_KEYS
+    #    🔴 บทเรียนสด: พอเติมคีย์ที่สาม ด่านสองตัวนี้ล้มทันที ⇒ ㊶ ทำงานตามที่ออกแบบ
+    #       (ถ้าฟิกซ์เจอร์ "ยืดหยุ่น" กว่านี้ การเติมคีย์จะเงียบ — แล้วเราจะไม่รู้ว่าลืมอะไร)
+    _OLD = {'warn_questions': 444, 'block_questions_legacy': 45,
+            'escape_questions': 38}
+    _same = {'warn_questions': 444, 'block_questions_legacy': 45,
+             'escape_questions': 38}
+    _less = {'warn_questions': 440, 'block_questions_legacy': 43,
+             'escape_questions': 30}
+    _more = {'warn_questions': 444, 'block_questions_legacy': 47,
+             'escape_questions': 38}
+    _wmore = {'warn_questions': 450, 'block_questions_legacy': 45,
+              'escape_questions': 38}
+    _emore = {'warn_questions': 444, 'block_questions_legacy': 45,
+              'escape_questions': 39}
+    # เส้นฐานรูปร่างแบบ v2.7 — ไม่มีคีย์ที่สาม (เคสจริงที่เจอตอน sync 8 ส.ค. 69)
+    _V27 = {'warn_questions': 444, 'block_questions_legacy': 45}
     _pv = provenance('abc1234', False, '2026-08-01', '2.4')
     _pvd = provenance('abc1234', True, '2026-08-01', '2.4')
     _pvn = provenance(None, False, '2026-08-01', '2.4')
@@ -1356,6 +1526,34 @@ def run_canary():
          ' '.join(check_write_baseline({'warn_questions': 444}, _more)[1])),
         ("รายการ 'ที่โต' ต้องชี้คีย์ถูกตัว",
          list(check_write_baseline(_OLD, _more)[2]) == ['block_questions_legacy']),
+        # ── คีย์ใหม่ของ v2.8 ต้องถูกการ์ดชุดเดียวกันคุ้มครองจริง ────────
+        ("🆕 escape โต 38 → 39 ⇒ ต้องปฏิเสธเหมือนอีกสองคีย์",
+         check_write_baseline(_OLD, _emore)[0] is False),
+        ("…และต้องเรียกคีย์นี้ด้วยชื่อของมันเอง ⛔ ไม่ใช่ป้ายว่า 'WARN'",
+         'escape' in ' '.join(check_write_baseline(_OLD, _emore)[1])
+         and 'WARN' not in ' '.join(check_write_baseline(_OLD, _emore)[1])),
+        ("🔴 ช่องเลี่ยง: เส้นฐานเดิมไม่มีคีย์ escape_questions (ของ v2.7)"
+         " ⇒ ต้องปฏิเสธ ⛔ ไม่ใช่ 'ไม่มีให้เทียบ = ไม่โต'",
+         check_write_baseline({'warn_questions': 444,
+                               'block_questions_legacy': 45}, _same)[0] is False),
+        ("…และต้องบอกว่าคีย์ escape_questions คือตัวที่เทียบไม่ได้",
+         'escape_questions' in ' '.join(check_write_baseline(
+             {'warn_questions': 444, 'block_questions_legacy': 45}, _same)[1])),
+        ("🆕 ป้ายชื่อคีย์ครบทุกตัวใน REQUIRED_BASELINE_KEYS"
+         " (ป้ายขาด = ㊳ ในข้อความที่คนอ่านตอนด่านแดง)",
+         all(k in BASELINE_KEY_LABEL for k in REQUIRED_BASELINE_KEYS)),
+        # ── 🕳️ รูที่เจอตอน sync เส้นฐาน v2.8 (มีมาตั้งแต่ v2.7) ────────
+        #    "ธงที่รับน้ำหนักจริง ต้องทิ้งร่องรอยเสมอ" — ไม่งั้นเหตุผลหายเงียบ
+        ("🕳️ ทางที่ 'เทียบไม่ได้' ต้องรายงานคีย์ออกมาทางสมาชิกที่สี่",
+         check_write_baseline(_V27, _same, 'เหตุผล')[3] == ['escape_questions']),
+        ("…และเมื่อยอดไม่โตเลย สมาชิกที่สี่ต้องว่าง (⛔ ห้ามฟ้องมั่ว)",
+         check_write_baseline(_OLD, _same)[3] == []),
+        ("🔴 ทางนี้ต้อง 'เขียนผ่านได้ก็ต่อเมื่อมีธง' ⇒ ธงคือสิ่งที่รับน้ำหนัก",
+         check_write_baseline(_V27, _same)[0] is False
+         and check_write_baseline(_V27, _same, 'เหตุผล')[0] is True),
+        ("…⇒ ผู้เรียกต้องมีข้อมูลพอจะบันทึกร่องรอย (grew ว่าง แต่ uncmp ไม่ว่าง)",
+         check_write_baseline(_V27, _same, 'เหตุผล')[2] == {}
+         and bool(check_write_baseline(_V27, _same, 'เหตุผล')[3])),
     ]
     # ── ด่านของไวต์ลิสต์เอง (มติครู 1 ส.ค. 69) ─────────────
     # ⚠️ ความเสี่ยงชั้นนี้คือ "ยกเว้นกว้างกว่าที่สั่ง" แล้วไม่มีใครรู้
@@ -1595,7 +1793,15 @@ def provenance(commit, dirty, today, version, data_commit=None, data_dirty=False
 
 
 def check_write_baseline(old, new, accept_reason=None):
-    """ตัดสินว่า --write-baseline เขียนทับได้ไหม — คืน (เขียนได้ไหม, เหตุผลตาย[], ที่โต{})
+    """ตัดสินว่า --write-baseline เขียนทับได้ไหม
+    คืน (เขียนได้ไหม, เหตุผลตาย[], ที่โต{}, ที่เทียบไม่ได้[])
+
+    🆕 v2.8 คืนสมาชิกที่สี่ "ที่เทียบไม่ได้" เพราะรูที่เจอตอน sync เส้นฐาน v2.8:
+       ทาง `unknown` (คีย์ใหม่/คีย์หาย/ชนิดผิด) ทำให้ **ธงเป็นสิ่งเดียวที่ทำให้เขียนผ่าน**
+       แต่ผู้เรียกเดิมดูแค่ `grew` ⇒ grew ว่าง ⇒ ไม่บันทึก _lastIncrease
+       และพิมพ์ว่า "ไม่ได้ใช้ธง" — ตรงข้ามกับความจริง
+       ⇒ เหตุผลที่คนพิมพ์หายทั้งบรรทัด = ร่องรอยเดียวที่คนอ่านย้อนหลังจะได้เห็น หายไป
+       📌 รูนี้มีมาตั้งแต่ v2.7 (ทาง UNREADABLE) — คีย์ที่สามแค่ทำให้มันเป็นทางเดินปกติ
 
     🔴 เหตุใดต้องเป็นโค้ด ไม่ใช่กติกาในจดหมาย (พอร์ทัลรอบ 10 ข้อ 4):
        คนที่จะละเมิดกฎ "ห้ามเขียนเส้นฐานทับตอนยอดโต" คือคนที่กำลังรีบและด่านกำลังแดง
@@ -1634,20 +1840,20 @@ def check_write_baseline(old, new, accept_reason=None):
     # old is None ⇒ ยังไม่เคยมีไฟล์ = การตั้งต้นครั้งแรก ⇒ ผ่าน (ไม่มีเลขเดิมให้ฟอก)
     if not grew and not unknown:
         # ยอดเท่าเดิม / ยอดลดลง ⇒ เขียนได้ ไม่ต้องใช้ธง (เคส 2 ของพอร์ทัล)
-        return True, [], {}
+        return True, [], {}, []
     if accept_reason is None:
-        lines = [f"ยอด{'หนี้เก่า' if k == 'block_questions_legacy' else 'WARN'}"
-                 f"โตจาก {o} → {n}" for k, (o, n) in grew.items()]
+        lines = [f"ยอด{BASELINE_KEY_LABEL.get(k, k)} โตจาก {o} → {n}"
+                 for k, (o, n) in grew.items()]
         lines += [f"คีย์ {k} ในเส้นฐานเดิมเทียบไม่ได้ (ขาด/ชนิดผิด)"
                   " ⇒ ตัดสินไม่ได้ว่ายอดโตหรือไม่ ⇒ ไม่ถือว่าไม่โต" for k in unknown]
         lines += ["--write-baseline ใช้ตอนยอดโต/เทียบไม่ได้ไม่ได้",
                   "ถ้าตั้งใจจริง ใช้ --accept-debt-increase '<เหตุผล>'"
                   " และเหตุผลจะถูกเขียนลงเส้นฐาน"]
-        return False, lines, grew
+        return False, lines, grew, unknown
     if not accept_reason.strip():
         return False, ["--accept-debt-increase ต้องมีเหตุผลจริง ไม่ใช่สตริงว่าง",
-                       "เหตุผลคือสิ่งเดียวที่คนอ่านย้อนหลังอีก 3 เดือนจะได้เห็น"], grew
-    return True, [], grew
+                       "เหตุผลคือสิ่งเดียวที่คนอ่านย้อนหลังอีก 3 เดือนจะได้เห็น"], grew, unknown
+    return True, [], grew, unknown
 
 
 # ─────────────────────────────────────────────────────────────
@@ -1762,6 +1968,7 @@ def main():
         print(f"  ขอบเขต diff: {scope} ⇒ {len(changed_ids)} ข้อที่เปลี่ยนจริง")
 
     blocks, warns, legacy = [], [], []
+    escs, escleg = [], []               # 🆕 v2.8 ชั้น (ค) — ถังของตัวเอง
     made_recs, woke_recs, undet_q = [], [], set()
     word_recs, word_shell = [], {}      # ชั้น (ข) — เก็บแยกเพื่อ "รายงาน" เท่านั้น
     # ── ชั้นจุด (v2.7) — ตัวเทียบ ⛔ ไม่ใช่ตัวตัดสิน
@@ -1827,7 +2034,8 @@ def main():
             cls = classify(raw, qid, changed_ids)
             for level, sym, field, n in cls:
                 rec = (fn, qid, sym, field, n)
-                {'BLOCK': blocks, 'WARN': warns, 'LEGACY': legacy}[level].append(rec)
+                {'BLOCK': blocks, 'WARN': warns, 'LEGACY': legacy,
+                 'ESC': escs, 'ESCLEG': escleg}[level].append(rec)
             # ── แยกหนี้ BLOCK ของข้อนี้เป็น 🔴ทำเกิด / 🟠ไปปลุก ─────────
             new_block = [h for h in cls if h[0] == 'BLOCK']
             if new_block and prev_hits is not None:
@@ -1909,6 +2117,26 @@ def main():
         if len(word_recs) > 20:
             print(f"    … อีก {len(word_recs)-20} รายการ")
 
+    # ── ชั้น (ค) กฎเหล็กข้อ 10 · escape เกินชั้น — พิมพ์ทุกรอบ "แม้เป็นศูนย์"  v2.8
+    #    🔴 เหตุผลเดียวกับชั้น (ข): ชั้นที่เงียบตอนสะอาด กับชั้นที่เงียบเพราะสายหลุด
+    #       หน้าตาเหมือนกันเป๊ะ ⇒ บรรทัดนี้คือหลักฐานว่า "ชั้นนี้เดินอยู่"
+    _erecs = escs + escleg
+    _epts, _eq = pts(_erecs), nqs(_erecs)
+    print(f"  escape : {_epts} จุด / {_eq} ข้อ   (ชั้น (ค) เดินแล้ว · "
+          f"เฝ้าอยู่ {len(ESCAPE_BANNED)} โทเคน: {' · '.join(ESCAPE_BANNED)}"
+          " · ยาแก้ = อัญประกาศไทย “ ”)")
+    if _erecs:
+        _ef = {}
+        for _r in _erecs:
+            _ef[_r[3]] = _ef.get(_r[3], 0) + _r[4]
+        print("     ต่อฟิลด์: " + ' · '.join(f'{k} {v}' for k, v in
+                                             sorted(_ef.items(), key=lambda x: -x[1])))
+        _eqf = {}
+        for _r in _erecs:
+            _eqf[_r[0]] = _eqf.get(_r[0], 0) + _r[4]
+        for _fn, _n in sorted(_eqf.items(), key=lambda x: -x[1]):
+            print(f"    ⛔ {_fn:38} {_n:4} จุด")
+
     # ── ชั้นจุด (กุญแจ 5 ส่วน) + ยูเนียน — สเปกพอร์ทัล MB→E #07 §1–§2 ──  v2.7
     # ⛔ ตรรกะทั้งก้อนอยู่ใน point_layer_report() ไม่ใช่ตรงนี้ — เพื่อให้ canary
     #    เดินได้ทุกกิ่ง รวมกิ่ง ⚪ ที่ข้อมูลจริงไม่มีวันพาไปถึง (ดู docstring ของมัน)
@@ -1964,6 +2192,9 @@ def main():
     warn_q, legacy_q, block_q = nqs(warns), nqs(legacy), nqs(blocks)
     # ในโหมดทั้งคลัง ไม่มีชั้น LEGACY แยก — หนี้เก่าคือ BLOCK ทั้งก้อน
     standing = legacy_q if changed_ids is not None else block_q
+    # 🆕 v2.8 · ชั้น (ค) นับด้วยตรรกะเดียวกันเป๊ะ แต่คนละกงล้อ
+    esc_q = nqs(escs)
+    esc_standing = nqs(escleg) if changed_ids is not None else esc_q
 
     if args.write_baseline and args.baseline:
         # เก็บคีย์อธิบาย (_comment/_method/…) ของเดิมไว้ — ไม่ล้างคำอธิบายทิ้ง
@@ -1981,17 +2212,28 @@ def main():
             # มีไฟล์อยู่จริง ⇒ ไม่ใช่ None เด็ดขาด (None สงวนไว้ให้ "ยังไม่เคยมีไฟล์")
             old = UNREADABLE if broken or not out else dict(out)
         # 🔴 การ์ด: ห้ามเขียนทับตอนยอดโต เว้นแต่จะประกาศเจตนาพร้อมเหตุผล
-        ok_w, fatal_w, grew = check_write_baseline(
-            old, {'warn_questions': warn_q, 'block_questions_legacy': standing},
+        ok_w, fatal_w, grew, uncmp = check_write_baseline(
+            old, {'warn_questions': warn_q, 'block_questions_legacy': standing,
+                  'escape_questions': esc_standing},
             args.accept_debt_increase)
         if not ok_w:
-            print("\n  🔴 ปฏิเสธการเขียนเส้นฐาน — ยอดค้างโตขึ้น")
+            _cause = ("ยอดค้างโตขึ้น" if grew and not uncmp else
+                      "เทียบกับเส้นฐานเดิมไม่ได้" if uncmp and not grew else
+                      "ยอดค้างโตขึ้น + เทียบกับเส้นฐานเดิมไม่ได้")
+            print(f"\n  🔴 ปฏิเสธการเขียนเส้นฐาน — {_cause}")
             for m in fatal_w:
                 print(f"     {m}")
             sys.exit(2)
         out.update({'warn_questions': warn_q,
                     'warn_occurrences': sum(r[4] for r in warns),
                     'block_questions_legacy': standing,
+                    'escape_questions': esc_standing,
+                    'escape_occurrences': pts(escs + escleg),
+                    '_escape_def': 'ข้อไม่ซ้ำที่มีโทเคนใน ESCAPE_BANNED'
+                                   ' (ปัจจุบัน: แบ็กสแลชตามด้วยอัญประกาศคู่)'
+                                   ' ในฟิลด์ใดก็ได้ ยกเว้น accept · ทุกไฟล์รวมข้อสอบจริง'
+                                   ' = กฎเหล็กข้อ 10 · กงล้อนี้แยกจาก'
+                                   ' block_questions_legacy โดยตั้งใจ',
                     '_occUnitNote': 'ตั้งแต่ v2.4 warn_occurrences = จำนวนจุดจริง'
                                     ' (เดิมถึง v2.3 เป็นจำนวนรายการ (สัญลักษณ์,ฟิลด์)'
                                     ' ⇒ เลขจะกระโดดขึ้นครั้งเดียวโดยที่หนี้ไม่ได้โต)',
@@ -2011,21 +2253,30 @@ def main():
                               SCANNER_VERSION,
                               _dsha.strip() if _dsha else None,
                               bool(_dst and _dst.strip())))
-        if grew:
+        # 🔴 v2.8: เงื่อนไขคือ "ธงรับน้ำหนักจริงไหม" ⛔ ไม่ใช่ "ยอดโตไหม"
+        #    ถ้าดูแค่ grew ทาง uncmp จะเขียนผ่าน *เพราะธง* แต่ไม่ทิ้งร่องรอยอะไรเลย
+        #    แล้วพิมพ์ว่า "ไม่ได้ใช้ธง" — ข้อความที่ตรงข้ามกับสิ่งที่เพิ่งเกิดขึ้น
+        if grew or uncmp:
             out['_lastIncrease'] = {
                 'date': _dt.date.today().isoformat(),
                 'reason': args.accept_debt_increase.strip(),
                 'grew': {k: f"{o} → {n}" for k, (o, n) in grew.items()},
+                'uncomparable': sorted(uncmp),
                 'byScanner': SCANNER_VERSION,
             }
-            print("\n  ⚠️ ยอมให้ยอดโต — บันทึกเหตุผลลงเส้นฐานที่คีย์ _lastIncrease แล้ว")
+            _w = ("ยอดโต" if grew and not uncmp else
+                  "คีย์ที่เทียบกับของเดิมไม่ได้: " + ', '.join(sorted(uncmp))
+                  if uncmp and not grew else "ยอดโต + คีย์ที่เทียบไม่ได้")
+            print(f"\n  ⚠️ ยอมให้เขียนทับทั้งที่ {_w}"
+                  " — บันทึกเหตุผลลงเส้นฐานที่คีย์ _lastIncrease แล้ว")
         elif args.accept_debt_increase is not None:
-            print("\n  หมายเหตุ: ให้ --accept-debt-increase มา แต่ไม่มียอดใดโต ⇒ ไม่ได้ใช้ธง")
+            print("\n  หมายเหตุ: ให้ --accept-debt-increase มา แต่เขียนผ่านได้อยู่แล้ว"
+                  " (ยอดไม่โตและเทียบได้ครบทุกคีย์) ⇒ ธงไม่ได้ถูกใช้")
         with open(args.baseline, 'w', encoding='utf-8') as f:
             json.dump(out, f, ensure_ascii=False, indent=2)
             f.write('\n')
         print(f"\n  เขียนเส้นฐานแล้ว: WARN {warn_q} ข้อ · LEGACY {standing} ข้อ"
-              f" · ประทับ v{SCANNER_VERSION}")
+              f" · escape {esc_standing} ข้อ · ประทับ v{SCANNER_VERSION}")
         sys.exit(0)
 
     diff_mode = changed_ids is not None
@@ -2051,7 +2302,8 @@ def main():
                 print(f"     {m}")
             sys.exit(2)
         for label, cur, key in (('WARN  ', warn_q, 'warn_questions'),
-                                ('หนี้เก่า', standing, 'block_questions_legacy')):
+                                ('หนี้เก่า', standing, 'block_questions_legacy'),
+                                ('escape', esc_standing, 'escape_questions')):
             b = base[key]
             print(f"\n  RATCHET {label}: เส้นฐาน {b} → ปัจจุบัน {cur}", end=' ')
             print("🔴 โตขึ้น %d ข้อ" % (cur - b) if cur > b else
@@ -2059,8 +2311,11 @@ def main():
 
     # 📌 พิมพ์ยอดหนี้เก่าทุกรอบ ไม่ให้ลืม (ข้อเรียกร้องของพอร์ทัล)
     print(f"\n  📌 ยอด BLOCK เก่าที่ยังค้างทั้งคลัง: {standing} ข้อ — ยังไม่ได้แก้ ไม่ใช่ไม่มี")
+    print(f"  📌 ยอด escape เกินชั้นที่ยังค้างทั้งคลัง: {esc_standing} ข้อ"
+          f" / {pts(escs + escleg)} จุด — ยังไม่ได้แก้ ไม่ใช่ไม่มี (กฎเหล็กข้อ 10)")
 
-    red, why = verdict(block_q, standing, warn_q, base, diff_mode)
+    red, why = verdict(block_q, standing, warn_q, base, diff_mode,
+                       esc_q, esc_standing)
     for w in why:
         print(f"  🔴 {w}")
     print(f"\n  ⇒ {'🔴 ไม่ผ่าน' if red else '✅ ผ่าน'}")
