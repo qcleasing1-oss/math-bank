@@ -81,6 +81,16 @@ scan_symbols.py — ตัวตรวจสัญลักษณ์ต้อง
      ⇒ ⇒ ⇒ ดังนั้น "จับเพิ่ม > 0 ⇒ exit 2" ⛔ ไม่ได้แปลว่า "ยูเนียนช่วยจับได้"
            แต่แปลว่า **สมมติฐาน ① หรือ ② พังแล้ว** ⇒ เลข 0 ของชั้นนี้อ่านว่า
            "ค่าคงที่ยังอยู่" ⛔ ห้ามอ่านว่า "ตรวจแล้วสะอาด" (⑯ ฉบับชั้นซ้อน)
+เวอร์ชัน 2.10 (9 ส.ค. 2569) — จาก E→MB #49 §3 · #51 §3 (E จับได้ ผมยืนยันแล้ว):
+ 21. 🔴 v2.9 ทำให้ **ใบเสร็จที่เครื่องอ่าน** (`_lastIncrease`) ไม่มีเงื่อนไขของตัวเอง ✅
+     แต่ **ใบเสร็จที่คนอ่าน** (ข้อความตอนปฏิเสธ + ตอนยอมให้เขียน) ยังแตกเคสเอง 2 ที่
+     ⇒ ⇒ และรูของ v2.7 **เริ่มจากข้อความ** ⛔ ไม่ได้เริ่มจากคีย์ใน JSON
+        ⇒ ใบที่ยาแก้ยังไม่ครอบ คือใบที่ก่อเรื่องตั้งแต่แรก
+ 22. cause_text(grew, uncmp) = เพรดิเคตเดียวในไฟล์ · ทั้งสามที่เรียกตัวเดียวกัน
+     · `_lastIncrease` พก `cause` ตัวเดียวกับที่พิมพ์ ⇒ ที่มาชุดเดียวโดยโครงสร้าง
+ 23. ด่าน ⑪ ขยายตัวหารจาก "ซอร์สของ main" เป็น **"ซอร์สทั้งไฟล์"**
+     ⇒ เคสเดิมตอบ "main สะอาดไหม" แต่คนอ่านคิดว่าตอบ "ไฟล์สะอาดไหม" = ㊳ ในตัวด่านเอง
+
  20. ยาแก้ของ v2.8 ยังปล่อยให้ main() มี "เงื่อนไขของตัวเอง" (`if grew or uncmp`)
      ⇒ ตามกฎที่ E ตั้ง (*ตัวตัดสินคืนเหตุผลเป็นค่า · ตัวจดจดค่านั้น ⛔ ห้ามคิดเงื่อนไขใหม่*)
      ⇒ ย้ายไป override_record() ฟังก์ชันเดียว + ด่านที่อ่านซอร์สของ main ว่าไม่มีเงื่อนไขซ้อน
@@ -110,7 +120,7 @@ import inspect as _inspect
 import datetime as _dt
 import textwrap as _tw
 
-SCANNER_VERSION = '2.9'
+SCANNER_VERSION = '2.10'
 SCANNER_DATE = '2026-08-08'
 
 # คีย์ที่สคริปต์รุ่นนี้ "ใช้ตัดสินจริง" — ขาดข้อใดข้อหนึ่ง = ตัวตรวจใช้ไม่ได้ (exit 2)
@@ -1329,6 +1339,10 @@ def run_canary():
     # ⑪ ด่านโครงสร้าง: อ่านซอร์สของ main มาตรวจว่าตัวจดไม่มีเงื่อนไขของตัวเอง
     #    (ยืมรูปทรงจาก _SCAN_QUESTION_SRC ที่ใช้เฝ้ากติกา "ห้ามเรียก strip_shells")
     _MAIN_SRC = _inspect.getsource(main)
+    # v2.10 · ตัวหารของด่าน ⑪ ขยายเป็น "ทั้งไฟล์" ⛔ ไม่ใช่แค่ main
+    _FILE_SRC = open(os.path.abspath(__file__), encoding='utf-8').read()
+    _NEEDLE_A = 'grew and not ' + 'uncmp'      # ⛔ ประกอบจากชิ้น — ดูเหตุผลที่ด่านข้างล่าง
+    _NEEDLE_B = 'uncmp and not ' + 'grew'
     ok = True
     print("─" * 62)
     print(f"CANARY SELF-TEST v{SCANNER_VERSION} — ข้อพิสูจน์ว่ามีของให้จับแล้วจับได้")
@@ -1580,6 +1594,30 @@ def run_canary():
          'override_record(' in _MAIN_SRC
          and 'if grew or uncmp' not in _MAIN_SRC
          and "out['_lastIncrease'] = {" not in _MAIN_SRC),
+        # ── v2.10 · ขยายจาก "เฉพาะ main" เป็น "ทั้งไฟล์" (E→MB #49 §6)
+        #    🔴 เคสข้างบนเล็งเฉพาะ _lastIncrease ⇒ _cause/_w หลุดไปอยู่นอกตัวหาร 2 รุ่น
+        #       ⇒ ㊳ ในตัวด่านเอง: ด่านตอบ "main สะอาดไหม" แต่คนอ่านคิดว่าตอบ "ไฟล์สะอาดไหม"
+        # 🔴 เข็มต้องประกอบจากชิ้นส่วน ⛔ ห้ามเขียนเป็นสตริงเต็ม
+        #    ไม่งั้น "ตัวด่านเอง" จะกลายเป็นของที่มันต้องจับ ⇒ แดงตลอดกาลโดยไม่มีของผิดจริง
+        #    (เจอตอนรันครั้งแรก 9 ส.ค. 69 — ด่านจับตัวเองได้ 3 ครั้ง)
+        ("🆕 ⑪ ทั้งไฟล์ ⛔ ห้ามแตกเคส grew/uncmp นอก cause_text (ทิศ ก)",
+         _NEEDLE_A not in _FILE_SRC),
+        ("🆕 ⑪ ทั้งไฟล์ ⛔ ห้ามแตกเคส grew/uncmp นอก cause_text (ทิศ ข)",
+         _NEEDLE_B not in _FILE_SRC),
+        # 🔴 ด่านนี้พิสูจน์ว่า "เข็มไม่ใช่คำสะกดผิดที่ไม่มีวันจับอะไรได้"
+        #    ⛔ ห้ามพิสูจน์ด้วยการเอาเข็มไปค้นในสตริงตัวอย่าง — สตริงตัวอย่างจะกลายเป็น
+        #    ของที่ด่านบนต้องจับเสียเอง (ด่านจับตัวเองรอบที่สอง 9 ส.ค. 69)
+        #    ⇒ ตรวจ "รูปของเข็ม" แทน: ต้องเป็นสี่โทเคนนี้เป๊ะ
+        ("🧬 เข็มต้องเป็นสี่โทเคนที่ถูกต้อง (ไม่งั้นสองด่านบนเขียวฟรี)",
+         _NEEDLE_A.split() == ['grew', 'and', 'not', 'uncmp']
+         and _NEEDLE_B.split() == ['uncmp', 'and', 'not', 'grew']),
+        ("🆕 cause_text: ธงไม่รับน้ำหนัก ⇒ ต้องคืนสตริงว่าง",
+         cause_text({}, []) == ''),
+        ("🆕 cause_text: ทางที่เทียบไม่ได้ ⇒ ต้องบอกชื่อคีย์ออกมา",
+         'escape_questions' in cause_text({}, ['escape_questions'])),
+        ("🆕 ใบเสร็จต้องพก cause ตัวเดียวกับที่พิมพ์ให้คนอ่าน (ที่มาชุดเดียว)",
+         (override_record({}, ['k'], 'r', '2026-01-01', '0') or {}).get('cause')
+         == cause_text({}, ['k'])),
         # ── ⑮ ทฤษฎีบทของชั้นยูเนียน — ขาที่ขาดไปใน v2.8 (v2.9) ───────────
         ("⑮ ขา② ของทฤษฎีบทต้องครอบ ESCAPE_BANNED ด้วย (ขาดไป 1 รุ่น)",
          all(t in NO_SPACE_LISTS for t in ESCAPE_BANNED)),
@@ -1837,6 +1875,29 @@ def provenance(commit, dirty, today, version, data_commit=None, data_dirty=False
     return out
 
 
+def cause_text(grew, uncmp):
+    """เหตุที่ธง --accept-debt-increase ต้องรับน้ำหนัก — คืน '' เมื่อไม่ต้องรับ
+
+    🔑 **นี่คือที่เดียวในไฟล์ที่แตกเคสจาก grew/uncmp** — และมีด่านอ่านซอร์สทั้งไฟล์เฝ้าอยู่
+       (ด่าน ⑪ กวาดทั้งไฟล์ว่าไม่มีการแตกเคสสองทิศนี้เหลืออยู่ที่อื่นเลย)
+
+    🔴 ทำไมต้องมี ทั้งที่ v2.9 มี override_record() แล้ว (E→MB #49 §3 จับได้):
+       override_record คุมเฉพาะ **ใบเสร็จที่เครื่องอ่าน** (`_lastIncrease` ใน JSON)
+       แต่ข้อความสองบรรทัดที่ **คนอ่านตอนด่านแดง** ยังแตกเคสเอง 2 ที่
+       ⇒ วันที่มีคนเติมทางที่สามให้ check_write_baseline
+         · JSON ปลอดภัย  · แต่ข้อความจะตกลง else สุดท้ายแล้วพิมพ์เหตุผิดอย่างมั่นใจ
+       ⇒ ⇒ 🔑 และรูของ v2.7 **เริ่มจากข้อความที่พิมพ์ออกมาขัดกับความจริง**
+             ⛔ ไม่ได้เริ่มจากคีย์ใน JSON ⇒ **ใบเสร็จที่คนอ่าน คือใบที่ก่อเรื่องตั้งแต่แรก**
+    """
+    if grew and uncmp:
+        return 'ยอดค้างโตขึ้น + คีย์ที่เทียบกับของเดิมไม่ได้: ' + ', '.join(sorted(uncmp))
+    if grew:
+        return 'ยอดค้างโตขึ้น'
+    if uncmp:
+        return 'คีย์ที่เทียบกับของเดิมไม่ได้: ' + ', '.join(sorted(uncmp))
+    return ''
+
+
 def override_record(grew, uncmp, accept_reason, today, version):
     """สร้าง "ใบเสร็จของธง" — คืน None เมื่อธง ⛔ ไม่ได้รับน้ำหนัก
 
@@ -1849,11 +1910,13 @@ def override_record(grew, uncmp, accept_reason, today, version):
     เกณฑ์เดียว: *ถ้าไม่มีธงแล้วเขียนไม่ผ่าน ⇒ ธงรับน้ำหนัก ⇒ ต้องมีใบเสร็จ*
     ซึ่งเทียบเท่ากับ "มีอะไรสักอย่างใน grew หรือ uncmp" — และมีด่านเฝ้าความเทียบเท่านี้
     """
-    if not grew and not uncmp:
+    cause = cause_text(grew, uncmp)
+    if not cause:
         return None
     return {
         'date': today,
         'reason': (accept_reason or '').strip(),
+        'cause': cause,               # 🆕 v2.10 · เหตุเดียวกับที่พิมพ์ให้คนอ่าน
         'grew': {k: f"{o} → {n}" for k, (o, n) in grew.items()},
         'uncomparable': sorted(uncmp),
         'byScanner': version,
@@ -2285,10 +2348,7 @@ def main():
                   'escape_questions': esc_standing},
             args.accept_debt_increase)
         if not ok_w:
-            _cause = ("ยอดค้างโตขึ้น" if grew and not uncmp else
-                      "เทียบกับเส้นฐานเดิมไม่ได้" if uncmp and not grew else
-                      "ยอดค้างโตขึ้น + เทียบกับเส้นฐานเดิมไม่ได้")
-            print(f"\n  🔴 ปฏิเสธการเขียนเส้นฐาน — {_cause}")
+            print(f"\n  🔴 ปฏิเสธการเขียนเส้นฐาน — {cause_text(grew, uncmp)}")
             for m in fatal_w:
                 print(f"     {m}")
             sys.exit(2)
@@ -2326,10 +2386,7 @@ def main():
                                _dt.date.today().isoformat(), SCANNER_VERSION)
         if _rec is not None:
             out['_lastIncrease'] = _rec
-            _w = ("ยอดโต" if grew and not uncmp else
-                  "คีย์ที่เทียบกับของเดิมไม่ได้: " + ', '.join(sorted(uncmp))
-                  if uncmp and not grew else "ยอดโต + คีย์ที่เทียบไม่ได้")
-            print(f"\n  ⚠️ ยอมให้เขียนทับทั้งที่ {_w}"
+            print(f"\n  ⚠️ ยอมให้เขียนทับทั้งที่ {_rec['cause']}"
                   " — บันทึกเหตุผลลงเส้นฐานที่คีย์ _lastIncrease แล้ว")
         elif args.accept_debt_increase is not None:
             print("\n  หมายเหตุ: ให้ --accept-debt-increase มา แต่เขียนผ่านได้อยู่แล้ว"
