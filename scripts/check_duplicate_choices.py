@@ -1,0 +1,369 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+ด่าน 15 — ตัวเลือกในข้อเดียวกันต้องไม่ซ้ำกัน
+============================================
+
+**ปัญหาที่ด่านนี้เกิดมาแก้ (9 ส.ค. 69)**
+
+`chap-13-calculus-q135` มี `notes` เตือนไว้ว่า *"ตัวเลือก 2 กับ 4 ในสแกนอ่านเหมือนกัน"*
+MB ไล่ตามบรรทัดนั้นแล้วกวาดทั้งคลัง — เจอข้อที่สอง **`chap-13-calculus-q194`** ซึ่ง
+⛔ ไม่มีธง `flawedSource` · ⛔ ไม่มี `notes` ที่พูดถึงการซ้ำ · ⛔ ไม่อยู่ในตระกูลป้ายใด
+
+🔴 **จุดที่น่ากลัวคือ ⛔ ไม่มีด่านไหนใน 20 ด่านที่ถามคำถามนี้**
+   `q194` ถูกเจอเพราะ *มีคนไล่ตามข้ออื่นบังเอิญผ่านมา* ⛔ ไม่ใช่เพราะระบบเฝ้าเห็น
+   ⇒ ⇒ ด่านนี้เปลี่ยน **"เจอเพราะบังเอิญ"** ให้เป็น **"เจอโดยโครงสร้าง"** (E→MB #59 ③)
+
+**กฎที่บังคับ**
+
+  ①  ข้อใดมีค่าใน `choices` ซ้ำกัน **ทุกไบต์** ⇒ 🔴 แดง
+      เว้นแต่ `id` นั้นถูกปักหมุดไว้ใน `KNOWN_DUPES` พร้อมคู่ดัชนีและข้อความที่ตรงกันเป๊ะ
+  ②  🔑 **หมุดที่ไม่มีของรองรับแล้ว ⇒ แดง** — ข้อหาย · ตัวเลือกไม่ซ้ำแล้ว · คู่ดัชนีเปลี่ยน
+      ⇒ รายการนี้ **ย่อได้อย่างเดียว** (ทรงเดียวกับ `ALLOW_BARE` ของด่าน 14)
+  ③  เหตุผลของหมุดต้องยาว ≥ MIN_REASON ตัวอักษร (เหตุผลเปล่า = การเลี่ยงกฎ)
+  ④  ตัวหารต้องไม่เป็นศูนย์ — สแกนแล้วไม่เจอข้อชนิดมีตัวเลือกเลย ⇒ แดง
+      (⛔ "เขียวเพราะไม่ได้ตรวจอะไร" ต้องไม่มีหน้าตาเหมือน "เขียวเพราะสะอาด")
+
+**⛔ ทำไมเทียบ "ทุกไบต์" ⛔ ไม่ใช่เทียบแบบผ่อนปรน**
+
+  วัดแล้ว 9 ส.ค. 69 บน `data/sets` (4,370 ข้อชนิดมีตัวเลือก) — สามกฎให้ผลเท่ากันหมด:
+      เป๊ะทุกไบต์ ........................................ 2 ข้อ
+      ตัดช่องว่างทั้งหมด .................................. 2 ข้อ
+      ตัดช่องว่าง + dfrac→frac + left/right + $ ........... 2 ข้อ
+  ⇒ กฎกว้างวันนี้ **ไม่ได้จับเพิ่มเลย** แต่แลกมาด้วยความเสี่ยงเท็จบวกในอนาคต
+  ⇒ ⇒ เลือกกฎแคบเป็น **คำตัดสิน** · กฎกว้างเป็น **ตัวเฝ้าความสอดคล้อง** (พิมพ์ ⚠️ ⛔ ไม่แดง)
+     ถ้าวันหนึ่งกฎกว้างจับได้มากกว่ากฎแคบ = มีคู่ที่ *เด็กเห็นเหมือนกันแต่ไบต์ต่างกัน*
+     ⇒ นั่นคือของจริงที่ต้องยกให้ E ตัดสินว่าจะยกระดับเป็นคำตัดสินไหม ⛔ ยังไม่ตัดสินตอนนี้
+
+**🔑 ด่านนี้พิมพ์รายการหมุด "ในรอบที่เขียวด้วย" ⛔ ไม่ใช่เฉพาะรอบที่แดง**
+
+  เงื่อนไขของ E→MB #61 §2 — และเหตุผลของมัน:
+     ถ้ารายชื่อโผล่เฉพาะตอนแดง ⇒ มันคือ *หนี้ที่มองเห็นได้* ⛔ ไม่ใช่ *หนี้ที่มีรายชื่อ*
+     ⇒ ⇒ คำว่า "เขียว" ของด่านนี้จึงแปลว่า
+        **"⛔ ไม่มีของซ้ำ นอกเหนือจากรายการที่พิมพ์อยู่ตรงนี้"** — ซึ่งเป็นความจริง
+        ⛔ ไม่ใช่ ㊽ (㊽ คือการย่อที่ *ซ่อน* · อันนี้ย่อแล้ว *แสดง*)
+
+**⛔ รายการ `KNOWN_DUPES` ถูกด่าน 10 เฝ้าอยู่**
+  ลงทะเบียนไว้ใน `WATCHED` ของ `scripts/check_config_growth.py` แล้วจริง
+  ⇒ เติมชื่อที่สามเข้ามาเงียบ ๆ ⛔ ไม่ได้ — ต้องประกาศในข้อความคอมมิตว่า
+     `KNOWN_DUPES+: <เหตุผล>`
+
+**วิธีรัน**
+
+    python3 scripts/check_duplicate_choices.py             # ตรวจของจริง (data/sets)
+    python3 scripts/check_duplicate_choices.py --selftest  # ตรวจตัวด่านเอง (ดี/เสีย/มิวแทนต์)
+
+รหัสออก: 0 = ผ่าน · 1 = เนื้อหาแดง · 2 = ตัวเครื่องมือแดง
+"""
+from __future__ import annotations
+
+import argparse
+import collections
+import json
+import re
+import sys
+from pathlib import Path
+
+CHECKER_VERSION = '1.0'
+CHECKER_DATE = '2026-08-09'
+
+ROOT = Path(__file__).resolve().parent.parent
+DEFAULT_SCAN = ROOT / 'data' / 'sets'
+
+# เหตุผลสั้นกว่านี้ = คนเขียนยังไม่ได้คิด (ทรงเดียวกับ MIN_REASON ของด่าน 14)
+MIN_REASON = 40
+
+# ── 🔑 หมุดของเก่า — ปักเป็น "รายชื่อ + คู่ดัชนี + ข้อความ" ⛔ ไม่ใช่ตัวเลข ────────
+#
+# ⛔ ห้ามเติมชื่อใหม่ลงรายการนี้เพื่อให้ด่านเขียว — รายการนี้ **ย่อได้อย่างเดียว**
+# ⛔ ทั้งสองข้อเป็น **ข้อสอบจริง** ⇒ ทางออกคือธง `flawedSource` ⛔ ไม่ใช่แก้ตัวเลือก
+#    (คำสั่งผูกพัน: ห้ามแตะโจทย์/ตัวเลือกของข้อสอบจริง) ⇒ **ครูเป็นคนเคาะ**
+KNOWN_DUPES: dict[str, dict] = {
+    'chap-13-calculus-q135': {
+        'pair': (1, 3),
+        'text': '$6$ เมตร/วินาที, $\\dfrac{44}{3}$ เมตร',
+        'why': ('ข้อสอบเข้ามหาวิทยาลัย 2529 — notes ของข้อนี้เตือนไว้เองว่า '
+                'สแกนต้นฉบับอ่านตัวเลือก 2 กับ 4 ได้เหมือนกัน · คีย์ยืนยันแล้วว่าเป็น [0] '
+                '(a=0 ที่ t=2 ⇒ v=6, s=16 — sympy สองเลนแยกกัน) ⇒ คู่ที่ซ้ำเป็นตัวลวงทั้งคู่ '
+                '⇒ ⛔ ไม่มีเด็กถูกตัดสินผิด แต่เด็กที่เห็นจะสับสน'),
+        'until': ('ครูเคาะว่าจะติดธง flawedSource หรือคืนตัวเลือกจากต้นฉบับ — '
+                  'ทริกเกอร์ยกให้ครู (E→MB #59 ①): attempt แรกที่ question_id ขึ้นต้น "chap-" '
+                  'หรือครูประกาศวันเปิดใช้กับเด็ก อย่างใดถึงก่อน'),
+    },
+    'chap-13-calculus-q194': {
+        'pair': (1, 3),
+        'text': '$x^{2}\\cos 2x+2x\\sin 2x$',
+        'why': ('ข้อสอบเสริมประสบการณ์ (พื้นฐานวิศวกรรม) 2535 — ⛔ ไม่มีใครเคยธงข้อนี้เลย '
+                'MB เจอตอนไล่ตาม q135 · คีย์ยืนยันแล้วว่าเป็น [0] = 2x²cos2x+2x·sin2x '
+                '(sympy สองเลนแยกกัน) ⇒ คู่ที่ซ้ำคือตัวลวง "ลืมคูณ 2 จากลูกโซ่" ที่ถูกพิมพ์สองครั้ง'),
+        'until': ('เหมือน q135 — ครูเคาะพร้อมกัน · ทริกเกอร์เดียวกัน (E→MB #59 ①)'),
+    },
+}
+
+
+# ─────────────────────────────────────────────────────────────
+# ชั้นกวาด
+# ─────────────────────────────────────────────────────────────
+def dup_pairs(choices):
+    """คืนลิสต์ (i, j, ข้อความ) ของคู่ที่ซ้ำกันทุกไบต์ — เรียงแล้ว ⛔ ไม่ซ้ำคู่"""
+    seen, out = {}, []
+    for i, c in enumerate(choices):
+        if c in seen:
+            out.append((seen[c], i, c))
+        else:
+            seen[c] = i
+    return out
+
+
+def _norm_loose(s):
+    """กฎกว้าง — ⛔ ไม่ใช่ตัวตัดสิน ใช้เป็นตัวเฝ้าความสอดคล้องเท่านั้น"""
+    s = re.sub(r'\s+', '', s)
+    s = s.replace('\\dfrac', '\\frac').replace('\\tfrac', '\\frac')
+    s = s.replace('\\left', '').replace('\\right', '').replace('$', '')
+    return s
+
+
+def scan(paths):
+    """คืน (จำนวนข้อที่มีตัวเลือก, {qid: [(i,j,text)]}, {qid: True} ของกฎกว้าง)"""
+    divisor, exact, loose = 0, {}, {}
+    for p in sorted(paths):
+        try:
+            d = json.loads(Path(p).read_text(encoding='utf-8'))
+        except Exception as e:
+            raise SystemExit(f'  🔴 อ่าน {p} ไม่ได้: {e}')
+        for q in d.get('questions') or []:
+            ch = q.get('choices')
+            if not isinstance(ch, list) or len(ch) < 2:
+                continue
+            divisor += 1
+            qid = q.get('id') or '(ไม่มี id)'
+            dp = dup_pairs(ch)
+            if dp:
+                exact[qid] = dp
+            c = collections.Counter(_norm_loose(x) for x in ch)
+            if max(c.values()) > 1:
+                loose[qid] = True
+    return divisor, exact, loose
+
+
+# ─────────────────────────────────────────────────────────────
+# คำตัดสิน — ⛔ ไม่พิมพ์เอง ⛔ ไม่ exit เอง (แยกจาก report เพื่อให้ selftest เรียกได้)
+# ─────────────────────────────────────────────────────────────
+def verdict(divisor, exact, pins):
+    """คืน (ลิสต์ข้อความแดง, ลิสต์บรรทัดรายการหมุดที่ต้องพิมพ์ทุกรอบ)"""
+    bad = []
+
+    # ④ ตัวหารเป็นศูนย์ = ⛔ ไม่ได้ตรวจอะไร ⇒ ห้ามเขียว
+    if divisor == 0:
+        bad.append('ตัวหารเป็นศูนย์ — ⛔ ไม่พบข้อชนิดมีตัวเลือกเลย '
+                   '⇒ "เขียวเพราะไม่ได้ตรวจ" ต้องไม่หน้าตาเหมือน "เขียวเพราะสะอาด"')
+
+    # ③ เหตุผลของหมุดต้องยาวพอ + มีคีย์ครบ
+    for qid, pin in sorted(pins.items()):
+        for k in ('pair', 'text', 'why', 'until'):
+            if k not in pin:
+                bad.append(f'หมุด {qid} ขาดคีย์ "{k}"')
+        if len((pin.get('why') or '').strip()) < MIN_REASON:
+            bad.append(f'หมุด {qid} เหตุผลสั้นกว่า {MIN_REASON} ตัวอักษร '
+                       f'(เหตุผลเปล่า = การเลี่ยงกฎ)')
+        if not (pin.get('until') or '').strip():
+            bad.append(f'หมุด {qid} ⛔ ไม่มีเงื่อนไขหมดอายุ ("until") '
+                       f'⇒ หมุดที่ไม่มีวันหมดอายุ = ข้อยกเว้นถาวรที่ไม่มีใครทบทวน')
+
+    # ① ของซ้ำที่ ⛔ ไม่ได้ปักหมุด ⇒ แดง
+    for qid, dps in sorted(exact.items()):
+        pin = pins.get(qid)
+        if pin is None:
+            for i, j, t in dps:
+                bad.append(f'🆕 {qid} ตัวเลือก [{i}] กับ [{j}] ซ้ำกันทุกไบต์ '
+                           f'⇒ ⛔ ไม่ได้ปักหมุดไว้ : {t[:70]}')
+            continue
+        # ③ หมุดต้องตรงกับของจริงเป๊ะ (ทรงเดียวกับตาราง SHAPE ของด่าน 20)
+        real = {(i, j) for i, j, _ in dps}
+        if tuple(pin['pair']) not in real:
+            bad.append(f'หมุด {qid} ระบุคู่ {tuple(pin["pair"])} '
+                       f'แต่ของจริงซ้ำที่ {sorted(real)} ⇒ หมุดกับของจริงไม่ตรงกัน')
+        else:
+            t = next(t for i, j, t in dps if (i, j) == tuple(pin['pair']))
+            if t != pin['text']:
+                bad.append(f'หมุด {qid} ข้อความในหมุดไม่ตรงกับของจริง '
+                           f'⇒ ตัวเลือกถูกแก้แล้วแต่หมุดยังเป็นของเดิม')
+        # ถ้าซ้ำหลายคู่ แต่หมุดครอบแค่คู่เดียว ⇒ คู่ที่เหลือต้องแดง
+        for i, j, t in dps:
+            if (i, j) != tuple(pin['pair']):
+                bad.append(f'🆕 {qid} ตัวเลือก [{i}] กับ [{j}] ซ้ำกันเพิ่มอีกคู่ '
+                           f'⇒ หมุดครอบแค่คู่ {tuple(pin["pair"])} : {t[:60]}')
+
+    # ② หมุดที่ไม่มีของรองรับแล้ว ⇒ แดง (รายการย่อได้อย่างเดียว)
+    for qid in sorted(pins):
+        if qid not in exact:
+            bad.append(f'หมุด {qid} ⛔ ไม่มีของรองรับแล้ว — ข้อนี้ไม่มีตัวเลือกซ้ำ '
+                       f'(หรือข้อหายไป) ⇒ **ต้องถอนหมุดออกจาก KNOWN_DUPES**')
+
+    lines = []
+    for qid, pin in sorted(pins.items()):
+        i, j = pin.get('pair', ('?', '?'))
+        lines.append(f'    {qid}  [{i}]=[{j}]  {(pin.get("text") or "")[:56]}')
+        lines.append(f'        เหตุ    : {pin.get("why", "")}')
+        lines.append(f'        หมดอายุ : {pin.get("until", "")}')
+    return bad, lines
+
+
+def report(paths, quiet=False, pins=None):
+    pins = KNOWN_DUPES if pins is None else pins
+    divisor, exact, loose = scan(paths)
+    bad, pinlines = verdict(divisor, exact, pins)
+
+    if not quiet:
+        print()
+        print('▼▼▼ ด่าน 15 · ตัวเลือกในข้อเดียวกันต้องไม่ซ้ำกัน '
+              f'(v{CHECKER_VERSION}) ▼▼▼')
+        # ㊳ ห้าขา — ที่มา · เวลา(รันสด) · หน่วย · ขอบเขต
+        print(f'  ขอบเขตที่นับ : {len(list(paths))} ไฟล์ · '
+              f'ข้อชนิดมีตัวเลือก (choices ≥ 2) **{divisor} ข้อ**')
+        print(f'  พบตัวเลือกซ้ำทุกไบต์ : {len(exact)} ข้อ · '
+              f'ปักหมุดไว้ {len(pins)} ข้อ')
+
+        # 🔑 เงื่อนไข E→MB #61 §2 — พิมพ์รายการหมุด **ทุกรอบ รวมรอบที่เขียว**
+        print()
+        print('  ── 🪧 รายการหมุดที่ประกาศไว้ (พิมพ์ทุกรอบ รวมรอบที่เขียว) ──')
+        if pinlines:
+            for ln in pinlines:
+                print(ln)
+        else:
+            print('    (ว่าง — ⛔ ไม่มีข้อยกเว้นใด ๆ)')
+
+        # ตัวเฝ้าความสอดคล้อง — กฎกว้าง ⛔ ไม่ใช่คำตัดสิน
+        extra = sorted(set(loose) - set(exact))
+        print()
+        if extra:
+            print(f'  ⚠️ ตัวเฝ้าความสอดคล้อง: กฎกว้าง (ตัดช่องว่าง/dfrac/left-right/$) '
+                  f'จับได้เพิ่ม {len(extra)} ข้อ')
+            for qid in extra:
+                print(f'       {qid}')
+            print('     ⇒ คู่ที่ **เด็กเห็นเหมือนกันแต่ไบต์ต่างกัน** '
+                  '⇒ ⛔ ยังไม่ตัดสิน — ยกให้ E เคาะว่าจะยกระดับเป็นคำตัดสินไหม')
+        else:
+            print('  ✅ ตัวเฝ้าความสอดคล้อง: กฎกว้างจับได้เท่ากับกฎแคบพอดี '
+                  '(⛔ ไม่มีคู่ที่ต่างกันแค่รูปแบบ)')
+
+        print()
+        if bad:
+            for m in bad:
+                print('  ❌ ' + m)
+            print(f'  🔴 ด่าน 15 แดง — {len(bad)} เรื่อง')
+        else:
+            print('  ✅ ⛔ ไม่มีตัวเลือกซ้ำ นอกเหนือจากรายการหมุดที่พิมพ์ไว้ข้างบน')
+    return len(bad)
+
+
+# ─────────────────────────────────────────────────────────────
+# ชุดทดสอบตัวด่านเอง — ㊶ ต้องมีทั้งเคสจับได้และเคสปล่อย และมาจากข้อมูลจริง
+# ─────────────────────────────────────────────────────────────
+def selftest():
+    ok = True
+
+    def say(n, label, cond):
+        nonlocal ok
+        print(f'  {"✅" if cond else "❌"} {n} {label}')
+        ok = ok and bool(cond)
+
+    print(f'ชุดทดสอบด่าน 15 v{CHECKER_VERSION} ({CHECKER_DATE})')
+
+    # ── ① ชั้นหาคู่ซ้ำ
+    say('①', 'ไม่มีอะไรซ้ำ ⇒ คืนลิสต์ว่าง', dup_pairs(['a', 'b', 'c']) == [])
+    say('②', 'ซ้ำคู่เดียว ⇒ คืน (i,j) ถูกตัว',
+        dup_pairs(['a', 'b', 'c', 'b']) == [(1, 3, 'b')])
+    say('③', 'ซ้ำสามตัว ⇒ ต้องได้สองคู่ ⛔ ไม่ใช่คู่เดียว',
+        len(dup_pairs(['x', 'x', 'x'])) == 2)
+    say('④', '(ต้องไม่จับ) ต่างกันแค่ช่องว่าง ⇒ กฎแคบต้องเงียบ',
+        dup_pairs(['a b', 'ab']) == [])
+    say('⑤', '…แต่กฎกว้างต้องเห็น (ไม่งั้นตัวเฝ้าความสอดคล้องไร้ความหมาย)',
+        _norm_loose('a b') == _norm_loose('ab'))
+    say('⑥', '(ต้องไม่จับ) ตัวเลือกเดียว ⇒ ⛔ ไม่นับเป็นข้อในตัวหาร',
+        scan_stub([['a']])[0] == 0)
+
+    # ── ② คำตัดสิน · ของจริง
+    real = sorted(str(p) for p in DEFAULT_SCAN.glob('*.json'))
+    divisor, exact, loose = scan(real)
+    say('⑦', f'ตัวหารของจริงต้องไม่เป็นศูนย์ (วัดได้ {divisor})', divisor > 0)
+    say('⑧', f'ของจริงพบซ้ำ {len(exact)} ข้อ และปักหมุดครบทุกข้อ ⇒ ต้องเขียว',
+        verdict(divisor, exact, KNOWN_DUPES)[0] == [])
+    say('⑨', 'รายการหมุดต้องมีบรรทัดให้พิมพ์ (เงื่อนไข E→MB #61: เขียวก็ต้องพิมพ์)',
+        len(verdict(divisor, exact, KNOWN_DUPES)[1]) >= 3 * len(KNOWN_DUPES))
+
+    # ── ③ 🧬 มิวแทนต์ — พิสูจน์ว่าด่านนี้รับน้ำหนักจริง ⛔ ไม่ใช่พิธีกรรม
+    say('⑩', '🧬 ถอนหมุดออกทั้งหมด ⇒ ของจริงต้องแดง (ถ้าเขียว = ด่านนี้ไม่ได้เฝ้าอะไร)',
+        len(verdict(divisor, exact, {})[0]) >= len(exact))
+    say('⑪', '🧬 เติมหมุดที่ไม่มีของรองรับ ⇒ ต้องแดง (รายการย่อได้อย่างเดียว)',
+        any('ไม่มีของรองรับ' in m for m in
+            verdict(divisor, exact,
+                    dict(KNOWN_DUPES, **{'chap-99-ghost-q01': {
+                        'pair': (0, 1), 'text': 'x',
+                        'why': 'ก' * (MIN_REASON + 1), 'until': 'ไม่มีวัน'}}))[0]))
+    say('⑫', '🧬 หมุดที่คู่ดัชนีไม่ตรงของจริง ⇒ ต้องแดง',
+        any('ไม่ตรงกัน' in m for m in
+            verdict(divisor, exact,
+                    {k: dict(v, pair=(0, 2)) for k, v in KNOWN_DUPES.items()})[0]))
+    say('⑬', '🧬 หมุดที่ข้อความไม่ตรงของจริง ⇒ ต้องแดง (ตัวเลือกถูกแก้แต่หมุดค้าง)',
+        any('ข้อความในหมุดไม่ตรง' in m for m in
+            verdict(divisor, exact,
+                    {k: dict(v, text='ของปลอม') for k, v in KNOWN_DUPES.items()})[0]))
+    say('⑭', '🧬 เหตุผลสั้นเกิน ⇒ ต้องแดง',
+        any(f'สั้นกว่า {MIN_REASON}' in m for m in
+            verdict(divisor, exact,
+                    {k: dict(v, why='สั้น') for k, v in KNOWN_DUPES.items()})[0]))
+    say('⑮', '🧬 หมุดไม่มีเงื่อนไขหมดอายุ ⇒ ต้องแดง',
+        any('หมดอายุ' in m for m in
+            verdict(divisor, exact,
+                    {k: dict(v, until='') for k, v in KNOWN_DUPES.items()})[0]))
+    say('⑯', '🧬 ตัวหารเป็นศูนย์ ⇒ ต้องแดง แม้ ⛔ ไม่มีของซ้ำเลย',
+        any('ตัวหารเป็นศูนย์' in m for m in verdict(0, {}, {})[0]))
+    say('⑰', '🧬 ข้อซ้ำใหม่ที่ ⛔ ไม่ได้ปักหมุด ⇒ ต้องแดง',
+        any('🆕' in m for m in
+            verdict(divisor, dict(exact, **{'chap-13-calculus-q999': [(0, 2, 'ของใหม่')]}),
+                    KNOWN_DUPES)[0]))
+
+    # ── ④ รายการหมุดต้องถูกด่าน 10 เฝ้าอยู่จริง ⛔ ไม่ใช่แค่เขียนในคอมเมนต์
+    #    (⑦ก ซ้อนตัวเอง — ด่าน 14 เคยพลาดข้อนี้มาแล้ว)
+    cg = (ROOT / 'scripts' / 'check_config_growth.py').read_text(encoding='utf-8')
+    say('⑱', 'KNOWN_DUPES ต้องลงทะเบียนใน WATCHED ของด่าน 10 จริง',
+        "'scripts/check_duplicate_choices.py', 'KNOWN_DUPES'" in cg)
+
+    print('ผลชุดทดสอบ:', 'ผ่านครบ 18 ✅' if ok else 'ล้ม ❌')
+    return ok
+
+
+def scan_stub(choice_lists):
+    """ตัวช่วยของ selftest — นับตัวหารจากลิสต์ตัวเลือกดิบ ⛔ ไม่แตะดิสก์"""
+    divisor = 0
+    for ch in choice_lists:
+        if isinstance(ch, list) and len(ch) >= 2:
+            divisor += 1
+    return divisor, {}, {}
+
+
+def main():
+    ap = argparse.ArgumentParser(
+        description=f'ด่าน 15 · ตัวเลือกซ้ำ v{CHECKER_VERSION} ({CHECKER_DATE})')
+    ap.add_argument('path', nargs='?', default=str(DEFAULT_SCAN))
+    ap.add_argument('--selftest', action='store_true')
+    ap.add_argument('--version', action='store_true')
+    a = ap.parse_args()
+
+    if a.version:
+        print(CHECKER_VERSION)
+        return 0
+    if a.selftest:
+        return 0 if selftest() else 2
+
+    p = Path(a.path)
+    files = sorted(str(x) for x in (p.glob('*.json') if p.is_dir() else [p]))
+    if not files:
+        print(f'  🔴 ⛔ ไม่พบไฟล์ JSON ใน {p}')
+        return 2
+    return 1 if report(files) else 0
+
+
+if __name__ == '__main__':
+    sys.exit(main())
