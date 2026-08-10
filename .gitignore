@@ -11,3 +11,10 @@ audit/*
 !audit/qc-*/
 docs/chap-02-logic-figure-audit.md
 desktop.ini
+# 🔴 10 ส.ค. 69 — เกิดจริงตอนรันด่าน 15
+#    selftest ⑱ข ของด่าน 15 ใช้ importlib โหลด scripts/check_config_growth.py มารันจริง
+#    ⇒ Python สร้าง scripts/__pycache__/*.pyc ทิ้งไว้ ⇒ `git add -A` กวาดมันเข้าคอมมิตด้วย
+#    (MB เผลอคอมมิตไปแล้ว 1 ครั้งแล้วถอนคืน — ⛔ ไม่ใช่ความเสี่ยงเชิงทฤษฎี)
+#    ⇒ เคสนี้เกิดจาก **ตัวแก้ที่ทำให้ด่านซื่อสัตย์** (v1.2) ⇒ ยิ่งต้องกันไว้
+__pycache__/
+*.pyc
