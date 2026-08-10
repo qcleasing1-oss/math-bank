@@ -30,7 +30,7 @@ import re
 import subprocess
 import sys
 
-CHECKER_VERSION = '1.1'
+CHECKER_VERSION = '1.2'
 
 # (ไฟล์, ชื่อตัวแปร) ที่ต้องเฝ้า — เพิ่มได้ แต่การเพิ่ม "รายการที่เฝ้า" ไม่อันตราย
 # อันตรายคือการเพิ่ม "สมาชิกในรายการที่ถูกเฝ้า" ซึ่งคือสิ่งที่ด่านนี้จับ
@@ -111,6 +111,33 @@ WATCHED = [
     ('scripts/check_orphan_labels.py', 'PINNED'),
 ]
 
+# ═══════════════════════════════════════════════════════════════
+#  FROZEN — รายการที่เป็น "ข้อเท็จจริงที่มีวันที่" ⛔ ไม่ใช่ "สภาพปัจจุบัน"
+# ═══════════════════════════════════════════════════════════════
+#
+# 🔴 **ต่างจาก WATCHED ที่ *ทิศทาง* ⛔ ไม่ใช่ที่ความเข้มงวด**
+#      WATCHED เฝ้า **ขาขึ้น** — "ขยายสิทธิ์ต้องขออนุญาต · ลดสิทธิ์ไม่ต้องขอ"
+#      FROZEN  เฝ้า **สองขา** — เพราะรายการพวกนี้ ⛔ ไม่ใช่สิทธิ์ มันคือ **บันทึกสำมะโน**
+#                               ⇒ การลบชื่อออก = **การลบหลักฐาน** ⛔ ไม่ใช่การลดสิทธิ์
+#
+# ⬤ **ที่มา (10 ส.ค. 69 · MB วัดจริง ⛔ ไม่ใช่การคาดเดา):**
+#    ด่าน 15 มี selftest ⑲ ที่ตรวจว่า "รหัสข้อทั้ง 9 ของสำมะโนตาบอด อยู่ในหัวไฟล์"
+#    🔴 ย่อรายการจาก 9 ชื่อเหลือ 1 ชื่อ ⇒ selftest **ยังผ่านครบ 28/28 เคส**
+#       และย่อหัวไฟล์ตามไปด้วย ⇒ **ยังผ่านอีก**
+#    ⇒ ⇒ เคสนั้นเฝ้า **"ความสอดคล้องภายในไฟล์"** ⛔ ไม่ได้เฝ้า **"ความครบ"**
+#         เพราะสองข้างที่มันเทียบอยู่ใน **ไฟล์เดียวกัน** ⇒ แก้พร้อมกันก็ผ่าน
+#    ⇒ ⇒ ⇒ 🔑 สิ่งที่ขาดคือ **หลักยึดที่อยู่นอกไฟล์** — และ `git` คือหลักยึดนั้น
+#            (ด่านนี้อ่านค่าที่คอมมิตฐานอยู่แล้ว ⇒ เครื่องมือมีอยู่แล้ว ขาดแค่ทิศทาง)
+#
+# ⚠️ **การประกาศ:** เติม ⇒ `VAR+: <เหตุผล>` · ลบ ⇒ `VAR-: <เหตุผล>` ในข้อความคอมมิต
+FROZEN = [
+    # 🔴 BLIND_CENSUS = สำมะโน "ข้อที่ต้นฉบับมี 5 ตัวเลือกแต่คลังเก็บ 4" ของด่าน 15
+    #    พบ 9 ข้อ เมื่อ 10 ส.ค. 69 (E เปิด PDF · E→MB #63 §3)
+    #    ⇒ วันที่ข้อไหนถูกซ่อม **ให้ทำเครื่องหมายในหัวไฟล์ ⛔ ไม่ใช่ลบชื่อออก**
+    #      เพราะ "เคยขาด" เป็นข้อเท็จจริงที่ ⛔ ไม่มีวันเป็นเท็จ (กฎห้ามลบบันทึกเก่า)
+    ('scripts/check_duplicate_choices.py', 'BLIND_CENSUS'),
+]
+
 MIN_REASON_LEN = 8
 
 
@@ -158,14 +185,16 @@ def parse_list(text, var):
     return 'ok', list(v)
 
 
-def declared(messages, var):
+def declared(messages, var, sign='+'):
     """ข้อความ commit ในช่วงนี้ ประกาศการขยายรายการนี้ไว้หรือยัง
 
-    รูปแบบที่รับ:  <ชื่อตัวแปร>+: <เหตุผล>
+    รูปแบบที่รับ:  <ชื่อตัวแปร>+: <เหตุผล>   (การเติม)
+                   <ชื่อตัวแปร>-: <เหตุผล>   (การลบ · ใช้กับ FROZEN เท่านั้น)
     ⛔ ต้องระบุ "ชื่อตัวแปร" ให้ตรง — ประกาศตัวแปรอื่นไม่นับ
     ⛔ ต้องมีเหตุผลจริง — เครื่องหมายโคลอนลอย ๆ ไม่นับ
+    ⛔ เครื่องหมายต้องตรงทิศ — ประกาศ "เติม" ⛔ ไม่ครอบการ "ลบ"
     """
-    pat = re.compile(re.escape(var) + r'\+:[ \t]*(\S[^\n]*)')
+    pat = re.compile(re.escape(var) + re.escape(sign) + r':[ \t]*(\S[^\n]*)')
     for m in messages:
         if not isinstance(m, str):
             continue
@@ -198,6 +227,59 @@ def growth_verdict(prev, now, messages, var):
              f'โดยไม่มีบรรทัดประกาศในข้อความ commit ช่วงนี้ '
              f'⇒ เขียน "{var}+: <เหตุผล>" (อย่างน้อย {MIN_REASON_LEN} ตัวอักษร) '
              f'ในข้อความ commit')]
+
+
+def frozen_verdict(prev, now, messages, var):
+    """เหมือน growth_verdict แต่ **เฝ้าสองขา** — ใช้กับรายการใน FROZEN
+
+    🔑 เหตุผลที่ขาลงต้องแดงด้วย:
+       รายการใน FROZEN ⛔ ไม่ใช่ "สิทธิ์" มันคือ **สำมะโนที่มีวันที่**
+       ⇒ การลบชื่อออกคือการทำให้คำประกาศ **ครบน้อยลง** โดยที่ทุกด่านยังเขียว
+       ⇒ ⇒ นี่คือรูที่ selftest ในไฟล์เดียวกันจับไม่ได้โดยหลักการ
+            (สองข้างที่มันเทียบอยู่ในไฟล์เดียวกัน ⇒ แก้พร้อมกันก็ผ่าน)
+    """
+    if now is None:
+        return [('var-gone',
+                 f'ไม่พบตัวแปร {var} ที่ HEAD แล้ว — สำมะโนที่หายไปทั้งก้อน '
+                 f'⛔ ไม่ใช่ "ไม่มีอะไรให้เฝ้า" ⇒ ต้องแก้รายการ FROZEN ให้ตรงกันก่อน')]
+    base = [] if prev is None else prev
+    added = [x for x in now if x not in base]
+    removed = [x for x in base if x not in now]
+    bad = []
+    if added and not declared(messages, var, '+'):
+        bad.append(('undeclared-growth',
+                    f'{var} โตขึ้น {len(added)} รายการ ({" · ".join(map(str, added))}) '
+                    f'โดยไม่มีบรรทัดประกาศ ⇒ เขียน "{var}+: <เหตุผล>" '
+                    f'(อย่างน้อย {MIN_REASON_LEN} ตัวอักษร) ในข้อความ commit'))
+    if removed and not declared(messages, var, '-'):
+        bad.append(('undeclared-shrink',
+                    f'🔴 {var} **ถูกลบออก** {len(removed)} รายการ '
+                    f'({" · ".join(map(str, removed))}) โดยไม่มีบรรทัดประกาศ '
+                    f'⇒ รายการนี้เป็น **สำมะโนที่มีวันที่** — การลบชื่อ = การลบหลักฐาน '
+                    f'⇒ ถ้าตั้งใจจริง เขียน "{var}-: <เหตุผล>" ในข้อความ commit '
+                    f'(ปกติแล้วสิ่งที่ควรทำคือ **ทำเครื่องหมายว่าซ่อมแล้ว ⛔ ไม่ใช่ลบชื่อ**)'))
+    return bad
+
+
+def head_status_verdict(st):
+    """สถานะที่อ่านได้ **ที่ HEAD** ⇒ เดินต่อได้ไหม · คืน None = ได้ · str = เหตุผลที่ต้องแดง
+
+    🔴 v1.2 · เคสที่ v1.1 ปล่อยผ่าน: **'absent'**
+       v1.1 ดักแค่ ('multi', 'unparsable') ⇒ 'absent' ไหลผ่านไปเป็น v_now = None เงียบ ๆ
+       ⇒ ถ้าไฟล์นั้นเพิ่งเกิด (how == 'never') ด่านจะพิมพ์ 🟠 "0 รายการ · รอบหน้าจะเฝ้าได้จริง"
+         ⇒ ⇒ **เป็นเท็จ** — รอบหน้าจะได้ 'var-gone' แดง ⛔ ไม่ใช่ "เฝ้าได้จริง"
+       ⇒ ⇒ ⇒ นี่คือรูที่ทำให้ `KNOWN_DUPES: dict[str, dict] = {…}` ของด่าน 15 v1.0
+              ผ่านไปได้ทั้งที่ตัวอ่าน **มองไม่เห็นตัวแปรนั้นเลย** (5ffc3a4 · 9 ส.ค. 69)
+       🔑 "อ่านไม่ออก" ยังส่งเสียง · **"ไม่มีอยู่" เงียบ** — และเงียบคือสิ่งที่อันตรายกว่า
+    """
+    if st == 'ok':
+        return None
+    if st == 'absent':
+        return ('absent ⇒ ตัวอ่านของด่านนี้ ⛔ มองไม่เห็นตัวแปรที่สั่งให้เฝ้า '
+                '(ป้ายชนิด `: dict[...]` · dict ซ้อนชั้น · เปลี่ยนชื่อ) '
+                '⛔ นี่ ⛔ ไม่ใช่ "รายการว่าง" — เป็น "เฝ้าไม่ได้" '
+                '⇒ 〔52〕 : 🟠 ที่ไม่มีวันเป็น 🟢 ต้องแดงเดี๋ยวนี้')
+    return (f'{st} ⇒ ตัดสินไม่ได้ · ⛔ ตัดสินไม่ได้ต้องแดงแบบเครื่องมือ ⛔ ไม่ใช่ปล่อยผ่าน')
 
 
 # ═════════════════════════════════════════════════════════════
@@ -328,6 +410,54 @@ GROW_CASES = [
 ]
 
 
+# 🧊 v1.2 · เคสของ FROZEN — เฝ้า **สองขา**
+FROZEN_CASES = [
+    ("ไม่มีอะไรเปลี่ยน ⇒ ผ่าน", ['aaa', 'bbb'], ['aaa', 'bbb'], [''], None),
+
+    ("🔴 **ย่อรายการโดยไม่ประกาศ ⇒ แดง** (นี่คือรูที่ selftest ในไฟล์เดียวจับไม่ได้)",
+     ['aaa', 'bbb'], ['aaa'], [''], 'undeclared-shrink'),
+
+    ("ย่อรายการ + ประกาศ `-:` ครบ ⇒ ผ่าน",
+     ['aaa', 'bbb'], ['aaa'], [f'{V}-: ซ่อมข้อนั้นครบแล้วจึงถอนชื่อออกตามมติครู'], None),
+
+    ("🔴 ย่อรายการ แต่ประกาศผิดทิศ (`+:` แทน `-:`) ⇒ ยังแดง",
+     ['aaa', 'bbb'], ['aaa'], OK_MSG, 'undeclared-shrink'),
+
+    ("🔴 ย่อ + ประกาศ `-:` แต่ไม่ให้เหตุผล ⇒ แดง",
+     ['aaa', 'bbb'], ['aaa'], [f'{V}-:   '], 'undeclared-shrink'),
+
+    ("🔴 เติมโดยไม่ประกาศ ⇒ แดง (ขาขึ้นยังบังคับเหมือนเดิม)",
+     ['aaa'], ['aaa', 'bbb'], [''], 'undeclared-growth'),
+
+    ("🔴 เอาออก 1 ใส่เข้า 1 ⇒ ต้องแดง **ทั้งสองรหัส** (จับได้ที่ shrink)",
+     ['aaa', 'bbb'], ['aaa', 'ccc'], [''], 'undeclared-shrink'),
+
+    ("🔴 สำมะโนหายทั้งก้อนจาก HEAD ⇒ แดง",
+     ['aaa'], None, [f'{V}-: ลบทิ้งทั้งก้อน'], 'var-gone'),
+
+    ("สลับลำดับเฉย ๆ ⇒ ผ่าน", ['aaa', 'bbb'], ['bbb', 'aaa'], [''], None),
+]
+
+# 🔴 v1.2 · สถานะที่อ่านได้ที่ HEAD — เคสที่ v1.1 ปล่อยผ่านคือ 'absent'
+HEAD_STATUS_CASES = [
+    ('ok',         False, "อ่านออก ⇒ เดินต่อได้"),
+    ('absent',     True,  "🔴 **ไม่พบตัวแปรเลย ⇒ ต้องแดง** (v1.1 ปล่อยผ่าน — รูของ 5ffc3a4)"),
+    ('multi',      True,  "🔴 เจอหลายที่ ⇒ ตัดสินไม่ได้ ⇒ แดง"),
+    ('unparsable', True,  "🔴 อ่านไม่ออก ⇒ ตัดสินไม่ได้ ⇒ แดง"),
+]
+
+
+def _mut_shrink_is_free(prev, now, messages, var):
+    """🧬 มิวแทนต์: 'ย่อรายการไม่ต้องขออนุญาต' — คือพฤติกรรมของ growth_verdict เป๊ะ
+       ⇒ ถ้าเคสของ FROZEN ⛔ ไม่ล้มกับมิวแทนต์ตัวนี้ แปลว่า FROZEN ⛔ ไม่ต่างจาก WATCHED"""
+    return growth_verdict(prev, now, messages, var)
+
+
+def _mut_absent_is_ok(st):
+    """🧬 มิวแทนต์: กลับไปเป็น v1.1 — ดักแค่ multi/unparsable"""
+    return None if st in ('ok', 'absent') else 'x'
+
+
 def _mut_compare_len(prev, now, messages, var):
     """มิวแทนต์ ① เทียบด้วยจำนวนสมาชิก ⇒ สลับเข้า-ออกเท่ากันจะรอด"""
     if now is None:
@@ -392,6 +522,9 @@ def selftest():
     print('  รายการที่เฝ้าอยู่:')
     for f, v in WATCHED:
         print(f'     {f} · {v}')
+    print('  สำมะโนที่เฝ้าสองขา (FROZEN):')
+    for f, v in FROZEN:
+        print(f'     🧊 {f} · {v}')
     print()
 
     print('  ── อ่านค่ารายการจากไฟล์ (ข้อความล้วน ⛔ ไม่ import) ──')
@@ -412,6 +545,23 @@ def selftest():
         ok &= good
 
     print()
+    print('  ── 🧊 v1.2 · สำมะโน (FROZEN) ต้องเฝ้า **สองขา** ──')
+    for name, prev, now, msgs, want in FROZEN_CASES:
+        codes = [c for c, _ in frozen_verdict(prev, now, msgs, V)]
+        good = (codes == []) if want is None else (want in codes)
+        why = '' if good else f'   ← ได้ {codes} ต้องการ {want}'
+        print(f'  {"✅" if good else "🔴"}  {name}{why}')
+        ok &= good
+
+    print()
+    print('  ── 🔴 v1.2 · สถานะที่อ่านได้ "ที่ HEAD" ต้องตัดสินถูกทุกค่า ──')
+    for st, want_red, name in HEAD_STATUS_CASES:
+        got_red = head_status_verdict(st) is not None
+        good = got_red == want_red
+        print(f'  {"✅" if good else "🔴"}  [{st}] {name}')
+        ok &= good
+
+    print()
     print('  ── ใส่บั๊กเข้าไปแล้วด่านต้องล้ม ──')
     print('     ⑦ข: แดงแล้วยังต้องถามต่อว่า “แดงเพราะเคสที่ตั้งใจหรือเปล่า”')
     for label, fails in (
@@ -420,6 +570,14 @@ def selftest():
         ('③ ตัวแปรหายไปก็ไม่ว่า',          _run_grow(_mut_ignore_var_gone)),
         ('④ ไม่แดงเลย',                    _run_grow(_mut_never_red)),
         ('⑤ ฐานไม่มีตัวแปร = ปล่อยผ่าน',   _run_grow(_mut_prev_absent_is_free)),
+        ('🧊⑥ v1.2 · FROZEN ใช้กติกาขาขึ้นอย่างเดียว (= ย่อได้ฟรี)',
+         [n for n, pv, nw, ms, wt in FROZEN_CASES
+          if not (([c for c, _ in _mut_shrink_is_free(pv, nw, ms, V)] == [])
+                  if wt is None else
+                  (wt in [c for c, _ in _mut_shrink_is_free(pv, nw, ms, V)]))]),
+        ('🔴⑦ v1.2 · absent ที่ HEAD = ปล่อยผ่าน (พฤติกรรมของ v1.1)',
+         [n for st, wr, n in HEAD_STATUS_CASES
+          if ((_mut_absent_is_ok(st) is not None) != wr)]),
     ):
         good = len(fails) > 0
         print(f'  {"✅" if good else "🔴"}  มิวแทนต์ {label} ⇒ ล้ม {len(fails)}/{len(GROW_CASES)} เคส')
@@ -433,13 +591,18 @@ def selftest():
         ok = False
     else:
         print(f'  ✅  รายการ WATCHED ไม่ว่าง ({len(WATCHED)} รายการ)')
+    if not FROZEN:
+        print('  🔴 รายการ FROZEN ว่าง ⇒ ขาลงของสำมะโน ⛔ ไม่มีใครเฝ้า')
+        ok = False
+    else:
+        print(f'  ✅  รายการ FROZEN ไม่ว่าง ({len(FROZEN)} รายการ)')
 
     print()
     if not ok:
         print('🔴 SELF-TEST ไม่ผ่าน ⇒ ผลของด่านนี้กับของจริงเชื่อไม่ได้')
         return 2
-    print(f'✅ SELF-TEST ผ่านครบ {len(PARSE_CASES)} + {len(GROW_CASES)} เคส'
-          f' + มิวแทนต์ 5 ตัว')
+    print(f'✅ SELF-TEST ผ่านครบ {len(PARSE_CASES)} + {len(GROW_CASES)} '
+          f'+ {len(FROZEN_CASES)} 🧊 + {len(HEAD_STATUS_CASES)} เคส + มิวแทนต์ 7 ตัว')
     return 0
 
 
@@ -514,11 +677,14 @@ def main():
         messages = [m1]
 
     print(f'ด่าน 10 v{CHECKER_VERSION} · เทียบ {base} → HEAD '
-          f'· ข้อความ commit ในช่วง {len(messages)} ก้อน')
+          f'· ข้อความ commit ในช่วง {len(messages)} ก้อน'
+          f' · เฝ้า {len(WATCHED)} ขาขึ้น + {len(FROZEN)} 🧊 สองขา')
     print()
 
     red = 0
-    for path, var in WATCHED:
+    for path, var, kind in ([(f, v, 'watched') for f, v in WATCHED]
+                            + [(f, v, 'frozen') for f, v in FROZEN]):
+        tag = '🧊' if kind == 'frozen' else ''
         # ── ค่า "ตอนนี้" อ่านจากไฟล์ที่จะถูกใช้จริง (working tree ของ CI) ──
         try:
             now_txt = open(path, encoding='utf-8').read()
@@ -526,19 +692,24 @@ def main():
             print(f'🔴 อ่าน {path} ไม่ได้ — {e}')
             return 2
         st_now, v_now = parse_list(now_txt, var)
-        if st_now in ('multi', 'unparsable'):
-            print(f'🔴 {path} · {var} → {st_now} ⇒ ตัดสินไม่ได้')
-            print('   ⛔ ตัดสินไม่ได้ ต้องแดงแบบเครื่องมือ ไม่ใช่ปล่อยผ่าน')
+        # 🔴 v1.2 · ดักทุกสถานะที่ ⛔ ไม่ใช่ 'ok' — รวม 'absent' ที่ v1.1 ปล่อยผ่าน
+        why = head_status_verdict(st_now)
+        if why:
+            print(f'🔴 {path} · {var} → {why}')
             return 2
 
         # ── ค่า "ที่ฐาน" อ่านจาก git โดยตรง ──
         how, prev_txt, at = read_at_base(path, base)
         if how == 'never':
-            n = 0 if v_now is None else len(v_now)
-            print(f'🟠 {path} · {var} — ไฟล์นี้ไม่เคยมีในประวัติก่อนหน้า '
+            n = len(v_now or [])
+            print(f'🟠 {path} · {var} {tag}— ไฟล์นี้ไม่เคยมีในประวัติก่อนหน้า '
                   f'({n} รายการ) ⇒ รอบนี้ยังไม่มีของให้เทียบ')
-            print('     ⛔ บันทึกไว้ให้เห็นในบันทึก CI ว่า "ยังไม่ได้เทียบ" '
-                  'ไม่ใช่ "เทียบแล้วผ่าน" — รอบหน้าจึงจะเฝ้าได้จริง')
+            # 🔑 〔52〕 · สถานะที่ไม่ใช่เขียว **ต้องประกาศเงื่อนไขที่จะทำให้มันเขียว**
+            #    ประโยคข้างล่างเขียนได้เฉพาะเมื่อ st_now == 'ok' ซึ่งบังคับไว้ข้างบนแล้ว
+            #    ⇒ ⇒ **ตัวประโยคเองคือด่าน** — ⛔ ไม่ต้องมีใครมาเฝ้าประโยคอีกชั้น
+            print(f'     ⛔ "ยังไม่ได้เทียบ" ⛔ ไม่ใช่ "เทียบแล้วผ่าน"')
+            print(f'     ✅ และรอบหน้าจะเฝ้าได้จริง **เพราะตัวอ่านอ่านตัวแปรนี้ออกแล้ว '
+                  f'(สถานะ ok · {n} รายการ)** — ถ้าอ่านไม่ออก ด่านนี้แดงไปตั้งแต่บรรทัดบนแล้ว')
             continue
         if how == 'historic':
             print(f'🟠 {path} · {var} — ไฟล์ไม่มีที่คอมมิตฐาน '
@@ -549,7 +720,8 @@ def main():
             print(f'🔴 {path} · {var} ที่ฐานอ่านไม่ออก ({st_prev}) ⇒ เทียบไม่ได้')
             return 2
 
-        probs = growth_verdict(v_prev, v_now, messages, var)
+        probs = (frozen_verdict if kind == 'frozen' else growth_verdict)(
+            v_prev, v_now, messages, var)
         shown_prev = '(ไม่มีที่ฐาน)' if v_prev is None else str(v_prev)
         shown_now = '(หายไปแล้ว)' if v_now is None else str(v_now)
         if probs:
@@ -560,13 +732,17 @@ def main():
             for code, msg in probs:
                 print(f'     [{code}] {msg}')
         else:
-            n = 0 if v_now is None else len(v_now)
-            print(f'✅ {path} · {var} — {n} รายการ ไม่โตขึ้นโดยไม่ประกาศ')
+            n = len(v_now or [])
+            note = ('⛔ ไม่เปลี่ยนโดยไม่ประกาศ (เฝ้าสองขา)' if kind == 'frozen'
+                    else 'ไม่โตขึ้นโดยไม่ประกาศ')
+            print(f'✅ {path} · {var} {tag}— {n} รายการ {note}')
     print()
     if red:
-        print(f'🔴 มี {red} รายการที่ขยายสิทธิ์โดยไม่ประกาศ')
+        print(f'🔴 มี {red} รายการที่เปลี่ยนโดยไม่ประกาศ')
         return 1
-    print('✅ ไม่มีรายการอนุญาตใดโตขึ้นโดยไม่ประกาศ')
+    print(f'✅ ไม่มีรายการอนุญาตใดโตขึ้นโดยไม่ประกาศ '
+          f'({len(WATCHED)} ขาขึ้น) · และ ⛔ ไม่มีสำมะโนใดถูกย่อโดยไม่ประกาศ '
+          f'({len(FROZEN)} 🧊 สองขา)')
     return 0
 
 
