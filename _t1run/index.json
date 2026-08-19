@@ -1,0 +1,482 @@
+[
+ {
+  "pack": "pack_000",
+  "n": 25,
+  "first": "alvl1-2566-03-q06",
+  "trig": 25
+ },
+ {
+  "pack": "pack_001",
+  "n": 25,
+  "first": "pat1-2553-10-q06",
+  "trig": 25
+ },
+ {
+  "pack": "pack_002",
+  "n": 25,
+  "first": "pat1-2555-10-q28",
+  "trig": 25
+ },
+ {
+  "pack": "pack_003",
+  "n": 25,
+  "first": "pat1-2558-03-q08",
+  "trig": 25
+ },
+ {
+  "pack": "pack_004",
+  "n": 25,
+  "first": "pat1-2562-02-q15",
+  "trig": 25
+ },
+ {
+  "pack": "pack_005",
+  "n": 25,
+  "first": "samn-2559-12-q03",
+  "trig": 25
+ },
+ {
+  "pack": "pack_006",
+  "n": 25,
+  "first": "chap-07-trigonometry-q16",
+  "trig": 25
+ },
+ {
+  "pack": "pack_007",
+  "n": 25,
+  "first": "chap-07-trigonometry-q41",
+  "trig": 25
+ },
+ {
+  "pack": "pack_008",
+  "n": 25,
+  "first": "chap-07-trigonometry-q66",
+  "trig": 25
+ },
+ {
+  "pack": "pack_009",
+  "n": 25,
+  "first": "chap-07-trigonometry-q91",
+  "trig": 25
+ },
+ {
+  "pack": "pack_010",
+  "n": 25,
+  "first": "chap-07-trigonometry-q116",
+  "trig": 25
+ },
+ {
+  "pack": "pack_011",
+  "n": 25,
+  "first": "chap-07-trigonometry-q141",
+  "trig": 25
+ },
+ {
+  "pack": "pack_012",
+  "n": 25,
+  "first": "chap-07-trigonometry-q166",
+  "trig": 25
+ },
+ {
+  "pack": "pack_013",
+  "n": 25,
+  "first": "chap-07-trigonometry-q191",
+  "trig": 25
+ },
+ {
+  "pack": "pack_014",
+  "n": 25,
+  "first": "chap-07-trigonometry-q216",
+  "trig": 25
+ },
+ {
+  "pack": "pack_015",
+  "n": 25,
+  "first": "gen-chap-07-trigonometry-q011",
+  "trig": 25
+ },
+ {
+  "pack": "pack_016",
+  "n": 25,
+  "first": "gen-chap-07-trigonometry-q036",
+  "trig": 25
+ },
+ {
+  "pack": "pack_017",
+  "n": 25,
+  "first": "gen-chap-07-trigonometry-q061",
+  "trig": 25
+ },
+ {
+  "pack": "pack_018",
+  "n": 25,
+  "first": "gen-chap-07-trigonometry-q086",
+  "trig": 25
+ },
+ {
+  "pack": "pack_019",
+  "n": 25,
+  "first": "gen-chap-07-trigonometry-q111",
+  "trig": 25
+ },
+ {
+  "pack": "pack_020",
+  "n": 25,
+  "first": "gen-chap-07-trigonometry-q136",
+  "trig": 25
+ },
+ {
+  "pack": "pack_021",
+  "n": 25,
+  "first": "gen-chap-07-trigonometry-q161",
+  "trig": 4
+ },
+ {
+  "pack": "pack_022",
+  "n": 25,
+  "first": "alvl1-2566-03-q24",
+  "trig": 0
+ },
+ {
+  "pack": "pack_023",
+  "n": 25,
+  "first": "alvl1-2567-03-q21",
+  "trig": 0
+ },
+ {
+  "pack": "pack_024",
+  "n": 25,
+  "first": "alvl1-2568-03-v2-q17",
+  "trig": 0
+ },
+ {
+  "pack": "pack_025",
+  "n": 25,
+  "first": "alvl1-2569-03-q15",
+  "trig": 0
+ },
+ {
+  "pack": "pack_026",
+  "n": 25,
+  "first": "pat1-2552-03-q10",
+  "trig": 0
+ },
+ {
+  "pack": "pack_027",
+  "n": 25,
+  "first": "pat1-2552-03-q38",
+  "trig": 0
+ },
+ {
+  "pack": "pack_028",
+  "n": 25,
+  "first": "pat1-2552-07-q15",
+  "trig": 0
+ },
+ {
+  "pack": "pack_029",
+  "n": 25,
+  "first": "pat1-2552-07-q40",
+  "trig": 0
+ },
+ {
+  "pack": "pack_030",
+  "n": 25,
+  "first": "pat1-2552-10-q16",
+  "trig": 0
+ },
+ {
+  "pack": "pack_031",
+  "n": 25,
+  "first": "pat1-2552-10-q44",
+  "trig": 0
+ },
+ {
+  "pack": "pack_032",
+  "n": 25,
+  "first": "pat1-2553-03-q21",
+  "trig": 0
+ },
+ {
+  "pack": "pack_033",
+  "n": 25,
+  "first": "pat1-2553-03-q48",
+  "trig": 0
+ },
+ {
+  "pack": "pack_034",
+  "n": 25,
+  "first": "pat1-2553-07-q26",
+  "trig": 0
+ },
+ {
+  "pack": "pack_035",
+  "n": 25,
+  "first": "pat1-2553-10-q02",
+  "trig": 0
+ },
+ {
+  "pack": "pack_036",
+  "n": 25,
+  "first": "pat1-2553-10-q30",
+  "trig": 0
+ },
+ {
+  "pack": "pack_037",
+  "n": 25,
+  "first": "pat1-2554-03-q10",
+  "trig": 0
+ },
+ {
+  "pack": "pack_038",
+  "n": 25,
+  "first": "pat1-2554-03-q38",
+  "trig": 0
+ },
+ {
+  "pack": "pack_039",
+  "n": 25,
+  "first": "pat1-2554-12-q14",
+  "trig": 0
+ },
+ {
+  "pack": "pack_040",
+  "n": 25,
+  "first": "pat1-2554-12-q42",
+  "trig": 0
+ },
+ {
+  "pack": "pack_041",
+  "n": 25,
+  "first": "pat1-2555-03-q21",
+  "trig": 0
+ },
+ {
+  "pack": "pack_042",
+  "n": 25,
+  "first": "pat1-2555-03-q48",
+  "trig": 0
+ },
+ {
+  "pack": "pack_043",
+  "n": 25,
+  "first": "pat1-2555-10-q27",
+  "trig": 0
+ },
+ {
+  "pack": "pack_044",
+  "n": 25,
+  "first": "pat1-2556-03-q04",
+  "trig": 0
+ },
+ {
+  "pack": "pack_045",
+  "n": 25,
+  "first": "pat1-2556-03-q34",
+  "trig": 0
+ },
+ {
+  "pack": "pack_046",
+  "n": 25,
+  "first": "pat1-2557-03-q09",
+  "trig": 0
+ },
+ {
+  "pack": "pack_047",
+  "n": 25,
+  "first": "pat1-2557-03-q40",
+  "trig": 0
+ },
+ {
+  "pack": "pack_048",
+  "n": 25,
+  "first": "pat1-2557-04-q23",
+  "trig": 0
+ },
+ {
+  "pack": "pack_049",
+  "n": 25,
+  "first": "pat1-2557-11-q07",
+  "trig": 0
+ },
+ {
+  "pack": "pack_050",
+  "n": 25,
+  "first": "pat1-2557-11-q34",
+  "trig": 0
+ },
+ {
+  "pack": "pack_051",
+  "n": 25,
+  "first": "pat1-2558-03-q19",
+  "trig": 0
+ },
+ {
+  "pack": "pack_052",
+  "n": 25,
+  "first": "pat1-2558-03-q45",
+  "trig": 0
+ },
+ {
+  "pack": "pack_053",
+  "n": 25,
+  "first": "pat1-2558-10-q29",
+  "trig": 0
+ },
+ {
+  "pack": "pack_054",
+  "n": 25,
+  "first": "pat1-2559-03-q12",
+  "trig": 0
+ },
+ {
+  "pack": "pack_055",
+  "n": 25,
+  "first": "pat1-2559-03-q37",
+  "trig": 0
+ },
+ {
+  "pack": "pack_056",
+  "n": 25,
+  "first": "pat1-2559-10-q20",
+  "trig": 0
+ },
+ {
+  "pack": "pack_057",
+  "n": 25,
+  "first": "pat1-2560-03-q02",
+  "trig": 0
+ },
+ {
+  "pack": "pack_058",
+  "n": 25,
+  "first": "pat1-2560-03-q30",
+  "trig": 0
+ },
+ {
+  "pack": "pack_059",
+  "n": 25,
+  "first": "pat1-2561-02-q14",
+  "trig": 0
+ },
+ {
+  "pack": "pack_060",
+  "n": 25,
+  "first": "pat1-2561-02-q40",
+  "trig": 0
+ },
+ {
+  "pack": "pack_061",
+  "n": 25,
+  "first": "pat1-2562-02-q23",
+  "trig": 0
+ },
+ {
+  "pack": "pack_062",
+  "n": 25,
+  "first": "pat1-2563-02-q04",
+  "trig": 0
+ },
+ {
+  "pack": "pack_063",
+  "n": 25,
+  "first": "pat1-2563-02-q32",
+  "trig": 0
+ },
+ {
+  "pack": "pack_064",
+  "n": 25,
+  "first": "pat1-2564-03-q13",
+  "trig": 0
+ },
+ {
+  "pack": "pack_065",
+  "n": 25,
+  "first": "pat1-2564-03-q42",
+  "trig": 0
+ },
+ {
+  "pack": "pack_066",
+  "n": 25,
+  "first": "pat1-2565-03-q26",
+  "trig": 0
+ },
+ {
+  "pack": "pack_067",
+  "n": 25,
+  "first": "samn-2555-01-q08",
+  "trig": 0
+ },
+ {
+  "pack": "pack_068",
+  "n": 25,
+  "first": "samn-2556-01-q05",
+  "trig": 0
+ },
+ {
+  "pack": "pack_069",
+  "n": 25,
+  "first": "samn-2557-01-q01",
+  "trig": 0
+ },
+ {
+  "pack": "pack_070",
+  "n": 25,
+  "first": "samn-2557-01-q28",
+  "trig": 0
+ },
+ {
+  "pack": "pack_071",
+  "n": 25,
+  "first": "samn-2558-01-q24",
+  "trig": 0
+ },
+ {
+  "pack": "pack_072",
+  "n": 25,
+  "first": "samn-2558-12-q22",
+  "trig": 0
+ },
+ {
+  "pack": "pack_073",
+  "n": 25,
+  "first": "samn-2559-12-q19",
+  "trig": 0
+ },
+ {
+  "pack": "pack_074",
+  "n": 25,
+  "first": "samn-2561-03-q15",
+  "trig": 0
+ },
+ {
+  "pack": "pack_075",
+  "n": 25,
+  "first": "samn-2562-03-q11",
+  "trig": 0
+ },
+ {
+  "pack": "pack_076",
+  "n": 25,
+  "first": "samn-2563-03-q07",
+  "trig": 0
+ },
+ {
+  "pack": "pack_077",
+  "n": 25,
+  "first": "samn-2564-04-q03",
+  "trig": 0
+ },
+ {
+  "pack": "pack_078",
+  "n": 25,
+  "first": "samn-2564-04-q30",
+  "trig": 0
+ },
+ {
+  "pack": "pack_079",
+  "n": 4,
+  "first": "samn-2565-03-q27",
+  "trig": 0
+ }
+]
