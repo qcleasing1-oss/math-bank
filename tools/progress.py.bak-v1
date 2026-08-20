@@ -1,0 +1,197 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""progress.py — สร้าง progress.html: ความคืบหน้ารายชุด/รายข้อ/รายบท + วันที่ทำเสร็จ + กำลังทำอะไรอยู่
+ใช้:  python progress.py [--bank data\bank.json] [--manifest data\manifest.json]
+                         [--done _t1run\results] [--queue _t1run\QUEUE_now.json] [--out progress.html]
+ค่า token = 0 · รันบนเครื่องครู
+"""
+import json, os, re, glob, argparse, collections, datetime, html
+
+def S(v): return v if isinstance(v, str) else json.dumps(v, ensure_ascii=False)
+
+def load_bank(p):
+    d = json.load(open(p, encoding='utf-8'))
+    return d if isinstance(d, list) else next(v for v in d.values() if isinstance(v, list) and v and isinstance(v[0], dict))
+
+STAMP = re.compile(r'(20\d{6})-(\d{4})')
+
+def scan_done(paths):
+    """คืน {id: 'YYYY-MM-DD HH:MM'} — วันที่มาจากชื่อไฟล์ผล ถ้าไม่มีให้ใช้เวลาแก้ไขไฟล์"""
+    done = {}
+    files = []
+    for p in paths:
+        if os.path.isfile(p): files.append(p)
+        else: files += glob.glob(os.path.join(p, '**', '*.json'), recursive=True)
+    for f in sorted(files):
+        try: d = json.load(open(f, encoding='utf-8'))
+        except Exception: continue
+        if not (isinstance(d, list) and d and isinstance(d[0], dict) and 'steps' in d[0]): continue
+        m = STAMP.search(os.path.basename(f))
+        if m:
+            when = f'{m.group(1)[:4]}-{m.group(1)[4:6]}-{m.group(1)[6:]} {m.group(2)[:2]}:{m.group(2)[2:]}'
+        else:
+            when = datetime.datetime.fromtimestamp(os.path.getmtime(f)).strftime('%Y-%m-%d %H:%M')
+        for r in d:
+            i = r.get('id')
+            if not i: continue
+            if i not in done or when < done[i]:   # เก็บครั้งแรกที่ทำเสร็จ
+                done[i] = when
+    return done
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument('--bank', default=os.path.join('data', 'bank.json'))
+    ap.add_argument('--manifest', default=os.path.join('data', 'manifest.json'))
+    ap.add_argument('--done', nargs='*', default=[os.path.join('_t1run', 'results')])
+    ap.add_argument('--queue', default=os.path.join('_t1run', 'QUEUE_now.json'))
+    ap.add_argument('--out', default='progress.html')
+    a = ap.parse_args()
+
+    items = load_bank(a.bank)
+    done = scan_done(a.done)
+    names = {}
+    try: names = json.load(open(a.manifest, encoding='utf-8')).get('topicNames', {})
+    except Exception: pass
+    queue_ids, queue_order = set(), {}
+    if os.path.exists(a.queue):
+        try:
+            q = json.load(open(a.queue, encoding='utf-8'))
+            for n, x in enumerate(q):
+                queue_ids.add(x['id']); queue_order[x['id']] = n
+        except Exception: pass
+
+    sets = collections.defaultdict(list)
+    for x in items:
+        sid = x.get('setId') or re.sub(r'-q\d+[a-z]?$', '', x.get('id', ''))
+        sets[sid].append(x)
+
+    data = []
+    for sid, rows in sorted(sets.items()):
+        tps = collections.Counter()
+        qs = []
+        for x in rows:
+            for t in (x.get('topics') or [x.get('topic')]): tps[str(t)] += 1
+            i = x['id']
+            st = 'done' if i in done else ('queue' if i in queue_ids else 'todo')
+            qs.append({'id': i, 'n': str(x.get('questionNumber') or ''), 'd': x.get('difficulty') or '',
+                       'sub': ' '.join(x.get('subTopics') or []), 'img': 1 if x.get('hasImage') else 0,
+                       'st': st, 'when': done.get(i, ''), 'ord': queue_order.get(i, -1)})
+        qs.sort(key=lambda r: (len(str(r['n'])), str(r['n'])))
+        nd = sum(1 for r in qs if r['st'] == 'done')
+        nq = sum(1 for r in qs if r['st'] == 'queue')
+        last = max([r['when'] for r in qs if r['when']] or [''])
+        chap = ' · '.join(names.get(t, t) for t, _ in tps.most_common(3))
+        data.append({'set': sid, 'chap': chap, 'n': len(qs), 'done': nd, 'queue': nq,
+                     'last': last, 'items': qs})
+
+    tot = len(items); nd = sum(1 for x in items if x['id'] in done)
+    inq = sum(1 for x in items if x['id'] in queue_ids and x['id'] not in done)
+    byday = collections.Counter(w[:10] for w in done.values())
+    nxt = sorted([r for s in data for r in s['items'] if r['st'] == 'queue'], key=lambda r: r['ord'])[:40]
+
+    ts = datetime.datetime.now().strftime('%d/%m/%Y %H:%M')
+    doc = """<!doctype html><html lang=th><meta charset=utf-8>
+<title>ความคืบหน้าเฉลยละเอียด t1</title>
+<style>
+*{box-sizing:border-box} body{font-family:'Segoe UI',Tahoma,sans-serif;margin:0;background:#faf8f5;color:#2b2b2b}
+.wrap{max-width:1180px;margin:0 auto;padding:26px 18px 70px}
+h1{font-size:22px;margin:0 0 4px} .sub{color:#8a8078;font-size:13px;margin-bottom:20px}
+h2{font-size:15px;margin:26px 0 10px}
+.kpi{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:8px}
+.card{flex:1;min-width:140px;background:#fff;border:1px solid #eae4dc;border-radius:10px;padding:13px 15px}
+.card .v{font-size:25px;font-weight:600} .card .l{font-size:12px;color:#8a8078;margin-top:2px}
+.bar{background:#fff;border:1px solid #eae4dc;border-radius:10px;padding:12px 15px;margin-bottom:8px}
+input,select{font:inherit;padding:7px 10px;border:1px solid #ddd5cb;border-radius:7px;background:#fff}
+input{width:260px}
+table{width:100%;border-collapse:collapse;background:#fff;border:1px solid #eae4dc;border-radius:10px;overflow:hidden}
+th,td{padding:8px 11px;font-size:13px;border-bottom:1px solid #f2ede6;text-align:left;vertical-align:top}
+th{background:#f6f1ea;font-weight:600;font-size:12px;color:#6b6259;position:sticky;top:0}
+td.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tr.s{cursor:pointer} tr.s:hover{background:#fdfaf6}
+.track{display:inline-block;width:96px;height:8px;background:#efe9e1;border-radius:4px;vertical-align:middle}
+.fill{height:8px;background:#b8763e;border-radius:4px} .pct{font-size:12px;color:#8a8078;margin-left:7px}
+.det{display:none;background:#fdfbf8}
+.det td{padding:10px 14px}
+.q{display:inline-block;margin:2px;padding:3px 7px;border-radius:6px;font-size:12px;border:1px solid transparent}
+.done{background:#e8f3ea;border-color:#cfe4d3;color:#2f6b3d}
+.queue{background:#fff2e2;border-color:#f0dcc0;color:#9a5b17}
+.todo{background:#f4f1ed;border-color:#e7e1d8;color:#8a8078}
+.img::after{content:'🖼'}
+.legend{font-size:12px;color:#8a8078;margin:6px 0 14px}
+.spark{display:flex;gap:3px;align-items:flex-end;height:44px}
+.spark div{width:26px;background:#b8763e;border-radius:3px 3px 0 0}
+.spark span{font-size:10px;color:#8a8078;display:block;text-align:center;margin-top:3px}
+.day{display:flex;flex-direction:column;justify-content:flex-end}
+</style><div class=wrap>
+<h1>ความคืบหน้าเฉลยละเอียด t1</h1>
+<div class=sub>สร้างจากไฟล์จริงเมื่อ __TS__ · คลิกแถวชุดเพื่อกางดูรายข้อ · ⛔ ค่า token = 0</div>
+<div class=kpi>
+ <div class=card><div class=v>__TOT__</div><div class=l>ข้อทั้งคลัง</div></div>
+ <div class=card><div class=v>__ND__</div><div class=l>ทำเสร็จแล้ว</div></div>
+ <div class=card><div class=v>__INQ__</div><div class=l>อยู่ในคิว (รอทำ)</div></div>
+ <div class=card><div class=v>__REST__</div><div class=l>ยังไม่เข้าคิว</div></div>
+ <div class=card><div class=v>__PCT__%</div><div class=l>คืบหน้า</div></div>
+</div>
+<h2>📅 เสร็จวันละกี่ข้อ</h2>
+<div class=bar><div class=spark id=spark></div></div>
+<h2>⏭ กำลังทำ / คิวถัดไป 40 ข้อ</h2>
+<div class=bar id=next></div>
+<h2>📚 รายชุด</h2>
+<div class=bar>
+ <input id=f placeholder="ค้นหาชื่อชุด / บท / เลขข้อ…">
+ <select id=g>
+  <option value=all>ทุกชุด</option>
+  <option value=part>เฉพาะที่ทำไปบ้างแล้ว</option>
+  <option value=full>เฉพาะที่เสร็จครบ</option>
+  <option value=none>เฉพาะที่ยังไม่เริ่ม</option>
+  <option value=queue>เฉพาะที่มีอยู่ในคิวตอนนี้</option>
+ </select>
+</div>
+<div class=legend>สีของเลขข้อ: <span class="q done">เสร็จแล้ว</span> <span class="q queue">อยู่ในคิว</span> <span class="q todo">ยังไม่ทำ</span> · 🖼 = ข้อที่ติดธงว่ามีรูป</div>
+<table id=t><thead><tr><th>ชุด</th><th>บทหลัก</th><th class=n>ทั้งหมด</th><th class=n>เสร็จ</th><th class=n>ในคิว</th><th>คืบหน้า</th><th>เสร็จล่าสุด</th></tr></thead><tbody id=tb></tbody></table>
+</div>
+<script>
+const DATA=__DATA__, BYDAY=__BYDAY__, NEXT=__NEXT__;
+const esc=s=>String(s).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+const chip=r=>`<span class="q ${r.st}${r.img?' img':''}" title="${esc(r.id)}${r.when?' · เสร็จ '+r.when:''}${r.sub?' · '+esc(r.sub):''} · ${esc(r.d)}">${esc(r.n||r.id)}</span>`;
+document.getElementById('spark').innerHTML=Object.entries(BYDAY).sort().map(([d,c])=>{
+  const mx=Math.max(...Object.values(BYDAY));
+  return `<div class=day><div style="height:${Math.round(c/mx*36)+4}px" title="${d} · ${c} ข้อ"></div><span>${d.slice(5)}<br>${c}</span></div>`}).join('');
+document.getElementById('next').innerHTML = NEXT.length
+  ? NEXT.map(r=>`<span class="q queue" title="${esc(r.id)}">${esc(r.id)}</span>`).join(' ')
+  : '<span style="color:#8a8078">⬜ ไม่พบไฟล์คิว — ส่ง --queue ชี้ไปที่ไฟล์คิวปัจจุบันเพื่อดูว่ากำลังทำชุดไหน</span>';
+function render(){
+  const f=document.getElementById('f').value.trim().toLowerCase(), g=document.getElementById('g').value;
+  const rows=DATA.filter(s=>{
+    if(g==='part'&&!(s.done>0&&s.done<s.n))return false;
+    if(g==='full'&&s.done!==s.n)return false;
+    if(g==='none'&&s.done!==0)return false;
+    if(g==='queue'&&s.queue===0)return false;
+    if(!f)return true;
+    return (s.set+' '+s.chap).toLowerCase().includes(f)||s.items.some(r=>r.id.toLowerCase().includes(f));
+  });
+  document.getElementById('tb').innerHTML=rows.map((s,i)=>{
+    const p=s.n?s.done/s.n*100:0;
+    return `<tr class=s data-i="${i}"><td><b>${esc(s.set)}</b></td><td>${esc(s.chap)}</td>
+    <td class=n>${s.n}</td><td class=n>${s.done}</td><td class=n>${s.queue||''}</td>
+    <td><span class=track><span class=fill style="width:${p.toFixed(1)}%;display:block"></span></span><span class=pct>${p.toFixed(0)}%</span></td>
+    <td>${esc(s.last||'—')}</td></tr>
+    <tr class=det><td colspan=7>${s.items.map(chip).join(' ')}</td></tr>`;}).join('');
+  document.querySelectorAll('tr.s').forEach(tr=>tr.onclick=()=>{
+    const d=tr.nextElementSibling; d.style.display=d.style.display==='table-row'?'none':'table-row';});
+}
+document.getElementById('f').oninput=render; document.getElementById('g').onchange=render; render();
+</script></html>"""
+    doc = (doc.replace('__TS__', ts).replace('__TOT__', f'{tot:,}').replace('__ND__', f'{nd:,}')
+              .replace('__INQ__', f'{inq:,}').replace('__REST__', f'{tot-nd-inq:,}')
+              .replace('__PCT__', f'{nd/tot*100:.1f}' if tot else '0')
+              .replace('__DATA__', json.dumps(data, ensure_ascii=False))
+              .replace('__BYDAY__', json.dumps(dict(sorted(byday.items())), ensure_ascii=False))
+              .replace('__NEXT__', json.dumps(nxt, ensure_ascii=False)))
+    open(a.out, 'w', encoding='utf-8').write(doc)
+    print(f'✅ {a.out}')
+    print(f'   คลัง {tot:,} · เสร็จ {nd:,} ({nd/tot*100:.1f}%) · ในคิว {inq:,} · ยังไม่เข้าคิว {tot-nd-inq:,}')
+    print(f'   ชุดทั้งหมด {len(data)} ชุด · ชุดที่เริ่มแล้ว {sum(1 for s in data if s["done"])} · เสร็จครบ {sum(1 for s in data if s["done"]==s["n"])}')
+
+if __name__ == '__main__':
+    main()
