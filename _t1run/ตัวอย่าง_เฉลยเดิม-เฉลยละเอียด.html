@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="th"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ตัวอย่าง — เฉลยเดิม / เฉลยละเอียด</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<style>
+:root{--bg:#f5f6f8;--card:#fff;--ink:#1b1d21;--dim:#6b7280;--line:#e3e5e9;--acc:#2563eb;
+ --warn:#b45309;--warnbg:#fffbeb;--ok:#15803d;--okbg:#f0fdf4;--trap:#b91c1c;--trapbg:#fef2f2;
+ --step:#eef2ff;--stepline:#c7d2fe;--code:#f3f4f6}
+@media (prefers-color-scheme:dark){:root{--bg:#15171b;--card:#1d2025;--ink:#e9ebee;--dim:#9aa1ab;
+ --line:#31353c;--acc:#7aa2f7;--warn:#fbbf24;--warnbg:#2a2312;--ok:#4ade80;--okbg:#12271a;
+ --trap:#f87171;--trapbg:#2a1414;--step:#1c2233;--stepline:#33406b;--code:#24272d}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-size:15.5px;line-height:1.65;
+ font-family:-apple-system,"Segoe UI","Noto Sans Thai",system-ui,sans-serif}
+.wrap{max-width:1100px;margin:0 auto;padding:18px 16px 70px}
+h1{font-size:19px;margin:0 0 4px}
+.sub{color:var(--dim);font-size:13px;margin:0 0 14px}
+.note{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--warn);
+ padding:9px 13px;border-radius:8px;font-size:13px;margin-bottom:16px}
+.bar{display:flex;gap:16px;flex-wrap:wrap;align-items:flex-end;background:var(--card);
+ border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin-bottom:16px}
+.lab{font-size:11.5px;color:var(--dim);font-weight:600;margin-bottom:5px;letter-spacing:.02em}
+.seg{display:flex;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.seg button{border:0;background:transparent;color:var(--ink);font:inherit;font-size:13px;
+ padding:7px 12px;cursor:pointer;border-right:1px solid var(--line);white-space:nowrap}
+.seg button:last-child{border-right:0}
+.seg button[aria-pressed=true]{background:var(--acc);color:#fff;font-weight:600}
+.qcard{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:14px}
+.qid{font-family:ui-monospace,Consolas,monospace;font-size:11.5px;color:var(--dim)}
+.qtext{margin:6px 0 10px}
+.ch{display:flex;gap:9px;margin:4px 0;font-size:14.5px}
+.ch b{width:22px;color:var(--dim);flex:0 0 auto}
+.ch.ok{color:var(--ok);font-weight:600}
+.panes{display:grid;gap:14px}
+.panes.two{grid-template-columns:1fr 1fr}
+@media(max-width:820px){.panes.two{grid-template-columns:1fr}}
+.pane{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;min-width:0}
+.ph{padding:9px 14px;border-bottom:1px solid var(--line);font-weight:600;font-size:13.5px;
+ display:flex;justify-content:space-between;align-items:center;gap:8px}
+.ph .tag{font-size:11px;font-weight:500;color:var(--dim)}
+.pb{padding:14px 16px;overflow-x:auto}
+/* ---- ชุดหน้าตากลาง: ใช้ทั้งเฉลยเก่าและใหม่ (ทาง ก) ---- */
+.sec{margin:0 0 14px}
+.sec:last-child{margin-bottom:0}
+.sech{font-weight:700;font-size:13.5px;margin:0 0 7px;display:flex;align-items:center;gap:6px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{background:var(--code);border:1px solid var(--line);border-radius:999px;padding:2px 10px;font-size:12px}
+ul.tight{margin:0;padding-left:20px}
+ul.tight li{margin:3px 0}
+.goal{background:var(--okbg);border:1px solid var(--line);border-left:3px solid var(--ok);
+ border-radius:8px;padding:9px 12px}
+.step{background:var(--step);border:1px solid var(--stepline);border-radius:10px;padding:11px 13px;margin:0 0 10px}
+.stepn{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;
+ border-radius:50%;background:var(--acc);color:#fff;font-size:12.5px;font-weight:700;margin-right:7px}
+.steptitle{font-weight:700;font-size:14.5px;margin-bottom:7px}
+.row{margin:6px 0}
+.rlab{font-size:11.5px;font-weight:700;color:var(--dim);letter-spacing:.02em}
+.eq{background:var(--card);border:1px dashed var(--stepline);border-radius:8px;padding:8px 11px;margin-top:5px;overflow-x:auto}
+.check{font-size:13.5px;color:var(--dim);border-top:1px dashed var(--stepline);padding-top:6px;margin-top:7px}
+.trap{background:var(--trapbg);border:1px solid var(--line);border-left:3px solid var(--trap);
+ border-radius:8px;padding:9px 12px;margin:0 0 8px}
+.trapgot{font-weight:700;color:var(--trap)}
+.verify{background:var(--okbg);border:1px solid var(--line);border-left:3px solid var(--ok);
+ border-radius:8px;padding:10px 12px}
+.hintbox{background:var(--warnbg);border:1px solid var(--line);border-left:3px solid var(--warn);
+ border-radius:8px;padding:10px 12px}
+.hint{display:flex;gap:8px;margin:4px 0}
+.hint b{color:var(--warn);flex:0 0 auto}
+.old p{margin:6px 0}
+.none{color:var(--dim);font-size:13.5px;padding:8px 0}
+.foot{margin-top:20px;color:var(--dim);font-size:12.5px;border-top:1px solid var(--line);padding-top:12px}
+
+.sub-old{background:var(--code);border:1px solid var(--line);border-radius:8px;padding:8px 11px;margin:0 0 10px;font-size:13px;color:var(--dim)}
+.kbbox{background:var(--code);border:1px solid var(--line);border-left:3px solid var(--acc);border-radius:8px;padding:9px 12px}
+.techbox{background:var(--warnbg);border:1px solid var(--line);border-left:3px solid var(--warn);border-radius:8px;padding:9px 12px}
+.divider{border-top:1px solid var(--line);margin:14px 0 10px;padding-top:9px;font-weight:700;font-size:13.5px}
+details.fold{border:1px solid var(--line);border-radius:8px;padding:0;margin:0 0 10px;overflow:hidden}
+details.fold>summary{cursor:pointer;padding:8px 12px;font-weight:700;font-size:13.5px;list-style:none;
+ display:flex;align-items:center;gap:7px;background:var(--code)}
+details.fold>summary::-webkit-details-marker{display:none}
+details.fold>summary::after{content:'▸';margin-left:auto;color:var(--dim);transition:transform .15s}
+details.fold[open]>summary::after{transform:rotate(90deg)}
+details.fold .fb{padding:11px 13px}
+details.fold.trapf>summary{background:var(--trapbg);color:var(--trap)}
+details.fold.hintf>summary{background:var(--warnbg);color:var(--warn)}
+.rawblk{font-family:ui-monospace,Consolas,monospace;font-size:11.5px;color:var(--dim);
+ border-bottom:1px dotted var(--line);padding:3px 0}
+code{background:var(--code);padding:1px 5px;border-radius:4px;font-size:12.5px}
+</style></head><body><div class="wrap">
+
+<h1>ตัวอย่าง — เฉลยเดิม / เฉลยละเอียด (t1) ในหน้าเดียวกัน</h1>
+<p class="sub">ข้อมูลจริงจากคลัง <code>data/sets/</code> + <code>_t1run/t1_index.json</code> · ⛔ ไม่ได้แตะ <code>viewer/admin.html</code> เลย</p>
+<div class="note">⚠️ <b>นี่คือภาพจำลองเพื่อให้ครูตัดสินใจ ⛔ ไม่ใช่ viewer ตัวจริง</b> — ทั้งโจทย์ ตัวเลือก เฉลยเดิม และ t1 เป็นของจริงทั้งหมด</div>
+
+<div class="bar">
+  <div><div class="lab">ข้อตัวอย่าง (ของจริง)</div><div class="seg" id="segQ"></div></div>
+  <div><div class="lab">เฉลยเดิม แสดงแบบไหน</div><div class="seg" id="segF">
+    <button data-f="raw" aria-pressed="false">ดิบ (ก่อนจัดรูป)</button>
+    <button data-f="fmt" aria-pressed="true">จัดรูปแล้ว</button>
+  </div></div>
+  <div><div class="lab">มุมมอง</div><div class="seg" id="segV">
+    <button data-v="old" aria-pressed="false">เฉลยเดิม</button>
+    <button data-v="new" aria-pressed="true">เฉลยละเอียด (ใหม่)</button>
+    <button data-v="both" aria-pressed="false">เทียบคู่กัน</button>
+  </div></div>
+</div>
+
+<div class="qcard" id="qcard"></div>
+<div class="panes" id="panes"></div>
+
+<div class="foot">
+<b>ทาง ก ที่ครูเลือก</b> — เฉลยเดิมยังเป็นเนื้อเดิมทุกตัวอักษร แค่ใส่ “เปลือกหน้าตา” ชุดเดียวกับเฉลยใหม่ (ตัวอักษร · ระยะ · สี · กล่อง) ⇒ ครอบคลุมครบ 6,497 ข้อทันที ⛔ ไม่ต้องแปลงข้อมูล<br>
+<b>เฉลยใหม่</b> มี 851 ข้อ (13%) ⇒ ปุ่ม “เฉลยละเอียด” จะกดไม่ได้ในข้อที่ยังไม่มี — ในตัวอย่างนี้ทั้ง 3 ข้อมีครบ<br>
+<b>กับดัก + ใบ้</b> พับไว้ให้ครูเปิดเอง (มติครู 23 ส.ค.) — ทั้งฝั่งเฉลยเดิมและเฉลยใหม่<br><b>ที่ยังไม่ได้ทำ</b> — รูปประกอบ (<code>imageSpec</code>) ยังไม่ถูกวาดในตัวอย่างนี้ · ของจริงต้องเรียก <code>renderers.js</code> เดิม
+</div>
+</div>
+
+<script id="DEMO" type="application/json">[{"id": "alvl1-2566-03-q01", "setId": "alvl1-2566-03", "n": 1, "question": "ให้ $p(x) = x^3 + (k-1)x^2 - k^3$ เมื่อ $k$ เป็นจำนวนจริงลบ ถ้าเศษเหลือจากการหาร $p(x)$ ด้วย $x - 3$ เท่ากับ $18$ แล้วเศษเหลือจากการหาร $p(x)$ ด้วย $2x + 1$ เท่ากับเท่าใด", "choices": ["$3$", "$18$", "$22$", "$\\dfrac{207}{8}$", "$\\dfrac{209}{8}$"], "correct": 3, "old": ["<b>📐 ความรู้พื้นฐานที่ต้องใช้</b>", "1) <b>ทฤษฎีเศษ:</b> เศษจากการหารพหุนาม $p(x)$ ด้วย $(x-c)$ คือ $p(c)$", "2) ถ้าตัวหารเป็น $2x+1$ ให้หารากของตัวหารจาก $2x+1=0 \\Rightarrow x=-\\dfrac{1}{2}$ แล้วเศษ $=p\\left(-\\dfrac{1}{2}\\right)$ (เพราะเศษมีดีกรีน้อยกว่าตัวหารดีกรี $1$ จึงเป็นค่าคงที่)", "<b>🎯 เป้าหมาย</b> หา $k$ ก่อนจากเงื่อนไขแรก แล้วจึงหาเศษเมื่อหารด้วย $2x+1$", "<b>【 พื้นฐาน · ทฤษฎีเศษเหลือ (Remainder Theorem) 】</b>", "<b>ขั้นที่ 1: หา $k$ จากเศษการหารด้วย $x-3$</b>", "เศษ $=p(3)=3^3+(k-1)(3^2)-k^3=27+9k-9-k^3=-k^3+9k+18$", "โจทย์ให้เศษ $=18$:", "$\\begin{aligned} \\;-k^3+9k+18 & =18 \\\\ 9k-k^3 & =0 \\end{aligned}$", "$\\begin{aligned} k(9-k^2) & =0 \\\\ k(3-k)(3+k) & =0 \\\\ k & =0,\\,3,\\,-3 \\end{aligned}$", "โจทย์ระบุ $k$ เป็นจำนวนจริง<b>ลบ</b> ดังนั้น $k=-3$", "<b>ขั้นที่ 2: หาเศษเมื่อหารด้วย $2x+1$</b>", "$\\begin{aligned} \\text{แทน} k &=-3 \\text{ได้} p(x)=x^3-4x^2+27 \\\\ \\text{เศษ} &=p\\left(-\\dfrac{1}{2}\\right)=\\left(-\\dfrac{1}{2}\\right)^3+(-4)\\left(-\\dfrac{1}{2}\\right)^2+27 \\\\ &=-\\dfrac{1}{8}-1+27=\\dfrac{-1-8+216}{8}=\\dfrac{207}{8} \\end{aligned}$", "<b>✔ ตรวจคำตอบ</b> แทน $k=-3$ ตรวจเงื่อนไขแรก: $p(3)=27+(-4)(9)-(-27)=27-36+27=18$ ✓ ตรงกับโจทย์ และ $k=-3 < 0$ ตรงเงื่อนไข; เศษ $\\dfrac{207}{8}=25.875$ เป็นจำนวนไม่เต็มซึ่งสมเหตุผลเพราะตัวหาร $2x+1$ ให้รากเศษส่วน", "<b>✅ คำตอบ: $\\dfrac{207}{8}$ → ตัวเลือก 4</b>", "<b>💡 เทคนิคที่ใช้</b> ตัวหาร $ax+b$ ใช้รากของมัน ($x=-\\dfrac{b}{a}$) แทนในพหุนามตัวตั้งได้เศษทันที — ทฤษฎีเศษใช้ได้กับตัวหารดีกรี $1$ ทุกแบบ ไม่จำกัดแค่ $x-c$", "<b>⚠️ จุดที่เด็กมักผิด</b> ลืมเงื่อนไข \"$k$ เป็นลบ\" แล้วเลือก $k=3$ หรือ $0$; และคำนวณ $-(-3)^3=+27$ ผิดเครื่องหมาย"], "t1": {"id": "alvl1-2566-03-q01", "v": "t1-v1", "kb_ref": ["3.5", "3.2"], "given": ["$p(x) = x^3 + (k-1)x^2 - k^3$ โดย $k$ เป็นจำนวนจริงลบ", "เศษเหลือจากการหาร $p(x)$ ด้วย $x - 3$ เท่ากับ $18$"], "goal": "หาเศษเหลือจากการหาร $p(x)$ ด้วย $2x + 1$", "steps": [{"n": 1, "title": "ใช้ทฤษฎีเศษหาค่า $k$", "formula": "เมื่อ $p(x)$ หารด้วย $x - a$ เศษเหลือคือ $p(a)$", "why": "เพราะทฤษฎีเศษให้วิธีตรงในการหาเศษโดยแทน $x = 3$ ในพหุนามตัวตั้ง ไม่ต้องหารยาว", "work": ["$p(3) = 3^3 + (k-1)(3)^2 - k^3$", "$= 27 + 9(k-1) - k^3$", "$= 27 + 9k - 9 - k^3$", "$= 18 + 9k - k^3$"], "eq": "$p(3) = 18 + 9k - k^3 = 18$", "check": "จากเงื่อนไขที่โจทย์ให้ $p(3) = 18$"}, {"n": 2, "title": "แก้สมการเพื่อหา $k$", "formula": "จัดรูปสมการ $9k - k^3 = 0$ แล้วแยกตัวประกอบ", "why": "เพราะได้สมการเชิงเดียว มีตัวแปรเดียว และสามารถแยกตัวประกอบได้", "work": ["$18 + 9k - k^3 = 18$", "$9k - k^3 = 0$", "$k(9 - k^2) = 0$", "$k(3-k)(3+k) = 0$", "$k = 0$ หรือ $k = 3$ หรือ $k = -3$"], "eq": "$k = 0, \\, 3, \\, -3$", "check": "ตรวจสอบเงื่อนไข \"$k$ เป็นจำนวนจริงลบ\" ได้เฉพาะ $k = -3$"}, {"n": 3, "title": "เลือก $k$ ที่เป็นลบ", "formula": "เงื่อนไขโจทย์: $k$ เป็นจำนวนจริงลบ", "why": "เพราะโจทย์ระบุชัดเจนว่า $k < 0$ ทำให้ $k = 0$ และ $k = 3$ ถูกตัดออก", "work": ["จากผลที่ได้ $k = 0, 3, -3$", "$k = 0$ ไม่ใช่ลบ", "$k = 3$ เป็นบวก", "$k = -3$ เป็นลบ ✓"], "eq": "$k = -3$", "check": "แทน $k=-3$ กลับในสมการเดิม: $9(-3) - (-3)^3 = -27 - (-27) = 0$ ✓"}, {"n": 4, "title": "แทน $k = -3$ ใน $p(x)$", "formula": "$p(x) = x^3 + (k-1)x^2 - k^3$", "why": "ต้องได้พหุนามที่สมบูรณ์ก่อนจึงจะหาเศษจากการหารด้วย $2x+1$ ได้", "work": ["$p(x) = x^3 + (-3-1)x^2 - (-3)^3$", "$= x^3 + (-4)x^2 - (-27)$", "$= x^3 - 4x^2 + 27$"], "eq": "$p(x) = x^3 - 4x^2 + 27$", "check": "ตรวจสอบ $p(3) = 27 - 4(9) + 27 = 27 - 36 + 27 = 18$ ✓"}, {"n": 5, "title": "หาเศษจากการหาร $p(x)$ ด้วย $2x + 1$", "formula": "ทฤษฎีเศษสำหรับตัวหาร $ax + b$: เศษเหลือคือ $p\\left(-\\dfrac{b}{a}\\right)$", "why": "เพราะทฤษฎีเศษใช้ได้กับตัวหารดีกรี 1 ทุกแบบ ไม่จำเป็นต้องเป็นรูป $x-c$ เท่านั้น โดยใช้รากของตัวหารแทนใน $p(x)$", "work": ["รากของ $2x + 1 = 0$ คือ $x = -\\dfrac{1}{2}$", "$p\\left(-\\dfrac{1}{2}\\right) = \\left(-\\dfrac{1}{2}\\right)^3 - 4\\left(-\\dfrac{1}{2}\\right)^2 + 27$", "$= -\\dfrac{1}{8} - 4 \\cdot \\dfrac{1}{4} + 27$", "$= -\\dfrac{1}{8} - 1 + 27$", "$= -\\dfrac{1}{8} + 26$", "$= -\\dfrac{1}{8} + \\dfrac{208}{8}$", "$= \\dfrac{207}{8}$"], "eq": "$p\\left(-\\dfrac{1}{2}\\right) = \\dfrac{207}{8}$", "check": "ตรวจสอบว่าผลลัพธ์อยู่ในตัวเลือก: ตัวเลือก 4 คือ $\\dfrac{207}{8}$ ✓"}], "verify": {"how": "หาร $p(x) = x^3 - 4x^2 + 27$ ด้วย $2x + 1$ แบบหารยาวตรง ๆ", "lines": ["หารยาว: $(x^3 - 4x^2 + 27) \\div (2x + 1)$", "ผลหาร: $\\dfrac{1}{2}x^2 - \\dfrac{9}{4}x + \\dfrac{9}{8}$", "เศษเหลือ: $27 - \\dfrac{9}{8} = \\dfrac{216}{8} - \\dfrac{9}{8} = \\dfrac{207}{8}$"], "result": "ตรงกับเส้นทางหลัก ✓"}, "technique": ["ทฤษฎีเศษใช้ได้กับตัวหารดีกรี 1 ทุกรูป ($ax+b$) โดยแทนรากของมันใน $p(x)$ ไม่จำกัดแค่ $x-c$", "เงื่อนไขบนตัวแปร ($k$ เป็นลบ) บีบให้เหลือคำตอบเดียว แม้สมการจะมีหลายรูท", "ตรวจสอบเครื่องหมายของเลขยกกำลัง: $(-3)^3 = -27$ ⛔ ไม่ใช่ $+27$"], "traps": [{"got": "$3$", "why": "ลืมเงื่อนไข \"$k$ เป็นลบ\" เลือก $k = 3$ จากรากที่เป็นบวก", "caught_by": "ข้อ 3: ตรวจเงื่อนไข $k < 0$"}, {"got": "$18$", "why": "สับสนระหว่างเศษจากการหาร $x-3$ (ที่โจทย์ให้มา) กับที่ถามหา", "caught_by": "ข้อ 5: ต้องหาเศษจาก $2x+1$ ไม่ใช่ใช้เศษจาก $x-3$ ซ้ำ"}, {"got": "$\\dfrac{209}{8}$", "why": "คำนวณ $-(-3)^3 = +27$ ผิดเครื่องหมาย แทนที่จะได้ $-27$ ทำให้ $p(x) = x^3 - 4x^2 - 27$ และ $p(-\\frac{1}{2}) = \\frac{209}{8}$", "caught_by": "ข้อ 4: ตรวจสอบ $p(3) = 18$ ด้วยค่า $k$ ที่ได้"}, {"got": "$22$", "why": "ลืมแปลง $26$ เป็นเศษส่วนที่มีส่วนเดียวกัน คิดว่า $-\\frac{1}{8} + 26 = \\frac{25}{8}$ หรือคิดผิดตอนจัดรูป", "caught_by": "ข้อ 5: ตรวจสอบการแปลงเศษส่วน $26 = \\frac{208}{8}$"}], "hints": ["ข้อนี้ใช้ทฤษฎีเศษสองครั้ง: ครั้งแรกหา $k$ จาก $p(3) = 18$ ครั้งสองหาเศษจาก $2x+1$", "ทฤษฎีเศษ: เมื่อ $p(x)$ หารด้วย $ax + b$ เศษเหลือคือ $p(-\\frac{b}{a})$ — หารากของตัวหารแทนใน $p(x)$ ได้เลย", "ระวัง: เงื่อนไข \"$k$ เป็นลบ\" ตัดตัวเลือกหลายค่า และระวังเครื่องหมาย $(-3)^3 = -27$", "เริ่มจากหา $k$ โดยแทน $x = 3$ ใน $p(x)$ แล้วตั้งสมการเท่ากับ $18$"]}}, {"id": "gen-chap-01-set-q096", "setId": "gen-chap-01-set", "n": 96, "question": "กำหนด $A=\\{1\\}$, $D=\\{1,2,3,4\\}$, $E=\\{\\{1\\},\\{1,2\\},\\{2,3,4\\}\\}$ ข้อใดถูกต้อง", "choices": ["$(D-A)\\cap D\\in E$", "$(D-A)\\cap D\\notin E$", "$\\{1,2\\}\\notin E$", "$D\\in E$"], "correct": 0, "old": ["📚 <b>ความรู้พื้นฐานที่ต้องใช้</b>", "$\\in$ = เป็นสมาชิก, $\\subset$ = เป็นสับเซต (ต่างกัน)", "$D-A=D\\cap A'$", "เซตของเซต: มองผลลัพธ์เป็น 'ก้อนเดียว' เทียบกับรายการสมาชิกของ $E$", "", "📐 <b>โจทย์กำหนด</b>", "$A=\\{1\\}$ · $D=\\{1,2,3,4\\}$ · $E=\\{\\{1\\},\\{1,2\\},\\{2,3,4\\}\\}$", "", "🎯 <b>เป้าหมาย</b>", "เลือกข้อความที่ถูกต้อง", "", "<b>【 สมาชิกของเซตของเซต (membership in a set of sets) 】</b>", "", "<b>ขั้นที่ 1 · คำนวณเซตผลลัพธ์ $(D-A)\\cap D$ ก่อน</b>", "เพราะต้องรู้ว่าได้เซตอะไรก่อน จึงจะเทียบกับสมาชิกของ $E$ ได้ เริ่มจาก $D-A=\\{1,2,3,4\\}-\\{1\\}=\\{2,3,4\\}$", "$$(D-A)\\cap D=\\{2,3,4\\}\\cap\\{1,2,3,4\\}=\\{2,3,4\\}$$", "", "<b>ขั้นที่ 2 · เช็คว่าเซตนี้เป็นสมาชิกของ $E$ หรือไม่</b>", "เพราะ $E$ เป็นเซตที่สมาชิกแต่ละตัวเป็นเซต ให้ดูว่า $\\{2,3,4\\}$ ถูกลิสต์ไว้ใน $E$ ไหม พบว่าอยู่จริง (ตัวที่สาม)", "$$\\{2,3,4\\}\\in E\\quad\\Rightarrow\\quad (D-A)\\cap D\\in E$$", "ตัวเลือกที่ $1$ จึงถูก", "", "✔ <b>ตรวจคำตอบ (วิธีอิสระ · ตัดตัวเลือกอื่น)</b>", "ตัวเลือก $2$ อ้าง $(D-A)\\cap D\\notin E$ ขัดกับที่พบว่าอยู่ใน $E$ → ผิด · ตัวเลือก $3$ อ้าง $\\{1,2\\}\\notin E$ แต่ $\\{1,2\\}$ ถูกลิสต์ใน $E$ → ผิด · ตัวเลือก $4$ อ้าง $D\\in E$ แต่ $\\{1,2,3,4\\}$ ไม่ได้อยู่ในรายการของ $E$ → ผิด เหลือข้อ $1$ ข้อเดียว ✓", "", "✅ <b>คำตอบ</b> $$(D-A)\\cap D\\in E$$", "", "💡 <b>เทคนิค</b>", "โจทย์เซตของเซต ให้คำนวณเซตผลลัพธ์ให้เสร็จก่อน แล้วมองมันเป็น 'ก้อนเดียว' เทียบกับรายการสมาชิกของ $E$", "", "⚠️ <b>จุดพลาด</b>", "สับสน $\\in$ (เป็นสมาชิก) กับ $\\subset$ (เป็นสับเซต) เช่น $\\{2,3,4\\}\\subset E$ ผิด แต่ $\\{2,3,4\\}\\in E$ ถูก · หรือลืมว่า $D$ เองไม่ได้เป็นสมาชิกของ $E$"], "t1": {"id": "gen-chap-01-set-q096", "v": "t1-v1", "kb_ref": ["1.2", "1.8", "1.12"], "given": ["$A=\\{1\\}$", "$D=\\{1,2,3,4\\}$", "$E=\\{\\{1\\},\\{1,2\\},\\{2,3,4\\}\\}$ (E เป็นเซตที่มีสมาชิกเป็นเซตย่อยสามชุด ไม่ใช่ตัวเลข)"], "goal": "หาว่าข้อความในตัวเลือกใดถูกต้อง โดยต้องคำนวณ $(D-A)\\cap D$ ก่อน แล้วตรวจว่าเป็นสมาชิกของ $E$ หรือไม่", "steps": [{"n": 1, "title": "หา D-A (สมาชิกใน D แต่ไม่อยู่ใน A)", "formula": "$$D-A=\\{x: x\\in D \\text{ และ } x\\notin A\\}$$", "why": "ทุกตัวเลือกในโจทย์อ้างถึง $(D-A)\\cap D$ จึงต้องหา $D-A$ ให้ได้ก่อนเป็นลำดับแรกสุด ก่อนจะไปตัดกับ $D$ และตรวจสมาชิกภาพใน $E$ ในขั้นถัดไป", "work": ["D = {1,2,3,4}, A = {1}", "ตัด 1 ออกจาก D เพราะ 1∈A", "เหลือ D-A = {2,3,4}"], "eq": "$$D-A=\\{2,3,4\\}$$", "check": "ตรวจว่า $1$ ไม่อยู่ในผลลัพธ์ (ถูกตัดออกไปแล้ว) และ $2,3,4$ ยังอยู่ครบทั้งสามตัว"}, {"n": 2, "title": "หา (D-A)∩D", "formula": "$$(D-A)\\cap D$$", "why": "โดยนิยามแล้ว $D-A\\subseteq D$ เสมอ (เพราะทุกตัวที่เลือกมาจาก $D-A$ ก็มาจาก $D$ อยู่แล้ว) การตัดกับ $D$ ซ้ำจึงไม่เปลี่ยนแปลงอะไร แต่ต้องคำนวณให้เห็นชัดเจนเป็นขั้นตอน เพราะโจทย์ถามตรงนี้โดยตรง และเป็นกับดักที่ทำให้บางคนเผลอไปคำนวณอย่างอื่นแทน", "work": ["(D-A)∩D = {2,3,4}∩{1,2,3,4}", "= {2,3,4} (เหมือนเดิมทุกตัว เพราะ D-A เป็นสับเซตของ D อยู่แล้ว)"], "eq": "$$(D-A)\\cap D=\\{2,3,4\\}$$", "check": "ตรวจว่า $\\{2,3,4\\}\\subseteq D$ จริง (ทุกตัวของผลลัพธ์ต้องเป็นสมาชิกของ $D$ ด้วย)"}, {"n": 3, "title": "ตรวจว่า {2,3,4} เป็นสมาชิกของ E หรือไม่ (∈ ไม่ใช่ ⊆)", "formula": "$$E=\\big\\{\\{1\\},\\{1,2\\},\\{2,3,4\\}\\big\\} \\Rightarrow \\text{ต้องเทียบ } \\{2,3,4\\} \\text{ กับสมาชิกแต่ละตัวของ } E \\text{ ทั้งก้อน}$$", "why": "$E$ เป็น 'เซตของเซต' (set of sets) ที่มีสมาชิกเพียง 3 ตัว โดยแต่ละตัวเป็นเซตย่อยของ $D$ การตรวจ $\\in$ ต้องเทียบทั้งก้อนเซต $\\{2,3,4\\}$ กับสมาชิกแต่ละตัวของ $E$ ไม่ใช่ไล่เช็คทีละตัวเลขว่าอยู่ใน $E$ หรือเปล่า ซึ่งเป็นกับดักหลักของข้อนี้ที่ทำให้ตอบผิดได้ง่ายที่สุด", "work": ["เทียบ {2,3,4} กับสมาชิกตัวที่ 1: {1} ≠ {2,3,4}", "เทียบกับสมาชิกตัวที่ 2: {1,2} ≠ {2,3,4}", "เทียบกับสมาชิกตัวที่ 3: {2,3,4} = {2,3,4} ตรงกันพอดี"], "eq": "$$\\{2,3,4\\}\\in E$$", "check": "เพราะตรงกับสมาชิกตัวที่สามของ $E$ พอดีทุกตัว จึงสรุปว่า $\\{2,3,4\\}\\in E$ เป็นจริง"}, {"n": 4, "title": "ตรวจตัวเลือกที่เหลือเพื่อยืนยันว่ามีข้อถูกเพียงข้อเดียว", "formula": "$$\\{1,2\\}\\overset{?}{\\in} E,\\qquad D\\overset{?}{\\in} E$$", "why": "โจทย์แบบปรนัยต้องมีคำตอบถูกเพียงข้อเดียว การตรวจตัวเลือกที่เหลือทั้งหมดช่วยยืนยันว่าไม่ได้อ่านโจทย์คลาดเคลื่อน และช่วยตัดข้อที่ดูคล้ายถูกแต่จริง ๆ เป็นกับดักออกไปให้หมด", "work": ["{1,2} ตรงกับสมาชิกตัวที่ 2 ของ E พอดี ⇒ {1,2}∈E เป็นจริง ⇒ ตัวเลือก '{1,2}∉E' จึงเป็นเท็จ", "D={1,2,3,4} ไม่ตรงกับสมาชิกใดของ E เลย (E มีแค่ 3 สมาชิก ซึ่งล้วนเป็นสับเซตแท้ของ D ไม่ใช่ D เอง) ⇒ D∉E ⇒ ตัวเลือก 'D∈E' จึงเป็นเท็จ", "และเพราะ (D-A)∩D∈E เป็นจริง ตัวเลือก '(D-A)∩D∉E' ซึ่งเป็นข้อความตรงข้ามจึงเป็นเท็จไปด้วย"], "eq": "$(D-A)\\cap D\\in E$", "check": "มีเพียงตัวเลือกนี้ตัวเดียวเท่านั้นที่เป็นจริง ตัวเลือกอื่นทั้งสามเป็นเท็จหมด"}], "verify": {"how": "พิสูจน์ความเท่ากันของเซต {2,3,4} กับสมาชิกตัวที่สามของ E แบบสมาชิกต่อสมาชิก (element-wise, ตรวจสับเซตสองทาง) แทนการเทียบทั้งก้อนแบบขั้นที่ 3", "lines": ["ให้ $S=(D-A)\\cap D=\\{2,3,4\\}$ และ $T=\\{2,3,4\\}$ (สมาชิกตัวที่สามของ E)", "ตรวจ $S\\subseteq T$: $2\\in T$, $3\\in T$, $4\\in T$ ผ่านทั้งหมด", "ตรวจ $T\\subseteq S$: $2\\in S$, $3\\in S$, $4\\in S$ ผ่านทั้งหมด", "เพราะ $S\\subseteq T$ และ $T\\subseteq S$ พร้อมกัน จึงได้ $S=T$ ตามหลักการเท่ากันของเซต ดังนั้น $S\\in E$ จริง"], "result": "$(D-A)\\cap D\\in E$ เป็นจริง — ตรงกับตัวเลือกที่ถูกต้อง"}, "technique": ["แยกแยะ $\\in$ (เป็นสมาชิกของ) กับ $\\subseteq$ (เป็นสับเซตของ) เมื่อเซตมีสมาชิกเป็นเซตซ้อนกัน (set of sets)", "พิสูจน์ความเท่ากันของเซตด้วยการตรวจสับเซตสองทาง ($S\\subseteq T$ และ $T\\subseteq S$)"], "traps": [{"got": "$(D-A)\\cap D\\notin E$", "why": "เข้าใจผิดว่า $E$ เป็นเซตของ 'ตัวเลข' ไม่ใช่ 'เซตของเซต' จึงไล่ตรวจว่า $2,3,4$ แต่ละตัวเป็นสมาชิกของ $E$ หรือไม่ (พบว่าไม่มีตัวเลขเดี่ยว ๆ อยู่ใน $E$ เลยสักตัว) แล้วสรุปผิดว่า $\\{2,3,4\\}\\notin E$ ทั้งที่ต้องเทียบทั้งก้อนเซตกับสมาชิกของ $E$"}, {"got": "$\\{1,2\\}\\notin E$", "why": "มองข้ามว่า $\\{1,2\\}$ คือสมาชิกตัวที่สองของ $E$ ที่เขียนไว้ตรง ๆ อาจสับสนไปตรวจว่า $1,2$ (ตัวเลข) เป็นสมาชิกของ $E$ หรือไม่แทน แล้วสรุปผิดว่า $\\{1,2\\}$ ไม่อยู่ใน $E$ ทั้งที่จริงมันอยู่"}, {"got": "$D\\in E$", "why": "สับสนระหว่าง $D$ (เซตทั้งหมด $\\{1,2,3,4\\}$) กับสมาชิกของ $E$ เข้าใจผิดว่าเพราะ $E$ ประกอบด้วยสับเซตของ $D$ หลายชุด รวมกันแล้วน่าจะ 'เป็น' $D$ จึงตอบว่า $D\\in E$ ทั้งที่ $E$ ไม่มี $D$ เป็นสมาชิกเลยสักตัว"}, {"got": "$(D-A)\\cap D\\notin E$", "why": "คำนวณ $D-A$ ผิดพลาดทางเลขคณิต ได้ $\\{2,3\\}$ (ตกหล่นเลข 4 ไปโดยไม่ตั้งใจ) ทำให้ $(D-A)\\cap D=\\{2,3\\}$ ซึ่งไม่ตรงกับสมาชิกใดของ $E$ เป๊ะ ๆ เลยสักตัว จึงสรุปผิดว่า $\\notin E$ ทั้งที่ต้นเหตุคือคำนวณ $D-A$ ผิดตั้งแต่แรก"}], "hints": ["หา D-A ก่อน แล้วสังเกตว่า D-A⊆D เสมอ ดังนั้น (D-A)∩D จะเท่ากับ D-A นั่นเอง", "E เป็นเซตที่มีสมาชิกเป็นเซตย่อย 3 ชุด ไม่ใช่เซตของตัวเลข การตรวจ ∈E ต้องเทียบทั้งก้อนเซต ไม่ใช่ไล่ตรวจทีละตัวเลข", "ระวัง: {1,2} และ D={1,2,3,4} ต่างก็ไม่ใช่คำตอบ อย่าเผลอไปเทียบตัวเลขเดี่ยว ๆ กับสมาชิกของ E", "ขั้นแรก: คำนวณ D-A={1,2,3,4}-{1} แล้วดูว่าผลลัพธ์ตรงกับสมาชิกตัวใดของ E พอดีหรือไม่"]}}, {"id": "pat1-2564-03-q22", "setId": "pat1-2564-03", "n": 22, "question": "ตึกหนึ่งและตึกสองตั้งอยู่บนพื้นราบในแนวเส้นตรงเดียวกัน โดยตึกสองสูงกว่าตึกหนึ่ง และมีแนวรั้วกั้นระหว่างตึกทั้งสอง ซึ่งระยะห่างจากแนวรั้วถึงตึกสองเท่ากับ 12 เมตร ชาลียืนอยู่บนดาดฟ้าของตึกหนึ่ง (จุด $P$) มองเห็นยอดตึกสอง (จุด $Q$) เป็นมุมเงย 45 องศา มองเห็นฐานตึกสอง (จุด $R$) เป็นมุมก้ม 30 องศา และมองเห็นฐานของแนวรั้ว (จุด $S$) เป็นมุมก้ม 60 องศา ดังรูป ถ้าชาลีสูง 180 เซนติเมตร และจุด $P$, $Q$, $R$, $S$ อยู่ในระนาบเดียวกัน แล้วตึกสองสูงกว่าตึกหนึ่งประมาณกี่เมตร", "choices": ["18", "19.8", "$13.8+6\\sqrt{3}$", "25.8", "$13.8+8\\sqrt{3}$"], "correct": 1, "old": ["<b>📐 ความรู้พื้นฐาน</b>", "มุมเงย/มุมก้ม วัดจากแนวระดับสายตา; ในสามเหลี่ยมมุมฉากใช้ $\\tan=\\dfrac{\\text{ตรงข้าม}}{\\text{ประชิด}}$", "สามเหลี่ยมที่มีมุมฐานเท่ากันเป็นสามเหลี่ยมหน้าจั่ว (ด้านประกอบมุมยอดยาวเท่ากัน)", "", "<b>🎯 กุญแจสำคัญ</b>", "แยกความสูงเป็นสองส่วน — ส่วนบน (เหนือระดับสายตาถึงยอดตึกสอง) กับส่วนล่าง (ความสูงชาลี $1.8$ เมตร); ใช้มุมก้มหา $BS,BR$ จากผลต่าง $12$ เมตรได้ $h$ แล้วใช้มุมเงย $45^\\circ$ ที่ทำให้เกิดสามเหลี่ยมหน้าจั่ว", "", "<b>【 พื้นฐาน · แยกความสูงบน-ล่างระดับสายตาแล้วใช้แทนเจนต์ (angle of elevation/depression) 】</b>", "", "<b>ขั้นที่ 1: ตั้งตัวแปรความสูงระดับสายตา</b>", "ให้ $h$ = ความสูงจากระดับสายตาชาลี (จุด $P$) ลงมาถึงระดับพื้นราบ; ระยะแนวระดับจาก $P$ ถึงฐานรั้ว $=BS$ และถึงฐานตึกสอง $=BR$", "", "<b>ขั้นที่ 2: ใช้มุมก้มหา $BS$ และ $BR$</b>", "มุมก้มถึงฐานรั้ว $60^\\circ$:", "$\\begin{aligned} \\tan 60^\\circ & =\\dfrac{h}{BS} \\\\ BS & =\\dfrac{h}{\\sqrt{3}} \\end{aligned}$", "มุมก้มถึงฐานตึกสอง $30^\\circ$:", "$\\begin{aligned} \\tan 30^\\circ & =\\dfrac{h}{BR} \\\\ BR & =\\sqrt{3}\\,h \\end{aligned}$", "...(*)", "", "<b>ขั้นที่ 3: ใช้ระยะรั้วถึงตึกสอง $=12$</b>", "$\\begin{aligned} SR & =BR-BS=12 \\\\ \\sqrt{3}h-\\dfrac{h}{\\sqrt{3}} & =12 \\end{aligned}$", "$\\begin{aligned} \\dfrac{3h-h}{\\sqrt{3}} & =12 \\\\ \\dfrac{2h}{\\sqrt{3}} & =12 \\\\ h & =6\\sqrt{3} \\end{aligned}$", "", "<b>ขั้นที่ 4: หาความสูงส่วนบน (จากระดับสายตาถึงยอดตึกสอง)</b>", "พิจารณาสามเหลี่ยม $AQC$ (มุมเงย $45^\\circ$): มุมที่ $Q$ เท่ากับ $180^\\circ-90^\\circ-45^\\circ=45^\\circ=Q\\hat{A}C$ จึงเป็นสามเหลี่ยมหน้าจั่ว", "$\\Rightarrow QC=AC=BR=\\sqrt{3}h$ (จาก (*)) $=\\sqrt{3}\\cdot 6\\sqrt{3}=18$ เมตร", "", "<b>ขั้นที่ 5: รวมความสูงทั้งหมด</b>", "ตึกสองสูงกว่าตึกหนึ่ง = ($QC$ ส่วนเหนือระดับสายตา) + (ความสูงชาลี $AP$)", "$=18+\\dfrac{180}{100}=18+1.8=19.8$ เมตร", "[IMAGE:0]", "", "<b>✔ ตรวจคำตอบ:</b> $h=6\\sqrt{3}\\approx 10.39$ เมตร, $QC=18$ เมตร บวกความสูงชาลี 1.8 เมตร ได้ 19.8 เมตร ตรงตัวเลือก 2", "", "<b>✅ คำตอบ: 19.8 เมตร → ตัวเลือก 2</b>", "", "<b>💡 เทคนิคที่ใช้</b> แยกความสูง \"ส่วนบน\" (เหนือระดับสายตา) กับ \"ส่วนล่าง\" (ระดับสายตาลงพื้น = ความสูงชาลี) คิดทีละส่วนแล้วบวก และจับสังเกตมุม $45^\\circ$ ที่ทำให้เกิดสามเหลี่ยมหน้าจั่ว", "<b>⚠️ จุดที่เด็กมักผิด</b> (1) ลืมบวกความสูงชาลี 1.8 เมตร (จะได้ 18 ผิด) (2) สับสน $\\tan 30^\\circ$ กับ $\\tan 60^\\circ$ ทำให้ $BR,BS$ สลับกัน"], "t1": {"id": "pat1-2564-03-q22", "v": "t1-v1", "kb_ref": ["7.10", "7.1"], "given": ["ตึกหนึ่งและตึกสองตั้งอยู่บนพื้นราบในแนวเส้นตรงเดียวกัน ตึกสองสูงกว่าตึกหนึ่ง", "มีแนวรั้วกั้นระหว่างตึกทั้งสอง ระยะห่างจากแนวรั้วถึงตึกสองเท่ากับ 12 เมตร", "ชาลียืนอยู่บนดาดฟ้าของตึกหนึ่ง (จุด $P$)", "มองเห็นยอดตึกสอง (จุด $Q$) เป็นมุมเงย $45°$", "มองเห็นฐานตึกสอง (จุด $R$) เป็นมุมก้ม $30°$", "มองเห็นฐานของแนวรั้ว (จุด $S$) เป็นมุมก้ม $60°$", "ชาลีสูง 180 เซนติเมตร = 1.8 เมตร", "จุด $P, Q, R, S$ อยู่ในระนาบเดียวกัน"], "goal": "หาว่าตึกสองสูงกว่าตึกหนึ่งกี่เมตร", "steps": [{"n": 1, "title": "หาระยะ $PS$ (ระยะระดับจาก $P$ ถึงรั้ว)", "formula": "$\\tan(\\text{มุมก้ม}) = \\dfrac{\\text{ความสูง}}{\\text{ระยะระดับ}}$", "why": "เพราะมุมก้ม $60°$ และความสูงชาลี (1.8 ม.) เป็นข้อมูลที่รู้ ใช้สร้างสามเหลี่ยมมุมฉากเพื่อหาระยะระดับไปยังรั้ว ซึ่งจะใช้ต่อในการหาระยะไปตึกสอง", "work": ["ให้ระยะระดับจาก $P$ ถึง $S$ (ฐานรั้ว) เป็น $d_S$", "ความสูงจาก $P$ ลงพื้น = ความสูงชาลี = 1.8 ม.", "$\\tan 60° = \\dfrac{1.8}{d_S}$", "$\\sqrt{3} = \\dfrac{1.8}{d_S}$", "$d_S = \\dfrac{1.8}{\\sqrt{3}} = \\dfrac{1.8\\sqrt{3}}{3} = 0.6\\sqrt{3}$ ม."], "eq": "$d_S = 0.6\\sqrt{3}$ ม.", "check": "$\\sqrt{3} \\approx 1.732$ ดังนั้น $d_S \\approx 1.04$ ม. สมเหตุสมผล"}, {"n": 2, "title": "หาระยะ $PR$ (ระยะระดับจาก $P$ ถึงฐานตึกสอง)", "formula": "$\\tan 30° = \\dfrac{1.8}{d_R}$", "why": "เพราะมุมก้ม $30°$ มองไปที่ฐานตึกสอง ($R$) ใช้ความสูงเดิม 1.8 ม. เพื่อหาระยะระดับ $d_R$ ซึ่งจะใช้ในการคำนวณส่วนสูงเหนือระดับสายตาต่อไป", "work": ["ให้ระยะระดับจาก $P$ ถึง $R$ (ฐานตึกสอง) เป็น $d_R$", "$\\tan 30° = \\dfrac{1.8}{d_R}$", "$\\dfrac{1}{\\sqrt{3}} = \\dfrac{1.8}{d_R}$", "$d_R = 1.8\\sqrt{3}$ ม."], "eq": "$d_R = 1.8\\sqrt{3}$ ม.", "check": "$d_R \\approx 3.12$ ม. ซึ่งมากกว่า $d_S$ สมเหตุสมผลเพราะตึกสองอยู่ไกลกว่ารั้ว"}, {"n": 3, "title": "หาส่วนสูงเหนือระดับสายตา $PQ$ (จาก $P$ ถึงยอดตึกสอง)", "formula": "มุมเงย $45°$ ทำให้สามเหลี่ยมเป็นหน้าจั่ว: ความสูง = ระยะระดับ", "why": "เพราะมุมเงย $45°$ หมายความว่าอีกมุมหนึ่งในสามเหลี่ยมมุมฉากก็เป็น $45°$ (เพราะรวมกันได้ $90°$) จึงเป็นสามเหลี่ยมหน้าจั่ว ทำให้ด้านประชิดทั้งสองเท่ากัน", "work": ["ให้ส่วนสูงเหนือระดับสายตา $P$ ที่มองไปยอด $Q$ เป็น $h_{\\text{บน}}$", "ระยะระดับ = $d_R = 1.8\\sqrt{3}$ ม.", "เมื่อมุมเงย = $45°$ ได้สามเหลี่ยมมุมฉาก $45°-45°-90°$", "$h_{\\text{บน}} = d_R \\cdot \\tan 45° = 1.8\\sqrt{3} \\cdot 1 = 1.8\\sqrt{3}$ ม."], "eq": "$h_{\\text{บน}} = 1.8\\sqrt{3}$ ม.", "check": "เมื่อมุม $45°$ แล้ว $\\tan 45° = 1$ ดังนั้น ความสูง = ระยะระดับ ถูกต้อง"}, {"n": 4, "title": "หาความสูงตึกสอง", "formula": "ความสูงตึกสอง = ความสูงตึกหนึ่ง + ส่วนสูงเหนือระดับสายตา", "why": "เพราะตึกสองสูงกว่าตึกหนึ่ง โดยส่วนที่สูงกว่าคือส่วนที่อยู่เหนือระดับสายตาของชาลี (ที่อยู่บนดาดฟ้าตึกหนึ่ง) บวกกับระดับสายตาเอง", "work": ["ความสูงตึกหนึ่ง (จนถึงดาดฟ้าที่ $P$ อยู่) = $h_1$ ม.", "ความสูงชาลี = 1.8 ม.", "ระดับสายตาชาลี = $h_1 + 1.8$ ม. (แต่เราไม่รู้ $h_1$)", "ความสูงตึกสอง = ระดับสายตา + ส่วนเหนือสายตา", "แต่จริง ๆ ระดับสายตาคือ \"ความสูงตึกหนึ่ง\" ที่โจทย์ถาม", "ให้ความสูงตึกหนึ่งเป็น $H_1$ และตึกสองเป็น $H_2$", "จากรูป: ระดับสายตา = ความสูงจากพื้นถึงดาดฟ้าตึกหนึ่ง (ก่อนบวกส่วนสูงชาลี)", "แต่ในโจทย์นี้ต้องแยก:", "ส่วนสูง \"ตึกสอง - ตึกหนึ่ง\" = ส่วนสูงเหนือระดับสายตา $P$", "ระดับสายตา $P$ = ความสูงตึกหนึ่ง (ไม่นับชาลี) + 1.8", "ความสูงตึกสอง = ระดับสายตา + $h_{\\text{บน}}$ = (ความสูงตึกหนึ่ง + 1.8) + 1.8\\sqrt{3}$", "แต่โจทย์ถาม \"ตึกสองสูงกว่าตึกหนึ่งเท่าไร\"", "ดังนั้น:", "ความต่าง = $H_2 - H_1$", "แต่จากมุมมอง: ส่วนที่ต่างกัน = ส่วนล่าง (ตึกหนึ่งถึงระดับสายตา) + ส่วนบน", "ไม่ใช่ วิธีที่ถูกคือ:", "ความสูงตึกสอง - ความสูงตึกหนึ่ง", "= [ระยะจากพื้นถึงฐานตึกสอง $R$ เป็น 0] + ความสูงตึกสอง", "- [ความสูงตึกหนึ่ง]", "สับสน ให้คิดใหม่:", "ระดับสายตา $P$ อยู่สูงจากพื้น = ความสูงดาดฟ้าตึกหนึ่ง", "= ความสูงตึกหนึ่ง (นิยามว่าเป็นความสูงถึงดาดฟ้า)", "ความสูงตึกสอง = ความสูงตึกหนึ่ง + ส่วนสูงเพิ่ม", "ส่วนสูงเพิ่ม = $h_{\\text{บน}} = 1.8\\sqrt{3}$", "แต่ยังไม่ครบ เพราะ $P$ สูงกว่าดาดฟ้า 1.8 ม. (ความสูงชาลี)", "ดังนั้น ตึกสองสูงกว่าตึกหนึ่ง", "= ส่วนที่เหนือระดับสายตา $P$ (คือ $1.8\\sqrt{3}$)", "+ ส่วนที่ต่ำกว่าระดับสายตา $P$ ลงไปถึงดาดฟ้าตึกหนึ่ง (คือ 0 เพราะ $P$ อยู่บนดาดฟ้า)", "เดี๋ยว ต้องอ่านโจทย์ใหม่:", "\"ชาลียืนอยู่บนดาดฟ้าของตึกหนึ่ง (จุด $P$)\"", "ดังนั้น $P$ คือตำแหน่งที่ดาดฟ้าบวกความสูงชาลี", "ระดับสายตา = ความสูงดาดฟ้าตึกหนึ่ง + 1.8", "ความสูงตึกสอง = ระดับสายตา + $h_{\\text{บน}}$", "ความสูงตึกหนึ่ง = ความสูงดาดฟ้า (ไม่นับชาลี)", "ดังนั้น ตึกสองสูงกว่าตึกหนึ่ง", "= (ระดับสายตา + $h_{\\text{บน}}$) - ความสูงดาดฟ้า", "= (ความสูงดาดฟ้า + 1.8 + $h_{\\text{บน}}$) - ความสูงดาดฟ้า", "= 1.8 + $h_{\\text{บน}}$", "= 1.8 + 1.8\\sqrt{3}$", "= $1.8(1 + \\sqrt{3})$ ม."], "eq": "ตึกสองสูงกว่าตึกหนึ่ง = $1.8(1 + \\sqrt{3})$ ม.", "check": "$\\sqrt{3} \\approx 1.732$ ดังนั้น $1 + \\sqrt{3} \\approx 2.732$, $1.8 \\times 2.732 \\approx 4.92$ ม. ซึ่งไม่ตรงกับตัวเลือก 19.8"}, {"n": 5, "title": "ทบทวนและแก้ไขการตีความโจทย์", "formula": "อ่านโจทย์ใหม่อย่างละเอียด", "why": "เพราะคำตอบที่ได้ประมาณ 4.92 ม. ไม่ตรงกับตัวเลือกใด ๆ โดยเฉพาะคำตอบที่ถูก 19.8 ม. แสดงว่าตีความผิด", "work": ["อ่านโจทย์ใหม่: \"ชาลี**สูง** 180 เซนติเมตร\"", "นี่อาจหมายถึงความสูงตัวชาลีเอง ไม่ใช่ระดับเพิ่มเติม", "แต่ในบริบทนี้ ความสูง 1.8 ม. น่าจะหมายถึงความสูงตัวชาลี", "ลองตีความใหม่: $P$ คือตำแหน่งดวงตาของชาลี", "ดังนั้นระดับสายตา = ความสูงดาดฟ้าตึกหนึ่ง + ความสูงตัวชาลี (1.8)", "แต่นี่คือสิ่งที่เราทำอยู่แล้ว", "ปัญหาคือ: โจทย์บอก \"มองเห็นฐานตึกสอง (จุด $R$) เป็นมุมก้ม $30°$\"", "ฐานตึกสอง = พื้นดิน (ระดับ 0)", "ดังนั้น ระดับสายตา $P$ ลงไปถึงพื้น = ความสูง $P$ จากพื้น", "และนี่ก็คือความสูงดาดฟ้าตึกหนึ่งบวกความสูงชาลี... เดี๋ยว", "ให้ความสูงดาดฟ้าตึกหนึ่งเป็น $H_1$", "ระดับสายตา = $H_1 + 1.8$", "จากมุมก้ม $30°$ ลงไปที่ $R$:", "$\\tan 30° = \\dfrac{H_1 + 1.8}{d_R}$", "แต่เราหา $d_R$ จาก $\\tan 30° = \\dfrac{1.8}{d_R}$ ซึ่งผิด", "ถูกต้องคือ: $\\tan 30° = \\dfrac{H_1 + 1.8}{d_R}$", "แต่เราไม่รู้ $H_1$", "ให้ใช้ $d_S$ แทน:", "จากมุมก้ม $60°$ ลงรั้ว:", "$\\tan 60° = \\dfrac{H_1 + 1.8}{d_S}$", "$\\sqrt{3} = \\dfrac{H_1 + 1.8}{d_S}$", "$H_1 + 1.8 = d_S \\sqrt{3}$", "จากโจทย์: ระยะจากรั้วถึงตึกสอง = 12 ม.", "$d_R - d_S = 12$", "จากมุมก้ม $30°$:", "$\\tan 30° = \\dfrac{H_1 + 1.8}{d_R}$", "$\\dfrac{1}{\\sqrt{3}} = \\dfrac{H_1 + 1.8}{d_R}$", "$H_1 + 1.8 = \\dfrac{d_R}{\\sqrt{3}}$", "รวมสองสมการ:", "$d_S \\sqrt{3} = \\dfrac{d_R}{\\sqrt{3}}$", "$d_S \\cdot 3 = d_R$", "และ $d_R - d_S = 12$:", "$3d_S - d_S = 12$", "$2d_S = 12$", "$d_S = 6$ ม.", "$d_R = 18$ ม.", "ดังนั้น $H_1 + 1.8 = d_S\\sqrt{3} = 6\\sqrt{3}$ ม.", "จากมุมเงย $45°$ ไปยอดตึกสอง:", "$h_{\\text{บน}} = d_R \\tan 45° = 18 \\times 1 = 18$ ม.", "ความสูงตึกสอง = $(H_1 + 1.8) + h_{\\text{บน}} = 6\\sqrt{3} + 18$ ม.", "ความสูงตึกหนึ่ง = $H_1$", "ตึกสองสูงกว่าตึกหนึ่ง = $(6\\sqrt{3} + 18) - H_1 = 6\\sqrt{3} + 18 - (6\\sqrt{3} - 1.8)$", "$= 6\\sqrt{3} + 18 - 6\\sqrt{3} + 1.8 = 19.8$ ม."], "eq": "ตึกสองสูงกว่าตึกหนึ่ง = $18 + 1.8 = 19.8$ ม.", "check": "$6\\sqrt{3} \\approx 10.39$, $H_1 \\approx 8.59$, ตึกสอง $\\approx 28.39$, ต่าง $\\approx 19.8$ ถูก"}], "verify": {"how": "ตรวจสอบด้วยอัตราส่วนระยะทาง", "lines": ["จาก $d_R : d_S = 3 : 1$ และ $d_R - d_S = 12$", "ได้ $d_S = 6$, $d_R = 18$ ถูกต้อง ✓", "ตรวจมุม $60°$: $\\tan 60° = \\sqrt{3} = \\frac{H_1+1.8}{6} = \\frac{6\\sqrt{3}}{6} = \\sqrt{3}$ ✓", "ตรวจมุม $30°$: $\\tan 30° = \\frac{1}{\\sqrt{3}} = \\frac{6\\sqrt{3}}{18} = \\frac{\\sqrt{3}}{3} = \\frac{1}{\\sqrt{3}}$ ✓", "ส่วนสูงเพิ่ม = $18$ (มุม $45°$) บวกความสูงชาลี $1.8$ = $19.8$ ✓"], "result": "ตรงกับคำตอบ 19.8 ✓"}, "technique": ["ใช้มุมก้มหลายมุมร่วมกับระยะที่รู้เพื่อสร้างระบบสมการหาระยะระดับ", "จับคู่ความสัมพันธ์ $\\tan$ ของมุมต่าง ๆ เพื่อหาอัตราส่วนระยะทาง", "สังเกตว่ามุม $45°$ ทำให้สามเหลี่ยมหน้าจั่ว ช่วยลดความซับซ้อนในการคำนวณ"], "traps": [{"got": "18", "why": "ลืมบวกความสูงชาลี 1.8 เมตร เลยได้แค่ $h_{\\text{บน}} = 18$ แล้วหยุด", "caught_by": "ขั้นที่ 5 ต้องบวกส่วนสูงทั้งหมดที่ตึกสองสูงกว่า รวมถึงส่วนที่เกิดจากความสูงชาลี"}, {"got": "$13.8+6\\sqrt{3}$", "why": "คำนวณผิดพลาดในการแยกส่วน โดยอาจเอา $d_S \\sqrt{3} = 6\\sqrt{3}$ มาบวกกับบางค่าผิด ๆ หรือลืมจัดรูป", "caught_by": "ขั้นที่ 5 ตรวจสอบว่าผลลัพธ์ต้องเป็นตัวเลขธรรมดา ไม่มี $\\sqrt{3}$ เพราะโจทย์ให้ตัวเลือกเป็นทศนิยม"}, {"got": "25.8", "why": "บวกผิดพลาด อาจเอา $d_S \\sqrt{3} \\approx 10.39$ มาบวกกับอะไรบางอย่างผิด หรือเอา $h_{\\text{บน}}$ + ค่าอื่น ๆ ผิด", "caught_by": "ขั้นที่ 5 ตรวจสอบการบวกลบอย่างละเอียด"}, {"got": "$13.8+8\\sqrt{3}$", "why": "คำนวณ $h_{\\text{บน}}$ ผิด เช่นเอา $d_S$ แทนที่จะใช้ $d_R$ หรือคูณด้วย $\\sqrt{3}$ เพิ่มเข้ามา", "caught_by": "ขั้นที่ 5 ตรวจสอบว่าใช้ $d_R = 18$ กับมุม $45°$ ได้ $h_{\\text{บน}} = 18$ ไม่มี $\\sqrt{3}$"}], "hints": ["เริ่มจากหาระยะระดับ $d_S$ และ $d_R$ โดยใช้มุมก้มทั้งสองร่วมกับความสูงระดับสายตาเดียวกัน", "ใช้เงื่อนไข \"ระยะจากรั้วถึงตึกสอง = 12 ม.\" เพื่อสร้างสมการ $d_R - d_S = 12$", "ระวังอย่าลืมบวกความสูงชาลี 1.8 ม. เพราะนี่คือส่วนหนึ่งของความสูงตึกหนึ่งที่ต้องนับด้วย", "หาระยะ $d_S$ และ $d_R$ ด้วยการแก้ระบบสมการจาก $\\tan 60°$ และ $\\tan 30°$ ร่วมกับ $d_R - d_S = 12$"]}}]</script>
+<script>
+var D = JSON.parse(document.getElementById('DEMO').textContent);
+var qi = 0, view = 'new';
+
+function esc(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+// 🔧 แก้ที่จอเท่านั้น ⛔ ไม่แตะไฟล์ข้อมูล — สูตรบางบรรทัดลืมใส่ตัวคั่น $…$ เลยโผล่เป็นโค้ดดิบ
+var _DL=/\$|\\\(|\\\[/;
+var _TEX=/\\[a-zA-Z]{2,}|[_^]\{|\\\\|[_^][0-9a-zA-Z](?![a-zA-Z])/;
+function _stripText(s){ return s.replace(/\\(?:text|mathrm|textbf|textit|operatorname)\s*\{[^{}]*\}/g,''); }
+function autodelim(s,isEq){
+  if(typeof s!=='string') return s;
+  var t=s.trim();
+  if(!t || _DL.test(t) || !_TEX.test(t)) return s;
+  if(isEq) return '$$'+t+'$$';                 // ช่อง eq = สมการล้วน ห่อได้เลย
+  return /^[\x20-\x7E]+$/.test(_stripText(t)) ? '$$'+t+'$$' : s;   // ช่องอื่น ห่อเฉพาะที่เป็นคณิตล้วน
+}
+function md(s,isEq){ // **bold** → <b>, คงพวก $...$ ไว้ให้ KaTeX
+  return esc(autodelim(s,isEq)).replace(/\*\*([^*]+)\*\*/g,'<b>$1</b>');
+}
+function ul(arr){ return '<ul class="tight">'+arr.map(function(x){return '<li>'+md(x)+'</li>';}).join('')+'</ul>'; }
+
+// 🔧 ข้อมูลบางข้อส่ง kb_ref / technique มาเป็น "ข้อความเดี่ยว" ไม่ใช่ลิสต์ → .map ระเบิด → การ์ดว่างเปล่า
+function arr(v){ return v==null?[]:(Array.isArray(v)?v:[v]); }
+function normT1(t){
+  if(!t||typeof t!=='object') return null;
+  var o={},k; for(k in t) o[k]=t[k];
+  o.kb_ref=arr(o.kb_ref); o.given=arr(o.given); o.hints=arr(o.hints); o.technique=arr(o.technique);
+  o.traps=arr(o.traps).filter(function(x){return x&&typeof x==='object';});
+  o.steps=arr(o.steps).filter(function(x){return x&&typeof x==='object';}).map(function(s){
+    var q={},kk; for(kk in s) q[kk]=s[kk]; q.work=arr(q.work); return q; });
+  if(o.verify&&typeof o.verify==='object'){ var v={},k2; for(k2 in o.verify) v[k2]=o.verify[k2]; v.lines=arr(v.lines); o.verify=v; }
+  else if(o.verify!=null){ o.verify={how:String(o.verify),lines:[],result:''}; }
+  return o;
+}
+function renderT1(t){
+  try{ t=normT1(t); }catch(e){ return '<div class="none">🔴 ข้อมูลข้อนี้ผิดรูป — '+esc(String(e))+'</div>'; }
+  if(!t) return '<div class="none">⛔ ข้อนี้ยังไม่มีเฉลยละเอียด</div>';
+  var h='';
+  if(t.kb_ref&&t.kb_ref.length) h+='<div class="sec"><div class="sech">📚 ความรู้พื้นฐานที่ใช้</div><div class="chips">'+t.kb_ref.map(function(k){return '<span class="chip">'+esc(k)+'</span>';}).join('')+'</div></div>';
+  if(t.given&&t.given.length) h+='<div class="sec"><div class="sech">📥 โจทย์ให้อะไรมา</div>'+ul(t.given)+'</div>';
+  if(t.goal) h+='<div class="sec"><div class="sech">🎯 เป้าหมาย</div><div class="goal">'+md(t.goal)+'</div></div>';
+  if(t.steps&&t.steps.length){
+    h+='<div class="sec"><div class="sech">🪜 ขั้นตอน</div>';
+    t.steps.forEach(function(s){
+      h+='<div class="step"><div class="steptitle"><span class="stepn">'+esc(s.n)+'</span>'+md(s.title)+'</div>';
+      if(s.formula) h+='<div class="row"><div class="rlab">สูตรที่ใช้</div>'+md(s.formula)+'</div>';
+      if(s.why)     h+='<div class="row"><div class="rlab">ทำไมต้องทำขั้นนี้</div>'+md(s.why)+'</div>';
+      if(s.work&&s.work.length) h+='<div class="row"><div class="rlab">ลงมือ</div>'+ul(s.work)+'</div>';
+      if(s.eq)      h+='<div class="eq">'+md(s.eq,1)+'</div>';
+      if(s.check)   h+='<div class="check">🔎 '+md(s.check)+'</div>';
+      h+='</div>';
+    });
+    h+='</div>';
+  }
+  if(t.verify){
+    h+='<div class="sec"><div class="sech">✅ ตรวจคำตอบด้วยวิธีอื่น</div><div class="verify">';
+    if(t.verify.how) h+='<div class="row">'+md(t.verify.how)+'</div>';
+    if(t.verify.lines&&t.verify.lines.length) h+=ul(t.verify.lines);
+    if(t.verify.result) h+='<div class="row"><b>'+md(t.verify.result)+'</b></div>';
+    h+='</div></div>';
+  }
+  if(t.traps&&t.traps.length){
+    h+='<details class="fold trapf"><summary>⚠️ กับดักที่เด็กมักติด ('+t.traps.length+')</summary><div class="fb">';
+    t.traps.forEach(function(p){
+      h+='<div class="trap"><div class="trapgot">ตอบผิดเป็น: '+md(p.got)+'</div>';
+      if(p.why) h+='<div class="row"><span class="rlab">เพราะ</span> '+md(p.why)+'</div>';
+      if(p.caught_by) h+='<div class="check">จับได้ด้วย: '+md(p.caught_by)+'</div>';
+      h+='</div>';
+    });
+    h+='</div></details>';
+  }
+  if(t.technique&&t.technique.length) h+='<div class="sec"><div class="sech">💡 เทคนิคจำไว้ใช้ครั้งหน้า</div>'+ul(t.technique)+'</div>';
+  if(t.hints&&t.hints.length){
+    h+='<details class="fold hintf"><summary>🪜 ใบ้ทีละขั้น ('+t.hints.length+') — สำหรับเด็กที่ยังทำไม่ได้</summary><div class="fb hintbox">';
+    t.hints.forEach(function(x,i){ h+='<div class="hint"><b>ใบ้ '+(i+1)+'</b><div>'+md(x)+'</div></div>'; });
+    h+='</div></details>';
+  }
+  return h;
+}
+
+
+var fmt='fmt';
+/* ⬤ ตระกูลหัวข้อที่ตรวจจับได้จริงในคลัง (วัดแล้ว: 6,496/6,497 ข้อ จับได้อย่างน้อย 1 ตระกูล) */
+var FAM=[
+ {k:'kb',   rx:/^📐/,            cls:'kbbox',   name:'ความรู้พื้นฐาน'},
+ {k:'goal', rx:/^🎯/,            cls:'goal',    name:'เป้าหมาย'},
+ {k:'trap', rx:/^⚠️|^⚠/,        cls:'trap',    name:'จุดที่เด็กมักผิด', fold:'trapf'},
+ {k:'tech', rx:/^💡/,            cls:'techbox', name:'เทคนิค'},
+ {k:'check',rx:/^✔|^✅/,         cls:'verify',  name:'ตรวจคำตอบ'},
+ {k:'sol',  rx:/^【/,            cls:'divider', name:'วิธีทำ'},
+ {k:'step', rx:/^ขั้นที่\s*\d/,  cls:'step',    name:'ขั้นตอน'}
+];
+function plain(s){ return String(s).replace(/<[^>]+>/g,'').trim(); }
+function famOf(b){                       /* หัวข้อล้วน = บล็อกสั้นที่ขึ้นต้นด้วยสัญลักษณ์ */
+  var t=plain(b); if(t.length>60) return null;
+  for(var i=0;i<FAM.length;i++) if(FAM[i].rx.test(t)) return FAM[i];
+  return null;
+}
+/* ⬤ ในคลังจริง หลายข้อเขียน "หัวข้อ + เนื้อ" รวมอยู่บล็อกเดียว ⇒ ห่อทั้งบล็อกเป็นกล่องของตระกูลนั้น
+   ⛔ ยังไม่แก้เนื้อสักตัวอักษร — แค่ใส่กล่อง */
+function famInline(b){
+  var t=plain(b); if(t.length<=60) return null;
+  for(var i=0;i<FAM.length;i++) if(FAM[i].rx.test(t) && FAM[i].k!=='sol' && FAM[i].k!=='step') return FAM[i];
+  return null;
+}
+/* จัดรูปเฉลยเดิม: ⛔ ไม่แก้เนื้อสักตัวอักษร — แค่จับหัวข้อแล้วห่อกล่องให้ */
+function renderOldFmt(blocks){
+  if(!blocks||!blocks.length) return '<div class="none">⛔ ไม่มีเฉลยเดิม</div>';
+  var out='', open=null, buf=[];
+  function flush(){
+    if(!open){ out+=buf.map(function(x){return '<p>'+x+'</p>';}).join(''); buf=[]; return; }
+    var body=buf.map(function(x){return '<p>'+x+'</p>';}).join('');
+    if(open.f.k==='step'){
+      var n=(plain(open.head).match(/\d+/)||[''])[0];
+      out+='<div class="step"><div class="steptitle"><span class="stepn">'+n+'</span>'+plain(open.head).replace(/^ขั้นที่\s*\d+[:：]?\s*/,'')+'</div>'+body+'</div>';
+    } else if(open.f.k==='sol'){
+      out+='<div class="divider">'+open.head+'</div>'+body;
+    } else if(open.f.fold){
+      out+='<details class="fold '+open.f.fold+'"><summary>'+open.head+'</summary><div class="fb">'+body+'</div></details>';
+    } else {
+      out+='<div class="sec"><div class="sech">'+open.head+'</div><div class="'+open.f.cls+'">'+body+'</div></div>';
+    }
+    buf=[];
+  }
+  blocks.forEach(function(b){
+    if(typeof b!=='string'){ buf.push(String(b)); return; }
+    var f=famOf(b);
+    if(f){ flush(); open={f:f,head:b}; return; }
+    var fi=famInline(b);
+    if(fi){ flush(); open=null;
+      if(fi.fold) out+='<details class="fold '+fi.fold+'"><summary>'+fi.name+'</summary><div class="fb"><p>'+b+'</p></div></details>';
+      else out+='<div class="sec"><div class="'+fi.cls+'"><p>'+b+'</p></div></div>';
+      return; }
+    buf.push(b);
+  });
+  flush();
+  return '<div class="old">'+out+'</div>';
+}
+function renderOldRaw(blocks){
+  if(!blocks||!blocks.length) return '<div class="none">⛔ ไม่มีเฉลยเดิม</div>';
+  return '<div class="old">'+blocks.map(function(b,i){
+    return '<div class="rawblk">['+i+'] '+(typeof b==='string'?b:JSON.stringify(b))+'</div>';}).join('')+'</div>';
+}
+
+function renderOld(blocks){ return fmt==='raw'?renderOldRaw(blocks):renderOldFmt(blocks); }
+function renderOld_unused(blocks){
+  if(!blocks||!blocks.length) return '<div class="none">⛔ ไม่มีเฉลยเดิม</div>';
+  return '<div class="old">'+blocks.map(function(b){
+    if(typeof b==='string') return '<p>'+b+'</p>';
+    return '<p>'+esc(JSON.stringify(b))+'</p>';
+  }).join('')+'</div>';
+}
+
+function draw(){
+  var d=D[qi];
+  var letters=['ก','ข','ค','ง','จ','ฉ'];
+  var q='<div class="qid">'+esc(d.id)+'</div><div class="qtext">'+md(d.question)+'</div>';
+  (d.choices||[]).forEach(function(c,i){
+    var ok = (d.correct===i);
+    q+='<div class="ch'+(ok?' ok':'')+'"><b>'+(letters[i]||(i+1))+'.</b><span>'+md(c)+(ok?'  ✓':'')+'</span></div>';
+  });
+  document.getElementById('qcard').innerHTML=q;
+
+  var oldPane='<div class="pane"><div class="ph">เฉลยเดิม <span class="tag">'+(d.old||[]).length+' บล็อก · '+(fmt==='raw'?'ยังไม่จัดรูป':'จัดรูปแล้ว · เนื้อเดิมทุกตัวอักษร')+'</span></div><div class="pb">'+renderOld(d.old)+'</div></div>';
+  var newPane='<div class="pane"><div class="ph">เฉลยละเอียด (t1) <span class="tag">'+((d.t1&&d.t1.steps||[]).length)+' ขั้น · '+((d.t1&&d.t1.traps||[]).length)+' กับดัก</span></div><div class="pb">'+renderT1(d.t1)+'</div></div>';
+  var el=document.getElementById('panes');
+  el.className='panes'+(view==='both'?' two':'');
+  el.innerHTML = view==='old'?oldPane : view==='new'?newPane : (oldPane+newPane);
+
+  if(window.renderMathInElement){
+    try{ renderMathInElement(document.querySelector('.wrap'),{delimiters:[
+      {left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false},
+      {left:'\\(',right:'\\)',display:false},{left:'\\[',right:'\\]',display:true}],throwOnError:false}); }catch(e){}
+  }
+}
+
+var sq=document.getElementById('segQ');
+sq.innerHTML=D.map(function(d,i){return '<button data-i="'+i+'" aria-pressed="'+(i===0)+'">'+esc(d.id)+'</button>';}).join('');
+sq.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;
+  qi=+b.getAttribute('data-i');
+  [].forEach.call(sq.querySelectorAll('button'),function(x){x.setAttribute('aria-pressed',x===b);});draw();});
+var sv=document.getElementById('segV');
+sv.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;
+  view=b.getAttribute('data-v');
+  [].forEach.call(sv.querySelectorAll('button'),function(x){x.setAttribute('aria-pressed',x===b);});draw();});
+var sf=document.getElementById('segF');
+sf.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;
+  fmt=b.getAttribute('data-f');
+  [].forEach.call(sf.querySelectorAll('button'),function(x){x.setAttribute('aria-pressed',x===b);});draw();});
+window.addEventListener('load',function(){
+  draw();
+  if(!window.renderMathInElement){
+    var w=document.createElement('div'); w.className='note';
+    w.innerHTML='\u{1F534} <b>KaTeX \u0E42\u0E2B\u0E25\u0E14\u0E44\u0E21\u0E48\u0E44\u0E14\u0E49</b> \u2014 \u0E2A\u0E39\u0E15\u0E23\u0E08\u0E30\u0E41\u0E2A\u0E14\u0E07\u0E40\u0E1B\u0E47\u0E19 <code>$...$</code> \u0E14\u0E34\u0E1A \u00B7 \u0E2B\u0E19\u0E49\u0E32\u0E19\u0E35\u0E49\u0E43\u0E0A\u0E49 CDN \u0E15\u0E31\u0E27\u0E40\u0E14\u0E35\u0E22\u0E27\u0E01\u0E31\u0E1A <code>viewer/admin.html</code> \u0E02\u0E2D\u0E07\u0E08\u0E23\u0E34\u0E07';
+    document.querySelector('.wrap').insertBefore(w, document.getElementById('qcard'));
+  }
+}); draw();
+</script></body></html>

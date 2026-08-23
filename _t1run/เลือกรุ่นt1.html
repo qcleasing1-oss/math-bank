@@ -1,0 +1,384 @@
+<!doctype html><html lang="th"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>เลือกรุ่น t1 ที่ขัดกัน — 95 ข้อ</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<style>
+:root{--bg:#f5f6f8;--card:#fff;--ink:#1b1d21;--dim:#6b7280;--line:#e3e5e9;--acc:#2563eb;
+ --warn:#b45309;--warnbg:#fffbeb;--ok:#15803d;--okbg:#f0fdf4;--trap:#b91c1c;--trapbg:#fef2f2;
+ --step:#eef2ff;--stepline:#c7d2fe;--code:#f3f4f6}
+@media (prefers-color-scheme:dark){:root{--bg:#15171b;--card:#1d2025;--ink:#e9ebee;--dim:#9aa1ab;
+ --line:#31353c;--acc:#7aa2f7;--warn:#fbbf24;--warnbg:#2a2312;--ok:#4ade80;--okbg:#12271a;
+ --trap:#f87171;--trapbg:#2a1414;--step:#1c2233;--stepline:#33406b;--code:#24272d}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-size:15.5px;line-height:1.65;
+ font-family:-apple-system,"Segoe UI","Noto Sans Thai",system-ui,sans-serif}
+.wrap{max-width:1100px;margin:0 auto;padding:18px 16px 70px}
+h1{font-size:19px;margin:0 0 4px}
+.sub{color:var(--dim);font-size:13px;margin:0 0 14px}
+.note{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--warn);
+ padding:9px 13px;border-radius:8px;font-size:13px;margin-bottom:16px}
+.bar{display:flex;gap:16px;flex-wrap:wrap;align-items:flex-end;background:var(--card);
+ border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin-bottom:16px}
+.lab{font-size:11.5px;color:var(--dim);font-weight:600;margin-bottom:5px;letter-spacing:.02em}
+.seg{display:flex;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.seg button{border:0;background:transparent;color:var(--ink);font:inherit;font-size:13px;
+ padding:7px 12px;cursor:pointer;border-right:1px solid var(--line);white-space:nowrap}
+.seg button:last-child{border-right:0}
+.seg button[aria-pressed=true]{background:var(--acc);color:#fff;font-weight:600}
+.qcard{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:14px}
+.qid{font-family:ui-monospace,Consolas,monospace;font-size:11.5px;color:var(--dim)}
+.qtext{margin:6px 0 10px}
+.ch{display:flex;gap:9px;margin:4px 0;font-size:14.5px}
+.ch b{width:22px;color:var(--dim);flex:0 0 auto}
+.ch.ok{color:var(--ok);font-weight:600}
+.panes{display:grid;gap:14px}
+.panes.two{grid-template-columns:1fr 1fr}
+@media(max-width:820px){.panes.two{grid-template-columns:1fr}}
+.pane{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;min-width:0}
+.ph{padding:9px 14px;border-bottom:1px solid var(--line);font-weight:600;font-size:13.5px;
+ display:flex;justify-content:space-between;align-items:center;gap:8px}
+.ph .tag{font-size:11px;font-weight:500;color:var(--dim)}
+.pb{padding:14px 16px;overflow-x:auto}
+/* ---- ชุดหน้าตากลาง: ใช้ทั้งเฉลยเก่าและใหม่ (ทาง ก) ---- */
+.sec{margin:0 0 14px}
+.sec:last-child{margin-bottom:0}
+.sech{font-weight:700;font-size:13.5px;margin:0 0 7px;display:flex;align-items:center;gap:6px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{background:var(--code);border:1px solid var(--line);border-radius:999px;padding:2px 10px;font-size:12px}
+ul.tight{margin:0;padding-left:20px}
+ul.tight li{margin:3px 0}
+.goal{background:var(--okbg);border:1px solid var(--line);border-left:3px solid var(--ok);
+ border-radius:8px;padding:9px 12px}
+.step{background:var(--step);border:1px solid var(--stepline);border-radius:10px;padding:11px 13px;margin:0 0 10px}
+.stepn{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;
+ border-radius:50%;background:var(--acc);color:#fff;font-size:12.5px;font-weight:700;margin-right:7px}
+.steptitle{font-weight:700;font-size:14.5px;margin-bottom:7px}
+.row{margin:6px 0}
+.rlab{font-size:11.5px;font-weight:700;color:var(--dim);letter-spacing:.02em}
+.eq{background:var(--card);border:1px dashed var(--stepline);border-radius:8px;padding:8px 11px;margin-top:5px;overflow-x:auto}
+.check{font-size:13.5px;color:var(--dim);border-top:1px dashed var(--stepline);padding-top:6px;margin-top:7px}
+.trap{background:var(--trapbg);border:1px solid var(--line);border-left:3px solid var(--trap);
+ border-radius:8px;padding:9px 12px;margin:0 0 8px}
+.trapgot{font-weight:700;color:var(--trap)}
+.verify{background:var(--okbg);border:1px solid var(--line);border-left:3px solid var(--ok);
+ border-radius:8px;padding:10px 12px}
+.hintbox{background:var(--warnbg);border:1px solid var(--line);border-left:3px solid var(--warn);
+ border-radius:8px;padding:10px 12px}
+.hint{display:flex;gap:8px;margin:4px 0}
+.hint b{color:var(--warn);flex:0 0 auto}
+.old p{margin:6px 0}
+.none{color:var(--dim);font-size:13.5px;padding:8px 0}
+.foot{margin-top:20px;color:var(--dim);font-size:12.5px;border-top:1px solid var(--line);padding-top:12px}
+
+.sub-old{background:var(--code);border:1px solid var(--line);border-radius:8px;padding:8px 11px;margin:0 0 10px;font-size:13px;color:var(--dim)}
+.kbbox{background:var(--code);border:1px solid var(--line);border-left:3px solid var(--acc);border-radius:8px;padding:9px 12px}
+.techbox{background:var(--warnbg);border:1px solid var(--line);border-left:3px solid var(--warn);border-radius:8px;padding:9px 12px}
+.divider{border-top:1px solid var(--line);margin:14px 0 10px;padding-top:9px;font-weight:700;font-size:13.5px}
+details.fold{border:1px solid var(--line);border-radius:8px;padding:0;margin:0 0 10px;overflow:hidden}
+details.fold>summary{cursor:pointer;padding:8px 12px;font-weight:700;font-size:13.5px;list-style:none;
+ display:flex;align-items:center;gap:7px;background:var(--code)}
+details.fold>summary::-webkit-details-marker{display:none}
+details.fold>summary::after{content:'▸';margin-left:auto;color:var(--dim);transition:transform .15s}
+details.fold[open]>summary::after{transform:rotate(90deg)}
+details.fold .fb{padding:11px 13px}
+details.fold.trapf>summary{background:var(--trapbg);color:var(--trap)}
+details.fold.hintf>summary{background:var(--warnbg);color:var(--warn)}
+.rawblk{font-family:ui-monospace,Consolas,monospace;font-size:11.5px;color:var(--dim);
+ border-bottom:1px dotted var(--line);padding:3px 0}
+code{background:var(--code);padding:1px 5px;border-radius:4px;font-size:12.5px}
+ body{margin:0} .wrap{max-width:none;margin:0;padding:0} 
+.app{display:grid;grid-template-columns:290px 1fr;gap:0;height:100vh}
+@media(max-width:900px){.app{grid-template-columns:1fr;height:auto}}
+.side{border-right:1px solid var(--line);background:var(--card);display:flex;flex-direction:column;min-height:0}
+.side .hd{padding:12px 14px;border-bottom:1px solid var(--line)}
+.side input,.side select{width:100%;padding:7px 9px;border:1px solid var(--line);border-radius:7px;
+ background:var(--bg);color:var(--ink);font:inherit;font-size:13px;margin-top:6px}
+.list{overflow:auto;flex:1;min-height:0}
+.li{padding:8px 13px;border-bottom:1px solid var(--line);cursor:pointer;font-size:12.5px;display:flex;gap:7px;align-items:baseline}
+.li:hover{background:var(--code)}
+.li.on{background:var(--step);border-left:3px solid var(--acc);padding-left:10px}
+.li .n{font-family:ui-monospace,Consolas,monospace;color:var(--dim);flex:0 0 auto}
+.li .dot{margin-left:auto;color:var(--ok);flex:0 0 auto}
+.main{overflow:auto;min-height:0;padding:16px 18px 60px}
+.count{font-size:11.5px;color:var(--dim);margin-top:7px}
+.meta{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 0}
+.badge{font-size:11px;border:1px solid var(--line);border-radius:999px;padding:1px 9px;color:var(--dim)}
+.img-inline{margin:9px 0;overflow-x:auto}
+.img-inline svg{max-width:100%;height:auto}
+.img-inline-span svg{vertical-align:middle;max-width:100%}
+.img-miss{color:var(--warn);font-size:12.5px;padding:5px 0}
+.done{display:flex;align-items:center;gap:7px;font-size:13px;cursor:pointer;user-select:none;white-space:nowrap}
+.done input{flex:0 0 auto;margin:0}
+ body{margin:0} .wrap{max-width:none;margin:0;padding:0} 
+.vgrid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(340px,1fr))}
+.vcard{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;min-width:0}
+.vcard.pick{border-color:var(--ok);box-shadow:0 0 0 2px var(--ok) inset}
+.vh{padding:10px 13px;border-bottom:1px solid var(--line);display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.vh .m{font-size:11px;border-radius:999px;padding:1px 9px;border:1px solid var(--line);color:var(--dim)}
+.vh .m.master{background:var(--okbg);color:var(--ok);border-color:var(--ok);font-weight:700}
+.vh button{margin-left:auto;border:1px solid var(--acc);background:transparent;color:var(--acc);
+ font:inherit;font-size:12.5px;padding:5px 12px;border-radius:7px;cursor:pointer;white-space:nowrap}
+.vh button.on{background:var(--ok);border-color:var(--ok);color:#fff;font-weight:700}
+.vb{padding:13px 15px;max-height:70vh;overflow:auto}
+.src{font-family:ui-monospace,Consolas,monospace;font-size:11px;color:var(--dim);padding:0 13px 9px}
+.difftag{display:inline-block;font-size:11px;background:var(--trapbg);color:var(--trap);
+ border:1px solid var(--line);border-radius:999px;padding:1px 9px;margin:0 4px 4px 0}
+.exp{width:100%;height:130px;font-family:ui-monospace,Consolas,monospace;font-size:11.5px;
+ border:1px solid var(--line);border-radius:8px;padding:8px;background:var(--bg);color:var(--ink)}
+</style></head>
+<body><div class="app">
+ <aside class="side">
+  <div class="hd">
+   <div style="font-weight:700;font-size:14px">เลือกรุ่น t1 ที่ขัดกัน</div>
+   <div class="count">95 ข้อที่มีมากกว่า 1 รุ่นในโฟลเดอร์ผล</div>
+   <label class="done" style="margin-top:8px"><input type="checkbox" id="fTodo"> เหลือที่ยังไม่เลือก</label>
+   <div class="count" id="cnt"></div>
+   <button id="btnExp" style="margin-top:8px;width:100%;padding:6px;border:1px solid var(--acc);
+    background:transparent;color:var(--acc);border-radius:7px;font:inherit;font-size:12.5px;cursor:pointer">ส่งออกคำเลือก</button>
+  </div>
+  <div class="list" id="list"></div>
+ </aside>
+ <main class="main wrap">
+  <div id="load" class="note">⏳ กำลังโหลด…</div>
+  <div id="app" style="display:none">
+   <div class="qcard" id="hd"></div>
+   <div class="vgrid" id="grid"></div>
+   <div id="expbox" style="display:none;margin-top:16px">
+     <div class="lab">คำเลือกทั้งหมด (คัดลอกไปเก็บได้)</div>
+     <textarea class="exp" id="exp" readonly></textarea>
+   </div>
+  </div>
+ </main></div>
+<script>
+var C=[], ci=0, PICK={};
+try{ PICK=JSON.parse(localStorage.getItem('t1pick')||'{}'); }catch(e){ PICK={}; }
+function savePick(){ try{ localStorage.setItem('t1pick',JSON.stringify(PICK)); }catch(e){} }
+var fmt='fmt';
+function esc(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+// 🔧 แก้ที่จอเท่านั้น ⛔ ไม่แตะไฟล์ข้อมูล — สูตรบางบรรทัดลืมใส่ตัวคั่น $…$ เลยโผล่เป็นโค้ดดิบ
+var _DL=/\$|\\\(|\\\[/;
+var _TEX=/\\[a-zA-Z]{2,}|[_^]\{|\\\\|[_^][0-9a-zA-Z](?![a-zA-Z])/;
+function _stripText(s){ return s.replace(/\\(?:text|mathrm|textbf|textit|operatorname)\s*\{[^{}]*\}/g,''); }
+function autodelim(s,isEq){
+  if(typeof s!=='string') return s;
+  var t=s.trim();
+  if(!t || _DL.test(t) || !_TEX.test(t)) return s;
+  if(isEq) return '$$'+t+'$$';                 // ช่อง eq = สมการล้วน ห่อได้เลย
+  return /^[\x20-\x7E]+$/.test(_stripText(t)) ? '$$'+t+'$$' : s;   // ช่องอื่น ห่อเฉพาะที่เป็นคณิตล้วน
+}
+function md(s,isEq){ // **bold** → <b>, คงพวก $...$ ไว้ให้ KaTeX
+  return esc(autodelim(s,isEq)).replace(/\*\*([^*]+)\*\*/g,'<b>$1</b>');
+}
+function ul(arr){ return '<ul class="tight">'+arr.map(function(x){return '<li>'+md(x)+'</li>';}).join('')+'</ul>'; }
+
+// 🔧 ข้อมูลบางข้อส่ง kb_ref / technique มาเป็น "ข้อความเดี่ยว" ไม่ใช่ลิสต์ → .map ระเบิด → การ์ดว่างเปล่า
+function arr(v){ return v==null?[]:(Array.isArray(v)?v:[v]); }
+function normT1(t){
+  if(!t||typeof t!=='object') return null;
+  var o={},k; for(k in t) o[k]=t[k];
+  o.kb_ref=arr(o.kb_ref); o.given=arr(o.given); o.hints=arr(o.hints); o.technique=arr(o.technique);
+  o.traps=arr(o.traps).filter(function(x){return x&&typeof x==='object';});
+  o.steps=arr(o.steps).filter(function(x){return x&&typeof x==='object';}).map(function(s){
+    var q={},kk; for(kk in s) q[kk]=s[kk]; q.work=arr(q.work); return q; });
+  if(o.verify&&typeof o.verify==='object'){ var v={},k2; for(k2 in o.verify) v[k2]=o.verify[k2]; v.lines=arr(v.lines); o.verify=v; }
+  else if(o.verify!=null){ o.verify={how:String(o.verify),lines:[],result:''}; }
+  return o;
+}
+function renderT1(t){
+  try{ t=normT1(t); }catch(e){ return '<div class="none">🔴 ข้อมูลข้อนี้ผิดรูป — '+esc(String(e))+'</div>'; }
+  if(!t) return '<div class="none">⛔ ข้อนี้ยังไม่มีเฉลยละเอียด</div>';
+  var h='';
+  if(t.kb_ref&&t.kb_ref.length) h+='<div class="sec"><div class="sech">📚 ความรู้พื้นฐานที่ใช้</div><div class="chips">'+t.kb_ref.map(function(k){return '<span class="chip">'+esc(k)+'</span>';}).join('')+'</div></div>';
+  if(t.given&&t.given.length) h+='<div class="sec"><div class="sech">📥 โจทย์ให้อะไรมา</div>'+ul(t.given)+'</div>';
+  if(t.goal) h+='<div class="sec"><div class="sech">🎯 เป้าหมาย</div><div class="goal">'+md(t.goal)+'</div></div>';
+  if(t.steps&&t.steps.length){
+    h+='<div class="sec"><div class="sech">🪜 ขั้นตอน</div>';
+    t.steps.forEach(function(s){
+      h+='<div class="step"><div class="steptitle"><span class="stepn">'+esc(s.n)+'</span>'+md(s.title)+'</div>';
+      if(s.formula) h+='<div class="row"><div class="rlab">สูตรที่ใช้</div>'+md(s.formula)+'</div>';
+      if(s.why)     h+='<div class="row"><div class="rlab">ทำไมต้องทำขั้นนี้</div>'+md(s.why)+'</div>';
+      if(s.work&&s.work.length) h+='<div class="row"><div class="rlab">ลงมือ</div>'+ul(s.work)+'</div>';
+      if(s.eq)      h+='<div class="eq">'+md(s.eq,1)+'</div>';
+      if(s.check)   h+='<div class="check">🔎 '+md(s.check)+'</div>';
+      h+='</div>';
+    });
+    h+='</div>';
+  }
+  if(t.verify){
+    h+='<div class="sec"><div class="sech">✅ ตรวจคำตอบด้วยวิธีอื่น</div><div class="verify">';
+    if(t.verify.how) h+='<div class="row">'+md(t.verify.how)+'</div>';
+    if(t.verify.lines&&t.verify.lines.length) h+=ul(t.verify.lines);
+    if(t.verify.result) h+='<div class="row"><b>'+md(t.verify.result)+'</b></div>';
+    h+='</div></div>';
+  }
+  if(t.traps&&t.traps.length){
+    h+='<details open class="fold trapf"><summary>⚠️ กับดักที่เด็กมักติด ('+t.traps.length+')</summary><div class="fb">';
+    t.traps.forEach(function(p){
+      h+='<div class="trap"><div class="trapgot">ตอบผิดเป็น: '+md(p.got)+'</div>';
+      if(p.why) h+='<div class="row"><span class="rlab">เพราะ</span> '+md(p.why)+'</div>';
+      if(p.caught_by) h+='<div class="check">จับได้ด้วย: '+md(p.caught_by)+'</div>';
+      h+='</div>';
+    });
+    h+='</div></details>';
+  }
+  if(t.technique&&t.technique.length) h+='<div class="sec"><div class="sech">💡 เทคนิคจำไว้ใช้ครั้งหน้า</div>'+ul(t.technique)+'</div>';
+  if(t.hints&&t.hints.length){
+    h+='<details open class="fold hintf"><summary>🪜 ใบ้ทีละขั้น ('+t.hints.length+') — สำหรับเด็กที่ยังทำไม่ได้</summary><div class="fb hintbox">';
+    t.hints.forEach(function(x,i){ h+='<div class="hint"><b>ใบ้ '+(i+1)+'</b><div>'+md(x)+'</div></div>'; });
+    h+='</div></details>';
+  }
+  return h;
+}
+
+
+var fmt='fmt';
+/* ⬤ ตระกูลหัวข้อที่ตรวจจับได้จริงในคลัง (วัดแล้ว: 6,496/6,497 ข้อ จับได้อย่างน้อย 1 ตระกูล) */
+var FAM=[
+ {k:'kb',   rx:/^📐/,            cls:'kbbox',   name:'ความรู้พื้นฐาน'},
+ {k:'goal', rx:/^🎯/,            cls:'goal',    name:'เป้าหมาย'},
+ {k:'trap', rx:/^⚠️|^⚠/,        cls:'trap',    name:'จุดที่เด็กมักผิด', fold:'trapf'},
+ {k:'tech', rx:/^💡/,            cls:'techbox', name:'เทคนิค'},
+ {k:'check',rx:/^✔|^✅/,         cls:'verify',  name:'ตรวจคำตอบ'},
+ {k:'sol',  rx:/^【/,            cls:'divider', name:'วิธีทำ'},
+ {k:'step', rx:/^ขั้นที่\s*\d/,  cls:'step',    name:'ขั้นตอน'}
+];
+
+/* ⬤ ใช้ renderImage() จาก viewer/renderers.js ตัวจริง (อ่านอย่างเดียว ⛔ ไม่แก้ไฟล์นั้น)
+   วิธีวางรูปลอกจาก admin.html:1778–1850 — มาร์กเกอร์ [IMAGE] / [IMAGE:n] ในเฉลยเดิม */
+function specByIdx(sp,i){ if(Array.isArray(sp)) return sp[i]; return i===0?sp:null; }
+function svgOf(sp){ try{ return (typeof renderImage==='function')?renderImage(sp):null; }catch(e){ return null; } }
+function withImages(line, sp){
+  if(typeof line!=='string') return String(line);
+  var re=/\[IMAGE(?::(\d+))?\]/g, out='', last=0, m, hit=false;
+  while((m=re.exec(line))!==null){
+    hit=true;
+    out+=line.substring(last,m.index);
+    var i=m[1]!==undefined?parseInt(m[1],10):0, svg=svgOf(specByIdx(sp,i));
+    out += svg ? '<div class="img-inline">'+svg+'</div>'
+               : '<div class="img-miss">⚠️ [IMAGE'+(i>0?':'+i:'')+'] — ⛔ ไม่มี imageSpec สำหรับ index นี้</div>';
+    last=m.index+m[0].length;
+  }
+  if(!hit) return line;
+  out+=line.substring(last);
+  return out;
+}
+function plain(s){ return String(s).replace(/<[^>]+>/g,'').trim(); }
+function famOf(b){                       /* หัวข้อล้วน = บล็อกสั้นที่ขึ้นต้นด้วยสัญลักษณ์ */
+  var t=plain(b); if(t.length>60) return null;
+  for(var i=0;i<FAM.length;i++) if(FAM[i].rx.test(t)) return FAM[i];
+  return null;
+}
+/* ⬤ ในคลังจริง หลายข้อเขียน "หัวข้อ + เนื้อ" รวมอยู่บล็อกเดียว ⇒ ห่อทั้งบล็อกเป็นกล่องของตระกูลนั้น
+   ⛔ ยังไม่แก้เนื้อสักตัวอักษร — แค่ใส่กล่อง */
+function famInline(b){
+  var t=plain(b); if(t.length<=60) return null;
+  for(var i=0;i<FAM.length;i++) if(FAM[i].rx.test(t) && FAM[i].k!=='sol' && FAM[i].k!=='step') return FAM[i];
+  return null;
+}
+/* จัดรูปเฉลยเดิม: ⛔ ไม่แก้เนื้อสักตัวอักษร — แค่จับหัวข้อแล้วห่อกล่องให้ */
+function renderOldFmt(blocks,sp){ var SP=sp;
+  if(!blocks||!blocks.length) return '<div class="none">⛔ ไม่มีเฉลยเดิม</div>';
+  var out='', open=null, buf=[];
+  function flush(){
+    if(!open){ out+=buf.map(function(x){return '<p>'+withImages(x,SP)+'</p>';}).join(''); buf=[]; return; }
+    var body=buf.map(function(x){return '<p>'+withImages(x,SP)+'</p>';}).join('');
+    if(open.f.k==='step'){
+      var n=(plain(open.head).match(/\d+/)||[''])[0];
+      out+='<div class="step"><div class="steptitle"><span class="stepn">'+n+'</span>'+plain(open.head).replace(/^ขั้นที่\s*\d+[:：]?\s*/,'')+'</div>'+body+'</div>';
+    } else if(open.f.k==='sol'){
+      out+='<div class="divider">'+open.head+'</div>'+body;
+    } else if(open.f.fold){
+      out+='<details open class="fold '+open.f.fold+'"><summary>'+open.head+'</summary><div class="fb">'+body+'</div></details>';
+    } else {
+      out+='<div class="sec"><div class="sech">'+open.head+'</div><div class="'+open.f.cls+'">'+body+'</div></div>';
+    }
+    buf=[];
+  }
+  blocks.forEach(function(b){
+    if(typeof b!=='string'){ buf.push(String(b)); return; }
+    var f=famOf(b);
+    if(f){ flush(); open={f:f,head:b}; return; }
+    var fi=famInline(b);
+    if(fi){ flush(); open=null;
+      if(fi.fold) out+='<details open class="fold '+fi.fold+'"><summary>'+fi.name+'</summary><div class="fb"><p>'+b+'</p></div></details>';
+      else out+='<div class="sec"><div class="'+fi.cls+'"><p>'+b+'</p></div></div>';
+      return; }
+    buf.push(b);
+  });
+  flush();
+  return '<div class="old">'+out+'</div>';
+}
+function renderOldRaw(blocks,sp){ var SP=sp;
+  if(!blocks||!blocks.length) return '<div class="none">⛔ ไม่มีเฉลยเดิม</div>';
+  return '<div class="old">'+blocks.map(function(b,i){
+    return '<div class="rawblk">['+i+'] '+(typeof b==='string'?b:JSON.stringify(b))+'</div>';}).join('')+'</div>';
+}
+
+function renderOld(blocks,sp){ return fmt==='raw'?renderOldRaw(blocks,sp):renderOldFmt(blocks,sp); }
+function renderOld_unused(blocks){
+  if(!blocks||!blocks.length) return '<div class="none">⛔ ไม่มีเฉลยเดิม</div>';
+  return '<div class="old">'+blocks.map(function(b){
+    if(typeof b==='string') return '<p>'+withImages(b,SP)+'</p>';
+    return '<p>'+esc(JSON.stringify(b))+'</p>';
+  }).join('')+'</div>';
+}
+
+
+
+function draw(){
+  var c=C[ci]; if(!c) return;
+  document.getElementById('hd').innerHTML='<div class="qid">'+esc(c.id)+'</div>'+
+    '<div style="margin-top:7px"><span class="lab">ฟิลด์ที่ต่างกัน</span><br>'+
+    c.diff.map(function(f){return '<span class="difftag">'+esc(f)+'</span>';}).join('')+'</div>'+
+    '<div class="count">มี '+c.versions.length+' รุ่น'+(PICK[c.id]?' · ✅ เลือกแล้ว: '+esc(PICK[c.id]):' · ⛔ ยังไม่เลือก')+'</div>';
+  var g='';
+  c.versions.forEach(function(v){
+    var on=(PICK[c.id]===v.h);
+    g+='<div class="vcard'+(on?' pick':'')+'"><div class="vh">'+
+       '<span class="m'+(v.isMaster?' master':'')+'">'+(v.isMaster?'MASTER (ใช้อยู่)':'รุ่นอื่น')+'</span>'+
+       '<span class="m">'+esc(v.h)+'</span>'+
+       '<span class="m">'+v.nsteps+' ขั้น · '+v.ntraps+' กับดัก</span>'+
+       '<span class="m">'+(v.size/1024).toFixed(1)+' KB</span>'+
+       '<button class="'+(on?'on':'')+'" data-h="'+v.h+'">'+(on?'✓ เลือกอันนี้แล้ว':'เลือกอันนี้')+'</button></div>'+
+       '<div class="src">มาจาก: '+v.files.map(esc).join(' · ')+'</div>'+
+       '<div class="vb">'+renderT1(v.rec)+'</div></div>';
+  });
+  document.getElementById('grid').innerHTML=g;
+  if(window.renderMathInElement){try{renderMathInElement(document.querySelector('.main'),{delimiters:[
+    {left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],throwOnError:false});}catch(e){}}
+  document.querySelector('.main').scrollTop=0;
+}
+function list(){
+  var todo=document.getElementById('fTodo').checked, out=[];
+  C.forEach(function(c,i){
+    if(todo&&PICK[c.id]) return;
+    out.push('<div class="li'+(i===ci?' on':'')+'" data-i="'+i+'"><span class="n">'+esc(c.id)+'</span>'+
+      '<span class="dot">'+(PICK[c.id]?'✓':'')+'</span></div>');
+  });
+  document.getElementById('list').innerHTML=out.join('')||'<div class="li">— เลือกครบแล้ว —</div>';
+  document.getElementById('cnt').textContent='แสดง '+out.length+' / '+C.length+' · เลือกแล้ว '+Object.keys(PICK).length;
+}
+fetch('t1_conflict_data.json').then(function(r){return r.json();}).then(function(j){
+  C=j;
+  document.getElementById('load').style.display='none';
+  document.getElementById('app').style.display='';
+  document.getElementById('list').addEventListener('click',function(e){
+    var l=e.target.closest('.li'); if(!l||!l.dataset.i) return; ci=+l.dataset.i; list(); draw();});
+  document.getElementById('grid').addEventListener('click',function(e){
+    var b=e.target.closest('button[data-h]'); if(!b) return;
+    var c=C[ci];
+    if(PICK[c.id]===b.dataset.h) delete PICK[c.id]; else PICK[c.id]=b.dataset.h;
+    savePick(); list(); draw();});
+  document.getElementById('fTodo').addEventListener('change',list);
+  document.getElementById('btnExp').addEventListener('click',function(){
+    var o={}; C.forEach(function(c){ if(PICK[c.id]) o[c.id]=PICK[c.id]; });
+    document.getElementById('expbox').style.display='';
+    document.getElementById('exp').value=JSON.stringify(o,null,1);
+    document.getElementById('exp').select();});
+  list(); draw();
+}).catch(function(err){
+  document.getElementById('load').innerHTML='🔴 <b>โหลดไม่ได้</b> — ต้องเปิดผ่านเซิร์ฟเวอร์ '+
+   '<code>http://127.0.0.1:5501/_t1run/เลือกรุ่นt1.html</code><br><small>'+esc(err)+'</small>';});
+</script></body></html>
