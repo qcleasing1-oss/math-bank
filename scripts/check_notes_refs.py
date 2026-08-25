@@ -115,6 +115,12 @@
       *ใครก็รันซ้ำจับแถวปลอมได้* — ข้ออ้างนั้นจริง **ก็ต่อเมื่อ blob เอื้อมถึง**
    ⇒ ⛔ ถ้าไม่มีกฎนี้ แถวที่อ้าง blob ที่ ⛔ ไม่เคยขึ้น git จะผ่านเงียบ = **b20/b21 กลับชาติมาเกิด**
 
+🆕 **v1.2 (25 ส.ค. 69)** — แยก **สาเหตุ** ของกฎ ⑤ ด้วย **รหัส** ⛔ ไม่ใช่แค่ถ้อยคำ (E→MB #100 §3)
+   `sweep-row-fake`        🔴 ข้อมูลในแถวผิด          ⇒ **ต้องแก้ที่: แถว**
+   `sweep-row-uncheckable` 🟡 เทียบไม่ได้ (ประวัติขาด)  ⇒ **ต้องแก้ที่: CI/เครื่องมือ**
+   ⚠️ ทั้งคู่ยัง **แดงเท่ากัน** — 🟡 บอก *ทิศทางการแก้* ⛔ ไม่ได้แปลว่าเบากว่า
+   ⇒ เหตุ: แดงที่ ⛔ ไม่บอกว่าจะไปแก้ที่ไหน คือแดงที่จะ ⛔ ไม่มีใครดู
+
 รหัสออก: 0 = ผ่าน · 1 = เนื้อหาแดง · 2 = ตัวเครื่องมือแดง
 """
 import argparse
@@ -124,7 +130,7 @@ import re
 import sys
 from pathlib import Path
 
-CHECKER_VERSION = '1.1'
+CHECKER_VERSION = '1.2'
 
 DEFAULT_SCAN = Path('data/sets')
 ARCHIVE_SCAN = Path('data/_archive')
@@ -464,7 +470,7 @@ def git_blob_at(commit, path):
 
 
 def sweep_row_problem(row, resolver):
-    """กฎ ⑤ · ตรวจ **หนึ่งแถว** ของ SWEEP_LOG — คืนข้อความปัญหา หรือ None ถ้าผ่าน
+    """กฎ ⑤ · ตรวจ **หนึ่งแถว** ของ SWEEP_LOG — คืน `(รหัส, ข้อความ)` หรือ None ถ้าผ่าน
 
     🔑 ตรวจว่า `<คอมมิตคลัง>:<เครื่องมือ>` ให้ blob **ตรงกับที่แถวอ้าง**
        ⇒ แข็งกว่า `git cat-file -e <blob>` เพราะยืนยัน **ทั้งสามช่องพร้อมกัน**
@@ -472,26 +478,40 @@ def sweep_row_problem(row, resolver):
     ⬤ เหตุผลที่กฎนี้ขาดไม่ได้ (MB→E #95 §5 · E→MB #98 §1):
        ที่เรายอมให้ "เพิ่มแถวได้ฟรี" เพราะอ้างว่า *ใครก็รันซ้ำจับแถวปลอมได้*
        ⇒ ข้ออ้างนั้นจริง **ก็ต่อเมื่อ blob เอื้อมถึง** ⛔ ถ้าไม่มีกฎนี้ มันเป็นแค่ความหวัง
-       ⇒ ⇒ และแถวที่อ้าง blob ที่ ⛔ ไม่เคยอยู่ใต้ git คือ **b20/b21 กลับชาติมาเกิด**
+
+    🆕 **v1.2 · แยก "สาเหตุ" ออกจากกันด้วยรหัส ⛔ ไม่ใช่แค่ถ้อยคำ** (E→MB #100 §3)
+       ทั้งสองสาเหตุ **แดงเหมือนกัน** (ถูกแล้ว) แต่ **ไปแก้คนละที่**:
+         `sweep-row-fake`        🔴 ข้อมูลในแถวผิด        ⇒ ต้องแก้ **แถว**
+         `sweep-row-uncheckable` 🟡 เทียบไม่ได้ (ประวัติขาด) ⇒ ต้องแก้ **CI/เครื่องมือ**
+       ⇒ ⛔ ถ้าไม่แยก คนอ่านผลจาก CI จะรู้ว่า "แดง" แต่ ⛔ ไม่รู้ว่าจะเดินไปทางไหน
+       ⇒ ⇒ และแดงที่ ⛔ ไม่มีใครรู้ว่าจะไปแก้ที่ไหน คือแดงที่จะไม่มีใครดู
     ⛔ resolver ถูกฉีดเข้ามาได้ เพื่อให้ selftest ยิงมิวแทนต์ได้โดย ⛔ ไม่ต้องมี git
     """
     if not isinstance(row, (list, tuple)) or len(row) != SWEEP_FIELDS:
-        return (f'แถวผิดรูป — ต้องมี {SWEEP_FIELDS} ช่อง '
+        return ('sweep-row-fake',
+                f'🔴 แถวผิดรูป — ต้องมี {SWEEP_FIELDS} ช่อง '
                 f'(id · วันที่ · เครื่องมือ · blob · คอมมิตคลัง · ผล · เพื่อนบ้าน) '
-                f'แต่ได้ {len(row) if hasattr(row, "__len__") else "?"}')
+                f'แต่ได้ {len(row) if hasattr(row, "__len__") else "?"} '
+                f'⇒ **ต้องแก้ที่: แถวใน SWEEP_LOG**')
     qid, day, tool, blob, bank, result, _nb = row
     if not (day and tool and blob and bank and result):
-        return f'{qid} · มีช่องว่างเปล่าในแถว ⇒ แถวที่ไม่ครบ **ทดสอบซ้ำไม่ได้**'
+        return ('sweep-row-fake',
+                f'🔴 {qid} · มีช่องว่างเปล่าในแถว ⇒ แถวที่ไม่ครบ **ทดสอบซ้ำไม่ได้** '
+                f'⇒ **ต้องแก้ที่: แถวใน SWEEP_LOG**')
     got = resolver(bank, tool)
     if got is None:
-        return (f'{qid} · resolve `{bank[:8]}:{tool}` ⛔ ไม่ได้ '
-                f'⇒ แถวนี้ **ทดสอบซ้ำไม่ได้** ⛔ ไม่ใช่ "น่าจะถูก" '
-                f'(ถ้ารันบน CI ที่ clone ตื้น ให้ตั้ง fetch-depth: 0 — '
-                f'"เทียบไม่ได้" ⛔ ไม่เท่ากับ "เทียบแล้วผ่าน")')
+        return ('sweep-row-uncheckable',
+                f'🟡 {qid} · resolve `{bank[:8]}:{tool}` ⛔ ไม่ได้ '
+                f'⇒ แถวนี้ **ทดสอบซ้ำไม่ได้** ⛔ ไม่ใช่ "น่าจะถูก" · '
+                f'"เทียบไม่ได้" ⛔ ไม่เท่ากับ "เทียบแล้วผ่าน" '
+                f'⇒ **ต้องแก้ที่: CI/เครื่องมือ** — clone ตื้นให้ตั้ง `fetch-depth: 0` '
+                f'(ถ้าประวัติครบแล้วยัง resolve ⛔ ไม่ได้ ⇒ ค่อยกลับมาสงสัยแถว)')
     if got != blob:
-        return (f'{qid} · blob ⛔ ไม่ตรง — แถวอ้าง {blob[:12]}… '
+        return ('sweep-row-fake',
+                f'🔴 {qid} · blob ⛔ ไม่ตรง — แถวอ้าง {blob[:12]}… '
                 f'แต่ `{bank[:8]}:{tool}` ให้ {got[:12]}… '
-                f'⇒ แถวนี้อ้างเครื่องมือคนละรุ่นกับที่บอก')
+                f'⇒ แถวนี้อ้างเครื่องมือคนละรุ่นกับที่บอก '
+                f'⇒ **ต้องแก้ที่: แถวใน SWEEP_LOG**')
     return None
 
 
@@ -504,7 +524,8 @@ def sweep_verdict(rows, resolver=git_blob_at):
     for row in rows:
         why = sweep_row_problem(row, resolver)
         if why:
-            red.append(('sweep-row-unverifiable', f'🔴 SWEEP_LOG · {why}'))
+            code, msg = why
+            red.append((code, f'SWEEP_LOG · {msg}'))
         key = tuple(row) if isinstance(row, (list, tuple)) else row
         if key in seen:
             red.append(('sweep-row-duplicate', f'🔴 SWEEP_LOG · แถวซ้ำเป๊ะ: {key}'))
@@ -695,6 +716,20 @@ def selftest():                                        # noqa: C901
               '⇒ พิสูจน์ว่ากฎ ⑤ มีฟันจริง',
         sweep_verdict([GOOD], lambda b, t: GOOD[3])[0] == []
         and sweep_verdict([GOOD], _fake(None))[0] != [])
+    say('㊶', '🆕 v1.2 · สองสาเหตุต้องใช้ **รหัสคนละตัว** ⛔ ไม่ใช่แค่ถ้อยคำต่างกัน '
+              '(เครื่องต้องแยกออก ⛔ ไม่ใช่แค่คน)',
+        sweep_row_problem(GOOD, _fake(None))[0] == 'sweep-row-uncheckable'
+        and sweep_row_problem(GOOD, _fake('c' * 40))[0] == 'sweep-row-fake')
+    say('㊷', '🆕 v1.2 · ทุกข้อความต้องบอก **"ต้องแก้ที่: …"** ⇒ แดงที่ ⛔ ไม่บอกทางไป '
+              'คือแดงที่จะไม่มีใครดู',
+        all('ต้องแก้ที่' in sweep_row_problem(r, f)[1]
+            for r, f in ((GOOD, _fake(None)), (GOOD, _fake('c' * 40)),
+                         (GOOD[:4], _fake('a' * 40)), (GOOD[:5] + ('', ''), _fake('a' * 40)))))
+    say('㊸', '🆕 v1.2 · ทั้งสองสาเหตุยังต้อง **แดงเหมือนกัน** ⛔ ไม่ใช่ลดชั้นเป็นคำเตือน '
+              '(🟡 บอก *ทิศทางการแก้* ⛔ ไม่ได้บอกว่าเบากว่า)',
+        len(sweep_verdict([GOOD], _fake(None))[0]) == 1
+        and len(sweep_verdict([GOOD], _fake('c' * 40))[0]) == 1)
+
     say('㊳', '🔑 SWEEP_LOG ของจริงต้องผ่านกฎ ⑤ ด้วย git จริง '
               '(⛔ ไม่ใช่ resolver ปลอม)',
         sweep_verdict(SWEEP_LOG)[0] == [])
