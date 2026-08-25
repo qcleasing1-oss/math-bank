@@ -99,9 +99,21 @@
   ⇒ เติมชื่อเข้ามาเงียบ ๆ ⛔ ไม่ได้ — ต้องประกาศในข้อความคอมมิตว่า `NOTES_REF_DEBT+: <เหตุผล>`
   ⇒ **เลือก WATCHED ⛔ ไม่ใช่ FROZEN โดยตั้งใจ** — ต่างจาก `BLIND_CENSUS` ของด่าน 15:
        `BLIND_CENSUS` = **สำมะโนที่มีวันที่** ⇒ ย่อไม่ได้ ⇒ FROZEN (เฝ้าสองขา)
-       `NOTES_REF_DEBT` = **หนี้ที่ต้องหมดไป**  ⇒ ย่อ = ใช้หนี้ ⇒ WATCHED (เฝ้าขาขึ้น)
+       `NOTES_REF_DEBT` = **หนี้ที่ต้องหมดไป (เจตนา)**
+                        · ด่านบังคับได้แค่ **"ต้องไม่โตโดยไม่ประกาศ" (กลไก)**
+         ⇒ 🔑 เจตนา "ต้องหมดไป" คือ **เหตุผลที่ย่อได้ฟรี** ⇒ WATCHED ⛔ ไม่ใช่ FROZEN
+         ⚠️ ⛔ อย่าตัดชั้น "เจตนา" ทิ้งเหลือแต่ "กลไก" — คนที่อ่านแล้วเห็นแต่
+            "ต้องไม่โตโดยไม่ประกาศ" จะสรุปอย่างสมเหตุสมผลว่ามันควรเป็น FROZEN
+            แล้วไปเปลี่ยนทรง ⇒ ขาลงกลายเป็นต้องประกาศ ⇒ **ใช้หนี้แพงขึ้นโดยไม่ได้อะไร**
+            (E→MB #98 §4 · ถ้อยคำนี้ต้องตรงกันทั้ง 2 ไฟล์ — อีกที่คือ `check_config_growth.py`)
      และการย่อมันเงียบ ๆ **ทำไม่ได้อยู่แล้ว** เพราะกฎ ② บังคับให้หมุดต้องมีของรองรับ
      ⇒ ⇒ หมุดที่ถูกถอนโดยที่ `notes` ยังอ้างของที่ไม่มี ⇒ **กฎ ① แดงทันที**
+
+🆕 **กฎ ⑤ (v1.1 · 25 ส.ค. 69)** — ทุกแถวของ `SWEEP_LOG` ต้องอ้างของที่ **อยู่ใต้ git จริง**
+   `git rev-parse <คอมมิตคลัง>:<เครื่องมือ>` ต้องได้ blob **ตรงกับที่แถวอ้าง** ⇒ ไม่ตรง/resolve ไม่ได้ = แดง
+   ⬤ เหตุผล: ที่ยอมให้ "เพิ่มแถวได้ฟรี" (ทรง SHRINK_WATCHED ของด่าน 10) เพราะอ้างว่า
+      *ใครก็รันซ้ำจับแถวปลอมได้* — ข้ออ้างนั้นจริง **ก็ต่อเมื่อ blob เอื้อมถึง**
+   ⇒ ⛔ ถ้าไม่มีกฎนี้ แถวที่อ้าง blob ที่ ⛔ ไม่เคยขึ้น git จะผ่านเงียบ = **b20/b21 กลับชาติมาเกิด**
 
 รหัสออก: 0 = ผ่าน · 1 = เนื้อหาแดง · 2 = ตัวเครื่องมือแดง
 """
@@ -112,7 +124,7 @@ import re
 import sys
 from pathlib import Path
 
-CHECKER_VERSION = '1.0'
+CHECKER_VERSION = '1.1'
 
 DEFAULT_SCAN = Path('data/sets')
 ARCHIVE_SCAN = Path('data/_archive')
@@ -231,6 +243,122 @@ MISSING_NAMES = [
     'verify_b23.py',
 ]
 
+
+# ═══════════════════════════════════════════════════════════════════════════════
+#  🪵 SWEEP_LOG (v1.1 · 25 ส.ค. 69) — **บันทึกเหตุการณ์การกวาดซ้ำ**
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# ⛔ ⛔ **⛔ ไม่ใช่ "คำตัดสินว่าข้อนี้สะอาด"** — และชื่อฟิลด์ก็จงใจ ⛔ ไม่มีคำว่า proven
+#    แต่ละแถวคือ **ประโยคที่ทดสอบซ้ำได้**:
+#        "เมื่อคลังอยู่ที่ <คอมมิตคลัง> และเครื่องมืออยู่ที่ blob <blob> ผลคือ <ผล>"
+#    ⇒ ทั้งสองขาเป็นแฮชที่ **⛔ ไม่หมดอายุ** ⇒ ใครก็ย้อนไปยืนที่เดิมแล้วรันซ้ำได้ตลอดกาล
+#
+# 🔑 **ทำไมต้องมีทั้ง blob และคอมมิตคลัง**
+#    blob         : `git am` ข้าม session ทำให้ commit sha เปลี่ยน แต่ blob ⛔ ไม่เปลี่ยน
+#                   ⇒ เป็นสมอที่ ⛔ ไม่ขึ้นกับฐาน (บทเรียน `MB→E #93 §0` — tree ตาย 2 รอบ)
+#    คอมมิตคลัง   : ผล "เจอ 1 = ตัวเอง" จริงกับ **คลัง ณ วันนั้น** เท่านั้น
+#                   ⇒ ⛔ ถ้าไม่มีช่องนี้ จะแยก "แถวปลอม" กับ "คลังโตขึ้นแล้ว" **ไม่ออก**
+#
+# ⚠️ **การถอนความเชื่อถือของแถวเก่า ให้ *เพิ่มแถวใหม่* ⛔ ไม่ใช่แก้แถวเดิม**
+#    (กฎห้ามลบบันทึกเก่า · และด่าน 10 ทรง SHRINK_WATCHED จับการแก้แถวเป็นการลบอยู่แล้ว)
+#
+# 🔒 **ลงทะเบียนกับด่าน 10 ในกอง `SHRINK_WATCHED`** — เฝ้า **ขาลง** อย่างเดียว
+#    เพิ่มแถว ⇒ ผ่านเงียบ (เพราะกฎ ⑤ ข้างล่างเฝ้าขาเพิ่มให้อยู่แล้ว)
+#    ลบ/แก้แถว ⇒ ต้องเขียน `SWEEP_LOG-: <เหตุผล>` ในข้อความคอมมิต
+#
+# 🕳️ **จุดบอดที่ประกาศไว้ตรงนี้:** แถวบันทึกว่า *เคยกวาดแล้วได้ผลอะไร*
+#    ⛔ **ไม่ได้แปลว่าโพรบของเครื่องมือนั้นถูก** — โพรบที่กว้างเกินยัง self-hit ผ่าน
+#    ⇒ สิ่งที่กันโพรบกว้างเกินคือ **รายชื่อ allow ที่ต้องเขียนเหตุผลกำกับทุกชื่อ** ในตัวเครื่องมือเอง
+#
+# รูปแถว (7 ช่อง):
+#   (id ของข้อ, วันที่กวาด, เครื่องมือ, blob ของเครื่องมือ, คอมมิตของคลัง, ผลที่ได้, เพื่อนบ้านที่โผล่)
+SWEEP_FIELDS = 7
+
+SWEEP_LOG = [
+    ('gen-chap-07-trigonometry-q125', '2026-08-25', 'tools/authoring/k2/collide_subset.py',
+     '777e89d3247cab99ef2c967f166c7fbceadc20d1', '34761a2821322e706ffd574837c3dd0837c4801b',
+     'เจอ 1 ข้อ = ตัวเองข้อเดียว', ''),
+    ('gen-chap-07-trigonometry-q126', '2026-08-25', 'tools/authoring/k2/collide_subset.py',
+     '777e89d3247cab99ef2c967f166c7fbceadc20d1', '34761a2821322e706ffd574837c3dd0837c4801b',
+     'เจอ 1 ข้อ = ตัวเองข้อเดียว', ''),
+    ('gen-chap-07-trigonometry-q128', '2026-08-25', 'tools/authoring/k2/collide_subset.py',
+     '777e89d3247cab99ef2c967f166c7fbceadc20d1', '34761a2821322e706ffd574837c3dd0837c4801b',
+     'เจอ 1 ข้อ = ตัวเองข้อเดียว', ''),
+    ('gen-chap-07-trigonometry-q129', '2026-08-25', 'tools/authoring/k2/collide_subset.py',
+     '777e89d3247cab99ef2c967f166c7fbceadc20d1', '34761a2821322e706ffd574837c3dd0837c4801b',
+     'เจอ 1 ข้อ = ตัวเองข้อเดียว', ''),
+    ('gen-chap-07-trigonometry-q130', '2026-08-25', 'tools/authoring/k2/collide_subset.py',
+     '777e89d3247cab99ef2c967f166c7fbceadc20d1', '34761a2821322e706ffd574837c3dd0837c4801b',
+     'เจอ 1 ข้อ = ตัวเองข้อเดียว', ''),
+    ('gen-chap-07-trigonometry-q131', '2026-08-25', 'tools/authoring/k2/collide_subset.py',
+     '777e89d3247cab99ef2c967f166c7fbceadc20d1', '34761a2821322e706ffd574837c3dd0837c4801b',
+     'เจอ 1 ข้อ = ตัวเองข้อเดียว', ''),
+    ('gen-chap-07-trigonometry-q132', '2026-08-25', 'tools/authoring/k2/collide_subset.py',
+     '777e89d3247cab99ef2c967f166c7fbceadc20d1', '34761a2821322e706ffd574837c3dd0837c4801b',
+     'เจอ 1 ข้อ = ตัวเองข้อเดียว', ''),
+    ('gen-chap-07-trigonometry-q133', '2026-08-25', 'tools/authoring/k2/collide_subset.py',
+     '777e89d3247cab99ef2c967f166c7fbceadc20d1', '34761a2821322e706ffd574837c3dd0837c4801b',
+     'เจอ 1 ข้อ = ตัวเองข้อเดียว', ''),
+    ('gen-chap-07-trigonometry-q134', '2026-08-25', 'tools/authoring/k2/collide_subset.py',
+     '777e89d3247cab99ef2c967f166c7fbceadc20d1', '34761a2821322e706ffd574837c3dd0837c4801b',
+     'เจอ 2 ข้อ = ตัวเอง + เพื่อนบ้านที่ประกาศไว้', 'gen-chap-07-trigonometry-q153'),
+    ('gen-chap-07-trigonometry-q135', '2026-08-25', 'tools/authoring/k2/collide_subset.py',
+     '777e89d3247cab99ef2c967f166c7fbceadc20d1', '34761a2821322e706ffd574837c3dd0837c4801b',
+     'เจอ 1 ข้อ = ตัวเองข้อเดียว', ''),
+    ('gen-chap-07-trigonometry-q136', '2026-08-25', 'tools/authoring/k2/collide_subset.py',
+     '777e89d3247cab99ef2c967f166c7fbceadc20d1', '34761a2821322e706ffd574837c3dd0837c4801b',
+     'เจอ 1 ข้อ = ตัวเองข้อเดียว', ''),
+    ('gen-chap-07-trigonometry-q137', '2026-08-25', 'tools/authoring/k2/collide_subset.py',
+     '777e89d3247cab99ef2c967f166c7fbceadc20d1', '34761a2821322e706ffd574837c3dd0837c4801b',
+     'เจอ 1 ข้อ = ตัวเองข้อเดียว', ''),
+    ('gen-chap-07-trigonometry-q138', '2026-08-25', 'tools/authoring/k2/collide_subset.py',
+     '777e89d3247cab99ef2c967f166c7fbceadc20d1', '34761a2821322e706ffd574837c3dd0837c4801b',
+     'เจอ 1 ข้อ = ตัวเองข้อเดียว', ''),
+    ('gen-chap-07-trigonometry-q139', '2026-08-25', 'tools/authoring/k2/collide_subset.py',
+     '777e89d3247cab99ef2c967f166c7fbceadc20d1', '34761a2821322e706ffd574837c3dd0837c4801b',
+     'เจอ 1 ข้อ = ตัวเองข้อเดียว', ''),
+    ('gen-chap-07-trigonometry-q140', '2026-08-25', 'tools/authoring/k2/collide_subset.py',
+     '777e89d3247cab99ef2c967f166c7fbceadc20d1', '34761a2821322e706ffd574837c3dd0837c4801b',
+     'เจอ 1 ข้อ = ตัวเองข้อเดียว', ''),
+    ('gen-chap-07-trigonometry-q141', '2026-08-25', 'tools/authoring/k2/collide_subset.py',
+     '777e89d3247cab99ef2c967f166c7fbceadc20d1', '34761a2821322e706ffd574837c3dd0837c4801b',
+     'เจอ 1 ข้อ = ตัวเองข้อเดียว', ''),
+    ('gen-chap-07-trigonometry-q142', '2026-08-25', 'tools/authoring/k2/collide_subset.py',
+     '777e89d3247cab99ef2c967f166c7fbceadc20d1', '34761a2821322e706ffd574837c3dd0837c4801b',
+     'เจอ 1 ข้อ = ตัวเองข้อเดียว', ''),
+    ('gen-chap-07-trigonometry-q143', '2026-08-25', 'tools/authoring/k2/collide_subset.py',
+     '777e89d3247cab99ef2c967f166c7fbceadc20d1', '34761a2821322e706ffd574837c3dd0837c4801b',
+     'เจอ 1 ข้อ = ตัวเองข้อเดียว', ''),
+    ('gen-chap-07-trigonometry-q144', '2026-08-25', 'tools/authoring/k2/collide_subset.py',
+     '777e89d3247cab99ef2c967f166c7fbceadc20d1', '34761a2821322e706ffd574837c3dd0837c4801b',
+     'เจอ 1 ข้อ = ตัวเองข้อเดียว', ''),
+    ('gen-chap-07-trigonometry-q146', '2026-08-25', 'tools/authoring/k2/collide_subset.py',
+     '777e89d3247cab99ef2c967f166c7fbceadc20d1', '34761a2821322e706ffd574837c3dd0837c4801b',
+     'เจอ 2 ข้อ = ตัวเอง + เพื่อนบ้านที่ประกาศไว้', 'gen-chap-07-trigonometry-q074'),
+    ('gen-chap-07-trigonometry-q149', '2026-08-25', 'tools/authoring/k2/collide_subset.py',
+     '777e89d3247cab99ef2c967f166c7fbceadc20d1', '34761a2821322e706ffd574837c3dd0837c4801b',
+     'เจอ 1 ข้อ = ตัวเองข้อเดียว', ''),
+    ('gen-chap-07-trigonometry-q151', '2026-08-25', 'tools/authoring/k2/collide_subset.py',
+     '777e89d3247cab99ef2c967f166c7fbceadc20d1', '34761a2821322e706ffd574837c3dd0837c4801b',
+     'เจอ 1 ข้อ = ตัวเองข้อเดียว', ''),
+    ('gen-chap-07-trigonometry-q153', '2026-08-25', 'tools/authoring/k2/collide_subset.py',
+     '777e89d3247cab99ef2c967f166c7fbceadc20d1', '34761a2821322e706ffd574837c3dd0837c4801b',
+     'เจอ 1 ข้อ = ตัวเองข้อเดียว', ''),
+    ('gen-chap-07-trigonometry-q156', '2026-08-25', 'tools/authoring/k2/collide_subset.py',
+     '777e89d3247cab99ef2c967f166c7fbceadc20d1', '34761a2821322e706ffd574837c3dd0837c4801b',
+     'เจอ 1 ข้อ = ตัวเองข้อเดียว', ''),
+    ('gen-chap-07-trigonometry-q158', '2026-08-25', 'tools/authoring/k2/collide_subset.py',
+     '777e89d3247cab99ef2c967f166c7fbceadc20d1', '34761a2821322e706ffd574837c3dd0837c4801b',
+     'เจอ 1 ข้อ = ตัวเองข้อเดียว', ''),
+    ('gen-chap-07-trigonometry-q161', '2026-08-25', 'tools/authoring/k2/collide_subset.py',
+     '777e89d3247cab99ef2c967f166c7fbceadc20d1', '34761a2821322e706ffd574837c3dd0837c4801b',
+     'เจอ 1 ข้อ = ตัวเองข้อเดียว', ''),
+    ('gen-chap-07-trigonometry-q164', '2026-08-25', 'tools/authoring/k2/collide_subset.py',
+     '777e89d3247cab99ef2c967f166c7fbceadc20d1', '34761a2821322e706ffd574837c3dd0837c4801b',
+     'เจอ 1 ข้อ = ตัวเองข้อเดียว', ''),
+]
+
+
 # ── 🧬 ฟิกซ์เจอร์สังเคราะห์ของ selftest ────────────────────────────────────────
 #
 # 🔑 **เหตุผลที่มันต้องมีอยู่ แม้รายการหนี้จะยาว 27 บรรทัดวันนี้** (บทเรียน ① ด่าน 15 v1.3)
@@ -316,6 +444,78 @@ def scan(paths, index):
         if missing and qid:
             broken.setdefault(qid, set()).update(missing)
     return divisor, {k: sorted(v) for k, v in broken.items()}, external
+
+
+def git_blob_at(commit, path):
+    """คืน blob ของ `<commit>:<path>` — คืน None ถ้า resolve ⛔ ไม่ได้
+
+    ⛔ อ่านผ่าน `git` เท่านั้น ⛔ ไม่เดาจากไฟล์ในดิสก์ — ประเด็นทั้งหมดของกฎ ⑤
+       คือ "ของที่แถวอ้าง **อยู่ใต้ git จริงไหม**" ⇒ ถามดิสก์แล้วตอบไม่ได้
+    """
+    import subprocess
+    try:
+        r = subprocess.run(['git', 'rev-parse', f'{commit}:{path}'],
+                           capture_output=True, text=True)
+    except Exception:                                  # noqa: BLE001
+        return None
+    if r.returncode != 0:
+        return None
+    return r.stdout.strip() or None
+
+
+def sweep_row_problem(row, resolver):
+    """กฎ ⑤ · ตรวจ **หนึ่งแถว** ของ SWEEP_LOG — คืนข้อความปัญหา หรือ None ถ้าผ่าน
+
+    🔑 ตรวจว่า `<คอมมิตคลัง>:<เครื่องมือ>` ให้ blob **ตรงกับที่แถวอ้าง**
+       ⇒ แข็งกว่า `git cat-file -e <blob>` เพราะยืนยัน **ทั้งสามช่องพร้อมกัน**
+         (เครื่องมือมีอยู่จริง ณ คอมมิตนั้น · คอมมิตนั้นมีอยู่จริง · blob ตรง)
+    ⬤ เหตุผลที่กฎนี้ขาดไม่ได้ (MB→E #95 §5 · E→MB #98 §1):
+       ที่เรายอมให้ "เพิ่มแถวได้ฟรี" เพราะอ้างว่า *ใครก็รันซ้ำจับแถวปลอมได้*
+       ⇒ ข้ออ้างนั้นจริง **ก็ต่อเมื่อ blob เอื้อมถึง** ⛔ ถ้าไม่มีกฎนี้ มันเป็นแค่ความหวัง
+       ⇒ ⇒ และแถวที่อ้าง blob ที่ ⛔ ไม่เคยอยู่ใต้ git คือ **b20/b21 กลับชาติมาเกิด**
+    ⛔ resolver ถูกฉีดเข้ามาได้ เพื่อให้ selftest ยิงมิวแทนต์ได้โดย ⛔ ไม่ต้องมี git
+    """
+    if not isinstance(row, (list, tuple)) or len(row) != SWEEP_FIELDS:
+        return (f'แถวผิดรูป — ต้องมี {SWEEP_FIELDS} ช่อง '
+                f'(id · วันที่ · เครื่องมือ · blob · คอมมิตคลัง · ผล · เพื่อนบ้าน) '
+                f'แต่ได้ {len(row) if hasattr(row, "__len__") else "?"}')
+    qid, day, tool, blob, bank, result, _nb = row
+    if not (day and tool and blob and bank and result):
+        return f'{qid} · มีช่องว่างเปล่าในแถว ⇒ แถวที่ไม่ครบ **ทดสอบซ้ำไม่ได้**'
+    got = resolver(bank, tool)
+    if got is None:
+        return (f'{qid} · resolve `{bank[:8]}:{tool}` ⛔ ไม่ได้ '
+                f'⇒ แถวนี้ **ทดสอบซ้ำไม่ได้** ⛔ ไม่ใช่ "น่าจะถูก" '
+                f'(ถ้ารันบน CI ที่ clone ตื้น ให้ตั้ง fetch-depth: 0 — '
+                f'"เทียบไม่ได้" ⛔ ไม่เท่ากับ "เทียบแล้วผ่าน")')
+    if got != blob:
+        return (f'{qid} · blob ⛔ ไม่ตรง — แถวอ้าง {blob[:12]}… '
+                f'แต่ `{bank[:8]}:{tool}` ให้ {got[:12]}… '
+                f'⇒ แถวนี้อ้างเครื่องมือคนละรุ่นกับที่บอก')
+    return None
+
+
+def sweep_verdict(rows, resolver=git_blob_at):
+    """กฎ ⑤ ทั้งกอง — คืน (รายการแดง, บรรทัดที่พิมพ์เสมอ)"""
+    red, lines = [], []
+    if rows is None:
+        return [('sweep-log-gone', '🔴 ⛔ ไม่พบ SWEEP_LOG เลย')], lines
+    seen = set()
+    for row in rows:
+        why = sweep_row_problem(row, resolver)
+        if why:
+            red.append(('sweep-row-unverifiable', f'🔴 SWEEP_LOG · {why}'))
+        key = tuple(row) if isinstance(row, (list, tuple)) else row
+        if key in seen:
+            red.append(('sweep-row-duplicate', f'🔴 SWEEP_LOG · แถวซ้ำเป๊ะ: {key}'))
+        seen.add(key)
+    by_tool = {}
+    for row in rows:
+        if isinstance(row, (list, tuple)) and len(row) == SWEEP_FIELDS:
+            by_tool.setdefault((row[2], row[3][:12], row[4][:8]), []).append(row[0])
+    for (tool, blob, bank), ids in sorted(by_tool.items()):
+        lines.append(f'  🪵 {len(ids)} ข้อ · {tool} · blob {blob}… · คลัง {bank}…')
+    return red, lines
 
 
 def verdict(divisor, broken, debt):
@@ -468,6 +668,43 @@ def selftest():                                        # noqa: C901
     say('㉚', 'ด่านนี้ต้องประกาศเองว่า 27 เป็น "พื้น" ⛔ ไม่ใช่ "จำนวน"',
         'พื้น' in __doc__ and '〔52〕' in __doc__)
 
+    # ── ⑧ 🪵 v1.1 · กฎ ⑤ SWEEP_LOG — เคสจับ · เคสปล่อย · มิวแทนต์
+    GOOD = ('gen-chap-07-trigonometry-q125', '2026-08-25',
+            'tools/authoring/k2/collide_subset.py', 'a' * 40, 'b' * 40,
+            'เจอ 1 ข้อ = ตัวเองข้อเดียว', '')
+
+    def _fake(ok_blob):
+        return lambda bank, tool: ok_blob
+
+    say('㉛', '🪵 แถวที่ blob ตรงกับที่ resolve ได้ ⇒ เงียบ',
+        sweep_row_problem(GOOD, _fake('a' * 40)) is None)
+    say('㉜', '🔴 แถวที่ resolve ⛔ ไม่ได้ (blob ⛔ ไม่เคยขึ้น git) ⇒ ต้องแดง '
+              '— นี่คือ b20/b21 กลับชาติมาเกิด',
+        sweep_row_problem(GOOD, _fake(None)) is not None)
+    say('㉝', '🔴 แถวที่ resolve ได้แต่ blob คนละตัว ⇒ ต้องแดง '
+              '(อ้างเครื่องมือคนละรุ่นกับที่บอก)',
+        sweep_row_problem(GOOD, _fake('c' * 40)) is not None)
+    say('㉞', '🔴 แถวผิดรูป (ช่องไม่ครบ) ⇒ ต้องแดง ⛔ ไม่ระเบิด',
+        sweep_row_problem(GOOD[:4], _fake('a' * 40)) is not None)
+    say('㉟', '🔴 แถวที่มีช่องว่างเปล่า ⇒ ต้องแดง (แถวไม่ครบ = ทดสอบซ้ำไม่ได้)',
+        sweep_row_problem(GOOD[:5] + ('', ''), _fake('a' * 40)) is not None)
+    say('㊱', '🔴 แถวซ้ำเป๊ะสองแถว ⇒ ต้องแดง',
+        any(c == 'sweep-row-duplicate'
+            for c, _ in sweep_verdict([GOOD, GOOD], _fake('a' * 40))[0]))
+    say('㊲', '🧬 มิวแทนต์: ตัวตรวจที่ "เชื่อทุกแถว" ⇒ เคส ㉜/㉝ ต้องล้ม '
+              '⇒ พิสูจน์ว่ากฎ ⑤ มีฟันจริง',
+        sweep_verdict([GOOD], lambda b, t: GOOD[3])[0] == []
+        and sweep_verdict([GOOD], _fake(None))[0] != [])
+    say('㊳', '🔑 SWEEP_LOG ของจริงต้องผ่านกฎ ⑤ ด้วย git จริง '
+              '(⛔ ไม่ใช่ resolver ปลอม)',
+        sweep_verdict(SWEEP_LOG)[0] == [])
+    say('㊴', '🔒 SWEEP_LOG ต้องถูกลงทะเบียนใน SHRINK_WATCHED ของด่าน 10 '
+              '⛔ ไม่ใช่ WATCHED/FROZEN — ไม่งั้นเฝ้าผิดทิศ',
+        _registered_shrink())
+    say('㊵', '⛔ ถ้อยคำ "หนี้ที่ต้องหมดไป" ต้องยังอยู่คู่กับคำว่า "เจตนา" '
+              '⇒ เหตุผลที่เลือก WATCHED ⛔ ไม่หายไปกับการแก้ถ้อยคำ (E→MB #98 §4)',
+        'หนี้ที่ต้องหมดไป' in __doc__ and 'เจตนา' in __doc__)
+
     print(f'ด่าน 21 · check_notes_refs v{CHECKER_VERSION} — self-test')
     for line in passed:
         print(f'  ✅ {line}')
@@ -476,6 +713,24 @@ def selftest():                                        # noqa: C901
     # ⛔ ห้ามพิมพ์เลขที่เขียนด้วยมือ — นับเอง (㉚ ของทะเบียน)
     print(f'  ── ผ่าน {len(passed)} · ล้ม {len(failed)} · รวม {len(passed) + len(failed)} เคส')
     return 0 if not failed else 1
+
+
+def _registered_shrink():
+    """SWEEP_LOG ถูกลงทะเบียนในกอง SHRINK_WATCHED ของด่าน 10 หรือยัง
+
+    ⛔ อ่านเป็น **ข้อความล้วน** ⛔ ไม่ import — กฎเดียวกับด่าน 10 อ่านไฟล์ที่มันตรวจ
+    """
+    try:
+        import ast as _ast
+        src = Path(GROWTH_GUARD).read_text(encoding='utf-8')
+        for node in _ast.parse(src).body:
+            if (isinstance(node, _ast.Assign)
+                    and getattr(node.targets[0], 'id', '') == 'SHRINK_WATCHED'):
+                rows = _ast.literal_eval(node.value)
+                return any(v == 'SWEEP_LOG' for _f, v in rows)
+    except Exception:                                  # noqa: BLE001
+        return False
+    return False
 
 
 def _load_growth():
@@ -543,6 +798,14 @@ def main():
           f'(พิมพ์ทุกรอบ ⛔ ไม่ใช่เฉพาะรอบที่แดง):')
     for line in pin_lines:
         print(line)
+
+    # ── กฎ ⑤ (v1.1) · ทุกแถวของ SWEEP_LOG ต้องอ้างของที่อยู่ใต้ git จริง ──
+    sred, slines = sweep_verdict(SWEEP_LOG)
+    print(f'  🪵 SWEEP_LOG {len(SWEEP_LOG)} แถว '
+          f'(บันทึกเหตุการณ์ ⛔ ไม่ใช่คำตัดสิน · พิมพ์ทุกรอบ):')
+    for line in slines:
+        print(line)
+    red += sred
 
     if red:
         print()

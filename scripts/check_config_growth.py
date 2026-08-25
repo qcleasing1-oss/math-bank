@@ -22,6 +22,10 @@
    (กฎเดียวกับด่าน 2 · ถ้า import ไฟล์ที่พัง ตัวด่านจะพังตามไปด้วย
     แล้วจะแยกไม่ออกว่า "ของพัง" หรือ "ด่านพัง")
 
+🆕 v1.3 (25 ส.ค. 69) · เพิ่มทรงที่สาม **SHRINK_WATCHED** — เฝ้า **ขาลงอย่างเดียว**
+   ⇒ ตระกูลนี้แยกกันที่ **ทิศที่เฝ้า**: ↗ ขาขึ้น (WATCHED) · 🧊 สองขา (FROZEN) · ↘ ขาลง (SHRINK_WATCHED)
+   ที่มา: `MB→E #97 §2` พบว่าทรงที่ `SWEEP_LOG` ต้องการ ⛔ ไม่มีอยู่ · `E→MB #98 §1` เคาะชื่อ
+
 รหัสออก: 0 = ผ่าน · 1 = เนื้อหาแดง · 2 = ตัวเครื่องมือแดง / เทียบไม่ได้
 """
 import argparse
@@ -30,7 +34,7 @@ import re
 import subprocess
 import sys
 
-CHECKER_VERSION = '1.2'
+CHECKER_VERSION = '1.3'
 
 # (ไฟล์, ชื่อตัวแปร) ที่ต้องเฝ้า — เพิ่มได้ แต่การเพิ่ม "รายการที่เฝ้า" ไม่อันตราย
 # อันตรายคือการเพิ่ม "สมาชิกในรายการที่ถูกเฝ้า" ซึ่งคือสิ่งที่ด่านนี้จับ
@@ -115,7 +119,13 @@ WATCHED = [
     #
     #    ⚠️ ทำไมอยู่ใน WATCHED ⛔ ไม่ใช่ FROZEN — และนี่คือเส้นแบ่งที่ควรจำ:
     #       `BLIND_CENSUS` (FROZEN) = **สำมะโนที่มีวันที่** ⇒ "เคยขาด" ⛔ ไม่มีวันเป็นเท็จ ⇒ ย่อไม่ได้
-    #       `NOTES_REF_DEBT` (ที่นี่) = **หนี้ที่ต้องหมดไป**  ⇒ ย่อ = ใช้หนี้ ⇒ ต้องย่อได้ฟรี
+    #       `NOTES_REF_DEBT` (ที่นี่) = **หนี้ที่ต้องหมดไป (เจตนา)**
+    #            · ด่านบังคับได้แค่ **"ต้องไม่โตโดยไม่ประกาศ" (กลไก)**
+    #         ⇒ 🔑 เจตนา "ต้องหมดไป" คือ **เหตุผลที่ย่อได้ฟรี** ⇒ WATCHED ⛔ ไม่ใช่ FROZEN
+    #         ⚠️ ⛔ อย่าตัดชั้น "เจตนา" ทิ้งเหลือแต่ "กลไก" — คนที่อ่านแล้วเห็นแต่
+    #            "ต้องไม่โตโดยไม่ประกาศ" จะสรุปอย่างสมเหตุสมผลว่ามันควรเป็น FROZEN
+    #            แล้วไปเปลี่ยนทรง ⇒ ขาลงกลายเป็นต้องประกาศ ⇒ ใช้หนี้แพงขึ้นโดยไม่ได้อะไร
+    #            (E→MB #98 §4 · ถ้อยคำนี้ต้องตรงกันทั้ง 2 ไฟล์ — อีกที่คือ `check_notes_refs.py`)
     #       ⇒ ⇒ เอาสองอย่างนี้ไปไว้ทรงเดียวกัน = ⑪ (ยุบสองสิ่งที่ต่างกันให้ใช้กฎเดียว)
     #
     #    ⚠️ และการย่อมันเงียบ ๆ **ทำไม่ได้อยู่แล้ว** — ด่าน 21 บังคับขาลงเองในตัว (กฎ ②):
@@ -153,6 +163,42 @@ FROZEN = [
     #    ⇒ วันที่ข้อไหนถูกซ่อม **ให้ทำเครื่องหมายในหัวไฟล์ ⛔ ไม่ใช่ลบชื่อออก**
     #      เพราะ "เคยขาด" เป็นข้อเท็จจริงที่ ⛔ ไม่มีวันเป็นเท็จ (กฎห้ามลบบันทึกเก่า)
     ('scripts/check_duplicate_choices.py', 'BLIND_CENSUS'),
+]
+
+# ═══════════════════════════════════════════════════════════════
+#  SHRINK_WATCHED — รายการที่เป็น "บันทึกเหตุการณ์" ⇒ เฝ้า **ขาลงอย่างเดียว**  (v1.3)
+# ═══════════════════════════════════════════════════════════════
+#
+# 🔑 **ตระกูลนี้แยกกันที่ "ทิศที่เฝ้า" ⛔ ไม่ใช่ที่ความเข้มงวด** — ตอนนี้ครบสามทิศแล้ว:
+#      WATCHED         เฝ้า **ขาขึ้น**   — สิทธิ์: ขยายต้องขอ · ลดไม่ต้องขอ
+#      FROZEN          เฝ้า **สองขา**    — สำมะโนที่มีวันที่: เพิ่มหรือลบก็ต้องประกาศ
+#      SHRINK_WATCHED  เฝ้า **ขาลง**     — บันทึกเหตุการณ์: เพิ่มได้ฟรี · ลบ/แก้ต้องประกาศ
+#
+# ⬤ **ที่มา (25 ส.ค. 69 · `MB→E #97 §2` → `E→MB #98 §1` · ครูเคาะ):**
+#    ตอนจะลงทะเบียน `SWEEP_LOG` พบว่าทรงที่ต้องการ **⛔ ไม่มีอยู่ในไฟล์นี้**
+#    ใส่ลง FROZEN ⇒ การ "เพิ่มแถวบันทึก" จะต้องประกาศทุกครั้ง
+#      ⇒ = เก็บค่าผ่านทางจาก **พฤติกรรมที่เราอยากให้เกิด** (การกวาดซ้ำแล้วบันทึกผล)
+#      ⇒ ⇒ วันหนึ่งจะมีคนเลิกบันทึกเพราะแพง แล้วสมุดจะ **ดูสะอาดทั้งที่ไม่มีใครกวาดมานาน** (⑯)
+#    ใส่ลง WATCHED ⇒ **เฝ้าผิดด้านทั้งใบ** — ลบแถวออกเงียบ ๆ ได้ฟรี
+#
+# 🔑 **ทำไมขาเพิ่มปล่อยได้ — และเงื่อนไขที่ทำให้ข้ออ้างนี้จริง**
+#    แถวของ `SWEEP_LOG` พก **blob ของเครื่องมือ + คอมมิตของคลัง** ไปด้วย
+#    ⇒ ใครก็ย้อนไปยืนที่เดิมแล้วรันซ้ำเพื่อจับแถวปลอมได้  ⇒ ขาเพิ่ม **เฝ้าตัวเองได้**
+#    ⚠️ แต่ข้ออ้างนี้จริง **ก็ต่อเมื่อ blob นั้นเอื้อมถึง** ⇒ ด่าน 21 มีกฎ ⑤ บังคับไว้อีกชั้น
+#       (`git rev-parse <คอมมิตคลัง>:<เครื่องมือ>` ต้องได้ blob ตรงกับที่แถวอ้าง)
+#    ⇒ ⇒ ⛔ ถ้าไม่มีกฎนั้น "ขาเพิ่มเฝ้าตัวเองได้" เป็นแค่ความหวัง ⛔ ไม่ใช่ด่าน
+#
+# 🔴 **ส่วนขาลง ⛔ ไม่มีอะไรเฝ้าเลย** — แถวที่ถูกลบ ⛔ ไม่เหลือร่องรอย · รันซ้ำก็ ⛔ ไม่รู้ว่าเคยมี
+#    ⇒ ตรงกับหลักที่ตกลงกันไว้: **ทิศที่ต้องเฝ้า = ทิศที่ ⛔ ไม่มีด่านอื่นเฝ้าอยู่แล้ว**
+#
+# ⚠️ **"แก้แถวเก่า" ถูกจับด้วยขาลงเอง** — เพราะเทียบราย**สมาชิก**
+#    แก้ 1 แถว = ออก 1 + เข้า 1 ⇒ ขา removed ยิง ⇒ ต้องประกาศ `VAR-: <เหตุผล>`
+SHRINK_WATCHED = [
+    # 🔴 SWEEP_LOG = **บันทึกเหตุการณ์การกวาดซ้ำ** ⛔ ไม่ใช่ "คำตัดสินว่าข้อนี้สะอาด"
+    #    แต่ละแถวคือประโยคที่ทดสอบซ้ำได้: "เมื่อคลังอยู่ที่ <คอมมิต> และเครื่องมืออยู่ที่
+    #    blob <blob> ผลคือ <ผล>" ⇒ ทั้งสองขาเป็นแฮชที่ ⛔ ไม่หมดอายุ
+    #    ⇒ ถอนความเชื่อถือทำได้โดย **เพิ่มแถวใหม่** ⛔ ไม่ใช่ลบแถวเก่า (กฎห้ามลบบันทึกเก่า)
+    ('scripts/check_notes_refs.py', 'SWEEP_LOG'),
 ]
 
 MIN_REASON_LEN = 8
@@ -276,6 +322,32 @@ def frozen_verdict(prev, now, messages, var):
                     f'⇒ ถ้าตั้งใจจริง เขียน "{var}-: <เหตุผล>" ในข้อความ commit '
                     f'(ปกติแล้วสิ่งที่ควรทำคือ **ทำเครื่องหมายว่าซ่อมแล้ว ⛔ ไม่ใช่ลบชื่อ**)'))
     return bad
+
+
+def shrink_verdict(prev, now, messages, var):
+    """เฝ้า **ขาลงอย่างเดียว** — ใช้กับรายการใน SHRINK_WATCHED  (v1.3)
+
+    🔑 เพิ่มแถว ⇒ ผ่านเงียบ · ลบ/แก้แถวเก่า ⇒ ต้องประกาศ `VAR-: <เหตุผล>`
+    ⛔ ⛔ **ห้ามอ่านว่า "หละหลวมกว่า FROZEN"** — มันคนละ *ทิศ* ⛔ ไม่ใช่คนละ *ระดับ*
+       ขาเพิ่มของรายการชนิดนี้มีด่านอื่นเฝ้าอยู่แล้ว (ด่าน 21 กฎ ⑤ ตรวจ blob ที่แถวอ้าง)
+       ⇒ บังคับประกาศตอนเพิ่มอีก = ด่านซ้อนด่านที่ ⛔ ไม่เพิ่มฟัน แต่เพิ่มค่าผ่านทาง
+    """
+    if now is None:
+        return [('var-gone',
+                 f'ไม่พบตัวแปร {var} ที่ HEAD แล้ว — บันทึกที่หายไปทั้งก้อน '
+                 f'⛔ ไม่ใช่ "ไม่มีอะไรให้เฝ้า" ⇒ ต้องแก้รายการ SHRINK_WATCHED ให้ตรงกันก่อน')]
+    base = [] if prev is None else prev
+    removed = [x for x in base if x not in now]
+    if not removed:
+        return []
+    if declared(messages, var, '-'):
+        return []
+    return [('undeclared-shrink',
+             f'{var} ถูกลบ/แก้ {len(removed)} แถว โดยไม่มีบรรทัดประกาศ '
+             f'⇒ เขียน "{var}-: <เหตุผล>" (อย่างน้อย {MIN_REASON_LEN} ตัวอักษร) '
+             f'ในข้อความ commit · ⚠️ การ "แก้แถวเก่า" นับเป็นการลบด้วย '
+             f'(ออก 1 เข้า 1 ⇒ ขาลงยิง) — ถ้าอยากถอนความเชื่อถือของแถวเก่า '
+             f'ให้ **เพิ่มแถวใหม่** ⛔ ไม่ใช่แก้แถวเดิม')]
 
 
 def head_status_verdict(st):
@@ -455,6 +527,42 @@ FROZEN_CASES = [
     ("สลับลำดับเฉย ๆ ⇒ ผ่าน", ['aaa', 'bbb'], ['bbb', 'aaa'], [''], None),
 ]
 
+# 🪵 v1.3 · เคสของ SHRINK_WATCHED — เฝ้า **ขาลง** อย่างเดียว
+#    🔑 เคสที่ทำให้ทรงนี้ **แยกจากเพื่อนบ้านสองด้าน** ถูกทำเครื่องหมาย ⭐ ไว้:
+#       ⭐A "เพิ่มโดยไม่ประกาศ ⇒ ผ่าน"  = สิ่งที่ FROZEN ทำไม่ได้
+#       ⭐B "ลบโดยไม่ประกาศ ⇒ แดง"     = สิ่งที่ WATCHED ทำไม่ได้
+#    ⇒ ถ้าขาดข้อใดข้อหนึ่ง ทรงใหม่จะพิสูจน์ไม่ได้ว่าต่างจากของเดิม (E→MB #98 §4)
+SHRINK_CASES = [
+    ("ไม่มีอะไรเปลี่ยน ⇒ ผ่าน", ['aaa', 'bbb'], ['aaa', 'bbb'], [''], None),
+
+    ("⭐A **เพิ่มแถวโดยไม่ประกาศ ⇒ ผ่าน** (ขาเพิ่มมีด่าน 21 กฎ ⑤ เฝ้าอยู่แล้ว)",
+     ['aaa'], ['aaa', 'bbb'], [''], None),
+
+    ("⭐B 🔴 **ลบแถวโดยไม่ประกาศ ⇒ แดง** (ขาลง ⛔ ไม่มีใครเฝ้าเลย)",
+     ['aaa', 'bbb'], ['aaa'], [''], 'undeclared-shrink'),
+
+    ("ลบแถว + ประกาศ `-:` ครบ ⇒ ผ่าน",
+     ['aaa', 'bbb'], ['aaa'], [f'{V}-: ถอนแถวตามมติครูเพราะเครื่องมือถูกถอนออกจากคลัง'], None),
+
+    ("🔴 ลบแถว แต่ประกาศผิดทิศ (`+:` แทน `-:`) ⇒ ยังแดง",
+     ['aaa', 'bbb'], ['aaa'], OK_MSG, 'undeclared-shrink'),
+
+    ("🔴 ลบแถว + `-:` แต่ไม่ให้เหตุผล ⇒ แดง",
+     ['aaa', 'bbb'], ['aaa'], [f'{V}-:   '], 'undeclared-shrink'),
+
+    ("🔴 **แก้แถวเก่า** (ออก 1 เข้า 1) ⇒ แดง — นับเป็นการลบ",
+     ['aaa', 'bbb'], ['aaa', 'ccc'], [''], 'undeclared-shrink'),
+
+    ("🔴 บันทึกหายทั้งก้อนจาก HEAD ⇒ แดง",
+     ['aaa'], None, [f'{V}-: ลบทิ้งทั้งก้อน'], 'var-gone'),
+
+    ("สลับลำดับเฉย ๆ ⇒ ผ่าน", ['aaa', 'bbb'], ['bbb', 'aaa'], [''], None),
+
+    ("ฐานยังไม่มีตัวแปร (แถวแรกของสมุด) ⇒ ผ่าน",
+     None, ['aaa', 'bbb'], [''], None),
+]
+
+
 # 🔴 v1.2 · สถานะที่อ่านได้ที่ HEAD — เคสที่ v1.1 ปล่อยผ่านคือ 'absent'
 HEAD_STATUS_CASES = [
     ('ok',         False, "อ่านออก ⇒ เดินต่อได้"),
@@ -517,6 +625,34 @@ def _mut_prev_absent_is_free(prev, now, messages, var):
     return growth_verdict(prev, now, messages, var)
 
 
+def _mut_shrink_as_frozen(prev, now, messages, var):
+    """🧬 มิวแทนต์ ⑧ (v1.3) — เอา `frozen_verdict` มาเสียบแทน `shrink_verdict`
+       ⇒ เคส ⭐A "เพิ่มแถวโดยไม่ประกาศ ⇒ ผ่าน" **ต้องล้ม**
+       ⇒ ถ้าไม่ล้ม แปลว่า SHRINK_WATCHED แยกจาก FROZEN ⛔ ไม่ออก"""
+    return frozen_verdict(prev, now, messages, var)
+
+
+def _mut_shrink_as_growth(prev, now, messages, var):
+    """🧬 มิวแทนต์ ⑨ (v1.3) — เอา `growth_verdict` มาเสียบแทน `shrink_verdict`
+       ⇒ เคส ⭐B "ลบแถวโดยไม่ประกาศ ⇒ แดง" **ต้องล้ม**
+       ⇒ ถ้าไม่ล้ม แปลว่า SHRINK_WATCHED แยกจาก WATCHED ⛔ ไม่ออก
+    📌 ต้องมีทั้งสองตัว เพราะทรงใหม่มี **เพื่อนบ้านสองด้าน** (E→MB #98 §4)"""
+    return growth_verdict(prev, now, messages, var)
+
+
+def _run_shrink(fn):
+    fails = []
+    for name, prev, now, msgs, want in SHRINK_CASES:
+        try:
+            codes = [c for c, _ in fn(prev, now, msgs, V)]
+            good = (codes == []) if want is None else (want in codes)
+        except Exception:                              # noqa: BLE001
+            good = False
+        if not good:
+            fails.append(name)
+    return fails
+
+
 def _run_grow(fn):
     fails = []
     for name, prev, now, msgs, want in GROW_CASES:
@@ -536,12 +672,17 @@ def selftest():
     print('─' * 62)
     ok = True
 
-    print('  รายการที่เฝ้าอยู่:')
+    # 🔨 v1.3 · พิมพ์ **ทิศ** กำกับทุกทรง — คนอ่านผลด่าน ⛔ ไม่ต้องจำว่าชื่อไหนเฝ้าทิศไหน
+    #    (ข้อเสนอ E→MB #98 §1 · ⛔ ไม่เปลี่ยนชื่อ WATCHED เพราะแตะทุกรายการที่มีอยู่)
+    print('  สิทธิ์ที่เฝ้า **ขาขึ้น** (WATCHED):')
     for f, v in WATCHED:
-        print(f'     {f} · {v}')
-    print('  สำมะโนที่เฝ้าสองขา (FROZEN):')
+        print(f'     ↗ {f} · {v}')
+    print('  สำมะโนที่เฝ้า **สองขา** (FROZEN):')
     for f, v in FROZEN:
         print(f'     🧊 {f} · {v}')
+    print('  บันทึกที่เฝ้า **ขาลง** (SHRINK_WATCHED):')
+    for f, v in SHRINK_WATCHED:
+        print(f'     ↘ {f} · {v}')
     print()
 
     print('  ── อ่านค่ารายการจากไฟล์ (ข้อความล้วน ⛔ ไม่ import) ──')
@@ -565,6 +706,15 @@ def selftest():
     print('  ── 🧊 v1.2 · สำมะโน (FROZEN) ต้องเฝ้า **สองขา** ──')
     for name, prev, now, msgs, want in FROZEN_CASES:
         codes = [c for c, _ in frozen_verdict(prev, now, msgs, V)]
+        good = (codes == []) if want is None else (want in codes)
+        why = '' if good else f'   ← ได้ {codes} ต้องการ {want}'
+        print(f'  {"✅" if good else "🔴"}  {name}{why}')
+        ok &= good
+
+    print()
+    print('  ── 🪵 v1.3 · บันทึก (SHRINK_WATCHED) ต้องเฝ้า **ขาลงอย่างเดียว** ──')
+    for name, prev, now, msgs, want in SHRINK_CASES:
+        codes = [c for c, _ in shrink_verdict(prev, now, msgs, V)]
         good = (codes == []) if want is None else (want in codes)
         why = '' if good else f'   ← ได้ {codes} ต้องการ {want}'
         print(f'  {"✅" if good else "🔴"}  {name}{why}')
@@ -595,9 +745,18 @@ def selftest():
         ('🔴⑦ v1.2 · absent ที่ HEAD = ปล่อยผ่าน (พฤติกรรมของ v1.1)',
          [n for st, wr, n in HEAD_STATUS_CASES
           if ((_mut_absent_is_ok(st) is not None) != wr)]),
+        ('🪵⑧ v1.3 · SHRINK_WATCHED ใช้กติกาของ FROZEN (= เพิ่มก็ต้องประกาศ)',
+         _run_shrink(_mut_shrink_as_frozen)),
+        ('🪵⑨ v1.3 · SHRINK_WATCHED ใช้กติกาของ WATCHED (= ลบได้ฟรี)',
+         _run_shrink(_mut_shrink_as_growth)),
     ):
         good = len(fails) > 0
-        print(f'  {"✅" if good else "🔴"}  มิวแทนต์ {label} ⇒ ล้ม {len(fails)}/{len(GROW_CASES)} เคส')
+        # 🔑 ตัวหารต้องเป็นชุดเคสที่มิวแทนต์ตัวนั้นถูกยิงจริง ⛔ ไม่ใช่ GROW_CASES เสมอไป (v1.3)
+        denom = (len(SHRINK_CASES) if label.startswith('🪵')
+                 else len(FROZEN_CASES) if label.startswith('🧊')
+                 else len(HEAD_STATUS_CASES) if label.startswith('🔴⑦')
+                 else len(GROW_CASES))
+        print(f'  {"✅" if good else "🔴"}  มิวแทนต์ {label} ⇒ ล้ม {len(fails)}/{denom} เคส')
         for f in fails[:2]:
             print(f'         ↳ จับได้ที่: {f}')
         ok &= good
@@ -613,13 +772,19 @@ def selftest():
         ok = False
     else:
         print(f'  ✅  รายการ FROZEN ไม่ว่าง ({len(FROZEN)} รายการ)')
+    if not SHRINK_WATCHED:
+        print('  🔴 รายการ SHRINK_WATCHED ว่าง ⇒ ทรงขาลงมีอยู่แต่ ⛔ ไม่ได้เฝ้าอะไรเลย')
+        ok = False
+    else:
+        print(f'  ✅  รายการ SHRINK_WATCHED ไม่ว่าง ({len(SHRINK_WATCHED)} รายการ)')
 
     print()
     if not ok:
         print('🔴 SELF-TEST ไม่ผ่าน ⇒ ผลของด่านนี้กับของจริงเชื่อไม่ได้')
         return 2
     print(f'✅ SELF-TEST ผ่านครบ {len(PARSE_CASES)} + {len(GROW_CASES)} '
-          f'+ {len(FROZEN_CASES)} 🧊 + {len(HEAD_STATUS_CASES)} เคส + มิวแทนต์ 7 ตัว')
+          f'+ {len(FROZEN_CASES)} 🧊 + {len(SHRINK_CASES)} 🪵 '
+          f'+ {len(HEAD_STATUS_CASES)} เคส + มิวแทนต์ 9 ตัว')
     return 0
 
 
@@ -695,13 +860,15 @@ def main():
 
     print(f'ด่าน 10 v{CHECKER_VERSION} · เทียบ {base} → HEAD '
           f'· ข้อความ commit ในช่วง {len(messages)} ก้อน'
-          f' · เฝ้า {len(WATCHED)} ขาขึ้น + {len(FROZEN)} 🧊 สองขา')
+          f' · เฝ้า {len(WATCHED)} ↗ขาขึ้น + {len(FROZEN)} 🧊สองขา'
+          f' + {len(SHRINK_WATCHED)} ↘ขาลง')
     print()
 
     red = 0
     for path, var, kind in ([(f, v, 'watched') for f, v in WATCHED]
-                            + [(f, v, 'frozen') for f, v in FROZEN]):
-        tag = '🧊' if kind == 'frozen' else ''
+                            + [(f, v, 'frozen') for f, v in FROZEN]
+                            + [(f, v, 'shrink') for f, v in SHRINK_WATCHED]):
+        tag = {'frozen': '🧊', 'shrink': '🪵'}.get(kind, '')
         # ── ค่า "ตอนนี้" อ่านจากไฟล์ที่จะถูกใช้จริง (working tree ของ CI) ──
         try:
             now_txt = open(path, encoding='utf-8').read()
@@ -737,7 +904,8 @@ def main():
             print(f'🔴 {path} · {var} ที่ฐานอ่านไม่ออก ({st_prev}) ⇒ เทียบไม่ได้')
             return 2
 
-        probs = (frozen_verdict if kind == 'frozen' else growth_verdict)(
+        probs = {'frozen': frozen_verdict,
+                 'shrink': shrink_verdict}.get(kind, growth_verdict)(
             v_prev, v_now, messages, var)
         shown_prev = '(ไม่มีที่ฐาน)' if v_prev is None else str(v_prev)
         shown_now = '(หายไปแล้ว)' if v_now is None else str(v_now)
@@ -750,16 +918,17 @@ def main():
                 print(f'     [{code}] {msg}')
         else:
             n = len(v_now or [])
-            note = ('⛔ ไม่เปลี่ยนโดยไม่ประกาศ (เฝ้าสองขา)' if kind == 'frozen'
-                    else 'ไม่โตขึ้นโดยไม่ประกาศ')
+            note = {'frozen': '⛔ ไม่เปลี่ยนโดยไม่ประกาศ (เฝ้าสองขา)',
+                    'shrink': '⛔ ไม่ถูกลบ/แก้โดยไม่ประกาศ (เฝ้าขาลง · เพิ่มได้ฟรี)',
+                    }.get(kind, 'ไม่โตขึ้นโดยไม่ประกาศ')
             print(f'✅ {path} · {var} {tag}— {n} รายการ {note}')
     print()
     if red:
         print(f'🔴 มี {red} รายการที่เปลี่ยนโดยไม่ประกาศ')
         return 1
-    print(f'✅ ไม่มีรายการอนุญาตใดโตขึ้นโดยไม่ประกาศ '
-          f'({len(WATCHED)} ขาขึ้น) · และ ⛔ ไม่มีสำมะโนใดถูกย่อโดยไม่ประกาศ '
-          f'({len(FROZEN)} 🧊 สองขา)')
+    print(f'✅ ไม่มีรายการอนุญาตใดโตขึ้นโดยไม่ประกาศ ({len(WATCHED)} ↗ขาขึ้น) '
+          f'· ⛔ ไม่มีสำมะโนใดถูกย่อโดยไม่ประกาศ ({len(FROZEN)} 🧊สองขา) '
+          f'· ⛔ ไม่มีบันทึกใดถูกลบ/แก้โดยไม่ประกาศ ({len(SHRINK_WATCHED)} ↘ขาลง)')
     return 0
 
 
