@@ -106,6 +106,7 @@ code{background:var(--code);padding:1px 5px;border-radius:4px;font-size:12.5px}
 .count{font-size:11.5px;color:var(--dim);margin-top:7px}
 .meta{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 0}
 .badge{font-size:11px;border:1px solid var(--line);border-radius:999px;padding:1px 9px;color:var(--dim)}
+.figsec{background:#f6f9ff;border:1px solid #d7e3f7;border-radius:10px;padding:9px 11px}
 .img-inline{margin:9px 0;overflow-x:auto}
 .img-inline svg{max-width:100%;height:auto}
 .img-inline-span svg{vertical-align:middle;max-width:100%}
@@ -176,10 +177,27 @@ function normT1(t){
   else if(o.verify!=null){ o.verify={how:String(o.verify),lines:[],result:''}; }
   return o;
 }
-function renderT1(t){
+// 🖼 ทาง ค (ครูเคาะ 24 ส.ค.) — สคีมา t1 ⛔ ไม่มีฟิลด์รูป
+//   ⇒ ยืมสเปกเดียวกับเฉลยเดิมมาวาดไว้ "หัวเฉลย" ⛔ ไม่แตะข้อมูล ⛔ ไม่แตะ renderers.js
+//   ⚖️ ยอมรับตรง ๆ: รูปอยู่หัว ⛔ ไม่ได้อยู่ตรงขั้นที่พูดถึง — นั่นคือทาง ข ที่ต้องแก้สคีมา
+function t1Figure(sp){
+  if(!sp) return '';
+  var arr = Array.isArray(sp) ? sp : [sp], out='', i, g;
+  for(i=0;i<arr.length;i++){
+    if(!arr[i]) continue;
+    g = (typeof svgOf==='function') ? svgOf(arr[i]) : null;
+    if(g) out += '<div class="img-inline">'+g+'</div>';
+  }
+  if(!out) return '<div class="sec figsec"><div class="sech">🖼 รูปประกอบ</div>'
+         + '<div class="img-miss">⚠️ มี imageSpec แต่วาดไม่ออก — ตรวจ renderers.js</div></div>';
+  return '<div class="sec figsec"><div class="sech">🖼 รูปประกอบ '
+       + '<span class="tag">ยืมจากเฉลยเดิม</span></div>'+out+'</div>';
+}
+function renderT1(t, sp){
   try{ t=normT1(t); }catch(e){ return '<div class="none">🔴 ข้อมูลข้อนี้ผิดรูป — '+esc(String(e))+'</div>'; }
   if(!t) return '<div class="none">⛔ ข้อนี้ยังไม่มีเฉลยละเอียด</div>';
   var h='';
+  h+=t1Figure(sp);
   if(t.kb_ref&&t.kb_ref.length) h+='<div class="sec"><div class="sech">📚 ความรู้พื้นฐานที่ใช้</div><div class="chips">'+t.kb_ref.map(function(k){return '<span class="chip">'+esc(k)+'</span>';}).join('')+'</div></div>';
   if(t.given&&t.given.length) h+='<div class="sec"><div class="sech">📥 โจทย์ให้อะไรมา</div>'+ul(t.given)+'</div>';
   if(t.goal) h+='<div class="sec"><div class="sech">🎯 เป้าหมาย</div><div class="goal">'+md(t.goal)+'</div></div>';
@@ -330,7 +348,7 @@ function draw(){
   document.getElementById('qcard').innerHTML=h;
   document.getElementById('ck').checked=!!DONE[d.id];
   var o='<div class="pane"><div class="ph">เฉลยเดิม <span class="tag">'+(d.old||[]).length+' บล็อก · '+(fmt==='raw'?'ยังไม่จัดรูป':'จัดรูปแล้ว · เนื้อเดิมทุกตัวอักษร')+'</span></div><div class="pb">'+renderOld(d.old,d.imageSpec)+'</div></div>';
-  var n='<div class="pane"><div class="ph">เฉลยละเอียด (t1) <span class="tag">'+((d.t1&&d.t1.steps||[]).length)+' ขั้น · '+((d.t1&&d.t1.traps||[]).length)+' กับดัก</span></div><div class="pb">'+renderT1(d.t1)+'</div></div>';
+  var n='<div class="pane"><div class="ph">เฉลยละเอียด (t1) <span class="tag">'+((d.t1&&d.t1.steps||[]).length)+' ขั้น · '+((d.t1&&d.t1.traps||[]).length)+' กับดัก</span></div><div class="pb">'+renderT1(d.t1, d.imageSpec)+'</div></div>';
   var el=document.getElementById('panes');
   el.className='panes'+(view==='both'?' two':'');
   el.innerHTML = view==='old'?o : view==='new'?n : (o+n);
