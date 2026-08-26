@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""formula_sheet.py — ดึงสูตรจากเฉลย t1 ที่ทำแล้ว → ใบสรุปสูตรรายบท (HTML เปิดอ่าน/สั่งพิมพ์ได้)
+r"""formula_sheet.py — ดึงสูตรจากเฉลย t1 ที่ทำแล้ว → ใบสรุปสูตรรายบท (HTML เปิดอ่าน/สั่งพิมพ์ได้)
 ใช้: python formula_sheet.py [--done _t1run\results] [--bank data\bank.json] [--manifest data\manifest.json] [--out formula_sheet.html]
 """
 import json, os, re, glob, argparse, collections, html, datetime

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""normalize_tex.py — ตรวจ/จัดรูปสูตรให้เป็นแบบเดียวกันทั้งคลัง
+r"""normalize_tex.py — ตรวจ/จัดรูปสูตรให้เป็นแบบเดียวกันทั้งคลัง
 ค่าเริ่มต้น = ตรวจอย่างเดียว (ไม่แก้ไฟล์) · เติม --write ถึงจะแก้จริง (สำรองไฟล์เดิมให้อัตโนมัติ)
 ใช้: python normalize_tex.py [--bank data\bank.json] [--write] [--out tex_issues.csv]
 กฎ: \( \) \[ \] → $ $ · \tfrac → \dfrac · เลขไทย ๐-๙ ในสูตร → 0-9 · ลบช่องว่างซ้ำในสูตร

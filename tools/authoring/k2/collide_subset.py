@@ -67,7 +67,7 @@ P = 'gen-chap-07-trigonometry-'
 
 
 def find_root(start=None, override=None):
-    """หารากคลังโดย **มองหา `data/sets/` จริง** ⛔ ไม่ใช่นับ `../` ตายตัว
+    r"""หารากคลังโดย **มองหา `data/sets/` จริง** ⛔ ไม่ใช่นับ `../` ตายตัว
 
     🔴 v1.0 เขียนว่า `ROOT = HERE/../../..` ⇒ ไฟล์ทำงานถูกก็ต่อเมื่อวางที่
        `<repo>/tools/authoring/k2/` เป๊ะ · ย้ายไฟล์ไปที่อื่น (เช่น `_delivery-qc\`)

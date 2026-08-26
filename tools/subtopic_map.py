@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""subtopic_map.py — แผนที่หัวข้อย่อย: บทไหนหัวข้อไหนมีโจทย์กี่ข้อ · ทำเฉลยแล้วกี่ข้อ · หัวข้อไหนว่าง
+r"""subtopic_map.py — แผนที่หัวข้อย่อย: บทไหนหัวข้อไหนมีโจทย์กี่ข้อ · ทำเฉลยแล้วกี่ข้อ · หัวข้อไหนว่าง
 ใช้: python subtopic_map.py [--bank data\bank.json] [--manifest data\manifest.json] [--done _t1run\results] [--out subtopic_map.html]
 """
 import json, os, glob, argparse, collections, html, datetime

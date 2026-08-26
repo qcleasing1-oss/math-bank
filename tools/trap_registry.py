@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""trap_registry.py — ดึง "กับดักที่เด็กมักพลาด" จากเฉลย t1 → ทะเบียนกับดักรายบท/รายหัวข้อย่อย
+r"""trap_registry.py — ดึง "กับดักที่เด็กมักพลาด" จากเฉลย t1 → ทะเบียนกับดักรายบท/รายหัวข้อย่อย
 ใช้: python trap_registry.py [--done _t1run\results] [--bank data\bank.json] [--manifest data\manifest.json]
                               [--out trap_registry.html] [--csv trap_registry.csv]
 """

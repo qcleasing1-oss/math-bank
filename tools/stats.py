@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""stats.py — สร้าง dashboard.html ความคืบหน้าเฉลยละเอียด (ค่า token = 0)
+r"""stats.py — สร้าง dashboard.html ความคืบหน้าเฉลยละเอียด (ค่า token = 0)
 ใช้:  python stats.py --bank data\bank.json --manifest data\manifest.json --done _t1run\results --out dashboard.html
 """
 import json, os, re, argparse, glob, collections, html, datetime

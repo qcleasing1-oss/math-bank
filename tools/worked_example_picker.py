@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""worked_example_picker.py — เลือกตัวอย่างสอนหน้าห้อง หัวข้อย่อยละ 1-3 ข้อ (เอาฉบับที่อธิบายครบสุด)
+r"""worked_example_picker.py — เลือกตัวอย่างสอนหน้าห้อง หัวข้อย่อยละ 1-3 ข้อ (เอาฉบับที่อธิบายครบสุด)
 ใช้: python worked_example_picker.py [--per 2] [--topic 7] [--out _t1run\examples.html]
 """
 import json, os, glob, argparse, collections, html, datetime

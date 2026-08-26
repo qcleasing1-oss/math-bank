@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""folder_diff.py — เทียบสองโฟลเดอร์ว่าตรงกันไหม (เช่น math-portal กับ math-bank)
+r"""folder_diff.py — เทียบสองโฟลเดอร์ว่าตรงกันไหม (เช่น math-portal กับ math-bank)
 ใช้: python folder_diff.py "A:\...\สื่อการสอน" "A:\...\math-bank" [--ext .json .js .html] [--out folder_diff.csv]
 """
 import os, hashlib, csv, argparse
