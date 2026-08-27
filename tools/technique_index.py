@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""technique_index.py — คลังเทคนิคจากเฉลย จัดตามบท/หัวข้อย่อย (ใช้เปิดคาบสอน)
+r"""technique_index.py — คลังเทคนิคจากเฉลย จัดตามบท/หัวข้อย่อย (ใช้เปิดคาบสอน)
 ใช้: python technique_index.py [--out _t1run\technique_index.html] [--csv _t1run\technique_index.csv]
 """
 import json, os, re, glob, csv, argparse, collections, html, datetime

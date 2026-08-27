@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""snapshot.py — สำรองคลัง+ผลงานเป็น zip พร้อมลายนิ้วมือ md5 (กันงานหาย)
+r"""snapshot.py — สำรองคลัง+ผลงานเป็น zip พร้อมลายนิ้วมือ md5 (กันงานหาย)
 ใช้: python snapshot.py [--src data _t1run\results tools] [--out _snapshots]
 เก็บไฟล์ snapshot_YYYYMMDD-HHMM.zip + .md5.txt · เก็บย้อนหลังกี่ชุดกำหนดด้วย --keep
 """

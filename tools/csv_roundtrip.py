@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""csv_roundtrip.py — คลัง JSON ↔ CSV (แก้ใน Excel แล้วนำกลับ)
+r"""csv_roundtrip.py — คลัง JSON ↔ CSV (แก้ใน Excel แล้วนำกลับ)
 ออก:  python csv_roundtrip.py export --bank data\bank.json --csv bank_edit.csv [--topic 7]
 เข้า: python csv_roundtrip.py import --bank data\bank.json --csv bank_edit.csv   (สำรองไฟล์เดิมอัตโนมัติ)
 ⚠️ นำกลับจะอัปเดตเฉพาะช่องที่อยู่ใน CSV และเฉพาะ id ที่มีอยู่แล้ว ⛔ ไม่สร้างข้อใหม่ ⛔ ไม่ลบข้อ

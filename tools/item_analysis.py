@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""item_analysis.py — วิเคราะห์ข้อสอบจากคำตอบนักเรียน (ค่าความยาก p · อำนาจจำแนก r · ตัวลวงที่ไม่มีใครเลือก)
+r"""item_analysis.py — วิเคราะห์ข้อสอบจากคำตอบนักเรียน (ค่าความยาก p · อำนาจจำแนก r · ตัวลวงที่ไม่มีใครเลือก)
 รูปแบบไฟล์คำตอบ (CSV · หัวตารางต้องมีชื่อนี้):
     student,id,answer            ← answer = เลขตัวเลือกที่เลือก (1,2,3,…)
 ใช้: python item_analysis.py --responses คำตอบ.csv [--bank data\bank.json] [--out item_analysis.csv]

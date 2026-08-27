@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""old_vs_new.py — เทียบ "เฉลยเก่าในคลัง" vs "เฉลย t1 ใหม่" vs "เฉลยจริง (correct)" ทั้งคลัง
+r"""old_vs_new.py — เทียบ "เฉลยเก่าในคลัง" vs "เฉลย t1 ใหม่" vs "เฉลยจริง (correct)" ทั้งคลัง
 ใช้: python old_vs_new.py [--bank data\bank.json] [--done _t1run\results] [--out old_vs_new.csv]
 ออก: CSV ต่อ 1 ข้อ — ตรงเฉลยไหม (เก่า/ใหม่) · ธงที่ควรให้ตาคนดู   ค่า token = 0
 ⚠️ ตัวเทียบเป็นการจับข้อความ ⇒ อาจมีสัญญาณลวง — ให้ใช้เป็น "รายการที่ต้องเปิดดู" ⛔ ไม่ใช่คำตัดสิน

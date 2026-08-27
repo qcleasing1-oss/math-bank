@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""queue_builder.py — สร้างคิวงานเฉลย = คลัง − DONE  (ค่า token = 0)
+r"""queue_builder.py — สร้างคิวงานเฉลย = คลัง − DONE  (ค่า token = 0)
 ใช้:  python queue_builder.py --bank data\bank.json --done _t1run\results --out QUEUE_input.json
       [--topic 7] [--difficulty ยาก] [--limit 200] [--skip-image]
 กติกาในตัว (POSTMORTEM §4):

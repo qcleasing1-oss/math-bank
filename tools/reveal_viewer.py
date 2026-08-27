@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""reveal_viewer.py — หน้าเปิดเฉลยทีละขั้น (ใช้สอนหน้าห้อง / ให้เด็กลองก่อนดูเฉลย)
+r"""reveal_viewer.py — หน้าเปิดเฉลยทีละขั้น (ใช้สอนหน้าห้อง / ให้เด็กลองก่อนดูเฉลย)
 ใช้: python reveal_viewer.py [--master _t1run\results\t1_MASTER.json] [--bank data\bank.json] [--out _t1run\reveal.html] [--limit 400]
 """
 import json, os, argparse, datetime, html

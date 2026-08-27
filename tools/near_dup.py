@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""near_dup.py — หาโจทย์ซ้ำ/คล้ายกันเองในคลัง (ไม่ใช้ AI · ใช้ลายนิ้วมือข้อความ)
+r"""near_dup.py — หาโจทย์ซ้ำ/คล้ายกันเองในคลัง (ไม่ใช้ AI · ใช้ลายนิ้วมือข้อความ)
 ใช้: python near_dup.py [--bank data\bank.json] [--out near_dup.csv] [--th 0.82] [--same-topic]
 th = ความคล้ายขั้นต่ำ 0-1 (0.82 = คล้ายมาก)
 """

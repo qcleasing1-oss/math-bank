@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""validate_bank.py — ตรวจคลังข้อสอบทั้งใบ (ค่า token = 0 · รันบนเครื่องครู)
+r"""validate_bank.py — ตรวจคลังข้อสอบทั้งใบ (ค่า token = 0 · รันบนเครื่องครู)
 ใช้:  python validate_bank.py [path\to\bank.json] [-o report]
 ออก:  report_summary.txt · report_issues.csv
 """

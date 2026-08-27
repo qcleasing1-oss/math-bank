@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""answer_bias.py — ตรวจอคติของเฉลย: เฉลยกระจุกอยู่ตัวเลือกไหน · ตัวลวงยาวผิดปกติจนชี้เฉลย
+r"""answer_bias.py — ตรวจอคติของเฉลย: เฉลยกระจุกอยู่ตัวเลือกไหน · ตัวลวงยาวผิดปกติจนชี้เฉลย
 ใช้: python answer_bias.py [--bank data\bank.json] [--out answer_bias.csv]
 """
 import json, os, csv, argparse, collections

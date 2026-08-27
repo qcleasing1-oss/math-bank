@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""budget_guard.py — เฝ้าผลงานรายรอบ: ได้ของใหม่กี่ข้อ · ซ้ำไหม · ใช้งบไปเท่าไร
+r"""budget_guard.py — เฝ้าผลงานรายรอบ: ได้ของใหม่กี่ข้อ · ซ้ำไหม · ใช้งบไปเท่าไร
 ใช้: python budget_guard.py [--done _t1run\results] [--log _t1run\budget_log.csv] [--per-item-token 2800]
 ทุกครั้งที่รัน จะบันทึก 1 แถวลง log และเตือนถ้า "ได้ของใหม่ 0" หรือ "พบฉบับซ้ำ"
 """
