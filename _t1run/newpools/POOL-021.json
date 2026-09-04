@@ -1,0 +1,939 @@
+[
+ {
+  "choices": null,
+  "correct": "ไม่สมเหตุสมผล",
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-02-logic-q100",
+  "question": "จงตรวจสอบว่าการอ้างเหตุผลต่อไปนี้สมเหตุสมผลหรือไม่\n\nเหตุ:\n(1) $(p \\vee q) \\rightarrow (r \\vee s)$\n(2) $p \\rightarrow r$\n\nผล: $q \\rightarrow s$",
+  "subTopics": [
+   "2.8"
+  ],
+  "topics": [
+   "2"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": [
+   "\"ท่านเป็นเพศชาย ใช่ไหม\"",
+   "\"ท่านเป็นพลเมืองของประเทศนี้ ใช่ไหม\"",
+   "\"ท่านพูดความจริงเสมอ ใช่ไหม\"",
+   "การถามเพียง 1 คำถาม ไม่เพียงพอต่อการหาข้อสรุป"
+  ],
+  "correct": 1,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-02-logic-q128",
+  "question": "ประเทศ 3 ประเทศ ได้แก่ประเทศ $X$, ประเทศ $Y$, และประเทศ $Z$ เป็นประเทศเพื่อนบ้านมีชายแดนติดกัน\n\nนาย $x$ เป็นพลเมืองประเทศ $X$ ทำงานที่ด่านตรวจคนเข้าเมืองของประเทศ $X$ มีนิสัย \"พูดจริง\" เสมอ\n\nนาย $y$ เป็นพลเมืองประเทศ $Y$ ทำงานที่ด่านตรวจคนเข้าเมืองของประเทศ $Y$ มีนิสัย \"พูดเท็จ\" เสมอ\n\nเนื่องจากงานค่อนข้างน่าเบื่อ นาย $x$ และนาย $y$ จึงชอบเปลี่ยนด่านที่ทำงาน บางวันนาย $x$ จะย้ายไปทำงานที่ด่านของประเทศ $Y$ ส่วนนาย $y$ จะย้ายไปทำงานแทนนาย $x$ ที่ประเทศ $X$ แต่ในวันทั้งคู่ก็อยู่ประจำด่านของประเทศตนเอง ขึ้นอยู่กับอารมณ์และสถานการณ์ในแต่ละวัน\n\nหากนาย $z$ ซึ่งเป็นพลเมืองประเทศ $Z$ ต้องการเดินทางเข้าประเทศ $X$ และได้ศึกษาจากคู่มือท่องเที่ยวซึ่งได้กล่าวถึงพฤติกรรมของนาย $x$ และนาย $y$ ไว้อย่างชัดเจน ดังนั้นเมื่อนาย $z$ ไปถึงด่านตรวจคนเข้าเมือง คำถามใดที่นาย $z$ ควรใช้ เพื่อตัดสินใจว่าด่านคือด่านเข้าประเทศ $X$ ที่แท้จริง (โดยนาย $z$ มีโอกาสถามได้เพียง 1 ครั้งเท่านั้น)",
+  "subTopics": [
+   "2.1",
+   "2.8"
+  ],
+  "topics": [
+   "2"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "ก. และ ข. สมเหตุสมผลทั้งคู่",
+   "ก. และ ข. ไม่สมเหตุสมผลทั้งคู่",
+   "ก. สมเหตุสมผล แต่ ข. ไม่สมเหตุสมผล",
+   "ก. ไม่สมเหตุสมผล แต่ ข. สมเหตุสมผล"
+  ],
+  "correct": 0,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-02-logic-q33",
+  "question": "พิจารณาการอ้างเหตุผลต่อไปนี้\n\nก. เหตุ $(1)\\;p \\to q$, $\\;\\;(2)\\;q \\to s$, $\\;\\;(3)\\;\\sim s$; $\\;\\;$ผล $\\sim p \\vee s$\n\nข. เหตุ $p \\to (r \\vee s)$; $\\;\\;$ผล $\\sim p \\vee (r \\vee s)$\n\nข้อความใดต่อไปนี้ถูก",
+  "subTopics": [
+   "2.8",
+   "2.5"
+  ],
+  "topics": [
+   "2"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "ก. ถูก และ ข. ถูก",
+   "ก. ถูก และ ข. ผิด",
+   "ก. ผิด และ ข. ถูก",
+   "ก. ผิด และ ข. ผิด"
+  ],
+  "correct": 2,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-02-logic-q55",
+  "question": "พิจารณาข้อความต่อไปนี้\n\nก. ถ้าประพจน์ $[p \\wedge (q \\to r)] \\to (r \\vee s)$ มีค่าความจริงเป็นเท็จ แล้ว $p \\wedge q \\to s$ มีค่าความจริงเป็นเท็จ\n\nข. นิเสธของข้อความ $\\forall x \\exists y [\\, (x > y) \\wedge (x^2 < y) \\,]$ คือ $\\exists x \\forall y [\\, (x > y) \\to (y \\leq x^2) \\,]$\n\nข้อใดต่อไปนี้ถูก",
+  "subTopics": [
+   "2.11",
+   "2.12",
+   "2.1"
+  ],
+  "topics": [
+   "2"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "จริง",
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-02-logic-q83",
+  "question": "กำหนดให้ $p$ แทนข้อความ \"สมาชิกของ $A$ ทุกตัวเป็นสมาชิกของ $B$\"\n\n$q$ แทนข้อความ \"สมาชิกบางตัวของ $A$ เป็นสมาชิกของ $B$\"\n\n$r$ แทนข้อความ \"ไม่มีสมาชิกของ $A$ ตัวใดเป็นสมาชิกของ $B$\"\n\n$s$ แทนข้อความ \"มีสมาชิกบางตัวของ $A$ ไม่ใช่สมาชิกของ $B$\"\n\n$A$ เป็นเซตคำตอบของอสมการ $|x^2 - 2x - 3| < 0$\n\n$B$ เป็นเซตคำตอบของอสมการ $|x^2 + 4x + 3| > 0$\n\nจงหาค่าความจริงของประพจน์ $[(r \\rightarrow p) \\wedge (\\sim p \\rightarrow \\sim q)] \\vee s$",
+  "subTopics": [
+   "2.10",
+   "2.1",
+   "3.8"
+  ],
+  "topics": [
+   "2"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": [
+   "ถ้า $a$ เป็นเลขคี่แล้ว ดังนั้น $a^{2}$ เป็นเลขคี่ด้วย",
+   "ถ้า $a \\ge 0$ แล้ว ดังนั้น $a^{2} \\ge a$",
+   "ถ้า $a^{n} = b^{n}$ สำหรับทุกค่าของจำนวนเต็ม $n$ แล้ว $a = b$",
+   "ถ้า $a$ เป็นจำนวนตรรกยะ และ $b$ เป็นจำนวนอตรรกยะ แล้ว $ab$ จะเป็นจำนวนอตรรกยะเสมอ",
+   "ตั้งแต่ข้อ 1. ถึงข้อ 4. ถูกต้องถูกข้อ"
+  ],
+  "correct": 0,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-03-realnumber-q05",
+  "question": "ถ้า $a$ และ $b$ เป็นจำนวนจริงใด ๆ ข้อความใดถูกต้องที่สุด",
+  "subTopics": [
+   "3.1"
+  ],
+  "topics": [
+   "3"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$\\{2,6\\}$",
+   "$\\{2,12\\}$",
+   "$\\{2,9,12\\}$",
+   "$\\{6,9,12\\}$"
+  ],
+  "correct": 0,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-03-realnumber-q115",
+  "question": "จากสมการ $y^3+3y^2 = 4(y+3)$ และฟังก์ชัน $f(x) = x^2-x$\nอยากทราบว่า $f(y)$ จะมีค่าเท่าไร เมื่อ $y \\ne -3$",
+  "subTopics": [
+   "3.4",
+   "3.3"
+  ],
+  "topics": [
+   "3"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$1401$",
+   "$1400$",
+   "$321$",
+   "$123$"
+  ],
+  "correct": 3,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-03-realnumber-q137",
+  "question": "ให้ $x \\in \\mathbb{R}^+$ และ $(x+1)^2 + \\dfrac{1}{(x+1)^2} = 7$ แล้วค่าของ $x^5 + 5x^4 + 10x^3 + 10x^2 + 5x + 1 + \\dfrac{1}{(x+1)^5}$ เท่ากับข้อใดต่อไปนี้",
+  "subTopics": [
+   "3.2",
+   "3.3"
+  ],
+  "topics": [
+   "3"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$1$",
+   "$2$",
+   "$3$",
+   "$4$"
+  ],
+  "correct": 0,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-03-realnumber-q179",
+  "question": "ให้ $a$ และ $b$ เป็นจำนวนเต็มซึ่ง $x + 1$ หาร $3x^3 + 4ax^2 - 6bx + 5$ เหลือเศษ $4$\nห.ร.ม. ของ $a$ และ $b$ เท่ากับข้อใดต่อไปนี้",
+  "subTopics": [
+   "3.5",
+   "17.2"
+  ],
+  "topics": [
+   "3"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "ถ้า $\\mathcal{U} = $ เซตของจำนวนเต็ม แล้ว $|S| = 1$",
+   "ถ้า $\\mathcal{U} = $ เซตของจำนวนตรรกยะ แล้ว $|S| = 2$",
+   "ถ้า $\\mathcal{U} = $ เซตของจำนวนจริง แล้ว $|S| = 2$",
+   "ถ้า $\\mathcal{U} = $ เซตของจำนวนเชิงซ้อน แล้ว $|S| = 6$"
+  ],
+  "correct": 2,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-03-realnumber-q29",
+  "question": "กำหนดให้ $\\mathcal{U}$ เป็นเอกภพสัมพัทธ์ของจำนวน และ $S$ เป็นสับเซตของ $\\mathcal{U}$\nกำหนดโดย $S = \\{\\, x \\in \\mathcal{U} \\mid x^{6} - 3x^{2} - 2 = 0\\,\\}$\nข้อใดต่อไปนี้เป็นจริง เมื่อ $|S| = $ จำนวนสมาชิกของเซต $S$",
+  "subTopics": [
+   "3.4",
+   "3.3"
+  ],
+  "topics": [
+   "3"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "14",
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-03-realnumber-q83",
+  "question": "ถ้า $A = \\{\\, p \\mid p$ เป็นจำนวนเฉพาะบวก และ $p \\mid (980 - p)^{3} \\,\\}$ แล้วผลบวกของสมาชิกทั้งหมดใน $A$ มีค่าเท่าใด",
+  "subTopics": [
+   "3.12",
+   "17.5"
+  ],
+  "topics": [
+   "3"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$-1$",
+   "$0$",
+   "$1$",
+   "$2$"
+  ],
+  "correct": 0,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-05-function-q104",
+  "question": "กำหนดให้ $f(x + 1) = 3x + 2 + f(x)$ และ $g(3x - 1) = 2x + 8$ ถ้า $f(0) = 1$\nแล้ว $g^{-1}(f(2))$ เท่ากับข้อใดต่อไปนี้",
+  "subTopics": [
+   "5.4",
+   "5.8"
+  ],
+  "topics": [
+   "5"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$11$",
+   "$15$",
+   "$21$",
+   "$23$"
+  ],
+  "correct": 1,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-05-function-q13",
+  "question": "กำหนดให้ $S$ เป็นเซตคำตอบของอสมการ $x^2 \\le 8x + 20$\nถ้า $A = \\{ x \\in S \\mid x$ เป็นจำนวนเฉพาะบวก$\\}$ และ $B = \\{ x \\in S \\mid x$ เป็นจำนวนเต็มคี่$\\}$\nแล้ว $(A \\times B) - (B \\times A)$ มีจำนวนสมาชิกเท่ากับข้อใดต่อไปนี้",
+  "subTopics": [
+   "5.1",
+   "3.6"
+  ],
+  "topics": [
+   "5"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$2$",
+   "$4$",
+   "$8$",
+   "$16$"
+  ],
+  "correct": 1,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-05-function-q164",
+  "question": "กำหนดให้ $f(x) = \\sqrt{x}$, $g(x) = \\sqrt{1 - x^4}$\nถ้า $A = \\{ x \\mid (g \\circ f)(x) = 0 \\}$ และ $B = \\{ x \\mid g(x) = 0 \\}$ แล้ว ความสัมพันธ์จาก $A$ ไป $B$ มีทั้งหมดกี่ความสัมพันธ์",
+  "subTopics": [
+   "5.7",
+   "5.1"
+  ],
+  "topics": [
+   "5"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$-4 \\le f(3) \\le 3$",
+   "$-8\\dfrac{3}{7} \\le f(3) \\le 17\\dfrac{4}{7}$",
+   "$-1 \\le f(3) \\le 23$",
+   "$-2\\dfrac{5}{7} \\le f(3) \\le 3\\dfrac{5}{7}$"
+  ],
+  "correct": 2,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-05-function-q185",
+  "question": "ให้ $f : \\mathbb{R} \\to \\mathbb{R}$ กำหนดโดย $f(x) = ax^3 - b$\nสมมติว่า $-3 \\le f(1) \\le -1$ และ $-1 \\le f(2) \\le 4$ ข้อใดต่อไปนี้ถูกต้อง",
+  "subTopics": [
+   "5.17",
+   "5.4"
+  ],
+  "topics": [
+   "5"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$\\{ (x, y) \\in A \\times A \\mid y > x \\},\\ A = \\{1, 2, 3\\}$",
+   "$\\{ (x, y) \\in \\mathbb{R} \\times \\mathbb{R} \\mid x^2 y = 1 \\}$",
+   "$\\{ (x, y) \\in \\mathbb{R} \\times \\mathbb{R} \\mid |y| = x - 2 \\}$",
+   "$\\{ (x, y) \\in B \\times B \\mid y = |x| - 2 \\},\\ B = \\{-2, -1, 0, 1, 2\\}$"
+  ],
+  "correct": 2,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-05-function-q35",
+  "question": "อินเวอร์สของความสัมพันธ์ในข้อใดต่อไปนี้เป็นฟังก์ชัน",
+  "subTopics": [
+   "5.3",
+   "5.6"
+  ],
+  "topics": [
+   "5"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "1",
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-05-function-q57",
+  "question": "กำหนดให้ $f(x) = \\begin{cases} f(|x|), & x < -3 \\\\ f(f(x + 1)), & -3 \\le x < 0 \\\\ x + 1, & x \\ge 0 \\end{cases}$\nถ้า $h > 5$ แล้ว $\\dfrac{f(3 + h) - f(-h)}{f(-2)}$ มีค่าเท่ากับเท่าใด",
+  "subTopics": [
+   "5.10",
+   "5.7",
+   "5.4"
+  ],
+  "topics": [
+   "5"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$f$ เป็นฟังก์ชัน 1-1 และ $f^{-1}(x) = \\det\\left(\\begin{bmatrix} \\dfrac{1}{1-x} & 1 \\\\ 1 & 1 \\end{bmatrix}\\right)^{-1}$ เมื่อ $x \\ne 0, x \\ne 1$",
+   "$f$ เป็นฟังก์ชัน 1-1 และ $f^{-1}(x) = \\det\\begin{bmatrix} 1 & 1 \\\\ \\dfrac{1}{1+x} & 1 \\end{bmatrix}$ เมื่อ $x \\ne -1$",
+   "$f$ ไม่เป็นฟังก์ชัน 1-1 เนื่องจากมีค่า $x$ ที่ทำให้ $\\det\\begin{bmatrix} \\dfrac{1}{1-x} & 1 \\\\ 1 & 1 \\end{bmatrix} = 0$",
+   "$f$ ไม่เป็นฟังก์ชัน 1-1 และ $(f \\circ f)(x) = \\det\\left(\\begin{bmatrix} \\dfrac{1}{1-x} & 1 \\\\ 1 & 1 \\end{bmatrix}\\right)^2$ เมื่อ $x \\ne 1$"
+  ],
+  "correct": 1,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-05-function-q81",
+  "question": "กำหนดให้ $f(x) = \\det\\begin{bmatrix} \\dfrac{1}{1-x} & 1 \\\\ 1 & 1 \\end{bmatrix}$ เมื่อ $x \\ne 1$ ข้อใดต่อไปนี้ถูก",
+  "subTopics": [
+   "5.8",
+   "5.5"
+  ],
+  "topics": [
+   "5"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "เมทริกซ์ $A$ เกิดจากผลคูณ $\\begin{bmatrix} 2 & 1 \\\\ 4 & 3 \\end{bmatrix}\\begin{bmatrix} x \\\\ y \\end{bmatrix}$",
+   "เมทริกซ์ $A$ เกิดจากผลคูณ $\\begin{bmatrix} 1 & 2 \\\\ 3 & 4 \\end{bmatrix}\\begin{bmatrix} y \\\\ x \\end{bmatrix}$",
+   "เมทริกซ์ $A$ เกิดจากผลบวก $\\begin{bmatrix} 2x \\\\ 3y \\end{bmatrix} + \\begin{bmatrix} y \\\\ 4x \\end{bmatrix}$",
+   "$A$ เป็นเมทริกซ์มิติ $2 \\times 2$ ซึ่งมีค่า $\\det(A) = 2xy$",
+   "$A$ เป็นเมทริกซ์มิติ $2 \\times 1$ ซึ่งหาค่าของ $\\det(A)$ ไม่ได้"
+  ],
+  "correct": 3,
+  "difficulty": "ง่าย",
+  "hasImage": false,
+  "id": "chap-06-matrix-q04",
+  "question": "กำหนดให้เมทริกซ์ $A = \\begin{bmatrix} 2x+y \\\\ 4x+3y \\end{bmatrix}$\nจงพิจารณาว่าข้อความใดไม่ถูกต้อง",
+  "subTopics": [
+   "6.1",
+   "6.5"
+  ],
+  "topics": [
+   "6"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$-1$",
+   "$3$",
+   "$-3$",
+   "$5$"
+  ],
+  "correct": 0,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-06-matrix-q114",
+  "question": "ให้ $A = \\begin{bmatrix} 1 & 0 & 3 \\\\ 5 & 4 & 0 \\\\ 3 & 4 & -6 \\end{bmatrix}$\nผลบวกของสมาชิกของเซตคำตอบของสมการ $\\det(A - xI_3) = 0$ มีค่าตรงกับข้อใด",
+  "subTopics": [
+   "6.5"
+  ],
+  "topics": [
+   "6"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "x=2, y=3, z=1, det(adj C)=3364",
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-06-matrix-q133",
+  "question": "กำหนดให้ $A, B, C$ เป็นเมทริกซ์จัตุรัสมิติ $3 \\times 3$ โดยที่\n$A = \\begin{bmatrix} 2 & 2 & 1 \\\\ 2 & 5 & 2 \\\\ 1 & 2 & 2 \\end{bmatrix}$, $B = \\begin{bmatrix} -x & -y & z \\\\ 0 & y & 2z \\\\ x & -y & z \\end{bmatrix}$ เมื่อ $x, y, z$ เป็นจำนวนจริงบวก และ $B^tAB = \\begin{bmatrix} 8 & 0 & 0 \\\\ 0 & 27 & 0 \\\\ 0 & 0 & 42 \\end{bmatrix}$\nจงหาค่าของ $x, y, z$ และหาค่าของ $\\det(\\text{adj}\\,C)$ ถ้า $C = A + B$",
+  "subTopics": [
+   "6.3",
+   "6.8",
+   "6.5"
+  ],
+  "topics": [
+   "6"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$-10$",
+   "$5$",
+   "$10$",
+   "$15$"
+  ],
+  "correct": 2,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-06-matrix-q152",
+  "question": "พิจารณาระบบสมการ\n$a_{11} + 2a_{12} + 3a_{13} = b_1$\n$a_{21} + 2a_{22} + 3a_{23} = b_2$\n$a_{31} + 2a_{32} + 3a_{33} = b_3$\nถ้า $\\begin{vmatrix} a_{11} & a_{12} & a_{13} \\\\ a_{21} & a_{22} & a_{23} \\\\ a_{31} & a_{32} & a_{33} \\end{vmatrix} = 5$ แล้ว $\\begin{vmatrix} a_{11} & a_{21} & a_{31} \\\\ b_1 & b_2 & b_3 \\\\ a_{13} & a_{23} & a_{33} \\end{vmatrix}$ เท่ากับค่าในข้อใด",
+  "subTopics": [
+   "6.6",
+   "6.5"
+  ],
+  "topics": [
+   "6"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "2",
+   "$-2$",
+   "4",
+   "$-4$"
+  ],
+  "correct": 3,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-06-matrix-q36",
+  "question": "กำหนดให้ $A$ และ $B$ เป็นเมทริกซ์ที่มิใช่เอกฐาน และมีมิติ $2 \\times 2$\nโดยที่ $\\det(A^{-1}) = -\\dfrac{1}{2}$ และ $B = \\begin{bmatrix} -1 & -2 \\\\ x & y \\end{bmatrix}$ เมื่อ $x$ และ $y$ เป็นจำนวนจริง\nถ้า $AB + 3A = 2I$ แล้ว $x + y$ เท่ากับข้อใดต่อไปนี้",
+  "subTopics": [
+   "6.6",
+   "6.5",
+   "6.7"
+  ],
+  "topics": [
+   "6"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$\\begin{bmatrix} -2 & -1 \\\\ 1 & 1 \\end{bmatrix}$",
+   "$\\begin{bmatrix} 2 & 1 \\\\ -1 & -1 \\end{bmatrix}$",
+   "$\\begin{bmatrix} 1 & -1 \\\\ -1 & 0 \\end{bmatrix}$",
+   "$\\begin{bmatrix} -1 & 1 \\\\ 1 & 0 \\end{bmatrix}$"
+  ],
+  "correct": 0,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-06-matrix-q60",
+  "question": "กำหนดให้ $A = \\begin{bmatrix} 0 & 1 \\\\ 1 & 2 \\end{bmatrix}$, $B = \\begin{bmatrix} 2 & -1 \\\\ -1 & 3 \\end{bmatrix}$ และ $C = \\begin{bmatrix} -1 & 0 \\\\ 1 & -2 \\end{bmatrix}$\nถ้า $X = (B + C)A$ แล้ว $X^{-1}$ คือเมทริกซ์ในข้อใดต่อไปนี้",
+  "subTopics": [
+   "6.7",
+   "6.2",
+   "6.3"
+  ],
+  "topics": [
+   "6"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$-16$",
+   "$-4$",
+   "4",
+   "16"
+  ],
+  "correct": 0,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-06-matrix-q81",
+  "question": "กำหนดให้ $A = [a_{ij}]_{3 \\times 3}$ โดยที่ $a_{ij} = \\begin{cases} 2^{i-1} & , i = j \\\\ 2 & , i \\ne j \\end{cases}$\n$\\det\\left(4\\,\\dfrac{\\text{adj}(A^t)}{\\det(A)}\\right)$ เท่ากับข้อใดต่อไปนี้",
+  "subTopics": [
+   "6.8",
+   "6.6",
+   "6.5"
+  ],
+  "topics": [
+   "6"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$|x - y| = 0$",
+   "$0 < |x - y| < 1$",
+   "$|x - y| = 1$",
+   "$|x - y| > 1$"
+  ],
+  "correct": 2,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-08-explog-q03",
+  "question": "ถ้า $x$ และ $y$ เป็นจำนวนจริงที่สอดคล้องกับสมการ $2^x \\cdot 5^y = 1$ และ $5^{x+1} \\cdot 2^y = 2$\nแล้วข้อใดต่อไปนี้ถูกต้อง",
+  "subTopics": [
+   "8.4",
+   "8.1"
+  ],
+  "topics": [
+   "8"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "ไม่มีคำตอบ",
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-08-explog-q118",
+  "question": "จงแก้สมการ $\\sqrt{\\dfrac{13}{4} + 3x} - \\sqrt{x - 3} = \\dfrac{1}{2}$",
+  "subTopics": [
+   "8.2",
+   "3.10"
+  ],
+  "topics": [
+   "8"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$2$",
+   "$36$",
+   "$72$",
+   "$216$"
+  ],
+  "correct": 2,
+  "difficulty": "ง่าย",
+  "hasImage": false,
+  "id": "chap-08-explog-q140",
+  "question": "ถ้า $A \\cdot 2^{3\\log_2 6} = 648$ แล้วค่าของ $\\dfrac{2^{3\\log_2 6}}{A}$ ตรงกับข้อใด",
+  "subTopics": [
+   "8.6",
+   "8.7"
+  ],
+  "topics": [
+   "8"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$0.8$",
+   "$0.4$",
+   "$1.2$",
+   "$-6$"
+  ],
+  "correct": 2,
+  "difficulty": "ง่าย",
+  "hasImage": false,
+  "id": "chap-08-explog-q160",
+  "question": "จงหาค่าของ $x$ เมื่อ $\\log(5x + 10) = \\log(3x - 2) + 1$",
+  "subTopics": [
+   "8.9",
+   "8.7"
+  ],
+  "topics": [
+   "8"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$[0, 4)$",
+   "$[4, 8)$",
+   "$[8, 30)$",
+   "$[31, 81]$"
+  ],
+  "correct": 2,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-08-explog-q182",
+  "question": "ค่าของ $x$ ที่สอดคล้องสมการ $x^{\\log_3 x} = \\dfrac{x^5}{729}$ อยู่ในช่วงใดต่อไปนี้",
+  "subTopics": [
+   "8.9",
+   "8.4"
+  ],
+  "topics": [
+   "8"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "1",
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-08-explog-q28",
+  "question": "กำหนดให้ $A = \\left\\{ x \\in \\mathbb{R} \\,\\middle|\\, 5^{3^{2x} + 3} = 25^{5\\left(3^{x - \\frac{1}{2}}\\right)} \\right\\}$\nผลบวกของสมาชิกทั้งหมดของ $A$ มีค่าเท่ากับเท่าใด",
+  "subTopics": [
+   "8.4",
+   "8.1"
+  ],
+  "topics": [
+   "8"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$\\dfrac{4}{3} - 4c$",
+   "$\\dfrac{4}{3} + 4c$",
+   "$\\dfrac{8}{3} - 4c$",
+   "$\\dfrac{8}{3} + 4c$"
+  ],
+  "correct": 0,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-08-explog-q52",
+  "question": "กำหนดให้ $\\log 3 = c$ ค่าของ $\\log_{\\frac{1}{9}} 9 + \\log_3 \\sqrt[3]{3} - \\log 0.81$ เท่ากับข้อใดต่อไปนี้",
+  "subTopics": [
+   "8.6",
+   "8.7"
+  ],
+  "topics": [
+   "8"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$5 < x + y < 7$",
+   "$3 < x - y < 4$",
+   "$0 < xy < 10$",
+   "$0 < \\dfrac{x}{y} < \\dfrac{1}{2}$"
+  ],
+  "correct": 3,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-08-explog-q80",
+  "question": "ถ้า $x$ และ $y$ สอดคล้องสมการ $\\log_k x \\cdot \\log_5 k = 1$ เมื่อ $k > 1$\nและ $10^{2y} = 625$ ตามลำดับ แล้วข้อใดต่อไปนี้<u>ผิด</u>",
+  "subTopics": [
+   "8.7",
+   "8.4"
+  ],
+  "topics": [
+   "8"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "a = (−8 + 5√3)/11",
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-09-vector-q112",
+  "question": "กำหนดให้ $\\overline{u} = \\overline{i} + 2\\overline{j}$ และ $\\overline{v} = \\overline{i} + a\\overline{j}$ เป็นเวกเตอร์ในระบบแกนมุมฉาก\nและมุมระหว่าง $\\overline{u}$ กับ $\\overline{v}$ เท่ากับ $60$ องศา\nจงหาค่าของ $a$ ที่เป็นไปได้",
+  "subTopics": [
+   "9.6",
+   "9.5"
+  ],
+  "topics": [
+   "9"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": [
+   "ก. ถูก และ ข. ถูก",
+   "ก. ถูก และ ข. ผิด",
+   "ก. ผิด และ ข. ถูก",
+   "ก. ผิด และ ข. ผิด"
+  ],
+  "correct": 1,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-09-vector-q35",
+  "question": "กำหนดให้ $|\\overline{u} - \\overline{v}| = 3$ และ $\\overline{u} \\cdot \\overline{v} = -2$ จงพิจารณาข้อความต่อไปนี้\nก. $\\overline{u} + \\overline{v}$ เป็นเวกเตอร์หนึ่งหน่วย\nข. $|\\overline{u}|^2 + |\\overline{v}|^2 = 3$\nข้อใดต่อไปนี้ถูก",
+  "subTopics": [
+   "9.5",
+   "9.4"
+  ],
+  "topics": [
+   "9"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "120",
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-09-vector-q88",
+  "question": "กำหนดให้ $\\overline{u}$ และ $\\overline{v}$ เป็นเวกเตอร์\nถ้า $|\\overline{u}| = 2 ,\\ |\\overline{v}| = 3$ และ $|\\overline{u} + \\overline{v}| = \\sqrt{7}$ จงหามุมระหว่างเวกเตอร์ $\\overline{u}$ และ $\\overline{v}$",
+  "subTopics": [
+   "9.6",
+   "9.5"
+  ],
+  "topics": [
+   "9"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": [],
+  "correct": "i, -4i",
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-10-complex-q107",
+  "question": "จงแก้สมการ $x^2 + 3ix + 4 = 0$",
+  "subTopics": [
+   "10.7",
+   "10.2"
+  ],
+  "topics": [
+   "10"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$\\dfrac{1}{2} - \\dfrac{\\sqrt{3}}{2}i$",
+   "$\\dfrac{1}{2} + \\dfrac{\\sqrt{3}}{2}i$",
+   "$\\sqrt{3}\\,i$",
+   "$-\\sqrt{3}\\,i$"
+  ],
+  "correct": 3,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-10-complex-q19",
+  "question": "กำหนดให้ $z_1$ และ $z_2$ เป็นจำนวนเชิงซ้อนที่ $2z_1\\bar{z_2} = 1 + \\bar{z_2}$\nและ $z_1 = \\left(\\cos\\dfrac{\\pi}{18} + i\\sin\\dfrac{\\pi}{18}\\right)^6$ ข้อใดต่อไปนี้คืออินเวอร์สการคูณของ $z_2$",
+  "subTopics": [
+   "10.5",
+   "10.3",
+   "10.2"
+  ],
+  "topics": [
+   "10"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$5$",
+   "$10$",
+   "$13$",
+   "$36$",
+   "ไม่มีคำตอบที่ถูกต้องในข้อ 1. ถึงข้อ 4."
+  ],
+  "correct": 1,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-10-complex-q54",
+  "question": "ผลบวกของค่าสัมบูรณ์ของรากของสมการ $z^4 + 5z^2 - 36 = 0$ ในระบบจำนวนเชิงซ้อน มีค่าเท่าใด",
+  "subTopics": [
+   "10.7",
+   "10.3"
+  ],
+  "topics": [
+   "10"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [],
+  "correct": "{ pi/2 , 3pi/2 }",
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-10-complex-q77",
+  "question": "ให้ $B = \\left\\{\\theta \\mid i\\cot\\theta\\sin^2\\dfrac{\\theta}{4} - \\cot\\theta = 0,\\ 0 \\le \\theta \\le 2\\pi\\right\\}$ จงเขียน $B$ แบบแจกแจงสมาชิก",
+  "subTopics": [
+   "10.1",
+   "7.7"
+  ],
+  "topics": [
+   "10"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "48",
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-11-sequence-q03",
+  "question": "ให้ $x, y, z, w$ เป็นพจน์ 4 พจน์เรียงกันในลำดับเรขาคณิต โดยที่ $x$ เป็นพจน์แรก ถ้า $y + z = 6$ และ $z + w = -12$ จงหาค่าสัมบูรณ์ของพจน์ที่ 5 ของลำดับนี้",
+  "subTopics": [
+   "11.3",
+   "11.1"
+  ],
+  "topics": [
+   "11"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": [
+   "ผลต่างร่วมของอนุกรมเลขคณิต $1 + 17 + 33 + 49 + 65 + \\dots$",
+   "$\\displaystyle\\sum_{k=1}^{5} (k-1)$",
+   "$\\displaystyle\\sum_{k=1}^{4} (k^2 - 4)$",
+   "ข้อ 1, 2 และ 3 ไม่มีข้อใดถูก"
+  ],
+  "correct": 2,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-11-sequence-q25",
+  "question": "อนุกรมเรขาคณิตอนุกรมหนึ่ง มีพจน์ที่สองเท่ากับ $4$ และมีผลบวกของอนุกรมเท่ากับ $16$ ผลบวก $3$ พจน์แรกของอนุกรมนี้เท่ากับค่าในข้อใด",
+  "subTopics": [
+   "11.5",
+   "11.3"
+  ],
+  "topics": [
+   "11"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$5027$",
+   "$5037$",
+   "$5047$",
+   "$5067$"
+  ],
+  "correct": 2,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-11-sequence-q46",
+  "question": "จงหาตัวเลขในตำแหน่งที่ขาดหายไปของลำดับต่อไปนี้\n$125,\\ 726,\\ \\ldots,\\ 40328,\\ 362889$",
+  "subTopics": [
+   "11.1"
+  ],
+  "topics": [
+   "11"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$772$",
+   "$748$",
+   "$700$",
+   "$676$"
+  ],
+  "correct": 3,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-11-sequence-q70",
+  "question": "กำหนดให้ $A = \\{a_1, a_2, a_3, \\ldots, a_n, \\ldots\\}$ เป็นลำดับของจำนวนจริง นิยามลำดับ $\\Delta A$ ดังนี้ $\\Delta A = \\{a_2 - a_1, \\ a_3 - a_2, \\ a_4 - a_3, \\ \\ldots, \\ a_{n+1} - a_n, \\ \\ldots\\}$ ถ้า $\\Delta(\\Delta A) = \\{1, 1, 1, \\ldots\\}$ และสมมติว่า $a_{25} = 1{,}000$ และ $a_{49} = 1{,}900$ แล้วค่าของ $a_1$ เท่ากับเท่าใด",
+  "subTopics": [
+   "11.1",
+   "11.2"
+  ],
+  "topics": [
+   "11"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$\\dfrac{2}{n^2}$",
+   "$\\dfrac{2}{n(n-1)}$",
+   "$\\dfrac{3}{n(n-1)}$",
+   "$\\dfrac{4}{n(n-1)}$"
+  ],
+  "correct": 3,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-12-probability-q110",
+  "question": "กล่องใบหนึ่งมีบัตร $n$ ใบ ($n \\ge 3$) ซึ่งเขียนหมายเลขกำกับไว้โดยไม่ซ้ำกัน เริ่มจาก $1$ จนถึง $n$ ถ้าหยิบบัตรออกมา $2$ ใบโดยสุ่ม แล้วความน่าจะเป็นที่ได้ใบหนึ่งเป็นบัตรหมายเลข $3$ และอีกใบเป็นบัตรหมายเลขต่ำกว่า $3$ เท่ากับข้อใดต่อไปนี้",
+  "subTopics": [
+   "12.7",
+   "12.3"
+  ],
+  "topics": [
+   "12"
+  ],
+  "type": "mc",
+  "hint": null
+ }
+]

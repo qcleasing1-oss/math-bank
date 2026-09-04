@@ -18,3 +18,13 @@ desktop.ini
 #    ⇒ เคสนี้เกิดจาก **ตัวแก้ที่ทำให้ด่านซื่อสัตย์** (v1.2) ⇒ ยิ่งต้องกันไว้
 __pycache__/
 *.pyc
+
+# ── 4 ก.ย. 69 · ครูเคาะ (ใบ 131-MB-E §2 · ใบ 132-E-MB) ──────────────────
+#   กันด้วยเครื่อง ⛔ ไม่ใช่ด้วยความจำของคนกดคอมมิต
+data/*BAK*.json
+data/*pre-merge*
+answer_bias.csv
+report_summary.txt
+report_issues.csv
+_t1run/POOL-refill-*/
+out/

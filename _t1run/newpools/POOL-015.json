@@ -1,0 +1,943 @@
+[
+ {
+  "choices": [
+   "$(\\sim r \\to p) \\wedge (q \\vee r)$",
+   "$(q \\wedge \\sim r) \\leftrightarrow (\\sim p \\to \\sim q)$",
+   "$(\\sim p \\vee r) \\to (q \\wedge \\sim r)$",
+   "$(p \\to q) \\vee (\\sim r \\leftrightarrow q)$"
+  ],
+  "correct": 2,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-02-logic-q05",
+  "question": "กำหนดให้ $p, q, r$ เป็นประพจน์ที่มีค่าความจริงเป็น \"จริง เท็จ และเท็จ\" ตามลำดับ ประพจน์ในข้อใดต่อไปนี้มีค่าความจริงเหมือนกับประพจน์ $(p \\to \\sim q) \\vee (r \\wedge \\sim p)$",
+  "subTopics": [
+   "2.1",
+   "2.2"
+  ],
+  "topics": [
+   "2"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$\\forall x \\exists y[x + y \\leq 0 \\rightarrow |x| \\geq |y|]$",
+   "$\\forall x \\exists y[|x| \\geq |y| \\rightarrow x + y \\leq 0]$",
+   "$\\forall x \\exists y[|x| < |y| \\wedge x + y \\leq 0]$",
+   "$\\forall x \\exists y[|x| \\geq |y| \\wedge x + y > 0]$"
+  ],
+  "correct": 2,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-02-logic-q122",
+  "question": "นิเสธของประพจน์สัญลักษณ์ $\\exists x \\forall y[|x| < |y| \\rightarrow x + y > 0]$ คือข้อใด",
+  "subTopics": [
+   "2.11",
+   "2.12",
+   "2.3"
+  ],
+  "topics": [
+   "2"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$\\sim (\\sim p \\to q)$",
+   "$\\sim p \\to q$",
+   "$\\sim (q \\to \\sim p)$",
+   "$q \\to \\sim p$"
+  ],
+  "correct": 0,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-02-logic-q27",
+  "question": "ให้ $p$ และ $q$ เป็นประพจน์ ถ้า $p * q$ เป็นประพจน์ที่มีค่าความจริงตามตารางข้างล่างนี้\n\n$\\begin{array}{|c|c|c|}\\hline p & q & p*q \\\\\\hline T & T & F \\\\ T & F & F \\\\ F & T & F \\\\ F & F & T \\\\\\hline\\end{array}$\n\nแล้วประพจน์ $p * q$ สมมูลกับประพจน์ในข้อใดต่อไปนี้",
+  "subTopics": [
+   "2.5",
+   "2.4"
+  ],
+  "topics": [
+   "2"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$\\forall x [\\, \\sim P(x) \\vee Q(x) \\,]$",
+   "$\\forall x [\\, P(x) \\to Q(x) \\,]$",
+   "$\\forall x [\\, \\sim Q(x) \\to \\sim P(x) \\,]$",
+   "$\\forall x [\\, P(x) \\vee \\sim Q(x) \\,]$"
+  ],
+  "correct": 3,
+  "difficulty": "ง่าย",
+  "hasImage": false,
+  "id": "chap-02-logic-q49",
+  "question": "ข้อความข้างล่างนี้ ข้อใดไม่ใช่นิเสธของข้อความ $\\exists x [\\, P(x) \\wedge \\sim Q(x) \\,]$",
+  "subTopics": [
+   "2.11",
+   "2.5",
+   "2.3"
+  ],
+  "topics": [
+   "2"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$q \\wedge r$",
+   "$q \\vee r$",
+   "$q \\to \\sim r$",
+   "$q \\leftrightarrow r$"
+  ],
+  "correct": 3,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-02-logic-q77",
+  "question": "กำหนดให้ $p, q, r$ เป็นประพจน์ซึ่ง $(p \\leftrightarrow q) \\to (r \\leftrightarrow \\sim p)$ มีค่าความจริงเป็นเท็จ รูปแบบประพจน์ในข้อใดต่อไปนี้มีค่าความจริงเป็นจริง",
+  "subTopics": [
+   "2.1",
+   "2.2"
+  ],
+  "topics": [
+   "2"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$(p \\wedge \\sim q) \\rightarrow (p \\rightarrow q)$",
+   "$[[(p \\wedge q) \\rightarrow r] \\wedge q] \\rightarrow (p \\rightarrow r)$",
+   "$[p \\wedge (q \\vee \\sim p)] \\wedge [(\\sim p) \\vee (\\sim q)]$",
+   "$[p \\rightarrow (q \\wedge r)] \\rightarrow [p \\wedge (q \\vee r)]$"
+  ],
+  "correct": 1,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-02-logic-q98",
+  "question": "ประพจน์ใดต่อไปนี้ มีค่าความจริงเป็นจริงทุกกรณี",
+  "subTopics": [
+   "2.6",
+   "2.4"
+  ],
+  "topics": [
+   "2"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "ถ้า $a > 0,\\ b > 0$ และ $a \\ne b$ แล้ว $\\dfrac{a}{b} + \\dfrac{b}{a} < 2$ เสมอ",
+   "ถ้า $a > 0,\\ b > 0$ และ $a \\ne b$ แล้ว $\\dfrac{a}{b^{2}} + \\dfrac{b}{a^{2}} > \\dfrac{1}{a} + \\dfrac{1}{b}$ เสมอ",
+   "ถ้า $a^{2} + b^{2} = 1$ และ $c^{2} + d^{2} = 1$ แล้ว $ac + bd \\le 1$ เสมอ",
+   "ถ้าสมบัติ \"เป็นกรุป\" คือ (1) เปลี่ยนกลุ่ม (2) มีสมบัติปิด และ (3) มีเอกลักษณ์และอินเวอร์ส ดังนั้น เซตของจำนวนตรรกยะ \"เป็นกรุป\" ภายใต้การบวก"
+  ],
+  "correct": 0,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-03-realnumber-q11",
+  "question": "ข้อความต่อไปนี้ ข้อใดผิด",
+  "subTopics": [
+   "3.6",
+   "3.1"
+  ],
+  "topics": [
+   "3"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "{(1,-1),(2,-2)}",
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-03-realnumber-q131",
+  "question": "กำหนด $A = \\{(x, y) \\in \\mathbb{Z}\\times\\mathbb{Z} \\mid x^3 + y^3 - 3x^2 + 6y^2 + 3x + 12y + 6 = 0\\}$ จงเขียน $A$ แบบแจกแจงสมาชิก",
+  "subTopics": [
+   "3.3",
+   "3.4"
+  ],
+  "topics": [
+   "3"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "9",
+  "difficulty": "ง่าย",
+  "hasImage": false,
+  "id": "chap-03-realnumber-q173",
+  "question": "ถ้ามีเงินอยู่ $1{,}000$ บาท จะแลกธนบัตรฉบับละ $20$ บาท และฉบับละ $50$ บาท\nจงหาจำนวนวิธีทั้งหมดที่จะแลกธนบัตรให้ได้ทั้งสองชนิด โดยแลกทั้ง $1{,}000$ บาทนั้น",
+  "subTopics": [
+   "3.12",
+   "17.7"
+  ],
+  "topics": [
+   "3"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$-1$",
+   "$0$",
+   "$1$",
+   "$2$"
+  ],
+  "correct": 0,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-03-realnumber-q21",
+  "question": "กำหนด $p(x) = x^{6} + ax^{3} - x + b$ โดยที่ $a$ และ $b$ เป็นจำนวนจริง\nถ้า $x - 1$ หาร $p(x)$ เหลือเศษ $-1$ และ $x + 1$ หาร $p(x)$ เหลือเศษ 1\nแล้ว $x$ หาร $p(x)$ จะเหลือเศษเท่ากับข้อใดต่อไปนี้",
+  "subTopics": [
+   "3.5"
+  ],
+  "topics": [
+   "3"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "9",
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-03-realnumber-q77",
+  "question": "ให้ $x$, $y$, $z$ เป็นจำนวนเต็มบวกที่มีค่าเรียงติดกันจากน้อยไปมาก ถ้า $y$ เป็นจำนวนเต็มบวกที่มีค่าน้อยที่สุดที่ทำให้ $\\sqrt[3]{x + y + z}$ เป็นจำนวนเต็มบวก แล้ว $y$ มีค่าเท่าใด",
+  "subTopics": [
+   "3.12",
+   "17.5"
+  ],
+  "topics": [
+   "3"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$\\{ (x, y) \\in \\mathbb{R} \\times \\mathbb{R} \\mid x - y > 1 \\} \\cap \\{ (x, y) \\in \\mathbb{R} \\times \\mathbb{R} \\mid y^2 + x < 0 \\}$",
+   "$\\{ (x, y) \\in \\mathbb{Z} \\times \\mathbb{Z} \\mid y = x + 2 \\} \\cap \\{ (x, y) \\in \\mathbb{R} \\times \\mathbb{R} \\mid y = 2 - 3x \\}$",
+   "$\\{ (x, y) \\in \\mathbb{R} \\times \\mathbb{R} \\mid y > |x| \\} \\cap \\{ (x, y) \\in \\mathbb{R} \\times \\mathbb{R} \\mid y < \\sqrt{x} \\}$",
+   "$\\{ (x, y) \\in \\mathbb{R} \\times \\mathbb{R} \\mid -1 \\le x < 4 \\} \\cap \\{ (x, y) \\in \\mathbb{R} \\times \\mathbb{R} \\mid y = -2 \\}$"
+  ],
+  "correct": 0,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-05-function-q07",
+  "question": "เซตในข้อใดต่อไปนี้เป็นเซตว่าง",
+  "subTopics": [
+   "5.2",
+   "5.1"
+  ],
+  "topics": [
+   "5"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$\\{ x \\in \\mathbb{Z} \\mid \\dfrac{x}{2}$ เป็นจำนวนเต็มคี่$\\}$",
+   "$\\{ x \\in \\mathbb{Z} \\mid \\dfrac{x}{2}$ เป็นจำนวนเต็มคู่$\\}$",
+   "$\\{ x \\in \\mathbb{Z} \\mid x$ เป็นจำนวนเต็มคี่$\\}$",
+   "$\\{ x \\in \\mathbb{Z} \\mid x$ เป็นจำนวนเต็มคู่$\\}$"
+  ],
+  "correct": 0,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-05-function-q122",
+  "question": "ให้ $\\mathbb{Z}$ เป็นเซตของจำนวนเต็ม\nถ้า $f$ และ $g$ เป็นฟังก์ชันซึ่งกำหนดโดย $f(x) = 2x$ และ $g(x) = x - 1$ ทุก $x \\in \\mathbb{Z}$\nแล้ว เรนจ์ของ $(f \\circ g) + f$ คือเซตในข้อใดต่อไปนี้",
+  "subTopics": [
+   "5.7",
+   "5.11",
+   "5.5"
+  ],
+  "topics": [
+   "5"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "7",
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-05-function-q153",
+  "question": "กำหนดให้ $r = \\{ (x, y) \\in \\mathbb{R} \\times \\mathbb{R} \\mid x^2 y - xy - 1 = 0 \\}$ และ $A = \\{ x \\in \\mathbb{Z} \\mid |x| \\le 5 \\}$\nจงหาจำนวนสมาชิกในเซต $D_{r^{-1}} \\cap A$",
+  "subTopics": [
+   "5.5",
+   "5.3"
+  ],
+  "topics": [
+   "5"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "$\\sqrt{2x^2 + 4}$",
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-05-function-q179",
+  "question": "ให้ $f$ เป็นฟังก์ชัน ที่มีฟังก์ชันอินเวอร์สคือ $f^{-1} = \\{ (x, x^2 + 1) \\mid x \\ge 0 \\}$\nและ $g$ เป็นฟังก์ชัน ซึ่งมี $g \\circ f(x) = 2x + 3$ ทุก $x$ ใน $D_f$\nจงหา $f \\circ g(x)$",
+  "subTopics": [
+   "5.8",
+   "5.7"
+  ],
+  "topics": [
+   "5"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "0, 2, -2",
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-05-function-q201",
+  "question": "กำหนดให้ $f : \\mathbb{R} \\to \\mathbb{R}$ เป็นฟังก์ชัน นิยามโดย $f(a + b) = f(a) + f(b)$ ทุก ๆ $a, b \\in \\mathbb{R}$\nและ $f(2) = 4$ จงหา $f(0)$, $f(1)$, $f(-1)$",
+  "subTopics": [
+   "5.4",
+   "5.9"
+  ],
+  "topics": [
+   "5"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$75$",
+   "$150$",
+   "$425$",
+   "$500$"
+  ],
+  "correct": 2,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-05-function-q51",
+  "question": "ให้ $A = \\{1, 2, 3, 4\\}$ และ $B = \\{1, 2, 3, 4, 5\\}$\nถ้า $f$ เป็นฟังก์ชันจาก $A$ ไป $B$ โดยที่ $f(1) = 2$ หรือ $f(2) = m$ เมื่อ $m$ เป็นจำนวนคี่\nแล้ว จำนวนของฟังก์ชัน $f$ ที่มีสมบัติดังกล่าว เท่ากับข้อใด",
+  "subTopics": [
+   "5.4",
+   "12.1"
+  ],
+  "topics": [
+   "5"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "2",
+   "6",
+   "1",
+   "$\\dfrac{1}{2}$"
+  ],
+  "correct": 0,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-05-function-q75",
+  "question": "กำหนดฟังก์ชัน $f$ และ $g$ ดังนี้\n$f(x) = \\dfrac{x + 3}{2}$ เมื่อ $x \\in \\mathbb{R}$ และ $g(x) = |x|$ เมื่อ $x \\in \\mathbb{R}$\nเมื่อ $x = 3$ ค่าของ $\\big[(f^{-1} \\circ g)(x) - (f^{-1} \\circ g)(2)\\big] / (|x| - 2)$ เท่ากับเท่าใด",
+  "subTopics": [
+   "5.8",
+   "5.7"
+  ],
+  "topics": [
+   "5"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$[-4, -1]$",
+   "$[-1, 0]$",
+   "$[0, 4]$",
+   "$[4, 6]$"
+  ],
+  "correct": 2,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-05-function-q97",
+  "question": "ถ้า $f(x) = x - 1$ และ $(g \\circ f^{-1})(x) = 4x^2 - 1$\nแล้วเซตคำตอบของสมการ $g(x) = 0$ เป็นสับเซตของช่วงในข้อใดต่อไปนี้",
+  "subTopics": [
+   "5.7",
+   "5.8"
+  ],
+  "topics": [
+   "5"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$1$",
+   "$3$",
+   "$9$",
+   "$27$"
+  ],
+  "correct": 3,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-06-matrix-q109",
+  "question": "กำหนดให้ $A$ เป็นเมทริกซ์ขนาด $3 \\times 3$ และ $I$ คือเมทริกซ์เอกลักษณ์ขนาด $3 \\times 3$\nถ้า $A^2 + 3A = I$ แล้ว $\\det(AA^t + A^t + 2A + 2I)$ จะเท่ากับข้อใด",
+  "subTopics": [
+   "6.6",
+   "6.5",
+   "6.4"
+  ],
+  "topics": [
+   "6"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "[[2/3,-1],[1/3,1/3]]",
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-06-matrix-q128",
+  "question": "กำหนดให้ $A = \\begin{bmatrix} 1 & 3 \\\\ -1 & 2 \\end{bmatrix}$ ถ้า $B = [b_{ij}]_{2 \\times 2}$ ทำให้ $(A - B)(A + B) = A^2 - B^2$\nและ $C_{11}(B) = \\dfrac{1}{3}, \\; C_{21}(B) = 1$ เมื่อ $C_{ij}(B)$ โคแฟกเตอร์ของ $b_{ij}$ แล้ว จงหา $B$",
+  "subTopics": [
+   "6.3",
+   "6.8"
+  ],
+  "topics": [
+   "6"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": [
+   "ถ้า $A, B$ เป็นเมทริกซ์ที่มีมิติเดียวกัน และ $k$ เป็นจำนวนจริง จะได้ว่า $k(A - B^t)^t = kA^t - kB$",
+   "ถ้า $ad - bc \\ne 0$ แล้ว จะได้ว่าคำตอบของระบบสมการ $ax + by = m, \\; cx + dy = n$ จะมีเพียงคำตอบเดียว",
+   "$\\begin{bmatrix} \\sin\\theta & \\cos\\theta \\\\ \\cos\\theta & -\\sin\\theta \\end{bmatrix}^{-1} = \\begin{bmatrix} \\sin\\theta & \\cos\\theta \\\\ \\cos\\theta & -\\sin\\theta \\end{bmatrix}$",
+   "$\\begin{vmatrix} a_1 & a_2 & a_3 \\\\ b_1 & b_2 & b_3 \\\\ c_1 & c_2 & c_3 \\end{vmatrix} = \\begin{vmatrix} c_1 & b_1 & a_1 \\\\ c_2 & b_2 & a_2 \\\\ c_3 & b_3 & a_3 \\end{vmatrix}$"
+  ],
+  "correct": 3,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-06-matrix-q147",
+  "question": "ข้อใดต่อไปนี้ผิด",
+  "subTopics": [
+   "6.6",
+   "6.10",
+   "6.4"
+  ],
+  "topics": [
+   "6"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "768",
+   "$-768$",
+   "384",
+   "$-384$"
+  ],
+  "correct": 1,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-06-matrix-q30",
+  "question": "ถ้า $A = \\begin{bmatrix} -1 & 1 \\\\ 3 & -1 \\end{bmatrix}$ แล้ว $\\det(-2A^3A^t(A + A^t))$ เท่ากับข้อใดต่อไปนี้",
+  "subTopics": [
+   "6.6",
+   "6.5"
+  ],
+  "topics": [
+   "6"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$\\begin{bmatrix} 1 & 0 & 2 \\\\ 0 & 1 & -1 \\\\ -2 & -1 & -1 \\end{bmatrix}$",
+   "$\\begin{bmatrix} 2 & 0 & 4 \\\\ 0 & 2 & -2 \\\\ -4 & -2 & -2 \\end{bmatrix}$",
+   "$\\begin{bmatrix} -1 & 0 & -2 \\\\ 0 & -1 & 1 \\\\ 2 & 1 & 1 \\end{bmatrix}$",
+   "$\\begin{bmatrix} -2 & 0 & -4 \\\\ 0 & -2 & 2 \\\\ 4 & 2 & 2 \\end{bmatrix}$"
+  ],
+  "correct": 1,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-06-matrix-q54",
+  "question": "ให้ $A$ เป็นเมทริกซ์ และ $I$ เป็นเมทริกซ์เอกลักษณ์มิติ $3 \\times 3$\nถ้า $B = \\begin{bmatrix} 1 & 2 & -1 \\\\ 3 & 0 & 1 \\\\ -2 & 1 & 0 \\end{bmatrix}$ และ $C = \\begin{bmatrix} 0 & 2 & -3 \\\\ 3 & -1 & 2 \\\\ 0 & 2 & 1 \\end{bmatrix}$ สอดคล้องกับสมการ $AB - AC - \\dfrac{1}{2}I = \\underline{0}$\nแล้ว $A^{-1}$ เท่ากับเมทริกซ์ในข้อใดต่อไปนี้",
+  "subTopics": [
+   "6.7",
+   "6.2"
+  ],
+  "topics": [
+   "6"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$-5$",
+   "$-1$",
+   "2",
+   "3"
+  ],
+  "correct": 2,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-06-matrix-q75",
+  "question": "ให้ $a, b, c$ เป็นจำนวนจริง และ $A = \\begin{bmatrix} a & -1 & 0 \\\\ b & 1 & 1 \\\\ c & 1 & -1 \\end{bmatrix}$\nให้ $C_{ij}(A)$ คือโคแฟกเตอร์ของสมาชิกในตำแหน่งแถวที่ $i$ หลักที่ $j$ ของ $A$\nถ้า $C_{12}(A) = 1$ และ $\\det(A) = -5$ แล้ว ค่าของ $a$ เท่ากับข้อใดต่อไปนี้",
+  "subTopics": [
+   "6.8",
+   "6.5"
+  ],
+  "topics": [
+   "6"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$-3750$",
+   "$-150$",
+   "$150$",
+   "$3750$"
+  ],
+  "correct": 2,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-06-matrix-q96",
+  "question": "กำหนดให้ $A = \\begin{bmatrix} 4 & 12 & -9 \\\\ 7 & -10 & 5 \\\\ 1 & 0 & 0 \\end{bmatrix}$\nและ $B, C, D$ เป็นเมทริกซ์มิติ $3 \\times 3$ ซึ่ง $A \\sim B \\sim C \\sim D$\nโดยที่ $B$ ได้จาก $A$ โดยการดำเนินการ $R_1 - \\dfrac{4}{3}R_2$\n$C$ ได้จาก $B$ โดยการดำเนินการ $5R_1$\n$D$ ได้จาก $C$ โดยการดำเนินการ $R_{23}$\nแล้ว $\\det(D)$ เท่ากับข้อใดต่อไปนี้",
+  "subTopics": [
+   "6.6",
+   "6.5"
+  ],
+  "topics": [
+   "6"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$5 + \\sqrt{7}$",
+   "$5 - \\sqrt{7}$",
+   "$5\\sqrt{7}$",
+   "$10\\sqrt{7}$"
+  ],
+  "correct": 2,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-08-explog-q110",
+  "question": "ถ้า $x, y$ สอดคล้องกับระบบสมการ\n$9^{\\log_3 x} + 4^{\\log_2 y} = 16$\n$\\log_3 x - \\log_{\\frac{1}{3}} y = 2 - \\log_3 2$\nแล้ว $\\left| x^2 - y^2 \\right|$ มีค่าเท่ากับข้อใดต่อไปนี้",
+  "subTopics": [
+   "8.7",
+   "8.9"
+  ],
+  "topics": [
+   "8"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "{−√2, √2, 1/2, 1/a}",
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-08-explog-q135",
+  "question": "ให้ $A$ เป็นเซตคำตอบของสมการ $3^{x^2 + 2x} - 3^{x^2 + 1} - 9^{x+1} + 27 = 0$\nและ $B$ เป็นเซตคำตอบของสมการ $\\displaystyle\\sum_{n=1}^{10} n\\log_a (a^n x) = 330$\nแล้ว $A \\cup B$ คือเซตใด",
+  "subTopics": [
+   "8.4",
+   "8.9",
+   "11.6"
+  ],
+  "topics": [
+   "8"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$\\dfrac{101}{20}$",
+   "$\\dfrac{99}{20}$",
+   "$1$",
+   "$0$"
+  ],
+  "correct": 1,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-08-explog-q155",
+  "question": "ถ้า $f(x) = \\log\\left(x + \\sqrt{1 + x^2}\\right)$ , $x \\in \\mathbb{R}$\nแล้ว $a$ จะมีค่าตรงกับข้อใดต่อไปนี้ เมื่อ $f(a) = 1$",
+  "subTopics": [
+   "8.9",
+   "8.2"
+  ],
+  "topics": [
+   "8"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$[4, 8]$",
+   "$[2, 6]$",
+   "$[0, 4]$",
+   "$[-3, 3]$"
+  ],
+  "correct": 3,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-08-explog-q176",
+  "question": "ค่าของ $x$ ที่สอดคล้องสมการ $\\log_2(9^{x+1} + 15) = 2 + \\log_2(61 \\cdot 3^x - 3)$ มีค่าอยู่ในช่วงใดต่อไปนี้",
+  "subTopics": [
+   "8.9",
+   "8.4"
+  ],
+  "topics": [
+   "8"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "2",
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-08-explog-q207",
+  "question": "กำหนดให้ $m, n,$ และ $k$ เป็นจำนวนเต็มบวกที่มากกว่า 1\nและ $x \\ne 1$ เป็นจำนวนจริงที่ทำให้ $\\log_m x$ เป็นค่าเฉลี่ยของ $\\log_n x$ กับ $\\log_k x$\nแล้ว $\\dfrac{\\log_k m + \\log_n m}{2\\log_m n - \\log_k n}$ มีค่าเท่ากับเท่าใด",
+  "subTopics": [
+   "8.7",
+   "8.6"
+  ],
+  "topics": [
+   "8"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$(-3, -1)$",
+   "$(-1, 1)$",
+   "$(1, 2)$",
+   "$(2, 3)$"
+  ],
+  "correct": 1,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-08-explog-q46",
+  "question": "ค่า $x$ ที่สอดคล้องกับสมการ $9^x - 3^{x + \\log_3 2} = -1$ อยู่ในเซตใดต่อไปนี้",
+  "subTopics": [
+   "8.4",
+   "8.6"
+  ],
+  "topics": [
+   "8"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$(-11, 0)$",
+   "$(0, 8)$",
+   "$(-10, 5)$",
+   "$(-7, 7)$"
+  ],
+  "correct": 3,
+  "difficulty": "ง่าย",
+  "hasImage": false,
+  "id": "chap-08-explog-q74",
+  "question": "เซตคำตอบของสมการ $\\log_9 3^{(x^2 + 3x - 30)} = x$ เป็นสับเซตของช่วงใดต่อไปนี้",
+  "subTopics": [
+   "8.9",
+   "8.7"
+  ],
+  "topics": [
+   "8"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$-2$",
+   "$-\\dfrac{1}{2}$",
+   "$\\dfrac{1}{2}$",
+   "$2$"
+  ],
+  "correct": 0,
+  "difficulty": "ง่าย",
+  "hasImage": false,
+  "id": "chap-09-vector-q101",
+  "question": "กำหนดให้ $\\overline{u} = \\overline{i} + 5\\overline{j}$ และ $\\overline{v} = -2\\overline{i} + 3\\overline{j}$\nจำนวนจริง $c$ ที่ทำให้ $\\overline{u}$ ตั้งฉากกับ $\\overline{u} + c\\overline{v}$ คือข้อใด",
+  "subTopics": [
+   "9.5"
+  ],
+  "topics": [
+   "9"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "ขนาดของเวกเตอร์ $\\overline{u} = 5\\overline{i} + 3\\overline{j}$ ใหญ่กว่า $\\overline{v} = 5\\overline{i} - 3\\overline{j}$",
+   "กำหนดให้ $A(3, -1)$ , $B(-2, 2)$ เวกเตอร์ $\\overrightarrow{AB}$ คือ $5\\overline{i} - 3\\overline{j}$",
+   "$(\\overline{u} \\cdot \\overline{v})\\,\\overline{i} - (\\overline{u} \\cdot \\overline{w})$ เป็นเวกเตอร์",
+   "เวกเตอร์หนึ่งหน่วยที่มีทิศทางเดียวกันกับ $\\begin{bmatrix} 6 \\\\ 8 \\end{bmatrix}$ คือ $\\begin{bmatrix} \\frac{3}{5} \\\\ \\frac{4}{5} \\end{bmatrix}$",
+   "มุมระหว่างเวกเตอร์ $\\overline{u} = 2\\overline{i} + 3\\overline{j}$ กับ $\\overline{v} = 6\\overline{i} + 9\\overline{j}$ คือ $90$ องศา"
+  ],
+  "correct": 3,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-09-vector-q24",
+  "question": "ข้อความใดต่อไปนี้ถูกต้อง",
+  "subTopics": [
+   "9.4",
+   "9.5"
+  ],
+  "topics": [
+   "9"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$1 - \\dfrac{1}{2}\\left[\\dfrac{\\overline{u}}{|\\overline{u}|} - \\dfrac{\\overline{v}}{|\\overline{v}|}\\right]^2$",
+   "$1 + \\dfrac{1}{2}\\left[\\dfrac{\\overline{u}}{|\\overline{u}|} - \\dfrac{\\overline{v}}{|\\overline{v}|}\\right]^2$",
+   "$-1 + \\dfrac{1}{2}\\left[\\dfrac{\\overline{u}}{|\\overline{u}|} - \\dfrac{\\overline{v}}{|\\overline{v}|}\\right]^2$",
+   "$-1 - \\dfrac{1}{2}\\left[\\dfrac{\\overline{u}}{|\\overline{u}|} - \\dfrac{\\overline{v}}{|\\overline{v}|}\\right]^2$"
+  ],
+  "correct": 0,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-09-vector-q57",
+  "question": "กำหนดให้ $\\overline{u}$ และ $\\overline{v}$ เป็นเวกเตอร์ที่ไม่เท่ากับเวกเตอร์ศูนย์\nถ้า $\\theta$ เป็นมุมระหว่าง $\\overline{u}$ และ $\\overline{v}$ จะได้ $\\cos\\theta$ เท่ากับข้อใดต่อไปนี้",
+  "subTopics": [
+   "9.6",
+   "9.4",
+   "9.5"
+  ],
+  "topics": [
+   "9"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$-64$",
+   "$-16$",
+   "$16$",
+   "$64$"
+  ],
+  "correct": 0,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-10-complex-q08",
+  "question": "ส่วนจริงของจำนวนเชิงซ้อน $\\left(\\dfrac{2i}{1+i}\\right)^{12}$ คือข้อใดต่อไปนี้",
+  "subTopics": [
+   "10.2",
+   "10.1"
+  ],
+  "topics": [
+   "10"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$2(z_2 + \\bar{z_2})^2$",
+   "$\\dfrac{1}{2}(z_2 + \\bar{z_2})^2$",
+   "$2z_2\\bar{z_2}$",
+   "$\\dfrac{1}{2}z_2\\bar{z_2}$"
+  ],
+  "correct": 1,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-10-complex-q13",
+  "question": "กำหนดให้ $z_1$ และ $z_2$ เป็นจำนวนเชิงซ้อน\nถ้า $z_1 - z_2$ เป็นจำนวนจริง และ $z_1^2 - 2z_2^2$ เป็นจำนวนจินตภาพแท้\nแล้ว $z_1\\bar{z_1}$ มีค่าเท่ากับข้อใดต่อไปนี้",
+  "subTopics": [
+   "10.1",
+   "10.3"
+  ],
+  "topics": [
+   "10"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$\\dfrac{(a^2+b^2)(a^2+c^2)}{4a^2+(b+c)^2}$",
+   "$\\dfrac{(a^2+b^2)(a^2+c^2)}{4a^2+(b^2+c^2)}$",
+   "$\\dfrac{(a^2-b^2)(a^2-c^2)}{4a^2-(b+c)^2}$",
+   "$\\dfrac{(a^2-b^2)(a^2-c^2)}{4a^2-(b^2+c^2)}$"
+  ],
+  "correct": 0,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-10-complex-q48",
+  "question": "กำหนดให้ $z = x + yi$ และ $\\dfrac1z = \\dfrac{1}{a + bi} + \\dfrac{1}{a + ci}$ เมื่อ $a, b, c, x, y$ เป็นจำนวนจริง แล้ว $x^2 + y^2$ เท่ากับจำนวนในข้อใดต่อไปนี้",
+  "subTopics": [
+   "10.3",
+   "10.2"
+  ],
+  "topics": [
+   "10"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$4$",
+   "$-4$",
+   "$-4i$",
+   "$4i$"
+  ],
+  "correct": 1,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-10-complex-q71",
+  "question": "กำหนดให้ $i = \\sqrt{-1}$ จงหาค่า $\\dfrac{(i+1)^{20}}{(i-1)^{16}}$",
+  "subTopics": [
+   "10.5",
+   "10.2"
+  ],
+  "topics": [
+   "10"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [],
+  "correct": "1/2 + (sqrt3/2) i",
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-10-complex-q93",
+  "question": "จงหาค่าของ $\\left(\\dfrac12 - \\dfrac{\\sqrt3}{2}i\\right)^{35}$ เมื่อ $i = \\sqrt{-1}$",
+  "subTopics": [
+   "10.5",
+   "10.4"
+  ],
+  "topics": [
+   "10"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "0",
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-11-sequence-q19",
+  "question": "ถ้า $a$ เป็นผลรวมของอนุกรม $\\log_{1/2^2} 2 + \\log_{1/2^4} 2 + \\log_{1/2^8} 2 + \\log_{1/2^{16}} 2 + \\dots$ และ $b$ เป็นผลรวมของอนุกรม $2^{-\\log_2 2} + 2^{-\\log_2 4} + 2^{-\\log_2 8} + 2^{-\\log_2 16} + \\dots$ แล้ว $a + b$ มีค่าเท่ากับเท่าใด",
+  "subTopics": [
+   "11.5",
+   "8.7"
+  ],
+  "topics": [
+   "11"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$2$",
+   "$3$",
+   "$4$",
+   "$5$"
+  ],
+  "correct": 2,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-11-sequence-q40",
+  "question": "แผ่นฟิล์มกรองแสงชนิดหนึ่งกรองแสงออกได้ $20$ เปอร์เซ็นต์ ถ้าต้องการนำแผ่นฟิล์มชนิดนี้ไปติดรถยนต์เพื่อให้กรองแสงออกได้ประมาณ $60$ เปอร์เซ็นต์ โดยใช้แผ่นฟิล์มชนิดนี้ซ้อนกัน อยากทราบว่าต้องใช้แผ่นฟิล์มกี่ชั้น (สมมติให้แสงผ่านกระจกได้ $100$ เปอร์เซ็นต์)",
+  "subTopics": [
+   "11.3",
+   "11.8"
+  ],
+  "topics": [
+   "11"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$2500 + 2(x^2 - 1)$",
+   "$2500 + 2(x^4 - 1)$",
+   "$5050 + 2(x^2 - 1)$",
+   "$5050 + 2(x^4 - 1)$"
+  ],
+  "correct": 0,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-11-sequence-q62",
+  "question": "ให้ $a_n = n$ สำหรับ $n$ เป็นเลขคี่ และ $a_n = 2^{n/2}$ สำหรับ $n$ เป็นเลขคู่ จงหาค่า $\\displaystyle\\sum_{n=1}^{100} a_n$ เมื่อกำหนดให้ $2^{25} = x$",
+  "subTopics": [
+   "11.6",
+   "11.5"
+  ],
+  "topics": [
+   "11"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$0.20$",
+   "$0.25$",
+   "$0.30$",
+   "$0.35$"
+  ],
+  "correct": 0,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-12-probability-q104",
+  "question": "ในการยืนเรียงเป็นแถวตรงของนักเรียนชาย $6$ คน และนักเรียนหญิง $4$ คน ถ้าความน่าจะเป็นที่ไม่มีนักเรียนหญิงสองคนใดยืนติดกันเลย เท่ากับ $a$ และความน่าจะเป็นที่นักเรียนหญิงทั้งหมดต้องยืนติดกันเท่ากับ $b$ แล้ว $a + b$ เท่ากับข้อใดต่อไปนี้",
+  "subTopics": [
+   "12.7",
+   "12.2"
+  ],
+  "topics": [
+   "12"
+  ],
+  "type": "mc",
+  "hint": null
+ }
+]

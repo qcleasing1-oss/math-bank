@@ -1,0 +1,925 @@
+[
+ {
+  "choices": [
+   "$\\exists x \\forall y[x - y = y - x]\\;;\\;\\mathcal{U} = \\mathbb{R}$",
+   "$\\forall x \\forall y[|x + y| = |x| + |y|]\\;;\\;\\mathcal{U} = \\mathbb{R}$",
+   "$\\forall x \\exists y[(x - y)^3 = x^3 - y^3]\\;;\\;\\mathcal{U} = \\mathbb{R}$",
+   "$\\exists y \\forall x[xy = 1]\\;;\\;\\mathcal{U} = \\mathbb{R}^{+}$"
+  ],
+  "correct": 2,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-02-logic-q114",
+  "question": "ข้อใดต่อไปนี้มีค่าความจริงเป็นจริง",
+  "subTopics": [
+   "2.12",
+   "2.10"
+  ],
+  "topics": [
+   "2"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$(p \\to q) \\wedge (q \\wedge \\sim p)$",
+   "$(\\sim q \\to \\sim p) \\wedge (\\sim q \\vee p)$",
+   "$(p \\wedge \\sim q) \\wedge (q \\to p)$",
+   "$(p \\wedge \\sim q) \\wedge (\\sim p \\to \\sim q)$"
+  ],
+  "correct": 1,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-02-logic-q19",
+  "question": "ประพจน์ที่สมมูลกับประพจน์ $p \\leftrightarrow q$ คือประพจน์ในข้อใดต่อไปนี้",
+  "subTopics": [
+   "2.5",
+   "2.4"
+  ],
+  "topics": [
+   "2"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$s \\to r$",
+   "$s \\to \\sim r$",
+   "$r \\to \\sim s$",
+   "$\\sim r \\to s$"
+  ],
+  "correct": 3,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-02-logic-q40",
+  "question": "กำหนดให้ เหตุ $(1)\\;\\sim p \\to \\sim q$, $\\;\\;(2)\\;p \\to (r \\vee s)$, $\\;\\;(3)\\;q \\vee t$, $\\;\\;(4)\\;\\sim t$\n\nผลในข้อใดต่อไปนี้ทำให้การอ้างเหตุผลนี้สมเหตุสมผล",
+  "subTopics": [
+   "2.8"
+  ],
+  "topics": [
+   "2"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$\\sim (p \\wedge \\sim r) \\vee \\sim q$ กับ $q \\to (r \\vee \\sim p)$ เป็นข้อความที่สมมูลกัน",
+   "กำหนดให้ ประพจน์ $p$ มีค่าความจริงเป็นจริง, ประพจน์ $q$ มีค่าความจริงเป็นเท็จ ค่าความจริงของข้อความ $[(q \\to p) \\vee \\sim r] \\leftrightarrow r$ เป็นจริง",
+   "กำหนดให้เอกภพสัมพัทธ์คือ $\\{0, 1, 2, 3\\}$ ประโยค $\\forall x [\\, \\sqrt{3 - x} \\geq 0 \\,]$ มีค่าความจริงเป็นจริง",
+   "กำหนดให้เอกภพสัมพัทธ์คือเซตของจำนวนนับ ข้อความ $\\big( \\exists x [\\, x^2 - 1 \\text{ เป็นจำนวนนับ} \\,] \\wedge \\forall x [\\, x + 1 \\geq 0 \\,] \\big) \\to \\forall x \\left[ \\dfrac{2}{x} < 0 \\right]$ มีค่าความจริงเป็นเท็จ"
+  ],
+  "correct": 1,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-02-logic-q64",
+  "question": "ข้อต่อไปนี้ผิด",
+  "subTopics": [
+   "2.1",
+   "2.5",
+   "2.10"
+  ],
+  "topics": [
+   "2"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$[p \\leftrightarrow \\sim (r \\vee s)] \\wedge [q \\leftrightarrow \\sim (r \\vee s)]$",
+   "$[\\sim p \\leftrightarrow (r \\vee s)] \\wedge [\\sim q \\leftrightarrow (r \\vee s)]$",
+   "$[(p \\wedge q) \\rightarrow r] \\wedge [(p \\wedge q) \\rightarrow s]$",
+   "$[\\sim (p \\wedge q) \\rightarrow \\sim r] \\wedge [\\sim (p \\wedge q) \\rightarrow \\sim s]$"
+  ],
+  "correct": 3,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-02-logic-q90",
+  "question": "นิเสธของประพจน์ $(p \\rightarrow \\sim q) \\wedge (\\sim r \\rightarrow s)$ คือประพจน์ในข้อใด",
+  "subTopics": [
+   "2.3",
+   "2.5"
+  ],
+  "topics": [
+   "2"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "จำนวนเต็ม",
+   "จำนวนนับ",
+   "จำนวนตรรกยะ",
+   "จำนวนอตรรกยะ"
+  ],
+  "correct": 2,
+  "difficulty": "ง่าย",
+  "hasImage": false,
+  "id": "chap-03-realnumber-q101",
+  "question": "ถ้า $x_1, x_2, \\ldots, x_N$ เป็นข้อมูลชุดหนึ่งที่ $N > 0$ และทุกๆ ค่าของ $x$ เป็นจำนวนเต็ม ค่าเฉลี่ยของข้อมูลชุดนี้เป็นแบบใด",
+  "subTopics": [
+   "3.1"
+  ],
+  "topics": [
+   "3"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "-2",
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-03-realnumber-q123",
+  "question": "จงหาจำนวนเต็ม $t$ ที่ทำให้ $\\dfrac{1}{2}t$ เป็นคำตอบของสมการ $4x^3 + 13x^2 + tx - 11 = 0$",
+  "subTopics": [
+   "3.4"
+  ],
+  "topics": [
+   "3"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "7",
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-03-realnumber-q164",
+  "question": "กำหนดให้ $A = \\{x \\in \\mathbb{Z}^+ \\mid 3 \\text{ หาร } x \\text{ ลงตัว}\\}$\n$B = \\{x \\in \\mathbb{Z}^+ \\mid \\text{ห.ร.ม. ของ } x \\text{ และ } 4 \\text{ คือ } 2\\}$\nและ $C = \\{x \\in \\mathbb{Z}^+ \\mid x \\ge 80\\}$\nจงหาจำนวนสมาชิกของ $(A \\cap B) - C$",
+  "subTopics": [
+   "3.12",
+   "17.2"
+  ],
+  "topics": [
+   "3"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "119",
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-03-realnumber-q185",
+  "question": "จงหาจำนวนเต็มบวก $k$ ที่น้อยที่สุด ซึ่ง $127$ หาร $2^{24} + k$ ลงตัว",
+  "subTopics": [
+   "3.12",
+   "17.6"
+  ],
+  "topics": [
+   "3"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "16",
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-03-realnumber-q42",
+  "question": "สำหรับจำนวนเต็มบวก $n$ ใด ๆ ให้ $P_n$ เป็นพาราโบลา $y = \\dfrac{1}{n}x^{2}$\nถ้า $k$ เป็นจำนวนเต็มบวกที่น้อยที่สุดที่ทำให้ $P_k$ มีจุดร่วมกับเส้นตรง $x - y = 4$ เพียงจุดเดียว แล้ว $k$ มีค่าเท่าไร",
+  "subTopics": [
+   "3.4",
+   "4.7"
+  ],
+  "topics": [
+   "3"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": [
+   "ถ้า $a, b, n$ เป็นจำนวนเต็มบวก ซึ่ง $n \\mid a$ และ $n \\mid b$ แล้ว จะได้ว่า $n$ หาร ห.ร.ม. ของ $a, b$ ลงตัวด้วย",
+   "ถ้า $a, b, n$ เป็นจำนวนเต็มบวก ซึ่ง $a \\mid n$ และ $b \\mid n$ แล้ว จะได้ว่า ค.ร.น. ของ $a, b$ หาร $n$ ลงตัวด้วย",
+   "ถ้า $a, m, n$ เป็นจำนวนเต็มบวก และ $a \\mid mn$ แล้ว จะได้ว่า $a \\mid m$ หรือ $a \\mid n$",
+   "ถ้า $d$ และ $c$ เป็น ห.ร.ม. และ ค.ร.น. ของจำนวนเต็มบวก $m, n$ แล้ว จะได้ว่า $dc = mn$"
+  ],
+  "correct": 2,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-03-realnumber-q92",
+  "question": "ข้อความในข้อใดต่อไปนี้ผิด",
+  "subTopics": [
+   "3.12",
+   "17.2"
+  ],
+  "topics": [
+   "3"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$\\dfrac{1}{\\sqrt{2}}$",
+   "$\\dfrac{1}{\\sqrt{4}}$",
+   "$\\dfrac{1}{\\sqrt{8}}$",
+   "$\\dfrac{1}{\\sqrt{14}}$"
+  ],
+  "correct": 2,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-05-function-q113",
+  "question": "กำหนดให้ $f(x) = \\sqrt{4 - x^2}$ และ $g(x) = \\dfrac{1}{\\sqrt{9 - x^2}}$\nจำนวนในข้อใดต่อไปนี้เป็นสมาชิกของ $R_{g \\circ f}$",
+  "subTopics": [
+   "5.5",
+   "5.7"
+  ],
+  "topics": [
+   "5"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$r_1 = \\{ (x, y) \\in \\mathbb{R} \\times \\mathbb{R} \\mid x = \\sqrt{-y} \\}$",
+   "$r_2 = \\{ (x, y) \\in \\mathbb{R} \\times \\mathbb{R} \\mid xy = 0 \\}$",
+   "$r_3 = \\{ (x, y) \\in \\mathbb{R} \\times \\mathbb{R} \\mid x = \\ln y^2 \\}$",
+   "$r_4 = \\{ (x, y) \\in \\mathbb{R} \\times \\mathbb{R} \\mid |x + y| = 1 \\}$"
+  ],
+  "correct": 0,
+  "difficulty": "ง่าย",
+  "hasImage": false,
+  "id": "chap-05-function-q143",
+  "question": "ความสัมพันธ์ในข้อใดต่อไปนี้เป็นฟังก์ชัน",
+  "subTopics": [
+   "5.4",
+   "5.1"
+  ],
+  "topics": [
+   "5"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$-\\dfrac{9}{4}$",
+   "$\\dfrac{9}{4}$",
+   "$-5$",
+   "$5$"
+  ],
+  "correct": 2,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-05-function-q171",
+  "question": "ถ้า $f(2x + 1) = 4x^2 + 14x$ แล้ว ผลบวกของรากทั้งหมดของสมการ $f(x) = 0$ เท่ากับเท่าใด",
+  "subTopics": [
+   "5.4",
+   "5.9"
+  ],
+  "topics": [
+   "5"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "702",
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-05-function-q193",
+  "question": "กำหนดให้ $f_a(n) = n(n - 1)(n - 2)\\cdots(n - a)$ เมื่อ $a, n$ เป็นจำนวนเต็มบวก และ $a < n$\nค่าของ $f_1\\!\\left( \\dfrac{f_3(27)}{f_2(26)} \\right)$ เท่ากับเท่าใด",
+  "subTopics": [
+   "5.4"
+  ],
+  "topics": [
+   "5"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$14$",
+   "$63$",
+   "$126$",
+   "$252$"
+  ],
+  "correct": 2,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-05-function-q43",
+  "question": "ถ้า $A = \\{1, 2, 3, 4, 5, 6, 7\\}$ และ $B = \\{a, b\\}$\nแล้วจำนวนของฟังก์ชันจาก $A$ ไปทั่วถึง $B$ เท่ากับข้อใด",
+  "subTopics": [
+   "5.6",
+   "12.1"
+  ],
+  "topics": [
+   "5"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$1 + |x|$",
+   "$2 + |x|$",
+   "$\\dfrac{1}{1 + |x|}$",
+   "$\\dfrac{1}{2 + |x|}$"
+  ],
+  "correct": 3,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-05-function-q66",
+  "question": "กำหนดฟังก์ชัน $f$ และ $g$ จากเซตของจำนวนจริง $\\mathbb{R}$ ไปยัง $\\mathbb{R}$\nโดย $f(x) = 1 + |x|$ และ $g(x) = \\dfrac{1}{f(x)}$ แล้ว $(g \\circ f)(x)$ มีค่าเท่ากับข้อใดต่อไปนี้",
+  "subTopics": [
+   "5.7",
+   "5.11"
+  ],
+  "topics": [
+   "5"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$g(x) = 1$ เมื่อ $x \\in (-\\infty, -1) \\cup [1, \\infty)$",
+   "$g(x) = f^{-1}(x)$ เมื่อ $x \\in (-\\infty, -1) \\cup [1, \\infty)$",
+   "$g(x) = \\begin{cases} (x - 1)^2, & x \\ge 1 \\\\ (x + 1)^2, & x < -1 \\end{cases}$",
+   "$g(x) = x^3$ เมื่อ $x \\in (-\\infty, -1) \\cup [1, \\infty)$"
+  ],
+  "correct": 3,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-05-function-q89",
+  "question": "กำหนดให้ $f(x) = \\begin{cases} x + 1, & x \\ge 0 \\\\ x - 1, & x < 0 \\end{cases}$\nฟังก์ชัน $g$ ในข้อใดต่อไปนี้ ทำให้ฟังก์ชัน $g \\circ f$ ไม่ต่อเนื่อง",
+  "subTopics": [
+   "5.7",
+   "13.2"
+  ],
+  "topics": [
+   "5"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$3$",
+   "$1$",
+   "$-1$",
+   "$-3$"
+  ],
+  "correct": 0,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-06-matrix-q101",
+  "question": "ถ้า $A = \\begin{bmatrix} 2 & 1 \\\\ x & 5 \\end{bmatrix}$ และ $A^2 - 7A = \\begin{bmatrix} -7 & 0 \\\\ 0 & -7 \\end{bmatrix}$ แล้ว ค่าของ $x$ เท่ากับข้อใด",
+  "subTopics": [
+   "6.5",
+   "6.3"
+  ],
+  "topics": [
+   "6"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "ถ้า $X - A = B$ แล้ว $X = \\begin{bmatrix} 1 & 1 \\\\ 3 & 1 \\end{bmatrix}$",
+   "$A^{-1} = \\begin{bmatrix} 0 & 1/3 \\\\ 1/2 & 1/6 \\end{bmatrix}$",
+   "$(AB)^t = B^tA^t$",
+   "$\\det(A + B^t) = -4$"
+  ],
+  "correct": 3,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-06-matrix-q120",
+  "question": "กำหนดให้ $A = \\begin{bmatrix} -1 & 2 \\\\ 3 & 0 \\end{bmatrix}$ และ $B = \\begin{bmatrix} 2 & -1 \\\\ 0 & 1 \\end{bmatrix}$ ข้อใดต่อไปนี้ผิด",
+  "subTopics": [
+   "6.5",
+   "6.7",
+   "6.4"
+  ],
+  "topics": [
+   "6"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$0°$",
+   "$30°$",
+   "$45°$",
+   "$90°$",
+   "ไม่มีข้อใดใน 1. ถึง 4. ที่ถูก"
+  ],
+  "correct": 2,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-06-matrix-q14",
+  "question": "กำหนดให้ $A = \\begin{bmatrix} \\cos\\theta & \\sin\\theta \\\\ -\\sin\\theta & \\cos\\theta \\end{bmatrix}$\nถ้า $A^4 + I = \\mathbf{0}$ แล้ว $\\theta$ ในช่วง $[0°, 90°]$ มีค่าเท่ากับเท่าใด",
+  "subTopics": [
+   "6.3",
+   "7.5"
+  ],
+  "topics": [
+   "6"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "ถ้า $A, B, C$ เป็นเมทริกซ์ ซึ่งทำให้ $AB = CB$ แล้ว $A = C$",
+   "ถ้า $A$ เป็นเมทริกซ์ $n \\times n$ แล้ว $\\det(kA) = k\\det(A)$ สำหรับจำนวนจริง $k$ ใด ๆ",
+   "คำตอบของสมการ $\\begin{cases} ax + by = 0 \\\\ cx + dy = 0 \\end{cases}$ คือ $(x, y) = (0, 0)$ เมื่อ $a, b, c, d$ เป็นจำนวนจริงใด ๆ",
+   "$(AB)^{-1} = B^{-1}A^{-1}$ เมื่อ $A$ และ $B$ เป็นเมทริกซ์ $n \\times n$ ที่มิใช่เมทริกซ์เอกฐาน"
+  ],
+  "correct": 3,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-06-matrix-q22",
+  "question": "ข้อความต่อไปนี้ ข้อใดถูกโดยไม่มีเงื่อนไข",
+  "subTopics": [
+   "6.7",
+   "6.6"
+  ],
+  "topics": [
+   "6"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "0.4",
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-06-matrix-q46",
+  "question": "ในการสร้างเมทริกซ์ในรูป $\\begin{bmatrix} x^2 & x-4 \\\\ -x & x-1 \\end{bmatrix}$ แบบสุ่ม โดยที่ $x \\in \\{0, 1, 2, 3, 4\\}$\nความน่าจะเป็นที่จะได้เมทริกซ์เอกฐานเท่ากับเท่าใด",
+  "subTopics": [
+   "6.5",
+   "12.7"
+  ],
+  "topics": [
+   "6"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "15",
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-06-matrix-q67",
+  "question": "ให้ $A$ เป็นเมทริกซ์มิติ $3 \\times 3$\nถ้า $M_{13} = \\begin{bmatrix} -1 & 3 \\\\ 1 & 2 \\end{bmatrix}$, $M_{21} = \\begin{bmatrix} -1 & 1 \\\\ 2 & 4 \\end{bmatrix}$ และ $M_{32} = \\begin{bmatrix} 2 & 1 \\\\ -1 & 0 \\end{bmatrix}$\nแล้ว $\\det A$ มีค่าเท่ากับเท่าใด",
+  "subTopics": [
+   "6.8",
+   "6.5"
+  ],
+  "topics": [
+   "6"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$0$",
+   "$-1$",
+   "$-2$",
+   "$-3$"
+  ],
+  "correct": 3,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-06-matrix-q88",
+  "question": "ถ้า $x_1$ สอดคล้องระบบสมการ\n$x_1 + 2x_2 + x_3 = 0$\n$3x_1 + x_2 - 2x_3 = 5$\n$2x_1 - 3x_2 - 3x_3 = 9$\nและ $A = \\begin{bmatrix} x_1 + y & 2x_1 \\\\ 3 & y \\end{bmatrix}$\nแล้วผลบวกของ $y$ ทั้งหมดที่ทำให้ $A$ เป็นเมทริกซ์เอกฐาน เท่ากับข้อใดต่อไปนี้",
+  "subTopics": [
+   "6.5",
+   "6.9"
+  ],
+  "topics": [
+   "6"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$-2$",
+   "$-4$",
+   "$-6$",
+   "$30$",
+   "$34$"
+  ],
+  "correct": 3,
+  "difficulty": "ง่าย",
+  "hasImage": false,
+  "id": "chap-08-explog-q10",
+  "question": "ถ้า $x = \\dfrac{\\sqrt{6}+\\sqrt{3}}{\\sqrt{6}-\\sqrt{3}}$ และ $y = \\dfrac{\\sqrt{6}-\\sqrt{3}}{\\sqrt{6}+\\sqrt{3}}$ แล้ว ค่าของ $x^2 - 4xy + y^2$ จะมีค่าเท่ากับเท่าใด",
+  "subTopics": [
+   "8.2"
+  ],
+  "topics": [
+   "8"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "20",
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-08-explog-q126",
+  "question": "กำหนดให้ $\\{ a_1, a_2 \\}$ เป็นเซตคำตอบของสมการ $2^{x+2} + 2^{-x+4} = 65$\nจงหาค่าของ $\\left[ (a_1)^2 + (a_2)^2 \\right]$",
+  "subTopics": [
+   "8.4",
+   "8.1"
+  ],
+  "topics": [
+   "8"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$41$",
+   "$42$",
+   "$43$",
+   "$44$"
+  ],
+  "correct": 2,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-08-explog-q148",
+  "question": "จำนวนหลักของ $8^{16} \\times 5^{40}$ เป็นเท่าใด",
+  "subTopics": [
+   "8.11",
+   "8.1"
+  ],
+  "topics": [
+   "8"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "106",
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-08-explog-q168",
+  "question": "จงหาผลบวกของรากของสมการต่อไปนี้ $\\left[\\log_3(x+1)\\right]^2 - 7\\left[\\log_3(x+1)\\right] = \\log_3\\left(\\dfrac{1}{3^{12}}\\right)$",
+  "subTopics": [
+   "8.9",
+   "8.6"
+  ],
+  "topics": [
+   "8"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "2500",
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-08-explog-q20",
+  "question": "กำหนด $2^{4x-1} \\cdot 9^{4x-1} \\cdot 25^{6x-1} = 625^x$ ถ้า $y = 10000x$ แล้ว $y$ มีค่าเท่ากับเท่าใด",
+  "subTopics": [
+   "8.4",
+   "8.1"
+  ],
+  "topics": [
+   "8"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": [
+   "ถ้า $x$ เป็นจำนวนจริงใด ๆ และ $n$ เป็นจำนวนคี่ แล้วจะหารากที่ $n$ ของ $x$ ได้เสมอ",
+   "ถ้า $A = \\{ x \\in \\mathbb{R}^+ \\mid x^x = x \\cdot x \\}$ แล้ว $A = \\{ 2 \\}$",
+   "ถ้า $x$ เป็นจำนวนจริงใด ๆ และ $n$ เป็นจำนวนเต็มบวก แล้ว $\\dfrac{x^n}{x^n} = 1$",
+   "กราฟของฟังก์ชันเอกซ์โพเนนเชียล $y = a^x$ จะตัดแกน $x$ อย่างน้อย $1$ ครั้ง"
+  ],
+  "correct": 0,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-08-explog-q38",
+  "question": "ข้อใดต่อไปนี้ถูก",
+  "subTopics": [
+   "8.2",
+   "8.3"
+  ],
+  "topics": [
+   "8"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$\\log(\\log xy) = \\log(\\log x) + \\log(\\log y)$ เมื่อ $x > 0$ , $y > 0$",
+   "$10^{1 \\div \\log x} = \\dfrac{1}{x}$",
+   "$\\left(\\dfrac{1}{\\sqrt{10}}\\right)^{\\log 3} = \\sqrt{3}$",
+   "$\\log a^{10 \\div \\log e} + \\log b^{10 \\div \\log e} = (10)\\log_e (ab)$",
+   "ไม่มีคำตอบที่ถูกต้อง"
+  ],
+  "correct": 3,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-08-explog-q59",
+  "question": "ข้อความต่อไปนี้ข้อใดถูกต้องมากที่สุด",
+  "subTopics": [
+   "8.7"
+  ],
+  "topics": [
+   "8"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$[0, 3]$",
+   "$[2, 4]$",
+   "$[-3, -2] \\cup [2, 3]$",
+   "$[-2, -1] \\cup [1, 2]$"
+  ],
+  "correct": 0,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-08-explog-q94",
+  "question": "เซตคำตอบของสมการ $\\left(\\sqrt{|x|}\\right)^{x^2} = x^3$ เป็นสับเซตของเซตในข้อใดต่อไปนี้",
+  "subTopics": [
+   "8.4",
+   "8.2"
+  ],
+  "topics": [
+   "8"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "−2√6/9",
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-09-vector-q125",
+  "question": "ถ้า $\\theta$ เป็นมุมระหว่างเวกเตอร์ $\\overline{u} = \\begin{bmatrix} 3 \\\\ 4 \\\\ 0 \\end{bmatrix}$ และ $\\overline{v} = \\begin{bmatrix} 2 \\\\ 1 \\\\ -1 \\end{bmatrix}$\nจงหาค่าของ $\\tan 2(\\pi - \\theta) \\cdot \\sin(\\pi - \\theta) \\cdot \\cos 2\\theta$",
+  "subTopics": [
+   "9.6",
+   "9.5",
+   "7.6"
+  ],
+  "topics": [
+   "9"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$0$",
+   "$\\dfrac{\\pi}{5}$",
+   "$\\dfrac{4\\pi}{5}$",
+   "$\\dfrac{6\\pi}{5}$"
+  ],
+  "correct": 2,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-09-vector-q42",
+  "question": "กำหนดให้ $\\overline{u} ,\\ \\overline{v} ,\\ \\overline{w}$ เป็นเวกเตอร์ซึ่งมีคุณสมบัติ $|\\overline{u}| = |\\overline{w}|$ และ $|\\overline{u} - \\overline{v}| = |\\overline{v} + \\overline{w}|$\nถ้ามุมระหว่าง $\\overline{u}$ และ $\\overline{v}$ เท่ากับ $\\dfrac{\\pi}{5}$ แล้วมุมระหว่าง $\\overline{v} ,\\ \\overline{w}$ เท่ากับข้อใดต่อไปนี้",
+  "subTopics": [
+   "9.6",
+   "9.5"
+  ],
+  "topics": [
+   "9"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "±((8√10/5)ī − (6√10/5)j̄)",
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-09-vector-q95",
+  "question": "$\\overrightarrow{PQ}$ เป็นเวกเตอร์ที่ตั้งฉากกับเส้นตรง $12x = 9y - 20$\nขนาดของ $\\overrightarrow{PQ}$ เท่ากับระยะห่างที่สั้นที่สุดระหว่างจุด $(2, 4)$ กับจุดยอดจุดหนึ่งของภาคตัดกรวย\nที่มีสมการเป็น $9y^2 + 36y = mx^2 + 24x - 36$ เมื่อ $m$ เป็นค่าคงตัว\nถ้าจุด $(3, 0)$ เป็นจุดๆ หนึ่งบนกราฟของภาคตัดกรวยนี้ จงหาเวกเตอร์ $\\overrightarrow{PQ}$",
+  "subTopics": [
+   "9.4",
+   "9.5",
+   "4.8"
+  ],
+  "topics": [
+   "9"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": [],
+  "correct": "-1, 2i, -2i, 3i, -3i",
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-10-complex-q115",
+  "question": "จงแก้สมการ $x^5 + x^4 + 13x^3 + 13x^2 + 36x + 36 = 0$ โดยให้คำตอบที่เป็นไปได้ทั้งหมด",
+  "subTopics": [
+   "10.7",
+   "10.1"
+  ],
+  "topics": [
+   "10"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$\\sqrt{2\\sqrt3}$",
+   "$\\sqrt{3\\sqrt2}$",
+   "$\\sqrt{2\\sqrt2}$",
+   "$\\sqrt{3\\sqrt3}$",
+   "ไม่มีข้อใดใน 1. ถึง 4. ที่ถูก"
+  ],
+  "correct": 2,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-10-complex-q35",
+  "question": "จงหาค่าสัมบูรณ์ของจำนวนเชิงซ้อน $z$ จากสมการ $\\dfrac{2+i}{2-i} + \\dfrac{3+4i}{1+2i} = z^2$",
+  "subTopics": [
+   "10.3",
+   "10.2"
+  ],
+  "topics": [
+   "10"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$f(1) = 8,\\ f(-1) = 0$",
+   "$f(1) = 0,\\ f(-1) = 8$",
+   "$f(1) = 4,\\ f(-1) = 0$",
+   "$f(1) = 0,\\ f(-1) = 4$"
+  ],
+  "correct": 0,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-10-complex-q61",
+  "question": "ถ้า $(2 + i)$ เป็นรากหนึ่งของสมการ $f(x) = 0$ เมื่อ $f(x) = 2x^3 + ax^2 + bx + 10$ แล้ว ข้อใดต่อไปนี้ถูก",
+  "subTopics": [
+   "10.7",
+   "10.3"
+  ],
+  "topics": [
+   "10"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$0$",
+   "$2^{28}$",
+   "$-2^{28}$",
+   "$2^{29}$"
+  ],
+  "correct": 3,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-10-complex-q84",
+  "question": "กำหนดให้ $A = \\dfrac{i-1}{i} + \\dfrac{i+3}{i} + \\dfrac{i-5}{i} + \\dfrac{i+7}{i} + \\dfrac{i-9}{i} + \\dfrac{i+11}{i} + \\dfrac{i-13}{i} + \\dfrac{i+15}{i}$ แล้ว $A^8 + (\\bar{A})^8$ มีค่าเท่ากับข้อใดต่อไปนี้",
+  "subTopics": [
+   "10.5",
+   "10.2",
+   "10.3"
+  ],
+  "topics": [
+   "10"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$44$",
+   "$45$",
+   "$46$",
+   "$47$"
+  ],
+  "correct": 1,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-11-sequence-q10",
+  "question": "ผลบวก $10$ พจน์แรกของอนุกรมเลขคณิตอนุกรมหนึ่งเท่ากับ $430$ ถ้าพจน์ที่ $10$ ของอนุกรมนี้คือ $79$ แล้วผลบวก $3$ พจน์แรกมีค่าเท่ากับข้อใดต่อไปนี้",
+  "subTopics": [
+   "11.4",
+   "11.2"
+  ],
+  "topics": [
+   "11"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$a^{-10}$",
+   "$a^{-5}$",
+   "$a^{-5/2}$",
+   "$a^{-5/4}$"
+  ],
+  "correct": 1,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-11-sequence-q32",
+  "question": "ถ้า $\\log_a(ax)+2\\log_a(a^2 x)+3\\log_a(a^3 x)+\\ldots+10\\log_a(a^{10}x)=110$\nแล้ว $x$ มีค่าเท่ากับข้อใดต่อไปนี้",
+  "subTopics": [
+   "11.6",
+   "8.7"
+  ],
+  "topics": [
+   "11"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "สว่าง",
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-11-sequence-q53",
+  "question": "มีหลอดไฟดวงหนึ่งถูกควบคุมให้สว่างหรือดับตามเงื่อนไขดังนี้ สว่าง $1$ วินาที, ดับ $3$ วินาที, สว่าง $5$ วินาที, ดับ $7$ วินาที, $\\ldots$ เป็นเช่นนี้ไปเรื่อย ๆ จงหาว่า ณ วินาทีที่ $500$ หลอดไฟดวงนี้สว่างหรือดับ",
+  "subTopics": [
+   "11.4",
+   "11.8"
+  ],
+  "topics": [
+   "11"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$120$ วิธี",
+   "$40$ วิธี",
+   "$20$ วิธี",
+   "$6$ วิธี"
+  ],
+  "correct": 1,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-12-probability-q06",
+  "question": "รถยนต์คันหนึ่งมีที่นั่งข้างหน้า 2 ที่ (ที่หนึ่งเป็นที่ของคนขับ) และข้างหลัง 1 ที่ ถ้ามีคนทั้งหมด 6 คน ซึ่งมี 2 คนเท่านั้นที่ขับรถได้ จะจัดให้คนขึ้นนั่งรถจนเต็ม 3 ที่นั่งได้กี่วิธี",
+  "subTopics": [
+   "12.1",
+   "12.2"
+  ],
+  "topics": [
+   "12"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$\\dfrac{17}{190}$",
+   "$\\dfrac{16}{190}$",
+   "$\\dfrac{2}{190}$",
+   "$\\dfrac{1}{190}$"
+  ],
+  "correct": 0,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-12-probability-q117",
+  "question": "สลาก $20$ ใบ มีหมายเลขกำกับตั้งแต่ $1$ ถึง $20$ สลากหมายเลข $1,2,3$ และ $4$ มีรางวัล $1000,500,300$ และ $200$ บาท ตามลำดับ ชายคนหนึ่งหยิบสลาก $2$ ใบแบบสุ่มจากสลากทั้งหมด ความน่าจะเป็นที่เขาจะได้รางวัลรวมกัน $500$ บาทพอดี มีค่าเท่ากับข้อใดต่อไปนี้",
+  "subTopics": [
+   "12.7",
+   "12.3"
+  ],
+  "topics": [
+   "12"
+  ],
+  "type": "mc",
+  "hint": null
+ }
+]

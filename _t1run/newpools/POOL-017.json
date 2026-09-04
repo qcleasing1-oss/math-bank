@@ -1,0 +1,925 @@
+[
+ {
+  "choices": [
+   "$(p \\wedge r) \\leftrightarrow (s \\wedge t)$",
+   "$(p \\wedge s) \\to (q \\vee t)$",
+   "$(p \\wedge s) \\vee (r \\wedge t)$",
+   "$(r \\to p) \\wedge (s \\to t)$"
+  ],
+  "correct": 2,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-02-logic-q07",
+  "question": "ให้ $p, q, r, s$ และ $t$ เป็นประพจน์ ถ้าประพจน์ $(p \\wedge q) \\to (r \\vee s)$ มีค่าความจริงเป็นเท็จ แล้ว ประพจน์ในข้อใดต่อไปนี้มีค่าความจริงเป็นเท็จ",
+  "subTopics": [
+   "2.1",
+   "2.2"
+  ],
+  "topics": [
+   "2"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "สำหรับจำนวนคี่ $x$ ใดๆ $x^3 - x$ เป็นจำนวนคู่",
+   "มีจำนวนคี่ $x$ บางตัว ซึ่ง $x^3 - x$ เป็นจำนวนคู่",
+   "มีจำนวนคี่ $x$ บางตัว ซึ่ง $x^3 - x$ เป็นจำนวนคี่",
+   "สำหรับจำนวนคู่ $x$ ใดๆ $x^3 - x$ เป็นจำนวนคู่"
+  ],
+  "correct": 1,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-02-logic-q124",
+  "question": "นิเสธของข้อความ \"สำหรับจำนวนคี่ $x$ ใดๆ $x^3 - x$ เป็นจำนวนคี่\" คือข้อความใดต่อไปนี้",
+  "subTopics": [
+   "2.11",
+   "2.10",
+   "2.3"
+  ],
+  "topics": [
+   "2"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$[x \\vee (\\sim y)] \\to (x \\to y)$",
+   "$[(\\sim x) \\to (\\sim y)] \\to (x \\to y)$",
+   "$[(\\sim x) \\vee (\\sim y)] \\to (x \\to y)$",
+   "$[\\{x \\wedge (\\sim y)\\} \\to (\\sim x)] \\to (x \\to y)$",
+   "$[\\{x \\wedge (\\sim y)\\} \\to (\\sim y)] \\to (x \\to y)$"
+  ],
+  "correct": 3,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-02-logic-q29",
+  "question": "ข้อใดต่อไปนี้มีค่าความจริงเป็นจริงเสมอ",
+  "subTopics": [
+   "2.6",
+   "2.5"
+  ],
+  "topics": [
+   "2"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$\\forall x \\exists y [\\, (xy \\geq 0) \\vee (x < 0 \\vee y < 0) \\,]$",
+   "$\\exists x \\forall y [\\, (xy < 0) \\wedge (x \\geq 0 \\wedge y \\geq 0) \\,]$",
+   "$\\exists x \\forall y [\\, (xy \\geq 0) \\vee (x < 0 \\vee y < 0) \\,]$",
+   "$\\forall x \\exists y [\\, (xy < 0) \\wedge (x \\geq 0 \\wedge y \\geq 0) \\,]$"
+  ],
+  "correct": 3,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-02-logic-q51",
+  "question": "นิเสธของข้อความ $\\exists x \\forall y [\\, xy < 0 \\to (x < 0 \\vee y < 0) \\,]$ คือข้อความในข้อใดต่อไปนี้",
+  "subTopics": [
+   "2.11",
+   "2.12"
+  ],
+  "topics": [
+   "2"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$(p \\wedge r) \\leftrightarrow (y \\vee q)$",
+   "$(x \\wedge y) \\to (p \\wedge q)$",
+   "$x \\leftrightarrow (q \\wedge r)$",
+   "$(q \\vee r) \\to ((x \\wedge y) \\to p)$"
+  ],
+  "correct": 3,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-02-logic-q79",
+  "question": "ให้ $p, q, r, x$ และ $y$ เป็นประพจน์ ซึ่ง $p \\to (q \\wedge r)$ มีค่าความจริงเป็นเท็จ และ $(x \\vee y) \\leftrightarrow (\\sim q \\vee \\sim r)$ มีค่าความจริงเป็นจริง ประพจน์ในข้อต่อไปนี้มีค่าความจริงเป็นจริง",
+  "subTopics": [
+   "2.1",
+   "2.2",
+   "2.3"
+  ],
+  "topics": [
+   "2"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$|x| + a > 0$",
+   "$|x| + b < 0$",
+   "$\\dfrac{1}{|x|} < \\dfrac{1}{|b|}$",
+   "$\\dfrac{1}{|x|} < \\dfrac{1}{|a|}$"
+  ],
+  "correct": 2,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-03-realnumber-q01",
+  "question": "กำหนดให้ $a$ และ $b$ เป็นจำนวนจริงลบทั้งคู่\nถ้า $a < x < b$ แล้วข้อใดต่อไปนี้เป็นจริง",
+  "subTopics": [
+   "3.6",
+   "3.1"
+  ],
+  "topics": [
+   "3"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "6",
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-03-realnumber-q111",
+  "question": "จำนวนจริง $a$, $b$, $c$ เป็นรากของสมการ $x^3+px^2+3x-10=0$ ถ้า $c-b = b-a > 0$ จงหา $p$ มีค่าเท่าใด",
+  "subTopics": [
+   "3.4"
+  ],
+  "topics": [
+   "3"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "15",
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-03-realnumber-q133",
+  "question": "ถ้า $k$ เป็นคำตอบของสมการ $\\sqrt[3]{x+3} + \\sqrt[3]{x-1} + \\sqrt[3]{x-2} = 0$ แล้ว $14k+3$ มีค่าเท่าใด\n\n[แนะนำ: $a^3+b^3+c^3 - 3abc = (a+b+c)(a^2+b^2+c^2 - ab - bc - ca)$]",
+  "subTopics": [
+   "3.10",
+   "3.4"
+  ],
+  "topics": [
+   "3"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "4",
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-03-realnumber-q175",
+  "question": "จงหาคู่อันดับ $(m, n)$ ทั้งหมด โดยที่ $m$ และ $n$ เป็นจำนวนเต็มบวก ซึ่งสอดคล้องสมการ $\\dfrac{2}{m} + \\dfrac{5}{n} = 1$",
+  "subTopics": [
+   "3.12",
+   "3.3",
+   "17.7"
+  ],
+  "topics": [
+   "3"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$m = 4,\\ n = -4$",
+   "$m = 2,\\ n = -2$",
+   "$m = -4,\\ n = 4$",
+   "$m = -2,\\ n = 2$"
+  ],
+  "correct": 1,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-03-realnumber-q23",
+  "question": "ให้ $p$ เป็นจำนวนเฉพาะบวก และ $m, n$ เป็นจำนวนเต็ม\nถ้า $x + 3$ หาร $x^{3} + mx^{2} + nx + p$ ลงตัว และ $x - 1$ หาร $x^{3} + mx^{2} + nx + p$ เหลือเศษ 4\nแล้ว $m$ และ $n$ มีค่าเท่ากับข้อใดต่อไปนี้",
+  "subTopics": [
+   "3.5",
+   "17.5"
+  ],
+  "topics": [
+   "3"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$5$",
+   "$6$",
+   "$18$",
+   "$20$"
+  ],
+  "correct": 3,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-03-realnumber-q79",
+  "question": "ถ้า $n$ เป็นจำนวนเต็มบวกที่มากที่สุดซึ่งหาร $90$ เหลือเศษ $6$ และหาร $150$ เหลือเศษ $3$ แล้ว $n$ หาร $41$ เหลือเศษเท่ากับข้อใดต่อไปนี้",
+  "subTopics": [
+   "3.12",
+   "17.2"
+  ],
+  "topics": [
+   "3"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$-35$",
+   "$-33$",
+   "$37$",
+   "$39$"
+  ],
+  "correct": 2,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-05-function-q100",
+  "question": "ให้ $\\mathbb{R}$ เป็นเซตของจำนวนจริง, $f : \\mathbb{R} \\to \\mathbb{R}$ และ $g : \\mathbb{R} \\to \\mathbb{R}$ กำหนดโดย\n$f(x) = a^{2x + 1}$ และ $g(x) = bx + 5$\nถ้า $(f \\circ g^{-1})(-2) = 27$ และ $(fg)(0) = 15$\nแล้ว $3f(-1) - 4g(2)$ มีค่าเท่ากับข้อใดต่อไปนี้",
+  "subTopics": [
+   "5.7",
+   "5.8",
+   "5.11"
+  ],
+  "topics": [
+   "5"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "หนึ่งต่อหนึ่งและทั่วถึง",
+   "หนึ่งต่อหนึ่งแต่ไม่ทั่วถึง",
+   "ทั่วถึงแต่ไม่หนึ่งต่อหนึ่ง",
+   "ไม่หนึ่งต่อหนึ่งและไม่ทั่วถึง"
+  ],
+  "correct": 0,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-05-function-q124",
+  "question": "กำหนดให้ $\\mathbb{Z}$ เป็นเซตของจำนวนเต็ม และให้ $f, g$ เป็นฟังก์ชันจาก $\\mathbb{Z}$ ไป $\\mathbb{Z}$\nซึ่งกำหนดโดย $f(x) = 2x$ และ $g(x) = \\begin{cases} \\dfrac{x}{2}, & x \\text{ เป็นจำนวนคู่} \\\\ x, & x \\text{ เป็นจำนวนคี่} \\end{cases}$\nแล้ว $g \\circ f - f$ เป็นฟังก์ชันจาก $\\mathbb{Z}$ ไป $\\mathbb{Z}$ ที่มีสมบัติตามข้อใดต่อไปนี้",
+  "subTopics": [
+   "5.7",
+   "5.11",
+   "5.6"
+  ],
+  "topics": [
+   "5"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "$(-\\infty, -1] \\cup [3, \\infty)$",
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-05-function-q155",
+  "question": "จงหาเรนจ์ของฟังก์ชัน $\\left\\{ (x, y) \\in \\mathbb{R} \\times \\mathbb{R} \\;\\middle|\\; y = \\dfrac{x^2 - x + 1}{x - 1} \\right\\}$ (ตอบในรูปช่วงหรือยูเนียนของช่วง)",
+  "subTopics": [
+   "5.5"
+  ],
+  "topics": [
+   "5"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$0$",
+   "$1$",
+   "$\\dfrac{1}{x - 1}$",
+   "$\\dfrac{1}{x + 1}$"
+  ],
+  "correct": 0,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-05-function-q181",
+  "question": "กำหนดให้ $f$ เป็นฟังก์ชันที่กำหนดโดย $f(x) = \\dfrac{x + 1}{x - 1}$ ทุก $x \\in \\mathbb{R} - \\{1, -1\\}$\nแล้ว $\\left(f - f^{-1} + \\dfrac{1}{f} - \\dfrac{1}{f^{-1}}\\right)(x)$ มีค่าเท่ากับข้อใดต่อไปนี้",
+  "subTopics": [
+   "5.8",
+   "5.11"
+  ],
+  "topics": [
+   "5"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "ก. ถูก และ ข. ถูก",
+   "ก. ถูก และ ข. ผิด",
+   "ก. ผิด และ ข. ถูก",
+   "ก. ผิด และ ข. ผิด"
+  ],
+  "correct": 2,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-05-function-q23",
+  "question": "ให้ $r = \\{ (x, y) \\mid y = \\dfrac{x^2 - 4}{\\sqrt{x} - 2} \\}$\nพิจารณาข้อความต่อไปนี้\nก. $4 \\in R_r$\nข. $R_{r^{-1}} = [0, 4) \\cup (4, \\infty)$\nข้อใดต่อไปนี้ถูก",
+  "subTopics": [
+   "5.5",
+   "5.3"
+  ],
+  "topics": [
+   "5"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$-3$",
+   "$-1$",
+   "$1$",
+   "$5$"
+  ],
+  "correct": 3,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-05-function-q53",
+  "question": "ให้ $a, b$ เป็นค่าคงที่ และ $f(x) = a\\sin x + bx\\cos x + x^2$ สำหรับทุกค่า $x \\in \\mathbb{R}$\nถ้า $f(2) = 3$ แล้ว $f(-2)$ เท่ากับค่าในข้อใดต่อไปนี้",
+  "subTopics": [
+   "5.4"
+  ],
+  "topics": [
+   "5"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "1/5",
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-05-function-q77",
+  "question": "ถ้า $f(x) = 4x$ และ $g(x) = \\dfrac{2}{x - 1}$\nแล้ว ค่า $x$ ที่ทำให้ $(f \\circ g)(x) = (g \\circ f)(x)$ เท่ากับเท่าใด",
+  "subTopics": [
+   "5.7"
+  ],
+  "topics": [
+   "5"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$\\dfrac{31}{9}$",
+   "$\\dfrac{61}{9}$",
+   "$10$",
+   "$20$"
+  ],
+  "correct": 3,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-05-function-q99",
+  "question": "กำหนดให้ $f(x) = ax^2 + b$ และ $g(x - 1) = 6x + c$ เมื่อ $a, b, c$ เป็นค่าคงตัว\nถ้า $f(x) = g(x)$ เมื่อ $x = 1, 2$ และ $(f + g)(1) = 8$\nแล้ว $(f \\circ g^{-1})(16)$ มีค่าเท่ากับข้อใดต่อไปนี้",
+  "subTopics": [
+   "5.7",
+   "5.8",
+   "5.9"
+  ],
+  "topics": [
+   "5"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "3",
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-06-matrix-q110",
+  "question": "กำหนด $A = \\begin{bmatrix} 1 & -2 \\\\ 1 & 1 \\end{bmatrix}$, $B = I + A + A^2 + ... + A^9$ และ $C = I - A + A^2 - ... - A^9$\nถ้า $\\det B = k \\det C$ แล้ว $k$ มีค่าเท่ากับเท่าใด",
+  "subTopics": [
+   "6.5",
+   "6.6",
+   "6.3"
+  ],
+  "topics": [
+   "6"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$\\dfrac{\\pi}{6}$",
+   "$\\dfrac{\\pi}{3}$",
+   "$\\dfrac{\\pi}{4}$",
+   "$\\dfrac{\\pi}{2}$"
+  ],
+  "correct": 2,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-06-matrix-q13",
+  "question": "ให้ $a$ และ $b$ เป็นจำนวนจริงใด ๆ ที่ไม่เป็นศูนย์พร้อมกัน กำหนดเมทริกซ์ $A = \\begin{bmatrix} a \\\\ b \\end{bmatrix}$ และ $B = \\begin{bmatrix} \\cos 2\\theta & \\sin 2\\theta \\\\ -\\sin 2\\theta & \\cos 2\\theta \\end{bmatrix}$\nค่าของมุม $\\theta$ ในช่วง $\\left[0, \\dfrac{\\pi}{2}\\right]$ ที่จะทำให้ผลคูณ $A^TBA$ เป็นเมทริกซ์ศูนย์ คือค่าในข้อใดต่อไปนี้",
+  "subTopics": [
+   "6.3",
+   "7.7"
+  ],
+  "topics": [
+   "6"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "คำตอบเดียว: k≠2 และ k≠-2; ไม่มีคำตอบ: k=2 หรือ k=-2; ไม่มีกรณีหลายคำตอบ",
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-06-matrix-q149",
+  "question": "สำหรับระบบสมการเชิงเส้น\n$x - 2y = 1$\n$x - y + kz = 2$\n$ky + 4z = 6$\nจงหาเงื่อนไขสำหรับค่า $k$ ที่จะทำให้ระบบสมการเชิงเส้นมีคำตอบเดียว, มีหลายคำตอบ, และไม่มีคำตอบ",
+  "subTopics": [
+   "6.9",
+   "6.5"
+  ],
+  "topics": [
+   "6"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "8",
+  "difficulty": "ง่าย",
+  "hasImage": false,
+  "id": "chap-06-matrix-q32",
+  "question": "กำหนดให้ $A$ และ $B$ เป็นเมทริกซ์ขนาด $2 \\times 2$\nถ้า $A + 2B = \\begin{bmatrix} 5 & 4 \\\\ 8 & 16 \\end{bmatrix}$ และ $A - B = \\begin{bmatrix} 2 & 1 \\\\ -1 & -5 \\end{bmatrix}$ แล้ว $\\det(2A^{-1}B)$ มีค่าเท่ากับเท่าใด",
+  "subTopics": [
+   "6.5",
+   "6.6",
+   "6.2"
+  ],
+  "topics": [
+   "6"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$B^{-1}AB = A^2$",
+   "$B^{-1}AB = A$",
+   "$B^{-1}AB = I$",
+   "$B^{-1}AB = B$"
+  ],
+  "correct": 0,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-06-matrix-q56",
+  "question": "ให้ $A = \\begin{bmatrix} 0 & 1 & 0 \\\\ 0 & 0 & 1 \\\\ 1 & 0 & 0 \\end{bmatrix}$, $B = \\begin{bmatrix} 1 & 0 & 0 \\\\ 0 & 0 & 1 \\\\ 0 & 1 & 0 \\end{bmatrix}$ และ $I = \\begin{bmatrix} 1 & 0 & 0 \\\\ 0 & 1 & 0 \\\\ 0 & 0 & 1 \\end{bmatrix}$\nข้อความใดต่อไปนี้เป็นจริง",
+  "subTopics": [
+   "6.3",
+   "6.7"
+  ],
+  "topics": [
+   "6"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$6$",
+   "$9$",
+   "$12$",
+   "$18$"
+  ],
+  "correct": 2,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-06-matrix-q77",
+  "question": "กำหนดให้ $A = \\begin{bmatrix} 1 & -1 \\\\ 2 & 1 \\end{bmatrix}$\nถ้า $B$ เป็นเมทริกซ์ที่ $B = 2A^{-1}$ แล้ว ข้อใดต่อไปนี้เป็นค่าของ $\\det(3\\,\\text{adj}\\,B)$",
+  "subTopics": [
+   "6.8",
+   "6.6",
+   "6.7"
+  ],
+  "topics": [
+   "6"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$AB = BA$",
+   "$AB = -AB$",
+   "$AB = -BA$",
+   "$AB = BAB$"
+  ],
+  "correct": 2,
+  "difficulty": "ง่าย",
+  "hasImage": false,
+  "id": "chap-06-matrix-q98",
+  "question": "ถ้า $A = \\begin{bmatrix} 0 & 1 \\\\ 1 & 0 \\end{bmatrix}$ และ $B = \\begin{bmatrix} 1 & 0 \\\\ 0 & -1 \\end{bmatrix}$\nต่อไปนี้ข้อใดถูกต้อง",
+  "subTopics": [
+   "6.3"
+  ],
+  "topics": [
+   "6"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$2$",
+   "$1$",
+   "$-1$",
+   "$-2$"
+  ],
+  "correct": 3,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-08-explog-q112",
+  "question": "กำหนดให้เส้นโค้ง $y = 2^{2x} - 2^{x+2} - 45$ ตัดแกน $x$ ที่จุด $A$\nถ้าเส้นตรงที่ผ่านจุด $A$ และจุด $B(0, b)$ ขนานกับเส้นตรง $y = (\\log_3 2)x - 4$\nแล้ว $b$ มีค่าเท่ากับข้อใดต่อไปนี้",
+  "subTopics": [
+   "8.4",
+   "8.7",
+   "4.4"
+  ],
+  "topics": [
+   "8"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$2bc$",
+   "$\\dfrac{2}{bc}$",
+   "$\\dfrac{2b}{c}$",
+   "$\\dfrac{2c}{b}$"
+  ],
+  "correct": 0,
+  "difficulty": "ง่าย",
+  "hasImage": false,
+  "id": "chap-08-explog-q137",
+  "question": "ถ้า $\\log x = \\dfrac{1}{3}\\log a - 2\\log b + 2\\log c$\nและกำหนดให้ $a = \\dfrac{8b^9}{c^3}$ ดังนั้น $x$ จะมีค่าเท่าใด",
+  "subTopics": [
+   "8.7",
+   "8.9"
+  ],
+  "topics": [
+   "8"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "0.89585",
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-08-explog-q157",
+  "question": "ให้ $f(x) = \\dfrac{e^x - e^{-x}}{e^x + e^{-x}}$ จงหา $f^{-1}(x)$ และ $f^{-1}\\left(\\dfrac{5}{7}\\right)$\nกำหนด $\\ln 2 = 0.6931$ , $\\ln 3 = 1.0986$ , $\\ln 5 = 1.6094$ , $\\ln 7 = 1.9459$",
+  "subTopics": [
+   "8.4",
+   "5.8"
+  ],
+  "topics": [
+   "8"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "±(2√3 ± √6)/6",
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-08-explog-q178",
+  "question": "กำหนดให้ $x$ เป็นจำนวนจริงบวก ซึ่งสอดคล้องสมการ $\\log_3(\\sin x)\\,\\log_3\\left(\\dfrac{1}{3}\\sin x\\right) = \\log_3 9$\nจงหาค่าของ $\\sin\\left(\\dfrac{x}{2}\\right)$",
+  "subTopics": [
+   "8.9",
+   "7.6"
+  ],
+  "topics": [
+   "8"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "0.25",
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-08-explog-q21",
+  "question": "ถ้า $x$ เป็นรากของสมการ $2^{3x-1} \\cdot 6^x \\cdot 25^{5x-1} = 75^x$ แล้ว $x$ มีค่าเท่ากับเท่าใด",
+  "subTopics": [
+   "8.4",
+   "8.1"
+  ],
+  "topics": [
+   "8"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$\\dfrac{1}{2}$",
+   "$\\dfrac{5}{2}$",
+   "$\\dfrac{3}{2}$",
+   "$-\\dfrac{5}{2}$",
+   "$-\\dfrac{3}{2}$"
+  ],
+  "correct": 3,
+  "difficulty": "ง่าย",
+  "hasImage": false,
+  "id": "chap-08-explog-q48",
+  "question": "$\\log_{\\frac{1}{4}} 32$ มีค่าเท่ากับเท่าใด",
+  "subTopics": [
+   "8.6"
+  ],
+  "topics": [
+   "8"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$0.501$",
+   "$0.502$",
+   "$0.500$",
+   "$0.499$"
+  ],
+  "correct": 1,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-08-explog-q76",
+  "question": "รากที่ใกล้เคียงที่สุดของสมการ $\\log(2x - 1) = \\log(x + 3) - 3$\nและถูกต้องถึงทศนิยมตำแหน่งที่ 3 คือค่าในข้อใดต่อไปนี้",
+  "subTopics": [
+   "8.9",
+   "8.7"
+  ],
+  "topics": [
+   "8"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$\\overline{u} \\cdot \\overline{v} = 2$",
+   "$|\\overline{u} + \\overline{v}| = 34$",
+   "$\\overline{u}$ ขนานกับ $\\overline{v} + \\overline{w}$",
+   "$\\cos\\theta = \\dfrac{2}{5\\sqrt{5}}$"
+  ],
+  "correct": 1,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-09-vector-q104",
+  "question": "กำหนดให้ $\\overline{u} = 3\\overline{i} - 4\\overline{j} ,\\ \\overline{v} = 2\\overline{i} + \\overline{j}$ และ $\\overline{w} = -8\\overline{i} + 7\\overline{j}$\nและ $\\theta$ เป็นมุมระหว่างเวกเตอร์ $\\overline{u}$ กับ $\\overline{v}$\nข้อใดต่อไปนี้ผิด",
+  "subTopics": [
+   "9.6",
+   "9.5",
+   "9.4"
+  ],
+  "topics": [
+   "9"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "สามเหลี่ยม $ABC$ ซึ่งมี $\\overrightarrow{AB} = 2\\overline{i} + 2\\overline{j} ,\\ \\overrightarrow{AC} = -3\\overline{i} + 3\\overline{j}$ เป็นสามเหลี่ยมมุมฉากที่มีพื้นที่ $6$ ตารางหน่วย",
+   "ให้ $\\overline{u} = 2\\overline{i} + a\\overline{j} ,\\ \\overline{v} = \\overline{i} + 3\\overline{j}$ ถ้ามุมระหว่างเวกเตอร์ $\\overline{u}$ และ $\\overline{v}$ เท่ากับ $\\dfrac{\\pi}{4}$ แล้ว $a$ จะมีค่ามากกว่า $2$",
+   "ถ้า $\\overline{u} \\ne \\overline{0} ,\\ \\overline{v} \\ne \\overline{0}$ และ $\\overline{u} \\cdot \\overline{v} = 0$ แล้ว $|\\overline{u} + \\overline{v}|^2 = |\\overline{u}|^2 + |\\overline{v}|^2$",
+   "ถ้า $\\overline{u} = \\overline{v}$ โดยที่ $\\overline{u} = (x+1)\\overline{i} + 4\\overline{j}$ และ $\\overline{v} = 2\\overline{i} + (x+y)\\overline{j}$\nแล้ว $\\overline{w} = x\\overline{i} + y\\overline{j}$ จะมีความยาวเท่ากับความยาวของเวกเตอร์ $-3\\overline{i} - \\overline{j}$"
+  ],
+  "correct": 1,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-09-vector-q26",
+  "question": "ข้อความต่อไปนี้ข้อใดผิด",
+  "subTopics": [
+   "9.6",
+   "9.5"
+  ],
+  "topics": [
+   "9"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "เวกเตอร์หนึ่งหน่วยที่ตั้งฉากกับเส้นตรง $2x + y = 0$ คือ $\\dfrac{2}{\\sqrt{5}}\\overline{i} + \\dfrac{1}{\\sqrt{5}}\\overline{j}$",
+   "กำหนดเวกเตอร์ $\\overline{u}$ และ $\\overline{v}$ โดยที่ $\\overline{v} \\ne \\overline{0}$\nจะมีเวกเตอร์ $\\overline{w}$ อย่างน้อยหนึ่งเวกเตอร์ที่ทำให้ $\\overline{u} \\cdot \\overline{v} = \\overline{v} \\cdot \\overline{w}$",
+   "ให้ $\\overline{u} = \\overline{i} + \\dfrac{1}{\\sqrt{3}}\\overline{j}$ และ $\\overline{v} = \\overline{i} + \\sqrt{3}\\overline{j}$\nพื้นที่ของรูปสามเหลี่ยมซึ่งมีเวกเตอร์ $\\overline{u} + \\overline{v}$ และ $\\overline{u} - \\overline{v}$ เป็นด้านสองด้าน เท่ากับ $2$",
+   "กำหนด $A(9, 3) ,\\ B(-2, 1) ,\\ C(8, 6)$ และ $D$ เป็นจุดยอดของรูปสี่เหลี่ยมด้านขนาน\n$ABCD$ เวกเตอร์ $\\overrightarrow{BD}$ จะขนานกับเวกเตอร์ $3\\overline{i} + \\overline{j}$"
+  ],
+  "correct": 2,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-09-vector-q74",
+  "question": "ข้อใดต่อไปนี้ผิด",
+  "subTopics": [
+   "9.8",
+   "9.9"
+  ],
+  "topics": [
+   "9"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$\\{1,\\ 1-i,\\ 1+i\\}$",
+   "$\\left\\{1,\\ \\cos 1 + i\\sin 1,\\ \\dfrac{1}{\\cos 1 - i\\sin 1}\\right\\}$",
+   "$\\left\\{1,\\ 1-i,\\ \\dfrac{1}{1+i}\\right\\}$",
+   "$\\{1,\\ \\cos 1 + i\\sin 1,\\ \\cos 1 - i\\sin 1\\}$"
+  ],
+  "correct": 3,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-10-complex-q10",
+  "question": "สับเซตของจำนวนเชิงซ้อนในข้อใดต่อไปนี้ ที่สมาชิกทุกตัวมีอินเวอร์สการคูณอยู่ในเซตนั้น",
+  "subTopics": [
+   "10.2",
+   "10.3"
+  ],
+  "topics": [
+   "10"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [],
+  "correct": 128,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-10-complex-q15",
+  "question": "ให้ $z = -1 - \\sqrt{3}\\,i$ แล้ว $z^6 + \\bar{z}^6$ เท่ากับเท่าใด",
+  "subTopics": [
+   "10.5",
+   "10.4",
+   "10.3"
+  ],
+  "topics": [
+   "10"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": [
+   "ผลคูณของรากทั้งสี่ของสมการ $x^4 = 1$ เท่ากับ $-1$",
+   "ถ้า $z$ เป็นรากของสมการ $x^2 - 6x + 18 = 0$ แล้ว $z\\bar{z} = 18$",
+   "ถ้า $A = \\{z \\mid z^{10} = 1\\}$ และ $B = \\left\\{z \\mid \\dfrac1z \\in A\\right\\}$ แล้ว $A \\ne B$",
+   "ถ้า $2i$ เป็นรากของสมการ $x^3 + x^2 + ax + b = 0$ โดยที่ $a, b$ เป็นจำนวนจริง แล้ว $a = b$"
+  ],
+  "correct": 2,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-10-complex-q50",
+  "question": "ในระบบจำนวนเชิงซ้อน ข้อใดต่อไปนี้ผิด",
+  "subTopics": [
+   "10.6",
+   "10.3"
+  ],
+  "topics": [
+   "10"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [],
+  "correct": "3-i",
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-10-complex-q73",
+  "question": "จำนวนเชิงซ้อน $(x, y)$ จะมีค่าเป็นเท่าไร ถ้าผลคูณระหว่างจำนวนเชิงซ้อนนี้กับจำนวนเชิงซ้อน $\\left(-\\dfrac{17}{10}, \\dfrac{1}{10}\\right)$ เท่ากับ $(-5, 2)$ (ตอบในรูป $x + yi$)",
+  "subTopics": [
+   "10.2",
+   "10.1"
+  ],
+  "topics": [
+   "10"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": [],
+  "correct": 2,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-10-complex-q95",
+  "question": "จงหาส่วนจริงของ $\\dfrac{(\\cos 27^\\circ + i\\sin 27^\\circ)^5\\,\\overline{(-3 + i)}}{|1 - i|}$",
+  "subTopics": [
+   "10.5",
+   "10.4",
+   "10.3"
+  ],
+  "topics": [
+   "10"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "2",
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-11-sequence-q21",
+  "question": "สำหรับ $x \\in (-1, 1)$ ให้ $S(x)$ เป็นผลบวกของอนุกรม $1 - x + x^2 - x^3 + \\dots$ จงหาค่าขอบเขตบนน้อยสุดของเซต $A$ เมื่อ $A = \\left\\{\\, \\dfrac{1}{S(x)} \\;\\middle|\\; x \\in (-1, 1) \\,\\right\\}$",
+  "subTopics": [
+   "11.5",
+   "3.1"
+  ],
+  "topics": [
+   "11"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$12$",
+   "$13$",
+   "$14$",
+   "$15$"
+  ],
+  "correct": 2,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-11-sequence-q42",
+  "question": "เชือกเส้นหนึ่งยาว $10$ เมตร นำมาตัดแบ่งครึ่งความยาว แล้วนำส่วนที่แบ่งแล้วมาตัดแบ่งครึ่งอีก ทำเช่นนี้ไปเรื่อย ๆ ถามว่าต้องตัดอย่างน้อยที่สุดกี่ครั้ง ความยาวของเชือกที่ถูกแบ่งครั้งสุดท้ายจึงจะเหลือไม่ถึง $1$ มิลลิเมตร (กำหนดให้ $\\log 2 = 0.301$)",
+  "subTopics": [
+   "11.3",
+   "8.11"
+  ],
+  "topics": [
+   "11"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$40130$",
+   "$41230$",
+   "$42130$",
+   "$43120$"
+  ],
+  "correct": 1,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-11-sequence-q64",
+  "question": "$1\\cdot 2^2+2\\cdot 3^2+3\\cdot 4^2+\\cdots+19\\cdot 20^2$ มีค่าเท่ากับข้อใดต่อไปนี้",
+  "subTopics": [
+   "11.6"
+  ],
+  "topics": [
+   "11"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$\\dfrac{1}{5}$",
+   "$\\dfrac{1}{20}$",
+   "$\\dfrac{1}{30}$",
+   "$\\dfrac{1}{60}$"
+  ],
+  "correct": 0,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-12-probability-q106",
+  "question": "มีหลอดไฟขนาดเหมือนกัน $6$ หลอด เป็นหลอดไฟสีแดง $3$ หลอด สีเขียว $2$ หลอด และสีเหลือง $1$ หลอด นำหลอดไฟทั้งหมดมาจัดเรียงประดับเป็นวงกลม ความน่าจะเป็นที่จะได้หลอดไฟสีเดียวกันเรียงติดต่อกันเท่ากับข้อใดต่อไปนี้",
+  "subTopics": [
+   "12.7",
+   "12.4"
+  ],
+  "topics": [
+   "12"
+  ],
+  "type": "mc",
+  "hint": null
+ }
+]

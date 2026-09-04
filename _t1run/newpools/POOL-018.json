@@ -1,0 +1,961 @@
+[
+ {
+  "choices": [
+   "ก. ถูก และ ข. ถูก",
+   "ก. ถูก และ ข. ผิด",
+   "ก. ผิด และ ข. ถูก",
+   "ก. ผิด และ ข. ผิด"
+  ],
+  "correct": 3,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-02-logic-q08",
+  "question": "ให้ $p, q$ และ $r$ เป็นประพจน์ พิจารณาข้อความต่อไปนี้\n\nก. ถ้า $[(p \\wedge \\sim r) \\wedge q] \\to \\sim (p \\wedge q)$ เป็นเท็จ แล้ว $(p \\vee q) \\to r$ เป็นจริง\n\nข. ถ้า $q \\vee \\sim r$ เป็นเท็จ แล้ว $[p \\vee (q \\to r)] \\to \\sim q$ เป็นเท็จ\n\nข้อใดต่อไปนี้ถูก",
+  "subTopics": [
+   "2.1",
+   "2.2"
+  ],
+  "topics": [
+   "2"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "มีจำนวนจริง $x$ ที่มากกว่าศูนย์บางตัว สำหรับจำนวนเต็มบวก $n$ ทุกตัว $\\dfrac{1}{n} < x$",
+   "มีจำนวนจริง $x$ ที่มากกว่าศูนย์บางตัว สำหรับจำนวนเต็มบวก $n$ ทุกตัว $\\dfrac{1}{n} \\geq x$",
+   "มีจำนวนจริง $x$ ที่ไม่มากกว่าศูนย์บางตัว สำหรับจำนวนเต็มบวก $n$ ทุกตัว $\\dfrac{1}{n} < x$",
+   "มีจำนวนจริง $x$ ที่ไม่มากกว่าศูนย์บางตัว สำหรับจำนวนเต็มบวก $n$ ทุกตัว $\\dfrac{1}{n} \\geq x$"
+  ],
+  "correct": 1,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-02-logic-q125",
+  "question": "นิเสธของข้อความ \"สำหรับจำนวนจริง $x$ ที่มากกว่าศูนย์ทุกตัว จะมีจำนวนเต็มบวก $n$ บางตัว ซึ่ง $\\dfrac{1}{n} < x$\" คือข้อใด",
+  "subTopics": [
+   "2.11",
+   "2.12",
+   "2.10"
+  ],
+  "topics": [
+   "2"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$(p \\vee q) \\wedge \\sim p \\;\\leftrightarrow\\; \\sim p \\wedge q$",
+   "$(\\sim (p \\vee q) \\to (p \\wedge q)) \\;\\leftrightarrow\\; (\\sim (p \\wedge q) \\to (p \\vee q))$",
+   "$\\sim (p \\leftrightarrow q) \\;\\leftrightarrow\\; (\\sim p \\leftrightarrow \\sim q)$",
+   "$(p \\wedge q) \\to (p \\leftrightarrow q)$",
+   "$\\sim (p \\to q) \\;\\leftrightarrow\\; p \\wedge \\sim q$"
+  ],
+  "correct": 2,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-02-logic-q30",
+  "question": "ประพจน์ต่อไปนี้ ข้อใดสามารถเป็นเท็จได้",
+  "subTopics": [
+   "2.6",
+   "2.5"
+  ],
+  "topics": [
+   "2"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$\\forall \\varepsilon \\exists N \\forall x \\left[ (x \\leq N) \\to \\left( \\dfrac{1}{x} \\geq \\varepsilon \\right) \\right]$",
+   "$\\exists \\varepsilon \\forall N \\exists x \\left[ (x > N) \\to \\left( \\dfrac{1}{x} < \\varepsilon \\right) \\right]$",
+   "$\\forall \\varepsilon \\exists N \\forall x \\left[ (x \\leq N) \\vee \\left( \\dfrac{1}{x} < \\varepsilon \\right) \\right]$",
+   "$\\exists \\varepsilon \\forall N \\exists x \\left[ (x > N) \\wedge \\left( \\dfrac{1}{x} \\geq \\varepsilon \\right) \\right]$",
+   "$\\exists \\varepsilon \\forall N \\exists x \\left[ (x \\leq N) \\wedge \\left( \\dfrac{1}{x} < \\varepsilon \\right) \\right]$"
+  ],
+  "correct": 3,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-02-logic-q52",
+  "question": "กำหนดเอกภพสัมพัทธ์เป็นเซตของจำนวนจริงบวก จงพิจารณาว่านิเสธของ\n\n$\\;\\;\\;\\;\\forall \\varepsilon \\exists N \\forall x \\left[ (x > N) \\to \\left( \\dfrac{1}{x} < \\varepsilon \\right) \\right]$\n\nคือประพจน์ในข้อใด",
+  "subTopics": [
+   "2.11",
+   "2.12"
+  ],
+  "topics": [
+   "2"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "5",
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-02-logic-q80",
+  "question": "รูปแบบของประพจน์ $(p \\leftrightarrow q) \\vee \\sim r$ และ $p \\rightarrow (q \\wedge r)$ มีค่าความจริงที่เหมือนกันทั้งหมดกี่กรณี",
+  "subTopics": [
+   "2.4",
+   "2.2"
+  ],
+  "topics": [
+   "2"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$\\dfrac{y}{x} < \\dfrac{1}{z}$",
+   "$x > yz$",
+   "$\\dfrac{my}{x} < mz$",
+   "$\\dfrac{mx}{y} < mz$"
+  ],
+  "correct": 0,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-03-realnumber-q02",
+  "question": "ให้ $m, x, y$ และ $z$ เป็นจำนวนจริงที่ไม่ใช่ศูนย์\nถ้า $\\dfrac{x}{y} > z > 0$ แล้วข้อใดต่อไปนี้เป็นจริง",
+  "subTopics": [
+   "3.6",
+   "3.1"
+  ],
+  "topics": [
+   "3"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$0$",
+   "$1$",
+   "$2$",
+   "$4$"
+  ],
+  "correct": 3,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-03-realnumber-q112",
+  "question": "กำหนดให้ $p(x) = x^2+bx+c$ โดยที่ $b, c \\in \\mathbb{Z}$ ถ้า $p(x)$ เป็นตัวประกอบของพหุนาม $f(x)$ และ $g(x)$ โดยที่ $f(x) = x^4+6x^2+25$ และ $g(x) = 3x^4+4x^2+28x+5$ แล้ว $p(1)$ จะเท่ากับข้อใด",
+  "subTopics": [
+   "3.5",
+   "3.3"
+  ],
+  "topics": [
+   "3"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "27000",
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-03-realnumber-q134",
+  "question": "จงหาผลคูณของรากของระบบสมการ $x + y = 3383$ และ $x^{1/3} + y^{1/3} = 17$",
+  "subTopics": [
+   "3.10",
+   "3.4"
+  ],
+  "topics": [
+   "3"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "4",
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-03-realnumber-q176",
+  "question": "จงหาจำนวนเต็มบวก $a$ และ $b$ ทั้งหมดที่สอดคล้องสมการ $(a, b)[a, b] = a + 2b + 13$\nโดยที่ $(a, b)$ และ $[a, b]$ แทน ห.ร.ม. และ ค.ร.น. ของ $a, b$ ตามลำดับ",
+  "subTopics": [
+   "3.12",
+   "17.2",
+   "3.3"
+  ],
+  "topics": [
+   "3"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$-6$",
+   "$-2$",
+   "$2$",
+   "$6$"
+  ],
+  "correct": 1,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-03-realnumber-q24",
+  "question": "ให้ $a$ เป็นจำนวนเต็ม ถ้า $x - a$ หาร $x^{3} + 2x^{2} - 5x - 2$ เหลือเศษ 4\nแล้ว ผลบวกของค่า $a$ ทั้งหมดที่สอดคล้องเงื่อนไขดังกล่าว เท่ากับข้อใดต่อไปนี้",
+  "subTopics": [
+   "3.5",
+   "3.4",
+   "3.3"
+  ],
+  "topics": [
+   "3"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "2",
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-03-realnumber-q80",
+  "question": "กำหนดให้ $m$ เป็นจำนวนเต็มบวก และ $n$ เป็นจำนวนเฉพาะ ถ้า $m$ หาร $777$ และ $910$ แล้วเหลือเศษ $n$ แล้ว $m - n$ มีค่าเท่ากับเท่าใด",
+  "subTopics": [
+   "3.12",
+   "17.2"
+  ],
+  "topics": [
+   "3"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "1/2",
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-05-function-q101",
+  "question": "กำหนดให้ $a > 0$ และ $f(x) = ax^2$, $x \\ge 0$ และ $g(x) = x^3$\nถ้า $(f^{-1} \\circ g)(4) = 2$ แล้ว $\\dfrac{f^{-1}(64)}{g^{-1}(64)}$ มีค่าเท่ากับเท่าใด",
+  "subTopics": [
+   "5.8",
+   "5.7"
+  ],
+  "topics": [
+   "5"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$D_F = (-\\infty, \\infty)$",
+   "$R_F = (0, 1)$",
+   "$G(x) = 1$ เมื่อ $x > 0$",
+   "$G(x) = 0$ เมื่อ $x < 0$"
+  ],
+  "correct": 1,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-05-function-q125",
+  "question": "ให้ $f, g : \\mathbb{R} \\to \\mathbb{R}$ กำหนดโดย $f(x) = \\dfrac{x}{|x| + 1}$\nและ $g(x) =$ จำนวนเต็มซึ่งน้อยที่สุดที่มากกว่าหรือเท่ากับ $x$\n(เช่น $g(1.01) = 2$, $g(-6) = -6$, $g(-7.99) = -7$ เป็นต้น)\nถ้า $F(x) = (f \\circ g)(x)$ และ $G(x) = (g \\circ f)(x)$ แล้วข้อใดต่อไปนี้เป็นเท็จ",
+  "subTopics": [
+   "5.7",
+   "5.10",
+   "5.5"
+  ],
+  "topics": [
+   "5"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$A \\cup B \\subset [-2, 2]$",
+   "$A' \\cap B = B \\cap (0, \\infty)$",
+   "$A' \\cap B' \\subset (-\\infty, 0) \\cup (2, \\infty)$",
+   "$A \\cup (-1, 0) \\subset B'$"
+  ],
+  "correct": 2,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-05-function-q156",
+  "question": "กำหนดให้ $f(x) = \\dfrac{x^2 + x + 1}{x^2 + 1}$ และ $g(x) = \\log\\left(\\sqrt{2} - 2^{|x|}\\right)$\nถ้าให้ $A$ เป็นโดเมนของ $g$ และ $B$ เป็นเรนจ์ของ $f$ แล้วข้อใดต่อไปนี้ผิด",
+  "subTopics": [
+   "5.5",
+   "8.5"
+  ],
+  "topics": [
+   "5"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "3/2",
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-05-function-q182",
+  "question": "กำหนดให้ $f$ เป็นฟังก์ชันซึ่ง $f(n)$ แทนจำนวนคู่อันดับ $(x, y)$ ทั้งหมด ที่สอดคล้องกับ $x + 2y = n$ โดยที่ $x, y$ และ $n$ เป็นจำนวนเต็มที่ไม่เป็นลบ\nและ $g$ เป็นฟังก์ชันซึ่งนิยามสำหรับแต่ละจำนวนจริง $t$ โดย $g(t) = 2t^3 + t^2 - 2t - 3$\nจงหาค่าของ $(g^{-1} \\circ f)(5)$",
+  "subTopics": [
+   "5.8",
+   "5.7"
+  ],
+  "topics": [
+   "5"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$(-2, 0) \\cup [2, 6]$",
+   "$[-2, 0] \\cup (2, 6)$",
+   "$[2, 6]$",
+   "$(-2, 0)$"
+  ],
+  "correct": 0,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-05-function-q24",
+  "question": "ให้ $f(x) = \\begin{cases} 2|x|, & x \\in [-2, 3] \\\\ x - 5, & x \\in (3, 8) \\end{cases}$ และ $g(x) = \\begin{cases} x - 2, & x \\in (-2, 0] \\\\ \\sqrt{4 - x}, & x \\in (0, 4] \\end{cases}$\nถ้าให้ $A =$ เรนจ์ของ $f$ และ $B =$ โดเมนของ $g^{-1}$\nแล้ว $A \\cap B'$ คือเซตในข้อใดต่อไปนี้",
+  "subTopics": [
+   "5.5",
+   "5.3"
+  ],
+  "topics": [
+   "5"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$r = \\{ (x, y) \\mid x \\in \\mathbb{R}, y \\in \\mathbb{R}$ และ $y = \\dfrac{x - 3}{2x + 1} \\}$ เป็นฟังก์ชัน และมี $r^{-1} = \\{ (x, y) \\mid x \\in \\mathbb{R}, y \\in \\mathbb{R}$ และ $y = \\dfrac{x - 3}{1 - 2x} \\}$ ซึ่งเป็นฟังก์ชัน",
+   "ถ้า $f(x) = x + 5$ และ $g(x) = \\dfrac{x^2 - 25}{x - 5}$ จะได้ $f = g$",
+   "ถ้า $f(x) = \\sqrt{x^2 - 4}$, $|x| \\ge 2$ และ $g(x) = x^2 + 2x - 3$ จะได้ $\\left(\\dfrac{f}{g}\\right)(x) = \\dfrac{\\sqrt{x^2 - 4}}{x^2 + 2x - 3}$, $|x| \\ge 2$",
+   "ถ้า $f(x) = |x - 3|$ และ $g(x) = \\begin{cases} x - 3, & \\text{ถ้า } x \\ge 3 \\\\ 3 - x, & \\text{ถ้า } x < 3 \\end{cases}$ จะได้ $f = g$"
+  ],
+  "correct": 3,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-05-function-q54",
+  "question": "ข้อความใดต่อไปนี้ถูก",
+  "subTopics": [
+   "5.4",
+   "5.8",
+   "5.11"
+  ],
+  "topics": [
+   "5"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$5$",
+   "$6$",
+   "$7$",
+   "$8$"
+  ],
+  "correct": 2,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-05-function-q78",
+  "question": "กำหนดให้ $f(x) = \\begin{cases} 2, & x \\le -1 \\\\ (x - 1)^2, & -1 < x < 2 \\\\ x + 1, & x \\ge 2 \\end{cases}$ และ $g(x) = f(x) + 2$\nถ้า $k$ เป็นจำนวนเต็มที่น้อยที่สุดที่ทำให้ $g(k) > 5$ แล้ว $(g \\circ f)(k)$ มีค่าเท่ากับข้อใดต่อไปนี้",
+  "subTopics": [
+   "5.7",
+   "5.11",
+   "5.10"
+  ],
+  "topics": [
+   "5"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$a_{12} = a_{21}$ และ $a_{11} = a_{22} = 0$",
+   "$a_{12} = a_{21}$ และ $a_{11} \\ne a_{22}$",
+   "$a_{12} = -a_{21}$ และ $a_{11} = a_{22} = 0$",
+   "$a_{12} = -a_{21}$ และ $a_{11} \\ne a_{22}$",
+   "ไม่มีคำตอบใดถูก"
+  ],
+  "correct": 2,
+  "difficulty": "ง่าย",
+  "hasImage": false,
+  "id": "chap-06-matrix-q01",
+  "question": "กำหนดให้ $A = [a_{ij}]_{2\\times 2}$ โดย $A$ มีสมาชิกเป็นจำนวนจริง และ $A^T = -A$\nข้อใดต่อไปนี้สรุปคุณสมบัติของสมาชิกของ $A$ ได้ถูกต้องที่สุด",
+  "subTopics": [
+   "6.4",
+   "6.1"
+  ],
+  "topics": [
+   "6"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$\\dfrac{1}{8}$",
+   "$1$",
+   "$8$",
+   "ไม่สามารถหาค่า $a$ ได้"
+  ],
+  "correct": 1,
+  "difficulty": "ง่าย",
+  "hasImage": false,
+  "id": "chap-06-matrix-q111",
+  "question": "กำหนด $A = \\begin{bmatrix} 1 & 2 & 0 \\\\ 0 & 2 & 1 \\\\ 0 & 0 & 2 \\end{bmatrix}$ และ $B = \\begin{bmatrix} a & 0 & 0 \\\\ 1 & 2 & 0 \\\\ 3 & 0 & 1 \\end{bmatrix}$ จงหาค่า $a$ ซึ่งทำให้ $\\det(AB) = 8$",
+  "subTopics": [
+   "6.6",
+   "6.5"
+  ],
+  "topics": [
+   "6"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "ข้อ ก. และ ข. เป็นจริง",
+   "ข้อ ก. เท่านั้นเป็นจริง",
+   "ข้อ ข. เท่านั้นเป็นจริง",
+   "ข้อ ก. และ ข. เป็นเท็จ"
+  ],
+  "correct": 0,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-06-matrix-q130",
+  "question": "ให้ $A$ เป็นเมทริกซ์มิติ $3 \\times 3$ ซึ่งมีสมบัติว่า $A^2 = A - I$\nจงพิจารณาข้อความต่อไปนี้\nก. $A - \\text{adj}\\,A = I$\nข. $A + I$ เป็นเมทริกซ์ที่มิใช่เอกฐาน\nข้อใดต่อไปนี้ถูกต้อง",
+  "subTopics": [
+   "6.8",
+   "6.7",
+   "6.5"
+  ],
+  "topics": [
+   "6"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$\\left(\\dfrac{\\pi}{16}, 0\\right)$",
+   "$\\left(0, \\dfrac{\\pi}{16}\\right)$",
+   "$\\left(\\dfrac{\\pi}{16}, \\dfrac{\\pi}{16}\\right)$",
+   "ข้อ 1, 2 และ 3 ไม่มีข้อใดถูก"
+  ],
+  "correct": 3,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-06-matrix-q15",
+  "question": "ให้ $A = \\begin{bmatrix} \\cos\\theta & \\sin\\theta \\\\ -\\sin\\theta & \\cos\\theta \\end{bmatrix}$\nค่า $\\theta > 0$ ที่เล็กที่สุดที่ทำให้ $A^{16} = I$ และ $A^{16} = -I$ คือ $\\theta = \\theta_1$ และ $\\theta = \\theta_2$ ตามลำดับ\nแล้วค่า $(\\theta_1, \\theta_2)$ จะเท่ากับข้อใดต่อไปนี้",
+  "subTopics": [
+   "6.3",
+   "7.7"
+  ],
+  "topics": [
+   "6"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "3",
+   "$\\dfrac{11}{4}$",
+   "2",
+   "$\\dfrac{8}{3}$"
+  ],
+  "correct": 0,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-06-matrix-q33",
+  "question": "กำหนดให้ $A = \\begin{bmatrix} 1 & 2 \\\\ a & 3 \\end{bmatrix}$, $B = \\begin{bmatrix} -1 & 1 \\\\ 2 & 1 \\end{bmatrix}$ และ $C = 2AB^{-1} + B^{-1}$\nค่าของ $a$ ที่ทำให้ $\\det(C) = 1$ เท่ากับข้อใดต่อไปนี้",
+  "subTopics": [
+   "6.5",
+   "6.6",
+   "6.7"
+  ],
+  "topics": [
+   "6"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$7$",
+   "$9$",
+   "$10$",
+   "$11$"
+  ],
+  "correct": 3,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-06-matrix-q57",
+  "question": "กำหนดให้ $A = \\begin{bmatrix} 3 & 4 \\\\ 2 & 3 \\end{bmatrix}$, $B = \\begin{bmatrix} 1 & 2 \\\\ -1 & 3 \\end{bmatrix}$, $X = \\begin{bmatrix} a & b \\\\ c & d \\end{bmatrix}$\nถ้า $AX + B = A$ แล้ว $b + c$ มีค่าเท่ากับข้อใดต่อไปนี้",
+  "subTopics": [
+   "6.7",
+   "6.3"
+  ],
+  "topics": [
+   "6"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$11$",
+   "$12$",
+   "$13$",
+   "$14$"
+  ],
+  "correct": 2,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-06-matrix-q78",
+  "question": "กำหนดให้ $a$ เป็นจำนวนจริง และ $A = \\begin{bmatrix} 1 & 0 & 2 \\\\ 0 & 3 & 0 \\\\ 4 & 0 & a \\end{bmatrix}$\nถ้า $a > 10$ และ $\\det(\\text{adj}\\,A) = 225$ แล้ว $a$ มีค่าเท่ากับข้อใดต่อไปนี้",
+  "subTopics": [
+   "6.8",
+   "6.5"
+  ],
+  "topics": [
+   "6"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$\\begin{bmatrix} 14 & 12 \\\\ 16 & 24 \\end{bmatrix}$",
+   "$\\begin{bmatrix} 12 & 18 \\\\ 12 & 30 \\end{bmatrix}$",
+   "$\\begin{bmatrix} 21 & 27 \\\\ 11 & 21 \\end{bmatrix}$",
+   "$\\begin{bmatrix} 20 & 18 \\\\ 12 & 18 \\end{bmatrix}$"
+  ],
+  "correct": 1,
+  "difficulty": "ง่าย",
+  "hasImage": false,
+  "id": "chap-06-matrix-q99",
+  "question": "กำหนดให้ $A = \\begin{bmatrix} 2 & 1 \\\\ 0 & 3 \\end{bmatrix}$ และ $B = \\begin{bmatrix} 3 & 2 \\\\ 1 & 2 \\end{bmatrix}$\nจงหาค่าของ $A^t \\times (B \\times A)$",
+  "subTopics": [
+   "6.3",
+   "6.4"
+  ],
+  "topics": [
+   "6"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$25$",
+   "$41$",
+   "$45$",
+   "$58$"
+  ],
+  "correct": 3,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-08-explog-q115",
+  "question": "$a$ และ $b$ เป็นจำนวนเต็มบวก ซึ่ง $a < b$\nถ้า $a$ และ $b$ สอดคล้องสมการ $\\sqrt{10 + \\sqrt{84}} = \\sqrt{a} + \\sqrt{b}$ แล้ว $a^2 + b^2$ เท่ากับเท่าใด",
+  "subTopics": [
+   "8.2"
+  ],
+  "topics": [
+   "8"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "15a^((3p+q)/5)/(2p−q)",
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-08-explog-q138",
+  "question": "ให้ $\\log_a x^2 y = p$ , $\\log_a \\left(\\dfrac{y^2}{x}\\right) = q$ โดย $a \\in \\mathbb{R}^+$ , $a \\ne 1$\nจงหาค่าของ $\\log_{x^{1/3}} a^{xy}$ ในรูปของ $a, p, q$",
+  "subTopics": [
+   "8.7",
+   "8.6"
+  ],
+  "topics": [
+   "8"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$15$",
+   "$24$",
+   "$75$",
+   "$121$"
+  ],
+  "correct": 0,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-08-explog-q158",
+  "question": "ให้ $x > 0$ เป็นคำตอบของสมการ $\\log_3(\\log(x^2) + 2) + \\log_9 3 = \\dfrac{1}{2}$\nถ้า $A = \\begin{bmatrix} 0 & x \\\\ x & 0 \\end{bmatrix}$ และ $I$ เป็นเมทริกซ์เอกลักษณ์ แล้ว $\\det\\left(A^{-1} + 5I\\right)$ จะเท่ากับข้อใด",
+  "subTopics": [
+   "8.9",
+   "6.7"
+  ],
+  "topics": [
+   "8"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$(1, 10]$",
+   "$(11, 100]$",
+   "$(101, 1000]$",
+   "$(1001, 10000]$"
+  ],
+  "correct": 3,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-08-explog-q179",
+  "question": "ถ้า $x, y$ เป็นจำนวนจริง ซึ่งสอดคล้องเงื่อนไขต่อไปนี้\n(1) $x > y$ (2) $xy = 490$\n(3) $(\\log x - \\log 7)(\\log y - \\log 7) = -\\dfrac{15}{4}$\nแล้ว $x$ จะอยู่ในช่วงใด",
+  "subTopics": [
+   "8.9",
+   "8.7"
+  ],
+  "topics": [
+   "8"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$f = \\{ (n, t) \\mid t = n \\}$ ดีกว่า $f = \\{ (n, t) \\mid t = 100 \\}$",
+   "$f = \\{ (n, t) \\mid t = \\sqrt{n} \\}$ ดีกว่า $f = \\{ (n, t) \\mid t = \\log n^2 \\}$",
+   "$f = \\{ (n, t) \\mid t = 100n + 5 \\}$ ดีกว่า $f = \\{ (n, t) \\mid t = n^2 \\}$",
+   "$f = \\{ (n, t) \\mid t = 2^{\\sqrt{n}} \\}$ ดีกว่า $f = \\{ (n, t) \\mid t = n^2 \\}$"
+  ],
+  "correct": 2,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-08-explog-q210",
+  "question": "หากมีโปรแกรม 2 โปรแกรมสามารถสั่งให้คอมพิวเตอร์คำนวณเพื่อแก้ปัญหาชนิดเดียวกัน แต่ด้วยวิธีการที่ต่างกัน การเลือกโปรแกรมที่ดีกว่าควรดูความสัมพันธ์ระหว่างข้อมูลกับเวลาที่คอมพิวเตอร์ใช้ในการคำนวณ ถ้าจำนวนข้อมูลมากๆ แล้วใช้เวลาน้อยๆ ความสัมพันธ์นั้นจะชี้ให้เห็นว่าโปรแกรมหนึ่งดีกว่าอีกโปรแกรมหนึ่ง\nกำหนดให้ $f$ แทนความสัมพันธ์, $n \\in \\mathbb{Z}^+$ แทนจำนวนข้อมูล, $t \\in \\mathbb{R}^+$ แทนเวลาที่ใช้คำนวณ ข้อใดต่อไปนี้เป็นข้อที่ถูกต้อง (ให้เปรียบเทียบด้วยจำนวนข้อมูลที่มากๆ เท่ากัน)",
+  "subTopics": [
+   "8.11",
+   "8.3",
+   "8.8"
+  ],
+  "topics": [
+   "8"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$c$",
+   "$b$",
+   "$\\dfrac{1}{b} \\log_b c$",
+   "$\\dfrac{1}{b}$",
+   "ไม่มีคำตอบที่ถูกต้องในข้อ 1. ถึงข้อ 4."
+  ],
+  "correct": 3,
+  "difficulty": "ง่าย",
+  "hasImage": false,
+  "id": "chap-08-explog-q49",
+  "question": "ถ้า $a > 1 , c > 1$ และ $a^b = c$\nจะได้ $\\log_c a$ มีค่าเท่ากับข้อใดต่อไปนี้",
+  "subTopics": [
+   "8.6",
+   "8.7"
+  ],
+  "topics": [
+   "8"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "3",
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-08-explog-q77",
+  "question": "ผลบวกของคำตอบของสมการ $\\log_2 (4^{x-1} + 2^{x-1} + 6) = 2 + \\log_2 (2^{x-1} + 1)$ มีค่าเท่าใด",
+  "subTopics": [
+   "8.9",
+   "8.4"
+  ],
+  "topics": [
+   "8"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$30°$",
+   "$38°$",
+   "$45°$",
+   "$60°$"
+  ],
+  "correct": 1,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-09-vector-q105",
+  "question": "กำหนดให้ $\\overrightarrow{AB} = 3\\overline{i} + \\overline{j}$ และ $\\overrightarrow{AC} = 2\\overline{i} + 3\\overline{j}$ จงหาขนาดของมุม $BAC$\n(กำหนด $\\sqrt{1.3} = 1.14$)",
+  "subTopics": [
+   "9.6",
+   "9.5"
+  ],
+  "topics": [
+   "9"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "ถ้า $\\overline{u} = a\\overline{i} + b\\overline{j}$ และ $\\overline{v} = a\\overline{i} - b\\overline{j}$ แล้ว $\\overline{u} + \\overline{v}$ และ $\\overline{u} - \\overline{v}$ ตั้งฉากกัน",
+   "ถ้า $\\overline{u} = a\\overline{i} - b\\overline{j}$ และ $\\overline{v} = -a\\overline{i} + b\\overline{j}$ แล้ว\nจะสามารถเขียนเวกเตอร์ใดๆ ในระบบแกนมุมฉากได้ในรูปของ $\\overline{u}$ และ $\\overline{v}$ เสมอ",
+   "ถ้า $\\overline{u} = \\begin{bmatrix} a \\\\ b \\end{bmatrix}$ และ $\\overline{v} = \\begin{bmatrix} a \\\\ -b \\end{bmatrix}$ แล้ว\nสมการ $x\\overline{u} + y\\overline{v} = \\overline{0}$ มี $x = y = 0$ เพียงค่าเดียวเท่านั้นที่สอดคล้อง",
+   "ถ้า $\\overline{u} = \\begin{bmatrix} a \\\\ -b \\end{bmatrix}$ และ $\\overline{v} = \\begin{bmatrix} b \\\\ a \\end{bmatrix}$ แล้ว $|\\overline{u} + \\overline{v}|^2 = |\\overline{u}|^2 + |\\overline{v}|^2$"
+  ],
+  "correct": 1,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-09-vector-q28",
+  "question": "กำหนดให้ $a$ และ $b$ เป็นจำนวนจริงใดๆ ที่ไม่เท่ากับศูนย์ ข้อความต่อไปนี้ข้อใดไม่จริง",
+  "subTopics": [
+   "9.2",
+   "9.1"
+  ],
+  "topics": [
+   "9"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$60°$",
+   "$75°$",
+   "$90°$",
+   "$105°$"
+  ],
+  "correct": 1,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-09-vector-q83",
+  "question": "ให้จุด $A(\\sqrt{2}, \\sqrt{2})$ และจุด $B$ ซึ่งอยู่ในควอดรันต์ที่สี่ และอยู่บนวงรี $\\dfrac{x^2}{4} + \\dfrac{y^2}{9} = 1$\nถ้า $\\overrightarrow{OB}$ มีขนาด $\\dfrac{12}{\\sqrt{31}}$ เมื่อ $O$ เป็นจุดกำเนิด\nแล้ว เวกเตอร์ $\\overrightarrow{OA}$ และ $\\overrightarrow{OB}$ ทำมุมกันเท่ากับข้อใดต่อไปนี้",
+  "subTopics": [
+   "9.6",
+   "9.5",
+   "4.8"
+  ],
+  "topics": [
+   "9"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "ข้อ ก. และ ข. เป็นจริง",
+   "ข้อ ก. เท่านั้นเป็นจริง",
+   "ข้อ ข. เท่านั้นเป็นจริง",
+   "ข้อ ก. และ ข. เป็นเท็จ"
+  ],
+  "correct": 0,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-10-complex-q104",
+  "question": "ให้ $1, \\omega, \\omega^2$ เป็นรากที่สามของ $1$ จงพิจารณาข้อความต่อไปนี้\nก. $(1 + \\omega - \\omega^2)(1 - \\omega + \\omega^2) = 4$\nข. $(1 - \\omega)(1 - \\omega^2)(1 - \\omega^4)(1 - \\omega^5) = 9$\nข้อใดต่อไปนี้ถูกต้อง",
+  "subTopics": [
+   "10.6",
+   "10.2"
+  ],
+  "topics": [
+   "10"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$-1$",
+   "$-\\dfrac{1}{2}$",
+   "$\\dfrac{1}{2}$",
+   "$1$"
+  ],
+  "correct": 2,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-10-complex-q16",
+  "question": "กำหนดให้ $z = \\dfrac{1}{2} + \\dfrac{\\sqrt{3}}{2}i$ ส่วนจริงของ $\\dfrac{1}{1+z^5}$ เท่ากับข้อต่อไปนี้",
+  "subTopics": [
+   "10.5",
+   "10.4",
+   "10.2"
+  ],
+  "topics": [
+   "10"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$\\{-3, -2, 3\\}$",
+   "$\\{-3, 2, 3\\}$",
+   "$\\{2, 3\\}$",
+   "$\\{3, -3\\}$"
+  ],
+  "correct": 1,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-10-complex-q51",
+  "question": "กำหนดให้ $A = \\{x \\in \\mathbb{C} \\mid x^3 - 2x^2 + 9x - 18 = 0\\}$ และ $B = \\{x \\in \\mathbb{C} \\mid x^4 - 81 = 0\\}$ ดังนั้นเซต $(A - B) \\cup (B - A)$ เท่ากับข้อใดต่อไปนี้",
+  "subTopics": [
+   "10.7",
+   "10.6"
+  ],
+  "topics": [
+   "10"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$1\\dfrac35$",
+   "$2\\dfrac23$",
+   "$3\\dfrac15$",
+   "$4\\dfrac13$"
+  ],
+  "correct": 2,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-10-complex-q74",
+  "question": "ถ้า $(x - yi)(2 + i) = 7 + 4i$ เมื่อ $x$ และ $y$ เป็นจำนวนจริง จงหาว่า $x + 2y$ มีค่าเท่าใด",
+  "subTopics": [
+   "10.1",
+   "10.2"
+  ],
+  "topics": [
+   "10"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$-16\\sin^4 n\\theta$",
+   "$16\\sin^4 n\\theta$",
+   "$-16\\cos^4 n\\theta$",
+   "$16\\cos^4 n\\theta$"
+  ],
+  "correct": 1,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-10-complex-q96",
+  "question": "ถ้า $z = \\cos\\theta + i\\sin\\theta$ และ $n$ เป็นจำนวนเต็มบวก แล้ว $\\left(z^n - \\dfrac{1}{z^n}\\right)^4$ มีค่าเท่ากับข้อใดต่อไปนี้",
+  "subTopics": [
+   "10.5",
+   "10.4"
+  ],
+  "topics": [
+   "10"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$16$ ฟุต",
+   "$24$ ฟุต",
+   "$28$ ฟุต",
+   "$32$ ฟุต"
+  ],
+  "correct": 2,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-11-sequence-q22",
+  "question": "ลูกปิงปองตกจากโต๊ะสูง $4$ ฟุต ถ้าทุกครั้งที่ลูกปิงปองตกกระทบพื้นจะกระดอนขึ้นเป็นระยะทาง $\\dfrac{3}{4}$ ของความสูงที่ตกลงมา ระยะทางทั้งหมดที่ลูกปิงปองเคลื่อนที่ในแนวดิ่งจึงเป็นกี่ฟุต",
+  "subTopics": [
+   "11.5",
+   "11.8",
+   "14.8"
+  ],
+  "topics": [
+   "11"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$\\dfrac{2}{243}$",
+   "$-\\dfrac{2}{243}$",
+   "$\\dfrac{1}{81}$",
+   "$-\\dfrac{1}{81}$"
+  ],
+  "correct": 0,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-11-sequence-q43",
+  "question": "ให้ $a_n$ เป็นลำดับเรขาคณิตที่มีอัตราส่วนร่วมเป็นจำนวนเต็มที่ไม่เท่ากับ $1$ ถ้า $a_6$ เป็นจำนวนเต็ม และ $a_6 + a_9 = 52$ แล้ว $a_1$ มีค่าเท่ากับข้อใดต่อไปนี้",
+  "subTopics": [
+   "11.3"
+  ],
+  "topics": [
+   "11"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "5740",
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-11-sequence-q65",
+  "question": "ผลบวกของอนุกรมจำกัด $1\\cdot 40+3\\cdot 38+5\\cdot 36+\\cdots+39\\cdot 2$ มีค่าเท่าใด",
+  "subTopics": [
+   "11.6"
+  ],
+  "topics": [
+   "11"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$\\dfrac{2}{9}$",
+   "$\\dfrac{1}{5}$",
+   "$\\dfrac{1}{2}$",
+   "$\\dfrac{9}{20}$",
+   "$\\dfrac{2}{5}$"
+  ],
+  "correct": 0,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-12-probability-q107",
+  "question": "สามีภรรยา $5$ คู่ นั่งเก้าอี้รอบโต๊ะกลม ความน่าจะเป็นที่สามีคนหนึ่งจะนั่งติดภรรยาของเขาเท่ากับเท่าใด",
+  "subTopics": [
+   "12.7",
+   "12.4"
+  ],
+  "topics": [
+   "12"
+  ],
+  "type": "mc",
+  "hint": null
+ }
+]

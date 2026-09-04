@@ -1,0 +1,951 @@
+[
+ {
+  "choices": [
+   "$(x \\vee z) \\to y$",
+   "$[(x \\to z) \\wedge (\\sim y)] \\to x$",
+   "$[\\sim (x \\vee y)] \\to (x \\wedge \\sim y)$",
+   "$[\\sim (x \\wedge y)] \\to z$"
+  ],
+  "correct": 3,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-02-logic-q11",
+  "question": "ถ้า $(\\sim x \\vee x) \\to (y \\vee z)$ มีค่าเป็นเท็จ แล้ว $x \\wedge \\sim x$ มีค่าความจริงเหมือนข้อใด",
+  "subTopics": [
+   "2.6",
+   "2.1"
+  ],
+  "topics": [
+   "2"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "ก. จริง ข. จริง",
+   "ก. จริง ข. เท็จ",
+   "ก. เท็จ ข. จริง",
+   "ก. เท็จ ข. เท็จ"
+  ],
+  "correct": 0,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-02-logic-q18",
+  "question": "ให้ $S$ เป็นเซตของประพจน์ และ $f : S \\to \\{0, 1\\}$ กำหนดโดย $f(p) = 0$ ถ้า $p$ มีค่าความจริงเป็นเท็จ; $f(p) = 1$ ถ้า $p$ มีค่าความจริงเป็นจริง พิจารณาข้อความต่อไปนี้สำหรับประพจน์ $p, q$ ใดๆ\n\nก. $f(p \\vee q) = |f(p) - f(q)| + f(p) f(q)$\n\nข. $f(p \\wedge q) = f(p) f(q)$\n\nข้อใดต่อไปนี้ถูก",
+  "subTopics": [
+   "2.4",
+   "2.2"
+  ],
+  "topics": [
+   "2"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "ก. สมเหตุสมผล ข. สมเหตุสมผล",
+   "ก. สมเหตุสมผล ข. ไม่สมเหตุสมผล",
+   "ก. ไม่สมเหตุสมผล ข. สมเหตุสมผล",
+   "ก. ไม่สมเหตุสมผล ข. ไม่สมเหตุสมผล"
+  ],
+  "correct": 1,
+  "difficulty": "ง่าย",
+  "hasImage": false,
+  "id": "chap-02-logic-q39",
+  "question": "พิจารณาข้อความต่อไปนี้\n\nก. เหตุ (1) นายสมหมายเป็นคนขยันหรือนายสมหมายสอบได้ที่หนึ่งของห้อง\n\n$\\;\\;\\;\\;\\;\\;\\;\\;$(2) นายสมหมายเป็นคนไม่ขยัน\n\n$\\;\\;\\;$ผล นายสมหมายสอบได้ที่หนึ่งของห้อง\n\nข. เหตุ (1) ถ้าสมศรีไปเที่ยวชายทะเลแล้วสมศรีไม่สบาย\n\n$\\;\\;\\;\\;\\;\\;\\;\\;$(2) สมศรีไม่สบาย\n\n$\\;\\;\\;$ผล สมศรีไปเที่ยวชายทะเล\n\nการอ้างเหตุผลใน ก. และ ข. ข้างต้น สมเหตุสมผลหรือไม่",
+  "subTopics": [
+   "2.8",
+   "2.7"
+  ],
+  "topics": [
+   "2"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$\\forall x [\\, (x > 0) \\vee (x \\leq 0) \\,] \\to \\{ \\forall x [\\, x > 0 \\,] \\vee \\forall x [\\, x \\leq 0 \\,] \\}$",
+   "$\\{ \\exists x [\\, (x > 0) \\,] \\wedge \\exists x [\\, x \\leq 0 \\,] \\} \\to \\exists x [\\, (x > 0) \\wedge (x \\leq 0) \\,]$",
+   "$\\forall x [\\, (x > 0) \\to (x > 0) \\,] \\to \\{ \\exists x [\\, x > 0 \\,] \\to \\forall x [\\, x > 0 \\,] \\}$",
+   "$\\forall x [\\, (x > 0) \\to (x > 0) \\,] \\to \\{ \\forall x [\\, x > 0 \\,] \\to \\forall x [\\, x > 0 \\,] \\}$"
+  ],
+  "correct": 3,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-02-logic-q62",
+  "question": "ให้เอกภพสัมพัทธ์เป็นเซตของจำนวนเต็ม ประพจน์ใดต่อไปนี้มีค่าความจริงเป็นจริง",
+  "subTopics": [
+   "2.10",
+   "2.9"
+  ],
+  "topics": [
+   "2"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$\\sim q \\vee t$",
+   "$\\sim (q \\wedge t)$",
+   "$(p \\wedge q) \\vee t$",
+   "$\\sim (p \\wedge q) \\vee s$"
+  ],
+  "correct": 1,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-02-logic-q89",
+  "question": "ข้อความ $[(p \\wedge q) \\vee (\\sim p \\wedge q)] \\wedge [(p \\rightarrow t) \\leftrightarrow (\\sim t \\rightarrow \\sim p)] \\rightarrow [t \\rightarrow (s \\wedge \\sim s)]$ สมมูลกับข้อความใด",
+  "subTopics": [
+   "2.5",
+   "2.7"
+  ],
+  "topics": [
+   "2"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$\\dfrac{4}{3}$",
+   "$1.5$",
+   "$\\dfrac{16}{9}$",
+   "$4$"
+  ],
+  "correct": 0,
+  "difficulty": "ง่าย",
+  "hasImage": false,
+  "id": "chap-03-realnumber-q100",
+  "question": "จากการวิเคราะห์พบว่า ปริมาณรถที่วิ่งผ่านถนนสายหนึ่งแปรผันตามรากที่สองของจำนวนประชากรในเมือง A ปัจจุบันเมือง A มีประชากร $9$ ล้านคน และคาดว่าในอีก $10$ ปีข้างหน้าจะมีประชากรเพิ่มเป็น $16$ ล้านคน\nปริมาณรถที่วิ่งผ่านถนนสายนี้ในอีก $10$ ปีข้างหน้าจะเป็นกี่เท่าของปริมาณรถในปัจจุบัน",
+  "subTopics": [
+   "3.12"
+  ],
+  "topics": [
+   "3"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$-\\dfrac{9}{4}$",
+   "$-9$",
+   "$\\dfrac{9}{4}$",
+   "$9$"
+  ],
+  "correct": 0,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-03-realnumber-q122",
+  "question": "กำหนดให้ $\\mathbb{Q}$ เป็นเซตของจำนวนตรรกยะ และ $S = \\{x \\in \\mathbb{Q} \\mid 4x^4 - 16x^3 - 5x^2 + 36x - 9 = 0\\}$ ผลคูณของสมาชิกทั้งหมดของ $S$ มีค่าเท่าใด",
+  "subTopics": [
+   "3.4",
+   "3.3"
+  ],
+  "topics": [
+   "3"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "23",
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-03-realnumber-q163",
+  "question": "มีจำนวนนับตั้งแต่ $1$ ถึง $1000$ รวมทั้งสิ้นกี่จำนวน\nซึ่งเมื่อหารด้วย $6$ แล้วเหลือเศษ $2$ และเมื่อหารด้วย $14$ แล้วเหลือเศษ $10$",
+  "subTopics": [
+   "3.12",
+   "17.6"
+  ],
+  "topics": [
+   "3"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "{0, 2, 7, 8}",
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-03-realnumber-q184",
+  "question": "กำหนดให้เอกภพสัมพัทธ์คือเซตของจำนวนเต็ม\n$A$ คือเซตของเศษที่เป็นไปได้ทั้งหมด ที่เกิดจากการหาร $a^3 + b^3$ ด้วย $9$\n$\\quad$ เมื่อ $a, b \\in \\{0, 1, 2, \\ldots, 8\\}$\nและ $B$ คือเซตของ ห.ร.ม. ที่เป็นไปได้ทั้งหมดของ $n - 1$ กับ $n^2 + n + 1$\n$\\quad$ เมื่อ $n$ เป็นจำนวนเต็มที่มากกว่า $1$\nจงหา $A \\cap B'$",
+  "subTopics": [
+   "3.12",
+   "17.6"
+  ],
+  "topics": [
+   "3"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$x - c$ เป็นตัวประกอบของ $P(x)$ ก็ต่อเมื่อ $P(c) = 0$",
+   "ถ้าจำนวนเชิงซ้อน $z_0$ เป็นคำตอบของสมการ $P(x) = 0$ แล้ว $\\overline{z_0}$ จะเป็นคำตอบของสมการนี้ด้วย",
+   "ถ้าสัมประสิทธิ์ของ $P(x)$ เป็นจำนวนเต็ม และมี $x - m$ เป็นตัวประกอบ แล้ว $m$ จะต้องเป็นจำนวนตรรกยะ",
+   "ถ้า $P(a) = b$ แล้ว $x - a$ จะเป็นตัวประกอบของ $P(x) - b$"
+  ],
+  "correct": 2,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-03-realnumber-q41",
+  "question": "กำหนดให้ $P(x)$ เป็นพหุนามที่มีสัมประสิทธิ์เป็นจำนวนจริง ข้อใดต่อไปนี้<u>ผิด</u>",
+  "subTopics": [
+   "3.5",
+   "3.4",
+   "10.7"
+  ],
+  "topics": [
+   "3"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$29$",
+   "$34$",
+   "$68$",
+   "$58$"
+  ],
+  "correct": 3,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-03-realnumber-q89",
+  "question": "กำหนดให้เอกภพสัมพัทธ์คือ $\\{\\, x \\mid x$ เป็นจำนวนเต็มที่ไม่ใช่ $0$ และ $-100 \\le x \\le 100 \\,\\}$ ให้ $A = \\{\\, x \\mid$ ห.ร.ม. ของ $x$ กับ $21$ เป็น $3 \\,\\}$ จำนวนสมาชิกของ $A$ เท่ากับข้อใดต่อไปนี้",
+  "subTopics": [
+   "3.12",
+   "17.2"
+  ],
+  "topics": [
+   "3"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$\\{ x \\mid |x| \\ne 1 \\}$",
+   "$\\{ x \\mid x(x - 2) \\ne 0 \\}$",
+   "$\\{ x \\mid (x^2 - 1)(x - 2) \\ne 0 \\}$",
+   "$\\{ x \\mid x(x^2 - 1)(x + 2) \\ne 0 \\}$"
+  ],
+  "correct": 3,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-05-function-q112",
+  "question": "ถ้า $f = \\{ (x, y) \\in \\mathbb{R} \\times \\mathbb{R} \\mid y = x^2 + 2x + 1 \\}$\n$g = \\{ (x, y) \\in \\mathbb{R} \\times \\mathbb{R} \\mid y = \\dfrac{1}{1 - x^2} \\}$\nและ $h = (g \\circ f) + fg$ แล้ว โดเมนของ $h$ คือข้อใดต่อไปนี้",
+  "subTopics": [
+   "5.5",
+   "5.7",
+   "5.11"
+  ],
+  "topics": [
+   "5"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$f_1 = \\{ (x, y) \\mid x = \\sqrt{y} - 2 \\}$ และ $f_1 = \\{ (x, y) \\mid y = (x + 2)^2 \\}$",
+   "$g_1 = \\{ (x, y) \\mid y = \\dfrac{x^2 + x + 1}{x + 1} \\}$ และ $g_1 = \\{ (x, y) \\mid y = \\dfrac{x^3 - 1}{x^2 - 1} \\}$",
+   "$h_1 = \\{ (x, y) \\mid xy - x = 1 \\}$ และ $h_1 = \\{ (x, y) \\mid x = \\dfrac{1}{y - 1} \\}$",
+   "$F_1 = \\{ (x, y) \\mid y = \\dfrac{1}{1 + \\sqrt{x}} \\}$ และ $F_1 = \\{ (x, y) \\mid y = \\dfrac{1 - \\sqrt{x}}{1 - x} \\}$"
+  ],
+  "correct": 2,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-05-function-q142",
+  "question": "ฟังก์ชันต่อไปนี้ คู่ใดเป็นฟังก์ชันเดียวกัน",
+  "subTopics": [
+   "5.4",
+   "5.5"
+  ],
+  "topics": [
+   "5"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "3",
+   "5",
+   "$-2$",
+   "$-1$"
+  ],
+  "correct": 0,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-05-function-q170",
+  "question": "กำหนดให้ $f$ เป็นฟังก์ชัน $f(3x - 5) = 18x^2 - 57x + 48$\nจะได้ $(f \\circ f)(-1) - f^2(1)$ มีค่าเท่าใด",
+  "subTopics": [
+   "5.7",
+   "5.4"
+  ],
+  "topics": [
+   "5"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$\\dfrac{3}{10}$",
+   "$\\dfrac{5}{10}$",
+   "$\\dfrac{7}{10}$",
+   "$\\dfrac{9}{10}$"
+  ],
+  "correct": 2,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-05-function-q192",
+  "question": "กำหนดให้ $f : \\mathbb{R}^{+} \\to \\mathbb{R}$ โดยที่ สำหรับจำนวนจริงบวก $x$ ใด ๆ\n$x^2 f\\left(\\dfrac{x}{3}\\right) + x f\\left(-\\dfrac{x}{3}\\right) = x + 1$\nแล้ว $f\\left(\\dfrac{2}{3}\\right)$ มีค่าเท่าใด",
+  "subTopics": [
+   "5.4"
+  ],
+  "topics": [
+   "5"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$40$",
+   "$34$",
+   "$30$",
+   "$24$"
+  ],
+  "correct": 0,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-05-function-q42",
+  "question": "ให้ $A = \\{1, 2, 3\\}$ และ $B = \\{a, b, c, d\\}$ แล้ว\nจำนวนสมาชิกของเซต $\\{ f : A \\to B \\mid f$ ไม่เป็นฟังก์ชัน 1-1$\\}$ เท่ากับข้อใดต่อไปนี้",
+  "subTopics": [
+   "5.6",
+   "12.2"
+  ],
+  "topics": [
+   "5"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$g(u(f(a)))$",
+   "$u(g(v(a, a)))$",
+   "$f(u(a, a))$",
+   "$g \\circ f \\circ u$"
+  ],
+  "correct": 2,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-05-function-q65",
+  "question": "ให้ $\\mathbb{R}$ เป็นโดเมนและเรนจ์ของฟังก์ชัน $f$ และ $g$\n$\\mathbb{R} \\times \\mathbb{R}$ เป็นโดเมนของฟังก์ชัน $u$ และ $v$\n$\\mathbb{R}$ เป็นเรนจ์ของ $u$ และ $v$ และให้ $a \\in \\mathbb{R}$\nจงพิจารณาว่าสัญลักษณ์ในข้อใดต่อไปนี้แทนจำนวนจริง",
+  "subTopics": [
+   "5.7",
+   "5.4"
+  ],
+  "topics": [
+   "5"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "ก. ถูก และ ข. ถูก",
+   "ก. ถูก และ ข. ผิด",
+   "ก. ผิด และ ข. ถูก",
+   "ก. ผิด และ ข. ผิด"
+  ],
+  "correct": 0,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-05-function-q88",
+  "question": "กำหนดให้ $f(x) = \\sqrt{x}$ เมื่อ $x \\ge 0$ และ $g(x) = \\begin{cases} x, & 0 \\le x < 1 \\\\ x + 1, & 1 \\le x \\end{cases}$\nพิจารณาข้อความต่อไปนี้\nก. $g \\circ f^{-1}$ เป็นฟังก์ชันเพิ่มบน $R_f$\nข. $f \\circ g^{-1}$ เป็นฟังก์ชันเพิ่มบน $R_g$\nข้อใดต่อไปนี้ถูก",
+  "subTopics": [
+   "5.8",
+   "5.7",
+   "5.5"
+  ],
+  "topics": [
+   "5"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$4$",
+   "$5$",
+   "$6$",
+   "$7$"
+  ],
+  "correct": 0,
+  "difficulty": "ง่าย",
+  "hasImage": false,
+  "id": "chap-06-matrix-q100",
+  "question": "ถ้า $\\begin{bmatrix} 1 & 2 & 0 \\\\ 1 & 0 & 2 \\end{bmatrix}\\begin{bmatrix} 3 & x \\\\ 1 & y \\\\ z & 1 \\end{bmatrix} = \\begin{bmatrix} 5 & 7 \\\\ 5 & 5 \\end{bmatrix}$ แล้ว $x + y - z$ จะมีค่าเท่าใด",
+  "subTopics": [
+   "6.3"
+  ],
+  "topics": [
+   "6"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$-\\dfrac{1}{\\sqrt{3}}$",
+   "$-\\sqrt{3}$",
+   "$\\dfrac{1}{\\sqrt{3}}$",
+   "$\\sqrt{3}$"
+  ],
+  "correct": 1,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-06-matrix-q12",
+  "question": "กำหนดให้ $0 \\le x \\le \\pi$, $0 \\le y \\le \\pi$\nถ้า $\\begin{bmatrix} \\sin x & \\cos x \\\\ 1 & 0 \\end{bmatrix}\\begin{bmatrix} \\cos x & \\sin(x+y) \\\\ \\sin x & 0 \\end{bmatrix} = \\begin{bmatrix} \\frac{\\sqrt{3}}{2} & \\frac{1}{2} \\\\ \\frac{\\sqrt{3}}{2} & 1 \\end{bmatrix}$\nแล้ว $\\tan(2x+y)$ มีค่าเท่ากับข้อใดต่อไปนี้",
+  "subTopics": [
+   "6.3",
+   "7.6"
+  ],
+  "topics": [
+   "6"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$0$",
+   "$\\dfrac{1}{6}$",
+   "$\\dfrac{1}{4}$",
+   "$\\dfrac{1}{2}$"
+  ],
+  "correct": 2,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-06-matrix-q139",
+  "question": "กำหนดให้ $A$ และ $B$ เป็นเมทริกซ์มิติ $3 \\times 3$ โดยที่ $A(\\text{adj}(2B^{-1})) - I = B$ และ $\\det(B) = 4$\nแล้ว $\\det(A - I)$ มีค่าเท่ากับข้อใดต่อไปนี้",
+  "subTopics": [
+   "6.8",
+   "6.6"
+  ],
+  "topics": [
+   "6"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "ถ้า $A, B$ และ $C$ เป็นเมทริกซ์ $2 \\times 2$ ใด ๆ แล้ว $AB + AC = (B + C)A$",
+   "ถ้า $A, B$ เป็นเมทริกซ์ใด ๆ และ $AB = \\mathbf{0}$ แล้ว $A = \\mathbf{0}$ หรือ $B = \\mathbf{0}$",
+   "เอกลักษณ์การคูณของเมทริกซ์ $2 \\times 2$ คือ $\\begin{bmatrix} 1 & 1 \\\\ 1 & 1 \\end{bmatrix}$",
+   "ถ้า $A, B, C$ เป็นเมทริกซ์ $2 \\times 2$ ซึ่ง $\\det(A) < 0$ และ $AB = AC$ แล้ว $B = C$"
+  ],
+  "correct": 3,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-06-matrix-q21",
+  "question": "ข้อใดต่อไปนี้ถูก",
+  "subTopics": [
+   "6.3",
+   "6.7"
+  ],
+  "topics": [
+   "6"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$\\exists x\\,[x \\in A$ และ $0 < |\\sin x - \\cos 2x| < 1]$",
+   "$\\forall x\\,[x \\in A \\to |\\sin x - \\cos 2x| > 1]$",
+   "$\\exists x\\,[x \\in A$ และ $|\\sin x - \\cos 2x| \\ge 1]$",
+   "$\\forall x\\,[x \\in A \\to 0 < |\\sin x - \\cos 2x| \\le 1]$"
+  ],
+  "correct": 2,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-06-matrix-q45",
+  "question": "ให้ $A = \\left\\{x \\;\\middle|\\; \\begin{bmatrix} \\cos^2 x & 1 \\\\ 2 - \\sin x & 2 \\end{bmatrix} \\text{เป็นเมทริกซ์เอกฐาน และ } x \\in [0, \\pi]\\right\\}$\nข้อใดต่อไปนี้ถูก",
+  "subTopics": [
+   "6.5",
+   "2.10"
+  ],
+  "topics": [
+   "6"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "ก. ถูก และ ข. ถูก",
+   "ก. ถูก และ ข. ผิด",
+   "ก. ผิด และ ข. ถูก",
+   "ก. ผิด และ ข. ผิด"
+  ],
+  "correct": 0,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-06-matrix-q66",
+  "question": "พิจารณาข้อความต่อไปนี้\nก. ถ้า $x \\in \\mathbb{R}$ และ $\\det\\left(\\begin{bmatrix} x & x & x \\\\ 1 & x & x \\\\ 1 & 1 & x \\end{bmatrix}\\right) = -4$ แล้ว $|x| \\le 2$\nข. กำหนดให้ $a, b \\in \\mathbb{R}$ และ $A = \\begin{bmatrix} a & 2 \\\\ 2b & 3 \\end{bmatrix}$ ถ้า $A = b\\,\\text{adj}\\,A$ แล้ว $|a+b| \\ge 2$\nข้อใดต่อไปนี้เป็นจริง",
+  "subTopics": [
+   "6.5",
+   "6.8"
+  ],
+  "topics": [
+   "6"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$20$",
+   "$9$",
+   "$-9$",
+   "$-20$"
+  ],
+  "correct": 3,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-06-matrix-q87",
+  "question": "กำหนดระบบสมการเชิงเส้น\n$2x + 4y + z = 1$\n$x + 2y = -2$\n$-x - 3y + 2z = 3$\nค่าของ $x$ ที่เป็นคำตอบของระบบสมการนี้เท่ากับข้อใดต่อไปนี้",
+  "subTopics": [
+   "6.10",
+   "6.9"
+  ],
+  "topics": [
+   "6"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$\\dfrac{2}{3}(\\sqrt{3} - \\sqrt{2})$",
+   "$\\dfrac{2\\sqrt{3}}{3}(\\sqrt{3} - \\sqrt{2})$",
+   "$\\dfrac{2}{3}(\\sqrt{2} - \\sqrt{6})$",
+   "$\\dfrac{2}{\\sqrt{3}}(\\sqrt{6} - \\sqrt{2})$"
+  ],
+  "correct": 1,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-08-explog-q09",
+  "question": "$\\dfrac{(\\sqrt{32} - \\sqrt{243}) + (\\sqrt{72} + \\sqrt{27})}{(\\sqrt{12} + 3\\sqrt{8}) - (\\sqrt{75} - \\sqrt{48})}$ มีค่าเท่ากับจำนวนในข้อใดต่อไปนี้",
+  "subTopics": [
+   "8.2"
+  ],
+  "topics": [
+   "8"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$\\sqrt{8 - 2x} + x = 0$",
+   "$\\log_{x+6} (2x^2 + 14x + 28) = 2$",
+   "$\\left(\\dfrac{2}{3}\\right)^x \\left(\\dfrac{9}{4}\\right)^{x-1} = 1$",
+   "$\\log_5 \\log_{x+6} \\log_3 9 = 0$"
+  ],
+  "correct": 1,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-08-explog-q125",
+  "question": "เซตคำตอบของสมการ $2^{x+2} - 9\\sqrt{2^x} + 2 = 0$ เท่ากับเซตคำตอบของสมการในข้อใด",
+  "subTopics": [
+   "8.4",
+   "8.1"
+  ],
+  "topics": [
+   "8"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$0.6280$",
+   "$0.6285$",
+   "$0.6290$",
+   "$0.6295$"
+  ],
+  "correct": 1,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-08-explog-q146",
+  "question": "จงหาค่าของ $(0.0981)^{1/5}$ โดยอาศัยข้อมูลต่อไปนี้\n$\\log(0.0981) = -1.0083$ , $\\log(9.81) = 0.9917$\n$\\log(6.280) = 0.7979$ , $\\log(6.285) = 0.7983$",
+  "subTopics": [
+   "8.11",
+   "8.7"
+  ],
+  "topics": [
+   "8"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "10",
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-08-explog-q167",
+  "question": "กำหนดให้ $a$ และ $b$ เป็นจำนวนจริงบวกที่สอดคล้องกับสมการ\n$\\log(1 + a^2) - \\log(a) - 2\\log(2) = 1 - \\log(100 + b^2) + \\log(b)$\nค่าของ $ab$ เท่ากับเท่าใด",
+  "subTopics": [
+   "8.9",
+   "8.7"
+  ],
+  "topics": [
+   "8"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "1 + √2",
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-08-explog-q199",
+  "question": "ถ้า $a$ และ $b$ เป็นจำนวนจริงบวกที่สอดคล้องกับ $\\log_9(a) = \\log_{15}(b) = \\log_{25}(a + 2b)$\nแล้ว ค่าของ $\\dfrac{b}{a}$ เท่ากับเท่าใด",
+  "subTopics": [
+   "8.9",
+   "8.4"
+  ],
+  "topics": [
+   "8"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$A$ มีคุณสมบัติปิด",
+   "$1$ เป็นเอกลักษณ์ใน $A$",
+   "มีสมาชิกบางตัวของ $A$ ที่ไม่มีอินเวอร์สใน $A$",
+   "อินเวอร์สของ $2$ คือ $\\dfrac{1}{2}$"
+  ],
+  "correct": 2,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-08-explog-q37",
+  "question": "กำหนดให้ $A = \\{ x \\mid x = 2^k, k$ เป็นจำนวนเต็ม $\\}$\nและการดำเนินการบน $A$ คือการคูณของจำนวนจริง ข้อใดต่อไปนี้<u>ผิด</u>",
+  "subTopics": [
+   "8.1"
+  ],
+  "topics": [
+   "8"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$x = \\log_{\\log 2} \\sqrt{\\dfrac{5(y + 1)}{7(1 + 2y)}}$",
+   "$x = \\log_{\\log 2} \\sqrt{\\dfrac{5(y - 1)}{7(1 - 2y)}}$",
+   "$x = \\log_{\\log 2} \\sqrt{\\dfrac{7(y + 1)}{5(1 + 2y)}}$",
+   "$x = \\log_{\\log 2} \\sqrt{\\dfrac{7(y - 1)}{5(1 - 2y)}}$",
+   "ไม่มีคำตอบที่ถูกต้อง"
+  ],
+  "correct": 0,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-08-explog-q58",
+  "question": "กำหนดให้ $y = \\dfrac{7(\\log 2)^x - 5(\\log 2)^{-x}}{5(\\log 2)^{-x} - 14(\\log 2)^x}$ แล้ว $x$ จะมีค่าเท่ากับ",
+  "subTopics": [
+   "8.4",
+   "8.6"
+  ],
+  "topics": [
+   "8"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$\\left\\{ 3^{-1/3}, 3^2 \\right\\}$",
+   "$\\left\\{ 3^{-1/3}, 3^{4/3} \\right\\}$",
+   "$\\left\\{ 3^{4/3}, 3^2 \\right\\}$",
+   "$\\left\\{ 3^{-1/3}, 3^{2/3} \\right\\}$"
+  ],
+  "correct": 1,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-08-explog-q93",
+  "question": "กำหนดให้ $A$ เป็นเซตคำตอบของสมการ $x^{\\log_3 x^3} = 9x$\nและ $B$ เป็นเซตคำตอบของสมการ $\\log_3 x^x = \\dfrac{x}{3}$\nถ้า $C = \\{ ab \\mid a \\in A$ และ $b \\in B \\}$ แล้วเซตในข้อใดต่อไปนี้เป็นสับเซตของ $C$",
+  "subTopics": [
+   "8.9",
+   "8.7"
+  ],
+  "topics": [
+   "8"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "7",
+  "difficulty": "ง่าย",
+  "hasImage": false,
+  "id": "chap-09-vector-q120",
+  "question": "จงหาพื้นที่ของรูปสี่เหลี่ยมด้านขนาน ที่มีเวกเตอร์ $\\overline{A} = \\overline{i} + 2\\overline{j}$ และ $\\overline{B} = 3\\overline{i} - \\overline{j}$ เป็นด้านประกอบ",
+  "subTopics": [
+   "9.8",
+   "9.7"
+  ],
+  "topics": [
+   "9"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$\\left(0, \\dfrac{\\pi}{6}\\right)$",
+   "$\\left(\\dfrac{\\pi}{6}, \\dfrac{\\pi}{4}\\right)$",
+   "$\\left(\\dfrac{\\pi}{4}, \\dfrac{\\pi}{3}\\right)$",
+   "$\\left(\\dfrac{\\pi}{3}, \\dfrac{\\pi}{2}\\right)$"
+  ],
+  "correct": 1,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-09-vector-q41",
+  "question": "กำหนดให้ $|\\overline{u}| = \\dfrac{\\sqrt{2}}{2} ,\\ |\\overline{u} + \\overline{v}| = 5 ,\\ |\\overline{u} - \\overline{v}| = 4$ ถ้า $\\theta$ เป็นมุมระหว่าง $\\overline{u}$ และ $\\overline{v}$\nแล้ว $\\theta$ อยู่ในช่วงใดต่อไปนี้",
+  "subTopics": [
+   "9.6",
+   "9.5"
+  ],
+  "topics": [
+   "9"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "(3/√2)ī + (3/√2)j̄",
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-09-vector-q94",
+  "question": "จงหาเวกเตอร์ที่มีขนาด $3$ หน่วย และมีทิศทางเดียวกันกับ $\\overrightarrow{AB}$ เมื่อ $B$ มีพิกัด $(6, 1)$\n$A$ เป็นจุดตัดของเส้นตรง $x - 4y - 11 = 0$ กับเส้นตรงซึ่งมีความชันเท่ากับ $\\dfrac{2}{3}$ และผ่านจุด $(6, 0)$",
+  "subTopics": [
+   "9.4",
+   "9.3",
+   "4.3"
+  ],
+  "topics": [
+   "9"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": [],
+  "correct": "-4, 3, 3 + i, 3 - i",
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-10-complex-q114",
+  "question": "รากของสมการ $x^4 - 5x^3 - 8x^2 + 82x - 120 = 0$ ที่เป็นไปได้ทั้งหมดได้แก่อะไรบ้าง",
+  "subTopics": [
+   "10.7",
+   "10.1"
+  ],
+  "topics": [
+   "10"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$4\\sqrt3$",
+   "$8\\sqrt3$",
+   "$4$",
+   "$8$",
+   "$4 + 4\\sqrt3$"
+  ],
+  "correct": 3,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-10-complex-q34",
+  "question": "กำหนดให้ $z_1$ และ $z_2$ เป็นรากของสมการ $x^2 = -2 - 2\\sqrt3\\,i$ ค่าของ $|z_1|^2 + |z_2|^2$ เป็นเท่าใด",
+  "subTopics": [
+   "10.3",
+   "10.6"
+  ],
+  "topics": [
+   "10"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$8$",
+   "$12$",
+   "$16$",
+   "$20$"
+  ],
+  "correct": 3,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-10-complex-q60",
+  "question": "ถ้า $\\dfrac34 + \\dfrac{\\sqrt{39}}{4}i$ เป็นคำตอบหนึ่งของสมการ $ax^2 - 3x + c = 0$ โดยที่ $a$ และ $c$ เป็นจำนวนจริง แล้ว เศษที่เหลือจากการหาร $ax^2 - 3x + c$ ด้วย $x + 2$ เท่ากับข้อใดต่อไปนี้",
+  "subTopics": [
+   "10.7",
+   "10.3",
+   "3.5"
+  ],
+  "topics": [
+   "10"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$6 - 8i$",
+   "$7 - 9i$",
+   "$6 + 8i$",
+   "$7 + 9i$"
+  ],
+  "correct": 1,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-10-complex-q83",
+  "question": "กำหนดให้ $A = 1 + 2i$, $B = 2 + 3i$, $C = 3 + 4i$ จงหาค่าของ $\\dfrac{(\\bar{B} + C)\\,|C|}{A}$ โดยที่ $\\bar{B}$ คือสังยุคของ $B$ และ $|C|$ คือค่าสัมบูรณ์ของ $C$",
+  "subTopics": [
+   "10.2",
+   "10.3"
+  ],
+  "topics": [
+   "10"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$2{,}700$",
+   "$5{,}400$",
+   "$7{,}122$",
+   "$10{,}800$"
+  ],
+  "correct": 1,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-11-sequence-q09",
+  "question": "ถ้า $S = \\{200, 201, 202, \\dots, 400\\}$ แล้วผลบวกทั้งหมดของจำนวนในเซต $S$ ที่หารด้วย $8$ ลงตัว แต่หารด้วย $12$ ไม่ลงตัว เท่ากับข้อใดต่อไปนี้",
+  "subTopics": [
+   "11.4",
+   "11.2",
+   "17.3"
+  ],
+  "topics": [
+   "11"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$1{,}527.20$ บาท",
+   "$7{,}872.80$ บาท",
+   "$8{,}127.20$ บาท",
+   "$9{,}436.00$ บาท"
+  ],
+  "correct": 1,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-11-sequence-q31",
+  "question": "นายออมทรัพย์นำเงินไปฝากธนาคารออมสิน เดือนแรก 100 บาท เดือนถัด ๆ ไปเขาฝากเพิ่มขึ้นเดือนละ 100 บาท ทุก ๆ เดือน ธนาคารออมสินคิดดอกเบี้ยให้แบบไม่ทบต้นในอัตราร้อยละ 0.20 บาทต่อเดือน เมื่อครบปีนายออมทรัพย์จะมีเงินรวมเท่ากับข้อใดต่อไปนี้",
+  "subTopics": [
+   "11.8",
+   "11.4",
+   "18.1"
+  ],
+  "topics": [
+   "11"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "364",
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-11-sequence-q52",
+  "question": "ให้ $a$ เป็นจำนวนเต็มบวกที่ $4$ และ $7$ หารลงตัว และผลบวกของจำนวนเต็มตั้งแต่ $9$ ถึง $a$ ที่ $7$ หารลงตัวแต่ $4$ หารไม่ลงตัว มีค่าเท่ากับ $7091$ แล้ว $a$ มีค่าเท่ากับเท่าใด",
+  "subTopics": [
+   "11.4",
+   "17.3"
+  ],
+  "topics": [
+   "11"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "648",
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-12-probability-q05",
+  "question": "ในคณะกรรมการนักเรียนจำนวน 10 คน จะมีวิธีเลือก ประธาน รองประธาน และเลขานุการ ได้กี่วิธี ถ้ากรรมการคนหนึ่งไม่สมัครที่จะเป็นประธาน",
+  "subTopics": [
+   "12.1",
+   "12.2"
+  ],
+  "topics": [
+   "12"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$\\dfrac{11}{66}$",
+   "$\\dfrac{14}{66}$",
+   "$\\dfrac{20}{66}$",
+   "$\\dfrac{23}{66}$"
+  ],
+  "correct": 1,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-12-probability-q116",
+  "question": "ห้างสรรพสินค้าแห่งหนึ่งจัดรายการสมนาคุณแก่ลูกค้า โดยให้ลูกค้าทุกคนสุ่มหยิบคูปองส่วนลดได้ $2$ ใบ จากกล่องซึ่งมีคูปองทั้งหมด $12$ ใบ ซึ่งมีคูปองมูลค่า $50$ บาท $5$ ใบ คูปองมูลค่า $100$ บาท $3$ ใบ คูปองมูลค่า $200$ บาท $3$ ใบ และคูปองมูลค่า $500$ บาท $1$ ใบ ความน่าจะเป็นที่ลูกค้าคนหนึ่งจะสุ่มหยิบคูปอง $2$ ใบ และได้คูปองที่มีมูลค่าส่วนลดรวมมากกว่า $300$ บาท มีค่าเท่ากับข้อใดต่อไปนี้",
+  "subTopics": [
+   "12.7",
+   "12.3"
+  ],
+  "topics": [
+   "12"
+  ],
+  "type": "mc",
+  "hint": null
+ }
+]

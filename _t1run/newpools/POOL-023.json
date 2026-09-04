@@ -1,0 +1,938 @@
+[
+ {
+  "choices": null,
+  "correct": "~f, b",
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-02-logic-q102",
+  "question": "พิจารณาการอ้างเหตุผลต่อไปนี้\n\nเหตุ:\n(1) $a \\rightarrow (\\sim b \\vee c)$\n(2) $\\sim a \\rightarrow \\sim d$\n(3) $d \\vee f$\n(4) ............\n(5) ............\n\nผล: $c$\n\nจงเติมเหตุที่ 4, 5 เพื่อให้การอ้างเหตุผลนี้สมเหตุสมผล (ตอบในรูป เหตุที่ 4, เหตุที่ 5)",
+  "subTopics": [
+   "2.8",
+   "2.7"
+  ],
+  "topics": [
+   "2"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$\\sim p \\to (q \\vee r)$",
+   "$\\sim p \\to (q \\wedge r)$",
+   "$p \\vee q \\vee \\sim r$",
+   "$p \\wedge q \\wedge \\sim r$"
+  ],
+  "correct": 3,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-02-logic-q14",
+  "question": "กำหนดให้ ประพจน์ $(\\sim p \\leftrightarrow \\sim r) \\vee (p \\leftrightarrow q)$ มีค่าความจริงเป็นเท็จ ประพจน์ใดต่อไปนี้มีค่าความจริงเป็นเท็จ",
+  "subTopics": [
+   "2.1",
+   "2.2"
+  ],
+  "topics": [
+   "2"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "ก. สมเหตุสมผล ข. สมเหตุสมผล",
+   "ก. สมเหตุสมผล ข. ไม่สมเหตุสมผล",
+   "ก. ไม่สมเหตุสมผล ข. สมเหตุสมผล",
+   "ก. ไม่สมเหตุสมผล ข. ไม่สมเหตุสมผล"
+  ],
+  "correct": 0,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-02-logic-q35",
+  "question": "พิจารณาการอ้างเหตุผลต่อไปนี้ เมื่อ $p, q$ และ $r$ เป็นประพจน์\n\nก. เหตุ $(1)\\;p \\vee (p \\wedge \\sim q)$, $\\;\\;(2)\\;q$; $\\;\\;$ผล $q$\n\nข. เหตุ $(1)\\;\\sim p \\to r$, $\\;\\;(2)\\;\\sim r \\vee s$, $\\;\\;(3)\\;\\sim s$; $\\;\\;$ผล $p$\n\nข้อใดถูก",
+  "subTopics": [
+   "2.8",
+   "2.5"
+  ],
+  "topics": [
+   "2"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "ในกรณีที่ $\\forall x [\\, P(x) \\,]$ มีค่าความจริงเป็นเท็จ อาจมีกรณีที่ $\\exists x [\\, P(x) \\,]$ มีค่าความจริงเป็นจริง",
+   "ประโยค \"ถ้าเขียน $\\sqrt{3}$ ให้อยู่ในรูปทศนิยมแล้ว จะได้ทศนิยมตำแหน่งที่ห้าสิบ คือ 2\" ไม่เป็นประพจน์ เพราะไม่สามารถสรุปได้ทันทีว่าประโยคนี้มีค่าความจริงเป็นอย่างไร",
+   "ให้ $p, q, r$ และ $s$ เป็นประพจน์ใดๆ โดยที่ $p$ มีค่าความจริงเป็นจริง, $q$ มีค่าความจริงเป็นเท็จ จะได้ประพจน์ $(\\sim p \\wedge s) \\to [(q \\vee \\sim r) \\wedge (s \\leftrightarrow p)]$ มีค่าความจริงเป็นจริง",
+   "ประโยค \"ถ้า $x $ ≠ $ 2$ แล้ว $x^2 < -1$\" เป็นประโยคเปิด",
+   "นิเสธ $\\exists x [\\, \\sim P(x) \\,]$ คือ $\\forall x [\\, P(x) \\,]$"
+  ],
+  "correct": 1,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-02-logic-q57",
+  "question": "ข้อความต่อไปนี้ข้อใดไม่ถูกต้อง",
+  "subTopics": [
+   "2.9",
+   "2.1"
+  ],
+  "topics": [
+   "2"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "เนื่องจากราคาน้ำตาลสูงขึ้น จึงสรุปได้ว่าพ่อค้ากักตุนน้ำตาล",
+   "เนื่องจากพ่อค้าไม่ได้กักตุนน้ำตาล จึงสรุปได้ว่าราคาน้ำตาลไม่ได้สูงขึ้น",
+   "เนื่องจากราคาน้ำตาลไม่สูงขึ้น จึงสรุปได้ว่าพ่อค้าไม่ได้กักตุนน้ำตาล",
+   "มีข้อถูกมากกว่า 1 ข้อ"
+  ],
+  "correct": 2,
+  "difficulty": "ง่าย",
+  "hasImage": false,
+  "id": "chap-02-logic-q85",
+  "question": "ถ้าประพจน์ \"ถ้าพ่อค้ากักตุนน้ำตาล แล้วราคาน้ำตาลจะสูงขึ้น\" เป็นความจริง ข้อใดเป็นการให้เหตุผลที่ถูกต้อง",
+  "subTopics": [
+   "2.8",
+   "2.7"
+  ],
+  "topics": [
+   "2"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "มีจำนวนตรรกยะ $a \\ne 0$ และจำนวนอตรรกยะ $b$ ซึ่ง $ab$ เป็นจำนวนตรรกยะ",
+   "ถ้า $a, b$ เป็นจำนวนตรรกยะบวก แล้ว $a^{b}$ เป็นจำนวนตรรกยะเสมอ",
+   "มีจำนวนอตรรกยะ $a, b$ ซึ่ง $a \\ne -b$ และ $a + b$ เป็นจำนวนตรรกยะ",
+   "ถ้า $a, b$ เป็นจำนวนอตรรกยะ และ $b \\ne \\dfrac{1}{a}$ แล้ว $ab$ เป็นจำนวนอตรรกยะเสมอ"
+  ],
+  "correct": 2,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-03-realnumber-q07",
+  "question": "ข้อใดต่อไปนี้ถูก",
+  "subTopics": [
+   "3.1"
+  ],
+  "topics": [
+   "3"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "3",
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-03-realnumber-q119",
+  "question": "กำหนดให้ $A = \\{-3, 1, 2\\}$ เป็นเซตของสัมประสิทธิ์ของสมการ $ax^2+bx+c = 0$\nถ้าสัมประสิทธิ์ $a$, $b$, $c$ ในแต่ละสมการมีค่าไม่เท่ากัน\nแล้ว ผลบวกของรากทั้งหมดของทุกสมการมีค่าเท่าใด",
+  "subTopics": [
+   "3.4"
+  ],
+  "topics": [
+   "3"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$(2 * 3) * 4 \\ne 2 * (3 * 4)$",
+   "เอกลักษณ์ของ \"$*$\" ใน $\\mathbb{Z}$ คือ 8",
+   "อินเวอร์สของ $a$ สำหรับ \"$*$\" ใน $\\mathbb{Z}$ คือ $-a$",
+   "\"$*$\" ไม่มีสมบัติการสลับที่"
+  ],
+  "correct": 1,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-03-realnumber-q14",
+  "question": "กำหนดให้ $a * b = a + b - 8$ ทุก ๆ $a, b \\in \\mathbb{Z}$ เมื่อ $\\mathbb{Z}$ คือ เซตของจำนวนเต็ม\nข้อใดต่อไปนี้ถูก",
+  "subTopics": [
+   "3.1"
+  ],
+  "topics": [
+   "3"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "21",
+  "difficulty": "ง่าย",
+  "hasImage": false,
+  "id": "chap-03-realnumber-q180",
+  "question": "ถ้าจำนวนเต็มบวกสองจำนวนมี ห.ร.ม. เป็น $3$ และ ค.ร.น. เป็น $30$\nโดยที่ผลต่างของสองจำนวนนี้เป็น $9$ จงหาผลบวกของสองจำนวนนี้",
+  "subTopics": [
+   "3.12",
+   "17.2"
+  ],
+  "topics": [
+   "3"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$a$ มีหนึ่งค่า $b$ มีค่าบวกหนึ่งค่า ลบหนึ่งค่า",
+   "$a$ มีหนึ่งค่า $b$ มีค่าบวกสองค่า",
+   "$a$ มีหนึ่งค่า $b$ มีสามค่า",
+   "$a$ มีหนึ่งค่า $b$ มีหนึ่งค่า",
+   "ไม่มีค่า $a, b$ ใด ที่จะทำให้ $x$ มีค่าเป็น 1, 2 และ 3 ทั้งสามค่าได้"
+  ],
+  "correct": 3,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-03-realnumber-q31",
+  "question": "จากสมการ $(x + 1)^{2} = \\sqrt{x^{3} + ax^{2} + 31x + 19} + (x + b)(x - 2)$\nจงหาจำนวนของค่า $a$ และ $b$ ที่ทำให้ $x = 1, 2, 3$",
+  "subTopics": [
+   "3.10",
+   "3.4"
+  ],
+  "topics": [
+   "3"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$84$",
+   "$92$",
+   "$100$",
+   "$125$"
+  ],
+  "correct": 0,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-03-realnumber-q85",
+  "question": "จำนวนสมาชิกในเซต $\\{100, 101, 102, \\ldots, 600\\}$ ซึ่งหารด้วย $8$ หรือ $12$ ลงตัว เท่ากับข้อใดต่อไปนี้",
+  "subTopics": [
+   "3.12",
+   "17.3"
+  ],
+  "topics": [
+   "3"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$(g \\circ f)(1) = 2$",
+   "$(g \\cdot f)(1) = 2$",
+   "$\\left(\\dfrac{g}{f}\\right)(1) = 2$",
+   "$(g - f)(1) = 2$"
+  ],
+  "correct": 3,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-05-function-q106",
+  "question": "ให้ $f : \\mathbb{R} \\to \\mathbb{R}^{+}$ เมื่อ $\\mathbb{R}^{+}$ เป็นเซตของจำนวนจริงบวก และ $g : \\mathbb{R} \\to \\mathbb{R}$\nถ้ากำหนดให้ $(g \\circ f)(x) = 3(f(x))^2 - 2f(x) + 1$ และ $g(x) = x^2 - x + 2$\nข้อใดต่อไปนี้ผิด",
+  "subTopics": [
+   "5.7",
+   "5.4"
+  ],
+  "topics": [
+   "5"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "-3",
+  "difficulty": "ง่าย",
+  "hasImage": false,
+  "id": "chap-05-function-q136",
+  "question": "จากข้อที่แล้ว ให้ $h$ เป็นฟังก์ชันที่เป็นคาบ โดยที่คาบของ $h$ เท่ากับ 2 และ $h(x) = f(x)$ ทุก $x \\in [-1, 1)$ จงหา $h(100)$",
+  "subTopics": [
+   "5.4"
+  ],
+  "topics": [
+   "5"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "45",
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-05-function-q166",
+  "question": "กำหนดให้ $A = \\{1, 2, 3, \\ldots, 10\\}$ และ $r$ เป็นความสัมพันธ์ภายใน $A$\nโดยที่ $r = \\{ (a, b) \\mid a$ เป็นจำนวนเฉพาะ หรือ $\\dfrac{b}{a}$ เป็นจำนวนเฉพาะ $\\}$\nจำนวนสมาชิกของ $r$ เป็นเท่าใด",
+  "subTopics": [
+   "5.1",
+   "17.5"
+  ],
+  "topics": [
+   "5"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "$f(x) = 2 - x^2$",
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-05-function-q188",
+  "question": "จงหาฟังก์ชัน $f : \\mathbb{R} \\to \\mathbb{R}$ ทั้งหมด ที่มีสมบัติว่า $x f(x) - f(1 - x) = -1 + x^2 - x^3$ ทุก $x \\in \\mathbb{R}$",
+  "subTopics": [
+   "5.15",
+   "5.4"
+  ],
+  "topics": [
+   "5"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": [
+   "จำนวนของความสัมพันธ์ทั้งหมดจาก $A$ ไป $A$ เท่ากับ 4",
+   "จำนวนของฟังก์ชันทั้งหมดจาก $A$ ไป $A$ เท่ากับ 4",
+   "จำนวนฟังก์ชันคงที่จาก $A$ ไป $A$ เท่ากับ 1",
+   "อินเวอร์สของแต่ละฟังก์ชันจาก $A$ ไป $A$ ไม่เป็นฟังก์ชัน"
+  ],
+  "correct": 1,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-05-function-q37",
+  "question": "กำหนดให้ $A = \\{1, 2\\}$ ข้อความในข้อใดต่อไปนี้ถูกต้อง",
+  "subTopics": [
+   "5.1",
+   "5.4"
+  ],
+  "topics": [
+   "5"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "ไม่มีจำนวนจริง $x$ ใดๆ ที่เมื่อ $F(x) = x^2 - 4x - 4$ แล้ว $F(x) = -x$",
+   "ถ้า $x$ และ $y$ เป็นจำนวนจริงที่ $x + y > 0$ แล้ว $|x + y| \\le |x| + |y|$",
+   "ถ้า $r \\subset A \\times B$ แล้ว $r$ เป็นความสัมพันธ์จาก $A$ ไป $B$",
+   "มีเซต $A$ และ $B$ ซึ่ง $A \\times B$ มีจำนวนสมาชิกเท่ากับ 7",
+   "ถ้าเรนจ์ของฟังก์ชัน $f$ เป็นสับเซตของโดเมนของฟังก์ชัน $g$ แล้ว สามารถหา $g \\circ f$ ได้"
+  ],
+  "correct": 0,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-05-function-q61",
+  "question": "ข้อความใดไม่จริง",
+  "subTopics": [
+   "5.5",
+   "5.4"
+  ],
+  "topics": [
+   "5"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$r^{-1} \\circ s^{-1} = s^{-1} \\circ r^{-1}$",
+   "$r^{-1} \\circ s^{-1} = r^{-1}$",
+   "$r^{-1} \\circ r^{-1} = r^{-1}$",
+   "$s^{-1} \\circ s^{-1} = s^{-1}$"
+  ],
+  "correct": 2,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-05-function-q83",
+  "question": "กำหนดให้ $r = \\{ (x, y) \\in \\mathbb{R} \\times \\mathbb{R} \\mid x = y^2 + 1 \\}$\nและ $s = \\{ (x, y) \\in \\mathbb{R} \\times \\mathbb{R} \\mid x = |y| \\}$\nข้อความใดต่อไปนี้เป็นเท็จ",
+  "subTopics": [
+   "5.3",
+   "5.7"
+  ],
+  "topics": [
+   "5"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$\\dfrac{29}{36}$",
+   "$\\dfrac{27}{36}$",
+   "$\\dfrac{19}{36}$",
+   "$\\dfrac{17}{36}$"
+  ],
+  "correct": 1,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-06-matrix-q06",
+  "question": "กำหนดให้ $A = \\begin{bmatrix} x+y & 2 \\\\ 3 & z \\end{bmatrix}$, $B = \\begin{bmatrix} 2 & y \\\\ -2 & y \\end{bmatrix}$, $C = \\begin{bmatrix} 1 & a \\\\ 0 & 1 \\end{bmatrix}$\nถ้า $AB = C$ แล้ว $a$ จะมีค่าเท่ากับข้อใดต่อไปนี้",
+  "subTopics": [
+   "6.3",
+   "6.1"
+  ],
+  "topics": [
+   "6"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$\\varnothing$",
+   "$\\{-\\sqrt{2}, \\sqrt{2}\\}$",
+   "$\\{-\\sqrt{7}, \\sqrt{7}\\}$",
+   "$\\{-\\sqrt{\\dfrac{19}{3}}, \\sqrt{\\dfrac{19}{3}}\\}$"
+  ],
+  "correct": 2,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-06-matrix-q116",
+  "question": "กำหนดให้ $A = \\begin{bmatrix} k & -2 \\\\ 1 & k \\end{bmatrix}$\nถ้า $k$ เป็นจำนวนจริงที่สอดคล้องกับสมการ $\\det(A^2) - \\det(A^t) - \\det(2I) = k^4 + 19$\nเมื่อ $I$ คือเมทริกซ์มิติ $2 \\times 2$ ที่เป็นเอกลักษณ์การคูณ แล้ว เซตของ $k$ เท่ากับข้อใด",
+  "subTopics": [
+   "6.6",
+   "6.5"
+  ],
+  "topics": [
+   "6"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$(0, \\dfrac{1}{5})$",
+   "$(\\dfrac{1}{5}, \\dfrac{2}{5})$",
+   "$(\\dfrac{2}{5}, \\dfrac{3}{5})$",
+   "$(\\dfrac{3}{5}, \\dfrac{4}{5})$"
+  ],
+  "correct": 0,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-06-matrix-q135",
+  "question": "กำหนดให้ $A$ เป็นเมทริกซ์ $5 \\times 5$\nถ้า $\\det A = 2$ แล้ว $[\\det A^{-1}]^2 - \\det\\!\\left[(\\text{adj}\\,A)^{-1}\\right]$ มีค่าอยู่ในช่วงใด",
+  "subTopics": [
+   "6.8",
+   "6.6"
+  ],
+  "topics": [
+   "6"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$A * A = A^2$",
+   "$A * B = B * A$",
+   "$(A * B) * C = A * (B * C)$",
+   "$A * (B + C) = (A * B) + (A * C)$"
+  ],
+  "correct": 2,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-06-matrix-q17",
+  "question": "กำหนดให้ $A, B$ และ $C$ เป็นเมทริกซ์ $2 \\times 2$ ใด ๆ\nถ้านิยาม $A * B = \\dfrac{1}{2}(AB + BA)$ แล้วข้อสรุปใดต่อไปนี้ไม่จริง",
+  "subTopics": [
+   "6.3",
+   "6.2"
+  ],
+  "topics": [
+   "6"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$4$",
+   "$8$",
+   "$12$",
+   "$18$"
+  ],
+  "correct": 3,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-06-matrix-q39",
+  "question": "กำหนดให้ $A = \\begin{bmatrix} x & 5 & -1 \\\\ 0 & 4 & -2 \\\\ 0 & 0 & -x \\end{bmatrix}$ โดยที่ $\\det A = -1$ และ $x$ เป็นจำนวนจริง\nถ้า $I$ เป็นเมทริกซ์เอกลักษณ์ขนาด $3 \\times 3$ แล้ว $\\det(2(I - A)A^t)$ มีค่าเท่ากับข้อใดต่อไปนี้",
+  "subTopics": [
+   "6.6",
+   "6.5"
+  ],
+  "topics": [
+   "6"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$\\dfrac{1}{2}\\begin{bmatrix} -1 & 1 \\\\ -2 & 1 \\end{bmatrix}$",
+   "$\\dfrac{1}{2}\\begin{bmatrix} -1 & -1 \\end{bmatrix}$",
+   "$\\dfrac{1}{2}\\begin{bmatrix} -1 & -2 \\\\ 1 & 1 \\end{bmatrix}$",
+   "$\\dfrac{1}{2}\\begin{bmatrix} -1 & 2 \\\\ -1 & 1 \\end{bmatrix}$"
+  ],
+  "correct": 0,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-06-matrix-q62",
+  "question": "ถ้า $A = \\begin{bmatrix} a & -1 \\\\ 2 & 0 \\end{bmatrix}$ และ $B$ เป็นเมทริกซ์ซึ่ง $BA = A^{-1}$ และ $2B - 2A^{-1} + I = \\underline{0}$\nแล้วเมทริกซ์ $B$ คือข้อใดต่อไปนี้",
+  "subTopics": [
+   "6.7",
+   "6.5"
+  ],
+  "topics": [
+   "6"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$\\dfrac{1}{3}A$",
+   "$-3A$",
+   "$\\dfrac{1}{3}A^t$",
+   "$-3A^t$"
+  ],
+  "correct": 0,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-06-matrix-q83",
+  "question": "ให้ $A, B$ เป็นเมทริกซ์จัตุรัสมิติ $3 \\times 3$ และ $I$ เป็นเมทริกซ์เอกลักษณ์มิติ $3 \\times 3$\nถ้า $AB = BA = I$ และ $A = \\begin{bmatrix} 1 & 1 & -1 \\\\ 2 & 1 & 3 \\\\ 1 & 0 & 1 \\end{bmatrix}$\nแล้วเมทริกซ์ผูกพันของ $B$ (หรือ $\\text{adj}\\,B$) เท่ากับข้อใดต่อไปนี้",
+  "subTopics": [
+   "6.8",
+   "6.7",
+   "6.5"
+  ],
+  "topics": [
+   "6"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$|\\cos 1^\\circ|^{\\frac{1}{5}} > |\\cos 1^\\circ|^{\\frac{1}{6}}$",
+   "$|\\csc 2^\\circ|^{\\frac{1}{5}} < |\\csc 2^\\circ|^{\\frac{1}{6}}$",
+   "$(1 + |\\sin 45^\\circ|)^{\\frac{1}{5}} < (1 + |\\sin 45^\\circ|)^{\\frac{1}{6}}$",
+   "$\\left(\\arctan \\dfrac{1+\\sqrt{3}}{1-\\sqrt{3}}\\right)^{\\frac{1}{5}} > \\left(\\arctan \\dfrac{1+\\sqrt{3}}{1-\\sqrt{3}}\\right)^{\\frac{1}{6}}$",
+   "ไม่มีคำตอบใดถูก"
+  ],
+  "correct": 4,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-08-explog-q05",
+  "question": "ข้อความต่อไปนี้ข้อใดถูกต้อง",
+  "subTopics": [
+   "8.1"
+  ],
+  "topics": [
+   "8"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$\\dfrac{1}{2}$",
+   "$\\dfrac{17}{2}$",
+   "$\\dfrac{7}{2}$",
+   "$\\dfrac{19}{2}$"
+  ],
+  "correct": 2,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-08-explog-q120",
+  "question": "ให้ $A = \\left\\{ x \\in \\mathbb{R} \\mid 2x^2 + 3 = 7x + 3\\sqrt{2x^2 - 7x + 7} \\right\\}$\nผลบวกของสมาชิกในเซต $A$ ตรงกับข้อใด",
+  "subTopics": [
+   "8.2",
+   "3.10"
+  ],
+  "topics": [
+   "8"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "11",
+  "difficulty": "ง่าย",
+  "hasImage": false,
+  "id": "chap-08-explog-q142",
+  "question": "กำหนดให้ $a = \\dfrac{\\log 2}{\\log 3}$ จงหาค่า $y$ เมื่อ $y = 3^{2a+1} - 1$",
+  "subTopics": [
+   "8.7",
+   "8.6"
+  ],
+  "topics": [
+   "8"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "71/14",
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-08-explog-q162",
+  "question": "จงแก้สมการ $\\log(2x - 3) = \\log(x - 5) + 2$",
+  "subTopics": [
+   "8.9",
+   "8.7"
+  ],
+  "topics": [
+   "8"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "−8 และ 2",
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-08-explog-q185",
+  "question": "จงหาจำนวนจริง $x$ ทั้งหมดที่สอดคล้องกับสมการ $\\log_4 \\log_2 \\log_{1/2}\\left(3^{\\log_{1/3}(x^2 + 6x)}\\right) = \\dfrac{1}{2}$",
+  "subTopics": [
+   "8.9",
+   "8.7"
+  ],
+  "topics": [
+   "8"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "5",
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-08-explog-q30",
+  "question": "ค่าสัมบูรณ์ของผลต่างของทุกคำตอบของสมการ $3^{\\left(1 + \\sqrt{x^2 + x - 2}\\right)} + 9\\left[3^{\\left(-\\sqrt{x^2 + x - 2}\\right)}\\right] = 28$\nมีค่าเท่ากับเท่าใด",
+  "subTopics": [
+   "8.4",
+   "8.2"
+  ],
+  "topics": [
+   "8"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "1",
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-08-explog-q54",
+  "question": "$\\log_{10}\\sqrt{28} - \\log_{\\frac{1}{10}}\\sqrt{325} + \\log_{\\frac{1}{100}} 91$ มีค่าเท่าใด",
+  "subTopics": [
+   "8.7",
+   "8.6"
+  ],
+  "topics": [
+   "8"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": [
+   "ก. ถูก และ ข. ถูก",
+   "ก. ถูก และ ข. ผิด",
+   "ก. ผิด และ ข. ถูก",
+   "ก. ผิด และ ข. ผิด"
+  ],
+  "correct": 2,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-08-explog-q82",
+  "question": "กำหนดให้เอกภพสัมพัทธ์คือ $\\mathcal{U} = \\{ 2n \\mid n \\in I^+ \\}$ เมื่อ $I^+$ เป็นเซตของจำนวนเต็มบวก\nพิจารณาข้อความต่อไปนี้\nก. $\\exists x [ 2^{2x+3} - 18(2^x) + 4 = 0 ]$ มีค่าความจริงเป็นจริง\nข. $\\exists x [ \\log_2 (x + 2) + \\log_2 (x - 1) = 2 ]$ มีค่าความจริงเป็นจริง\nข้อใดต่อไปนี้ถูก",
+  "subTopics": [
+   "8.4",
+   "8.9",
+   "2.10"
+  ],
+  "topics": [
+   "8"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$\\sqrt{3}$",
+   "$3$",
+   "$3\\sqrt{3}$",
+   "$9$"
+  ],
+  "correct": 0,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-09-vector-q114",
+  "question": "กำหนดเวกเตอร์ $\\overline{u} = k\\overline{i} + \\overline{j}$ และ $\\overline{v} = -\\overline{j}$ เมื่อ $k \\in \\mathbb{R}$\nถ้าเวกเตอร์ $\\overline{u} - 2\\overline{v}$ ทำมุม $120°$ กับแกน $x$ แล้ว $|k|$ มีค่าเท่ากับข้อใด",
+  "subTopics": [
+   "9.6",
+   "9.2"
+  ],
+  "topics": [
+   "9"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$7$",
+   "$12$",
+   "$\\sqrt{29}$",
+   "$\\sqrt{39}$"
+  ],
+  "correct": 3,
+  "difficulty": "ง่าย",
+  "hasImage": false,
+  "id": "chap-09-vector-q37",
+  "question": "ถ้า $\\overline{u} \\cdot \\overline{v} = 5 ,\\ |\\overline{u}| = 2$ และมุมระหว่าง $\\overline{u}$ และ $\\overline{v}$ เป็น $60$ องศา\nแล้ว $|\\overline{u} + \\overline{v}|$ เท่ากับข้อใดต่อไปนี้",
+  "subTopics": [
+   "9.5",
+   "9.6",
+   "9.4"
+  ],
+  "topics": [
+   "9"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$\\dfrac{\\sqrt{3}}{2}$",
+   "$\\dfrac{1}{\\sqrt{2}}$",
+   "$\\dfrac{1}{\\sqrt{3}}$",
+   "$\\dfrac{1}{2}$"
+  ],
+  "correct": 0,
+  "difficulty": "ง่าย",
+  "hasImage": false,
+  "id": "chap-09-vector-q90",
+  "question": "ถ้า $\\overline{e} = a\\overline{i} + b\\overline{j}$ เป็นเวกเตอร์หนึ่งหน่วยที่ทำมุม $120°$ กับแกน $x$ ทางบวก\nแล้ว $|b|$ มีค่าเท่ากับข้อใด",
+  "subTopics": [
+   "9.4",
+   "9.3"
+  ],
+  "topics": [
+   "9"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$4$",
+   "$-4$",
+   "$2$",
+   "$-2$"
+  ],
+  "correct": 3,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-10-complex-q110",
+  "question": "ถ้าจำนวนเชิงซ้อน $z_1$ เป็นคำตอบหนึ่งของสมการ $z^3 + z^2 + 3z - 5 = 0$ และ $|z_1 - (2 + 2i)| = 3$ แล้ว $z_1 + \\bar{z_1}$ มีค่าเท่ากับข้อใด",
+  "subTopics": [
+   "10.7",
+   "10.3"
+  ],
+  "topics": [
+   "10"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "ก. และ ข. ถูกทั้งคู่",
+   "ก. ถูก แต่ ข. ผิด",
+   "ก. ผิด แต่ ข. ถูก",
+   "ก. และ ข. ผิดทั้งคู่"
+  ],
+  "correct": 1,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-10-complex-q21",
+  "question": "กำหนดให้ $A$ และ $B$ เป็นจำนวนเชิงซ้อน ถ้า $A = \\cos x + i\\sin x$ เมื่อ $x \\in [0, \\pi]$ และ $B$ เป็นอินเวอร์สการคูณของ $A$\nพิจารณาข้อความต่อไปนี้\nก. $A^2 + B^2 = 0$ ก็ต่อเมื่อ $x = \\dfrac{\\pi}{4}$ หรือ $\\dfrac{3\\pi}{4}$\nข. $A^2 - B^2 = 0$ ก็ต่อเมื่อ $x = 0$ หรือ $\\pi$\nข้อใดต่อไปนี้ถูกต้อง",
+  "subTopics": [
+   "10.5",
+   "10.3",
+   "10.4"
+  ],
+  "topics": [
+   "10"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$\\left\\{\\sqrt2, \\dfrac32, 3, 11\\right\\}$",
+   "$\\{0, 1, \\sqrt3, 2, 4\\}$",
+   "$\\left\\{\\dfrac12, \\sqrt5, \\dfrac52, 6, 10\\right\\}$",
+   "$\\left\\{\\dfrac{\\sqrt3}{2}, \\dfrac53, 7, 8, 9\\right\\}$"
+  ],
+  "correct": 0,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-10-complex-q56",
+  "question": "ค่าสัมบูรณ์ของรากของสมการ $z^5 - 3iz^4 + 4z - 12i = 0$ เป็นสมาชิกของเซตใดต่อไปนี้",
+  "subTopics": [
+   "10.7",
+   "10.3",
+   "10.6"
+  ],
+  "topics": [
+   "10"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [],
+  "correct": "sqrt(2 sqrt2)",
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-10-complex-q79",
+  "question": "จงหาค่าสัมบูรณ์ของจำนวนเชิงซ้อน $x$ จากสมการ $\\dfrac{2+i}{2-i} + \\dfrac{3+4i}{1+2i} = x^2$",
+  "subTopics": [
+   "10.3",
+   "10.2"
+  ],
+  "topics": [
+   "10"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$-\\dfrac{1}{2}$",
+   "$\\dfrac{1}{2}$",
+   "$-2$",
+   "$2$"
+  ],
+  "correct": 0,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-11-sequence-q05",
+  "question": "ให้ $a_n$ เป็นพจน์ที่ $n$ ของลำดับเรขาคณิต โดยมี $r$ เป็นอัตราส่วนร่วม ถ้า $\\dfrac{a_1}{a_1+a_2} + \\dfrac{a_2}{a_2+a_3} + \\dots + \\dfrac{a_n}{a_n+a_{n+1}} = 2n$ แล้ว $r$ คือข้อใดต่อไปนี้",
+  "subTopics": [
+   "11.3",
+   "11.1"
+  ],
+  "topics": [
+   "11"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$-30$",
+   "$-15$",
+   "$10$",
+   "$20$"
+  ],
+  "correct": 2,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-11-sequence-q27",
+  "question": "ถ้าลำดับเลขคณิต $a_1, a_2, a_3, \\ldots$ มีพจน์ที่ 10 และพจน์ที่ 15 เป็น $-19$ และ $-34$ ตามลำดับ\nแล้ว $\\displaystyle\\sum_{i=1}^{20}(a_i + 2i)$ เท่ากับข้อใดต่อไปนี้",
+  "subTopics": [
+   "11.4",
+   "11.6",
+   "11.2"
+  ],
+  "topics": [
+   "11"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$69$",
+   "$67$",
+   "$65$",
+   "$63$"
+  ],
+  "correct": 3,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-11-sequence-q48",
+  "question": "ในลำดับเลขคณิตที่มีผลต่างร่วมเป็นบวก ถ้าผลบวกของพจน์ที่ 1 กับพจน์ที่ 7 มีค่าเท่ากับ 26 และผลคูณของพจน์ที่ 2 กับพจน์ที่ 6 มีค่าเท่ากับ 69 แล้ว ผลบวก 6 พจน์แรกของลำดับนี้มีค่าเท่ากับข้อใดต่อไปนี้",
+  "subTopics": [
+   "11.2",
+   "11.4"
+  ],
+  "topics": [
+   "11"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$3!$ แบบ",
+   "$2$ แบบ",
+   "$3$ แบบ",
+   "$3^2$ แบบ",
+   "$2^3$ แบบ"
+  ],
+  "correct": 4,
+  "difficulty": "ง่าย",
+  "hasImage": false,
+  "id": "chap-12-probability-q01",
+  "question": "จากการสอบถามเพื่อนสนิท 3 คน ถึงการที่เขาไปเลือกผู้แทน ว่าเขาเลือกนาย A เป็นผู้แทนหรือไม่ คำตอบที่แต่ละคนให้มีเพียง 2 อย่าง คือ เลือก หรือ ไม่เลือก ดังนั้นคำตอบที่ได้จากเพื่อน 3 คนนี้ จะแตกต่างกันได้ทั้งหมดกี่แบบ",
+  "subTopics": [
+   "12.1"
+  ],
+  "topics": [
+   "12"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$\\dfrac{1}{21}$",
+   "$\\dfrac{1}{10}$",
+   "$\\dfrac{2}{9}$",
+   "$\\dfrac{10}{21}$",
+   "$\\dfrac{7}{15}$"
+  ],
+  "correct": 4,
+  "difficulty": "ง่าย",
+  "hasImage": false,
+  "id": "chap-12-probability-q112",
+  "question": "ในการตอบปัญหารายการหนึ่ง ปรากฏว่ามีผู้ตอบถูก $10$ คน เป็นชาย $7$ คน หญิง $3$ คน ในการให้รางวัล ซึ่งมีเพียง $2$ รางวัล ใช้วิธีการจับสลากชื่อผู้ตอบถูก ความน่าจะเป็นที่ผู้ได้รับรางวัลเป็นชาย $1$ คน และหญิง $1$ คน เท่ากับเท่าใด",
+  "subTopics": [
+   "12.7",
+   "12.3"
+  ],
+  "topics": [
+   "12"
+  ],
+  "type": "mc",
+  "hint": null
+ }
+]

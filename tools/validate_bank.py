@@ -1,8 +1,15 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 r"""validate_bank.py — ตรวจคลังข้อสอบทั้งใบ (ค่า token = 0 · รันบนเครื่องครู)
-ใช้:  python validate_bank.py [path\to\bank.json] [-o report]
-ออก:  report_summary.txt · report_issues.csv
+ใช้:  python validate_bank.py [path\to\bank.json] -o <ที่เก็บผล>
+ออก:  <ที่เก็บผล>_summary.txt · <ที่เก็บผล>_issues.csv
+
+🔴 4 ก.ย. 2569 · ครูเคาะ (ใบ 131-MB-E §7 · ใบ 132-E-MB §3 ข้อ ③ข):
+   **-o เป็นของบังคับ** ⛔ ไม่มีค่าปริยายอีกต่อไป
+   เหตุ: ค่าปริยายเดิม 'report' เขียน report_summary.txt + report_issues.csv
+   ลง **โฟลเดอร์ที่บังเอิญยืนอยู่** ⇒ 3 ก.ย. มันไปนอนอยู่ในรากโปรเจคของครู
+   ⇒ ทรงเดียวกับเหตุด่าน 20 แดง 184 จุด: เครื่องมือทิ้งของแปลกปลอมไว้ในที่ทำงานของคนอื่น
+   ⇒ ⇒ "เขียนที่ไหน" ต้องเป็นสิ่งที่คนสั่งพิมพ์เอง ⛔ ไม่ใช่สิ่งที่เครื่องมือเดาให้
 """
 import json, sys, os, re, csv, collections
 
@@ -23,8 +30,23 @@ def load(p):
 def main():
     args = [a for a in sys.argv[1:] if not a.startswith('-')]
     path = args[0] if args else DEF
-    out = 'report'
-    if '-o' in sys.argv: out = sys.argv[sys.argv.index('-o') + 1]
+    out = None
+    for flag in ('-o', '--out'):
+        if flag in sys.argv:
+            i = sys.argv.index(flag)
+            if i + 1 >= len(sys.argv):
+                print('🔴 %s ต้องตามด้วยที่เก็บผล เช่น  -o out/validate' % flag)
+                return 2
+            out = sys.argv[i + 1]
+    if out is None:
+        print('🔴 ต้องระบุที่เก็บผลด้วย -o ⛔ ไม่มีค่าปริยาย (ครูเคาะ 4 ก.ย. 69)')
+        print('   เหตุ: ค่าปริยายเดิมเขียนไฟล์ลงโฟลเดอร์ที่บังเอิญยืนอยู่')
+        print('   ตัวอย่าง:  python tools/validate_bank.py -o out/validate')
+        print('   ⇒ จะได้ out/validate_summary.txt · out/validate_issues.csv')
+        return 2
+    outdir = os.path.dirname(out)
+    if outdir and not os.path.isdir(outdir):
+        os.makedirs(outdir, exist_ok=True)
     items, meta = load(path)
     n = len(items)
     rows = []           # (id, ระดับ, เรื่อง, รายละเอียด)
@@ -84,6 +106,7 @@ def main():
         w = csv.writer(f); w.writerow(['id', 'ระดับ', 'เรื่อง', 'รายละเอียด']); w.writerows(rows)
     print(txt)
     print(f'\n📄 เขียนแล้ว: {out}_summary.txt · {out}_issues.csv ({len(rows)} แถว)')
+    return 0
 
 if __name__ == '__main__':
-    main()
+    sys.exit(main() or 0)
