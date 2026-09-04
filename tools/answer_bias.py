@@ -32,7 +32,7 @@ import os
 import re
 import sys
 
-VERSION = '2.2'
+VERSION = '2.4'
 SET_MAX = 0.45          # แขน ก · ต่อชุด
 SET_MIN_N = 20          # แขน ก · ตัวหารขั้นต่ำที่ยอมตัดสิน
 CHUNK_MAX = 0.40        # แขน ข · ต่อก้อนที่เพิ่งเติม
@@ -137,7 +137,102 @@ def arm_b3(vals, kmode):
     return L, idx, start, p
 
 
-P_RED = 0.001      # เกณฑ์ตัดสินของแขน ข2ข / ข3 — 1 ใน 1,000 ⛔ ไม่ใช่เลขนับตายตัว
+P_RED = 0.001      # 🔴 แดง · ปิดกั้น              (มติครู 4 ก.ย. 69 · ใบ 138 §4)
+P_AMBER = 0.01     # 🟠 รอคนเซ็น · ⛔ ไม่ปิดกั้น แต่ ⛔ ไม่ใช่ "ผ่าน"
+PERM_N = 20000     # จำนวนรอบสลับของ permutation test
+PERM_SEED = 20260904
+PERM_SCREEN = 0.01 # รันสลับเฉพาะชุดที่ null-A ต่ำกว่านี้ (ประหยัดเวลา · ประกาศไว้ ⛔ ไม่ซ่อน)
+PERM_MAX = 200000  # เพดานรอบเมื่อค่าตกใกล้เส้นแบ่ง (E ใบ 140 §4)
+
+
+def wilson(k, n, z=1.96):
+    r"""ช่วงความเชื่อมั่น 95% ของสัดส่วน (Wilson) — ⛔ ไม่ใช้ normal approx เพราะ k เล็กมาก"""
+    import math
+    if n == 0:
+        return (0.0, 1.0)
+    ph = k / n
+    d = 1 + z * z / n
+    c = (ph + z * z / (2 * n)) / d
+    h = z * math.sqrt(ph * (1 - ph) / n + z * z / (4 * n * n)) / d
+    return (max(0.0, c - h), min(1.0, c + h))
+
+
+def near_edge(p):
+    r"""ค่านี้ตกใกล้เส้นแบ่งจนจำนวนรอบตัดสินแทนข้อมูลไหม (E ใบ 140 §4)"""
+    if p is None:
+        return False
+    return any(0.3 * t < p < 3 * t for t in (P_RED, P_AMBER))
+
+
+def fmt_perm_full(p, k, n):
+    r"""พิมพ์ p จาก permutation พร้อมของที่ทำให้แปลได้: จำนวนครั้งจริง · N · ช่วง 95%"""
+    if p is None:
+        return 'n/a'
+    if k == 0:
+        return '< %s (เจอ 0/%s ⇒ **ขอบบน** ⛔ ไม่ใช่ค่าที่วัดได้)' % (fmt_p(1.0 / (n + 1)), format(n, ','))
+    lo, hi = wilson(k, n)
+    return '%s (เจอ %s/%s · ช่วง 95%% [%s, %s])' % (fmt_p(p), format(k, ','), format(n, ','),
+                                                    fmt_p(lo), fmt_p(hi))
+
+
+
+def tier(p):
+    r"""สามชั้นตามมติครู 4 ก.ย. 69 — ชั้นกลางคือ **รอคนเซ็น** ⛔ ไม่ใช่ ผ่าน"""
+    if p is None:
+        return '⬜ วัดไม่ได้'
+    if p < P_RED:
+        return '🔴 แดง · ปิดกั้น'
+    if p < P_AMBER:
+        return '🟠 รอคนเซ็น'
+    return '✅ ผ่าน'
+
+
+def fmt_perm(p, n=PERM_N):
+    r"""ค่า p จาก permutation ที่ชนพื้น = **ขอบบน** ⛔ ไม่ใช่ค่าที่วัดได้ ⇒ ต้องพิมพ์ < ให้เห็น"""
+    floor = 1.0 / (n + 1)
+    return ('< ' + fmt_p(floor)) if p is not None and p <= floor + 1e-15 else fmt_p(p)
+
+
+def perm_null(vals, idx_block, obs_blocks, run_len, n_iter=PERM_N, seed=PERM_SEED):
+    r"""null-B แบบ permutation — สลับลำดับเฉลยทั้งชุด **คงจำนวนของแต่ละ index ไว้เท่าเดิม**
+
+    🔑 ใช้เมื่อ **หน่วยที่ถูกตัดสินคือทั้งชุด** ⇒ ⛔ ไม่มี "ส่วนที่เหลือ" ให้อ้างอิง (E ใบ 138 §1)
+       คำถามที่มันตอบ: "การ *จัดเรียง* กระจุกเกินบังเอิญไหม" ⛔ ไม่ใช่ "ชุดนี้เอียงไหม"
+       (ความเอียงถูกคงไว้ในทุกการสลับ ⇒ ถูกหักออกจากคำถามโดยอัตโนมัติ)
+    ⛔ ค่าที่ได้เป็นค่าประมาณจากการสุ่ม ⇒ พิมพ์จำนวนรอบติดไปด้วยเสมอ
+    """
+    import random
+    rnd = random.Random(seed)
+    arr = list(vals)
+    hit_b = hit_r = 0
+    for _ in range(n_iter):
+        rnd.shuffle(arr)
+        if obs_blocks is not None:
+            b = sum(1 for i in range(0, len(arr) - WINDOW + 1, WINDOW)
+                    if arr[i:i + WINDOW].count(idx_block) > WINDOW_MAX)
+            if b >= obs_blocks:
+                hit_b += 1
+        if run_len:
+            L, _v, _st = longest_run(arr)
+            if L >= run_len:
+                hit_r += 1
+    pb = (hit_b + 1) / (n_iter + 1) if obs_blocks is not None else None
+    pr = (hit_r + 1) / (n_iter + 1) if run_len else None
+    return pb, pr, hit_b, hit_r, n_iter
+
+
+def perm_refine(vals, idx_block, obs_blocks, run_len):
+    r"""สลับ แล้ว **รันซ้ำรอบ 10 เท่า** ถ้าค่าตกใกล้เส้นแบ่ง (E ใบ 140 §4)
+
+    เหตุ: p = 8.5e-04 ที่ 20,000 รอบ = "เจอ 17 ครั้ง" ⇒ ช่วง 95% คร่อมเกณฑ์ 0.001
+       ⇒ ชั้นของมันถูกตัดสินโดย **จำนวนรอบที่เราเลือก** ⛔ ไม่ใช่โดยข้อมูล
+    """
+    n = PERM_N
+    while True:
+        pb, pr, kb, kr, _ = perm_null(vals, idx_block, obs_blocks, run_len, n_iter=n)
+        if n >= PERM_MAX or not (near_edge(pb) or near_edge(pr)):
+            return pb, pr, kb, kr, n
+        n = min(n * 10, PERM_MAX)
 MIN_REF = 30       # ตัวหารขั้นต่ำของ "แหล่งอ้างอิง" ที่จะใช้คิด null แบบ conditioned
 
 
@@ -375,8 +470,9 @@ def main():
             print(f'     null-A (1/k)        ⇒ p = {fmt_p(p_uni)}  · Bonferroni x{len(idx_list)}')
             print(f'     null-B (อัตราจริง {rr*100:.1f}% ของ{ref_src.split(" ")[0]}) ⇒ p = {fmt_p(p_con)}'
                   f'  · Bonferroni x{len(idx_list)}')
-            verdict = '🔴 แดง' if (p_con is not None and p_con < P_RED) else '✅ ⛔ ไม่แดง'
-            print(f'     ⇒ {verdict} — ตัดสินด้วย **null-B** (ครูเคาะ 4 ก.ย. 69 · ใบ 136 §3)')
+            print(f'     ⇒ {tier(p_con)} — ตัดสินด้วย **null-B** (สามชั้น · มติครู 4 ก.ย. 69 · ใบ 138 §4)')
+            if p_con is not None and P_RED <= p_con < P_AMBER:
+                print('     📌 ชั้น 🟠 = **รอคนเซ็น** ⛔ ไม่ใช่ "ผ่าน" — ต้องมีคนรับก่อนของเข้าคลัง')
             if p_con is not None and p_con < P_RED:
                 win_red = True
                 rows.append([f'(ข2ข) {a.setid}', a.setid, idx, '', '',
@@ -425,11 +521,13 @@ def main():
                          f'หน้าต่าง {WINDOW} ข้อ เกินเกณฑ์ {over_w}/{total_w} · แย่สุด {wv}/{WINDOW}'])
         print('  📌 แขน ข2 ⛔ ไม่ตัดสินอะไร — หน้าต่างซ้อนกัน ⇒ ชุดยาวเจอเกินอย่างน้อย 1 บานเกือบแน่นอน'
               ' โดยความบังเอิญ (E ใบ 132 §4 · MB ใบ 133 §4)')
-        # ── ข2ข + ข3 ทั้งคลัง — null สองแบบ (ใบ 136 §3) ─────────────
+        # ── ข2ข + ข3 ทั้งคลัง · null-B = **permutation** (ใบ 138 §1 ของ E) ──
         print()
-        print(f'แขน ข2ข + ข3 · ทั้งคลัง (แดงเมื่อ p < {P_RED} · ตัดสินด้วย **null-B = อัตราจริงของชุดเอง**)')
-        print('  null-A = 1/k ต่อข้อ (Poisson-binomial) · null-B = อัตราจริงของชุดนั้น')
-        onlyA, bothAB, b3_hits = [], [], []
+        print(f'แขน ข2ข + ข3 · ทั้งคลัง — สามชั้น: 🔴 p<{P_RED} · 🟠 p<{P_AMBER} (รอคนเซ็น) · ✅ p>={P_AMBER}')
+        print(f'  null-A = 1/k ต่อข้อ (Poisson-binomial) ⇒ ใช้ **คัดกรอง** เท่านั้น (เกณฑ์คัดกรอง p<{PERM_SCREEN})')
+        print(f'  null-B = permutation เริ่ม {PERM_N:,} รอบ (ซ้ำ x10 ถึง {PERM_MAX:,} ถ้าตกใกล้เส้นแบ่ง) · seed {PERM_SEED}')
+        print('  🔑 ที่นี่ ⛔ ไม่มี "ส่วนที่เหลือ" ให้อ้างอิง เพราะหน่วยที่ถูกตัดสิน = ทั้งชุด')
+        red, amber, screened = [], [], 0
         for s_, lst in byset.items():
             seq = sorted((x for x in order[s_] if x[0] is not None), key=lambda x: x[0])
             vals = [x[1] for x in seq]
@@ -437,43 +535,43 @@ def main():
             if len(vals) < WINDOW:
                 continue
             rc = collections.Counter(vals)
-            rtot = sum(rc.values())
-            ref_rate = {i: rc[i] / rtot for i in rc}
             idx_list = sorted(rc)
             blocks = blocks_of(list(zip(vals, ks)), WINDOW)
-            res = arm_b2b_v2(blocks, ref_rate, idx_list)
-            if res is not None:
-                idx, x_, m, p_uni, p_con = res
-                if p_con is not None and p_con < P_RED:
-                    bothAB.append((p_con, s_, idx, x_, m, p_uni))
-                elif p_uni < P_RED:
-                    onlyA.append((p_uni, s_, idx, x_, m, ref_rate.get(idx, 0)))
+            res = arm_b2b_v2(blocks, {i: rc[i] / len(vals) for i in rc}, idx_list)
             L3, i3, st3 = longest_run(vals)
-            if L3 >= 2:
-                nrun = len(vals) - L3 + 1
-                rr3 = ref_rate.get(i3, 0)
-                pc3 = min(1.0, nrun * (rr3 ** L3) * len(idx_list))
-                pu3 = min(1.0, nrun * sum((1.0 / k) ** L3 for k in set(ks)))
-                if pc3 < P_RED:
-                    b3_hits.append((pc3, s_, L3, i3, len(vals), pu3))
-        bothAB.sort(); onlyA.sort(); b3_hits.sort()
-        print(f'  ข2ข · แดงด้วย null-B (กระจุกเกินกว่าความเอียงอธิบายได้) = {len(bothAB)} ชุด')
-        for p_con, s_, idx, x_, m, p_uni in bothAB[:10]:
-            print(f'     🔴 {s_}: ข้อ {idx} ใน {x_}/{m} บล็อก · null-B p={fmt_p(p_con)} · null-A p={fmt_p(p_uni)}')
-            rows.append([f'(ข2ข) {s_}', s_, idx, '', '',
-                         f'กระจุกที่ข้อ {idx} ใน {x_}/{m} บล็อก · p(null-B)={p_con:.2e}'])
-        print(f'  📌 ชุดที่ null-A แดงแต่ null-B ไม่แดง = {len(onlyA)} ชุด'
-              f'  ⇒ **ความกระจุกอธิบายได้ด้วยความเอียงทั้งชุด** ⇒ เป็นงานของแขน ข ⛔ ไม่ใช่ ข2ข')
-        for p_uni, s_, idx, x_, m, rr in onlyA[:10]:
-            print(f'     🟠 {s_}: ข้อ {idx} ใน {x_}/{m} บล็อก · null-A p={fmt_p(p_uni)}'
-                  f' · อัตราจริงของชุด = {rr*100:.1f}%')
-        print(f'  ข3 · ชุดที่มีช่วงติดกันยาวเกินบังเอิญ (null-B) = {len(b3_hits)} ชุด')
-        for pc3, s_, L3, i3, n_, pu3 in b3_hits[:10]:
-            print(f'     🔴 {s_}: เฉลยข้อ {i3} ติดกัน {L3} ข้อ (จาก {n_} ข้อปรนัย)'
-                  f' · null-B p={fmt_p(pc3)} · null-A p={fmt_p(pu3)}')
-            rows.append([f'(ข3) {s_}', s_, i3, '', '',
-                         f'เฉลยข้อ {i3} ติดกัน {L3} ข้อ จาก {n_} ข้อปรนัย · p(null-B)={pc3:.2e}'])
-        if bothAB or b3_hits:
+            pu3 = min(1.0, (len(vals) - L3 + 1) * sum((1.0 / k) ** L3 for k in set(ks))) if L3 >= 2 else 1.0
+            need_b = res is not None and res[3] < PERM_SCREEN
+            need_r = pu3 < PERM_SCREEN
+            if not (need_b or need_r):
+                continue
+            screened += 1
+            pb, pr, kb, kr, nused = perm_refine(vals, res[0] if need_b else None,
+                                                res[1] if need_b else None, L3 if need_r else 0)
+            if nused > PERM_N:
+                print('     🔁 ค่าตกใกล้เส้นแบ่ง ⇒ รันซ้ำ %s รอบ (จาก %s)'
+                      % (format(nused, ','), format(PERM_N, ',')))
+            if need_b:
+                t = tier(pb)
+                line = (f'{s_}: ข้อ {res[0]} กระจุกใน {res[1]}/{res[2]} บล็อก'
+                        f' · null-A p={fmt_p(res[3])} · **null-B(perm) p={fmt_perm_full(pb, kb, nused)}** ⇒ {t}')
+                (red if pb < P_RED else amber if pb < P_AMBER else []).append(('ข2ข', s_, line))
+                print(f'     {t} · {line}')
+                rows.append([f'(ข2ข) {s_}', s_, res[0], '', '',
+                             f'{res[1]}/{res[2]} บล็อก · p={pb:.2e} · เจอ {kb}/{nused} · {t}'])
+            if need_r:
+                t = tier(pr)
+                line = (f'{s_}: เฉลยข้อ {i3} ติดกัน {L3} ข้อ (จาก {len(vals)} ข้อปรนัย)'
+                        f' · null-A p={fmt_p(pu3)} · **null-B(perm) p={fmt_perm_full(pr, kr, nused)}** ⇒ {t}')
+                (red if pr < P_RED else amber if pr < P_AMBER else []).append(('ข3', s_, line))
+                print(f'     {t} · {line}')
+                rows.append([f'(ข3) {s_}', s_, i3, '', '',
+                             f'ติดกัน {L3} ข้อ · p={pr:.2e} · เจอ {kr}/{nused} · {t}'])
+        print(f'  ⑨ ตัวหาร: ชุดที่ผ่านการคัดกรองไปทำ permutation = {screened} ชุด'
+              f' · 🔴 แดง {len(red)} · 🟠 รอคนเซ็น {len(amber)}')
+        if amber:
+            print('  📌 ชั้น 🟠 ⛔ ไม่ใช่ "ผ่าน" — ต้องมีคนเซ็นรับก่อน · ถ้าชั้นนี้บวมจนไม่มีใครเซ็นไหว'
+                  ' แปลว่าเกณฑ์ผิด ⛔ ไม่ใช่คนขี้เกียจ (E ใบ 138 §4)')
+        if red:
             win_red = True
 
     with open(a.out, 'w', newline='', encoding='utf-8-sig') as f:
