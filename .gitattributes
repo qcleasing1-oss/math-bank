@@ -10,3 +10,10 @@
 #    ⇒ ตรึงให้เหมือนสกุลอื่นทั้งหมด ⛔ ไม่ปล่อยให้ * text=auto ตัดสินแทน
 *.yml  text eol=lf
 *.yaml text eol=lf
+# 🔴 12 ก.ย. 69 — ครูเคาะ ค (ใบ 368 §2): ไฟล์ไม่มีนามสกุล + .csv เคยตก `* text=auto`
+#    ⇒ core.autocrlf=true (ชั้น system ของ Windows) แปลง LF→CRLF ตอน checkout ⇒ GitHub Desktop เตือนที่ .gitignore
+#    ⇒ ตรึงให้ครบ · repo นี้ตั้ง core.autocrlf=false ชั้น repo แล้วด้วย (ก) · .bat ต้องเป็น CRLF ตามธรรมชาติของ cmd
+.gitignore     text eol=lf
+.gitattributes text eol=lf
+*.csv          text eol=lf
+*.bat          text eol=crlf
