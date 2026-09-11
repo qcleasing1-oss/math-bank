@@ -28,3 +28,7 @@ report_summary.txt
 report_issues.csv
 _t1run/POOL-refill-*/
 out/
+
+# ไฟล์สำรองที่สคริปต์สร้าง — ⛔ ห้ามเข้า git (bank.json ก้อนละ ~37 MB)
+*.bak
+*.bak-*
