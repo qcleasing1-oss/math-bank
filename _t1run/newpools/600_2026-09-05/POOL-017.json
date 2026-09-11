@@ -1,0 +1,993 @@
+[
+ {
+  "choices": null,
+  "correct": "3",
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "gen-chap-03-real-q068",
+  "question": "สมการ $x^2-6x+m=0$ มีสองรากจริงที่แตกต่างกัน และทั้งสองรากมากกว่า $1$ จงหาจำนวนค่าจำนวนเต็ม $m$ ที่เป็นไปได้",
+  "subTopics": [
+   "3.4",
+   "3.6"
+  ],
+  "topics": [
+   "3"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$60$ วิธี",
+   "$360$ วิธี",
+   "$420$ วิธี",
+   "$480$ วิธี"
+  ],
+  "correct": 1,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-12-probability-q162",
+  "question": "มีบัตรอยู่ $7$ ใบ แต่ละใบพิมพ์ตัวเลข $1$ ตัว โดยพิมพ์เลข $0$ ลงในบัตร $1$ ใบ, เลข $4$ ลงในบัตร $2$ ใบ, เลข $5$ ลงในบัตร $3$ ใบ และใบสุดท้ายพิมพ์เลข $6$\nจงหาจำนวนวิธีที่จะเรียงบัตรทั้ง $7$ ใบนี้แล้วได้จำนวนที่มี $7$ หลักและมีค่ามากกว่าสี่ล้าน",
+  "subTopics": [
+   "12.4",
+   "12.1"
+  ],
+  "topics": [
+   "12"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "$1$",
+  "difficulty": "ยากมาก",
+  "hasImage": false,
+  "id": "gen-chap-05-function-q049",
+  "question": "ฟังก์ชัน $f$ สอดคล้องกับ $f(x)+f\\!\\left(\\dfrac{x-1}{x}\\right)=4x$ สำหรับทุกจำนวนจริง $x$ ที่ $x\\neq 0$ และ $x\\neq 1$ จงหาค่าของ $f(2)$",
+  "subTopics": [
+   "5.15",
+   "5.7"
+  ],
+  "topics": [
+   "5"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$6$ เมตร/วินาที, $16$ เมตร",
+   "$6$ เมตร/วินาที, $8$ เมตร",
+   "$16$ เมตร/วินาที, $6$ เมตร",
+   "$6$ เมตร/วินาที, $\\dfrac{44}{3}$ เมตร"
+  ],
+  "correct": 0,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-13-calculus-q135",
+  "question": "กำหนดให้ $v(t)=t^{2}-4t+10$ เป็นความเร็วของการเคลื่อนที่ของวัตถุ ณ เวลา $t$ มีหน่วยเป็นเมตรต่อวินาที ขณะที่ $t=0$ วัตถุเคลื่อนที่ได้ระยะทาง $\\dfrac{4}{3}$ เมตร เมื่อความเร่งของวัตถุเท่ากับ $0$ ความเร็วและระยะทางมีค่าเท่ากับเท่าใด",
+  "subTopics": [
+   "13.12",
+   "13.9"
+  ],
+  "topics": [
+   "13"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$p$",
+   "$p\\wedge q$",
+   "$q$",
+   "$p\\leftrightarrow q$"
+  ],
+  "correct": 0,
+  "difficulty": "ง่าย",
+  "hasImage": false,
+  "id": "gen-chap-02-logic-q043",
+  "question": "ข้อใดสมมูลกับ $p\\vee(p\\wedge q)$",
+  "subTopics": [
+   "2.5",
+   "2.2"
+  ],
+  "topics": [
+   "2"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$45$",
+   "$50$",
+   "$55$",
+   "$60$"
+  ],
+  "correct": 3,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-15-statistics-q13",
+  "question": "ตารางแสดงร้อยละของสมาชิกและเนื้อที่เพาะปลูกของสมาคมเกษตรกรต่าง ๆ ในปีเพาะปลูก 2524/25 ดังนี้ จำนวนสมาชิก (%) กลุ่มชาวนา 40, กลุ่มชลประทาน 30, กลุ่มสหกรณ์ฯ 20, กลุ่มเกษตรกร 10; เนื้อที่เพาะปลูก (%) กลุ่มชาวนา 50, กลุ่มชลประทาน 20, กลุ่มสหกรณ์ฯ 20, กลุ่มเกษตรกร 10 จากจำนวนสมาชิกทั้งหมด 200 คน มีค่าเฉลี่ยเลขคณิตของเนื้อที่เพาะปลูกเท่ากับ 50 ไร่ต่อคน ค่าเฉลี่ยเลขคณิตของเนื้อที่เพาะปลูก (ไร่ต่อคน) เฉพาะสมาชิกในกลุ่มชาวนาและกลุ่มเกษตรกรรวมกัน เท่ากับเท่าใด",
+  "subTopics": [
+   "15.4"
+  ],
+  "topics": [
+   "15"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "คอนเวอร์เจนต์ทุก $a\\in A$",
+   "ไดเวอร์เจนต์ทุก $a\\in A$",
+   "คอนเวอร์เจนต์ทุก $a\\in A$ ซึ่ง $0 < a < 1$ และไดเวอร์เจนต์ทุก $a\\in A$ ซึ่ง $a > 1$",
+   "ไดเวอร์เจนต์ทุก $a\\in A$ ซึ่ง $0 < a < 1$ และคอนเวอร์เจนต์ทุก $a\\in A$ ซึ่ง $a > 1$"
+  ],
+  "correct": 1,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-14-infiniteseries-q41",
+  "question": "กำหนด $A=\\{a\\in\\mathbb{R}\\mid a > 0 \\text{ และ } a\\neq 1\\}$ และนิยาม $f_a:\\mathbb{R}\\to\\mathbb{R}$ โดย $f_a(x)=a^{\\,x+1}$ สำหรับทุก $a\\in A$\nอนุกรม $\\displaystyle\\sum_{n=1}^{\\infty} f_a(\\log_a n)$ มีคุณสมบัติตามข้อใดต่อไปนี้",
+  "subTopics": [
+   "14.7",
+   "14.3",
+   "8.7"
+  ],
+  "topics": [
+   "14"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "3",
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "gen-chap-03-real-q076",
+  "question": "จงหาคำตอบจริงของสมการ $\\sqrt{2x+3}=x$",
+  "subTopics": [
+   "3.10"
+  ],
+  "topics": [
+   "3"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "60",
+  "difficulty": "ง่าย",
+  "hasImage": false,
+  "id": "chap-12-probability-q167",
+  "question": "แผนกซ่อมบำรุงของโรงงานแห่งหนึ่งมีพนักงานประจำ $9$ นาย เป็นช่างกลโรงงาน $5$ นาย และช่างไฟฟ้า $4$ นาย ในการจัดทีมซ่อมบำรุงแต่ละครั้งจะใช้ช่างกลโรงงาน $3$ นาย และช่างไฟฟ้า $2$ นาย หัวหน้าแผนกซ่อมบำรุงมีวิธีจัดทีมงานได้กี่วิธี",
+  "subTopics": [
+   "12.3",
+   "12.1"
+  ],
+  "topics": [
+   "12"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": 8,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "gen-chap-05-function-q056",
+  "question": "จงหาจำนวนคู่อันดับ $(x,y)$ ที่ $x,y$ เป็นจำนวนเต็ม ซึ่งสอดคล้องกับความสัมพันธ์ $x^{2}+y^{2}=10$",
+  "subTopics": [
+   "5.1"
+  ],
+  "topics": [
+   "5"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": [],
+  "correct": "2.25",
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-13-calculus-q138",
+  "question": "ถ้า $\\displaystyle\\int (f\\circ g)(x)\\,dx=x^{2}+5x+c$ โดยที่ $c$ เป็นค่าคงตัว และ $f(x)=4x-3$ แล้ว ค่าของ $\\displaystyle\\int_{0}^{1} g(x)\\,dx$ เท่ากับเท่าใด",
+  "subTopics": [
+   "13.10",
+   "13.9"
+  ],
+  "topics": [
+   "13"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$\\forall x[x^2\\ge x]$",
+   "$\\forall x[x\\gt 1]$",
+   "$\\exists x[x^2=x+1]$",
+   "$\\exists x[x^2=8]$"
+  ],
+  "correct": 0,
+  "difficulty": "ง่าย",
+  "hasImage": false,
+  "id": "gen-chap-02-logic-q051",
+  "question": "ให้ $U=\\{1,2,3\\}$ ข้อใดต่อไปนี้เป็นจริง",
+  "subTopics": [
+   "2.10"
+  ],
+  "topics": [
+   "2"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$1.645$",
+   "$1.96$",
+   "$164.5$",
+   "$196$"
+  ],
+  "correct": 3,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-15-statistics-q133",
+  "question": "กำหนดตารางแสดงพื้นที่ใต้เส้นโค้งปกติสะสม $P(Z < z)$ ดังนี้\n$z=1.63,1.64,1.65,1.66$ ได้ $P(Z < z)=0.9485,0.9495,0.9505,0.9515$\n$z=1.94,1.95,1.96,1.97$ ได้ $P(Z < z)=0.9738,0.9744,0.9750,0.9756$\nในการบรรจุผงซักฟอกลงในกล่องขนาดครอบครัวที่มีน้ำหนักสุทธิโดยเฉลี่ย $3{,}000$ กรัม มีส่วนเบี่ยงเบนมาตรฐาน $100$ กรัม บริษัทกำหนดว่ากล่องที่ได้มาตรฐานต้องมีน้ำหนักสุทธิอยู่ระหว่าง $3{,}000 \\pm k$ กรัม และในการผลิตแต่ละครั้งจะได้กล่องที่ได้มาตรฐาน $95\\%$ (สมมติว่าน้ำหนักของผงซักฟอกมีการแจกแจงปกติ) ดังนั้น $k$ มีค่าเท่ากับข้อใดต่อไปนี้",
+  "subTopics": [
+   "15.10",
+   "15.9",
+   "15.7"
+  ],
+  "topics": [
+   "15"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$68$",
+   "$92$",
+   "$150$",
+   "$192$"
+  ],
+  "correct": 3,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-14-infiniteseries-q44",
+  "question": "ให้ $f(x)=x^{8}-x^{6}$ และ $f'$ คืออนุพันธ์ของ $f$\nถ้า $\\{a_n\\}$ เป็นลำดับซึ่ง $\\displaystyle\\lim_{n\\to\\infty}a_n=1$ แล้ว $\\displaystyle\\lim_{n\\to\\infty}(f\\circ f')(a_n)$ มีค่าเท่ากับข้อใดต่อไปนี้",
+  "subTopics": [
+   "14.1",
+   "13.4"
+  ],
+  "topics": [
+   "14"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$\\mathbb{R}$ (จำนวนจริงทุกจำนวน)",
+   "$[-2,\\infty)$",
+   "$(-\\infty,0]\\cup[1,\\infty)$",
+   "$\\varnothing$"
+  ],
+  "correct": 0,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "gen-chap-03-real-q079",
+  "question": "เซตคำตอบของอสมการ $|x-1|+|x+2|\\ge|x|$ คือข้อใด",
+  "subTopics": [
+   "3.8",
+   "3.11"
+  ],
+  "topics": [
+   "3"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "1440",
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-12-probability-q17",
+  "question": "ในการเรียงสับเปลี่ยนตัวเลขทั้ง 7 ตัวในเซต $\\{1, 2, 3, 4, 5, 6, 7\\}$ เป็นเลข 7 หลัก จำนวนวิธีที่เรียงได้ซึ่งผลบวกของเลขโดดในหลักหน่วยและหลักสิบมีค่าน้อยกว่า 7 เท่ากับเท่าใด",
+  "subTopics": [
+   "12.2",
+   "12.1"
+  ],
+  "topics": [
+   "12"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$9$",
+   "$3$",
+   "$6$",
+   "$16$"
+  ],
+  "correct": 0,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "gen-chap-05-function-q064",
+  "question": "ความสัมพันธ์ $r=\\{(x,y)\\mid (x-2)^{2}+(y+1)^{2}=k\\}$ เมื่อ $k>0$ มีเรนจ์เป็น $[-4,2]$ จงหาค่าของ $k$",
+  "subTopics": [
+   "5.1"
+  ],
+  "topics": [
+   "5"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$-\\dfrac{5}{2}$",
+   "$-\\dfrac{1}{2}$",
+   "$\\dfrac{3}{2}$",
+   "$\\dfrac{7}{2}$"
+  ],
+  "correct": 2,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-13-calculus-q140",
+  "question": "ให้ $f$ เป็นฟังก์ชันซึ่งอนุพันธ์ของ $f$ เป็นฟังก์ชันต่อเนื่องบนช่วงปิด $[0,1]$ และ $g(x)=\\dfrac{f(x)}{x^{4}+1}$ ถ้า $f(1)=f'(1)=1$ และ $f(0)=f'(0)=-2$ แล้ว $\\displaystyle\\int_{0}^{1} g''(x)\\,dx$ เท่ากับข้อใดต่อไปนี้",
+  "subTopics": [
+   "13.10",
+   "13.4"
+  ],
+  "topics": [
+   "13"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$\\forall x[x\\gt -2]$",
+   "$\\exists x[x^2+1=0]$",
+   "$\\forall x[x^2\\ge 0]$",
+   "$\\exists x[x=3]$"
+  ],
+  "correct": 2,
+  "difficulty": "ง่าย",
+  "hasImage": false,
+  "id": "gen-chap-02-logic-q054",
+  "question": "ให้ $U=\\{x\\mid x\\in\\mathbb{Z},\\ |x|\\lt 3\\}$ ข้อใดต่อไปนี้เป็นจริง",
+  "subTopics": [
+   "2.10",
+   "3.8"
+  ],
+  "topics": [
+   "2"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "24",
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-15-statistics-q146",
+  "question": "ข้อมูลชุดหนึ่งมีการแจกแจงแบบปกติ โดยค่าสูงสุดของข้อมูลมีค่าเท่ากับค่าเปอร์เซ็นไทล์ที่ $97.5$ และค่าต่ำสุดของข้อมูลมีค่าเท่ากับเปอร์เซ็นไทล์ที่ $33$ ถ้าส่วนเบี่ยงเบนมาตรฐานของข้อมูลเท่ากับ $10$ แล้วพิสัยของข้อมูลชุดนี้เท่ากับเท่าใด\n(กำหนดพื้นที่ใต้เส้นโค้งปกติสะสม: $P(Z < 0.44)=0.67$, $P(Z < 1.96)=0.975$)",
+  "subTopics": [
+   "15.10",
+   "15.8",
+   "15.6"
+  ],
+  "topics": [
+   "15"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$(\\ln 2)^2$",
+   "$\\ln 2$",
+   "$\\dfrac{1}{2}\\ln 2$",
+   "หาไม่ได้เพราะลำดับนี้เป็นลำดับไดเวอร์เจนต์"
+  ],
+  "correct": 1,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-14-infiniteseries-q47",
+  "question": "กำหนดให้ $f_1(x)=\\sqrt{x}$ และ $f_n(x)=(f_1\\circ f_{n-1})(x),\\ n\\ge 2$ ถ้า $a_n=f_1(2)\\,f_2(2)\\,f_3(2)\\cdots f_n(2)$ และ $b_n=\\ln a_n$ แล้วลำดับ $b_n$ มีลิมิตเท่ากับข้อใดต่อไปนี้",
+  "subTopics": [
+   "14.1",
+   "14.4"
+  ],
+  "topics": [
+   "14"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "4",
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "gen-chap-03-real-q087",
+  "question": "จงหาผลบวกของคำตอบจริงทั้งหมดของสมการ $x^4-5x^3+8x^2-5x+1=0$",
+  "subTopics": [
+   "3.4",
+   "3.3"
+  ],
+  "topics": [
+   "3"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$105$",
+   "$126$",
+   "$300$",
+   "$333$"
+  ],
+  "correct": 3,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-12-probability-q172",
+  "question": "ข้อสอบวิชาคณิตศาสตร์มี $12$ ข้อ ข้อที่ $1, 2, 3$ ข้อละ $3$ คะแนน ข้อที่ $4, 5$ ข้อละ $2$ คะแนน ส่วนข้ออื่น ๆ ข้อละ $1$ คะแนน ถ้าตอบข้อใดถูกจะได้คะแนนของข้อนั้น และถ้าตอบผิดได้ $0$ คะแนน จงหาจำนวนวิธีทั้งหมดที่นักเรียนคนหนึ่งจะได้คะแนนวิชาคณิตศาสตร์ $35$ เปอร์เซ็นต์พอดี",
+  "subTopics": [
+   "12.3",
+   "12.1"
+  ],
+  "topics": [
+   "12"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": 4,
+  "difficulty": "ยากมาก",
+  "hasImage": false,
+  "id": "gen-chap-05-function-q069",
+  "question": "กำหนดความสัมพันธ์ $r=\\{(x,y)\\mid y^{2}=x^{2}-4x+k\\}$ เมื่อ $k$ เป็นจำนวนเต็ม ถ้าโดเมนของ $r$ เป็นเซตของจำนวนจริงทั้งหมด จงหาค่าที่น้อยที่สุดของ $k$ ที่เป็นไปได้",
+  "subTopics": [
+   "5.1",
+   "5.9"
+  ],
+  "topics": [
+   "5"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$9$",
+   "$10$",
+   "$11$",
+   "$12$"
+  ],
+  "correct": 1,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-13-calculus-q146",
+  "question": "กำหนดให้ $a,b$ เป็นจำนวนจริง และ $f(x)=x^{3}+ax^{2}+bx+1$ ถ้า $f'(1)=15$ และ $\\displaystyle\\int_{0}^{1} f(x)\\,dx=\\dfrac{55}{12}$ แล้ว $f(1)$ มีค่าเท่ากับข้อใดต่อไปนี้",
+  "subTopics": [
+   "13.10",
+   "13.4"
+  ],
+  "topics": [
+   "13"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$\\forall x[2\\mid x]$",
+   "$\\exists x[5\\mid x]$",
+   "$\\forall x[x\\gt 3]$",
+   "$\\exists x[x=10]$"
+  ],
+  "correct": 0,
+  "difficulty": "ง่าย",
+  "hasImage": false,
+  "id": "gen-chap-02-logic-q057",
+  "question": "ให้ $U=\\{2,4,6,8\\}$ ข้อใดต่อไปนี้เป็นจริง",
+  "subTopics": [
+   "2.10"
+  ],
+  "topics": [
+   "2"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$47.3$",
+   "$47.4$",
+   "$47.5$",
+   "$47.6$",
+   "$47.7$"
+  ],
+  "correct": 1,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-15-statistics-q15",
+  "question": "จากการวิจัยความสัมพันธ์ระหว่างน้ำหนัก $(W)$ หน่วยกิโลกรัม และส่วนสูง $(H)$ หน่วยเซนติเมตร ของนักศึกษาหญิงกลุ่มหนึ่ง สรุปได้ว่า $W=\\dfrac{1}{3}(H-15)$ ถ้าค่าเฉลี่ยความสูงของนักศึกษาหญิงกลุ่มที่ 1 จำนวน 6 คน เท่ากับ 159 เซนติเมตร และค่าเฉลี่ยความสูงของกลุ่มที่ 2 จำนวน 9 คน เท่ากับ 156 เซนติเมตร จงหาค่าเฉลี่ยของน้ำหนักของนักศึกษาหญิงทั้งสองกลุ่มนี้รวมกัน",
+  "subTopics": [
+   "15.4"
+  ],
+  "topics": [
+   "15"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$70$",
+   "$75$",
+   "$80$",
+   "$85$"
+  ],
+  "correct": 2,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-14-infiniteseries-q50",
+  "question": "จำนวนเต็มบวก $n$ ที่ทำให้ $\\dfrac{1}{1+\\sqrt{2}} + \\dfrac{1}{\\sqrt{2}+\\sqrt{3}} + \\dfrac{1}{\\sqrt{3}+\\sqrt{4}} + \\cdots + \\dfrac{1}{\\sqrt{n}+\\sqrt{n+1}} = 8$ มีค่าเท่าใด",
+  "subTopics": [
+   "14.6"
+  ],
+  "topics": [
+   "14"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "7",
+  "difficulty": "ยากมาก",
+  "hasImage": false,
+  "id": "gen-chap-03-real-q090",
+  "question": "กำหนดให้ $x\\gt 0$ และ $x^3+\\dfrac{1}{x^3}=18$ จงหาค่าของ $x^2+\\dfrac{1}{x^2}$",
+  "subTopics": [
+   "3.2",
+   "3.3"
+  ],
+  "topics": [
+   "3"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$45$ วิธี",
+   "$90$ วิธี",
+   "$126$ วิธี",
+   "$252$ วิธี"
+  ],
+  "correct": 2,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-12-probability-q175",
+  "question": "วิศวกรคนหนึ่งมีลูกน้อง $10$ คน จะแบ่งลูกน้องออกเป็นสองกลุ่ม ให้แต่ละกลุ่มมีจำนวนเท่ากัน วิศวกรผู้นั้นจะมีวิธีจัดแบ่งกลุ่มลูกน้องได้กี่วิธี",
+  "subTopics": [
+   "12.3"
+  ],
+  "topics": [
+   "12"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$[-1,5)\\cup(5,\\infty)$",
+   "$[-1,-1)\\cup(-1,5)\\cup(5,\\infty)$",
+   "$(-1,5)\\cup(5,\\infty)$",
+   "$[-1,\\infty)$"
+  ],
+  "correct": 2,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "gen-chap-05-function-q073",
+  "question": "โดเมนของฟังก์ชัน $f(x)=\\dfrac{\\sqrt{x+1}}{|x-2|-3}$ คือข้อใด",
+  "subTopics": [
+   "5.5",
+   "5.10"
+  ],
+  "topics": [
+   "5"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$\\dfrac{1}{2}$",
+   "$-\\dfrac{1}{2}$",
+   "$\\dfrac{3}{2}$",
+   "$-\\dfrac{3}{2}$"
+  ],
+  "correct": 3,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-13-calculus-q149",
+  "question": "ถ้า $f(x)=\\dfrac{x^{4}}{4}-x$ และ $a$ เป็นจำนวนจริงที่ทำให้ $\\displaystyle\\int_{-a}^{a^{2}} f''(x)\\,dx=-\\dfrac{1}{4}$ แล้ว $f'(a)$ เท่ากับข้อใดต่อไปนี้",
+  "subTopics": [
+   "13.10",
+   "13.4"
+  ],
+  "topics": [
+   "13"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$\\exists x[{\\sim} P(x)]$",
+   "$\\forall x[{\\sim} P(x)]$",
+   "$\\exists x[P(x)]$",
+   "${\\sim}\\exists x[P(x)]$"
+  ],
+  "correct": 0,
+  "difficulty": "ง่าย",
+  "hasImage": false,
+  "id": "gen-chap-02-logic-q060",
+  "question": "นิเสธของ $\\forall x[P(x)]$ สมมูลกับข้อใด",
+  "subTopics": [
+   "2.11",
+   "2.10"
+  ],
+  "topics": [
+   "2"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$x_1 < x_2 < x_3$",
+   "$x_1 < x_3 < x_2$",
+   "$x_2 < x_3 < x_1$",
+   "$x_3 < x_1 < x_2$"
+  ],
+  "correct": 3,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-15-statistics-q158",
+  "question": "นักเรียนห้องหนึ่งมี $40$ คน เป็นชายและหญิงจำนวนเท่ากัน ในการสอบวิชาหนึ่ง คะแนนของกลุ่มนักเรียนชายและกลุ่มนักเรียนหญิงมีค่าเฉลี่ยเท่ากัน แต่มีส่วนเบี่ยงเบนมาตรฐานเป็น $4$ และ $3$ ตามลำดับ ถ้าคะแนนของแต่ละกลุ่มมีการแจกแจงปกติ ให้ $x_1,x_2,x_3$ แทนคะแนนที่เป็นตำแหน่งเปอร์เซ็นไทล์ที่ $95$ ของคะแนนของนักเรียนทั้งห้อง, ของกลุ่มนักเรียนชาย และของกลุ่มนักเรียนหญิง ตามลำดับ แล้วข้อใดต่อไปนี้ถูก",
+  "subTopics": [
+   "15.8",
+   "15.7",
+   "15.10"
+  ],
+  "topics": [
+   "15"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "-1",
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-14-infiniteseries-q53",
+  "question": "จงหาค่า $\\displaystyle\\lim_{x\\to-\\infty} \\dfrac{3^x - 3^{-x}}{3^x + 3^{-x}}$",
+  "subTopics": [
+   "14.1"
+  ],
+  "topics": [
+   "14"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "4",
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "gen-chap-03-real-q093",
+  "question": "จำนวนเต็ม $k$ ที่ทำให้สมการ $x^2-kx+9=0$ มีรากจริงเป็นบวกสองรากต่างกัน โดยรากทั้งสองอยู่ในช่วง $(0,10)$ มีทั้งหมดกี่ค่า",
+  "subTopics": [
+   "3.4",
+   "3.6"
+  ],
+  "topics": [
+   "3"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "432",
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-12-probability-q20",
+  "question": "ในการประชุมครั้งหนึ่ง มีผู้แทนจาก 3 ประเทศเข้าร่วมประชุม โดยมีผู้แทนประเทศละ 3 คน จำนวนวิธีทั้งหมดที่จะจัดให้ผู้แทนแต่ละประเทศต้องนั่งติดกันในการประชุมโต๊ะกลม เท่ากับเท่าใด",
+  "subTopics": [
+   "12.4",
+   "12.2"
+  ],
+  "topics": [
+   "12"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "4",
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "gen-chap-05-function-q076",
+  "question": "กำหนด $f(x)=|x-2|+|x+2|$ จงหาค่าต่ำสุดของ $f$",
+  "subTopics": [
+   "5.5",
+   "5.10"
+  ],
+  "topics": [
+   "5"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$2$",
+   "$1$",
+   "$0$",
+   "$-1$"
+  ],
+  "correct": 2,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-13-calculus-q151",
+  "question": "ถ้า $\\displaystyle\\int_{1}^{\\sin\\theta} x^{2}\\,dx=-\\dfrac{2}{3}$ แล้ว $1+\\sin\\theta+\\cos\\theta$ เท่ากับข้อใดต่อไปนี้",
+  "subTopics": [
+   "13.10",
+   "7.2"
+  ],
+  "topics": [
+   "13"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$(p\\wedge{\\sim} q)\\vee r$",
+   "$({\\sim} p\\vee q)\\vee r$",
+   "$(p\\wedge{\\sim} q)\\wedge r$",
+   "$({\\sim} p\\wedge q)\\vee r$"
+  ],
+  "correct": 0,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "gen-chap-02-logic-q063",
+  "question": "ข้อใดสมมูลกับ ${\\sim}(p\\to q)\\vee r$",
+  "subTopics": [
+   "2.5",
+   "2.3"
+  ],
+  "topics": [
+   "2"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "ก. ถูก และ ข. ถูก",
+   "ก. ถูก และ ข. ผิด",
+   "ก. ผิด และ ข. ถูก",
+   "ก. ผิด และ ข. ผิด"
+  ],
+  "correct": 3,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-15-statistics-q161",
+  "question": "จากการสอบถามรายจ่ายของครอบครัว $8$ ครอบครัว ที่มีรายได้ตั้งแต่ $1{,}000$ บาท ถึง $14{,}000$ บาท ได้สมการที่ใช้แทนความสัมพันธ์ของรายได้ ($X$) และรายจ่าย ($Y$) คือ $Y=0.636X+0.545$ พิจารณาข้อความต่อไปนี้\nก. เราสามารถใช้สมการข้างต้นทำนายรายได้เมื่อทราบรายจ่าย\nข. ถ้าเพิ่มข้อมูลโดยการสอบถามเพิ่มอีก $7$ ครอบครัว สมการที่ใช้แทนความสัมพันธ์ของ $X$ และ $Y$ ยังคงเป็นสมการเดิม\nข้อใดถูกต้อง",
+  "subTopics": [
+   "15.11"
+  ],
+  "topics": [
+   "15"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$1$",
+   "$2$",
+   "$3$",
+   "$4$"
+  ],
+  "correct": 2,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-14-infiniteseries-q56",
+  "question": "ถ้า $\\gamma = \\displaystyle\\lim_{n\\to\\infty} \\dfrac{4 + 3n(2n+1) + 9n^3(3n+1)}{1 - 3(n+1) + 9n^3(n+1)}$ จงหาว่า $\\gamma$ มีค่าเท่าใด",
+  "subTopics": [
+   "14.1"
+  ],
+  "topics": [
+   "14"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "4",
+  "difficulty": "ง่าย",
+  "hasImage": false,
+  "id": "gen-chap-03-real-q096",
+  "question": "จงหาจำนวนคำตอบที่เป็นจำนวนจริงของสมการ $|x^2-5x+4|=2$",
+  "subTopics": [
+   "3.7",
+   "3.4"
+  ],
+  "topics": [
+   "3"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "1152",
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-12-probability-q23",
+  "question": "จงหาจำนวนวิธีทั้งหมดในการจัดชาย 5 คน และหญิง 5 คน ให้นั่งรอบโต๊ะกลม โดยให้ชายหญิงนั่งสลับกัน และนาย ก จะต้องนั่งติดกับนางสาว ข",
+  "subTopics": [
+   "12.4"
+  ],
+  "topics": [
+   "12"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "9",
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "gen-chap-05-function-q079",
+  "question": "กำหนด $f(x)=\\dfrac{\\sqrt{x}}{\\sqrt{x}-3}$ โดเมนของ $f$ คือ $[0,\\infty)$ ยกเว้นจำนวนจริงหนึ่งจำนวน จงหาจำนวนที่ถูกยกเว้นนั้น",
+  "subTopics": [
+   "5.5"
+  ],
+  "topics": [
+   "5"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$x=2$",
+   "$x=1$",
+   "$x=0$",
+   "$x=-1$"
+  ],
+  "correct": 1,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-13-calculus-q163",
+  "question": "กำหนดให้กราฟของ $y=f(x)$ เป็นเส้นโค้งที่อยู่เหนือแกน $x$ และมีความชันของเส้นสัมผัสเส้นโค้งที่จุด $(x,y)$ ใดๆ เท่ากับ $6x+2b$ เมื่อ $b$ เป็นจำนวนจริง ถ้าพื้นที่ที่ปิดล้อมด้วยเส้นโค้งจาก $x=0$ ถึง $x=2$ เท่ากับสองเท่าของพื้นที่ที่ปิดล้อมด้วยเส้นโค้งนี้จาก $x=0$ ถึง $x=1$ แล้ว $f$ มีจุดต่ำสุดสัมพัทธ์ที่จุด $x$ ใดในข้อต่อไปนี้",
+  "subTopics": [
+   "13.11",
+   "13.9",
+   "13.7"
+  ],
+  "topics": [
+   "13"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$(p\\to q)\\to r$",
+   "$p\\to(q\\to r)$",
+   "$(p\\to r)\\wedge(q\\to r)$",
+   "$p\\wedge(q\\to r)$"
+  ],
+  "correct": 1,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "gen-chap-02-logic-q066",
+  "question": "ข้อใดสมมูลกับ $(p\\wedge q)\\to r$",
+  "subTopics": [
+   "2.5",
+   "2.2"
+  ],
+  "topics": [
+   "2"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "1215",
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-12-probability-q53",
+  "question": "ถ้า S คือเซตของล็อตเตอรี่รัฐบาล ซึ่งมีเลข 6 หลัก และมีเลข 0 อยู่ 4 ตัว แล้ว จำนวนสมาชิกของ S เท่ากับเท่าใด",
+  "subTopics": [
+   "12.3",
+   "12.1"
+  ],
+  "topics": [
+   "12"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$\\dfrac{5}{2}$",
+   "$\\dfrac{5}{3}$",
+   "$\\dfrac{1}{2}$",
+   "$\\dfrac{1}{3}$"
+  ],
+  "correct": 2,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-14-infiniteseries-q59",
+  "question": "กำหนดลำดับ $a_n = \\dfrac{2^n+5}{2n+3}$ และ $b_n = \\dfrac{2^n}{n}$ แล้ว $\\displaystyle\\lim_{n\\to\\infty} \\dfrac{a_n}{b_n}$ มีค่าเท่ากับข้อใด",
+  "subTopics": [
+   "14.1"
+  ],
+  "topics": [
+   "14"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "4",
+  "difficulty": "ยากมาก",
+  "hasImage": false,
+  "id": "gen-chap-03-real-q099",
+  "question": "จงหาค่าต่ำสุดของ $\\dfrac{x^2-2x+5}{x-1}$ เมื่อ $x\\gt1$",
+  "subTopics": [
+   "3.12",
+   "3.9"
+  ],
+  "topics": [
+   "3"
+  ],
+  "type": "fill",
+  "hint": null
+ }
+]

@@ -1,0 +1,240 @@
+﻿id,ชุด,type,correct,ธง,หมายเหตุ,บรรทัดคำตอบ
+alvl1-2566-03-q23,alvl1-2566-03,mc,0,⚪ เทียบไม่ได้,,✅ คำตอบ: $f'(x)=h(x)$
+alvl1-2567-03-q04,alvl1-2567-03,mc,2,⚪ เทียบไม่ได้,,✅ คำตอบ: $\dfrac{\pi}{3} 
+chap-01-set-q39,chap-01-set,mc,0,⚪ เทียบไม่ได้,,✅ คำตอบ: $x = 20$ ซึ่งอยู่ในช่วง $18 \leq x 
+chap-02-logic-q01,chap-02-logic,mc,3,⚪ เทียบไม่ได้,,✅ คำตอบ:
+chap-02-logic-q02,chap-02-logic,mc,2,⚪ เทียบไม่ได้,,✅ คำตอบ:
+chap-02-logic-q119,chap-02-logic,fill,essay,⚪ เทียบไม่ได้,,✅ คำตอบ:
+chap-02-logic-q51,chap-02-logic,mc,3,⚪ เทียบไม่ได้,,"✅ คำตอบ: $\forall x \exists y[\, (xy "
+chap-02-logic-q63,chap-02-logic,mc,2,⚪ เทียบไม่ได้,,"✅ คำตอบ: $\exists x[\, |x + 2| "
+chap-03-realnumber-q01,chap-03-realnumber,mc,2,⚪ เทียบไม่ได้,,✅ คำตอบ: $\dfrac{1}{|x|} 
+chap-03-realnumber-q02,chap-03-realnumber,mc,0,⚪ เทียบไม่ได้,,✅ คำตอบ: $\dfrac{y}{x} 
+chap-03-realnumber-q148,chap-03-realnumber,fill,"(-∞, -1) ∪ [0, 1]",⚪ เทียบไม่ได้,,"✅ คำตอบ: $(-\infty,-1)\cup[0,1]$"
+chap-03-realnumber-q149,chap-03-realnumber,fill,"(-∞, 0] ∪ (1, 2] ∪ [3, ∞)",⚪ เทียบไม่ได้,,"✅ คำตอบ: $A=(-\infty,0]\cup(1,2]\cup[3,\infty)$"
+chap-03-realnumber-q182,chap-03-realnumber,fill,"2, ไม่เป็น",⚪ เทียบไม่ได้,,✅ คำตอบ: เหลือเศษ $2$ และไม่เป็นจำนวนเฉพาะ
+chap-03-realnumber-q26,chap-03-realnumber,mc,3,⚪ เทียบไม่ได้,,✅ คำตอบ: $x = 3$
+chap-04-coord-q169,chap-04-coord,fill,"จุดยอด (11/2, -7/2); สมการ x^2+y^2-2xy-46x-10y+137=0",⚪ เทียบไม่ได้,,"✅ คำตอบ: จุดยอด $\left(\dfrac{11}{2}, -\dfrac{7}{2}\right)$ และสมการ $x^2 + y^2 - 2xy - 46x - 10y + 137 = 0$"
+chap-04-coord-q173,chap-04-coord,fill,5√13,⚪ เทียบไม่ได้,,✅ คำตอบ: $5\sqrt{13}$
+chap-04-coord-q174,chap-04-coord,fill,96+16√2+5√(33-16√2),⚪ เทียบไม่ได้,,✅ คำตอบ: $96 + 16\sqrt{2} + 5\sqrt{33 - 16\sqrt{2}}$
+chap-04-coord-q194,chap-04-coord,fill,15/√13,⚪ เทียบไม่ได้,,✅ คำตอบ: $\dfrac{15}{\sqrt{13}}$ หน่วย (= $\dfrac{15\sqrt{13}}{13}$)
+chap-04-coord-q195,chap-04-coord,fill,"(√15/4, 15/8) และ (-√15/4, 15/8)",⚪ เทียบไม่ได้,,"✅ คำตอบ: จุดสัมผัสคือ $\left(\dfrac{\sqrt{15}}{4}, \dfrac{15}{8}\right)$"
+chap-04-coord-q211,chap-04-coord,fill,√7,⚪ เทียบไม่ได้,,✅ คำตอบ: $\sqrt{7}$ หน่วย
+chap-04-coord-q226,chap-04-coord,fill,"ศูนย์กลาง (1,2); โฟกัส (1, 2±√5); E: (x-1)^2/1+(y-2)^2/6=1 แกนเอกยาว 2√6; วงกลม (x-1)^2+(y-2)^2=1",⚪ เทียบไม่ได้,,"✅ คำตอบ: ศูนย์กลาง H คือ $(1, 2)$, โฟกัส $(1, 2 \pm \sqrt{5})$ | E: $(x - 1)^2 + \dfrac{(y - 2)^2}{6} = 1$, แกนเอกยาว $2\sqrt{6}$ | วงกลม: $(x - 1)^2 "
+chap-04-coord-q229,chap-04-coord,fill,"H: (y-2)^2/1-(x+1)^2/5=1; k ∈ (-∞, -1/√6] ∪ [1/√6, ∞)",⚪ เทียบไม่ได้,,✅ คำตอบ: H: $(y - 2)^2 - \dfrac{(x + 1)^2}{5} = 1$
+chap-05-function-q135,chap-05-function,fill,2625,⚪ เทียบไม่ได้,,"✅ คำตอบ: 2,625 หน้า (พิมพ์ตั้งแต่ 2,625 หน้าขึ้นไปจึงคุ้ม)"
+chap-05-function-q159,chap-05-function,fill,"$R_{r_1} = [-2, 2]$, $R_{r_2} = [-1, \infty)$, $D_{r^{-1}} = [-1, 2]$",⚪ เทียบไม่ได้,,"✅ คำตอบ: $R_{r_1} = [-2, 2]$, $R_{r_2} = [-1, \infty)$"
+chap-05-function-q16,chap-05-function,mc,3,⚪ เทียบไม่ได้,,"✅ คำตอบ: $D_f = \{ x \ne \pm 1 \}$, $R_f = \{ x \le -2$"
+chap-05-function-q201,chap-05-function,fill,"0, 2, -2",⚪ เทียบไม่ได้,,"✅ คำตอบ: $f(0) = 0$, $f(1) = 2$, $f(-1) = -2$"
+chap-06-matrix-q115,chap-06-matrix,fill,"(0, sqrt(2)/2, sqrt(2)/2)",⚪ เทียบไม่ได้,,✅ คำตอบ: $\begin{bmatrix} x \\ y \\ z \end{bmatrix} = \pm\begin{bmatrix} 0 \\ \sqrt{2}/2 \\ \sqrt{2}/2 \end{bmatrix}$
+chap-06-matrix-q122,chap-06-matrix,fill,"[[-1,-4,4],[-1,-5/2,3],[1,3,-3]]",⚪ เทียบไม่ได้,,✅ คำตอบ: $A^{-1} = \begin{bmatrix} -1 & -4 & 4 \\ -1 & -5/2 & 3 \\ 1 & 3 & -3 \end{bmatrix}$
+chap-06-matrix-q128,chap-06-matrix,fill,"[[2/3,-1],[1/3,1/3]]",⚪ เทียบไม่ได้,,✅ คำตอบ: $B = \begin{bmatrix} 2/3 & -1 \\ 1/3 & 1/3 \end{bmatrix}$
+chap-06-matrix-q133,chap-06-matrix,fill,"x=2, y=3, z=1, det(adj C)=3364",⚪ เทียบไม่ได้,,✅ คำตอบ:
+chap-06-matrix-q134,chap-06-matrix,fill,"A=[[1,1,1],[-1,2,-1],[0,3,-1]], X=[0,1,0]",⚪ เทียบไม่ได้,,✅ คำตอบ: $A = \begin{bmatrix} 1 & 1 & 1 \\ -1 & 2 & -1 \\ 0 & 3 & -1 \end{bmatrix}$
+chap-06-matrix-q149,chap-06-matrix,fill,คำตอบเดียว: k≠2 และ k≠-2; ไม่มีคำตอบ: k=2 หรือ k=-2; ไม่มีกรณีหลายคำตอบ,⚪ เทียบไม่ได้,,✅ คำตอบ: คำตอบเดียวเมื่อ $k \ne 2$
+chap-06-matrix-q151,chap-06-matrix,fill,e^(-5525),⚪ เทียบไม่ได้,,✅ คำตอบ: $\det(C) = e^{-5525}$
+chap-06-matrix-q79,chap-06-matrix,mc,2,⚪ เทียบไม่ได้,,✅ คำตอบ: $9 \le x 
+chap-07-trigonometry-q130,chap-07-trigonometry,fill,"a = -0.3, b ≈ 0.95",⚪ เทียบไม่ได้,,✅ คำตอบ: $a = -0.3$
+chap-07-trigonometry-q157,chap-07-trigonometry,fill,"$c = 2\sqrt{2},\ \alpha = \dfrac{5\pi}{4}$",⚪ เทียบไม่ได้,,✅ คำตอบ: $c = 2\sqrt{2}$
+chap-07-trigonometry-q161,chap-07-trigonometry,fill,"$\tan\dfrac{\theta}{2} = \dfrac{1}{2},\ \sin\dfrac{\theta}{2} = \dfrac{1}{\sqrt{5}}$ หรือ $\tan\dfrac{\theta}{2} = -2,\ \sin\dfrac{\theta}{2} = \dfrac{2}{\sqrt{5}}$",⚪ เทียบไม่ได้,,"✅ คำตอบ: $\tan\dfrac{\theta}{2} = \dfrac{1}{2}, \sin\dfrac{\theta}{2} = \dfrac{1}{\sqrt{5}}$"
+chap-07-trigonometry-q181,chap-07-trigonometry,fill,"$x = -1,\ y = \dfrac{(2n + 1)\pi}{4} + 1$ เมื่อ $n$ เป็นจำนวนเต็มใด ๆ",⚪ เทียบไม่ได้,,✅ คำตอบ: $x = -1$
+chap-07-trigonometry-q197,chap-07-trigonometry,mc,3,⚪ เทียบไม่ได้,,✅ คำตอบ: $A = \{0\}$
+chap-07-trigonometry-q214,chap-07-trigonometry,fill,$\dfrac{3\sqrt{3}}{2}r^2$ ตารางหน่วย,⚪ เทียบไม่ได้,,✅ คำตอบ: $\dfrac{3\sqrt{3}}{2}r^2 \approx 2.6r^2$ ตารางหน่วย
+chap-07-trigonometry-q227,chap-07-trigonometry,fill,"พื้นที่ $= 3 + \sqrt{3}$ ตารางหน่วย, $BD = \sqrt{6}$, $AC = \sqrt{10 + 4\sqrt{3}}$",⚪ เทียบไม่ได้,,✅ คำตอบ: พื้นที่ $= 3 + \sqrt{3} \approx 4.73$ ตารางหน่วย
+chap-08-explog-q119,chap-08-explog,fill,"[1, ∞)",⚪ เทียบไม่ได้,,"✅ คำตอบ: $[1, \infty)$"
+chap-08-explog-q129,chap-08-explog,fill,"[−1, 1]",⚪ เทียบไม่ได้,,"✅ คำตอบ: $[-1, 1]$"
+chap-08-explog-q135,chap-08-explog,fill,"{−√2, √2, 1/2, 1/a}",⚪ เทียบไม่ได้,,"✅ คำตอบ: $A \cup B = \left\{ -\sqrt{2}, \sqrt{2}, \dfrac{1}{2}, \dfrac{1}{a} \right\}$"
+chap-08-explog-q138,chap-08-explog,fill,15a^((3p+q)/5)/(2p−q),⚪ เทียบไม่ได้,,"✅ คำตอบ: $\dfrac{15\,a^{(3p+q)/5}}{2p - q}$"
+chap-08-explog-q141,chap-08-explog,fill,1/x²,⚪ เทียบไม่ได้,,✅ คำตอบ: $\dfrac{1}{x^2}$
+chap-08-explog-q154,chap-08-explog,fill,−3,⚪ เทียบไม่ได้,,✅ คำตอบ: $-3$
+chap-08-explog-q161,chap-08-explog,fill,−2,⚪ เทียบไม่ได้,,✅ คำตอบ: $-2$
+chap-08-explog-q171,chap-08-explog,fill,c^((1+√33)/4) หรือ c^((1−√33)/4),⚪ เทียบไม่ได้,,✅ คำตอบ: $x = c^{(1+\sqrt{33})/4}$
+chap-08-explog-q178,chap-08-explog,fill,±(2√3 ± √6)/6,⚪ เทียบไม่ได้,,✅ คำตอบ: $\sin\dfrac{x}{2} = \pm\dfrac{2\sqrt{3} \pm \sqrt{6}}{6}$ (ขึ้นกับช่วงของ $x$ — เฉลยหนังสือระบุหมายเหตุไว้)
+chap-08-explog-q181,chap-08-explog,fill,1000000,⚪ เทียบไม่ได้,,"✅ คำตอบ: $1{,}000{,}000$"
+chap-08-explog-q185,chap-08-explog,fill,−8 และ 2,⚪ เทียบไม่ได้,,✅ คำตอบ: $x = -8$
+chap-08-explog-q187,chap-08-explog,fill,"(6/7, 18/5) − {2}",⚪ เทียบไม่ได้,,"✅ คำตอบ: $\left(\dfrac{6}{7}, \dfrac{18}{5}\right) - \{2\}$"
+chap-08-explog-q197,chap-08-explog,fill,"a = (4/5)^6, b = (4/5)^5",⚪ เทียบไม่ได้,,"✅ คำตอบ: $a = \left(\dfrac{4}{5}\right)^6$ , $b = \left(\dfrac{4}{5}\right)^5$"
+chap-08-explog-q199,chap-08-explog,fill,1 + √2,⚪ เทียบไม่ได้,,✅ คำตอบ: $\dfrac{b}{a} = 1 + \sqrt{2}$
+chap-08-explog-q201,chap-08-explog,fill,−1,⚪ เทียบไม่ได้,,✅ คำตอบ: $-1$
+chap-08-explog-q203,chap-08-explog,fill,"(−1, 4) และ (−1, 4/3)",⚪ เทียบไม่ได้,,"✅ คำตอบ: $(x, y) = (-1, 4)$"
+chap-08-explog-q206,chap-08-explog,fill,"(1, 1) และ (3^(−1/3), 3^(2/3))",⚪ เทียบไม่ได้,,"✅ คำตอบ: $(a, b) = (1, 1)$"
+chap-08-explog-q208,chap-08-explog,fill,"(−∞, −1) ∪ [1/2, 1)",⚪ เทียบไม่ได้,,"✅ คำตอบ: $D_{f+g} = (-\infty, -1) \cup \left[\dfrac{1}{2}, 1\right)$"
+chap-09-vector-q106,chap-09-vector,fill,47/√2938,⚪ เทียบไม่ได้,,✅ คำตอบ: $\cos\theta = \dfrac{47}{\sqrt{2938}}$
+chap-09-vector-q112,chap-09-vector,fill,a = (−8 + 5√3)/11,⚪ เทียบไม่ได้,,✅ คำตอบ: $a = \dfrac{-8 + 5\sqrt{3}}{11}$
+chap-09-vector-q116,chap-09-vector,fill,"(a,b) = (5, 0) หรือ (−5/2, 5√3/2)",⚪ เทียบไม่ได้,,"✅ คำตอบ: $(a, b) = (5, 0)$"
+chap-09-vector-q125,chap-09-vector,fill,−2√6/9,⚪ เทียบไม่ได้,,✅ คำตอบ: $-\dfrac{2\sqrt{6}}{9}$
+chap-09-vector-q49,chap-09-vector,mc,0,⚪ เทียบไม่ได้,,✅ คำตอบ: $0° 
+chap-09-vector-q84,chap-09-vector,mc,3,⚪ เทียบไม่ได้,,✅ คำตอบ:
+chap-09-vector-q86,chap-09-vector,fill,ū = −3v̄ : ขนานกัน ทิศตรงกันข้าม และ |ū| = 3|v̄|,⚪ เทียบไม่ได้,,✅ คำตอบ: $\overline{u} = -3\overline{v}$ — ทั้งสองขนานกันโดยมีทิศตรงกันข้าม และ $|\overline{u}| = 3|\overline{v}|$
+chap-09-vector-q91,chap-09-vector,fill,(4/5)ī − (3/5)j̄,⚪ เทียบไม่ได้,,✅ คำตอบ: $\dfrac{4}{5}\overline{i} - \dfrac{3}{5}\overline{j}$
+chap-09-vector-q92,chap-09-vector,fill,±((4/5)ī + (3/5)j̄),⚪ เทียบไม่ได้,,✅ คำตอบ: $\pm\left(\dfrac{4}{5}\overline{i} + \dfrac{3}{5}\overline{j}\right)$
+chap-09-vector-q94,chap-09-vector,fill,(3/√2)ī + (3/√2)j̄,⚪ เทียบไม่ได้,,✅ คำตอบ: $\dfrac{3}{\sqrt{2}}\overline{i} + \dfrac{3}{\sqrt{2}}\overline{j}$
+chap-09-vector-q95,chap-09-vector,fill,±((8√10/5)ī − (6√10/5)j̄),⚪ เทียบไม่ได้,,✅ คำตอบ: $\overrightarrow{PQ} = \pm\left(\dfrac{8\sqrt{10}}{5}\overline{i} - \dfrac{6\sqrt{10}}{5}\overline{j}\right)$
+chap-10-complex-q102,chap-10-complex,fill,"±i, ±sqrt3/2 ± (1/2)i",⚪ เทียบไม่ได้,,"✅ คำตอบ: $\pm i,\ \dfrac{\sqrt3}{2} \pm \dfrac12 i,\ -\dfrac{\sqrt3}{2} \pm \dfrac12 i$"
+chap-10-complex-q105,chap-10-complex,fill,e = 1/2 - i ; inverse v = 1/(4a) + (1/b) i เมื่อ u=a+bi ; u=2sqrt3+2i -> 1/(8sqrt3)+i/2 ; u=-2sqrt3+2i -> -1/(8sqrt3)+i/2 ; u=-4i ไม่มีอินเวอร์ส (a=0),⚪ เทียบไม่ได้,,✅ คำตอบ: เอกลักษณ์ $= \dfrac12 - i$
+chap-10-complex-q108,chap-10-complex,fill,"(sqrt2 + sqrt6 i)/2 , -(sqrt2 + sqrt6 i)/2",⚪ เทียบไม่ได้,,"✅ คำตอบ: $\dfrac{\sqrt2}{2} + \dfrac{\sqrt6}{2}i,\ -\dfrac{\sqrt2}{2} - \dfrac{\sqrt6}{2}i$"
+chap-10-complex-q121,chap-10-complex,fill,a+b = -1/2 ± sqrt3/2 ; p = จำนวนเฉพาะใด ๆ (ทุกค่าผ่านเงื่อนไขรากจริง),⚪ เทียบไม่ได้,,✅ คำตอบ: $a + b = -\dfrac12 + \dfrac{\sqrt3}{2}$ หรือ $-\dfrac12 - \dfrac{\sqrt3}{2}$
+chap-10-complex-q77,chap-10-complex,fill,"{ pi/2 , 3pi/2 }",⚪ เทียบไม่ได้,,"✅ คำตอบ: $B = \left\{\dfrac{\pi}{2},\ \dfrac{3\pi}{2}\right\}$"
+chap-10-complex-q91,chap-10-complex,fill,1/2^1000,⚪ เทียบไม่ได้,,✅ คำตอบ: $\dfrac{1}{2^{1000}}$
+chap-11-sequence-q07,chap-11-sequence,fill,3780,⚪ เทียบไม่ได้,,"✅ คำตอบ: ฝากทั้งหมด $3{,}780$ บาท"
+chap-11-sequence-q18,chap-11-sequence,mc,2,⚪ เทียบไม่ได้,,✅ คำตอบ: $0 
+chap-11-sequence-q55,chap-11-sequence,fill,2n - 2 + (1/2)^(n-1),⚪ เทียบไม่ได้,,✅ คำตอบ: $2n - 2 + \left(\dfrac{1}{2}\right)^{n-1}$
+chap-13-calculus-q182,chap-13-calculus,fill,"0.5, -1",⚪ เทียบไม่ได้,,✅ คำตอบ: $A=\dfrac{1}{2}$
+chap-13-calculus-q186,chap-13-calculus,fill,K ต่อเนื่องทุกค่า t>0,⚪ เทียบไม่ได้,,✅ คำตอบ: $K$ เป็นฟังก์ชันต่อเนื่อง (ทุกค่า $t > 0$)
+chap-13-calculus-q188,chap-13-calculus,fill,"-1, 1",⚪ เทียบไม่ได้,,✅ คำตอบ: $x=-1$
+chap-13-calculus-q192,chap-13-calculus,fill,(2-3x^2)/sqrt(1-x^2),⚪ เทียบไม่ได้,,✅ คำตอบ: $\dfrac{d^{2}y}{dx^{2}}=\dfrac{2-3x^{2}}{\sqrt{1-x^{2}}}$
+chap-13-calculus-q214,chap-13-calculus,fill,"ค่าสูงสุด 3, ค่าต่ำสุด 1",⚪ เทียบไม่ได้,,"✅ คำตอบ: ค่าสูงสุด $=3$, ค่าต่ำสุด $=1$"
+chap-13-calculus-q216,chap-13-calculus,fill,"ค่าสูงสุด 25, ค่าต่ำสุด 0",⚪ เทียบไม่ได้,,"✅ คำตอบ: ค่าสูงสุด $=25$, ค่าต่ำสุด $=0$"
+chap-13-calculus-q220,chap-13-calculus,fill,"ต่ำสุดสัมพัทธ์/สัมบูรณ์ $=0$ ที่ $x=1,3$; สูงสุดสัมพัทธ์ $=1$ ที่ $x=2$ (ไม่มีค่าสูงสุดสัมบูรณ์)",⚪ เทียบไม่ได้,,"✅ คำตอบ: ต่ำสุด (สัมพัทธ์และสัมบูรณ์) $=0$ ที่ $x=1,3$; สูงสุดสัมพัทธ์ $=1$ ที่ $x=2$; ไม่มีค่าสูงสุดสัมบูรณ์"
+chap-13-calculus-q221,chap-13-calculus,fill,เพิ่มขึ้นเมื่อ $0\le x<\dfrac{a}{2}$ และลดลงเมื่อ $\dfrac{a}{2}<x\le a$ (อัตราสูงสุดที่ $x=\dfrac{a}{2}$),⚪ เทียบไม่ได้,,✅ คำตอบ: เพิ่มขึ้นเมื่อ $0\le x 
+chap-13-calculus-q255,chap-13-calculus,fill,-1/(2(n-1)(x^2+1)^(n-1)) + C,⚪ เทียบไม่ได้,,"✅ คำตอบ: $-\dfrac{1}{2(n-1)(x^{2}+1)^{\,n-1}}+C$"
+chap-13-calculus-q277,chap-13-calculus,fill,"$A=4\int_0^a \dfrac{b}{a}\sqrt{a^2-x^2}\,dx=\pi ab$",⚪ เทียบไม่ได้,,✅ คำตอบ:
+chap-13-calculus-q283,chap-13-calculus,fill,หาค่าไม่ได้ (ปริพันธ์ลู่ออก),⚪ เทียบไม่ได้,,✅ คำตอบ: หาค่าไม่ได้ เพราะ $x=2$ อยู่ในช่วงและปริพันธ์ลู่ออก → เติมคำตอบ
+chap-13-calculus-q290,chap-13-calculus,fill,"22/3, 17/3",⚪ เทียบไม่ได้,,"✅ คำตอบ: ตำแหน่ง $=\dfrac{22}{3}$ หน่วย, ระยะทาง $=\dfrac{17}{3}$ หน่วย → เติมคำตอบ"
+chap-13-calculus-q86,chap-13-calculus,mc,1,⚪ เทียบไม่ได้,,"✅ คำตอบ: $2{,}000\le N "
+chap-14-infiniteseries-q07,chap-14-infiniteseries,mc,3,⚪ เทียบไม่ได้,,"✅ คำตอบ: $D=(-1,1)$"
+chap-14-infiniteseries-q57,chap-14-infiniteseries,fill,m>n: หาค่าลิมิตไม่ได้ (เป็น $+\infty$ เมื่อ $a_0/b_0>0$ หรือ $-\infty$ เมื่อ $a_0/b_0<0$); m<n: 0,⚪ เทียบไม่ได้,,✅ คำตอบ: $m > n$ หาค่าลิมิตไม่ได้ ($\pm\infty$ ตามเครื่องหมาย $a_0/b_0$); $m 
+chap-15-statistics-q164,chap-15-statistics,mc,3,⚪ เทียบไม่ได้,,✅ คำตอบ:
+chap-15-statistics-q175,chap-15-statistics,fill,7000,⚪ เทียบไม่ได้,,"✅ คำตอบ: $7{,}000$ บาท"
+chap-15-statistics-q199,chap-15-statistics,fill,"132, 254",⚪ เทียบไม่ได้,,✅ คำตอบ: ค่าเฉลี่ยที่ถูกต้อง $=132$ บาท และค่าเฉลี่ยเงินที่ได้มา $=254$ บาท
+chap-15-statistics-q267,chap-15-statistics,fill,"79.5, 45",⚪ เทียบไม่ได้,,✅ คำตอบ: $\sigma\approx 79.5$ และมัธยฐาน $=45$
+gen-chap-01-set-q332,gen-chap-01-set,mc,1,⚪ เทียบไม่ได้,,✅ คำตอบ $n(A\cap B)=1$
+gen-chap-02-logic-q050,gen-chap-02-logic,mc,0,⚪ เทียบไม่ได้,,✅ คำตอบ $p\vee q$ เป็นจริง เมื่ออย่างน้อยหนึ่งตัวเป็นจริง
+gen-chap-02-logic-q336,gen-chap-02-logic,mc,1,⚪ เทียบไม่ได้,,✅ คำตอบ 12
+gen-chap-03-real-q079,gen-chap-03-real,mc,0,⚪ เทียบไม่ได้,,✅ คำตอบ $\mathbb{R}$
+gen-chap-03-real-q089,gen-chap-03-real,fill,13/4,⚪ เทียบไม่ได้,,✅ คำตอบ $x=\dfrac{13}4$
+gen-chap-03-real-q117,gen-chap-03-real,mc,0,⚪ เทียบไม่ได้,,✅ คำตอบ ข้อ ก ไม่จริง (อตรรกยะ$\times$อตรรกยะ อาจเป็นตรรกยะ)
+gen-chap-03-real-q122,gen-chap-03-real,mc,1,⚪ เทียบไม่ได้,,✅ คำตอบ ไม่มีเอกลักษณ์ จึงไม่เป็นกรุป
+gen-chap-03-real-q195,gen-chap-03-real,mc,0,⚪ เทียบไม่ได้,,✅ คำตอบ ข้อ D
+gen-chap-03-real-q213,gen-chap-03-real,mc,1,⚪ เทียบไม่ได้,,✅ คำตอบ $*$ มีสมบัติสลับที่
+gen-chap-03-real-q216,gen-chap-03-real,mc,1,⚪ เทียบไม่ได้,,✅ คำตอบ $*$ ไม่ปิดบน $\mathbb{Z}$
+gen-chap-03-real-q224,gen-chap-03-real,mc,1,⚪ เทียบไม่ได้,,✅ คำตอบ $0$ เป็นเอกลักษณ์ขวา แต่ $*$ ไม่มีเอกลักษณ์ซ้าย
+gen-chap-03-real-q307,gen-chap-03-real,mc,1,⚪ เทียบไม่ได้,,✅ คำตอบ $3*4=14$
+gen-chap-03-real-q309,gen-chap-03-real,mc,1,⚪ เทียบไม่ได้,,✅ คำตอบ ข้อที่ไม่จริงคือ 'มีจำนวนตรรกยะ $a$ ที่ $a^2=3$'
+gen-chap-03-real-q313,gen-chap-03-real,mc,2,⚪ เทียบไม่ได้,,✅ คำตอบ ไม่เป็นกรุป เพราะ $\dfrac12$ ไม่มีอินเวอร์ส
+gen-chap-03-real-q314,gen-chap-03-real,mc,1,⚪ เทียบไม่ได้,,✅ คำตอบ มีเอกลักษณ์ขวาคือ $0$ แต่ไม่มีเอกลักษณ์ซ้าย
+gen-chap-03-real-q315,gen-chap-03-real,mc,2,⚪ เทียบไม่ได้,,✅ คำตอบ ไม่มีทั้งสมบัติสลับที่และสมบัติเปลี่ยนหมู่
+gen-chap-03-real-q321,gen-chap-03-real,mc,1,⚪ เทียบไม่ได้,,✅ คำตอบ เป็นกรุป เอกลักษณ์ $2$ อินเวอร์สของ $a$ คือ $\dfrac{4}{a}$
+gen-chap-03-real-q324,gen-chap-03-real,mc,1,⚪ เทียบไม่ได้,,✅ คำตอบ ไม่เป็นกรุป เพราะ $1$ ไม่มีอินเวอร์สใน $\mathbb{Z}$
+gen-chap-03-real-q353,gen-chap-03-real,mc,0,⚪ เทียบไม่ได้,,✅ คำตอบ ข้อแรก
+gen-chap-03-real-q356,gen-chap-03-real,mc,2,⚪ เทียบไม่ได้,,✅ คำตอบ ข้อแรก
+gen-chap-04-coord-q010,gen-chap-04-coord,fill,"(8,0),(0,-6)",⚪ เทียบไม่ได้,,"✅ คำตอบ: จุดตัดแกน $x$ คือ $(8,0)$ และจุดตัดแกน $y$ คือ $(0,-6)$"
+gen-chap-04-coord-q014,gen-chap-04-coord,fill,45°,⚪ เทียบไม่ได้,,✅ คำตอบ: $\theta=45^{\circ}$
+gen-chap-04-coord-q021,gen-chap-04-coord,fill,"$(3,-2),\ r=5$",⚪ เทียบไม่ได้,,"✅ คำตอบ: จุดศูนย์กลาง $(3,-2)$ และรัศมี $r=5$"
+gen-chap-04-coord-q107,gen-chap-04-coord,fill,-5 < c < 5,⚪ เทียบไม่ได้,,✅ คำตอบ: $-5\lt c\lt5$
+gen-chap-04-coord-q111,gen-chap-04-coord,fill,$8√5/5$,⚪ เทียบไม่ได้,,✅ คำตอบ: $\overline{AB}=\dfrac{8\sqrt5}{5}$
+gen-chap-04-coord-q112,gen-chap-04-coord,fill,$2√7$,⚪ เทียบไม่ได้,,✅ คำตอบ: $\ell=2\sqrt7$
+gen-chap-04-coord-q119,gen-chap-04-coord,fill,$2√11$,⚪ เทียบไม่ได้,,✅ คำตอบ: ความยาวคอร์ด $=2\sqrt{11}$
+gen-chap-04-coord-q125,gen-chap-04-coord,fill,"$(2,√3)$",⚪ เทียบไม่ได้,,"✅ คำตอบ: $(2,\sqrt{3})$"
+gen-chap-04-coord-q136,gen-chap-04-coord,fill,$√13$,⚪ เทียบไม่ได้,,✅ คำตอบ: $QB=\sqrt{13}$
+gen-chap-04-coord-q137,gen-chap-04-coord,fill,$±√55$,⚪ เทียบไม่ได้,,✅ คำตอบ: $c=\pm\sqrt{55}$
+gen-chap-04-coord-q169,gen-chap-04-coord,mc,2,⚪ เทียบไม่ได้,,✅ คำตอบ: ค่ามากสุด $=5$
+gen-chap-04-coord-q190,gen-chap-04-coord,fill,"$m=\pm\dfrac{3}{2},\ \pm\dfrac{\sqrt{10}}{2}$",⚪ เทียบไม่ได้,,✅ คำตอบ: $m=\pm\dfrac{3}{2}$ หรือ $m=\pm\dfrac{\sqrt{10}}{2}$
+gen-chap-04-coord-q197,gen-chap-04-coord,fill,"$x-y+2=0,\ 2x+y+1=0$",⚪ เทียบไม่ได้,,✅ คำตอบ: $x-y+2=0$ และ $2x+y+1=0$
+gen-chap-04-coord-q207,gen-chap-04-coord,mc,2,⚪ เทียบไม่ได้,,✅ คำตอบ: มีสองวง ตามตัวเลือกแรก
+gen-chap-04-coord-q221,gen-chap-04-coord,mc,1,⚪ เทียบไม่ได้,,✅ คำตอบ ความยาวเลตัสเรกตัม $=12$
+gen-chap-04-coord-q244,gen-chap-04-coord,mc,2,⚪ เทียบไม่ได้,,✅ คำตอบ เส้นรอบรูป $=20$
+gen-chap-04-coord-q278,gen-chap-04-coord,fill,$2√3/3$,⚪ เทียบไม่ได้,,✅ คำตอบ: $\dfrac{2\sqrt3}{3}$
+gen-chap-04-coord-q297,gen-chap-04-coord,fill,$4√2$,⚪ เทียบไม่ได้,,✅ คำตอบ $4\sqrt2$
+gen-chap-04-coord-q306,gen-chap-04-coord,mc,2,⚪ เทียบไม่ได้,,✅ คำตอบ: $R=5$
+gen-chap-04-coord-q309,gen-chap-04-coord,fill,$2√10$,⚪ เทียบไม่ได้,,✅ คำตอบ: $2\sqrt{10}$
+gen-chap-04-coord-q310,gen-chap-04-coord,fill,$5√2/2$,⚪ เทียบไม่ได้,,✅ คำตอบ: $\dfrac{5\sqrt{2}}{2}$
+gen-chap-04-coord-q317,gen-chap-04-coord,mc,0,⚪ เทียบไม่ได้,,✅ คำตอบ: $k=5$ หรือ $k=-15$
+gen-chap-04-coord-q318,gen-chap-04-coord,fill,$4√5$,⚪ เทียบไม่ได้,,✅ คำตอบ: $4\sqrt{5}$
+gen-chap-04-coord-q330,gen-chap-04-coord,mc,3,⚪ เทียบไม่ได้,,✅ คำตอบ $k=9$ หรือ $k=49$
+gen-chap-04-coord-q349,gen-chap-04-coord,mc,1,⚪ เทียบไม่ได้,,✅ คำตอบ พื้นที่ $=4$
+gen-chap-04-coord-q360,gen-chap-04-coord,mc,0,⚪ เทียบไม่ได้,,✅ คำตอบ $PF=6$
+gen-chap-05-function-q022,gen-chap-05-function,fill,$x^{2} - 1$,⚪ เทียบไม่ได้,,✅ คำตอบ: $f(x)=x^2-1$
+gen-chap-05-function-q024,gen-chap-05-function,fill,$x^{2} + 2 x - 1$,⚪ เทียบไม่ได้,,✅ คำตอบ: $g(x)=x^2+2x-1$
+gen-chap-05-function-q032,gen-chap-05-function,mc,2,⚪ เทียบไม่ได้,,✅ คำตอบ: $f^{-1}(10)=2$
+gen-chap-05-function-q036,gen-chap-05-function,mc,1,⚪ เทียบไม่ได้,,✅ คำตอบ: $k=2$
+gen-chap-05-function-q151,gen-chap-05-function,mc,2,⚪ เทียบไม่ได้,,✅ คำตอบ: $(f\circ g)(-1)=7$
+gen-chap-05-function-q154,gen-chap-05-function,fill,$x^{2} - x - 2$,⚪ เทียบไม่ได้,,✅ คำตอบ: $f(x)=x^2-x-2$
+gen-chap-05-function-q161,gen-chap-05-function,fill,$x^{2} + 2 x$,⚪ เทียบไม่ได้,,✅ คำตอบ: $f(x)=x^2+2x$
+gen-chap-05-function-q162,gen-chap-05-function,fill,$x^{2} + 3 x + 1$,⚪ เทียบไม่ได้,,✅ คำตอบ: $f(x)=x^2+3x+1$
+gen-chap-05-function-q163,gen-chap-05-function,fill,$4 x^{2} - 4 x + 2$,⚪ เทียบไม่ได้,,✅ คำตอบ: $(f\circ g\circ h)(x)=4x^2-4x+2$
+gen-chap-05-function-q168,gen-chap-05-function,fill,$2 x^{2} - 5 x + 3$,⚪ เทียบไม่ได้,,✅ คำตอบ: $f(x)=2x^2-5x+3$
+gen-chap-05-function-q172,gen-chap-05-function,mc,1,⚪ เทียบไม่ได้,,✅ คำตอบ: $(f\circ f)(12)=4$
+gen-chap-05-function-q195,gen-chap-05-function,mc,0,⚪ เทียบไม่ได้,,✅ คำตอบ: $f^{-1}(4)=2$
+gen-chap-05-function-q212,gen-chap-05-function,mc,3,⚪ เทียบไม่ได้,,✅ คำตอบ: $f^{-1}(4)=-9$
+gen-chap-05-function-q213,gen-chap-05-function,mc,0,⚪ เทียบไม่ได้,,✅ คำตอบ: $f^{-1}(5)=2$
+gen-chap-05-function-q214,gen-chap-05-function,mc,1,⚪ เทียบไม่ได้,,✅ คำตอบ: $m=-1$
+gen-chap-05-function-q219,gen-chap-05-function,mc,0,⚪ เทียบไม่ได้,,✅ คำตอบ: ตัวเลือกที่มี $\dfrac{x-2}{3}$ (สำหรับ $x\le 2$) และ $\sqrt{x-2}$ (สำหรับ $x\gt 2$)
+gen-chap-05-function-q224,gen-chap-05-function,mc,3,⚪ เทียบไม่ได้,,✅ คำตอบ: $f^{-1}(0)=1$
+gen-chap-05-function-q230,gen-chap-05-function,mc,0,⚪ เทียบไม่ได้,,✅ คำตอบ: $g(4)=1$
+gen-chap-05-function-q231,gen-chap-05-function,mc,3,⚪ เทียบไม่ได้,,✅ คำตอบ: $g(6)=4$
+gen-chap-05-function-q232,gen-chap-05-function,mc,0,⚪ เทียบไม่ได้,,✅ คำตอบ: $g(2)=-3$
+gen-chap-05-function-q234,gen-chap-05-function,mc,3,⚪ เทียบไม่ได้,,✅ คำตอบ: $h^{-1}(9)=5$
+gen-chap-05-function-q240,gen-chap-05-function,mc,3,⚪ เทียบไม่ได้,,✅ คำตอบ: $a=3$
+gen-chap-05-function-q242,gen-chap-05-function,mc,1,⚪ เทียบไม่ได้,,✅ คำตอบ: $f(5)=17$
+gen-chap-05-function-q243,gen-chap-05-function,mc,1,⚪ เทียบไม่ได้,,✅ คำตอบ: $(g\circ f)^{-1}(12)=2$
+gen-chap-05-function-q250,gen-chap-05-function,mc,3,⚪ เทียบไม่ได้,,✅ คำตอบ: $a=4$
+gen-chap-05-function-q253,gen-chap-05-function,fill,$3 \left(x - 1\right)^{2} - 2$,⚪ เทียบไม่ได้,,✅ คำตอบ: $y=3(x-1)^2-2$ (หรือ $3x^2-6x+1$)
+gen-chap-05-function-q261,gen-chap-05-function,fill,$5 - 4 \left(x - 3\right)^{2}$,⚪ เทียบไม่ได้,,✅ คำตอบ: $y=-4(x-3)^2+5$ (หรือ $-4x^2+24x-31$)
+gen-chap-05-function-q271,gen-chap-05-function,mc,1,⚪ เทียบไม่ได้,,✅ คำตอบ: $f(2)=-1$
+gen-chap-05-function-q273,gen-chap-05-function,mc,1,⚪ เทียบไม่ได้,,✅ คำตอบ: $f(3)=27$
+gen-chap-05-function-q278,gen-chap-05-function,mc,1,⚪ เทียบไม่ได้,,✅ คำตอบ: $f(2)=0$
+gen-chap-05-function-q280,gen-chap-05-function,mc,1,⚪ เทียบไม่ได้,,✅ คำตอบ: $f(1)=-4$
+gen-chap-05-function-q284,gen-chap-05-function,mc,3,⚪ เทียบไม่ได้,,✅ คำตอบ: $f(3)+f(-3)=10$
+gen-chap-05-function-q286,gen-chap-05-function,fill,$x^{2} + \frac{1}{x}$,⚪ เทียบไม่ได้,,✅ คำตอบ: $f(x)=x^2+\dfrac{1}{x}=\dfrac{x^3+1}{x}$
+gen-chap-05-function-q287,gen-chap-05-function,mc,2,⚪ เทียบไม่ได้,,✅ คำตอบ: $x=1$
+gen-chap-05-function-q288,gen-chap-05-function,mc,1,⚪ เทียบไม่ได้,,✅ คำตอบ: $f\left(\dfrac52\right)=10$
+gen-chap-05-function-q290,gen-chap-05-function,mc,1,⚪ เทียบไม่ได้,,✅ คำตอบ: $f(f(2))=14$
+gen-chap-05-function-q292,gen-chap-05-function,fill,$2 x^{2} + 4$,⚪ เทียบไม่ได้,,✅ คำตอบ: $E(x)=2x^2+4$
+gen-chap-05-function-q296,gen-chap-05-function,mc,3,⚪ เทียบไม่ได้,,✅ คำตอบ: $a+b=2$
+gen-chap-05-function-q309,gen-chap-05-function,fill,$\frac{x}{x^{2} - 4}$,⚪ เทียบไม่ได้,,✅ คำตอบ: $O(x)=\dfrac{x}{x^2-4}$
+gen-chap-05-function-q311,gen-chap-05-function,mc,2,⚪ เทียบไม่ได้,,✅ คำตอบ: $(f\circ g)(2)=10$
+gen-chap-05-function-q316,gen-chap-05-function,fill,$\left(x - 3\right)^{2} + 2$,⚪ เทียบไม่ได้,,"✅ คำตอบ: $f^{-1}(x)=(x-3)^{2}+2,\ x\ge 3$"
+gen-chap-05-function-q343,gen-chap-05-function,mc,2,⚪ เทียบไม่ได้,,✅ คำตอบ: ผลบวกคำตอบ $=-2$
+gen-chap-05-function-q346,gen-chap-05-function,mc,2,⚪ เทียบไม่ได้,,✅ คำตอบ: $f(2)=-1$
+gen-chap-05-function-q348,gen-chap-05-function,mc,1,⚪ เทียบไม่ได้,,✅ คำตอบ: $F(2)=1$
+gen-chap-05-function-q363,gen-chap-05-function,mc,3,⚪ เทียบไม่ได้,,✅ คำตอบ: $g(2)=1$
+gen-chap-05-function-q365,gen-chap-05-function,mc,3,⚪ เทียบไม่ได้,,✅ คำตอบ: ผลบวก $=2$
+gen-chap-05-function-q382,gen-chap-05-function,fill,$x^{2} + 2 x + 1$,⚪ เทียบไม่ได้,,✅ คำตอบ: $f(x)=x^2+2x+1$
+gen-chap-05-function-q383,gen-chap-05-function,mc,3,⚪ เทียบไม่ได้,,✅ คำตอบ: ค่าสูงสุด $=9$
+gen-chap-05-function-q388,gen-chap-05-function,mc,0,⚪ เทียบไม่ได้,,✅ คำตอบ: $a=3$
+gen-chap-05-function-q391,gen-chap-05-function,mc,0,⚪ เทียบไม่ได้,,✅ คำตอบ: $(g\circ f)(2)=17$
+gen-chap-05-function-q400,gen-chap-05-function,fill,$- x^{2} + \frac{2}{x^{2}}$,⚪ เทียบไม่ได้,,✅ คำตอบ: $f(x)=-x^2+\dfrac{2}{x^2}$
+gen-chap-07-trigonometry-q095,gen-chap-07-trigonometry,mc,2,⚪ เทียบไม่ได้,,• เช็คด้วยสามัญสำนึกก่อนวงคำตอบ : มุม $\dfrac{5\pi}{9}$ เรเดียน มีค่าประมาณ $1.75$ ซึ่งมากกว่า $1$ เรเดียนอยู่พอควร ส่วนโค้งจึงต้องยาวกว่ารัศมีประมาณ 
+gen-chap-07-trigonometry-q128,gen-chap-07-trigonometry,mc,3,⚪ เทียบไม่ได้,,• ใช้ขอบเขตเป็นตะแกรงกรองก่อนวงคำตอบ : สำหรับมุมแหลม $\sec$ และ $\csc$ ต่างก็ไม่น้อยกว่า $1$ ⇒ ผลบวกของทั้งคู่ต้องไม่น้อยกว่า $2$ · ค่าใดที่ต่ำกว่า $2
+gen-chap-07-trigonometry-q142,gen-chap-07-trigonometry,mc,2,⚪ เทียบไม่ได้,,• ตรวจความสมเหตุสมผลอย่างเร็วก่อนวงคำตอบ : เมื่อ $\tan\theta = 4$ ถือว่าใหญ่พอสมควร พจน์ที่มี $\sin\theta$ จะเด่นกว่าพจน์ที่มี $\cos\theta$ ⇒ ค่าของนิ
+gen-chap-07-trigonometry-q167,gen-chap-07-trigonometry,mc,2,⚪ เทียบไม่ได้,,• ด่านตรวจเร็วหลังได้คำตอบ : ถ้าสมการแยกได้เป็นผลคูณของตัวประกอบสองตัว ให้นับว่าแต่ละตัวประกอบให้รากกี่ตัวในหนึ่งรอบแล้วบวกกัน
+gen-chap-07-trigonometry-q219,gen-chap-07-trigonometry,mc,3,⚪ เทียบไม่ได้,,✅ คำตอบ: $BC = 14$ หน่วย
+gen-chap-18-interest-and-value-of-money-q06,gen-chap-18-interest-and-value-of-money,mc,0,⚪ เทียบไม่ได้,,✅ คำตอบ
+gen-chap-18-interest-and-value-of-money-q10,gen-chap-18-interest-and-value-of-money,fill,16232,⚪ เทียบไม่ได้,,✅ คำตอบ
+gen-chap-18-interest-and-value-of-money-q13,gen-chap-18-interest-and-value-of-money,fill,51051,⚪ เทียบไม่ได้,,✅ คำตอบ
+gen-chap-18-interest-and-value-of-money-q20,gen-chap-18-interest-and-value-of-money,fill,3600,⚪ เทียบไม่ได้,,✅ คำตอบ
+gen-chap-18-interest-and-value-of-money-q37,gen-chap-18-interest-and-value-of-money,mc,0,⚪ เทียบไม่ได้,,✅ คำตอบ
+gen-chap-18-interest-and-value-of-money-q38,gen-chap-18-interest-and-value-of-money,mc,1,⚪ เทียบไม่ได้,,✅ คำตอบ
+gen-chap-18-interest-and-value-of-money-q39,gen-chap-18-interest-and-value-of-money,mc,1,⚪ เทียบไม่ได้,,✅ คำตอบ
+gen-chap-18-interest-and-value-of-money-q40,gen-chap-18-interest-and-value-of-money,mc,0,⚪ เทียบไม่ได้,,✅ คำตอบ
+gen-chap-18-interest-and-value-of-money-q46,gen-chap-18-interest-and-value-of-money,fill,33100,⚪ เทียบไม่ได้,,✅ คำตอบ
+gen-chap-18-interest-and-value-of-money-q47,gen-chap-18-interest-and-value-of-money,fill,27846,⚪ เทียบไม่ได้,,✅ คำตอบ
+gen-chap-18-interest-and-value-of-money-q48,gen-chap-18-interest-and-value-of-money,fill,37830,⚪ เทียบไม่ได้,,✅ คำตอบ
+pat1-2552-03-q31,pat1-2552-03,mc,2,⚪ เทียบไม่ได้,,"ตรวจคำตอบ: ที่ $r=\tfrac12$ ได้ $a_1=4(1-\tfrac12)=2$, ลำดับคือ $2,1,\tfrac12,\dots$ ผลบวก $=\dfrac{2}{1-\frac12}=4$ ✓ และ $a_2=1$ ✓"
+pat1-2552-03-q32,pat1-2552-03,mc,1,⚪ เทียบไม่ได้,,ตรวจคำตอบ: แทน $c=2$:
+pat1-2552-03-q33,pat1-2552-03,mc,2,⚪ เทียบไม่ได้,,"ตรวจคำตอบ: $f'(-0.5)=2.5 > 0$ (ช่วง $(-1,0)$ เพิ่มจริง), $f'(2.5)=2(2.5)(12.5-3)=47.5 > 0$ (ช่วง $(2,3)$ เพิ่มจริง) ✓"
+pat1-2552-03-q36,pat1-2552-03,mc,0,⚪ เทียบไม่ได้,,"ตรวจคำตอบ: 4 บล็อกรอบวง $=3!=6$, สลับใน 4 คู่ $=2^4=16$, รวม $6\times16=96$ ✓"
+pat1-2552-03-q40,pat1-2552-03,mc,2,⚪ เทียบไม่ได้,,ตรวจคำตอบ: เงื่อนไข mean=median ทำให้ผลรวมระยะห่างฝั่งซ้าย (ต่ำกว่า median) = ผลรวมระยะห่างฝั่งขวา (สูงกว่า median) ในรูปค่าสัมบูรณ์ ✓
+pat1-2552-03-q41,pat1-2552-03,mc,3,⚪ เทียบไม่ได้,,"ตรวจคำตอบ: $a+b=20+10=30$ ✓, $\sum f x = 3.5(20)+4(15)+4.5(10)+5(20)+5.5(10)+6(5)=70+60+45+100+55+30=360$ ✓"
+pat1-2552-03-q42,pat1-2552-03,mc,3,⚪ เทียบไม่ได้,,"ตรวจคำตอบ: $\bar{x}=595/40=14.875$ ✓, Med $14.5 > $ Mode $10.3$ ✓"
+pat1-2552-03-q44,pat1-2552-03,mc,3,⚪ เทียบไม่ได้,,"ตรวจคำตอบ: $\mu=150, \sigma=5$ แทนใน (1): $150-1.88(5)=150-9.4=140.6$ ✓ และ (2): $150+9.4=159.4$ ✓"
+pat1-2552-03-q45,pat1-2552-03,mc,1,⚪ เทียบไม่ได้,,ตรวจคำตอบ:
+pat1-2552-03-q48,pat1-2552-03,mc,2,⚪ เทียบไม่ได้,,"ตรวจคำตอบ: $c=\frac{1}{2551!}$,"
+pat1-2552-03-q49,pat1-2552-03,mc,2,⚪ เทียบไม่ได้,,"ตรวจคำตอบ: ทั้ง 2 แบบมี จ ที่ 4 ✓, ค ฉ ติดกัน ✓, ฉ ก่อน ก ✓, ก ติด ง ✓, ฉ ไม่ติด ข ✓ — ลำดับ 5 มี ก หรือ ง, ตอบ ง ✓"
+pat1-2552-03-q50,pat1-2552-03,mc,2,⚪ เทียบไม่ได้,,"ตรวจคำตอบ: ข=1 เสมอ และ ง อยู่ที่ 5 หรือ 6 (มากกว่า 1 เสมอ) ดังนั้น ""ง หลัง ข"" จริงทั้งสองแบบ ✓"
+pat1-2553-03-q22,pat1-2553-03,mc,2,⚪ เทียบไม่ได้,,✅ คำตอบ: $C 
+pat1-2553-03-q25,pat1-2553-03,mc,0,⚪ เทียบไม่ได้,,"✅ คำตอบ: A, B, D พูดเท็จ"
+pat1-2553-07-q04,pat1-2553-07,mc,2,⚪ เทียบไม่ได้,,✅ คำตอบ: $\left\{ x \mid \dfrac{2}{3} 
+pat1-2554-12-q05,pat1-2554-12,mc,0,⚪ เทียบไม่ได้,,✅ คำตอบ: $\{ x \in \mathbb{R} \mid -2 
+pat1-2555-03-q05,pat1-2555-03,mc,1,⚪ เทียบไม่ได้,,✅ คำตอบ: $B 
+pat1-2555-03-q09,pat1-2555-03,mc,1,⚪ เทียบไม่ได้,,✅ คำตอบ: $\{x \in R \mid (4x-1)(x-4) 
+pat1-2557-11-q30,pat1-2557-11,mc,0,⚪ เทียบไม่ได้,,✅ คำตอบ: $D 
+pat1-2559-03-q12,pat1-2559-03,mc,2,⚪ เทียบไม่ได้,,✅ คำตอบ: $\{x \mid |x-1| 
+pat1-2559-03-q25,pat1-2559-03,mc,4,⚪ เทียบไม่ได้,,✅ คำตอบ: $c 
+pat1-2559-10-q09,pat1-2559-10,mc,4,⚪ เทียบไม่ได้,,✅ คำตอบ: $C 
+pat1-2560-03-q29,pat1-2560-03,mc,1,⚪ เทียบไม่ได้,,✅ คำตอบ: $y 
+pat1-2563-02-q29,pat1-2563-02,mc,0,⚪ เทียบไม่ได้,,✅ คำตอบ: $c 
+pat1-2564-03-q03,pat1-2564-03,mc,0,⚪ เทียบไม่ได้,,✅ คำตอบ: $0 < a < 1$
+pat1-2564-03-q33,pat1-2564-03,mc,3,⚪ เทียบไม่ได้,,✅ คำตอบ: $90° 
+pat1-2565-03-q41,pat1-2565-03,fill,1728,⚪ เทียบไม่ได้,,"✅ คำตอบ: 1,728"
+samn-2561-03-q28,samn-2561-03,mc,1,⚪ เทียบไม่ได้,,✅ คำตอบ $f(x) = -\dfrac{1}{2}(x-1)^2 + 1$

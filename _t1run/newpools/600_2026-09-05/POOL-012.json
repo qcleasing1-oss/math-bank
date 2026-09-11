@@ -1,0 +1,1035 @@
+[
+ {
+  "choices": null,
+  "correct": "7/2",
+  "difficulty": "ง่าย",
+  "hasImage": false,
+  "id": "gen-chap-05-function-q001",
+  "question": "กำหนด $f(x)=\\sqrt{7-2x}$ ถ้าโดเมนของ $f$ คือ $\\left(-\\infty,a\\right]$ จงหาค่า $a$",
+  "subTopics": [
+   "5.5"
+  ],
+  "topics": [
+   "5"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "0.5",
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-13-calculus-q01",
+  "question": "$\\displaystyle\\lim_{x\\to 1}\\dfrac{\\sqrt{x^{2}+3}-2}{x-1}$ มีค่าเท่ากับเท่าใด",
+  "subTopics": [
+   "13.1"
+  ],
+  "topics": [
+   "13"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "1/4",
+  "difficulty": "ง่าย",
+  "hasImage": false,
+  "id": "gen-chap-07-trigonometry-q165",
+  "question": "ค่าของ $\\arcsin\\left(-\\dfrac{1}{2}\\right) + \\arccos\\left(-\\dfrac{1}{2}\\right) + \\arctan(-1)$ เท่ากับ $k\\pi$ เมื่อ $k$ เป็นจำนวนตรรกยะ แล้วค่าของ $k$ เท่ากับเท่าใด",
+  "subTopics": [
+   "7.8"
+  ],
+  "topics": [
+   "7"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "10",
+  "difficulty": "ง่าย",
+  "hasImage": false,
+  "id": "gen-chap-04-coord-q001",
+  "question": "กำหนดจุด $A(-2,3)$ และ $B(4,-5)$ จงหาระยะทาง $AB$",
+  "subTopics": [
+   "4.1"
+  ],
+  "topics": [
+   "4"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$(-4,5)\\cup(5,\\infty)$",
+   "$\\mathbb{R}-\\{5\\}$",
+   "$[-4,\\infty)$",
+   "$[-4,5)\\cup(5,\\infty)$"
+  ],
+  "correct": 3,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "gen-chap-05-function-q002",
+  "question": "กำหนด $f(x)=\\dfrac{1}{x-3}$ และ $g(x)=\\sqrt{x+4}$ โดเมนของ $(f\\circ g)(x)$ คือข้อใด",
+  "subTopics": [
+   "5.7",
+   "5.5"
+  ],
+  "topics": [
+   "5"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$\\dfrac{3}{2}$",
+   "$-\\dfrac{3}{2}$",
+   "$\\dfrac{2}{3}$",
+   "$-\\dfrac{2}{3}$",
+   "ไม่มีคำตอบที่ถูกต้อง"
+  ],
+  "correct": 3,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-13-calculus-q02",
+  "question": "ถ้า $x$ เข้าใกล้ $-3i$ แล้ว $\\dfrac{\\sqrt{2xi+3}-xi}{ix-3}$ จะมีค่าเข้าใกล้ค่าใดต่อไปนี้ (เมื่อ $i$ คือหน่วยจินตภาพ $i^{2}=-1$)",
+  "subTopics": [
+   "13.1",
+   "10.2"
+  ],
+  "topics": [
+   "13"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$0$",
+   "$\\dfrac{\\pi}{6}$",
+   "$\\dfrac{\\pi}{4}$",
+   "$\\dfrac{\\pi}{3}$"
+  ],
+  "correct": 1,
+  "difficulty": "ง่าย",
+  "hasImage": false,
+  "id": "gen-chap-07-trigonometry-q166",
+  "question": "ค่าของ $x$ ที่สอดคล้องกับสมการ $\\sqrt{3}\\,\\tan\\left(x + \\dfrac{\\pi}{6}\\right) = 3$ เมื่อ $0 \\le x < \\dfrac{\\pi}{2}$ เท่ากับข้อใด",
+  "subTopics": [
+   "7.7"
+  ],
+  "topics": [
+   "7"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "(1,3)",
+  "difficulty": "ง่าย",
+  "hasImage": false,
+  "id": "gen-chap-04-coord-q002",
+  "question": "จุดกึ่งกลางของส่วนของเส้นตรงที่เชื่อม $A(-3,7)$ กับ $B(5,-1)$ คือจุดใด (ตอบเป็นพิกัด)",
+  "subTopics": [
+   "4.2"
+  ],
+  "topics": [
+   "4"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "6",
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "gen-chap-05-function-q003",
+  "question": "กำหนด $f(x)=\\sqrt{x-1}$ และ $g(x)=\\sqrt{5-x}$ ถ้าโดเมนของ $\\dfrac{f}{g}$ คือ $[a,b)$ จงหาค่า $a+b$",
+  "subTopics": [
+   "5.11",
+   "5.5"
+  ],
+  "topics": [
+   "5"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$-1$",
+   "$0$",
+   "$1$",
+   "หาค่าไม่ได้"
+  ],
+  "correct": 0,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-13-calculus-q03",
+  "question": "ค่าของ $\\displaystyle\\lim_{x\\to 2^{-}}\\dfrac{\\sqrt{(x-2)^{2}}}{x-2}$ เท่ากับข้อใดต่อไปนี้",
+  "subTopics": [
+   "13.1"
+  ],
+  "topics": [
+   "13"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$\\left\\{\\dfrac{\\pi}{3} , \\dfrac{5\\pi}{3}\\right\\}$",
+   "$\\left\\{0 , \\dfrac{\\pi}{3} , \\dfrac{5\\pi}{3}\\right\\}$",
+   "$\\left\\{0 , \\dfrac{\\pi}{3} , \\pi , \\dfrac{5\\pi}{3}\\right\\}$",
+   "$\\left\\{0 , \\dfrac{\\pi}{3} , \\dfrac{2\\pi}{3} , \\pi , \\dfrac{4\\pi}{3} , \\dfrac{5\\pi}{3}\\right\\}$"
+  ],
+  "correct": 2,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "gen-chap-07-trigonometry-q167",
+  "question": "เซตคำตอบของสมการ $\\sin 2x = \\sin x$ เมื่อ $0 \\le x < 2\\pi$ คือข้อใด",
+  "subTopics": [
+   "7.7",
+   "7.6"
+  ],
+  "topics": [
+   "7"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "-2",
+  "difficulty": "ง่าย",
+  "hasImage": false,
+  "id": "gen-chap-04-coord-q005",
+  "question": "เส้นตรงผ่านจุด $A(2,-4)$ และ $B(-3,6)$ มีความชันเท่าใด",
+  "subTopics": [
+   "4.3"
+  ],
+  "topics": [
+   "4"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$[0,1)$",
+   "$[0,1]$",
+   "$\\mathbb{R}$",
+   "$(0,1)$"
+  ],
+  "correct": 0,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "gen-chap-05-function-q004",
+  "question": "เรนจ์ของฟังก์ชัน $f(x)=\\dfrac{x^2}{x^2+1}$ คือข้อใด",
+  "subTopics": [
+   "5.5"
+  ],
+  "topics": [
+   "5"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$\\displaystyle\\lim_{x\\to-3}f(x)=0$ และ $\\displaystyle\\lim_{x\\to 3}f(x)$ หาค่าไม่ได้",
+   "$\\displaystyle\\lim_{x\\to-3}f(x)=0$ และ $\\displaystyle\\lim_{x\\to 3}f(x)=6$",
+   "$\\displaystyle\\lim_{x\\to-3}f(x)=0$ และ $\\displaystyle\\lim_{x\\to 3}f(x)=-6$",
+   "$\\displaystyle\\lim_{x\\to-3}f(x)$ หาค่าไม่ได้ และ $\\displaystyle\\lim_{x\\to 3}f(x)=0$"
+  ],
+  "correct": 0,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-13-calculus-q04",
+  "question": "กำหนดให้ $f(x)=\\dfrac{|x^{2}-9|}{x-3}$ ข้อใดต่อไปนี้ถูก",
+  "subTopics": [
+   "13.1",
+   "13.2"
+  ],
+  "topics": [
+   "13"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$\\dfrac{3}{5}$",
+   "$\\dfrac{4}{5}$",
+   "$-\\dfrac{4}{5}$",
+   "$\\dfrac{5}{4}$"
+  ],
+  "correct": 1,
+  "difficulty": "ง่าย",
+  "hasImage": false,
+  "id": "gen-chap-07-trigonometry-q168",
+  "question": "กำหนดให้ $\\theta = \\arccos\\dfrac{3}{5}$ ค่าของ $\\sin\\theta$ เท่ากับข้อใด",
+  "subTopics": [
+   "7.8",
+   "7.1"
+  ],
+  "topics": [
+   "7"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "เท็จ",
+  "difficulty": "ง่าย",
+  "hasImage": false,
+  "id": "gen-chap-02-logic-q005",
+  "question": "กำหนดให้ $p$ เป็นจริง, $q$ เป็นจริง, $r$ เป็นเท็จ จงหาค่าความจริงของ $p\\to(q\\to r)$ (ตอบ จริง/เท็จ)",
+  "subTopics": [
+   "2.2",
+   "2.1"
+  ],
+  "topics": [
+   "2"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$2$",
+   "$1.2$",
+   "$0.2$",
+   "$0.19$",
+   "$0.01$"
+  ],
+  "correct": 2,
+  "difficulty": "ง่าย",
+  "hasImage": false,
+  "id": "chap-15-statistics-q05",
+  "question": "ตารางแจกแจงค่าระดับเฉลี่ยของนักเรียนในโรงเรียนแห่งหนึ่ง มีอันตรภาคชั้น 1.35–1.54, 1.55–1.74, 1.75–1.94, 1.95–2.14, 2.15–2.34 และ 2.35–2.54 (จำนวนนักเรียน 15, 25, 30, 22, 16, 12 ตามลำดับ รวม 120 คน)\nความกว้างอันตรภาคชั้นของการแจกแจงนี้ เท่ากับเท่าใด",
+  "subTopics": [
+   "15.2"
+  ],
+  "topics": [
+   "15"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$\\dfrac{\\log b}{a-1}$",
+   "$\\log_a \\dfrac{1}{b}$",
+   "$2\\log_{\\frac{1}{a}} b$",
+   "$2\\log_{\\frac{1}{a^2}} b$",
+   "อนุกรมที่กำหนดให้เป็นอนุกรมไดเวอร์เจนต์ จึงไม่สามารถหาผลบวกได้"
+  ],
+  "correct": 3,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-14-infiniteseries-q05",
+  "question": "พจน์ในข้อใดเป็นผลบวกของอนุกรม $\\log_{\\frac{1}{a^2}} b + \\log_{\\frac{1}{a^4}} b + \\log_{\\frac{1}{a^8}} b + \\dots$",
+  "subTopics": [
+   "14.4",
+   "8.7"
+  ],
+  "topics": [
+   "14"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$(p\\to q)\\wedge{\\sim} q$",
+   "$(p\\to q)\\leftrightarrow(q\\to p)$",
+   "${\\sim}(p\\wedge q)$",
+   "$q\\to(p\\wedge r)$"
+  ],
+  "correct": 1,
+  "difficulty": "ง่าย",
+  "hasImage": false,
+  "id": "gen-chap-02-logic-q006",
+  "question": "กำหนดให้ $p$ เป็นจริง, $q$ เป็นจริง, $r$ เป็นเท็จ ข้อใดต่อไปนี้เป็นจริง",
+  "subTopics": [
+   "2.2",
+   "2.1"
+  ],
+  "topics": [
+   "2"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "ร้อยละ 80.0 ของผู้ป่วยที่มารับการตรวจ มีปริมาณไขมันในเลือดมากกว่า 163 มิลลิกรัมเปอร์เซ็นต์",
+   "ร้อยละ 56.7 ของผู้ป่วยที่มารับการตรวจ มีปริมาณไขมันในเลือดระหว่าง 148–157 มิลลิกรัมเปอร์เซ็นต์",
+   "ร้อยละ 46.7 ของผู้ป่วยที่มารับการตรวจ มีปริมาณไขมันในเลือดน้อยกว่า 153 หรือมากกว่า 158 มิลลิกรัมเปอร์เซ็นต์",
+   "ร้อยละ 30.0 ของผู้ป่วยที่มารับการตรวจ มีปริมาณไขมันในเลือดน้อยกว่า 153 มิลลิกรัมเปอร์เซ็นต์"
+  ],
+  "correct": 3,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-15-statistics-q06",
+  "question": "ตรวจปริมาณไขมันในเลือดของผู้ป่วยโรคความดันโลหิตสูง จำนวน 30 คน ได้ตารางความถี่สะสม (หน่วยมิลลิกรัมเปอร์เซ็นต์) ดังนี้ 143–147 สะสม 3, 148–152 สะสม 9, 153–157 สะสม 17, 158–162 สะสม 24, 163–167 สะสม 28, 168–172 สะสม 30\nข้อใดต่อไปนี้ถูกต้อง",
+  "subTopics": [
+   "15.2"
+  ],
+  "topics": [
+   "15"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "เป็นอนุกรมไดเวอร์เจนต์",
+   "มีผลบวกเป็น $0$",
+   "มีผลบวกเป็น $1$",
+   "มีผลบวกเป็น $2$"
+  ],
+  "correct": 2,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-14-infiniteseries-q06",
+  "question": "กำหนดให้ $A$ คือเมทริกซ์ $\\begin{bmatrix} 1 & 1 \\\\ -1 & 1 \\end{bmatrix}$ ถ้า $a_n = \\det\\!\\left(\\left(\\dfrac{1}{2}A\\right)^{n}\\right)$ เมื่อ $n$ เป็นจำนวนเต็มบวก แล้วอนุกรม $\\displaystyle\\sum_{n=1}^{\\infty} a_n$ เป็นจริงตามข้อใดต่อไปนี้",
+  "subTopics": [
+   "14.4",
+   "6.6"
+  ],
+  "topics": [
+   "14"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "จริง",
+  "difficulty": "ง่าย",
+  "hasImage": false,
+  "id": "gen-chap-02-logic-q007",
+  "question": "กำหนดให้ $p$ เป็นจริง, $q$ เป็นเท็จ จงหาค่าความจริงของ $(p\\vee q)\\wedge{\\sim}(p\\wedge q)$ (ตอบ จริง/เท็จ)",
+  "subTopics": [
+   "2.2",
+   "2.3"
+  ],
+  "topics": [
+   "2"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$11.865$",
+   "$12.865$",
+   "$12.875$",
+   "$11.875$"
+  ],
+  "correct": 3,
+  "difficulty": "ง่าย",
+  "hasImage": false,
+  "id": "chap-15-statistics-q07",
+  "question": "ตารางแจกแจงค่าอาหารกลางวันของนักศึกษา 40 คน: ช่วง 5–9 มี 18 คน, 10–14 มี 10 คน, 15–19 มี 7 คน, 20–24 มี 5 คน\nนักศึกษากลุ่มนี้เสียค่าอาหารกลางวันโดยเฉลี่ย เท่ากับกี่บาทต่อวัน",
+  "subTopics": [
+   "15.4",
+   "15.2"
+  ],
+  "topics": [
+   "15"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$8$",
+   "$9$",
+   "$16$",
+   "$18$"
+  ],
+  "correct": 3,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-14-infiniteseries-q08",
+  "question": "ให้ $a+3,\\ a,\\ a-2$ เป็น $3$ พจน์เรียงกันตามลำดับเรขาคณิตที่มีอัตราส่วนเป็น $r$ ดังนั้น $\\displaystyle\\sum_{n=1}^{\\infty} a\\,r^{\\,n-1}$ มีค่าเท่ากับข้อใดต่อไปนี้",
+  "subTopics": [
+   "14.4",
+   "11.3"
+  ],
+  "topics": [
+   "14"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$(p\\to q)\\vee(r\\wedge{\\sim} p)$",
+   "$q\\vee r$",
+   "${\\sim}(p\\to q)\\vee(r\\wedge{\\sim} p)$",
+   "$(p\\wedge q)\\vee r$"
+  ],
+  "correct": 2,
+  "difficulty": "ง่าย",
+  "hasImage": false,
+  "id": "gen-chap-02-logic-q008",
+  "question": "กำหนดให้ $p$ เป็นจริง, $q$ เป็นเท็จ, $r$ เป็นเท็จ ข้อใดต่อไปนี้เป็นจริง",
+  "subTopics": [
+   "2.2",
+   "2.3"
+  ],
+  "topics": [
+   "2"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$10.50$",
+   "$11.00$",
+   "$12.00$",
+   "$15.48$",
+   "$15.98$"
+  ],
+  "correct": 0,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-15-statistics-q08",
+  "question": "ตารางแจกแจงความถี่สะสมของข้อมูล: ชั้น 0–4 สะสม 3, 5–9 สะสม 7, 10–14 สะสม 17, 15–19 สะสม 19, 20–24 สะสม 20\nค่าเฉลี่ยเลขคณิตของข้อมูลชุดนี้ เท่ากับเท่าใด",
+  "subTopics": [
+   "15.4",
+   "15.2"
+  ],
+  "topics": [
+   "15"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "6",
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-14-infiniteseries-q09",
+  "question": "กำหนดให้ $S_n = \\displaystyle\\sum_{k=1}^{n} \\left(\\dfrac{1}{10}\\right)^{k-1}$ และ $S = \\displaystyle\\sum_{k=1}^{\\infty} \\left(\\dfrac{1}{10}\\right)^{k-1}$ จำนวนเต็มบวก $n$ ที่ทำให้ $S - S_n = \\dfrac{1}{9}\\left(10^{-5}\\right)$ เท่ากับเท่าใด",
+  "subTopics": [
+   "14.4",
+   "14.3"
+  ],
+  "topics": [
+   "14"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "เท็จ",
+  "difficulty": "ง่าย",
+  "hasImage": false,
+  "id": "gen-chap-02-logic-q009",
+  "question": "กำหนดให้ $p$ เป็นจริง, $q$ เป็นเท็จ, $r$ เป็นเท็จ จงหาค่าความจริงของ $(p\\wedge{\\sim} q)\\to r$ (ตอบ จริง/เท็จ)",
+  "subTopics": [
+   "2.2",
+   "2.1"
+  ],
+  "topics": [
+   "2"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$2.5$",
+   "$-0.2$",
+   "$-0.7$",
+   "ข้อมูลที่ให้ไม่เพียงพอที่จะหาคำตอบ"
+  ],
+  "correct": 2,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-15-statistics-q09",
+  "question": "กำหนดให้ $X$ เป็นตัวแปรสุ่มหนึ่ง ค่าที่สังเกตได้พร้อมร้อยละของความถี่สะสมสัมพัทธ์เป็นดังนี้ ค่า $X=-4,-3,1,2,3$ มีร้อยละของความถี่สะสมสัมพัทธ์ $=30,50,60,80,100$ ตามลำดับ\nค่าเฉลี่ยเลขคณิตของข้อมูลชุดนี้ เท่ากับเท่าใด",
+  "subTopics": [
+   "15.4",
+   "15.2"
+  ],
+  "topics": [
+   "15"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "เป็นอนุกรมคอนเวอร์เจนต์ ซึ่งมีผลบวกเท่ากับ $S$",
+   "เป็นอนุกรมคอนเวอร์เจนต์ ซึ่งมีผลบวกเท่ากับ $\\dfrac{3}{4}S$",
+   "เป็นอนุกรมคอนเวอร์เจนต์ ซึ่งมีผลบวกเท่ากับ $\\dfrac{1}{2}S$",
+   "เป็นอนุกรมคอนเวอร์เจนต์ ซึ่งมีผลบวกเท่ากับ $\\dfrac{1}{4}S$",
+   "หาผลบวกไม่ได้ เพราะเป็นอนุกรมไดเวอร์เจนต์"
+  ],
+  "correct": 2,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-14-infiniteseries-q10",
+  "question": "ถ้าผลบวกของอนุกรมอนันต์ $\\dfrac{1}{1^2}+\\dfrac{1}{2^2}+\\dfrac{1}{3^2}+\\dfrac{1}{4^2}+\\ldots$ เท่ากับ $S$\nอนุกรมอนันต์ $\\dfrac{2}{2^2}+\\dfrac{2}{4^2}+\\dfrac{2}{6^2}+\\dfrac{2}{8^2}+\\ldots$ จะมีลักษณะตามข้อใด",
+  "subTopics": [
+   "14.5",
+   "14.3"
+  ],
+  "topics": [
+   "14"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$p\\wedge q\\wedge r$",
+   "$r\\vee(p\\wedge{\\sim} q)$",
+   "$(p\\to r)\\wedge(q\\to r)$",
+   "$(p\\wedge q)\\vee(q\\wedge r)\\vee(p\\wedge r)$"
+  ],
+  "correct": 3,
+  "difficulty": "ง่าย",
+  "hasImage": false,
+  "id": "gen-chap-02-logic-q010",
+  "question": "กำหนดให้ $p$ เป็นจริง, $q$ เป็นจริง, $r$ เป็นเท็จ ข้อใดต่อไปนี้เป็นจริง",
+  "subTopics": [
+   "2.2",
+   "2.1"
+  ],
+  "topics": [
+   "2"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$518.5$",
+   "$523$",
+   "$524.5$",
+   "$527.5$",
+   "ไม่มีคำตอบที่ถูกต้องในข้อ 1. ถึงข้อ 4."
+  ],
+  "correct": 1,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-15-statistics-q10",
+  "question": "ตารางแจกแจงความถี่ของคะแนนสอบ: ช่วง 500–509 ความถี่ 15, 510–519 ความถี่ 20, 520–529 ความถี่ 40, 530–539 ความถี่ 15, 540–549 ความถี่ 10\nค่าเฉลี่ยเลขคณิตของคะแนนสอบนี้ มีค่าเท่าใด",
+  "subTopics": [
+   "15.4",
+   "15.2"
+  ],
+  "topics": [
+   "15"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$\\dfrac{2}{3}$",
+   "$\\dfrac{4}{3}$",
+   "$2$",
+   "$\\dfrac{8}{3}$",
+   "$\\dfrac{10}{3}$"
+  ],
+  "correct": 3,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-14-infiniteseries-q11",
+  "question": "ผลบวกอนันต์ของ $1+\\dfrac{3}{4}+\\dfrac{7}{16}+\\dfrac{15}{64}+\\ldots+\\dfrac{2^n-1}{4^{n-1}}+\\ldots$ เท่ากับเท่าใด",
+  "subTopics": [
+   "14.4",
+   "14.5"
+  ],
+  "topics": [
+   "14"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "${\\sim}((p\\to q)\\wedge(q\\to r))$",
+   "$(p\\to q)\\wedge(q\\to r)$",
+   "$p\\to q$",
+   "$q\\wedge r$"
+  ],
+  "correct": 0,
+  "difficulty": "ง่าย",
+  "hasImage": false,
+  "id": "gen-chap-02-logic-q011",
+  "question": "กำหนดให้ $p$ เป็นจริง, $q$ เป็นเท็จ, $r$ เป็นจริง ข้อใดต่อไปนี้เป็นจริง",
+  "subTopics": [
+   "2.2",
+   "2.1"
+  ],
+  "topics": [
+   "2"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "มีค่าน้อยกว่า $3$",
+   "มีค่ามากกว่า $5$",
+   "มีค่าไม่ต่ำกว่า $9$",
+   "มีค่ามากกว่า $9$",
+   "ข้อมูลไม่เพียงพอในการหาคำตอบ"
+  ],
+  "correct": 3,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-15-statistics-q100",
+  "question": "ข้อมูลชุดหนึ่งมี $5$ จำนวน คำนวณค่าเฉลี่ยเลขคณิตได้ $9$ และส่วนเบี่ยงเบนมาตรฐานเท่ากับ $3$ ดังนั้นค่าของ $\\dfrac{\\sum_{i=1}^{5}(x_i-5)^2}{5}$ เป็นจริงตามข้อใดต่อไปนี้",
+  "subTopics": [
+   "15.7",
+   "15.4"
+  ],
+  "topics": [
+   "15"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$0$",
+   "$2$",
+   "$4$",
+   "$5$"
+  ],
+  "correct": 1,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-14-infiniteseries-q12",
+  "question": "เราทราบว่า $\\dfrac{1}{n(n+1)}=\\dfrac{1}{n}-\\dfrac{1}{n+1}$\nดังนั้นอนุกรม $\\displaystyle\\sum_{n=1}^{\\infty}\\left[\\dfrac{5}{2^n}-\\dfrac{3}{n(n+1)}\\right]$ มีผลบวกเท่ากับข้อใดต่อไปนี้",
+  "subTopics": [
+   "14.6",
+   "14.4"
+  ],
+  "topics": [
+   "14"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "เท็จ",
+  "difficulty": "ง่าย",
+  "hasImage": false,
+  "id": "gen-chap-02-logic-q012",
+  "question": "กำหนดให้ $p$ เป็นเท็จ, $q$ เป็นจริง, $r$ เป็นเท็จ จงหาค่าความจริงของ $(p\\to q)\\wedge({\\sim} p\\to r)$ (ตอบ จริง/เท็จ)",
+  "subTopics": [
+   "2.2",
+   "2.1",
+   "2.3"
+  ],
+  "topics": [
+   "2"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$85$",
+   "$90$",
+   "$95$",
+   "$91$–$94$",
+   "$96$–$99$"
+  ],
+  "correct": 0,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-15-statistics-q101",
+  "question": "ในการสอบวิชาสถิติของนักศึกษากลุ่มหนึ่ง มีคะแนนเฉลี่ยเท่ากับ $75$ ความแปรปรวนเท่ากับ $36$ นักศึกษากลุ่มนี้สอบได้เกรด A และเกรด B ถ้านักศึกษาที่ได้เกรด A จะต้องได้คะแนนมาตรฐานไม่ต่ำกว่า $2.5$ ถ้านพดลเป็นนักศึกษาที่ได้เกรด B แล้วคะแนนของนพดลเป็นจำนวนเท่าใด หรืออยู่ในช่วงคะแนนใด",
+  "subTopics": [
+   "15.9",
+   "15.7"
+  ],
+  "topics": [
+   "15"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$0$",
+   "$\\dfrac{1}{4}$",
+   "$\\dfrac{5}{4}$",
+   "$\\dfrac{2}{3}$",
+   "$\\dfrac{5}{3}$"
+  ],
+  "correct": 3,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-14-infiniteseries-q13",
+  "question": "อนุกรม $\\displaystyle\\sum_{n=1}^{\\infty}\\left(\\dfrac{\\sin\\!\\left(n\\pi-\\dfrac{\\pi}{2}\\right)+(-1)^{n+1}}{(-1)^{n+3}\\cdot 5}\\right)^{\\!n}$ มีผลบวกเท่ากับเท่าใด",
+  "subTopics": [
+   "14.4"
+  ],
+  "topics": [
+   "14"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$(p\\vee q)\\wedge(r\\wedge s)$",
+   "$r\\to(p\\wedge s)$",
+   "$(p\\vee q)\\to(r\\wedge s)$",
+   "$s\\vee(p\\wedge r)$"
+  ],
+  "correct": 2,
+  "difficulty": "ง่าย",
+  "hasImage": false,
+  "id": "gen-chap-02-logic-q013",
+  "question": "กำหนดให้ $p$ เป็นเท็จ, $q$ เป็นเท็จ, $r$ เป็นจริง, $s$ เป็นเท็จ ข้อใดต่อไปนี้เป็นจริง",
+  "subTopics": [
+   "2.2",
+   "2.1"
+  ],
+  "topics": [
+   "2"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "นายสันติ นายสมัย และนายสุเทพ",
+   "นายสันติ และนายสุเทพ",
+   "นายสันติเพียงผู้เดียว",
+   "ไม่มีผู้สอบผ่าน"
+  ],
+  "correct": 1,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-15-statistics-q102",
+  "question": "ในการสอบชิงทุนไปต่อต่างประเทศครั้งหนึ่ง มีเงื่อนไขว่าผู้ได้รับทุนต้องผ่านการสอบข้อเขียนด้วยค่ามาตรฐานของคะแนนตั้งแต่ $1.5$ ขึ้นไป ถ้าค่าเฉลี่ยเลขคณิตของคะแนนข้อเขียนเท่ากับ $350$ และความแปรปรวนเท่ากับ $10{,}000$ นายสันติ นายสมัย และนายสุเทพ สอบข้อเขียนได้ $550,\\ 450$ และ $500$ ตามลำดับ แล้วในสามคนนี้ผู้ใดบ้างจะสอบผ่านข้อเขียน",
+  "subTopics": [
+   "15.9",
+   "15.7"
+  ],
+  "topics": [
+   "15"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "33",
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-14-infiniteseries-q14",
+  "question": "$\\displaystyle\\sum_{n=1}^{7}(n^2-4n+1)$ มีค่ามากกว่า $\\displaystyle\\sum_{n=1}^{\\infty}\\left[\\dfrac{(-1)^n+\\cos n\\pi}{3(-1)^{n+2}}\\right]^{n}$ อยู่เท่าใด",
+  "subTopics": [
+   "14.4",
+   "11.6"
+  ],
+  "topics": [
+   "14"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$(p\\leftrightarrow q)\\wedge{\\sim} r$",
+   "$p\\leftrightarrow q\\leftrightarrow r$",
+   "${\\sim} p\\leftrightarrow(q\\wedge r)$",
+   "$(p\\wedge q)\\to{\\sim} r$"
+  ],
+  "correct": 1,
+  "difficulty": "ง่าย",
+  "hasImage": false,
+  "id": "gen-chap-02-logic-q014",
+  "question": "กำหนดให้ $p$ เป็นจริง, $q$ เป็นจริง, $r$ เป็นจริง ข้อใดต่อไปนี้เป็นจริง",
+  "subTopics": [
+   "2.2",
+   "2.1"
+  ],
+  "topics": [
+   "2"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "ทั้งสามคนสอบได้",
+   "ทั้งสามคนสอบไม่ได้",
+   "นาย ข และนาย ค สอบได้เพียงสองคนเท่านั้น",
+   "นาย ก และนาย ค สอบได้เพียงสองคนเท่านั้น",
+   "นาย ก และนาย ข สอบได้เพียงสองคนเท่านั้น"
+  ],
+  "correct": 4,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-15-statistics-q103",
+  "question": "ในการสอบคัดเลือกพนักงานของบริษัทแห่งหนึ่ง มีวิชาที่ต้องสอบ คือ คณิตศาสตร์และภาษาอังกฤษ ผู้ที่จะสอบคัดเลือกได้ต้องได้ค่ามาตรฐานของคะแนนที่สอบได้ไม่ต่ำกว่า $1$ ทั้งสองวิชา ถ้าค่าเฉลี่ยเลขคณิตของคะแนนสอบในวิชาคณิตศาสตร์เป็น $58$ และวิชาภาษาอังกฤษเป็น $65$ โดยส่วนเบี่ยงเบนมาตรฐานของคะแนนในวิชาคณิตศาสตร์เป็น $12$ และวิชาภาษาอังกฤษเป็น $10$\nจากผลการสอบต่อไปนี้\nนาย ก สอบได้ คณิตศาสตร์ $70$ ภาษาอังกฤษ $75$\nนาย ข สอบได้ คณิตศาสตร์ $72$ ภาษาอังกฤษ $75$\nนาย ค สอบได้ คณิตศาสตร์ $68$ ภาษาอังกฤษ $79$\nผลการสอบคัดเลือกจะเป็นเช่นใด",
+  "subTopics": [
+   "15.9"
+  ],
+  "topics": [
+   "15"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$\\dfrac{1}{2}\\log 2$",
+   "$\\log 2$",
+   "$\\dfrac{1}{4}\\log 2$",
+   "หาค่าไม่ได้ เพราะเป็นอนุกรมไดเวอร์เจนต์"
+  ],
+  "correct": 1,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-14-infiniteseries-q15",
+  "question": "จงหาผลบวกของอนุกรมอนันต์ $\\dfrac{1}{4}\\log 2+\\dfrac{1}{8}\\log 4+\\dfrac{1}{16}\\log 8+\\dfrac{1}{32}\\log 16+\\ldots$",
+  "subTopics": [
+   "14.5",
+   "14.3"
+  ],
+  "topics": [
+   "14"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$(p\\wedge q)\\vee(q\\wedge r)$",
+   "${\\sim} r\\vee q$",
+   "$(p\\to q)\\wedge r$",
+   "$(p\\wedge r)\\vee q$"
+  ],
+  "correct": 3,
+  "difficulty": "ง่าย",
+  "hasImage": false,
+  "id": "gen-chap-02-logic-q015",
+  "question": "กำหนดให้ $p$ เป็นจริง, $q$ เป็นเท็จ, $r$ เป็นจริง ข้อใดต่อไปนี้เป็นจริง",
+  "subTopics": [
+   "2.2",
+   "2.1"
+  ],
+  "topics": [
+   "2"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "นาย ก ทำงานในวันจันทร์ได้ดีที่สุด",
+   "นาย ก ทำงานในวันพุธได้ดีที่สุด",
+   "นาย ก ทำงานในวันศุกร์ได้ดีที่สุด",
+   "นาย ก ทำงานได้ดีเท่ากันทั้งสามวัน"
+  ],
+  "correct": 0,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-15-statistics-q104",
+  "question": "จากการตรวจสอบการทำงานของนาย ก ในวันจันทร์ วันพุธ และวันศุกร์ โดยนับจำนวนชิ้นงานที่ทำได้ ผลปรากฏว่าวันจันทร์ทำได้ $47$ ชิ้น วันพุธทำได้ $48$ ชิ้น และวันศุกร์ทำได้ $45$ ชิ้น ซึ่งค่าเฉลี่ยและส่วนเบี่ยงเบนมาตรฐานของจำนวนชิ้นงานที่พนักงานทำได้ในวันจันทร์ วันพุธ และวันศุกร์ เป็น $49,50,47$ และ $3,1,2$ ชิ้น ตามลำดับ จากข้อมูลดังกล่าว ข้อใดคือผลสรุปที่ดีที่สุด",
+  "subTopics": [
+   "15.9"
+  ],
+  "topics": [
+   "15"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$-\\dfrac{1}{3}$",
+   "$-\\dfrac{1}{4}$",
+   "$\\dfrac{1}{3}$",
+   "$\\dfrac{1}{4}$"
+  ],
+  "correct": 3,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-14-infiniteseries-q16",
+  "question": "ให้ $x$ เป็นจำนวนจริง ซึ่ง $|x| < 1$\nถ้าอนุกรม $1+(1+x)\\left(\\dfrac12\\right)+(1+x+x^2)\\left(\\dfrac12\\right)^2+(1+x+x^2+x^3)\\left(\\dfrac12\\right)^3+\\ldots$ มีผลบวกเท่ากับ $\\dfrac{16}{7}$ แล้ว $x$ มีค่าเท่ากับข้อใดต่อไปนี้",
+  "subTopics": [
+   "14.4",
+   "14.5"
+  ],
+  "topics": [
+   "14"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "${\\sim} p\\vee{\\sim} q$",
+   "${\\sim} p\\wedge{\\sim} q$",
+   "$p\\wedge q$",
+   "${\\sim} p\\vee q$"
+  ],
+  "correct": 0,
+  "difficulty": "ง่าย",
+  "hasImage": false,
+  "id": "gen-chap-02-logic-q016",
+  "question": "นิเสธของประพจน์ $p\\wedge q$ สมมูลกับข้อใด",
+  "subTopics": [
+   "2.3",
+   "2.5"
+  ],
+  "topics": [
+   "2"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$100$ วิธี",
+   "$200$ วิธี",
+   "$1{,}200$ วิธี",
+   "$3{,}600$ วิธี"
+  ],
+  "correct": 3,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-12-probability-q51",
+  "question": "ในการสัมภาษณ์ผู้สมัครเข้าทำงานของสำนักงานแห่งหนึ่ง มีผู้สมัครเป็นชาย 5 คน เป็นหญิง 5 คน ถ้าผู้สัมภาษณ์ตัดสินใจเรียกผู้สมัครมาสัมภาษณ์เพียง 5 คน โดยเลือกชาย 3 คน และหญิง 2 คน จากผู้สมัครทั้งหมดโดยการสุ่ม ดังนั้นการจัดลำดับเข้าสอบสัมภาษณ์ทีละคนโดยให้ผู้สมัครที่เป็นชายเข้าสอบติดต่อกัน จะมีจำนวนวิธีเท่ากับเท่าใด",
+  "subTopics": [
+   "12.3",
+   "12.2"
+  ],
+  "topics": [
+   "12"
+  ],
+  "type": "mc",
+  "hint": null
+ }
+]

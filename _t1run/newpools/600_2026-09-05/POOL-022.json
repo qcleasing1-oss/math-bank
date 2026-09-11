@@ -1,0 +1,1020 @@
+[
+ {
+  "choices": [
+   "$(p\\wedge q)\\vee({\\sim} p\\wedge q)$",
+   "$(p\\wedge q)\\vee({\\sim} p\\wedge{\\sim} q)$",
+   "$(p\\wedge{\\sim} q)\\vee({\\sim} p\\wedge q)$",
+   "$p\\wedge q$"
+  ],
+  "correct": 1,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "gen-chap-02-logic-q068",
+  "question": "ข้อใดสมมูลกับ $p\\leftrightarrow q$",
+  "subTopics": [
+   "2.5",
+   "2.2"
+  ],
+  "topics": [
+   "2"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "4",
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-15-statistics-q166",
+  "question": "ในการประมาณความสัมพันธ์เชิงฟังก์ชันของ $x$ และ $y$ ด้วยฟังก์ชันเส้นตรงโดยใช้ระเบียบวิธีกำลังสองน้อยที่สุด เมื่อมีข้อมูลของ $x$ และ $y$ ดังนี้\n$x$ : $0,\\ 1,\\ 2$\n$y$ : $5,\\ 2,\\ 1$\nค่า $y$ ที่ทำนายได้เมื่อ $x=\\dfrac{1}{3}$ เป็นเท่าใด",
+  "subTopics": [
+   "15.11"
+  ],
+  "topics": [
+   "15"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$0$",
+   "$\\infty$",
+   "$\\dfrac{1}{2}$",
+   "$\\dfrac{18}{5}$"
+  ],
+  "correct": 2,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-14-infiniteseries-q61",
+  "question": "ถ้า $A = \\displaystyle\\lim_{n\\to\\infty} \\dfrac{4n + 2^n + 9n^3(2n+2)}{2^{n+1} + 5n^3(n+4)}$ จงหาค่า $A$",
+  "subTopics": [
+   "14.1"
+  ],
+  "topics": [
+   "14"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "4",
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "gen-chap-03-real-q101",
+  "question": "จงหาค่าของ $\\sqrt{7+4\\sqrt{3}}+\\sqrt{7-4\\sqrt{3}}$",
+  "subTopics": [
+   "3.10",
+   "3.7"
+  ],
+  "topics": [
+   "3"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "12",
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-12-probability-q54",
+  "question": "กำหนดให้ $A = \\{1, 2, 3\\}$ และ $B = \\{a, b\\}$ ให้ $S = \\{r \\mid r \\subset A \\times B\\}$ และ $F = \\{r \\in S \\mid r$ เป็นฟังก์ชันซึ่งมีจำนวนสมาชิกในโดเมนเท่ากับ $2\\}$ แล้ว $n(F)$ เท่ากับเท่าใด",
+  "subTopics": [
+   "12.3",
+   "12.1",
+   "5.4"
+  ],
+  "topics": [
+   "12"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "-1",
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "gen-chap-05-function-q085",
+  "question": "กำหนด $f(x)=2-\\sqrt{9-x^2}$ จงหาค่าต่ำสุดของ $f$",
+  "subTopics": [
+   "5.5"
+  ],
+  "topics": [
+   "5"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$h$ ต่อเนื่องที่จุด $x=1$ และ $\\displaystyle\\lim_{x\\to1}h(x)=0$",
+   "$h$ ต่อเนื่องที่จุด $x=1$ และ $\\displaystyle\\lim_{x\\to1}h(x)=4$",
+   "$h$ ไม่ต่อเนื่องที่จุด $x=1$ และ $\\displaystyle\\lim_{x\\to1}h(x)=0$",
+   "$h$ ไม่ต่อเนื่องที่จุด $x=1$ และ $\\displaystyle\\lim_{x\\to1}h(x)=4$"
+  ],
+  "correct": 3,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-13-calculus-q17",
+  "question": "กำหนดให้ $f(x)=\\begin{cases}\\dfrac{1}{x-1} & ,\\ x\\ne 1\\\\[4pt]2 & ,\\ x=1\\end{cases}$ และ $g(x)=x^{3}+x-2$ ถ้า $h(x)=f(x)\\,g(x)$ แล้วข้อใดต่อไปนี้ถูก",
+  "subTopics": [
+   "13.2",
+   "13.1"
+  ],
+  "topics": [
+   "13"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$p\\to q$ กับ ${\\sim} q\\to{\\sim} p$",
+   "${\\sim}(p\\vee q)$ กับ ${\\sim} p\\wedge{\\sim} q$",
+   "$p\\to(q\\to r)$ กับ $(p\\wedge q)\\to r$",
+   "$p\\to q$ กับ $q\\to p$"
+  ],
+  "correct": 3,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "gen-chap-02-logic-q073",
+  "question": "ประพจน์คู่ใดต่อไปนี้<b>ไม่</b>สมมูลกัน",
+  "subTopics": [
+   "2.5",
+   "2.7"
+  ],
+  "topics": [
+   "2"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$10.50$",
+   "$11.00$",
+   "$11.50$",
+   "$11.65$",
+   "ไม่มีคำตอบใดถูก"
+  ],
+  "correct": 3,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-15-statistics-q169",
+  "question": "ให้ใช้ความสัมพันธ์เชิงฟังก์ชันที่เป็นเส้นตรงกับข้อมูลต่อไปนี้\nปริมาณปุ๋ย (กก. ต่อไร่) : $1,\\ 2,\\ 3,\\ 4,\\ 5$\nผลผลิต (กก. ต่อไร่) : $8,\\ 9,\\ 10,\\ 12,\\ 15$\nถ้าปริมาณปุ๋ยเท่ากับ $3.5$ กิโลกรัมต่อไร่ แล้วผลผลิตจะเป็นเท่าใด",
+  "subTopics": [
+   "15.11"
+  ],
+  "topics": [
+   "15"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "ลำดับ $a_n$ ไม่มีลิมิต",
+   "ลำดับ $a_n$ มีลิมิตเท่ากับ $0$",
+   "ลำดับ $a_n$ มีลิมิตเท่ากับ $-\\dfrac{1}{2}$",
+   "ลำดับ $a_n$ มีลิมิตเท่ากับ $-1$"
+  ],
+  "correct": 2,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-14-infiniteseries-q64",
+  "question": "กำหนดให้ลำดับ $a_n = \\sqrt{9^n - 3^n + 1} - 3^n$ ข้อต่อไปนี้ข้อใดถูกต้อง",
+  "subTopics": [
+   "14.1",
+   "14.2"
+  ],
+  "topics": [
+   "14"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "8",
+  "difficulty": "ยากมาก",
+  "hasImage": false,
+  "id": "gen-chap-03-real-q104",
+  "question": "จงหาค่าต่ำสุดของ $|x-1|+|x-2|+|x-4|+|x-7|$ เมื่อ $x$ เป็นจำนวนจริง",
+  "subTopics": [
+   "3.8",
+   "3.12"
+  ],
+  "topics": [
+   "3"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$1{,}320$ วิธี",
+   "$110$ วิธี",
+   "$660$ วิธี",
+   "$55$ วิธี"
+  ],
+  "correct": 3,
+  "difficulty": "ง่าย",
+  "hasImage": false,
+  "id": "chap-12-probability-q32",
+  "question": "มีจุด 12 จุด คือจุด ก, ข, ค, ง, จ, ... อยู่บนระนาบ และไม่มี 3 จุดใด ๆ อยู่บนเส้นตรงเดียวกัน จะมีวิธีลากเส้นเชื่อมระหว่างจุดทั้ง 12 จุด เพื่อให้ได้รูปสามเหลี่ยมซึ่งมีจุด ก เป็นจุดยอดได้กี่วิธี",
+  "subTopics": [
+   "12.3"
+  ],
+  "topics": [
+   "12"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "6",
+  "difficulty": "ยากมาก",
+  "hasImage": false,
+  "id": "gen-chap-05-function-q088",
+  "question": "กำหนด $f(x)=\\dfrac{\\sqrt{\\,\\sqrt{10-x}-2\\,}}{x-4}$ จงหาจำนวนจริง $x$ ที่มากที่สุดซึ่งอยู่ในโดเมนของ $f$",
+  "subTopics": [
+   "5.5"
+  ],
+  "topics": [
+   "5"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$-\\dfrac{17}{5}$",
+   "$\\dfrac{17}{5}$",
+   "$-\\dfrac{84}{25}$",
+   "$\\dfrac{84}{25}$"
+  ],
+  "correct": 3,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-13-calculus-q172",
+  "question": "$\\displaystyle\\lim_{x\\to -2}\\frac{2x^{2}+x-6}{\\sqrt[3]{6-x}-2\\sqrt[3]{3x+7}}$ มีค่าเท่ากับข้อใดต่อไปนี้",
+  "subTopics": [
+   "13.1"
+  ],
+  "topics": [
+   "13"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "${\\sim} p\\vee{\\sim} q$",
+   "${\\sim} p\\wedge{\\sim} q$",
+   "$p\\wedge q$",
+   "สรุปแน่นอนไม่ได้"
+  ],
+  "correct": 0,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "gen-chap-02-logic-q076",
+  "question": "กำหนดเหตุต่อไปนี้\n(1) $(p\\wedge q)\\to r$\n(2) ${\\sim} r$\nข้อสรุปใดสมเหตุสมผล",
+  "subTopics": [
+   "2.8",
+   "2.3"
+  ],
+  "topics": [
+   "2"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$8.7$",
+   "$10.8$",
+   "$11.2$",
+   "$12.8$"
+  ],
+  "correct": 2,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-15-statistics-q173",
+  "question": "พิจารณาข้อมูลของ $x$ และ $y$ ดังนี้\n$x$ : $-3,\\ -1,\\ 0,\\ 1,\\ 3$\n$y$ : $0,\\ a,\\ a+3,\\ a+4,\\ a+6$\nเมื่อ $a$ เป็นค่าคงที่ ให้ $x$ และ $y$ มีความสัมพันธ์เชิงฟังก์ชันเป็นกราฟเส้นตรงที่มีความชันเท่ากับ $1.55$ ถ้า $x=4$ จะประมาณค่า $y$ ได้เท่ากับข้อใดต่อไปนี้",
+  "subTopics": [
+   "15.11"
+  ],
+  "topics": [
+   "15"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "7.5",
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-14-infiniteseries-q68",
+  "question": "กำหนดให้ $a_1 + a_2 + \\cdots + a_n + \\cdots$ เป็นอนุกรมเรขาคณิตซึ่งมี $a_2 = \\dfrac{9}{5}$ และ $a_3 = \\dfrac{27}{25}$ จงหาผลบวกของอนุกรมนี้",
+  "subTopics": [
+   "14.4"
+  ],
+  "topics": [
+   "14"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$0$",
+   "$-5$",
+   "$5$",
+   "$10$"
+  ],
+  "correct": 1,
+  "difficulty": "ง่าย",
+  "hasImage": false,
+  "id": "gen-chap-03-real-q107",
+  "question": "กำหนดการดำเนินการ $a*b=a+b+5$ บนเซตของจำนวนจริง $\\mathbb{R}$ เอกลักษณ์ (identity) ของการดำเนินการนี้คือข้อใด",
+  "subTopics": [
+   "3.1",
+   "3.12"
+  ],
+  "topics": [
+   "3"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$80$ วิธี",
+   "$175$ วิธี",
+   "$276$ วิธี",
+   "$30$ วิธี"
+  ],
+  "correct": 2,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-12-probability-q35",
+  "question": "ในการสอบครั้งหนึ่ง อาจารย์ออกข้อสอบทั้งหมด 13 ข้อ ให้นักเรียนเลือกทำให้ครบ 10 ข้อ และใน 5 ข้อแรกมีข้อบังคับให้เลือกทำ 3 ข้อ นักเรียนจะเลือกทำข้อสอบได้ทั้งหมดกี่วิธี",
+  "subTopics": [
+   "12.3",
+   "12.1"
+  ],
+  "topics": [
+   "12"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "5",
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "gen-chap-05-function-q095",
+  "question": "กำหนด $f(x)=x^{2}-4x+c$ โดยมีโดเมนเป็นช่วงปิด $[0,3]$ ถ้าค่าต่ำสุดของ $f$ บนช่วงนี้เท่ากับ $1$ จงหาค่าของ $c$",
+  "subTopics": [
+   "5.9",
+   "5.5"
+  ],
+  "topics": [
+   "5"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$A$",
+   "$B$",
+   "$A^{3}-B$",
+   "$0$"
+  ],
+  "correct": 1,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-13-calculus-q175",
+  "question": "กำหนดให้ $\\displaystyle\\lim_{x\\to 0^{+}}f(x)=A$ และ $\\displaystyle\\lim_{x\\to 0^{-}}f(x)=B$\nแล้ว $\\displaystyle\\lim_{x\\to 0^{+}}f(x^{3}-x)$ มีค่าเท่ากับเท่าใด",
+  "subTopics": [
+   "13.1"
+  ],
+  "topics": [
+   "13"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "เราอยู่บ้านหรือไปทะเล",
+   "เราอยู่บ้านและไปทะเล",
+   "ฝนตกและแดดออก",
+   "สรุปแน่นอนไม่ได้"
+  ],
+  "correct": 0,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "gen-chap-02-logic-q079",
+  "question": "กำหนดเหตุต่อไปนี้\n(1) ถ้าฝนตก แล้วเราอยู่บ้าน\n(2) ถ้าแดดออก แล้วเราไปทะเล\n(3) ฝนตกหรือแดดออก\nข้อสรุปใดสมเหตุสมผล",
+  "subTopics": [
+   "2.8"
+  ],
+  "topics": [
+   "2"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "850",
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-15-statistics-q176",
+  "question": "กำหนดให้ความสัมพันธ์ระหว่างรายได้ ($x$) และรายจ่าย ($y$) ต่อเดือนของครอบครัวที่อาศัยในอำเภอหนึ่งมีสมการเป็น $y=200+0.85x$ ถ้าครอบครัวสองครอบครัวในอำเภอนี้มีรายได้ต่างกัน $1{,}000$ บาท จะมีรายจ่ายโดยประมาณต่างกันกี่บาท",
+  "subTopics": [
+   "15.11"
+  ],
+  "topics": [
+   "15"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$0$",
+   "$1$",
+   "$\\dfrac{1}{2}$",
+   "หาค่าไม่ได้"
+  ],
+  "correct": 2,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-14-infiniteseries-q73",
+  "question": "สำหรับจำนวนนับ $n$ ใด ๆ กำหนด $a_n = 1 + 2 + \\ldots + n$ และ $b_n = a_1 + a_2 + \\ldots + a_n$ แล้ว $\\displaystyle\\lim_{n\\to\\infty} \\dfrac{b_n}{1^2 + 2^2 + \\ldots + n^2}$ มีค่าเท่ากับข้อต่อไปนี้",
+  "subTopics": [
+   "14.1",
+   "11.6"
+  ],
+  "topics": [
+   "14"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$\\sqrt{3}\\cdot\\sqrt{12}$",
+   "$\\sqrt{2}+\\sqrt{3}$",
+   "$\\sqrt{5}\\cdot\\sqrt{2}$",
+   "$\\dfrac{\\sqrt{6}}{\\sqrt{2}}$"
+  ],
+  "correct": 0,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "gen-chap-03-real-q110",
+  "question": "จำนวนในข้อใดต่อไปนี้เป็นจำนวนตรรกยะ",
+  "subTopics": [
+   "3.1",
+   "3.10"
+  ],
+  "topics": [
+   "3"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$45$",
+   "$66$",
+   "$210$",
+   "$255$"
+  ],
+  "correct": 3,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-12-probability-q38",
+  "question": "ต้องการเลือกสมาชิก 4 คน จากสมาชิกทั้งหมด 12 คน เพื่อเป็นตัวแทนเข้าร่วมประชุม โดยที่สมาชิกทั้ง 12 คนนี้มีสามีภรรยาอยู่คู่หนึ่ง ซึ่งถ้าคนใดคนหนึ่งได้เป็นตัวแทน อีกคนหนึ่งต้องได้เป็นด้วย ดังนั้นจำนวนวิธีเลือกตัวแทนเท่ากับข้อใดต่อไปนี้",
+  "subTopics": [
+   "12.3",
+   "12.1"
+  ],
+  "topics": [
+   "12"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "9",
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "gen-chap-05-function-q100",
+  "question": "กำหนด $f(x)=x^{2}-6x+c$ โดยมีโดเมนเป็นช่วงปิด $[0,2]$ ถ้าค่าต่ำสุดของ $f$ บนช่วงนี้เท่ากับ $1$ จงหาค่าของ $c$",
+  "subTopics": [
+   "5.9",
+   "5.5"
+  ],
+  "topics": [
+   "5"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$3$",
+   "$5$",
+   "$7$",
+   "$9$"
+  ],
+  "correct": 1,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-13-calculus-q178",
+  "question": "กำหนดให้ $f(x)=\\begin{cases}g(x)+\\dfrac{\\sqrt{x+2}-2}{x-2} & ;\\ x > 2\\\\[6pt]\\dfrac{x^{3}-8}{x^{3}-4x} & ;\\ 0 < x < 2\\end{cases}$\nถ้า $f$ มีลิมิตที่ $x=2$ แล้ว $\\displaystyle\\lim_{x\\to 2^{+}}x^{2}g(x)$ มีค่าเท่ากับข้อใดต่อไปนี้",
+  "subTopics": [
+   "13.1"
+  ],
+  "topics": [
+   "13"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$b\\vee d$",
+   "$b\\wedge d$",
+   "$a\\wedge c$",
+   "สรุปแน่นอนไม่ได้"
+  ],
+  "correct": 0,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "gen-chap-02-logic-q082",
+  "question": "กำหนดเหตุต่อไปนี้\n(1) $a\\to b$\n(2) $c\\to d$\n(3) $a\\vee c$\nข้อสรุปใดสมเหตุสมผล",
+  "subTopics": [
+   "2.8"
+  ],
+  "topics": [
+   "2"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$40$",
+   "$50$",
+   "$60$",
+   "สิ่งที่กำหนดให้ไม่เพียงพอ จึงหาคำตอบไม่ได้",
+   "สิ่งที่กำหนดให้เพียงพอแล้ว แต่ไม่มีคำตอบที่ถูกต้อง"
+  ],
+  "correct": 3,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-15-statistics-q18",
+  "question": "จากข้อมูลในข้อที่แล้ว (ห้อง ก 30 คน, ห้อง ข 20 คน, รวมสอบตก 50 เปอร์เซ็นต์) มัธยฐานของคะแนนสอบวิชานี้มีค่าเท่ากับเท่าใด",
+  "subTopics": [
+   "15.5"
+  ],
+  "topics": [
+   "15"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$\\dfrac{e}{3+e}$",
+   "$\\dfrac{e}{3-e}$",
+   "$\\dfrac{3e}{3+e}$",
+   "$\\dfrac{3e}{3-e}$"
+  ],
+  "correct": 2,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-14-infiniteseries-q76",
+  "question": "ผลบวกของอนุกรม $\\displaystyle\\sum_{n=1}^{\\infty} \\dfrac{(-1)^{n+1}\\, e^n}{3^{\\,n-1}}$ เท่ากับข้อใด",
+  "subTopics": [
+   "14.4"
+  ],
+  "topics": [
+   "14"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$-1$",
+   "$2$",
+   "$0$",
+   "$1$"
+  ],
+  "correct": 3,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "gen-chap-03-real-q113",
+  "question": "กำหนดการดำเนินการ $a*b=a+b-ab$ บน $\\mathbb{R}$ (ซึ่งมีเอกลักษณ์ $0$) สมาชิกในข้อใดไม่มีอินเวอร์ส",
+  "subTopics": [
+   "3.1",
+   "3.12"
+  ],
+  "topics": [
+   "3"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$28$",
+   "$36$",
+   "$9$",
+   "$12$"
+  ],
+  "correct": 2,
+  "difficulty": "ง่าย",
+  "hasImage": false,
+  "id": "chap-12-probability-q41",
+  "question": "ในการแข่งขันฟุตบอล คณะกรรมการจัดการแข่งขันจัดให้มีการแข่งขันแบบพบกันหมด ปรากฏว่าจะต้องจัดให้มีการแข่งขันทั้งหมด 36 คู่ การแข่งขันนี้มีทีมเข้าร่วมแข่งขันจำนวนเท่ากับข้อใดต่อไปนี้",
+  "subTopics": [
+   "12.3"
+  ],
+  "topics": [
+   "12"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$[-1,5]$",
+   "$\\{8\\}$",
+   "$[3,5]$",
+   "$[-1,8]$"
+  ],
+  "correct": 3,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "gen-chap-05-function-q103",
+  "question": "กำหนด $g(x)=2x-1$ มีโดเมน $[0,3]$ และ $f(u)=u^{2}-4u+3$ เรนจ์ของ $(f\\circ g)$ คือช่วงใด",
+  "subTopics": [
+   "5.7",
+   "5.5"
+  ],
+  "topics": [
+   "5"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [],
+  "correct": "ไม่ต่อเนื่องที่ x=0",
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-13-calculus-q180",
+  "question": "กำหนดให้ $f(x)=\\dfrac{|x|}{x}$ จงพิจารณาว่า $f$ เป็นฟังก์ชันต่อเนื่องหรือไม่ ถ้าไม่ต่อเนื่อง เป็นเพราะเหตุใด และที่จุดใด",
+  "subTopics": [
+   "13.2",
+   "13.1"
+  ],
+  "topics": [
+   "13"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": [
+   "${\\sim} p$",
+   "$p$",
+   "$q$",
+   "สรุปแน่นอนไม่ได้"
+  ],
+  "correct": 0,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "gen-chap-02-logic-q085",
+  "question": "กำหนดเหตุต่อไปนี้\n(1) $p\\leftrightarrow q$\n(2) ${\\sim} q$\nข้อสรุปใดสมเหตุสมผล",
+  "subTopics": [
+   "2.8",
+   "2.2"
+  ],
+  "topics": [
+   "2"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "ปริมาณเนื้อหมูมากกว่าปริมาณเนื้อวัวทุกปี",
+   "ปริมาณเนื้อหมูน้อยกว่าปริมาณเนื้อวัวทุกปี",
+   "ปริมาณเนื้อหมูเท่ากับปริมาณเนื้อวัวในบางปี",
+   "ปริมาณเนื้อหมูมากกว่าปริมาณเนื้อวัวในบางปี"
+  ],
+  "correct": 3,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-15-statistics-q182",
+  "question": "ปริมาณเนื้อหมูโดยเฉลี่ยที่แต่ละคนบริโภคต่อปี (กิโลกรัม) เป็นไปตามสมการ $Y_1=0.06X^2+0.25X+10.5$ และปริมาณเนื้อวัวโดยเฉลี่ยที่แต่ละคนบริโภคต่อปีเป็นไปตามสมการ $Y_2=0.04X^2+0.60X+9.4$ (เมื่อ $X=0$ แทน พ.ศ. $2526$ และ $X$ มีหน่วยเป็นปี)\nการทำนายปริมาณการบริโภคในช่วง พ.ศ. $2529$–$2531$ ข้อใดต่อไปนี้ถูก",
+  "subTopics": [
+   "15.11"
+  ],
+  "topics": [
+   "15"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "2.5",
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-14-infiniteseries-q79",
+  "question": "จงหา $\\displaystyle\\lim_{n\\to\\infty}\\frac{1}{n}\\sum_{i=1}^{n}\\left(1+\\frac{3i}{n}\\right)$",
+  "subTopics": [
+   "14.1",
+   "11.6"
+  ],
+  "topics": [
+   "14"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$\\dfrac{1}{12}$",
+   "$\\dfrac{1}{6}$",
+   "$\\dfrac{1}{3}$",
+   "$-\\dfrac{1}{6}$"
+  ],
+  "correct": 0,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "gen-chap-03-real-q116",
+  "question": "กำหนดการดำเนินการ $a*b=2ab$ บน $\\mathbb{R}-\\{0\\}$ อินเวอร์สของ $3$ คือข้อใด",
+  "subTopics": [
+   "3.1",
+   "3.12"
+  ],
+  "topics": [
+   "3"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$270$",
+   "$540$",
+   "$810$",
+   "$1{,}080$"
+  ],
+  "correct": 1,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-12-probability-q44",
+  "question": "จะจัดพนักงาน 6 คน เป็น 3 กลุ่ม แบ่งกันไปทำงาน 3 งานซึ่งแตกต่างกัน โดยจัดกลุ่มละกี่คนก็ได้ จำนวนวิธีที่จะจัดได้เท่ากับข้อใดต่อไปนี้",
+  "subTopics": [
+   "12.1",
+   "12.3"
+  ],
+  "topics": [
+   "12"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$[4,13]$",
+   "$[\\sqrt{13},2]$",
+   "$[0,\\sqrt{13}]$",
+   "$[2,\\sqrt{13}]$"
+  ],
+  "correct": 3,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "gen-chap-05-function-q106",
+  "question": "กำหนด $g(x)=x^{2}-4x+8$ มีโดเมน $[0,5]$ และ $f(u)=\\sqrt{u}$ เรนจ์ของ $(f\\circ g)$ คือช่วงใด",
+  "subTopics": [
+   "5.7",
+   "5.5"
+  ],
+  "topics": [
+   "5"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "ข้อ ก. และ ข. เป็นจริง",
+   "ข้อ ก. เท่านั้นเป็นจริง",
+   "ข้อ ข. เท่านั้นเป็นจริง",
+   "ข้อ ก. และ ข. เป็นเท็จ"
+  ],
+  "correct": 3,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-13-calculus-q183",
+  "question": "กำหนด $f(x)=\\begin{cases}\\dfrac{1-x^{2}}{x^{2}+x} & \\text{เมื่อ } x < -1\\\\[4pt] c & \\text{เมื่อ } x=-1\\\\[4pt] \\dfrac{2x+1}{x^{2}+3x+2}-\\dfrac{x}{x+1} & \\text{เมื่อ } x > -1\\end{cases}$\nจงพิจารณาข้อความต่อไปนี้\nก. $\\displaystyle\\lim_{x\\to -1^{+}}f(x)=-2$\nข. มีจำนวนจริง $c$ ที่ทำให้ $f$ มีความต่อเนื่องที่ $x=-1$\nข้อใดต่อไปนี้ถูกต้อง",
+  "subTopics": [
+   "13.1",
+   "13.2"
+  ],
+  "topics": [
+   "13"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "โครงการถูกเลื่อนออกไป",
+   "โครงการผ่านการอนุมัติ",
+   "งบประมาณเพิ่มขึ้น",
+   "สรุปแน่นอนไม่ได้"
+  ],
+  "correct": 0,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "gen-chap-02-logic-q088",
+  "question": "กำหนดเหตุต่อไปนี้\n(1) ถ้าโครงการผ่านการอนุมัติ แล้วงบประมาณจะเพิ่มขึ้น\n(2) งบประมาณไม่เพิ่มขึ้น\n(3) โครงการผ่านการอนุมัติ หรือ โครงการถูกเลื่อนออกไป\nข้อสรุปใดสมเหตุสมผล",
+  "subTopics": [
+   "2.8"
+  ],
+  "topics": [
+   "2"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$97$",
+   "$106$",
+   "$110$",
+   "$120$"
+  ],
+  "correct": 0,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-15-statistics-q185",
+  "question": "ข้อมูลอนุกรมเวลาชุดหนึ่งมีค่าเฉลี่ยเคลื่อนที่ระยะ $3$ ค่า เป็นดังนี้\nปี พ.ศ.: $2526,\\ 2527,\\ 2528,\\ 2529,\\ 2530$\n$Y:\\ 20,\\ 30,\\ 20,\\ 40,\\ 60$\nถ้า $Y$ มีความสัมพันธ์เชิงฟังก์ชันกับเวลา $X$ ในลักษณะเส้นตรง แล้วสามารถทำนายค่าของ $Y$ ในปี พ.ศ. $2535$ ได้เท่ากับข้อใดต่อไปนี้",
+  "subTopics": [
+   "15.11"
+  ],
+  "topics": [
+   "15"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "ก. ถูก และ ข. ถูก",
+   "ก. ถูก และ ข. ผิด",
+   "ก. ผิด และ ข. ถูก",
+   "ก. ผิด และ ข. ผิด"
+  ],
+  "correct": 2,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-14-infiniteseries-q82",
+  "question": "จงพิจารณาข้อความต่อไปนี้\nก. ถ้า $a_n=\\dfrac{3}{16n^2-4}$ แล้ว $\\displaystyle\\sum_{n=1}^{\\infty}a_n$ เป็นอนุกรมคอนเวอร์เจนต์ และมีผลบวกเท่ากับ $0.35$\nข. กำหนดให้ $a_1,a_2,a_3,\\ldots,a_n,\\ldots$ เป็นลำดับเลขคณิต ถ้า $a_3=-24$ และ $2a_4^2=2a_2^2+a_3^2$ แล้ว $\\displaystyle\\sum_{n=1}^{15}a_n$ มีค่าเท่ากับ $-585$\nข้อใดต่อไปนี้ถูก",
+  "subTopics": [
+   "14.6",
+   "11.4"
+  ],
+  "topics": [
+   "14"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$\\dfrac{1}{|x|}\\lt\\dfrac{1}{|b|}$",
+   "$\\dfrac{1}{|x|}\\gt\\dfrac{1}{|b|}$",
+   "$|x|+a\\gt0$",
+   "$|x|\\lt|b|$"
+  ],
+  "correct": 0,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "gen-chap-03-real-q119",
+  "question": "กำหนดจำนวนจริง $a,b,x$ โดย $a\\lt0,\\ b\\lt0$ และ $a\\lt x\\lt b$ ข้อใดต่อไปนี้ถูกต้อง",
+  "subTopics": [
+   "3.1",
+   "3.6"
+  ],
+  "topics": [
+   "3"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$20$",
+   "$80$",
+   "$100$",
+   "$204$"
+  ],
+  "correct": 2,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-12-probability-q47",
+  "question": "จากอาจารย์ 4 คน นักเรียนชาย 5 คน นักเรียนหญิง 2 คน ต้องการเลือกตัวแทน 4 คน โดยให้มีอาจารย์ 1 คน และนักเรียนหญิงอย่างน้อย 1 คน จำนวนวิธีเลือกเท่ากับข้อใดต่อไปนี้",
+  "subTopics": [
+   "12.3",
+   "12.1"
+  ],
+  "topics": [
+   "12"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$[0,\\infty)$",
+   "$\\{1\\}$",
+   "$[1,\\infty)$",
+   "$[5,\\infty)$"
+  ],
+  "correct": 2,
+  "difficulty": "ยากมาก",
+  "hasImage": false,
+  "id": "gen-chap-05-function-q110",
+  "question": "กำหนด $f(x)=\\sqrt{x^{2}-4x+4}+\\sqrt{x^{2}-6x+9}$ โดยมีโดเมนเป็นเซตของจำนวนจริง เรนจ์ของ $f$ คือช่วงใด",
+  "subTopics": [
+   "5.5",
+   "5.10"
+  ],
+  "topics": [
+   "5"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [],
+  "correct": "K ต่อเนื่องทุกค่า t>0",
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-13-calculus-q186",
+  "question": "กำหนดให้พลังงานจลน์ของวัตถุอันหนึ่งมีค่าเป็น $K(t)=\\dfrac{1}{2}m\\,[v(t)]^{2}$ เมื่อ $m$ เป็นมวลของวัตถุ และ $v(t)$ เป็นความเร็วของวัตถุเมื่อเวลา $t$ โดยที่ $v(t)=\\dfrac{50}{1+t^{2}}$ เมื่อ $t > 0$ จงแสดงว่า $K$ เป็นฟังก์ชันต่อเนื่อง",
+  "subTopics": [
+   "13.2",
+   "13.12"
+  ],
+  "topics": [
+   "13"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": [
+   "ไม่สมเหตุสมผล เพราะเป็นการปฏิเสธเหตุ (denying the antecedent)",
+   "ไม่สมเหตุสมผล เพราะจาก $p\\to q$ ปฏิเสธได้เฉพาะ $q$ ไม่ใช่ $p$",
+   "สมเหตุสมผล เพราะเป็นการปฏิเสธผล (modus tollens) ซึ่งสมมูลกับ contrapositive",
+   "สมเหตุสมผล เพราะเป็นการยืนยันเหตุ (modus ponens)"
+  ],
+  "correct": 2,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "gen-chap-02-logic-q091",
+  "question": "พิจารณาการอ้างเหตุผลต่อไปนี้\nเหตุ 1: $p\\to q$\nเหตุ 2: ${\\sim} q$\nข้อสรุป: ${\\sim} p$\nการอ้างเหตุผลนี้สมเหตุสมผลหรือไม่ เพราะเหตุใด",
+  "subTopics": [
+   "2.8",
+   "2.7"
+  ],
+  "topics": [
+   "2"
+  ],
+  "type": "mc",
+  "hint": null
+ }
+]

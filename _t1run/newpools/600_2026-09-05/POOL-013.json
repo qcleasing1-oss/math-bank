@@ -1,0 +1,1017 @@
+[
+ {
+  "choices": null,
+  "correct": "-1",
+  "difficulty": "ง่าย",
+  "hasImage": false,
+  "id": "gen-chap-03-real-q008",
+  "question": "จงหาเศษเหลือจากการหาร $x^3+2x^2-5x+1$ ด้วย $x-1$ โดยใช้ทฤษฎีบทเศษเหลือ",
+  "subTopics": [
+   "3.5"
+  ],
+  "topics": [
+   "3"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$\\dfrac{72}{425}$",
+   "$\\dfrac{3}{221}$",
+   "$\\dfrac{72}{5525}$",
+   "ข้อ 1, 2 และ 3 ไม่มีข้อใดถูก"
+  ],
+  "correct": 0,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-12-probability-q121",
+  "question": "กล่องใบหนึ่งมีลูกบอลอยู่ $13$ สี สีละ $4$ ลูก โดยที่ลูกบอลในแต่ละสีมีหมายเลข $1,2,3,4$ ตามลำดับ สุ่มหยิบลูกบอลมา $3$ ลูกพร้อมกัน จงหาความน่าจะเป็นที่จะได้ลูกบอลสีเหมือนกัน $2$ ลูกเท่านั้น",
+  "subTopics": [
+   "12.7",
+   "12.3"
+  ],
+  "topics": [
+   "12"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$3.24$",
+   "$1.62$",
+   "$0.81$",
+   "$6.24$"
+  ],
+  "correct": 0,
+  "difficulty": "ง่าย",
+  "hasImage": false,
+  "id": "gen-chap-12-probability-rv063",
+  "question": "ตัวแปรสุ่ม $X$ มี $E[X]=1.7$, $\\text{Var}(X)=0.81$ · ให้ $Y=2X+3$ จงหา $\\text{Var}(Y)$",
+  "subTopics": [
+   "12.10",
+   "12.9"
+  ],
+  "topics": [
+   "12"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$20\\overline{i}+10\\overline{j}$",
+   "$4\\sqrt{5}\\,\\overline{i}+2\\sqrt{5}\\,\\overline{j}$",
+   "$4\\overline{i}+2\\overline{j}$",
+   "$\\dfrac{6}{5}\\overline{i}+\\dfrac{8}{5}\\overline{j}$"
+  ],
+  "correct": 2,
+  "difficulty": "ง่าย",
+  "hasImage": false,
+  "id": "gen-chap-09-vector-q002",
+  "question": "กำหนด $\\overline{u}=3\\overline{i}+4\\overline{j}$ และ $\\overline{v}=2\\overline{i}+\\overline{j}$\n“เวกเตอร์ภาพฉายของ $\\overline{u}$ บน $\\overline{v}$” คือเวกเตอร์ที่เริ่มจากจุดกำเนิด ขนานกับ $\\overline{v}$ และมีจุดปลายอยู่ที่เท้าของเส้นตั้งฉากที่ลากจากจุดปลายของ $\\overline{u}$ มายังแนวของ $\\overline{v}$ เวกเตอร์นี้คือข้อใด",
+  "subTopics": [
+   "9.10",
+   "9.5"
+  ],
+  "topics": [
+   "9"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$2$",
+   "$-26$",
+   "$-34$",
+   "$34$"
+  ],
+  "correct": 2,
+  "difficulty": "ง่าย",
+  "hasImage": false,
+  "id": "gen-chap-03-real-q009",
+  "question": "เศษเหลือจากการหาร $2x^3-3x^2+x-4$ ด้วย $x+2$ มีค่าเท่าใด",
+  "subTopics": [
+   "3.5"
+  ],
+  "topics": [
+   "3"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$\\dfrac{1}{60}$",
+   "$\\dfrac{1}{40}$",
+   "$\\dfrac{1}{30}$",
+   "$\\dfrac{1}{20}$"
+  ],
+  "correct": 0,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-12-probability-q122",
+  "question": "สลากชุดหนึ่งมี $10$ ใบ มีหมายเลข $1$–$10$ กำกับ ความน่าจะเป็นที่จะหยิบสลากพร้อมกัน $3$ ใบ โดยให้มีผลรวมเท่ากับ $10$ และไม่มีสลากใบใดมีหมายเลขสูงกว่า $5$ มีค่าเท่ากับข้อใดต่อไปนี้",
+  "subTopics": [
+   "12.7",
+   "12.3"
+  ],
+  "topics": [
+   "12"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$2$",
+   "$7$",
+   "$9$",
+   "$8$"
+  ],
+  "correct": 1,
+  "difficulty": "ง่าย",
+  "hasImage": false,
+  "id": "gen-chap-12-probability-rv064",
+  "question": "ตัวแปรสุ่ม $X$ มี $E[X]=2$, $\\text{Var}(X)=1$ · ให้ $Y=3X+1$ จงหา $E[Y]$",
+  "subTopics": [
+   "12.10",
+   "12.9"
+  ],
+  "topics": [
+   "12"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "10",
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "gen-chap-09-vector-q003",
+  "question": "แรง $\\overline{F}=5\\overline{i}+10\\overline{j}$ นิวตัน กระทำต่อวัตถุหนึ่งซึ่งเคลื่อนที่เป็นเส้นตรงจากจุด $A(1,2)$ ไปยังจุด $B(5,5)$ (พิกัดมีหน่วยเป็นเมตร)\nขนาดของภาพฉายของ $\\overline{F}$ ในแนวการเคลื่อนที่ $\\overrightarrow{AB}$ เท่ากับกี่นิวตัน",
+  "subTopics": [
+   "9.10",
+   "9.5",
+   "9.3"
+  ],
+  "topics": [
+   "9"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "6",
+  "difficulty": "ง่าย",
+  "hasImage": false,
+  "id": "gen-chap-03-real-q010",
+  "question": "ใช้การหารสังเคราะห์ (synthetic division) หาเศษเหลือจากการหาร $x^3-6x^2+11x-6$ ด้วย $x-4$",
+  "subTopics": [
+   "3.5"
+  ],
+  "topics": [
+   "3"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "0.48",
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-12-probability-q123",
+  "question": "สลาก $11$ ใบ มีหมายเลข $1$ ถึง $11$ กำกับอยู่ใบละ $1$ หมายเลข สุ่มหยิบสลากมา $4$ ใบ ความน่าจะเป็นที่สลากที่หยิบมามีผลคูณของหมายเลขเป็นจำนวนคู่ แต่ผลบวกของหมายเลขเป็นจำนวนคี่ มีค่าเท่ากับเท่าใด (ตอบทศนิยม $2$ ตำแหน่ง)",
+  "subTopics": [
+   "12.7",
+   "12.3"
+  ],
+  "topics": [
+   "12"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$8$",
+   "$2$",
+   "$4$",
+   "$16$"
+  ],
+  "correct": 2,
+  "difficulty": "ง่าย",
+  "hasImage": false,
+  "id": "gen-chap-12-probability-rv065",
+  "question": "ตัวแปรสุ่ม $X$ มี $E[X]=3$, $\\text{Var}(X)=4$ · ให้ $Y=2X+5$ จงหา $\\sigma_Y$",
+  "subTopics": [
+   "12.10",
+   "12.9"
+  ],
+  "topics": [
+   "12"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$3$",
+   "$-3$",
+   "$-\\dfrac{3}{5}$",
+   "$-\\dfrac{15}{\\sqrt{10}}$"
+  ],
+  "correct": 1,
+  "difficulty": "ง่าย",
+  "hasImage": false,
+  "id": "gen-chap-09-vector-q004",
+  "question": "กำหนด $\\overline{u}=3\\overline{i}-\\overline{j}$ และ $\\overline{v}=-4\\overline{i}+3\\overline{j}$\n“ภาพฉายเชิงสเกลาร์ของ $\\overline{u}$ ในแนว $\\overline{v}$” นิยามโดย $\\dfrac{\\overline{u}\\cdot\\overline{v}}{|\\overline{v}|}$ (เป็นค่าที่มีเครื่องหมาย) ค่านี้เท่ากับข้อใด",
+  "subTopics": [
+   "9.10",
+   "9.6"
+  ],
+  "topics": [
+   "9"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "1",
+  "difficulty": "ง่าย",
+  "hasImage": false,
+  "id": "gen-chap-03-real-q014",
+  "question": "สมการ $|x-3|=2x$ มีคำตอบจริงทั้งหมดกี่คำตอบ",
+  "subTopics": [
+   "3.7"
+  ],
+  "topics": [
+   "3"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$\\dfrac{1}{35}$",
+   "$\\dfrac{1}{70}$",
+   "$\\dfrac{3}{35}$",
+   "$\\dfrac{1}{140}$",
+   "ไม่มีคำตอบที่ถูกต้อง"
+  ],
+  "correct": 0,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-12-probability-q124",
+  "question": "เรือนรับรองหลังหนึ่งมี $3$ ห้องนอน ห้องหนึ่งอยู่ได้ $3$ คน ส่วนอีก $2$ ห้องอยู่ได้ห้องละ $2$ คน ถ้ามีแขก $7$ คน เป็นหญิง $3$ คน ชาย $4$ คน จะเดินทางมาพักโดยไม่แจ้งล่วงหน้า ความน่าจะเป็นที่เจ้าภาพจะจัดให้หญิง $3$ คนได้พักอยู่ห้องเดียวกันเท่ากับข้อใด",
+  "subTopics": [
+   "12.7",
+   "12.3"
+  ],
+  "topics": [
+   "12"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "64",
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "gen-chap-12-probability-rv066",
+  "question": "ตัวแปรสุ่ม $X$ มี $E[X]=5$, $\\text{Var}(X)=4$ · ให้ $Y=4X+2$ จงหา $\\text{Var}(Y)$",
+  "subTopics": [
+   "12.10",
+   "12.9"
+  ],
+  "topics": [
+   "12"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "$\\sqrt{2}$",
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "gen-chap-05-function-q006",
+  "question": "กำหนด $f(x)=\\sqrt{2-\\sqrt{x-1}}$ ถ้าเรนจ์ของ $f$ คือ $[0,b]$ จงหาค่า $b$",
+  "subTopics": [
+   "5.5"
+  ],
+  "topics": [
+   "5"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$\\displaystyle\\lim_{x\\to1^{-}}f(x)$ และ $\\displaystyle\\lim_{x\\to1^{+}}f(x)$ หาค่าไม่ได้",
+   "$\\displaystyle\\lim_{x\\to1^{-}}f(x) > 0$ และ $\\displaystyle\\lim_{x\\to1^{+}}f(x) < 0$",
+   "$\\displaystyle\\lim_{x\\to1^{-}}f(x)+\\lim_{x\\to1^{+}}f(x)=2$",
+   "$\\displaystyle\\lim_{x\\to1^{-}}f(x)+\\lim_{x\\to1^{+}}f(x)=-2$"
+  ],
+  "correct": 3,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-13-calculus-q05",
+  "question": "ให้ $f(x)=\\begin{cases}\\dfrac{|x|-1}{\\sqrt{1-x}} & \\text{เมื่อ } x < 1\\\\[2mm]\\dfrac{|1-x|}{1-\\sqrt{x}} & \\text{เมื่อ } x > 1\\end{cases}$ ข้อใดต่อไปนี้ถูก",
+  "subTopics": [
+   "13.1"
+  ],
+  "topics": [
+   "13"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "2",
+  "difficulty": "ง่าย",
+  "hasImage": false,
+  "id": "gen-chap-07-trigonometry-q169",
+  "question": "ค่าของ $\\sin 75^\\circ$ เขียนได้ในรูป $\\dfrac{\\sqrt{6} + \\sqrt{a}}{4}$ เมื่อ $a$ เป็นจำนวนเต็มบวก แล้วค่าของ $a$ เท่ากับเท่าใด",
+  "subTopics": [
+   "7.5"
+  ],
+  "topics": [
+   "7"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$(0,\\infty)$",
+   "$[1,\\infty)$",
+   "$(0,1]$",
+   "$[0,1]$"
+  ],
+  "correct": 2,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "gen-chap-05-function-q007",
+  "question": "กำหนด $g(x)=x^2-4x+5$ และ $f(x)=\\dfrac{1}{x}$ เรนจ์ของ $(f\\circ g)(x)$ คือข้อใด",
+  "subTopics": [
+   "5.7",
+   "5.5"
+  ],
+  "topics": [
+   "5"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "ทั้ง ก. และ ข. ถูก",
+   "ก. ถูก ข. ผิด",
+   "ก. ผิด ข. ถูก",
+   "ทั้ง ก. และ ข. ผิด"
+  ],
+  "correct": 1,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-13-calculus-q06",
+  "question": "ให้ $f(x)=2-|x^{3}-3|$, $g(x)=x^{3}$ และ $F(x)=f(g^{-1}(x))$ พิจารณาข้อความต่อไปนี้\nก. $\\displaystyle\\lim_{x\\to3^{-}}F(x)=\\lim_{x\\to3^{+}}F(x)$\nข. $\\displaystyle\\lim_{x\\to3^{-}}\\dfrac{F(x)-F(3)}{x-3}=\\lim_{x\\to3^{+}}\\dfrac{F(x)-F(3)}{x-3}$\nข้อใดต่อไปนี้ถูกต้อง",
+  "subTopics": [
+   "13.1",
+   "13.3"
+  ],
+  "topics": [
+   "13"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "1/3",
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "gen-chap-07-trigonometry-q170",
+  "question": "กำหนดให้ $\\theta$ เป็นจำนวนจริงซึ่ง $\\csc\\theta$ และ $\\cot\\theta$ หาค่าได้ ถ้า $\\csc\\theta + \\cot\\theta = 3$ แล้ว $\\csc\\theta - \\cot\\theta$ เท่ากับเท่าใด",
+  "subTopics": [
+   "7.4"
+  ],
+  "topics": [
+   "7"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$(-\\infty,-2]\\cup[1,\\infty)$",
+   "$(-\\infty,-2)\\cup(1,\\infty)$",
+   "$(-\\infty,-2)\\cup[1,\\infty)$",
+   "$[-2,1]$"
+  ],
+  "correct": 2,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "gen-chap-05-function-q008",
+  "question": "โดเมนของฟังก์ชัน $f(x)=\\sqrt{\\dfrac{x-1}{x+2}}$ คือข้อใด",
+  "subTopics": [
+   "5.5"
+  ],
+  "topics": [
+   "5"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$\\displaystyle\\lim_{x\\to0}f(x)=\\dfrac{1}{4}$",
+   "$\\displaystyle\\lim_{x\\to0}f(x)=1$",
+   "$\\displaystyle\\lim_{x\\to0^{+}}f(x)$ และ $\\displaystyle\\lim_{x\\to0^{-}}f(x)$ หาค่าไม่ได้ทั้งคู่",
+   "$\\displaystyle\\lim_{x\\to0^{+}}f(x)$ และ $\\displaystyle\\lim_{x\\to0^{-}}f(x)$ หาค่าได้ไม่เท่ากัน"
+  ],
+  "correct": 0,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-13-calculus-q07",
+  "question": "กำหนดให้ $f(x)=\\begin{cases}\\dfrac{\\sqrt{4+x}-2}{x} & \\text{เมื่อ } x\\ne 0\\\\[1mm]1 & \\text{เมื่อ } x=0\\end{cases}$ ข้อใดต่อไปนี้เป็นจริง",
+  "subTopics": [
+   "13.1",
+   "13.2"
+  ],
+  "topics": [
+   "13"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "161/289",
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "gen-chap-07-trigonometry-q171",
+  "question": "กำหนดให้ $\\theta$ เป็นมุมในจตุภาคที่สอง และ $\\sin\\theta = \\dfrac{8}{17}$ ค่าของ $\\cos 2\\theta$ เท่ากับเท่าใด",
+  "subTopics": [
+   "7.6",
+   "7.2"
+  ],
+  "topics": [
+   "7"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$\\mathbb{R}$",
+   "$\\left[-\\dfrac{1}{6},\\ \\dfrac{1}{2}\\right]$",
+   "$\\left(-\\dfrac{1}{2},\\ \\dfrac{1}{6}\\right)$",
+   "$\\left[-\\dfrac{1}{2},\\ \\dfrac{1}{6}\\right]$"
+  ],
+  "correct": 3,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "gen-chap-05-function-q009",
+  "question": "เรนจ์ของฟังก์ชัน $f(x)=\\dfrac{x-1}{x^2+3}$ คือข้อใด",
+  "subTopics": [
+   "5.5"
+  ],
+  "topics": [
+   "5"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$0$",
+   "$\\dfrac{1}{4}$",
+   "$\\dfrac{1}{2}$",
+   "$1$"
+  ],
+  "correct": 2,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-13-calculus-q08",
+  "question": "$\\displaystyle\\lim_{x\\to0}\\dfrac{1}{x^{3}}\\left[\\sqrt{1+x}-\\sqrt{1-x}-\\sqrt{(1+x)(1-x^{2})}+\\sqrt{(1-x)(1-x^{2})}\\right]$ มีค่าเท่ากับข้อใดต่อไปนี้",
+  "subTopics": [
+   "13.1"
+  ],
+  "topics": [
+   "13"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$-2$",
+   "$\\dfrac{1}{2}$",
+   "$2$",
+   "$3$"
+  ],
+  "correct": 2,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "gen-chap-07-trigonometry-q172",
+  "question": "กำหนดให้ $\\theta$ เป็นจำนวนจริงซึ่ง $\\dfrac{\\pi}{2} < \\theta < \\pi$ และ $\\cos\\theta = -\\dfrac{3}{5}$ ค่าของ $\\tan\\dfrac{\\theta}{2}$ เท่ากับข้อใด",
+  "subTopics": [
+   "7.6",
+   "7.2"
+  ],
+  "topics": [
+   "7"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "4",
+  "difficulty": "ยากมาก",
+  "hasImage": false,
+  "id": "gen-chap-05-function-q010",
+  "question": "กำหนด $f(x)=\\dfrac{1}{\\sqrt{x^2-2kx+k+6}}$ เมื่อ $k$ เป็นจำนวนเต็ม จงหาจำนวนค่าของ $k$ ทั้งหมดที่ทำให้โดเมนของ $f$ เป็นเซตของจำนวนจริงทั้งหมด",
+  "subTopics": [
+   "5.5",
+   "5.9"
+  ],
+  "topics": [
+   "5"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$\\dfrac{3}{2}$",
+   "$\\dfrac{5}{6}$",
+   "$\\dfrac{1}{2}$",
+   "$\\dfrac{1}{3}$"
+  ],
+  "correct": 0,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-13-calculus-q09",
+  "question": "กำหนดให้ $f(x)=|x^{2}+4x|$ และ $g(x)=|x^{2}-16|$ ถ้า $a,b$ เป็นคำตอบทั้งสองของสมการ $f(x)=g(x)$ แล้ว $\\displaystyle\\lim_{x\\to a}\\dfrac{f(x)}{g(x)}+\\lim_{x\\to b}\\dfrac{f(x)}{g(x)}$ เท่ากับข้อใดต่อไปนี้",
+  "subTopics": [
+   "13.1",
+   "3.7"
+  ],
+  "topics": [
+   "13"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$5$",
+   "$2\\sqrt{7}$",
+   "$2\\sqrt{13}$",
+   "$8$"
+  ],
+  "correct": 1,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "gen-chap-07-trigonometry-q173",
+  "question": "รูปสามเหลี่ยม $ABC$ มีมุม $A$ กาง $\\dfrac{\\pi}{3}$ เรเดียน ผลบวกของความยาวของด้าน $AB$ กับความยาวของด้าน $AC$ เท่ากับ $10$ หน่วย และรูปสามเหลี่ยม $ABC$ มีพื้นที่ $6\\sqrt{3}$ ตารางหน่วย ความยาวของด้าน $BC$ มีหน่วยเป็นหน่วยความยาว เท่ากับข้อใด",
+  "subTopics": [
+   "7.9"
+  ],
+  "topics": [
+   "7"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$[-2,-1)\\cup(-1,3)\\cup(3,\\infty)$",
+   "$\\mathbb{R}-\\{3,-1\\}$",
+   "$[-2,\\infty)$",
+   "$(-2,3)\\cup(3,\\infty)$"
+  ],
+  "correct": 0,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "gen-chap-05-function-q012",
+  "question": "กำหนด $f(x)=\\sqrt{x+2}$ และ $g(x)=x^{2}-2x-3$ โดเมนของฟังก์ชัน $\\dfrac{f}{g}$ คือเซตใด",
+  "subTopics": [
+   "5.11",
+   "5.5"
+  ],
+  "topics": [
+   "5"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "ก. ถูก และ ข. ถูก",
+   "ก. ถูก และ ข. ผิด",
+   "ก. ผิด และ ข. ถูก",
+   "ก. ผิด และ ข. ผิด"
+  ],
+  "correct": 0,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-13-calculus-q10",
+  "question": "กำหนดให้ $f(x)=\\begin{cases}1 & ,x\\le 0\\\\0 & ,x > 0\\end{cases}$ พิจารณาข้อความต่อไปนี้\nก. $\\displaystyle\\lim_{x\\to0^{-}}(f\\circ f)(x)=0$\nข. $\\displaystyle\\lim_{x\\to0^{+}}(f\\circ f)(x)=1$\nข้อใดต่อไปนี้ถูก",
+  "subTopics": [
+   "13.1"
+  ],
+  "topics": [
+   "13"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$45$",
+   "$60$",
+   "$120$",
+   "$150$"
+  ],
+  "correct": 2,
+  "difficulty": "ยากมาก",
+  "hasImage": false,
+  "id": "gen-chap-07-trigonometry-q174",
+  "question": "ประภาคารแห่งหนึ่งตั้งอยู่ที่จุด $L$ เรือลำหนึ่งแล่นเป็นเส้นตรงด้วยอัตราเร็วคงตัว $20$ กิโลเมตรต่อชั่วโมง ขณะที่เรืออยู่ที่จุด $A$ ระยะจากเรือถึงประภาคารเท่ากับ $30$ กิโลเมตร และแนวจากเรือไปยังประภาคารทำมุมขนาด $30^\\circ$ กับแนวการแล่นของเรือ ถ้าเรือยังคงแล่นตรงไปตามแนวเดิมด้วยอัตราเร็วเท่าเดิม แล้วช่วงเวลาทั้งหมดที่เรืออยู่ห่างจากประภาคารไม่เกิน $25$ กิโลเมตร มีหน่วยเป็นนาที เท่ากับข้อใด",
+  "subTopics": [
+   "7.10",
+   "7.9"
+  ],
+  "topics": [
+   "7"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": 2,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "gen-chap-05-function-q013",
+  "question": "กำหนด $f(x)=\\lfloor x \\rfloor$ (ฟังก์ชันพื้น: จำนวนเต็มมากสุดที่ไม่เกิน $x$) และ $g(x)=x^{2}$ จงหาค่าของ $(g\\circ f)(-1.5)-(f\\circ g)(-1.5)$",
+  "subTopics": [
+   "5.7",
+   "5.10"
+  ],
+  "topics": [
+   "5"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$f'(x)$ เป็นฟังก์ชันแบบ $1$–$1$",
+   "$f'(x)\\ne0$",
+   "$f'(x)\\ge0$ หรือ $f'(x)\\le0$ แต่เพียงอย่างเดียว",
+   "ไม่มีคำตอบในข้อใดถูก"
+  ],
+  "correct": 2,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-13-calculus-q101",
+  "question": "ถ้า $f(x)$ เป็นฟังก์ชันแบบ $1$–$1$ ซึ่งมีเซตของจำนวนจริงเป็นโดเมนและเรนจ์ และ $f'(x)$ มีจริงที่ทุก ๆ ค่าของ $x$ แล้ว ข้อใดต่อไปนี้ถูก",
+  "subTopics": [
+   "13.7",
+   "13.4"
+  ],
+  "topics": [
+   "13"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$\\dfrac{7\\sqrt{3}}{3}$",
+   "$\\dfrac{8\\sqrt{3}}{3}$",
+   "$7$",
+   "$\\dfrac{14\\sqrt{3}}{3}$"
+  ],
+  "correct": 3,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "gen-chap-07-trigonometry-q175",
+  "question": "รูปสามเหลี่ยม $ABC$ มีด้าน $AB$ ยาว $5$ หน่วย ด้าน $AC$ ยาว $8$ หน่วย และมุม $A$ กาง $\\dfrac{\\pi}{3}$ เรเดียน ความยาวของเส้นผ่านศูนย์กลางของวงกลมที่ล้อมรอบรูปสามเหลี่ยม $ABC$ มีหน่วยเป็นหน่วยความยาว เท่ากับข้อใด",
+  "subTopics": [
+   "7.9"
+  ],
+  "topics": [
+   "7"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$x=4$ เท่านั้น",
+   "$x=\\dfrac{2}{3}$ หรือ $x=4$",
+   "$x=-4$ หรือ $x=\\dfrac{2}{3}$",
+   "$x=\\dfrac{2}{3}$ เท่านั้น"
+  ],
+  "correct": 1,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "gen-chap-05-function-q014",
+  "question": "เซตคำตอบของสมการ $|2x-3|=x+1$ คือข้อใด",
+  "subTopics": [
+   "5.10",
+   "3.7"
+  ],
+  "topics": [
+   "5"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$a=\\dfrac{7}{12},\\ b=\\dfrac{11}{12}$",
+   "$a=-\\dfrac{2}{3},\\ b=8$",
+   "$a=\\dfrac{5}{2},\\ b=-11$",
+   "$a=1,\\ b=-2$"
+  ],
+  "correct": 3,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-13-calculus-q102",
+  "question": "กำหนดให้ $S=f(t)=at^{2}+bt+4$ เป็นสมการการเคลื่อนที่ของอนุภาคตามแนวเส้นตรง โดย $S$ มีหน่วยเป็นเมตร และ $t$ มีหน่วยเป็นวินาที ถ้าความเร็วเฉลี่ยในช่วงเวลา $t=2$ ถึง $t=5$ เป็น $5$ เมตรต่อวินาที และความเร็วขณะเวลา $t=3$ เป็น $4$ เมตรต่อวินาที แล้ว $a$ และ $b$ จะมีค่าเท่ากับข้อใดต่อไปนี้",
+  "subTopics": [
+   "13.12",
+   "13.4"
+  ],
+  "topics": [
+   "13"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": "12",
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "gen-chap-07-trigonometry-q176",
+  "question": "ที่ดินแปลงหนึ่งเป็นรูปสามเหลี่ยม $ABC$ ซึ่งมีด้าน $AB$ ยาว $13$ เมตร ด้าน $BC$ ยาว $14$ เมตร และด้าน $CA$ ยาว $15$ เมตร เจ้าของที่ดินต้องการสร้างทางเดินเป็นแนวตรงจากจุด $A$ ไปพบด้าน $BC$ โดยให้ทางเดินนั้นตั้งฉากกับด้าน $BC$ แล้วทางเดินนี้ยาวกี่เมตร",
+  "subTopics": [
+   "7.10",
+   "7.9"
+  ],
+  "topics": [
+   "7"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$8$",
+   "$10$",
+   "$4$",
+   "$3$"
+  ],
+  "correct": 2,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "gen-chap-05-function-q017",
+  "question": "กำหนด $f(x)=(x-a)^{2}+1$ โดยมีโดเมนเป็นช่วงปิด $[0,4]$ ถ้าค่าสูงสุดของ $f$ บนช่วงนี้เท่ากับ $10$ ผลบวกของค่า $a$ ที่เป็นไปได้ทั้งหมดเท่ากับเท่าใด",
+  "subTopics": [
+   "5.9",
+   "5.5"
+  ],
+  "topics": [
+   "5"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "ถ้า $f(x)=|x^{2}-4x+2|$ แล้ว $f'(1)=-2$",
+   "โยนลูกหินขึ้นตามแนวดิ่งตามกฎ $h(t)=1+4t-t^{2}$ ลูกหินจะหยุดอยู่ตรงกลางอากาศเมื่อ $t=2$",
+   "กลิ้งลูกหินบนพื้นราบตามกฎ $s(t)=2t+t^{2}-t^{3}$ ลูกหินจะกลับมาที่เดิมเมื่อ $t=2$",
+   "ถ้า $f(x)=a_{4}x^{4}+a_{3}x^{3}+a_{2}x^{2}+a_{1}x+a_{0}$ โดย $a_{i}$ เป็นจำนวนเต็ม $a_{4}\\ne0$ แล้ว $f(x)$ จะไม่เป็นฟังก์ชันคี่"
+  ],
+  "correct": 0,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-13-calculus-q106",
+  "question": "ข้อความต่อไปนี้ข้อใด<b>ผิด</b>",
+  "subTopics": [
+   "13.4",
+   "13.3"
+  ],
+  "topics": [
+   "13"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$-\\dfrac{\\sqrt{5}}{5}$",
+   "$\\dfrac{1}{3}$",
+   "$\\dfrac{\\sqrt{5}}{5}$",
+   "$\\dfrac{2\\sqrt{5}}{5}$"
+  ],
+  "correct": 2,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "gen-chap-07-trigonometry-q177",
+  "question": "จำนวนจริง $x$ ที่สอดคล้องกับสมการ $\\arccos x = \\arcsin 2x$ เท่ากับข้อใด",
+  "subTopics": [
+   "7.8"
+  ],
+  "topics": [
+   "7"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$[2,5)$",
+   "$(2,5)$",
+   "$(2,5]$",
+   "$[2,5]$"
+  ],
+  "correct": 2,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "gen-chap-05-function-q018",
+  "question": "กำหนด $f(x)=\\sqrt{5-x}$ และ $g(x)=\\sqrt{x-2}$ โดเมนของฟังก์ชัน $\\dfrac{f}{g}$ คือเซตใด",
+  "subTopics": [
+   "5.11",
+   "5.5"
+  ],
+  "topics": [
+   "5"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$f(x)=e^{x}$",
+   "$f(x)=e^{x}-1$",
+   "$f(x)=1+x+\\dfrac{x^{2}}{2}+\\dfrac{x^{3}}{3}+\\dfrac{x^{4}}{4}+\\cdots$",
+   "ไม่มีข้อใดถูก"
+  ],
+  "correct": 3,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-13-calculus-q109",
+  "question": "ถ้า $f'(x)=e^{x}=1+x+\\dfrac{x^{2}}{2!}+\\dfrac{x^{3}}{3!}+\\dfrac{x^{4}}{4!}+\\cdots$ แล้ว ข้อต่อไปนี้ข้อใดถูก",
+  "subTopics": [
+   "13.9"
+  ],
+  "topics": [
+   "13"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$7$",
+   "$9$",
+   "$12$",
+   "$16$"
+  ],
+  "correct": 0,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "gen-chap-07-trigonometry-q178",
+  "question": "รูปสามเหลี่ยม $ABC$ มีด้านที่อยู่ตรงข้ามมุม $A$ มุม $B$ และมุม $C$ ยาว $a$ , $b$ และ $c$ หน่วย ตามลำดับ ถ้า $b = 12$ , $c = 9$ และขนาดของมุม $B$ เป็นสองเท่าของขนาดของมุม $C$ แล้ว $a$ เท่ากับข้อใด",
+  "subTopics": [
+   "7.9",
+   "7.6"
+  ],
+  "topics": [
+   "7"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": null,
+  "correct": 6,
+  "difficulty": "ยากมาก",
+  "hasImage": false,
+  "id": "gen-chap-05-function-q020",
+  "question": "กำหนด $f(x)=(x-a)^{2}+2$ โดยมีโดเมนเป็นช่วงปิด $[1,5]$ ถ้าค่าต่ำสุดของ $f$ บนช่วงนี้เท่ากับ $6$ จงหาผลบวกของค่า $a$ ที่เป็นไปได้ทั้งหมด",
+  "subTopics": [
+   "5.9",
+   "5.5"
+  ],
+  "topics": [
+   "5"
+  ],
+  "type": "fill",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$1$",
+   "$3$",
+   "$5$",
+   "$9$"
+  ],
+  "correct": 1,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "chap-13-calculus-q11",
+  "question": "กำหนดให้ $a > 0$, $f(x)=\\begin{cases}\\dfrac{x}{x+2} & ,x < a\\\\[2mm]\\dfrac{x+1}{x} & ,x\\ge a\\end{cases}$ และ $g(x)=x^{2}$ ถ้า $\\displaystyle\\lim_{x\\to a^{+}}(f\\circ g)(\\sqrt{x})-\\sqrt{\\lim_{x\\to a^{-}}(g\\circ f)(x)}=\\dfrac{11}{a(a+2)}$ แล้ว $a$ มีค่าเท่ากับข้อใดต่อไปนี้",
+  "subTopics": [
+   "13.1",
+   "5.7"
+  ],
+  "topics": [
+   "13"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$6\\sqrt{3} - 6$",
+   "$6\\sqrt{3} + 6$",
+   "$6\\sqrt{3} + 18$",
+   "$12\\sqrt{3} + 12$"
+  ],
+  "correct": 1,
+  "difficulty": "ยาก",
+  "hasImage": false,
+  "id": "gen-chap-07-trigonometry-q179",
+  "question": "เสาอากาศต้นหนึ่งตั้งตรงในแนวดิ่งอยู่บนขอบดาดฟ้าของอาคารหลังหนึ่ง โดยโคนเสาอยู่ที่ระดับเดียวกับขอบดาดฟ้าพอดี ที่จุด $P$ บนพื้นราบ ซึ่งอยู่ในระนาบดิ่งเดียวกันกับอาคารและเสาอากาศ วัดมุมเงยจากจุด $P$ ไปยังขอบดาดฟ้าได้ขนาด $30^\\circ$ และวัดมุมเงยจากจุด $P$ ไปยังยอดเสาอากาศได้ขนาด $45^\\circ$ ถ้าเสาอากาศยาว $12$ เมตร แล้วความสูงของอาคารหลังนี้ มีหน่วยเป็นเมตร เท่ากับข้อใด",
+  "subTopics": [
+   "7.10"
+  ],
+  "topics": [
+   "7"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$\\{x \\mid x\\ge -1,\\ x\\ne 3\\}$",
+   "$\\{x \\mid x\\ne 3\\}$",
+   "$\\{x \\mid x\\ge -1\\}$",
+   "$\\{x \\mid x\\gt -1,\\ x\\ne 3\\}$"
+  ],
+  "correct": 0,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "gen-chap-05-function-q021",
+  "question": "กำหนด $f(x)=\\dfrac{1}{x-2}$ และ $g(x)=\\sqrt{x+1}$ โดเมนของ $(f\\circ g)(x)$ คือข้อใด",
+  "subTopics": [
+   "5.7",
+   "5.5"
+  ],
+  "topics": [
+   "5"
+  ],
+  "type": "mc",
+  "hint": null
+ },
+ {
+  "choices": [
+   "$5x^{3}+9x^{2}-10x+c$",
+   "$5x^{3}+9x^{2}+10x+c$",
+   "$5x^{3}-9x^{2}+10x+c$",
+   "$5x^{3}-9x^{2}-10x+c$"
+  ],
+  "correct": 0,
+  "difficulty": "ปานกลาง",
+  "hasImage": false,
+  "id": "chap-13-calculus-q110",
+  "question": "กำหนดให้ $f(x)=ax^{3}+bx^{2}+2x-2$ เมื่อ $a,b$ เป็นจำนวนจริง ถ้า $f'(1)=5$ และ $f''(0)=-12$ แล้ว $\\displaystyle\\int\\big(f'(x)+f''(x)\\big)\\,dx$ เท่ากับข้อต่อไปนี้",
+  "subTopics": [
+   "13.9",
+   "13.4"
+  ],
+  "topics": [
+   "13"
+  ],
+  "type": "mc",
+  "hint": null
+ }
+]

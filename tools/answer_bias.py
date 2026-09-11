@@ -32,7 +32,7 @@ import os
 import re
 import sys
 
-VERSION = '2.4'
+VERSION = '2.6'
 SET_MAX = 0.45          # แขน ก · ต่อชุด
 SET_MIN_N = 20          # แขน ก · ตัวหารขั้นต่ำที่ยอมตัดสิน
 CHUNK_MAX = 0.40        # แขน ข · ต่อก้อนที่เพิ่งเติม
@@ -236,6 +236,63 @@ def perm_refine(vals, idx_block, obs_blocks, run_len):
 MIN_REF = 30       # ตัวหารขั้นต่ำของ "แหล่งอ้างอิง" ที่จะใช้คิด null แบบ conditioned
 
 
+# ─────────────────────────────────────────────────────────────
+# 🖊️ ทะเบียนลายเซ็น — ของชั้น 🟠 ที่ "มีคนรับแล้ว"
+#
+# 🔑 กฎที่ทะเบียนนี้บังคับ (E ใบ 142 §8):
+#    ของที่ถูกเซ็นแล้ว **ต้องยังโผล่ในรายงาน** พร้อมป้าย "รับแล้ว"
+#    ⛔ ห้ามหายไปเงียบ ๆ — ไม่งั้นรอบหน้าจะไม่มีใครรู้ว่ามันเคยถูกตั้งคำถาม
+#    ⇒ นั่นคือ 🃏 "เขียวเพราะเคยมีคนเซ็น" ซึ่งเป็นญาติของ "เขียวเพราะไม่ได้ตรวจ"
+#
+# ⛔ ลายเซ็นผูกกับ **ค่า p ตอนเซ็น** ⛔ ไม่ใช่ผูกกับชื่อชุดเปล่า ๆ
+#    ถ้าค่าปัจจุบันเลื่อนไปเกิน ±50% หรือข้ามชั้น ⇒ ลายเซ็นครอบไม่ถึง ⇒ ต้องเซ็นใหม่
+#    (ของเปลี่ยนแล้ว ลายเซ็นเก่าไม่ใช่การรับของใหม่)
+# ⛔ ผูกสองทางเหมือน KNOWN_DUPES ของด่าน 15: ลายเซ็นที่ไม่มีของให้ครอบแล้ว ⇒ พิมพ์เตือน
+# ─────────────────────────────────────────────────────────────
+# 🔴 4 ก.ย. 69 · คีย์ต้องมี **ขอบเขต** เป็นส่วนหนึ่ง — เจอตอนรันครั้งแรกของทะเบียนนี้เอง:
+#    ลายเซ็นของ "ก้อน q185+" (p=0.15%) ไปแมตช์กับผลของ "ทั้งชุด" (p=34.43%) เพราะใช้คีย์เดียวกัน
+#    ⇒ ทรง **"ชื่อเดียวกัน คนละหน่วย"** ที่สายนี้ไล่จับมาตั้งแต่ใบ 130 — เกิดในทะเบียนที่เพิ่งเขียนเพื่อกันเรื่องนี้
+SIGNED = {
+    ('ข2ข', 'gen-chap-07-trigonometry', 'ก้อน q185-q244'): {
+        'by': 'ครู', 'date': '5 ก.ย. 69', 'p': 0.0015,
+        'what': 'ก้อน 60 ข้อ q185-q244 · ข้อ 3 กระจุก 5/6 บล็อก · null-B = ส่วนที่เหลือ 156 ข้อ',
+        'why': 'คำอธิบายของชุดนี้อ้างเลขตัวเลือก 216/216 ข้อ ⇒ สลับตัวเลือกย้อนหลัง = พังคำอธิบายทั้งชุด (E ใบ 142 §8)',
+    },
+    ('ข3', 'gen-chap-03-real', 'ทั้งชุด'): {
+        'by': 'ครู', 'date': '5 ก.ย. 69', 'p': 0.0060,
+        'what': 'เฉลยข้อ 1 ติดกัน 8 ข้อ จาก 194 ข้อปรนัย · null-B = permutation 200,000 รอบ',
+        'why': 'ครูเซ็นรับ 5 ก.ย. 69 (ใบ 142 §8)',
+    },
+}
+SIGN_TOL = 0.5     # ค่าปัจจุบันเลื่อนเกิน ±50% ของค่าที่เซ็น ⇒ ลายเซ็นครอบไม่ถึง
+
+
+def signed_for(arm, setid, p_now, scope):
+    """คืน (ข้อความป้าย, ครอบถึงไหม) — คีย์ = (แขน, ชุด, **ขอบเขต**) ⛔ ไม่ใช่แค่ชื่อชุด"""
+    rec = SIGNED.get((arm, setid, scope))
+    if rec is None:
+        return None, False
+    p0 = rec['p']
+    same_tier = tier(p_now) == tier(p0)
+    close = p0 * (1 - SIGN_TOL) <= p_now <= p0 * (1 + SIGN_TOL)
+    if same_tier and close:
+        return ('รับแล้ว (%s · %s) — p ตอนเซ็น %s · ตอนนี้ %s'
+                % (rec['by'], rec['date'], fmt_p(p0), fmt_p(p_now))), True
+    return ('⚠️ มีลายเซ็นของ %s (%s) ที่ p=%s **แต่ค่าปัจจุบัน %s** ⇒ ลายเซ็นครอบไม่ถึง ⇒ ต้องเซ็นใหม่'
+            % (rec['by'], rec['date'], fmt_p(p0), fmt_p(p_now))), False
+
+
+def report_stale_signatures(seen, scope):
+    """ลายเซ็นที่ไม่มีของให้ครอบแล้ว = ทะเบียนเน่า (ผูกสองทาง) — ดูเฉพาะขอบเขตที่รอบนี้ตรวจ"""
+    stale = [k for k in SIGNED if k[2] == scope and k not in seen]
+    if stale:
+        print('  ⚠️ ลายเซ็นที่ ⛔ ไม่มีของให้ครอบในรอบนี้ %d รายการ ⇒ ของหายไปแล้วหรือเกณฑ์เปลี่ยน:'
+              % len(stale))
+        for k in stale:
+            print('     %s · %s · %s (เซ็น %s) ⇒ ควรถอนออกจากทะเบียนในคอมมิตเดียวกับที่แก้ข้อมูล'
+                  % (k[0], k[1], k[2], SIGNED[k]['date']))
+
+
 def blocks_of(seq, width):
     r"""ตัดเป็นบล็อกเต็มความกว้างเท่านั้น — เศษท้ายทิ้ง ⛔ ไม่นับครึ่งบล็อก"""
     out = [seq[i:i + width] for i in range(0, len(seq), width)]
@@ -310,10 +367,100 @@ def windows_over(seq, width, cap):
     return total, over, worst
 
 
+# ─────────────────────────────────────────────────────────────
+# 🔎 --choice-refs · กวาด "คำอธิบายที่อ้างเลขตัวเลือก"
+#    🔴 regex ตัวจริงอยู่ตรงนี้ ⛔ ไม่ใช่ในจดหมาย (E ใบ 144 §4 · กฎ ②)
+#       ⇒ ใครก็รันซ้ำได้เลขเดียวกัน ⛔ ไม่ต้องเดาว่าคนวัดใช้อะไร
+# ─────────────────────────────────────────────────────────────
+CHOICE_REF_RE = re.compile(r'ข้อ\s*[1-5]\b|ตัวเลือก(?:ที่)?\s*[1-5]\b|choice\s*[1-5]\b', re.I)
+
+
+def explanation_text(q):
+    r"""ข้อความเฉลยแบบข้อความล้วน — ถ้าไม่ใช่สตริงให้ทำเป็น JSON ก่อน ⛔ ไม่ข้าม"""
+    e = q.get('explanation')
+    return e if isinstance(e, str) else json.dumps(e, ensure_ascii=False)
+
+
+def choice_refs(items):
+    r"""คืน {setId: (จำนวนที่อ้างเลข, ตัวหาร)} — ตัวหาร = ข้อปรนัยที่มีคีย์ (เท่ากับด่าน 7)"""
+    agg = collections.defaultdict(lambda: [0, 0])
+    for q in items:
+        if not (q.get('choices') and isinstance(q.get('correct'), int)):
+            continue
+        sid = q.get('setId', '')
+        agg[sid][1] += 1
+        if CHOICE_REF_RE.search(explanation_text(q) or ''):
+            agg[sid][0] += 1
+    return agg
+
+
+def selftest():
+    r"""ตรวจตัวเอง — ⛔ ไม่แตะคลังจริงเลยสักไบต์ (E ใบ 144 §3 · tools/ 0/28 มี selftest)"""
+    ok = True
+    fails = []
+
+    def chk(name, cond):
+        nonlocal ok
+        print('  %s %s' % ('✅' if cond else '🔴', name))
+        if not cond:
+            ok = False
+            fails.append(name)
+
+    # ① Poisson-binomial ต้องเท่าทวินามเมื่อ p เท่ากันทุกตัว
+    from math import comb
+    ps = [0.25] * 10
+    exact = sum(comb(10, i) * 0.25 ** i * 0.75 ** (10 - i) for i in range(5, 11))
+    chk('pb_tail = ทวินามเมื่อ p เท่ากันหมด (10 ข้อ · 1/4 · >=5)', abs(pb_tail(ps, 5) - exact) < 1e-12)
+    chk('pb_tail(x=0) = 1', pb_tail([0.3, 0.7], 0) == 1.0)
+    chk('pb_tail(x>n) = 0', pb_tail([0.3, 0.7], 3) == 0.0)
+    # ② ค่าที่ประกาศไว้ในจดหมาย 31.1% / 16.4% ต้องผลิตซ้ำได้จากโค้ดนี้
+    chk('P(index ใดก็ได้ >=5 ใน 10 · 4 ตัวเลือก) ≈ 31.1%',
+        abs(p_index_ge(10, 4, 5) * 4 - 0.3111) < 0.02)
+    chk('P(index ที่ระบุ >=5 ใน 10 · 4 ตัวเลือก) ≈ 7.81%',
+        abs(p_index_ge(10, 4, 5) - 0.0781) < 0.001)
+    # ③ Wilson
+    lo, hi = wilson(170, 200000)
+    chk('wilson(170/200,000) คร่อมค่าจริง', lo < 170 / 200000 < hi)
+    chk('wilson แคบลงเมื่อ N โตขึ้น',
+        (wilson(17, 20000)[1] - wilson(17, 20000)[0]) > (hi - lo))
+    # ④ สามชั้น
+    chk('tier: p<0.001 ⇒ แดง', 'แดง' in tier(0.0005))
+    chk('tier: 0.001<=p<0.01 ⇒ รอคนเซ็น', 'รอคนเซ็น' in tier(0.005))
+    chk('tier: p>=0.01 ⇒ ผ่าน', 'ผ่าน' in tier(0.05))
+    chk('near_edge(0.0015) = True (ต้องรันซ้ำ)', near_edge(0.0015))
+    chk('near_edge(0.5) = False', not near_edge(0.5))
+    # ⑤ ลายเซ็น — คีย์ต้องมีขอบเขต (บั๊กที่ทะเบียนจับตัวเองได้ 4 ก.ย. 69)
+    lab, cov = signed_for('ข2ข', 'gen-chap-07-trigonometry', 0.0015, 'ก้อน q185-q244')
+    chk('ลายเซ็นครอบเมื่อ p ตรงและขอบเขตตรง', cov)
+    lab2, cov2 = signed_for('ข2ข', 'gen-chap-07-trigonometry', 0.3443, 'ทั้งชุด')
+    chk('ลายเซ็น ⛔ ไม่ครอบเมื่อขอบเขตต่างกัน', lab2 is None and not cov2)
+    lab3, cov3 = signed_for('ข2ข', 'gen-chap-07-trigonometry', 0.02, 'ก้อน q185-q244')
+    chk('ลายเซ็น ⛔ ไม่ครอบเมื่อ p ข้ามชั้น ⇒ ต้องเซ็นใหม่', (not cov3) and lab3 is not None)
+    # ⑥ permutation ต้องเดิมพันได้ (seed เดียวกัน ⇒ ค่าเดิม) และคงจำนวนเฉลยไว้
+    vals = [1] * 6 + [2] * 4
+    pb1, _, k1, _, n1 = perm_null(vals, 1, 1, 0, n_iter=300, seed=7)
+    pb2, _, k2, _, n2 = perm_null(vals, 1, 1, 0, n_iter=300, seed=7)
+    chk('permutation ซ้ำได้ด้วย seed เดียวกัน', (pb1, k1, n1) == (pb2, k2, n2))
+    chk('longest_run นับถูก', longest_run([1, 1, 2, 2, 2, 1]) == (3, 2, 2))
+    # ⑦ regex ของ --choice-refs ต้องจับ/ไม่จับตามที่ประกาศ
+    yes = ['ตอบ ตัวเลือก 3', 'คำตอบคือข้อ 2', 'answer = choice 4', 'ตัวเลือกที่ 5 ถูก']
+    no = ['ตอบ $[1,5]$', 'ข้อสรุป: จริง', 'ตัวเลือกที่เป็นเซตว่าง']
+    chk('CHOICE_REF_RE จับ 4/4 ที่ต้องจับ', all(CHOICE_REF_RE.search(t) for t in yes))
+    chk('CHOICE_REF_RE ⛔ ไม่จับ 3/3 ที่ต้องไม่จับ', not any(CHOICE_REF_RE.search(t) for t in no))
+
+    print()
+    if ok:
+        print('✅ self-test ผ่านครบ (%d เคส) — ⛔ ไม่แตะคลังจริงเลย' % 21)
+        return 0
+    print('🔴 self-test ตก %d เคส: %s' % (len(fails), ' · '.join(fails)))
+    print('   ⇒ รหัส 2 — ของที่พังคือเครื่องมือ ⛔ ไม่ใช่เนื้อหา')
+    return 2
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--bank', default=os.path.join('data', 'bank.json'))
-    ap.add_argument('--out', required=True,
+    ap.add_argument('--out', required=False, default=None,
                     help='ที่เก็บ CSV — บังคับ ⛔ ไม่มีค่าปริยาย (ครูเคาะ 4 ก.ย. 69)')
     ap.add_argument('--set', dest='setid', default=None, help='จำกัดแขน ข/ข2 ไว้ที่ชุดเดียว')
     ap.add_argument('--since-question', type=int, default=None,
@@ -322,13 +469,36 @@ def main():
                     help='ก้อน = N ข้อท้ายสุดของชุด (ต้องใช้คู่กับ --set)')
     ap.add_argument('--enforce', action='store_true', help='ให้ผลที่แดงคืนรหัส 1')
     ap.add_argument('--version', action='store_true')
+    ap.add_argument('--selftest', action='store_true',
+                    help='ตรวจตัวเอง ⛔ ไม่แตะคลัง (E ใบ 144 §3)')
+    ap.add_argument('--choice-refs', action='store_true',
+                    help='กวาดคำอธิบายที่อ้างเลขตัวเลือก — regex อยู่ใน CHOICE_REF_RE')
     a = ap.parse_args()
     if a.version:
         print(VERSION)
         return 0
+    if a.selftest:
+        print('self-test answer_bias v%s' % VERSION)
+        return selftest()
     if (a.since_question is not None or a.tail is not None) and not a.setid:
         print('🔴 --since-question / --tail ต้องใช้คู่กับ --set')
         print('   เหตุ: เลขท้าย id เริ่มใหม่ในทุกชุด ⇒ ข้ามชุดแล้ว "ก้อน" ไม่มีความหมาย')
+        return 2
+    if a.choice_refs:
+        items = load_bank(a.bank)
+        agg = choice_refs(items)
+        tk = sum(v[0] for v in agg.values())
+        tn = sum(v[1] for v in agg.values())
+        print('🔎 คำอธิบายที่อ้างเลขตัวเลือก · regex = %s' % CHOICE_REF_RE.pattern)
+        print('   ตัวหาร = ข้อปรนัยที่มีคีย์ (choices + correct เป็น int) ⇒ เท่ากับตัวหารของด่าน 7')
+        for sid in sorted(agg, key=lambda x: -agg[x][0]):
+            k, n = agg[sid]
+            if k:
+                print('   %-30s %4d/%4d = %5.1f%%' % (sid, k, n, k / n * 100))
+        print('   %-30s %4d/%4d = %5.1f%%' % ('ทั้งคลัง', tk, tn, tk / tn * 100))
+        return 0
+    if a.out is None:
+        print('🔴 ต้องระบุ --out ⛔ ไม่มีค่าปริยาย (ครูเคาะ 4 ก.ย. 69)')
         return 2
     outdir = os.path.dirname(a.out)
     if outdir and not os.path.isdir(outdir):
@@ -470,8 +640,16 @@ def main():
             print(f'     null-A (1/k)        ⇒ p = {fmt_p(p_uni)}  · Bonferroni x{len(idx_list)}')
             print(f'     null-B (อัตราจริง {rr*100:.1f}% ของ{ref_src.split(" ")[0]}) ⇒ p = {fmt_p(p_con)}'
                   f'  · Bonferroni x{len(idx_list)}')
-            print(f'     ⇒ {tier(p_con)} — ตัดสินด้วย **null-B** (สามชั้น · มติครู 4 ก.ย. 69 · ใบ 138 §4)')
-            if p_con is not None and P_RED <= p_con < P_AMBER:
+            scope_lbl = 'ก้อน q%s-q%s' % (chunk[0][0], chunk[-1][0])
+            lab, covered = (signed_for('ข2ข', a.setid, p_con, scope_lbl)
+                            if p_con is not None else (None, False))
+            if lab:
+                print(f'     {"🖊️" if covered else "⚠️"} {lab}')
+                if covered:
+                    print(f'        เหตุผลที่รับ: {SIGNED[("ข2ข", a.setid, scope_lbl)]["why"]}')
+            print(f'     ⇒ {tier(p_con) if not (lab and covered) else "🖊️ รับแล้ว"}'
+                  f' — ตัดสินด้วย **null-B** (สามชั้น · มติครู 4 ก.ย. 69 · ใบ 138 §4)')
+            if p_con is not None and P_RED <= p_con < P_AMBER and not (lab and covered):
                 print('     📌 ชั้น 🟠 = **รอคนเซ็น** ⛔ ไม่ใช่ "ผ่าน" — ต้องมีคนรับก่อนของเข้าคลัง')
             if p_con is not None and p_con < P_RED:
                 win_red = True
@@ -528,6 +706,7 @@ def main():
         print(f'  null-B = permutation เริ่ม {PERM_N:,} รอบ (ซ้ำ x10 ถึง {PERM_MAX:,} ถ้าตกใกล้เส้นแบ่ง) · seed {PERM_SEED}')
         print('  🔑 ที่นี่ ⛔ ไม่มี "ส่วนที่เหลือ" ให้อ้างอิง เพราะหน่วยที่ถูกตัดสิน = ทั้งชุด')
         red, amber, screened = [], [], 0
+        signed_seen = set()
         for s_, lst in byset.items():
             seq = sorted((x for x in order[s_] if x[0] is not None), key=lambda x: x[0])
             vals = [x[1] for x in seq]
@@ -552,22 +731,42 @@ def main():
                       % (format(nused, ','), format(PERM_N, ',')))
             if need_b:
                 t = tier(pb)
+                lab, covered = signed_for('ข2ข', s_, pb, 'ทั้งชุด')
+                if lab:
+                    signed_seen.add(('ข2ข', s_, 'ทั้งชุด'))
+                    print('     %s · %s' % ('🖊️' if covered else '⚠️', lab))
+                    if covered:
+                        t = '🖊️ รับแล้ว (%s · %s)' % (SIGNED[('ข2ข', s_, 'ทั้งชุด')]['by'], SIGNED[('ข2ข', s_, 'ทั้งชุด')]['date'])
                 line = (f'{s_}: ข้อ {res[0]} กระจุกใน {res[1]}/{res[2]} บล็อก'
                         f' · null-A p={fmt_p(res[3])} · **null-B(perm) p={fmt_perm_full(pb, kb, nused)}** ⇒ {t}')
-                (red if pb < P_RED else amber if pb < P_AMBER else []).append(('ข2ข', s_, line))
+                if covered if lab else False:
+                    pass
+                else:
+                    (red if pb < P_RED else amber if pb < P_AMBER else []).append(('ข2ข', s_, line))
                 print(f'     {t} · {line}')
                 rows.append([f'(ข2ข) {s_}', s_, res[0], '', '',
                              f'{res[1]}/{res[2]} บล็อก · p={pb:.2e} · เจอ {kb}/{nused} · {t}'])
             if need_r:
                 t = tier(pr)
+                lab, covered = signed_for('ข3', s_, pr, 'ทั้งชุด')
+                if lab:
+                    signed_seen.add(('ข3', s_, 'ทั้งชุด'))
+                    print('     %s · %s' % ('🖊️' if covered else '⚠️', lab))
+                    if covered:
+                        t = '🖊️ รับแล้ว (%s · %s)' % (SIGNED[('ข3', s_, 'ทั้งชุด')]['by'], SIGNED[('ข3', s_, 'ทั้งชุด')]['date'])
                 line = (f'{s_}: เฉลยข้อ {i3} ติดกัน {L3} ข้อ (จาก {len(vals)} ข้อปรนัย)'
                         f' · null-A p={fmt_p(pu3)} · **null-B(perm) p={fmt_perm_full(pr, kr, nused)}** ⇒ {t}')
-                (red if pr < P_RED else amber if pr < P_AMBER else []).append(('ข3', s_, line))
+                if covered if lab else False:
+                    pass
+                else:
+                    (red if pr < P_RED else amber if pr < P_AMBER else []).append(('ข3', s_, line))
                 print(f'     {t} · {line}')
                 rows.append([f'(ข3) {s_}', s_, i3, '', '',
                              f'ติดกัน {L3} ข้อ · p={pr:.2e} · เจอ {kr}/{nused} · {t}'])
         print(f'  ⑨ ตัวหาร: ชุดที่ผ่านการคัดกรองไปทำ permutation = {screened} ชุด'
-              f' · 🔴 แดง {len(red)} · 🟠 รอคนเซ็น {len(amber)}')
+              f' · 🔴 แดง {len(red)} · 🟠 รอคนเซ็น {len(amber)}'
+              f' · 🖊️ รับแล้ว {len(signed_seen)} (ยังพิมพ์อยู่ ⛔ ไม่หายจากรายงาน)')
+        report_stale_signatures(signed_seen, 'ทั้งชุด')
         if amber:
             print('  📌 ชั้น 🟠 ⛔ ไม่ใช่ "ผ่าน" — ต้องมีคนเซ็นรับก่อน · ถ้าชั้นนี้บวมจนไม่มีใครเซ็นไหว'
                   ' แปลว่าเกณฑ์ผิด ⛔ ไม่ใช่คนขี้เกียจ (E ใบ 138 §4)')
