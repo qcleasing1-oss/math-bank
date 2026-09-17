@@ -17,13 +17,13 @@ WHAT
                   decimal with a short fraction -> [dec, "p/q", "\\dfrac{p}{q}"])
                  WHY accept: CI gate 18 (check_fill_answer --enforce-declared) is RED for a
                  changed fill item without accept - measured on a copy 17 Sep.
-  - mc item q34: replace "correct": null -> 2  (ONLY with --include-q34; pending teacher decision)
+  - mc item q34: NEVER (teacher 17 Sep 2026: exam question is wrong, flagged flawedSource)
   - touches ONLY keys "correct"/"accept" of the listed ids. Nothing else. bank.json is NOT touched.
 
 USAGE (run from anywhere)
   python apply_keys_to_sets.py                 dry-run (default) - writes nothing
   python apply_keys_to_sets.py --apply         write data/sets (auto backup first)
-  python apply_keys_to_sets.py --include-q34   also pat1-2564-03-q34 (only if teacher approved)
+  --include-q34  CLOSED (17 Sep 2026: teacher ruled q34 a wrong exam question) -> STOP
 
 GATES (any failure => exit 2, nothing written)
   G1 repo root looks right (manifest, sets, scripts/build_bank.py)
@@ -51,7 +51,10 @@ except Exception:
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 Q34 = 'pat1-2564-03-q34'
-CLOSED = {'pat1-2555-10-q15', 'pat1-2552-10-q17', 'pat1-2558-10-q37', 'chap-14-infiniteseries-q43'}
+CLOSED = {'pat1-2555-10-q15', 'pat1-2552-10-q17', 'pat1-2558-10-q37', 'chap-14-infiniteseries-q43',
+          # teacher 17 Sep 2026: exam itself wrong -> never gets a key (q34 was the pending one)
+          'pat1-2564-03-q34', 'pat1-2564-03-q35', 'chap-07-trigonometry-q162',
+          'chap-07-trigonometry-q23', 'chap-07-trigonometry-q45', 'pat1-2554-03-q49'}
 EXPECT_N = 21
 
 
@@ -130,7 +133,9 @@ def main():
         die('G2 some record has t1_agrees != True')
     print('G2 ok  %d proposed keys, all blind==t1' % len(pk))
 
-    targets = {r['id']: r for r in pk if a.include_q34 or r['id'] != Q34}
+    if a.include_q34:
+        die('--include-q34 is closed: teacher ruled q34 a wrong exam question (17 Sep 2026)')
+    targets = {r['id']: r for r in pk if r['id'] != Q34}
     if not a.include_q34:
         print('     q34 EXCLUDED (pending teacher) -> %d ids' % len(targets))
 
@@ -263,7 +268,8 @@ def main():
         die('G10 simulated build has %d questions, bank.json has %d' % (len(sq), len(bank['questions'])))
     newacc = expect_acc                      # includes ids already done (idempotent rerun)
     def strip(q):
-        return {k: v for k, v in q.items() if not (k == 'accept' and q['id'] in newacc)}
+        # flawedSource is ignored: flags live in data/sets first, bank.json catches up on the bot rebuild
+        return {k: v for k, v in q.items() if not (k == 'accept' and q['id'] in newacc) and k != 'flawedSource'}
     diff = [y['id'] for x, y in zip(bank['questions'], sq) if strip(x) != strip(y)]
     allowed = set() if a.include_q34 else {Q34}
     extra = [d for d in diff if d not in allowed]
