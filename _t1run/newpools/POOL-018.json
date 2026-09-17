@@ -1,961 +1,7244 @@
 [
  {
-  "choices": [
-   "ก. ถูก และ ข. ถูก",
-   "ก. ถูก และ ข. ผิด",
-   "ก. ผิด และ ข. ถูก",
-   "ก. ผิด และ ข. ผิด"
-  ],
-  "correct": 3,
-  "difficulty": "ปานกลาง",
-  "hasImage": false,
-  "id": "chap-02-logic-q08",
-  "question": "ให้ $p, q$ และ $r$ เป็นประพจน์ พิจารณาข้อความต่อไปนี้\n\nก. ถ้า $[(p \\wedge \\sim r) \\wedge q] \\to \\sim (p \\wedge q)$ เป็นเท็จ แล้ว $(p \\vee q) \\to r$ เป็นจริง\n\nข. ถ้า $q \\vee \\sim r$ เป็นเท็จ แล้ว $[p \\vee (q \\to r)] \\to \\sim q$ เป็นเท็จ\n\nข้อใดต่อไปนี้ถูก",
-  "subTopics": [
-   "2.1",
-   "2.2"
-  ],
-  "topics": [
-   "2"
-  ],
+  "id": "gen-chap-03-real-q356",
   "type": "mc",
-  "hint": null
- },
- {
-  "choices": [
-   "มีจำนวนจริง $x$ ที่มากกว่าศูนย์บางตัว สำหรับจำนวนเต็มบวก $n$ ทุกตัว $\\dfrac{1}{n} < x$",
-   "มีจำนวนจริง $x$ ที่มากกว่าศูนย์บางตัว สำหรับจำนวนเต็มบวก $n$ ทุกตัว $\\dfrac{1}{n} \\geq x$",
-   "มีจำนวนจริง $x$ ที่ไม่มากกว่าศูนย์บางตัว สำหรับจำนวนเต็มบวก $n$ ทุกตัว $\\dfrac{1}{n} < x$",
-   "มีจำนวนจริง $x$ ที่ไม่มากกว่าศูนย์บางตัว สำหรับจำนวนเต็มบวก $n$ ทุกตัว $\\dfrac{1}{n} \\geq x$"
-  ],
-  "correct": 1,
-  "difficulty": "ยาก",
-  "hasImage": false,
-  "id": "chap-02-logic-q125",
-  "question": "นิเสธของข้อความ \"สำหรับจำนวนจริง $x$ ที่มากกว่าศูนย์ทุกตัว จะมีจำนวนเต็มบวก $n$ บางตัว ซึ่ง $\\dfrac{1}{n} < x$\" คือข้อใด",
-  "subTopics": [
-   "2.11",
-   "2.12",
-   "2.10"
-  ],
+  "difficulty": "ง่าย",
   "topics": [
-   "2"
+   "3"
   ],
-  "type": "mc",
-  "hint": null
- },
- {
+  "subTopics": [
+   "3.1",
+   "3.7",
+   "8.2"
+  ],
+  "question": "กำหนดให้ $a$ เป็นจำนวนจริงใด ๆ ข้อใดต่อไปนี้ถูกต้อง",
   "choices": [
-   "$(p \\vee q) \\wedge \\sim p \\;\\leftrightarrow\\; \\sim p \\wedge q$",
-   "$(\\sim (p \\vee q) \\to (p \\wedge q)) \\;\\leftrightarrow\\; (\\sim (p \\wedge q) \\to (p \\vee q))$",
-   "$\\sim (p \\leftrightarrow q) \\;\\leftrightarrow\\; (\\sim p \\leftrightarrow \\sim q)$",
-   "$(p \\wedge q) \\to (p \\leftrightarrow q)$",
-   "$\\sim (p \\to q) \\;\\leftrightarrow\\; p \\wedge \\sim q$"
+   "$\\sqrt{a^{2}}=a$ เสมอ",
+   "$\\sqrt{a^{2}}=(\\sqrt{a})^{2}$ เสมอ",
+   "$\\sqrt{a^{2}}=|a|$ เสมอ แต่ $(\\sqrt{a})^{2}=a$ ต่อเมื่อ $a\\ge 0$",
+   "$(\\sqrt{a})^{2}=|a|$ เสมอ"
   ],
   "correct": 2,
-  "difficulty": "ปานกลาง",
   "hasImage": false,
-  "id": "chap-02-logic-q30",
-  "question": "ประพจน์ต่อไปนี้ ข้อใดสามารถเป็นเท็จได้",
-  "subTopics": [
-   "2.6",
-   "2.5"
-  ],
-  "topics": [
-   "2"
-  ],
-  "type": "mc",
   "hint": null
  },
  {
-  "choices": [
-   "$\\forall \\varepsilon \\exists N \\forall x \\left[ (x \\leq N) \\to \\left( \\dfrac{1}{x} \\geq \\varepsilon \\right) \\right]$",
-   "$\\exists \\varepsilon \\forall N \\exists x \\left[ (x > N) \\to \\left( \\dfrac{1}{x} < \\varepsilon \\right) \\right]$",
-   "$\\forall \\varepsilon \\exists N \\forall x \\left[ (x \\leq N) \\vee \\left( \\dfrac{1}{x} < \\varepsilon \\right) \\right]$",
-   "$\\exists \\varepsilon \\forall N \\exists x \\left[ (x > N) \\wedge \\left( \\dfrac{1}{x} \\geq \\varepsilon \\right) \\right]$",
-   "$\\exists \\varepsilon \\forall N \\exists x \\left[ (x \\leq N) \\wedge \\left( \\dfrac{1}{x} < \\varepsilon \\right) \\right]$"
-  ],
-  "correct": 3,
-  "difficulty": "ยาก",
-  "hasImage": false,
-  "id": "chap-02-logic-q52",
-  "question": "กำหนดเอกภพสัมพัทธ์เป็นเซตของจำนวนจริงบวก จงพิจารณาว่านิเสธของ\n\n$\\;\\;\\;\\;\\forall \\varepsilon \\exists N \\forall x \\left[ (x > N) \\to \\left( \\dfrac{1}{x} < \\varepsilon \\right) \\right]$\n\nคือประพจน์ในข้อใด",
-  "subTopics": [
-   "2.11",
-   "2.12"
-  ],
-  "topics": [
-   "2"
-  ],
-  "type": "mc",
-  "hint": null
- },
- {
-  "choices": null,
-  "correct": "5",
-  "difficulty": "ปานกลาง",
-  "hasImage": false,
-  "id": "chap-02-logic-q80",
-  "question": "รูปแบบของประพจน์ $(p \\leftrightarrow q) \\vee \\sim r$ และ $p \\rightarrow (q \\wedge r)$ มีค่าความจริงที่เหมือนกันทั้งหมดกี่กรณี",
-  "subTopics": [
-   "2.4",
-   "2.2"
-  ],
-  "topics": [
-   "2"
-  ],
+  "id": "gen-chap-03-real-q365",
   "type": "fill",
-  "hint": null
- },
- {
-  "choices": [
-   "$\\dfrac{y}{x} < \\dfrac{1}{z}$",
-   "$x > yz$",
-   "$\\dfrac{my}{x} < mz$",
-   "$\\dfrac{mx}{y} < mz$"
-  ],
-  "correct": 0,
   "difficulty": "ปานกลาง",
-  "hasImage": false,
-  "id": "chap-03-realnumber-q02",
-  "question": "ให้ $m, x, y$ และ $z$ เป็นจำนวนจริงที่ไม่ใช่ศูนย์\nถ้า $\\dfrac{x}{y} > z > 0$ แล้วข้อใดต่อไปนี้เป็นจริง",
-  "subTopics": [
-   "3.6",
-   "3.1"
-  ],
   "topics": [
    "3"
   ],
-  "type": "mc",
-  "hint": null
- },
- {
-  "choices": [
-   "$0$",
-   "$1$",
-   "$2$",
-   "$4$"
-  ],
-  "correct": 3,
-  "difficulty": "ยาก",
-  "hasImage": false,
-  "id": "chap-03-realnumber-q112",
-  "question": "กำหนดให้ $p(x) = x^2+bx+c$ โดยที่ $b, c \\in \\mathbb{Z}$ ถ้า $p(x)$ เป็นตัวประกอบของพหุนาม $f(x)$ และ $g(x)$ โดยที่ $f(x) = x^4+6x^2+25$ และ $g(x) = 3x^4+4x^2+28x+5$ แล้ว $p(1)$ จะเท่ากับข้อใด",
   "subTopics": [
-   "3.5",
-   "3.3"
+   "3.5"
   ],
-  "topics": [
-   "3"
-  ],
-  "type": "mc",
-  "hint": null
- },
- {
+  "question": "พหุนาม $P(x)$ หารด้วย $(x-1)$ เหลือเศษ $4$ และหารด้วย $(x-3)$ เหลือเศษ $10$ เมื่อหาร $P(x)$ ด้วย $(x-1)(x-3)$ ได้เศษเหลืออยู่ในรูป $ax+b$ จงหาค่าของ $a+b$",
   "choices": null,
-  "correct": "27000",
-  "difficulty": "ยาก",
+  "correct": "4",
   "hasImage": false,
-  "id": "chap-03-realnumber-q134",
-  "question": "จงหาผลคูณของรากของระบบสมการ $x + y = 3383$ และ $x^{1/3} + y^{1/3} = 17$",
+  "hint": null
+ },
+ {
+  "id": "gen-chap-03-real-q376",
+  "type": "fill",
+  "difficulty": "ปานกลาง",
+  "topics": [
+   "3"
+  ],
   "subTopics": [
    "3.10",
    "3.4"
   ],
+  "question": "จงหาจำนวนคำตอบที่เป็นจำนวนจริงของสมการ $x+\\sqrt{x}-6=0$",
+  "choices": null,
+  "correct": "1",
+  "hasImage": false,
+  "hint": null
+ },
+ {
+  "id": "gen-chap-03-real-q391",
+  "type": "fill",
+  "difficulty": "ยาก",
   "topics": [
    "3"
   ],
-  "type": "fill",
-  "hint": null
- },
- {
-  "choices": null,
-  "correct": "4",
-  "difficulty": "ยาก",
-  "hasImage": false,
-  "id": "chap-03-realnumber-q176",
-  "question": "จงหาจำนวนเต็มบวก $a$ และ $b$ ทั้งหมดที่สอดคล้องสมการ $(a, b)[a, b] = a + 2b + 13$\nโดยที่ $(a, b)$ และ $[a, b]$ แทน ห.ร.ม. และ ค.ร.น. ของ $a, b$ ตามลำดับ",
   "subTopics": [
-   "3.12",
-   "17.2",
-   "3.3"
+   "3.7",
+   "3.4"
   ],
-  "topics": [
-   "3"
-  ],
-  "type": "fill",
-  "hint": null
- },
- {
-  "choices": [
-   "$-6$",
-   "$-2$",
-   "$2$",
-   "$6$"
-  ],
-  "correct": 1,
-  "difficulty": "ปานกลาง",
-  "hasImage": false,
-  "id": "chap-03-realnumber-q24",
-  "question": "ให้ $a$ เป็นจำนวนเต็ม ถ้า $x - a$ หาร $x^{3} + 2x^{2} - 5x - 2$ เหลือเศษ 4\nแล้ว ผลบวกของค่า $a$ ทั้งหมดที่สอดคล้องเงื่อนไขดังกล่าว เท่ากับข้อใดต่อไปนี้",
-  "subTopics": [
-   "3.5",
-   "3.4",
-   "3.3"
-  ],
-  "topics": [
-   "3"
-  ],
-  "type": "mc",
-  "hint": null
- },
- {
-  "choices": null,
-  "correct": "2",
-  "difficulty": "ยาก",
-  "hasImage": false,
-  "id": "chap-03-realnumber-q80",
-  "question": "กำหนดให้ $m$ เป็นจำนวนเต็มบวก และ $n$ เป็นจำนวนเฉพาะ ถ้า $m$ หาร $777$ และ $910$ แล้วเหลือเศษ $n$ แล้ว $m - n$ มีค่าเท่ากับเท่าใด",
-  "subTopics": [
-   "3.12",
-   "17.2"
-  ],
-  "topics": [
-   "3"
-  ],
-  "type": "fill",
-  "hint": null
- },
- {
-  "choices": null,
-  "correct": "1/2",
-  "difficulty": "ปานกลาง",
-  "hasImage": false,
-  "id": "chap-05-function-q101",
-  "question": "กำหนดให้ $a > 0$ และ $f(x) = ax^2$, $x \\ge 0$ และ $g(x) = x^3$\nถ้า $(f^{-1} \\circ g)(4) = 2$ แล้ว $\\dfrac{f^{-1}(64)}{g^{-1}(64)}$ มีค่าเท่ากับเท่าใด",
-  "subTopics": [
-   "5.8",
-   "5.7"
-  ],
-  "topics": [
-   "5"
-  ],
-  "type": "fill",
-  "hint": null
- },
- {
-  "choices": [
-   "$D_F = (-\\infty, \\infty)$",
-   "$R_F = (0, 1)$",
-   "$G(x) = 1$ เมื่อ $x > 0$",
-   "$G(x) = 0$ เมื่อ $x < 0$"
-  ],
-  "correct": 1,
-  "difficulty": "ยาก",
-  "hasImage": false,
-  "id": "chap-05-function-q125",
-  "question": "ให้ $f, g : \\mathbb{R} \\to \\mathbb{R}$ กำหนดโดย $f(x) = \\dfrac{x}{|x| + 1}$\nและ $g(x) =$ จำนวนเต็มซึ่งน้อยที่สุดที่มากกว่าหรือเท่ากับ $x$\n(เช่น $g(1.01) = 2$, $g(-6) = -6$, $g(-7.99) = -7$ เป็นต้น)\nถ้า $F(x) = (f \\circ g)(x)$ และ $G(x) = (g \\circ f)(x)$ แล้วข้อใดต่อไปนี้เป็นเท็จ",
-  "subTopics": [
-   "5.7",
-   "5.10",
-   "5.5"
-  ],
-  "topics": [
-   "5"
-  ],
-  "type": "mc",
-  "hint": null
- },
- {
-  "choices": [
-   "$A \\cup B \\subset [-2, 2]$",
-   "$A' \\cap B = B \\cap (0, \\infty)$",
-   "$A' \\cap B' \\subset (-\\infty, 0) \\cup (2, \\infty)$",
-   "$A \\cup (-1, 0) \\subset B'$"
-  ],
-  "correct": 2,
-  "difficulty": "ยาก",
-  "hasImage": false,
-  "id": "chap-05-function-q156",
-  "question": "กำหนดให้ $f(x) = \\dfrac{x^2 + x + 1}{x^2 + 1}$ และ $g(x) = \\log\\left(\\sqrt{2} - 2^{|x|}\\right)$\nถ้าให้ $A$ เป็นโดเมนของ $g$ และ $B$ เป็นเรนจ์ของ $f$ แล้วข้อใดต่อไปนี้ผิด",
-  "subTopics": [
-   "5.5",
-   "8.5"
-  ],
-  "topics": [
-   "5"
-  ],
-  "type": "mc",
-  "hint": null
- },
- {
-  "choices": null,
-  "correct": "3/2",
-  "difficulty": "ปานกลาง",
-  "hasImage": false,
-  "id": "chap-05-function-q182",
-  "question": "กำหนดให้ $f$ เป็นฟังก์ชันซึ่ง $f(n)$ แทนจำนวนคู่อันดับ $(x, y)$ ทั้งหมด ที่สอดคล้องกับ $x + 2y = n$ โดยที่ $x, y$ และ $n$ เป็นจำนวนเต็มที่ไม่เป็นลบ\nและ $g$ เป็นฟังก์ชันซึ่งนิยามสำหรับแต่ละจำนวนจริง $t$ โดย $g(t) = 2t^3 + t^2 - 2t - 3$\nจงหาค่าของ $(g^{-1} \\circ f)(5)$",
-  "subTopics": [
-   "5.8",
-   "5.7"
-  ],
-  "topics": [
-   "5"
-  ],
-  "type": "fill",
-  "hint": null
- },
- {
-  "choices": [
-   "$(-2, 0) \\cup [2, 6]$",
-   "$[-2, 0] \\cup (2, 6)$",
-   "$[2, 6]$",
-   "$(-2, 0)$"
-  ],
-  "correct": 0,
-  "difficulty": "ปานกลาง",
-  "hasImage": false,
-  "id": "chap-05-function-q24",
-  "question": "ให้ $f(x) = \\begin{cases} 2|x|, & x \\in [-2, 3] \\\\ x - 5, & x \\in (3, 8) \\end{cases}$ และ $g(x) = \\begin{cases} x - 2, & x \\in (-2, 0] \\\\ \\sqrt{4 - x}, & x \\in (0, 4] \\end{cases}$\nถ้าให้ $A =$ เรนจ์ของ $f$ และ $B =$ โดเมนของ $g^{-1}$\nแล้ว $A \\cap B'$ คือเซตในข้อใดต่อไปนี้",
-  "subTopics": [
-   "5.5",
-   "5.3"
-  ],
-  "topics": [
-   "5"
-  ],
-  "type": "mc",
-  "hint": null
- },
- {
-  "choices": [
-   "$r = \\{ (x, y) \\mid x \\in \\mathbb{R}, y \\in \\mathbb{R}$ และ $y = \\dfrac{x - 3}{2x + 1} \\}$ เป็นฟังก์ชัน และมี $r^{-1} = \\{ (x, y) \\mid x \\in \\mathbb{R}, y \\in \\mathbb{R}$ และ $y = \\dfrac{x - 3}{1 - 2x} \\}$ ซึ่งเป็นฟังก์ชัน",
-   "ถ้า $f(x) = x + 5$ และ $g(x) = \\dfrac{x^2 - 25}{x - 5}$ จะได้ $f = g$",
-   "ถ้า $f(x) = \\sqrt{x^2 - 4}$, $|x| \\ge 2$ และ $g(x) = x^2 + 2x - 3$ จะได้ $\\left(\\dfrac{f}{g}\\right)(x) = \\dfrac{\\sqrt{x^2 - 4}}{x^2 + 2x - 3}$, $|x| \\ge 2$",
-   "ถ้า $f(x) = |x - 3|$ และ $g(x) = \\begin{cases} x - 3, & \\text{ถ้า } x \\ge 3 \\\\ 3 - x, & \\text{ถ้า } x < 3 \\end{cases}$ จะได้ $f = g$"
-  ],
-  "correct": 3,
-  "difficulty": "ยาก",
-  "hasImage": false,
-  "id": "chap-05-function-q54",
-  "question": "ข้อความใดต่อไปนี้ถูก",
-  "subTopics": [
-   "5.4",
-   "5.8",
-   "5.11"
-  ],
-  "topics": [
-   "5"
-  ],
-  "type": "mc",
-  "hint": null
- },
- {
-  "choices": [
-   "$5$",
-   "$6$",
-   "$7$",
-   "$8$"
-  ],
-  "correct": 2,
-  "difficulty": "ปานกลาง",
-  "hasImage": false,
-  "id": "chap-05-function-q78",
-  "question": "กำหนดให้ $f(x) = \\begin{cases} 2, & x \\le -1 \\\\ (x - 1)^2, & -1 < x < 2 \\\\ x + 1, & x \\ge 2 \\end{cases}$ และ $g(x) = f(x) + 2$\nถ้า $k$ เป็นจำนวนเต็มที่น้อยที่สุดที่ทำให้ $g(k) > 5$ แล้ว $(g \\circ f)(k)$ มีค่าเท่ากับข้อใดต่อไปนี้",
-  "subTopics": [
-   "5.7",
-   "5.11",
-   "5.10"
-  ],
-  "topics": [
-   "5"
-  ],
-  "type": "mc",
-  "hint": null
- },
- {
-  "choices": [
-   "$a_{12} = a_{21}$ และ $a_{11} = a_{22} = 0$",
-   "$a_{12} = a_{21}$ และ $a_{11} \\ne a_{22}$",
-   "$a_{12} = -a_{21}$ และ $a_{11} = a_{22} = 0$",
-   "$a_{12} = -a_{21}$ และ $a_{11} \\ne a_{22}$",
-   "ไม่มีคำตอบใดถูก"
-  ],
-  "correct": 2,
-  "difficulty": "ง่าย",
-  "hasImage": false,
-  "id": "chap-06-matrix-q01",
-  "question": "กำหนดให้ $A = [a_{ij}]_{2\\times 2}$ โดย $A$ มีสมาชิกเป็นจำนวนจริง และ $A^T = -A$\nข้อใดต่อไปนี้สรุปคุณสมบัติของสมาชิกของ $A$ ได้ถูกต้องที่สุด",
-  "subTopics": [
-   "6.4",
-   "6.1"
-  ],
-  "topics": [
-   "6"
-  ],
-  "type": "mc",
-  "hint": null
- },
- {
-  "choices": [
-   "$\\dfrac{1}{8}$",
-   "$1$",
-   "$8$",
-   "ไม่สามารถหาค่า $a$ ได้"
-  ],
-  "correct": 1,
-  "difficulty": "ง่าย",
-  "hasImage": false,
-  "id": "chap-06-matrix-q111",
-  "question": "กำหนด $A = \\begin{bmatrix} 1 & 2 & 0 \\\\ 0 & 2 & 1 \\\\ 0 & 0 & 2 \\end{bmatrix}$ และ $B = \\begin{bmatrix} a & 0 & 0 \\\\ 1 & 2 & 0 \\\\ 3 & 0 & 1 \\end{bmatrix}$ จงหาค่า $a$ ซึ่งทำให้ $\\det(AB) = 8$",
-  "subTopics": [
-   "6.6",
-   "6.5"
-  ],
-  "topics": [
-   "6"
-  ],
-  "type": "mc",
-  "hint": null
- },
- {
-  "choices": [
-   "ข้อ ก. และ ข. เป็นจริง",
-   "ข้อ ก. เท่านั้นเป็นจริง",
-   "ข้อ ข. เท่านั้นเป็นจริง",
-   "ข้อ ก. และ ข. เป็นเท็จ"
-  ],
-  "correct": 0,
-  "difficulty": "ยาก",
-  "hasImage": false,
-  "id": "chap-06-matrix-q130",
-  "question": "ให้ $A$ เป็นเมทริกซ์มิติ $3 \\times 3$ ซึ่งมีสมบัติว่า $A^2 = A - I$\nจงพิจารณาข้อความต่อไปนี้\nก. $A - \\text{adj}\\,A = I$\nข. $A + I$ เป็นเมทริกซ์ที่มิใช่เอกฐาน\nข้อใดต่อไปนี้ถูกต้อง",
-  "subTopics": [
-   "6.8",
-   "6.7",
-   "6.5"
-  ],
-  "topics": [
-   "6"
-  ],
-  "type": "mc",
-  "hint": null
- },
- {
-  "choices": [
-   "$\\left(\\dfrac{\\pi}{16}, 0\\right)$",
-   "$\\left(0, \\dfrac{\\pi}{16}\\right)$",
-   "$\\left(\\dfrac{\\pi}{16}, \\dfrac{\\pi}{16}\\right)$",
-   "ข้อ 1, 2 และ 3 ไม่มีข้อใดถูก"
-  ],
-  "correct": 3,
-  "difficulty": "ปานกลาง",
-  "hasImage": false,
-  "id": "chap-06-matrix-q15",
-  "question": "ให้ $A = \\begin{bmatrix} \\cos\\theta & \\sin\\theta \\\\ -\\sin\\theta & \\cos\\theta \\end{bmatrix}$\nค่า $\\theta > 0$ ที่เล็กที่สุดที่ทำให้ $A^{16} = I$ และ $A^{16} = -I$ คือ $\\theta = \\theta_1$ และ $\\theta = \\theta_2$ ตามลำดับ\nแล้วค่า $(\\theta_1, \\theta_2)$ จะเท่ากับข้อใดต่อไปนี้",
-  "subTopics": [
-   "6.3",
-   "7.7"
-  ],
-  "topics": [
-   "6"
-  ],
-  "type": "mc",
-  "hint": null
- },
- {
-  "choices": [
-   "3",
-   "$\\dfrac{11}{4}$",
-   "2",
-   "$\\dfrac{8}{3}$"
-  ],
-  "correct": 0,
-  "difficulty": "ปานกลาง",
-  "hasImage": false,
-  "id": "chap-06-matrix-q33",
-  "question": "กำหนดให้ $A = \\begin{bmatrix} 1 & 2 \\\\ a & 3 \\end{bmatrix}$, $B = \\begin{bmatrix} -1 & 1 \\\\ 2 & 1 \\end{bmatrix}$ และ $C = 2AB^{-1} + B^{-1}$\nค่าของ $a$ ที่ทำให้ $\\det(C) = 1$ เท่ากับข้อใดต่อไปนี้",
-  "subTopics": [
-   "6.5",
-   "6.6",
-   "6.7"
-  ],
-  "topics": [
-   "6"
-  ],
-  "type": "mc",
-  "hint": null
- },
- {
-  "choices": [
-   "$7$",
-   "$9$",
-   "$10$",
-   "$11$"
-  ],
-  "correct": 3,
-  "difficulty": "ปานกลาง",
-  "hasImage": false,
-  "id": "chap-06-matrix-q57",
-  "question": "กำหนดให้ $A = \\begin{bmatrix} 3 & 4 \\\\ 2 & 3 \\end{bmatrix}$, $B = \\begin{bmatrix} 1 & 2 \\\\ -1 & 3 \\end{bmatrix}$, $X = \\begin{bmatrix} a & b \\\\ c & d \\end{bmatrix}$\nถ้า $AX + B = A$ แล้ว $b + c$ มีค่าเท่ากับข้อใดต่อไปนี้",
-  "subTopics": [
-   "6.7",
-   "6.3"
-  ],
-  "topics": [
-   "6"
-  ],
-  "type": "mc",
-  "hint": null
- },
- {
-  "choices": [
-   "$11$",
-   "$12$",
-   "$13$",
-   "$14$"
-  ],
-  "correct": 2,
-  "difficulty": "ปานกลาง",
-  "hasImage": false,
-  "id": "chap-06-matrix-q78",
-  "question": "กำหนดให้ $a$ เป็นจำนวนจริง และ $A = \\begin{bmatrix} 1 & 0 & 2 \\\\ 0 & 3 & 0 \\\\ 4 & 0 & a \\end{bmatrix}$\nถ้า $a > 10$ และ $\\det(\\text{adj}\\,A) = 225$ แล้ว $a$ มีค่าเท่ากับข้อใดต่อไปนี้",
-  "subTopics": [
-   "6.8",
-   "6.5"
-  ],
-  "topics": [
-   "6"
-  ],
-  "type": "mc",
-  "hint": null
- },
- {
-  "choices": [
-   "$\\begin{bmatrix} 14 & 12 \\\\ 16 & 24 \\end{bmatrix}$",
-   "$\\begin{bmatrix} 12 & 18 \\\\ 12 & 30 \\end{bmatrix}$",
-   "$\\begin{bmatrix} 21 & 27 \\\\ 11 & 21 \\end{bmatrix}$",
-   "$\\begin{bmatrix} 20 & 18 \\\\ 12 & 18 \\end{bmatrix}$"
-  ],
-  "correct": 1,
-  "difficulty": "ง่าย",
-  "hasImage": false,
-  "id": "chap-06-matrix-q99",
-  "question": "กำหนดให้ $A = \\begin{bmatrix} 2 & 1 \\\\ 0 & 3 \\end{bmatrix}$ และ $B = \\begin{bmatrix} 3 & 2 \\\\ 1 & 2 \\end{bmatrix}$\nจงหาค่าของ $A^t \\times (B \\times A)$",
-  "subTopics": [
-   "6.3",
-   "6.4"
-  ],
-  "topics": [
-   "6"
-  ],
-  "type": "mc",
-  "hint": null
- },
- {
-  "choices": [
-   "$25$",
-   "$41$",
-   "$45$",
-   "$58$"
-  ],
-  "correct": 3,
-  "difficulty": "ปานกลาง",
-  "hasImage": false,
-  "id": "chap-08-explog-q115",
-  "question": "$a$ และ $b$ เป็นจำนวนเต็มบวก ซึ่ง $a < b$\nถ้า $a$ และ $b$ สอดคล้องสมการ $\\sqrt{10 + \\sqrt{84}} = \\sqrt{a} + \\sqrt{b}$ แล้ว $a^2 + b^2$ เท่ากับเท่าใด",
-  "subTopics": [
-   "8.2"
-  ],
-  "topics": [
-   "8"
-  ],
-  "type": "mc",
-  "hint": null
- },
- {
-  "choices": null,
-  "correct": "15a^((3p+q)/5)/(2p−q)",
-  "difficulty": "ยาก",
-  "hasImage": false,
-  "id": "chap-08-explog-q138",
-  "question": "ให้ $\\log_a x^2 y = p$ , $\\log_a \\left(\\dfrac{y^2}{x}\\right) = q$ โดย $a \\in \\mathbb{R}^+$ , $a \\ne 1$\nจงหาค่าของ $\\log_{x^{1/3}} a^{xy}$ ในรูปของ $a, p, q$",
-  "subTopics": [
-   "8.7",
-   "8.6"
-  ],
-  "topics": [
-   "8"
-  ],
-  "type": "fill",
-  "hint": null
- },
- {
-  "choices": [
-   "$15$",
-   "$24$",
-   "$75$",
-   "$121$"
-  ],
-  "correct": 0,
-  "difficulty": "ยาก",
-  "hasImage": false,
-  "id": "chap-08-explog-q158",
-  "question": "ให้ $x > 0$ เป็นคำตอบของสมการ $\\log_3(\\log(x^2) + 2) + \\log_9 3 = \\dfrac{1}{2}$\nถ้า $A = \\begin{bmatrix} 0 & x \\\\ x & 0 \\end{bmatrix}$ และ $I$ เป็นเมทริกซ์เอกลักษณ์ แล้ว $\\det\\left(A^{-1} + 5I\\right)$ จะเท่ากับข้อใด",
-  "subTopics": [
-   "8.9",
-   "6.7"
-  ],
-  "topics": [
-   "8"
-  ],
-  "type": "mc",
-  "hint": null
- },
- {
-  "choices": [
-   "$(1, 10]$",
-   "$(11, 100]$",
-   "$(101, 1000]$",
-   "$(1001, 10000]$"
-  ],
-  "correct": 3,
-  "difficulty": "ยาก",
-  "hasImage": false,
-  "id": "chap-08-explog-q179",
-  "question": "ถ้า $x, y$ เป็นจำนวนจริง ซึ่งสอดคล้องเงื่อนไขต่อไปนี้\n(1) $x > y$ (2) $xy = 490$\n(3) $(\\log x - \\log 7)(\\log y - \\log 7) = -\\dfrac{15}{4}$\nแล้ว $x$ จะอยู่ในช่วงใด",
-  "subTopics": [
-   "8.9",
-   "8.7"
-  ],
-  "topics": [
-   "8"
-  ],
-  "type": "mc",
-  "hint": null
- },
- {
-  "choices": [
-   "$f = \\{ (n, t) \\mid t = n \\}$ ดีกว่า $f = \\{ (n, t) \\mid t = 100 \\}$",
-   "$f = \\{ (n, t) \\mid t = \\sqrt{n} \\}$ ดีกว่า $f = \\{ (n, t) \\mid t = \\log n^2 \\}$",
-   "$f = \\{ (n, t) \\mid t = 100n + 5 \\}$ ดีกว่า $f = \\{ (n, t) \\mid t = n^2 \\}$",
-   "$f = \\{ (n, t) \\mid t = 2^{\\sqrt{n}} \\}$ ดีกว่า $f = \\{ (n, t) \\mid t = n^2 \\}$"
-  ],
-  "correct": 2,
-  "difficulty": "ปานกลาง",
-  "hasImage": false,
-  "id": "chap-08-explog-q210",
-  "question": "หากมีโปรแกรม 2 โปรแกรมสามารถสั่งให้คอมพิวเตอร์คำนวณเพื่อแก้ปัญหาชนิดเดียวกัน แต่ด้วยวิธีการที่ต่างกัน การเลือกโปรแกรมที่ดีกว่าควรดูความสัมพันธ์ระหว่างข้อมูลกับเวลาที่คอมพิวเตอร์ใช้ในการคำนวณ ถ้าจำนวนข้อมูลมากๆ แล้วใช้เวลาน้อยๆ ความสัมพันธ์นั้นจะชี้ให้เห็นว่าโปรแกรมหนึ่งดีกว่าอีกโปรแกรมหนึ่ง\nกำหนดให้ $f$ แทนความสัมพันธ์, $n \\in \\mathbb{Z}^+$ แทนจำนวนข้อมูล, $t \\in \\mathbb{R}^+$ แทนเวลาที่ใช้คำนวณ ข้อใดต่อไปนี้เป็นข้อที่ถูกต้อง (ให้เปรียบเทียบด้วยจำนวนข้อมูลที่มากๆ เท่ากัน)",
-  "subTopics": [
-   "8.11",
-   "8.3",
-   "8.8"
-  ],
-  "topics": [
-   "8"
-  ],
-  "type": "mc",
-  "hint": null
- },
- {
-  "choices": [
-   "$c$",
-   "$b$",
-   "$\\dfrac{1}{b} \\log_b c$",
-   "$\\dfrac{1}{b}$",
-   "ไม่มีคำตอบที่ถูกต้องในข้อ 1. ถึงข้อ 4."
-  ],
-  "correct": 3,
-  "difficulty": "ง่าย",
-  "hasImage": false,
-  "id": "chap-08-explog-q49",
-  "question": "ถ้า $a > 1 , c > 1$ และ $a^b = c$\nจะได้ $\\log_c a$ มีค่าเท่ากับข้อใดต่อไปนี้",
-  "subTopics": [
-   "8.6",
-   "8.7"
-  ],
-  "topics": [
-   "8"
-  ],
-  "type": "mc",
-  "hint": null
- },
- {
+  "question": "จงหาจำนวนคำตอบที่เป็นจำนวนจริงของสมการ $x|x|-3x+2=0$",
   "choices": null,
   "correct": "3",
-  "difficulty": "ปานกลาง",
   "hasImage": false,
-  "id": "chap-08-explog-q77",
-  "question": "ผลบวกของคำตอบของสมการ $\\log_2 (4^{x-1} + 2^{x-1} + 6) = 2 + \\log_2 (2^{x-1} + 1)$ มีค่าเท่าใด",
-  "subTopics": [
-   "8.9",
-   "8.4"
-  ],
-  "topics": [
-   "8"
-  ],
-  "type": "fill",
   "hint": null
  },
  {
+  "id": "gen-chap-03-real-q399",
+  "type": "fill",
+  "difficulty": "ยากมาก",
+  "topics": [
+   "3"
+  ],
+  "subTopics": [
+   "3.4",
+   "3.9"
+  ],
+  "question": "จงหาค่ามากที่สุดของ $\\dfrac{x^2+2x+3}{x^2+2}$ เมื่อ $x$ เป็นจำนวนจริง",
+  "choices": null,
+  "correct": "2",
+  "hasImage": false,
+  "hint": null
+ },
+ {
+  "id": "gen-chap-02-logic-q347",
+  "type": "mc",
+  "difficulty": "ปานกลาง",
+  "topics": [
+   "2"
+  ],
+  "subTopics": [
+   "2.5",
+   "2.3"
+  ],
+  "question": "ประพจน์ $(p\\to r)\\wedge(q\\to r)$ สมมูลกับข้อใด",
   "choices": [
-   "$30°$",
-   "$38°$",
-   "$45°$",
-   "$60°$"
+   "$(p\\wedge q)\\to r$",
+   "$(p\\vee q)\\to r$",
+   "$(p\\to r)\\vee(q\\to r)$",
+   "$p\\to(q\\to r)$"
   ],
   "correct": 1,
-  "difficulty": "ปานกลาง",
   "hasImage": false,
-  "id": "chap-09-vector-q105",
-  "question": "กำหนดให้ $\\overrightarrow{AB} = 3\\overline{i} + \\overline{j}$ และ $\\overrightarrow{AC} = 2\\overline{i} + 3\\overline{j}$ จงหาขนาดของมุม $BAC$\n(กำหนด $\\sqrt{1.3} = 1.14$)",
+  "hint": null
+ },
+ {
+  "id": "gen-chap-05-function-q394",
+  "type": "fill",
+  "difficulty": "ปานกลาง",
+  "topics": [
+   "5"
+  ],
+  "subTopics": [
+   "5.7"
+  ],
+  "question": "กำหนด $f(x)=x^2$ และ $g(x)=x-1$ จงหาค่า $x$ ที่ทำให้ $(f\\circ g)(x)=(g\\circ f)(x)$",
+  "choices": null,
+  "correct": "1",
+  "hasImage": false,
+  "hint": null
+ },
+ {
+  "id": "gen-chap-02-logic-q374",
+  "type": "mc",
+  "difficulty": "ยาก",
+  "topics": [
+   "2"
+  ],
+  "subTopics": [
+   "2.12",
+   "2.10"
+  ],
+  "question": "กำหนดเอกภพสัมพัทธ์เป็นเซตของจำนวนจริง $\\mathbb{R}$ ข้อใดต่อไปนี้เป็นเท็จ",
+  "choices": [
+   "$\\forall x\\,\\exists y\\,[\\,y>x\\,]$",
+   "$\\forall y\\,\\exists x\\,[\\,x<y\\,]$",
+   "$\\exists x\\,\\forall y\\,[\\,xy=0\\,]$",
+   "$\\forall x\\,\\exists y\\,[\\,x=y^2\\,]$"
+  ],
+  "correct": 3,
+  "hasImage": false,
+  "hint": null
+ },
+ {
+  "id": "gen-chap-02-logic-q399",
+  "type": "mc",
+  "difficulty": "ยากมาก",
+  "topics": [
+   "2"
+  ],
+  "subTopics": [
+   "2.1",
+   "2.2"
+  ],
+  "question": "บนเกาะแห่งหนึ่งมีชาวเกาะสองประเภท คืออัศวินซึ่งพูดจริงเสมอ และคนโกหกซึ่งพูดเท็จเสมอ พบชาวเกาะสามคนคือ A, B, C\nA พูดว่า: 'ฉันกับ B เป็นประเภทเดียวกัน'\nB พูดว่า: 'ฉันกับ C เป็นคนละประเภทกัน'\nC พูดว่า: 'A เป็นคนโกหก'\nมีอัศวินกี่คน",
+  "choices": [
+   "0 คน",
+   "1 คน",
+   "2 คน",
+   "3 คน"
+  ],
+  "correct": 2,
+  "hasImage": false,
+  "hint": null
+ },
+ {
+  "id": "chap-04-coord-q02",
+  "type": "mc",
+  "difficulty": "ง่าย",
+  "topics": [
+   "4"
+  ],
+  "subTopics": [
+   "4.4",
+   "4.5",
+   "4.3"
+  ],
+  "question": "ข้อใดต่อไปนี้<u>ผิด</u>",
+  "choices": [
+   "เส้นตรง $y = 3x + 2$ ขนานกับเส้นตรง $3x - y - 4 = 0$",
+   "เส้นตรง $y + 5x + 8 = 0$ ตั้งฉากกับเส้นตรง $5y = x + 3$",
+   "ระยะห่างระหว่างจุด $(0,0)$ กับเส้นตรง $3x + 4y - 10 = 0$ เท่ากับ 2",
+   "ระยะห่างระหว่างเส้นตรง $x - 2y + 5 = 0$ กับเส้นตรง $x - 2y - 5 = 0$ เท่ากับ 2"
+  ],
+  "correct": 3,
+  "hasImage": true,
+  "hint": null,
+  "imageSpec": [
+   {
+    "type": "function-plot",
+    "width": 500,
+    "height": 358,
+    "xRange": [
+     -8,
+     6
+    ],
+    "yRange": [
+     -5,
+     5
+    ],
+    "axes": {
+     "arrows": true,
+     "xLabel": "x",
+     "yLabel": "y",
+     "originLabel": "O"
+    },
+    "functions": [
+     {
+      "kind": "polynomial",
+      "coefs": [
+       0.5,
+       2.5
+      ],
+      "color": "#c62828",
+      "strokeWidth": 1.6
+     },
+     {
+      "kind": "polynomial",
+      "coefs": [
+       0.5,
+       -2.5
+      ],
+      "color": "#2e7d32",
+      "strokeWidth": 1.6
+     }
+    ],
+    "segments": [
+     {
+      "from": [
+       -5,
+       0
+      ],
+      "to": [
+       -3,
+       -4
+      ],
+      "dashed": true
+     }
+    ],
+    "dots": [
+     {
+      "x": -5,
+      "y": 0,
+      "label": "(−5, 0)",
+      "labelAnchor": "end",
+      "labelDx": 1,
+      "labelDy": -18
+     },
+     {
+      "x": -3,
+      "y": -4,
+      "label": "(−3, −4)",
+      "labelAnchor": "start",
+      "labelDx": 8,
+      "labelDy": 6
+     }
+    ],
+    "annotations": [
+     {
+      "at": [
+       -7.6,
+       4.4
+      ],
+      "text": "ข้อ (4) ผิด",
+      "anchor": "start",
+      "color": "#c62828"
+     },
+     {
+      "at": [
+       -7.6,
+       3.6
+      ],
+      "text": "x−2y+5=0 (แดง) , x−2y−5=0 (เขียว)",
+      "anchor": "start",
+      "color": "#616161"
+     },
+     {
+      "at": [
+       -7.6,
+       2.8
+      ],
+      "text": "ระยะ = 2\\sqrt{5} ≈ 4.47  (ไม่ใช่ 2)",
+      "anchor": "start",
+      "color": "#616161"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "chap-08-explog-q23",
+  "type": "mc",
+  "difficulty": "ปานกลาง",
+  "topics": [
+   "8"
+  ],
+  "subTopics": [
+   "8.5",
+   "8.1"
+  ],
+  "question": "เซตคำตอบของอสมการ $\\left(\\dfrac{1}{2}\\right)^{x^2+2x+8} < \\left(\\dfrac{1}{4}\\right)^{x+12}$ เท่ากับเซตคำตอบของอสมการในข้อใดต่อไปนี้",
+  "choices": [
+   "$\\dfrac{1}{x} - \\dfrac{1}{4} > 0$",
+   "$\\dfrac{1}{x} + \\dfrac{1}{4} < 0$",
+   "$\\dfrac{x - 4}{x + 4} > 0$",
+   "$x^2 + 3x - 4 < 0$"
+  ],
+  "correct": 2,
+  "hasImage": true,
+  "hint": null,
+  "imageSpec": {
+   "criticals": [
+    -4,
+    4
+   ],
+   "width": 380,
+   "height": 96,
+   "axisY": 60,
+   "solutionY": 36,
+   "labels": [
+    {
+     "at": -4,
+     "text": "−4"
+    },
+    {
+     "at": 4,
+     "text": "4"
+    }
+   ],
+   "signs": [
+    {
+     "from": null,
+     "to": -4,
+     "label": "+"
+    },
+    {
+     "from": -4,
+     "to": 4,
+     "label": "−"
+    },
+    {
+     "from": 4,
+     "to": null,
+     "label": "+"
+    }
+   ],
+   "rays": [
+    {
+     "from": -4,
+     "dir": "left",
+     "color": "#2e7d32"
+    },
+    {
+     "from": 4,
+     "dir": "right",
+     "color": "#2e7d32"
+    }
+   ],
+   "points": [
+    {
+     "at": -4,
+     "open": true,
+     "color": "#2e7d32"
+    },
+    {
+     "at": 4,
+     "open": true,
+     "color": "#2e7d32"
+    }
+   ],
+   "annotations": [
+    {
+     "text": "เซตคำตอบ = (−∞, −4) ∪ (4, ∞)",
+     "x": 190,
+     "y": 15,
+     "anchor": "middle"
+    }
+   ],
+   "type": "number-line",
+   "scale": "even"
+  }
+ },
+ {
+  "id": "chap-12-probability-q55",
+  "type": "mc",
+  "difficulty": "ปานกลาง",
+  "topics": [
+   "12"
+  ],
+  "subTopics": [
+   "12.3",
+   "12.1"
+  ],
+  "question": "กำหนดจุด $10$ จุดบนแผ่นกระดาษ มี $4$ จุดอยู่บนเส้นตรงเดียวกัน นอกนั้นไม่มี $3$ จุดใดอยู่บนเส้นตรงเดียวกัน จำนวนรูปสามเหลี่ยมที่เกิดจากการลากเส้นตรงเชื่อมจุดที่กำหนดให้ เท่ากับข้อใดต่อไปนี้",
+  "choices": [
+   "$80$",
+   "$106$",
+   "$116$",
+   "$120$"
+  ],
+  "correct": 2,
+  "hasImage": true,
+  "hint": null,
+  "imageSpec": {
+   "type": "circle-on-plane",
+   "width": 380,
+   "height": 320,
+   "xRange": [
+    -0.5,
+    8.5
+   ],
+   "yRange": [
+    -0.5,
+    7.5
+   ],
+   "axes": false,
+   "lines": [
+    {
+     "from": [
+      0.5,
+      0.75
+     ],
+     "to": [
+      7.5,
+      4.25
+     ],
+     "color": "#d68910",
+     "width": 1.3
+    }
+   ],
+   "dots": [
+    {
+     "x": 1,
+     "y": 1,
+     "color": "#d68910"
+    },
+    {
+     "x": 3,
+     "y": 2,
+     "color": "#d68910"
+    },
+    {
+     "x": 5,
+     "y": 3,
+     "color": "#d68910"
+    },
+    {
+     "x": 7,
+     "y": 4,
+     "color": "#d68910"
+    },
+    {
+     "x": 2,
+     "y": 5,
+     "color": "#1a5fb4"
+    },
+    {
+     "x": 4,
+     "y": 6.5,
+     "color": "#1a5fb4"
+    },
+    {
+     "x": 6,
+     "y": 5.5,
+     "color": "#1a5fb4"
+    },
+    {
+     "x": 1.5,
+     "y": 3.5,
+     "color": "#1a5fb4"
+    },
+    {
+     "x": 5.5,
+     "y": 1.2,
+     "color": "#1a5fb4"
+    },
+    {
+     "x": 7.5,
+     "y": 6,
+     "color": "#1a5fb4"
+    }
+   ]
+  }
+ },
+ {
+  "id": "gen-chap-03-real-q005",
+  "type": "fill",
+  "difficulty": "ง่าย",
+  "topics": [
+   "3"
+  ],
+  "subTopics": [
+   "3.8",
+   "3.11"
+  ],
+  "question": "จงหาจำนวนเต็มทั้งหมดที่สอดคล้องกับอสมการ $|2x-1|\\lt 5$ ว่ามีกี่จำนวน",
+  "choices": null,
+  "correct": "4",
+  "hasImage": true,
+  "hint": null,
+  "imageSpec": {
+   "type": "number-line",
+   "width": 480,
+   "height": 104,
+   "scale": "even",
+   "axisY": 64,
+   "solutionY": 44,
+   "criticals": [
+    -2,
+    3
+   ],
+   "labels": [
+    {
+     "at": -2,
+     "text": "-2"
+    },
+    {
+     "at": 3,
+     "text": "3"
+    }
+   ],
+   "points": [
+    {
+     "at": -2,
+     "open": true,
+     "color": "#1e7e34"
+    },
+    {
+     "at": 3,
+     "open": true,
+     "color": "#1e7e34"
+    }
+   ],
+   "segments": [
+    {
+     "from": -2,
+     "to": 3,
+     "color": "#1e7e34"
+    }
+   ],
+   "annotations": [
+    {
+     "x": 240,
+     "y": 14,
+     "text": "เซตคำตอบ = (−2, 3) · จำนวนเต็ม: −1, 0, 1, 2",
+     "anchor": "middle",
+     "color": "#1e5fae",
+     "fontSize": 13,
+     "weight": "600"
+    }
+   ]
+  }
+ },
+ {
+  "id": "chap-08-explog-q35",
+  "type": "mc",
+  "difficulty": "ยาก",
+  "topics": [
+   "8"
+  ],
+  "subTopics": [
+   "8.5",
+   "3.8"
+  ],
+  "question": "ให้ $S$ เป็นเซตคำตอบของอสมการ $5^{2x} + 11 \\le |12(5^x) - 9|$\nถ้า $a$ และ $b$ เป็นสมาชิกของ $S$ ที่มีค่ามากที่สุดและน้อยที่สุด ตามลำดับ\nแล้ว $a + b$ เท่ากับข้อใดต่อไปนี้",
+  "choices": [
+   "$\\log_5 15$",
+   "$\\log_5 20$",
+   "$2$",
+   "$\\log_5 30$"
+  ],
+  "correct": 1,
+  "hasImage": true,
+  "hint": null,
+  "imageSpec": {
+   "criticals": [
+    0.43067655807339306,
+    1.4306765580733933
+   ],
+   "width": 380,
+   "height": 96,
+   "axisY": 60,
+   "solutionY": 36,
+   "labels": [
+    {
+     "at": 0.43067655807339306,
+     "text": "log₅2"
+    },
+    {
+     "at": 1.4306765580733933,
+     "text": "log₅10"
+    }
+   ],
+   "segments": [
+    {
+     "from": 0.43067655807339306,
+     "to": 1.4306765580733933,
+     "color": "#2e7d32"
+    }
+   ],
+   "points": [
+    {
+     "at": 0.43067655807339306,
+     "open": false,
+     "color": "#2e7d32"
+    },
+    {
+     "at": 1.4306765580733933,
+     "open": false,
+     "color": "#2e7d32"
+    }
+   ],
+   "annotations": [
+    {
+     "text": "S = [log₅2, log₅10]",
+     "x": 190,
+     "y": 15,
+     "anchor": "middle"
+    }
+   ],
+   "type": "number-line",
+   "scale": "even"
+  }
+ },
+ {
+  "id": "gen-chap-03-real-q011",
+  "type": "fill",
+  "difficulty": "ง่าย",
+  "topics": [
+   "3"
+  ],
+  "subTopics": [
+   "3.6",
+   "3.3",
+   "3.11"
+  ],
+  "question": "จำนวนเต็มในเซตคำตอบของอสมการ $x^2-x-6\\le0$ มีทั้งหมดกี่จำนวน",
+  "choices": null,
+  "correct": "6",
+  "hasImage": true,
+  "hint": null,
+  "imageSpec": {
+   "type": "number-line",
+   "width": 480,
+   "height": 104,
+   "scale": "even",
+   "criticals": [
+    -2,
+    3
+   ],
+   "axisY": 64,
+   "solutionY": 44,
+   "labels": [
+    {
+     "at": -2,
+     "text": "-2"
+    },
+    {
+     "at": 3,
+     "text": "3"
+    }
+   ],
+   "signs": [
+    {
+     "from": null,
+     "to": -2,
+     "label": "+"
+    },
+    {
+     "from": -2,
+     "to": 3,
+     "label": "−"
+    },
+    {
+     "from": 3,
+     "to": null,
+     "label": "+"
+    }
+   ],
+   "points": [
+    {
+     "at": -2,
+     "open": false,
+     "color": "#1e7e34"
+    },
+    {
+     "at": 3,
+     "open": false,
+     "color": "#1e7e34"
+    }
+   ],
+   "segments": [
+    {
+     "from": -2,
+     "to": 3,
+     "color": "#1e7e34"
+    }
+   ],
+   "rays": [],
+   "annotations": [
+    {
+     "x": 240,
+     "y": 14,
+     "text": "เซตคำตอบ = [−2, 3]",
+     "anchor": "middle",
+     "color": "#1e5fae",
+     "fontSize": 13,
+     "weight": "600"
+    }
+   ]
+  }
+ },
+ {
+  "id": "chap-08-explog-q66",
+  "type": "mc",
+  "difficulty": "ง่าย",
+  "topics": [
+   "8"
+  ],
+  "subTopics": [
+   "8.8",
+   "5.5"
+  ],
+  "question": "ถ้า $f = \\{ (x, y) \\mid y = \\log(x + 2) + \\log(x - 3) - \\log(4 - x) \\}$\nแล้วโดเมนของ $f$ คือช่วงในข้อใดต่อไปนี้",
+  "choices": [
+   "$(3, 4)$",
+   "$(2, 3)$",
+   "$(2, 4)$",
+   "$(0, 2) \\cup (3, 4)$"
+  ],
+  "correct": 0,
+  "hasImage": true,
+  "hint": null,
+  "imageSpec": {
+   "type": "number-line",
+   "scale": "even",
+   "criticals": [
+    -2,
+    3,
+    4
+   ],
+   "width": 460,
+   "height": 130,
+   "axisY": 96,
+   "labels": [
+    {
+     "at": -2,
+     "text": "−2"
+    },
+    {
+     "at": 3,
+     "text": "3"
+    },
+    {
+     "at": 4,
+     "text": "4"
+    }
+   ],
+   "rays": [
+    {
+     "from": -2,
+     "dir": "right",
+     "color": "#1a5fb4",
+     "y": 30
+    },
+    {
+     "from": 3,
+     "dir": "right",
+     "color": "#8e44ad",
+     "y": 46
+    },
+    {
+     "from": 4,
+     "dir": "left",
+     "color": "#d68910",
+     "y": 62
+    }
+   ],
+   "points": [
+    {
+     "at": -2,
+     "open": true,
+     "color": "#1a5fb4",
+     "y": 30
+    },
+    {
+     "at": 3,
+     "open": true,
+     "color": "#8e44ad",
+     "y": 46
+    },
+    {
+     "at": 4,
+     "open": true,
+     "color": "#d68910",
+     "y": 62
+    }
+   ],
+   "bands": [
+    {
+     "from": 3,
+     "to": 4,
+     "color": "#c8e6c9",
+     "top": 80,
+     "height": 14,
+     "opacity": 0.9
+    }
+   ],
+   "annotations": [
+    {
+     "text": "x &gt; −2   ∩   x &gt; 3   ∩   x &lt; 4   ⟹   (3, 4)",
+     "x": 230,
+     "y": 15,
+     "anchor": "middle"
+    },
+    {
+     "text": "x&gt;−2",
+     "x": 340,
+     "y": 26,
+     "color": "#1a5fb4"
+    },
+    {
+     "text": "x&gt;3",
+     "x": 340,
+     "y": 42,
+     "color": "#8e44ad"
+    },
+    {
+     "text": "x&lt;4",
+     "x": 340,
+     "y": 58,
+     "color": "#d68910"
+    }
+   ]
+  }
+ },
+ {
+  "id": "gen-chap-03-real-q021",
+  "type": "mc",
+  "difficulty": "ปานกลาง",
+  "topics": [
+   "3"
+  ],
+  "subTopics": [
+   "3.9",
+   "3.3",
+   "3.11"
+  ],
+  "question": "เซตคำตอบของอสมการ $\\dfrac{x^2-4}{x-1}\\ge 0$ คือข้อใด",
+  "choices": [
+   "$(-2,1)\\cup(2,\\infty)$",
+   "$[-2,1]\\cup[2,\\infty)$",
+   "$(-\\infty,-2]\\cup(1,2]$",
+   "$[-2,1)\\cup[2,\\infty)$"
+  ],
+  "correct": 3,
+  "hasImage": true,
+  "hint": null,
+  "imageSpec": {
+   "type": "number-line",
+   "width": 480,
+   "height": 104,
+   "scale": "even",
+   "axisY": 64,
+   "solutionY": 44,
+   "criticals": [
+    -2,
+    1,
+    2
+   ],
+   "labels": [
+    {
+     "at": -2,
+     "text": "-2"
+    },
+    {
+     "at": 1,
+     "text": "1"
+    },
+    {
+     "at": 2,
+     "text": "2"
+    }
+   ],
+   "signs": [
+    {
+     "from": null,
+     "to": -2,
+     "label": "−"
+    },
+    {
+     "from": -2,
+     "to": 1,
+     "label": "+"
+    },
+    {
+     "from": 1,
+     "to": 2,
+     "label": "−"
+    },
+    {
+     "from": 2,
+     "to": null,
+     "label": "+"
+    }
+   ],
+   "points": [
+    {
+     "at": -2,
+     "open": false,
+     "color": "#1e7e34"
+    },
+    {
+     "at": 1,
+     "open": true,
+     "color": "#1e7e34"
+    },
+    {
+     "at": 2,
+     "open": false,
+     "color": "#1e7e34"
+    }
+   ],
+   "rays": [
+    {
+     "from": 2,
+     "dir": "right",
+     "color": "#1e7e34"
+    }
+   ],
+   "segments": [
+    {
+     "from": -2,
+     "to": 1,
+     "color": "#1e7e34"
+    }
+   ],
+   "annotations": [
+    {
+     "x": 240,
+     "y": 14,
+     "text": "เซตคำตอบ = [−2, 1) ∪ [2, ∞)",
+     "anchor": "middle",
+     "color": "#1e5fae",
+     "fontSize": 13,
+     "weight": "600"
+    }
+   ]
+  }
+ },
+ {
+  "id": "chap-08-explog-q69",
+  "type": "mc",
+  "difficulty": "ปานกลาง",
+  "topics": [
+   "8"
+  ],
+  "subTopics": [
+   "8.8",
+   "7.8"
+  ],
+  "question": "กำหนดให้ $f(x) = \\sqrt{\\arcsin(\\log_3 x)} + \\log_5 (x - 2)$ โดเมนของ $f$ คือข้อใดต่อไปนี้",
+  "choices": [
+   "$(2, 3)$",
+   "$(2, 3]$",
+   "$\\left(2, \\dfrac{\\pi}{2}\\right)$",
+   "$\\left(2, \\dfrac{\\pi}{2}\\right]$"
+  ],
+  "correct": 1,
+  "hasImage": true,
+  "hint": null,
+  "imageSpec": [
+   {
+    "criticals": [
+     1,
+     2,
+     3
+    ],
+    "width": 460,
+    "height": 106,
+    "axisY": 72,
+    "labels": [
+     {
+      "at": 1,
+      "text": "1"
+     },
+     {
+      "at": 2,
+      "text": "2"
+     },
+     {
+      "at": 3,
+      "text": "3"
+     }
+    ],
+    "segments": [
+     {
+      "from": 1,
+      "to": 3,
+      "color": "#d11",
+      "y": 34
+     }
+    ],
+    "rays": [
+     {
+      "from": 2,
+      "dir": "right",
+      "color": "#2e7d32",
+      "y": 52
+     }
+    ],
+    "points": [
+     {
+      "at": 1,
+      "open": false,
+      "color": "#d11",
+      "y": 34
+     },
+     {
+      "at": 3,
+      "open": false,
+      "color": "#d11",
+      "y": 34
+     },
+     {
+      "at": 2,
+      "open": true,
+      "color": "#2e7d32",
+      "y": 52
+     }
+    ],
+    "annotations": [
+     {
+      "text": "0 ≤ log₃x ≤ 1 → x ∈ [1, 3]   ·   x ∈ (2, ∞)",
+      "x": 230,
+      "y": 15,
+      "anchor": "middle"
+     },
+     {
+      "text": "A",
+      "x": 6,
+      "y": 38,
+      "color": "#d11"
+     },
+     {
+      "text": "B",
+      "x": 6,
+      "y": 56,
+      "color": "#2e7d32"
+     }
+    ],
+    "type": "number-line",
+    "scale": "even"
+   },
+   {
+    "criticals": [
+     2,
+     3
+    ],
+    "width": 360,
+    "height": 92,
+    "axisY": 58,
+    "solutionY": 34,
+    "labels": [
+     {
+      "at": 2,
+      "text": "2"
+     },
+     {
+      "at": 3,
+      "text": "3"
+     }
+    ],
+    "segments": [
+     {
+      "from": 2,
+      "to": 3,
+      "color": "#d11"
+     }
+    ],
+    "points": [
+     {
+      "at": 2,
+      "open": true,
+      "color": "#d11"
+     },
+     {
+      "at": 3,
+      "open": false,
+      "color": "#d11"
+     }
+    ],
+    "annotations": [
+     {
+      "text": "โดเมน = (2, 3]",
+      "x": 180,
+      "y": 14,
+      "anchor": "middle"
+     }
+    ],
+    "type": "number-line",
+    "scale": "even"
+   }
+  ]
+ },
+ {
+  "id": "gen-chap-03-real-q024",
+  "type": "mc",
+  "difficulty": "ปานกลาง",
+  "topics": [
+   "3"
+  ],
+  "subTopics": [
+   "3.9",
+   "3.3",
+   "3.11"
+  ],
+  "question": "เซตคำตอบของอสมการ $\\dfrac{x-1}{x^2-x-6}\\ge 0$ คือข้อใด",
+  "choices": [
+   "$[-2,1]\\cup[3,\\infty)$",
+   "$(-\\infty,-2)\\cup[1,3)$",
+   "$(-2,1]\\cup(3,\\infty)$",
+   "$(-2,1)\\cup(3,\\infty)$"
+  ],
+  "correct": 2,
+  "hasImage": true,
+  "hint": null,
+  "imageSpec": {
+   "type": "number-line",
+   "width": 480,
+   "height": 104,
+   "scale": "even",
+   "axisY": 64,
+   "solutionY": 44,
+   "criticals": [
+    -2,
+    1,
+    3
+   ],
+   "labels": [
+    {
+     "at": -2,
+     "text": "-2"
+    },
+    {
+     "at": 1,
+     "text": "1"
+    },
+    {
+     "at": 3,
+     "text": "3"
+    }
+   ],
+   "signs": [
+    {
+     "from": null,
+     "to": -2,
+     "label": "−"
+    },
+    {
+     "from": -2,
+     "to": 1,
+     "label": "+"
+    },
+    {
+     "from": 1,
+     "to": 3,
+     "label": "−"
+    },
+    {
+     "from": 3,
+     "to": null,
+     "label": "+"
+    }
+   ],
+   "points": [
+    {
+     "at": -2,
+     "open": true,
+     "color": "#1e7e34"
+    },
+    {
+     "at": 1,
+     "open": false,
+     "color": "#1e7e34"
+    },
+    {
+     "at": 3,
+     "open": true,
+     "color": "#1e7e34"
+    }
+   ],
+   "rays": [
+    {
+     "from": 3,
+     "dir": "right",
+     "color": "#1e7e34"
+    }
+   ],
+   "segments": [
+    {
+     "from": -2,
+     "to": 1,
+     "color": "#1e7e34"
+    }
+   ],
+   "annotations": [
+    {
+     "x": 240,
+     "y": 14,
+     "text": "เซตคำตอบ = (−2, 1] ∪ (3, ∞)",
+     "anchor": "middle",
+     "color": "#1e5fae",
+     "fontSize": 13,
+     "weight": "600"
+    }
+   ]
+  }
+ },
+ {
+  "id": "chap-08-explog-q86",
+  "type": "fill",
+  "difficulty": "ปานกลาง",
+  "topics": [
+   "8"
+  ],
+  "subTopics": [
+   "8.10",
+   "8.7"
+  ],
+  "question": "ให้ช่วงเปิด $(a, b)$ เป็นเซตคำตอบของอสมการ $\\log(3x + 4) > \\log(x - 1) + 1$\nแล้ว $a + b$ มีค่าเท่ากับเท่าใด",
+  "choices": null,
+  "correct": "3",
+  "hasImage": true,
+  "hint": null,
+  "imageSpec": {
+   "criticals": [
+    1,
+    2
+   ],
+   "width": 320,
+   "height": 96,
+   "axisY": 60,
+   "solutionY": 36,
+   "labels": [
+    {
+     "at": 1,
+     "text": "1"
+    },
+    {
+     "at": 2,
+     "text": "2"
+    }
+   ],
+   "segments": [
+    {
+     "from": 1,
+     "to": 2,
+     "color": "#2e7d32"
+    }
+   ],
+   "points": [
+    {
+     "at": 1,
+     "open": true,
+     "color": "#2e7d32"
+    },
+    {
+     "at": 2,
+     "open": true,
+     "color": "#2e7d32"
+    }
+   ],
+   "annotations": [
+    {
+     "text": "เซตคำตอบ = (1, 2)",
+     "x": 160,
+     "y": 15,
+     "anchor": "middle"
+    }
+   ],
+   "type": "number-line",
+   "scale": "even"
+  }
+ },
+ {
+  "id": "gen-chap-03-real-q028",
+  "type": "mc",
+  "difficulty": "ปานกลาง",
+  "topics": [
+   "3"
+  ],
+  "subTopics": [
+   "3.8",
+   "3.11",
+   "3.3"
+  ],
+  "question": "เซตคำตอบของอสมการ $|2x-1|\\ge |x+1|$ คือข้อใด",
+  "choices": [
+   "$(-\\infty,0]\\cup[2,\\infty)$",
+   "$[0,2]$",
+   "$(-\\infty,0)\\cup(2,\\infty)$",
+   "$[-2,0]\\cup[2,\\infty)$"
+  ],
+  "correct": 0,
+  "hasImage": true,
+  "hint": null,
+  "imageSpec": {
+   "type": "number-line",
+   "width": 480,
+   "height": 104,
+   "scale": "even",
+   "axisY": 64,
+   "solutionY": 44,
+   "criticals": [
+    0,
+    2
+   ],
+   "labels": [
+    {
+     "at": 0,
+     "text": "0"
+    },
+    {
+     "at": 2,
+     "text": "2"
+    }
+   ],
+   "signs": [
+    {
+     "from": null,
+     "to": 0,
+     "label": "+"
+    },
+    {
+     "from": 0,
+     "to": 2,
+     "label": "−"
+    },
+    {
+     "from": 2,
+     "to": null,
+     "label": "+"
+    }
+   ],
+   "points": [
+    {
+     "at": 0,
+     "open": false,
+     "color": "#1e7e34"
+    },
+    {
+     "at": 2,
+     "open": false,
+     "color": "#1e7e34"
+    }
+   ],
+   "rays": [
+    {
+     "from": 0,
+     "dir": "left",
+     "color": "#1e7e34"
+    },
+    {
+     "from": 2,
+     "dir": "right",
+     "color": "#1e7e34"
+    }
+   ],
+   "annotations": [
+    {
+     "x": 240,
+     "y": 14,
+     "text": "เซตคำตอบ = (−∞, 0] ∪ [2, ∞)",
+     "anchor": "middle",
+     "color": "#1e5fae",
+     "fontSize": 13,
+     "weight": "600"
+    }
+   ]
+  }
+ },
+ {
+  "id": "chap-08-explog-q89",
+  "type": "mc",
+  "difficulty": "ยาก",
+  "topics": [
+   "8"
+  ],
+  "subTopics": [
+   "8.10",
+   "8.7"
+  ],
+  "question": "ให้ $S$ เป็นเซตคำตอบของอสมการ $\\log(\\log x) + \\log(9 - \\log x^2) \\ge 1$\nถ้า $a$ และ $b$ เป็นสมาชิกของ $S$ ที่มีค่ามากที่สุดและค่าน้อยที่สุด ตามลำดับ\nแล้ว $ab$ มีค่าเท่ากับข้อใด",
+  "choices": [
+   "$10^{7/2}$",
+   "$10^{9/2}$",
+   "$10^{11/2}$",
+   "$10^{13/2}$"
+  ],
+  "correct": 1,
+  "hasImage": true,
+  "hint": null,
+  "imageSpec": {
+   "criticals": [
+    100,
+    316.22776601683796
+   ],
+   "width": 380,
+   "height": 96,
+   "axisY": 60,
+   "solutionY": 36,
+   "labels": [
+    {
+     "at": 100,
+     "text": "10²"
+    },
+    {
+     "at": 316.22776601683796,
+     "text": "10^(5/2)"
+    }
+   ],
+   "signs": [
+    {
+     "from": null,
+     "to": 100,
+     "label": "+"
+    },
+    {
+     "from": 100,
+     "to": 316.22776601683796,
+     "label": "−"
+    },
+    {
+     "from": 316.22776601683796,
+     "to": null,
+     "label": "+"
+    }
+   ],
+   "segments": [
+    {
+     "from": 100,
+     "to": 316.22776601683796,
+     "color": "#2e7d32"
+    }
+   ],
+   "points": [
+    {
+     "at": 100,
+     "open": false,
+     "color": "#2e7d32"
+    },
+    {
+     "at": 316.22776601683796,
+     "open": false,
+     "color": "#2e7d32"
+    }
+   ],
+   "annotations": [
+    {
+     "text": "S = [10², 10^(5/2)]",
+     "x": 190,
+     "y": 15,
+     "anchor": "middle"
+    }
+   ],
+   "type": "number-line",
+   "scale": "even"
+  }
+ },
+ {
+  "id": "gen-chap-03-real-q043",
+  "type": "mc",
+  "difficulty": "ปานกลาง",
+  "topics": [
+   "3"
+  ],
+  "subTopics": [
+   "3.6",
+   "3.3",
+   "3.11"
+  ],
+  "question": "เซตคำตอบของอสมการ $x^3-3x^2-x+3\\lt 0$ คือข้อใด",
+  "choices": [
+   "$(-1,1)\\cup(3,\\infty)$",
+   "$(-\\infty,-1]\\cup[1,3]$",
+   "$(1,3)$",
+   "$(-\\infty,-1)\\cup(1,3)$"
+  ],
+  "correct": 3,
+  "hasImage": true,
+  "hint": null,
+  "imageSpec": {
+   "type": "number-line",
+   "width": 480,
+   "height": 104,
+   "scale": "even",
+   "axisY": 64,
+   "solutionY": 44,
+   "criticals": [
+    -1,
+    1,
+    3
+   ],
+   "labels": [
+    {
+     "at": -1,
+     "text": "-1"
+    },
+    {
+     "at": 1,
+     "text": "1"
+    },
+    {
+     "at": 3,
+     "text": "3"
+    }
+   ],
+   "signs": [
+    {
+     "from": null,
+     "to": -1,
+     "label": "−"
+    },
+    {
+     "from": -1,
+     "to": 1,
+     "label": "+"
+    },
+    {
+     "from": 1,
+     "to": 3,
+     "label": "−"
+    },
+    {
+     "from": 3,
+     "to": null,
+     "label": "+"
+    }
+   ],
+   "points": [
+    {
+     "at": -1,
+     "open": true,
+     "color": "#1e7e34"
+    },
+    {
+     "at": 1,
+     "open": true,
+     "color": "#1e7e34"
+    },
+    {
+     "at": 3,
+     "open": true,
+     "color": "#1e7e34"
+    }
+   ],
+   "rays": [
+    {
+     "from": -1,
+     "dir": "left",
+     "color": "#1e7e34"
+    }
+   ],
+   "segments": [
+    {
+     "from": 1,
+     "to": 3,
+     "color": "#1e7e34"
+    }
+   ],
+   "annotations": [
+    {
+     "x": 240,
+     "y": 14,
+     "text": "เซตคำตอบ = (−∞, −1) ∪ (1, 3)",
+     "anchor": "middle",
+     "color": "#1e5fae",
+     "fontSize": 13,
+     "weight": "600"
+    }
+   ]
+  }
+ },
+ {
+  "id": "chap-09-vector-q53",
+  "type": "mc",
+  "difficulty": "ปานกลาง",
+  "topics": [
+   "9"
+  ],
   "subTopics": [
    "9.6",
    "9.5"
   ],
-  "topics": [
-   "9"
-  ],
-  "type": "mc",
-  "hint": null
- },
- {
+  "question": "กำหนดให้ $\\overline{u} = a\\overline{i} + b\\overline{j}$ โดย $b > 0$\nถ้าเวกเตอร์ $\\overline{u}$ ตั้งฉากกับเวกเตอร์ $\\overline{i} - 2\\overline{j}$ และ $\\theta$ เป็นมุมที่เวกเตอร์ $\\overline{u}$ ทำกับเวกเตอร์ $\\overline{i} + \\overline{j}$\nแล้ว $9\\tan\\theta$ เท่ากับข้อใดต่อไปนี้",
   "choices": [
-   "ถ้า $\\overline{u} = a\\overline{i} + b\\overline{j}$ และ $\\overline{v} = a\\overline{i} - b\\overline{j}$ แล้ว $\\overline{u} + \\overline{v}$ และ $\\overline{u} - \\overline{v}$ ตั้งฉากกัน",
-   "ถ้า $\\overline{u} = a\\overline{i} - b\\overline{j}$ และ $\\overline{v} = -a\\overline{i} + b\\overline{j}$ แล้ว\nจะสามารถเขียนเวกเตอร์ใดๆ ในระบบแกนมุมฉากได้ในรูปของ $\\overline{u}$ และ $\\overline{v}$ เสมอ",
-   "ถ้า $\\overline{u} = \\begin{bmatrix} a \\\\ b \\end{bmatrix}$ และ $\\overline{v} = \\begin{bmatrix} a \\\\ -b \\end{bmatrix}$ แล้ว\nสมการ $x\\overline{u} + y\\overline{v} = \\overline{0}$ มี $x = y = 0$ เพียงค่าเดียวเท่านั้นที่สอดคล้อง",
-   "ถ้า $\\overline{u} = \\begin{bmatrix} a \\\\ -b \\end{bmatrix}$ และ $\\overline{v} = \\begin{bmatrix} b \\\\ a \\end{bmatrix}$ แล้ว $|\\overline{u} + \\overline{v}|^2 = |\\overline{u}|^2 + |\\overline{v}|^2$"
-  ],
-  "correct": 1,
-  "difficulty": "ปานกลาง",
-  "hasImage": false,
-  "id": "chap-09-vector-q28",
-  "question": "กำหนดให้ $a$ และ $b$ เป็นจำนวนจริงใดๆ ที่ไม่เท่ากับศูนย์ ข้อความต่อไปนี้ข้อใดไม่จริง",
-  "subTopics": [
-   "9.2",
-   "9.1"
-  ],
-  "topics": [
-   "9"
-  ],
-  "type": "mc",
-  "hint": null
- },
- {
-  "choices": [
-   "$60°$",
-   "$75°$",
-   "$90°$",
-   "$105°$"
-  ],
-  "correct": 1,
-  "difficulty": "ยาก",
-  "hasImage": false,
-  "id": "chap-09-vector-q83",
-  "question": "ให้จุด $A(\\sqrt{2}, \\sqrt{2})$ และจุด $B$ ซึ่งอยู่ในควอดรันต์ที่สี่ และอยู่บนวงรี $\\dfrac{x^2}{4} + \\dfrac{y^2}{9} = 1$\nถ้า $\\overrightarrow{OB}$ มีขนาด $\\dfrac{12}{\\sqrt{31}}$ เมื่อ $O$ เป็นจุดกำเนิด\nแล้ว เวกเตอร์ $\\overrightarrow{OA}$ และ $\\overrightarrow{OB}$ ทำมุมกันเท่ากับข้อใดต่อไปนี้",
-  "subTopics": [
-   "9.6",
-   "9.5",
-   "4.8"
-  ],
-  "topics": [
-   "9"
-  ],
-  "type": "mc",
-  "hint": null
- },
- {
-  "choices": [
-   "ข้อ ก. และ ข. เป็นจริง",
-   "ข้อ ก. เท่านั้นเป็นจริง",
-   "ข้อ ข. เท่านั้นเป็นจริง",
-   "ข้อ ก. และ ข. เป็นเท็จ"
-  ],
-  "correct": 0,
-  "difficulty": "ยาก",
-  "hasImage": false,
-  "id": "chap-10-complex-q104",
-  "question": "ให้ $1, \\omega, \\omega^2$ เป็นรากที่สามของ $1$ จงพิจารณาข้อความต่อไปนี้\nก. $(1 + \\omega - \\omega^2)(1 - \\omega + \\omega^2) = 4$\nข. $(1 - \\omega)(1 - \\omega^2)(1 - \\omega^4)(1 - \\omega^5) = 9$\nข้อใดต่อไปนี้ถูกต้อง",
-  "subTopics": [
-   "10.6",
-   "10.2"
-  ],
-  "topics": [
-   "10"
-  ],
-  "type": "mc",
-  "hint": null
- },
- {
-  "choices": [
-   "$-1$",
-   "$-\\dfrac{1}{2}$",
-   "$\\dfrac{1}{2}$",
-   "$1$"
+   "$1$",
+   "$2$",
+   "$3$",
+   "$4$"
   ],
   "correct": 2,
-  "difficulty": "ปานกลาง",
-  "hasImage": false,
-  "id": "chap-10-complex-q16",
-  "question": "กำหนดให้ $z = \\dfrac{1}{2} + \\dfrac{\\sqrt{3}}{2}i$ ส่วนจริงของ $\\dfrac{1}{1+z^5}$ เท่ากับข้อต่อไปนี้",
-  "subTopics": [
-   "10.5",
-   "10.4",
-   "10.2"
-  ],
-  "topics": [
-   "10"
-  ],
+  "hasImage": true,
+  "hint": null,
+  "imageSpec": {
+   "type": "polygon-labeled",
+   "width": 360,
+   "height": 210,
+   "vertices": {
+    "L": [
+     60,
+     168
+    ],
+    "R": [
+     300,
+     168
+    ],
+    "T": [
+     300,
+     73
+    ]
+   },
+   "vertexLabels": {
+    "L": {
+     "text": " "
+    },
+    "R": {
+     "text": " "
+    },
+    "T": {
+     "text": " "
+    }
+   },
+   "sides": [
+    {
+     "from": "L",
+     "to": "R",
+     "label": "3",
+     "labelOffset": {
+      "dx": 0,
+      "dy": 16
+     }
+    },
+    {
+     "from": "R",
+     "to": "T",
+     "label": "1",
+     "labelOffset": {
+      "dx": 14
+     }
+    },
+    {
+     "from": "L",
+     "to": "T",
+     "label": "$\\sqrt{10}$",
+     "labelOffset": {
+      "dx": -8,
+      "dy": -12
+     }
+    }
+   ],
+   "angleMarks": [
+    {
+     "at": "L",
+     "from": "R",
+     "to": "T",
+     "type": "arc",
+     "radius": 36,
+     "label": "θ",
+     "labelDistance": 54
+    },
+    {
+     "at": "R",
+     "from": "T",
+     "to": "L",
+     "type": "right",
+     "size": 13
+    }
+   ]
+  }
+ },
+ {
+  "id": "gen-chap-12-probability-rv023",
   "type": "mc",
-  "hint": null
- },
- {
-  "choices": [
-   "$\\{-3, -2, 3\\}$",
-   "$\\{-3, 2, 3\\}$",
-   "$\\{2, 3\\}$",
-   "$\\{3, -3\\}$"
-  ],
-  "correct": 1,
-  "difficulty": "ปานกลาง",
-  "hasImage": false,
-  "id": "chap-10-complex-q51",
-  "question": "กำหนดให้ $A = \\{x \\in \\mathbb{C} \\mid x^3 - 2x^2 + 9x - 18 = 0\\}$ และ $B = \\{x \\in \\mathbb{C} \\mid x^4 - 81 = 0\\}$ ดังนั้นเซต $(A - B) \\cup (B - A)$ เท่ากับข้อใดต่อไปนี้",
-  "subTopics": [
-   "10.7",
-   "10.6"
-  ],
-  "topics": [
-   "10"
-  ],
-  "type": "mc",
-  "hint": null
- },
- {
-  "choices": [
-   "$1\\dfrac35$",
-   "$2\\dfrac23$",
-   "$3\\dfrac15$",
-   "$4\\dfrac13$"
-  ],
-  "correct": 2,
-  "difficulty": "ปานกลาง",
-  "hasImage": false,
-  "id": "chap-10-complex-q74",
-  "question": "ถ้า $(x - yi)(2 + i) = 7 + 4i$ เมื่อ $x$ และ $y$ เป็นจำนวนจริง จงหาว่า $x + 2y$ มีค่าเท่าใด",
-  "subTopics": [
-   "10.1",
-   "10.2"
-  ],
-  "topics": [
-   "10"
-  ],
-  "type": "mc",
-  "hint": null
- },
- {
-  "choices": [
-   "$-16\\sin^4 n\\theta$",
-   "$16\\sin^4 n\\theta$",
-   "$-16\\cos^4 n\\theta$",
-   "$16\\cos^4 n\\theta$"
-  ],
-  "correct": 1,
-  "difficulty": "ปานกลาง",
-  "hasImage": false,
-  "id": "chap-10-complex-q96",
-  "question": "ถ้า $z = \\cos\\theta + i\\sin\\theta$ และ $n$ เป็นจำนวนเต็มบวก แล้ว $\\left(z^n - \\dfrac{1}{z^n}\\right)^4$ มีค่าเท่ากับข้อใดต่อไปนี้",
-  "subTopics": [
-   "10.5",
-   "10.4"
-  ],
-  "topics": [
-   "10"
-  ],
-  "type": "mc",
-  "hint": null
- },
- {
-  "choices": [
-   "$16$ ฟุต",
-   "$24$ ฟุต",
-   "$28$ ฟุต",
-   "$32$ ฟุต"
-  ],
-  "correct": 2,
-  "difficulty": "ปานกลาง",
-  "hasImage": false,
-  "id": "chap-11-sequence-q22",
-  "question": "ลูกปิงปองตกจากโต๊ะสูง $4$ ฟุต ถ้าทุกครั้งที่ลูกปิงปองตกกระทบพื้นจะกระดอนขึ้นเป็นระยะทาง $\\dfrac{3}{4}$ ของความสูงที่ตกลงมา ระยะทางทั้งหมดที่ลูกปิงปองเคลื่อนที่ในแนวดิ่งจึงเป็นกี่ฟุต",
-  "subTopics": [
-   "11.5",
-   "11.8",
-   "14.8"
-  ],
-  "topics": [
-   "11"
-  ],
-  "type": "mc",
-  "hint": null
- },
- {
-  "choices": [
-   "$\\dfrac{2}{243}$",
-   "$-\\dfrac{2}{243}$",
-   "$\\dfrac{1}{81}$",
-   "$-\\dfrac{1}{81}$"
-  ],
-  "correct": 0,
-  "difficulty": "ยาก",
-  "hasImage": false,
-  "id": "chap-11-sequence-q43",
-  "question": "ให้ $a_n$ เป็นลำดับเรขาคณิตที่มีอัตราส่วนร่วมเป็นจำนวนเต็มที่ไม่เท่ากับ $1$ ถ้า $a_6$ เป็นจำนวนเต็ม และ $a_6 + a_9 = 52$ แล้ว $a_1$ มีค่าเท่ากับข้อใดต่อไปนี้",
-  "subTopics": [
-   "11.3"
-  ],
-  "topics": [
-   "11"
-  ],
-  "type": "mc",
-  "hint": null
- },
- {
-  "choices": null,
-  "correct": "5740",
-  "difficulty": "ยาก",
-  "hasImage": false,
-  "id": "chap-11-sequence-q65",
-  "question": "ผลบวกของอนุกรมจำกัด $1\\cdot 40+3\\cdot 38+5\\cdot 36+\\cdots+39\\cdot 2$ มีค่าเท่าใด",
-  "subTopics": [
-   "11.6"
-  ],
-  "topics": [
-   "11"
-  ],
-  "type": "fill",
-  "hint": null
- },
- {
-  "choices": [
-   "$\\dfrac{2}{9}$",
-   "$\\dfrac{1}{5}$",
-   "$\\dfrac{1}{2}$",
-   "$\\dfrac{9}{20}$",
-   "$\\dfrac{2}{5}$"
-  ],
-  "correct": 0,
-  "difficulty": "ปานกลาง",
-  "hasImage": false,
-  "id": "chap-12-probability-q107",
-  "question": "สามีภรรยา $5$ คู่ นั่งเก้าอี้รอบโต๊ะกลม ความน่าจะเป็นที่สามีคนหนึ่งจะนั่งติดภรรยาของเขาเท่ากับเท่าใด",
-  "subTopics": [
-   "12.7",
-   "12.4"
-  ],
+  "difficulty": "ง่าย",
   "topics": [
    "12"
   ],
+  "subTopics": [
+   "12.10",
+   "12.9"
+  ],
+  "question": "จำนวนสินค้าชำรุด: ตัวแปรสุ่ม $X$ มีตารางแจกแจง $P(X{=}0){=}0.3,\\ P(X{=}2){=}0.3,\\ P(X{=}4){=}0.4$ จงหา $E[X]$",
+  "choices": [
+   "$2$",
+   "$7.6$",
+   "$2.2$",
+   "$1$"
+  ],
+  "correct": 2,
+  "hasImage": true,
+  "hint": null,
+  "imageSpec": {
+   "type": "prob-dist-bar",
+   "caption": "การแจกแจงของ X",
+   "values": [
+    {
+     "x": 0,
+     "p": 0.3
+    },
+    {
+     "x": 2,
+     "p": 0.3
+    },
+    {
+     "x": 4,
+     "p": 0.4
+    }
+   ],
+   "ex": 2.2
+  }
+ },
+ {
+  "id": "chap-15-statistics-q160",
   "type": "mc",
-  "hint": null
+  "difficulty": "ปานกลาง",
+  "topics": [
+   "15"
+  ],
+  "subTopics": [
+   "15.11"
+  ],
+  "question": "พิจารณาแผนภาพการกระจาย (scatter diagram) แสดงความสัมพันธ์ระหว่างตัวแปร $x$ และ $y$ ดังรูป ซึ่งจุดข้อมูลเรียงตัวในแนวโน้ม <b>ลดลง</b> (เมื่อ $x$ เพิ่มขึ้น $y$ มีแนวโน้มลดลง) เป็นเส้นตรง สมการที่ใช้แทนความสัมพันธ์ระหว่าง $x$ และ $y$ อยู่ในรูปใดต่อไปนี้",
+  "choices": [
+   "$y=x-1$",
+   "$y=a-bx,\\ a,b > 0$",
+   "$y=a-bx^2,\\ a,b > 0$",
+   "$y=a+bx,\\ a,b > 0$"
+  ],
+  "correct": 1,
+  "hasImage": true,
+  "hint": null,
+  "imageSpec": {
+   "type": "function-plot",
+   "width": 440,
+   "height": 300,
+   "xRange": [
+    0,
+    10.6
+   ],
+   "yRange": [
+    0,
+    10.6
+   ],
+   "axes": {
+    "arrows": true,
+    "xLabel": "x",
+    "yLabel": "y",
+    "originLabel": "O"
+   },
+   "functions": [],
+   "dots": [
+    {
+     "x": 0.8,
+     "y": 9.1
+    },
+    {
+     "x": 1.4,
+     "y": 7.6
+    },
+    {
+     "x": 2.0,
+     "y": 8.3
+    },
+    {
+     "x": 2.6,
+     "y": 6.9
+    },
+    {
+     "x": 3.2,
+     "y": 7.3
+    },
+    {
+     "x": 3.9,
+     "y": 5.8
+    },
+    {
+     "x": 4.5,
+     "y": 6.4
+    },
+    {
+     "x": 5.1,
+     "y": 4.9
+    },
+    {
+     "x": 5.8,
+     "y": 5.4
+    },
+    {
+     "x": 6.4,
+     "y": 3.9
+    },
+    {
+     "x": 7.0,
+     "y": 4.4
+    },
+    {
+     "x": 7.6,
+     "y": 3.1
+    },
+    {
+     "x": 8.2,
+     "y": 3.6
+    },
+    {
+     "x": 8.9,
+     "y": 2.1
+    }
+   ]
+  }
+ },
+ {
+  "id": "chap-08-explog-q114",
+  "type": "mc",
+  "difficulty": "ปานกลาง",
+  "topics": [
+   "8"
+  ],
+  "subTopics": [
+   "8.5",
+   "8.10"
+  ],
+  "question": "กำหนดให้ $r_1 = \\{ (x, y) \\mid e^{x+y} \\le 1 \\}$\nและ $r_2 = \\{ (x, y) \\mid \\ln(x - 3y + 5) \\ge 0 \\}$\nพื้นที่ของบริเวณที่เป็นกราฟของ $r_1 \\cap r_2$ ซึ่งอยู่เหนือแกน $x$ เท่ากับข้อใดต่อไปนี้",
+  "choices": [
+   "$1.5$ ตารางหน่วย",
+   "$2$ ตารางหน่วย",
+   "$2.5$ ตารางหน่วย",
+   "$3$ ตารางหน่วย"
+  ],
+  "correct": 1,
+  "hasImage": true,
+  "hint": null,
+  "imageSpec": [
+   {
+    "type": "function-plot",
+    "width": 430,
+    "height": 250,
+    "xRange": [
+     -5,
+     1.2
+    ],
+    "yRange": [
+     -0.45,
+     1.7
+    ],
+    "axes": {
+     "arrows": true,
+     "xLabel": "x",
+     "yLabel": "y"
+    },
+    "grid": true,
+    "xTicks": [
+     -4,
+     -3,
+     -2,
+     -1,
+     1
+    ],
+    "yTicks": [
+     1
+    ],
+    "functions": [
+     {
+      "id": "base",
+      "kind": "polynomial",
+      "coefs": [
+       0,
+       0
+      ],
+      "domain": [
+       -4.3,
+       0.3
+      ],
+      "color": "#999",
+      "strokeWidth": 1
+     },
+     {
+      "id": "L2",
+      "kind": "polynomial",
+      "coefs": [
+       0.333333,
+       1.333333
+      ],
+      "domain": [
+       -4.15,
+       -0.85
+      ],
+      "color": "#1565c0",
+      "strokeWidth": 1.6,
+      "label": {
+       "text": "y = (x+4)/3",
+       "at": [
+        -3.781,
+        0.557
+       ],
+       "anchor": "start",
+       "color": "#1565c0"
+      }
+     },
+     {
+      "id": "L1",
+      "kind": "polynomial",
+      "coefs": [
+       -1,
+       0
+      ],
+      "domain": [
+       -1.15,
+       0.28
+      ],
+      "color": "#d11",
+      "strokeWidth": 1.6,
+      "label": {
+       "text": "y = −x",
+       "at": [
+        -1.879,
+        1.058
+       ],
+       "anchor": "start",
+       "color": "#d11"
+      }
+     }
+    ],
+    "shadeBetween": [
+     {
+      "funcA": "base",
+      "funcB": "L2",
+      "xRange": [
+       -4,
+       -1
+      ],
+      "color": "#8fb3e0"
+     },
+     {
+      "funcA": "base",
+      "funcB": "L1",
+      "xRange": [
+       -1,
+       0
+      ],
+      "color": "#8fb3e0"
+     }
+    ],
+    "dots": [
+     {
+      "x": -4,
+      "y": 0,
+      "label": "(−4, 0)",
+      "labelAnchor": "middle",
+      "labelDx": -14,
+      "labelDy": -13
+     },
+     {
+      "x": 0,
+      "y": 0,
+      "label": "(0, 0)",
+      "labelAnchor": "start",
+      "labelDx": 9,
+      "labelDy": 17
+     },
+     {
+      "x": -1,
+      "y": 1,
+      "label": "(−1, 1)",
+      "labelAnchor": "middle",
+      "labelDx": 15,
+      "labelDy": -12
+     }
+    ],
+    "annotations": [
+     {
+      "text": "พื้นที่ = 2 ตร.หน่วย",
+      "at": [
+       -1.603,
+       0.307
+      ],
+      "anchor": "middle"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "gen-chap-18-interest-and-value-of-money-q28",
+  "type": "mc",
+  "difficulty": "ง่าย",
+  "topics": [
+   "18"
+  ],
+  "subTopics": [
+   "18.2",
+   "18.4"
+  ],
+  "question": "ฝากสหกรณ์: ฝากเงิน $50{,}000$ บาท ทบต้น $8\\%$ ต่อปี ทบปีละครั้ง เป็นเวลา $2$ ปี มูลค่าเงินเมื่อครบกำหนด (ปัด $2$ ตำแหน่ง) เท่ากับเท่าใด",
+  "choices": [
+   "$58{,}000$ บาท",
+   "$54{,}000$ บาท",
+   "$62{,}985.60$ บาท",
+   "$58{,}320$ บาท"
+  ],
+  "correct": 3,
+  "hasImage": true,
+  "hint": null,
+  "imageSpec": {
+   "type": "cashflow-timeline",
+   "mode": "fv",
+   "caption": "ทบต้น 50,000 บาท 2 งวด",
+   "rateLabel": "i = 8% ต่อปี (ทบต้น)",
+   "cols": [
+    {
+     "t": "0",
+     "flow": "50,000"
+    },
+    {
+     "t": "1"
+    },
+    {
+     "t": "2",
+     "terminal": true
+    }
+   ]
+  }
+ },
+ {
+  "id": "gen-chap-04-coord-q033",
+  "type": "mc",
+  "difficulty": "ยาก",
+  "topics": [
+   "4"
+  ],
+  "subTopics": [
+   "4.6",
+   "4.3"
+  ],
+  "question": "วงกลม $x^2+y^2=9$ และ $x^2+y^2-6x-8y+9=0$ ตัดกัน สมการคอร์ดร่วม (common chord) ตรงกับข้อใด",
+  "choices": [
+   "$3x+4y=9$",
+   "$3x+4y=0$",
+   "$6x+8y=18$ และเป็นคนละเส้น",
+   "$4x+3y=9$"
+  ],
+  "correct": 0,
+  "hasImage": true,
+  "hint": null,
+  "imageSpec": {
+   "type": "analytic-geo",
+   "width": 340,
+   "height": 340,
+   "xRange": [
+    -4,
+    8
+   ],
+   "yRange": [
+    -4,
+    9
+   ],
+   "grid": true,
+   "title": "common chord",
+   "elements": [
+    {
+     "kind": "circle",
+     "center": [
+      0,
+      0
+     ],
+     "r": 3,
+     "color": "#2e8b57"
+    },
+    {
+     "kind": "circle",
+     "center": [
+      3,
+      4
+     ],
+     "r": 4,
+     "color": "#2e6fb0"
+    },
+    {
+     "kind": "line",
+     "abc": [
+      3,
+      4,
+      -9
+     ],
+     "color": "#e67e22",
+     "label": "3x+4y=9"
+    },
+    {
+     "kind": "point",
+     "at": [
+      0,
+      0
+     ],
+     "label": "O",
+     "color": "#444",
+     "anchor": "end",
+     "dx": -6,
+     "dy": -4
+    },
+    {
+     "kind": "point",
+     "at": [
+      3,
+      4
+     ],
+     "label": "C_2",
+     "color": "#2e6fb0",
+     "anchor": "start",
+     "dx": 6,
+     "dy": -4
+    }
+   ]
+  }
+ },
+ {
+  "id": "chap-15-statistics-q255",
+  "type": "mc",
+  "difficulty": "ยาก",
+  "topics": [
+   "15"
+  ],
+  "subTopics": [
+   "15.10",
+   "15.9",
+   "15.6"
+  ],
+  "question": "คะแนนสอบของนักเรียน $200$ คน มีการแจกแจงปกติ ถ้าสัมประสิทธิ์ของการแปรผันและค่าเฉลี่ยเลขคณิตของคะแนนสอบเป็น $0.45$ และ $40$ ตามลำดับ นักเรียนที่สอบได้คะแนนระหว่าง $31$–$35.5$ คะแนน คิดเป็นร้อยละเท่าใด\n(พื้นที่สะสม $P(Z < z)$: $z=0.25\\to 0.5987$, $z=0.50\\to 0.6915$, $z=0.75\\to 0.7734$)",
+  "choices": [
+   "$29.02$",
+   "$27.34$",
+   "$18.56$",
+   "$9.28$"
+  ],
+  "correct": 3,
+  "hasImage": true,
+  "hint": null,
+  "imageSpec": {
+   "type": "normal-curve",
+   "width": 440,
+   "height": 210,
+   "zRange": [
+    -3.2,
+    3.2
+   ],
+   "shadeBetween": [
+    [
+     -0.5,
+     -0.25
+    ]
+   ],
+   "xLabels": [
+    {
+     "z": -0.5,
+     "line": true,
+     "text": ""
+    },
+    {
+     "z": -0.25,
+     "line": true,
+     "text": ""
+    }
+   ],
+   "valueLabels": [
+    {
+     "z": -1.0,
+     "yFrac": 1.2,
+     "text": "-0.5",
+     "arrowTo": {
+      "z": -0.5,
+      "yFrac": 1.0
+     }
+    },
+    {
+     "z": 0.35,
+     "yFrac": 1.2,
+     "text": "-0.25",
+     "arrowTo": {
+      "z": -0.25,
+      "yFrac": 1.0
+     }
+    },
+    {
+     "z": -1.7,
+     "yFrac": 0.42,
+     "text": "0.0928",
+     "arrowTo": {
+      "z": -0.375,
+      "yFrac": 0.82
+     }
+    }
+   ]
+  }
+ },
+ {
+  "id": "chap-08-explog-q186",
+  "type": "fill",
+  "difficulty": "ยาก",
+  "topics": [
+   "8"
+  ],
+  "subTopics": [
+   "8.10",
+   "8.7"
+  ],
+  "question": "จงหาเซตคำตอบของอสมการ $\\log_8\\left(\\log_{2/5} \\sqrt{x}\\right) \\le -\\dfrac{1}{3}$",
+  "choices": null,
+  "correct": "[2/5, 1)",
+  "hasImage": true,
+  "hint": null,
+  "imageSpec": [
+   {
+    "type": "number-line",
+    "scale": "even",
+    "criticals": [
+     0.4,
+     1
+    ],
+    "width": 380,
+    "height": 92,
+    "axisY": 58,
+    "solutionY": 34,
+    "labels": [
+     {
+      "at": 0.4,
+      "num": 2,
+      "den": 5
+     },
+     {
+      "at": 1,
+      "text": "1"
+     }
+    ],
+    "segments": [
+     {
+      "from": 0.4,
+      "to": 1,
+      "color": "#d11"
+     }
+    ],
+    "points": [
+     {
+      "at": 0.4,
+      "open": false,
+      "color": "#d11"
+     },
+     {
+      "at": 1,
+      "open": true,
+      "color": "#d11"
+     }
+    ],
+    "annotations": [
+     {
+      "text": "เซตคำตอบ = [2/5, 1)",
+      "x": 190,
+      "y": 14,
+      "anchor": "middle"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "gen-chap-18-interest-and-value-of-money-q35",
+  "type": "mc",
+  "difficulty": "ง่าย",
+  "topics": [
+   "18"
+  ],
+  "subTopics": [
+   "18.3",
+   "18.2"
+  ],
+  "question": "ทุนการศึกษา: ต้องการมีเงิน $30{,}000$ บาท ในอีก $3$ ปี ทบต้น $5\\%$ ต่อปี ทบปีละครั้ง ต้องเตรียมเงินวันนี้อย่างน้อยเท่าใด (ปัด $2$ ตำแหน่ง)",
+  "choices": [
+   "$34{,}728.75$ บาท",
+   "$28{,}571.43$ บาท",
+   "$25{,}915.13$ บาท",
+   "$26{,}086.96$ บาท"
+  ],
+  "correct": 2,
+  "hasImage": true,
+  "hint": null,
+  "imageSpec": {
+   "type": "cashflow-timeline",
+   "mode": "pv",
+   "caption": "หามูลค่าปัจจุบันของ 30,000 บาท",
+   "rateLabel": "i = 5% ต่อปี",
+   "cols": [
+    {
+     "t": "0"
+    },
+    {
+     "t": "1"
+    },
+    {
+     "t": "2"
+    },
+    {
+     "t": "3",
+     "flow": "30,000",
+     "terminal": true
+    }
+   ],
+   "pvLabels": [
+    "30,000/(1+i)^3"
+   ]
+  }
+ },
+ {
+  "id": "gen-chap-04-coord-q040",
+  "type": "fill",
+  "difficulty": "ยากมาก",
+  "topics": [
+   "4"
+  ],
+  "subTopics": [
+   "4.6",
+   "4.4"
+  ],
+  "question": "วงกลมผ่านจุด $A(1,1)$ และ $B(2,2)$ และสัมผัสแกน $Y$ จงหาสมการวงกลมที่เป็นไปได้ทั้งหมด",
+  "choices": null,
+  "correct": "$(x-1)^2+(y-2)^2=1$ และ $(x-5)^2+(y+2)^2=25$",
+  "hasImage": true,
+  "hint": null,
+  "imageSpec": {
+   "type": "analytic-geo",
+   "width": 340,
+   "height": 340,
+   "xRange": [
+    -2,
+    11
+   ],
+   "yRange": [
+    -8,
+    5
+   ],
+   "grid": true,
+   "title": "two solution circles",
+   "elements": [
+    {
+     "kind": "circle",
+     "center": [
+      1,
+      2
+     ],
+     "r": 1,
+     "color": "#2e8b57"
+    },
+    {
+     "kind": "circle",
+     "center": [
+      5,
+      -2
+     ],
+     "r": 5,
+     "color": "#2e6fb0"
+    },
+    {
+     "kind": "point",
+     "at": [
+      1,
+      1
+     ],
+     "label": "A(1,1)",
+     "color": "#c0392b",
+     "anchor": "start",
+     "dx": 6,
+     "dy": 8
+    },
+    {
+     "kind": "point",
+     "at": [
+      2,
+      2
+     ],
+     "label": "B(2,2)",
+     "color": "#c0392b",
+     "anchor": "start",
+     "dx": 6,
+     "dy": -4
+    },
+    {
+     "kind": "point",
+     "at": [
+      1,
+      2
+     ],
+     "label": "C_1",
+     "color": "#444",
+     "anchor": "end",
+     "dx": -4,
+     "dy": -4
+    },
+    {
+     "kind": "point",
+     "at": [
+      5,
+      -2
+     ],
+     "label": "C_2",
+     "color": "#2e6fb0",
+     "anchor": "start",
+     "dx": 6,
+     "dy": -4
+    }
+   ]
+  }
+ },
+ {
+  "id": "chap-15-statistics-q265",
+  "type": "fill",
+  "difficulty": "ยาก",
+  "topics": [
+   "15"
+  ],
+  "subTopics": [
+   "15.10",
+   "15.9",
+   "15.4"
+  ],
+  "question": "รายได้ต่อเดือนของพนักงานบริษัทหนึ่งมีจำนวน $200$ คน มีการแจกแจงปกติ โดยที่เปอร์เซ็นต์ของพนักงานที่มีรายได้น้อยกว่า $3000$ บาท เท่ากับเปอร์เซ็นต์ของพนักงานที่มีรายได้มากกว่า $3204$ บาท ถ้าส่วนเบี่ยงเบนมาตรฐานของรายได้ต่อเดือนของพนักงานเท่ากับ $200$ บาท จงหาเปอร์เซ็นต์ของพนักงานที่มีรายได้ต่ำกว่าหรือเท่ากับ $3000$ บาท\n(กำหนดให้พื้นที่สะสม $P(Z < 0.51)=0.695$)",
+  "choices": null,
+  "correct": "30.5",
+  "hasImage": true,
+  "hint": null,
+  "imageSpec": {
+   "type": "normal-curve",
+   "width": 430,
+   "height": 210,
+   "zRange": [
+    -3.2,
+    3.2
+   ],
+   "shadeFromLeft": -0.51,
+   "xLabels": [
+    {
+     "z": -0.51,
+     "text": "-0.51",
+     "line": true
+    },
+    {
+     "z": 0,
+     "text": "0",
+     "line": true
+    }
+   ],
+   "valueLabels": [
+    {
+     "z": -1.3,
+     "text": "0.305",
+     "yFrac": 0.6
+    },
+    {
+     "z": 0.6,
+     "text": "0.695",
+     "yFrac": 0.5
+    }
+   ]
+  }
+ },
+ {
+  "id": "chap-08-explog-q193",
+  "type": "mc",
+  "difficulty": "ยาก",
+  "topics": [
+   "8"
+  ],
+  "subTopics": [
+   "8.10",
+   "8.5"
+  ],
+  "question": "กำหนดให้ $S = \\left\\{ x \\in \\mathbb{R} \\mid 2^x \\log_2 x + 8 > 2^{x+1} + \\log_2 x^4 \\right\\}$\nเซต $S$ มีจำนวนสมาชิกที่เป็นจำนวนเต็มซึ่งน้อยกว่า 20 เท่ากับข้อใดต่อไปนี้",
+  "choices": [
+   "$14$",
+   "$15$",
+   "$16$",
+   "$17$"
+  ],
+  "correct": 2,
+  "hasImage": true,
+  "hint": null,
+  "imageSpec": [
+   {
+    "type": "number-line",
+    "scale": "even",
+    "criticals": [
+     0,
+     2,
+     4
+    ],
+    "width": 480,
+    "height": 96,
+    "axisY": 60,
+    "solutionY": 36,
+    "labels": [
+     {
+      "at": 0,
+      "text": "0"
+     },
+     {
+      "at": 2,
+      "text": "2"
+     },
+     {
+      "at": 4,
+      "text": "4"
+     }
+    ],
+    "signs": [
+     {
+      "from": 0,
+      "to": 2,
+      "label": "+"
+     },
+     {
+      "from": 2,
+      "to": 4,
+      "label": "−"
+     },
+     {
+      "from": 4,
+      "to": null,
+      "label": "+"
+     }
+    ],
+    "segments": [
+     {
+      "from": 0,
+      "to": 2,
+      "color": "#d11"
+     }
+    ],
+    "rays": [
+     {
+      "from": 4,
+      "dir": "right",
+      "color": "#2e7d32"
+     }
+    ],
+    "points": [
+     {
+      "at": 0,
+      "open": true,
+      "color": "#d11"
+     },
+     {
+      "at": 2,
+      "open": true,
+      "color": "#d11"
+     },
+     {
+      "at": 4,
+      "open": true,
+      "color": "#2e7d32"
+     }
+    ],
+    "annotations": [
+     {
+      "text": "S = (0, 2) ∪ (4, ∞)",
+      "x": 240,
+      "y": 15,
+      "anchor": "middle"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "gen-chap-18-interest-and-value-of-money-q42",
+  "type": "fill",
+  "difficulty": "ปานกลาง",
+  "topics": [
+   "18"
+  ],
+  "subTopics": [
+   "18.2",
+   "8.4"
+  ],
+  "question": "ฝากเงิน $10{,}000$ บาท ดอกเบี้ยทบต้น $8\\%$ ต่อปี ทบปีละครั้ง อยากให้เงินเป็น $25{,}000$ บาท ต้องฝากอย่างน้อยกี่ปี (จำนวนปีเต็ม) &nbsp; [ให้ $\\log 2.5\\approx 0.3979$, $\\log 1.08\\approx 0.0334$]",
+  "choices": null,
+  "correct": "12",
+  "hasImage": true,
+  "hint": null,
+  "imageSpec": {
+   "type": "cashflow-timeline",
+   "mode": "fv",
+   "caption": "หาจำนวนปีให้เงินเป็น 25,000",
+   "rateLabel": "i = 8% ต่อปี (ทบต้น)",
+   "cols": [
+    {
+     "t": "0",
+     "flow": "10,000"
+    },
+    {
+     "t": "n ปี ?",
+     "terminal": true
+    }
+   ]
+  }
+ },
+ {
+  "id": "gen-chap-04-coord-q047",
+  "type": "fill",
+  "difficulty": "ยาก",
+  "topics": [
+   "4"
+  ],
+  "subTopics": [
+   "4.7",
+   "4.3"
+  ],
+  "question": "เส้นตรง $y=x-1$ ตัดพาราโบลา $y^2=4x$ เป็นคอร์ด ความยาวคอร์ดเท่ากับเท่าใด",
+  "choices": null,
+  "correct": "8",
+  "hasImage": true,
+  "hint": null,
+  "imageSpec": {
+   "type": "analytic-geo",
+   "width": 360,
+   "height": 330,
+   "xRange": [
+    -2,
+    9
+   ],
+   "yRange": [
+    -5,
+    7
+   ],
+   "grid": true,
+   "title": "y=x-1 chord of y^2=4x",
+   "elements": [
+    {
+     "kind": "parabola",
+     "vertex": [
+      0,
+      0
+     ],
+     "p": 1,
+     "orient": "right",
+     "color": "#2e8b57"
+    },
+    {
+     "kind": "line",
+     "p1": [
+      -1,
+      -2
+     ],
+     "p2": [
+      8,
+      7
+     ],
+     "color": "#e67e22",
+     "label": "y=x-1"
+    },
+    {
+     "kind": "point",
+     "at": [
+      5.83,
+      4.83
+     ],
+     "label": "A",
+     "color": "#c0392b",
+     "anchor": "start",
+     "dx": 6,
+     "dy": -2
+    },
+    {
+     "kind": "point",
+     "at": [
+      0.17,
+      -0.83
+     ],
+     "label": "B",
+     "color": "#c0392b",
+     "anchor": "end",
+     "dx": -6,
+     "dy": 6
+    }
+   ]
+  }
+ },
+ {
+  "id": "chap-15-statistics-q276",
+  "type": "mc",
+  "difficulty": "ปานกลาง",
+  "topics": [
+   "15"
+  ],
+  "subTopics": [
+   "15.11"
+  ],
+  "question": "กำหนดกราฟการกระจาย (scatter plot) ระหว่าง $X$ และ $Y$ ดังรูป และให้ $a, b, c$ และ $d$ เป็นค่าคงที่ คาดว่าลักษณะของสมการพยากรณ์ $Y$ จาก $X$ เป็นข้อใด",
+  "choices": [
+   "$Y=aX+c$",
+   "$Y=ab^{X}$",
+   "$Y=aX^{2}+bX+c$",
+   "$Y=aX^{3}+bX^{2}+cX+d$"
+  ],
+  "correct": 3,
+  "hasImage": true,
+  "hint": null,
+  "imageSpec": {
+   "type": "function-plot",
+   "width": 420,
+   "height": 300,
+   "xRange": [
+    -0.6,
+    10.6
+   ],
+   "yRange": [
+    -0.5,
+    10
+   ],
+   "axes": {
+    "arrows": true,
+    "xLabel": "X",
+    "yLabel": "Y"
+   },
+   "functions": [
+    {
+     "kind": "polynomial",
+     "coefs": [
+      0.08,
+      -1.2,
+      4.72,
+      1.4
+     ],
+     "domain": [
+      0,
+      10
+     ],
+     "dashed": true,
+     "strokeWidth": 1.3,
+     "label": {
+      "text": "แนวโน้ม (cubic)",
+      "at": [
+       4.8,
+       9.3
+      ],
+      "anchor": "middle"
+     }
+    }
+   ],
+   "dots": [
+    {
+     "x": 0.4,
+     "y": 2.0
+    },
+    {
+     "x": 1.0,
+     "y": 4.6
+    },
+    {
+     "x": 1.7,
+     "y": 6.1
+    },
+    {
+     "x": 2.5,
+     "y": 7.3
+    },
+    {
+     "x": 3.2,
+     "y": 6.4
+    },
+    {
+     "x": 4.0,
+     "y": 6.5
+    },
+    {
+     "x": 4.8,
+     "y": 4.7
+    },
+    {
+     "x": 5.5,
+     "y": 4.9
+    },
+    {
+     "x": 6.3,
+     "y": 3.4
+    },
+    {
+     "x": 7.0,
+     "y": 2.7
+    },
+    {
+     "x": 7.8,
+     "y": 3.9
+    },
+    {
+     "x": 8.6,
+     "y": 5.3
+    },
+    {
+     "x": 9.4,
+     "y": 7.7
+    },
+    {
+     "x": 10.0,
+     "y": 9.0
+    }
+   ]
+  }
+ },
+ {
+  "id": "chap-13-calculus-q157",
+  "type": "mc",
+  "difficulty": "ปานกลาง",
+  "topics": [
+   "13"
+  ],
+  "subTopics": [
+   "13.11",
+   "13.10"
+  ],
+  "question": "ให้ $f(x)=\\sqrt{x}$ และ $g(x)=\\dfrac{f^{-1}(x)+1}{\\sqrt{x}}$ พื้นที่ที่ปิดล้อมด้วยเส้นโค้ง $y=g(x)$ จาก $x=1$ ถึง $x=4$ กับแกน $x$ เท่ากับข้อใดต่อไปนี้",
+  "choices": [
+   "$\\dfrac{20}{3}$",
+   "$3$",
+   "$\\dfrac{72}{5}$",
+   "$\\dfrac{34}{3}$"
+  ],
+  "correct": 2,
+  "hasImage": true,
+  "hint": null,
+  "imageSpec": {
+   "type": "function-plot",
+   "width": 420,
+   "height": 260,
+   "xRange": [
+    0.6,
+    4.4
+   ],
+   "yRange": [
+    0,
+    10
+   ],
+   "axes": {
+    "arrows": true
+   },
+   "xTicks": [
+    1,
+    4
+   ],
+   "yTicks": [
+    9
+   ],
+   "functions": [
+    {
+     "id": "zero",
+     "kind": "polynomial",
+     "coefs": [
+      0
+     ],
+     "domain": [
+      1,
+      4
+     ],
+     "color": "#fff",
+     "strokeWidth": 0.1
+    },
+    {
+     "id": "g",
+     "kind": "piecewise-linear",
+     "points": [
+      [
+       1.0,
+       2.0
+      ],
+      [
+       1.075,
+       2.0791
+      ],
+      [
+       1.15,
+       2.1657
+      ],
+      [
+       1.225,
+       2.2593
+      ],
+      [
+       1.3,
+       2.3593
+      ],
+      [
+       1.375,
+       2.4651
+      ],
+      [
+       1.45,
+       2.5765
+      ],
+      [
+       1.525,
+       2.693
+      ],
+      [
+       1.6,
+       2.8144
+      ],
+      [
+       1.675,
+       2.9405
+      ],
+      [
+       1.75,
+       3.071
+      ],
+      [
+       1.825,
+       3.2057
+      ],
+      [
+       1.9,
+       3.3444
+      ],
+      [
+       1.975,
+       3.4871
+      ],
+      [
+       2.05,
+       3.6336
+      ],
+      [
+       2.125,
+       3.7837
+      ],
+      [
+       2.2,
+       3.9373
+      ],
+      [
+       2.275,
+       4.0944
+      ],
+      [
+       2.35,
+       4.2548
+      ],
+      [
+       2.425,
+       4.4185
+      ],
+      [
+       2.5,
+       4.5853
+      ],
+      [
+       2.575,
+       4.7552
+      ],
+      [
+       2.65,
+       4.9282
+      ],
+      [
+       2.725,
+       5.1041
+      ],
+      [
+       2.8,
+       5.2829
+      ],
+      [
+       2.875,
+       5.4646
+      ],
+      [
+       2.95,
+       5.649
+      ],
+      [
+       3.025,
+       5.8362
+      ],
+      [
+       3.1,
+       6.0261
+      ],
+      [
+       3.175,
+       6.2186
+      ],
+      [
+       3.25,
+       6.4137
+      ],
+      [
+       3.325,
+       6.6114
+      ],
+      [
+       3.4,
+       6.8116
+      ],
+      [
+       3.475,
+       7.0143
+      ],
+      [
+       3.55,
+       7.2195
+      ],
+      [
+       3.625,
+       7.427
+      ],
+      [
+       3.7,
+       7.637
+      ],
+      [
+       3.775,
+       7.8493
+      ],
+      [
+       3.85,
+       8.0639
+      ],
+      [
+       3.925,
+       8.2808
+      ],
+      [
+       4.0,
+       8.5
+      ]
+     ],
+     "domain": [
+      1,
+      4
+     ],
+     "color": "#2e6fb0"
+    }
+   ],
+   "shadeBetween": [
+    {
+     "funcA": "zero",
+     "funcB": "g",
+     "xRange": [
+      1,
+      4
+     ],
+     "color": "#b8cfe8"
+    }
+   ],
+   "annotations": [
+    {
+     "text": "พื้นที่ = 72/5",
+     "at": [
+      2,
+      1.2
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "id": "gen-chap-04-coord-q053",
+  "type": "fill",
+  "difficulty": "ปานกลาง",
+  "topics": [
+   "4"
+  ],
+  "subTopics": [
+   "4.8"
+  ],
+  "question": "จุด $P$ อยู่บนวงรี $\\dfrac{x^2}{25}+\\dfrac{y^2}{16}=1$ ถ้าระยะจาก $P$ ถึงโฟกัสหนึ่ง เท่ากับ $3$ แล้วระยะจาก $P$ ถึงโฟกัสอีกจุดเท่ากับเท่าใด",
+  "choices": null,
+  "correct": "7",
+  "hasImage": true,
+  "hint": null,
+  "imageSpec": {
+   "type": "analytic-geo",
+   "width": 360,
+   "height": 300,
+   "xRange": [
+    -7,
+    7
+   ],
+   "yRange": [
+    -5,
+    5
+   ],
+   "grid": true,
+   "title": "PF1+PF2=2a=10",
+   "elements": [
+    {
+     "kind": "ellipse",
+     "center": [
+      0,
+      0
+     ],
+     "a": 5,
+     "b": 4,
+     "orient": "h",
+     "color": "#2e6fb0"
+    },
+    {
+     "kind": "point",
+     "at": [
+      3,
+      0
+     ],
+     "label": "F_1",
+     "color": "#c0392b",
+     "anchor": "start",
+     "dx": 2,
+     "dy": 14
+    },
+    {
+     "kind": "point",
+     "at": [
+      -3,
+      0
+     ],
+     "label": "F_2",
+     "color": "#c0392b",
+     "anchor": "end",
+     "dx": -2,
+     "dy": 14
+    },
+    {
+     "kind": "point",
+     "at": [
+      -4,
+      2.4
+     ],
+     "label": "P",
+     "color": "#2e8b57",
+     "anchor": "end",
+     "dx": -6,
+     "dy": -2
+    },
+    {
+     "kind": "segment",
+     "from": [
+      -4,
+      2.4
+     ],
+     "to": [
+      3,
+      0
+     ],
+     "color": "#8e44ad"
+    },
+    {
+     "kind": "segment",
+     "from": [
+      -4,
+      2.4
+     ],
+     "to": [
+      -3,
+      0
+     ],
+     "color": "#8e44ad"
+    }
+   ]
+  }
+ },
+ {
+  "id": "chap-09-vector-q100",
+  "type": "mc",
+  "difficulty": "ยาก",
+  "topics": [
+   "9"
+  ],
+  "subTopics": [
+   "9.5",
+   "9.9"
+  ],
+  "question": "ถ้าคอร์ด $AC$ และคอร์ด $BD$ ของวงกลมวงหนึ่งตัดกันที่จุด $P$\nและ $AD : BC = m : n$ แล้ว $\\overrightarrow{AD} \\cdot \\overrightarrow{AP}$ เท่ากับข้อใดต่อไปนี้",
+  "choices": [
+   "$\\overrightarrow{BP} \\cdot \\overrightarrow{BC}$",
+   "$\\dfrac{m}{n}\\,\\overrightarrow{BP} \\cdot \\overrightarrow{BC}$",
+   "$\\dfrac{m^2}{n^2}\\,\\overrightarrow{BP} \\cdot \\overrightarrow{BC}$",
+   "$\\dfrac{n}{m}\\,\\overrightarrow{BP} \\cdot \\overrightarrow{BC}$"
+  ],
+  "correct": 2,
+  "hasImage": true,
+  "hint": null,
+  "imageSpec": {
+   "type": "unit-circle-figure",
+   "size": 230,
+   "radius": 90,
+   "showAxes": false,
+   "dots": [
+    {
+     "id": "A",
+     "x": -0.342,
+     "y": 0.94,
+     "label": "A",
+     "labelDx": -5,
+     "labelDy": -8
+    },
+    {
+     "id": "B",
+     "x": 0.342,
+     "y": 0.94,
+     "label": "B",
+     "labelDx": 8,
+     "labelDy": -6
+    },
+    {
+     "id": "C",
+     "x": 0.643,
+     "y": -0.766,
+     "label": "C",
+     "labelDx": 8,
+     "labelDy": 13
+    },
+    {
+     "id": "D",
+     "x": -0.643,
+     "y": -0.766,
+     "label": "D",
+     "labelDx": -15,
+     "labelDy": 13
+    },
+    {
+     "id": "P",
+     "x": 0.0,
+     "y": 0.348,
+     "label": "P",
+     "labelDx": 7,
+     "labelDy": -3
+    }
+   ],
+   "chords": [
+    {
+     "fromDot": "A",
+     "toDot": "B"
+    },
+    {
+     "fromDot": "B",
+     "toDot": "C"
+    },
+    {
+     "fromDot": "C",
+     "toDot": "D"
+    },
+    {
+     "fromDot": "D",
+     "toDot": "A"
+    },
+    {
+     "fromDot": "A",
+     "toDot": "C"
+    },
+    {
+     "fromDot": "B",
+     "toDot": "D"
+    }
+   ]
+  }
+ },
+ {
+  "id": "gen-chap-12-probability-rv055",
+  "type": "fill",
+  "difficulty": "ยาก",
+  "topics": [
+   "12"
+  ],
+  "subTopics": [
+   "12.10",
+   "12.9"
+  ],
+  "question": "ทอยลูกเต๋า: ตัวแปรสุ่ม $X$ มีตารางแจกแจง $P(X{=}2){=}0.2,\\ P(X{=}3){=}0.5,\\ P(X{=}4){=}0.3$ จงหา ส่วนเบี่ยงเบนมาตรฐาน $\\sigma$",
+  "choices": null,
+  "correct": "0.7",
+  "hasImage": true,
+  "hint": null,
+  "imageSpec": {
+   "type": "prob-dist-bar",
+   "caption": "การแจกแจงของ X",
+   "values": [
+    {
+     "x": 2,
+     "p": 0.2
+    },
+    {
+     "x": 3,
+     "p": 0.5
+    },
+    {
+     "x": 4,
+     "p": 0.3
+    }
+   ],
+   "ex": 3.1
+  }
+ },
+ {
+  "id": "gen-chap-03-real-q158",
+  "type": "mc",
+  "difficulty": "ปานกลาง",
+  "topics": [
+   "3"
+  ],
+  "subTopics": [
+   "3.6",
+   "3.11"
+  ],
+  "question": "เซตคำตอบของอสมการ $(x-1)^2(x+2)(x-3)\\gt 0$ คือข้อใด",
+  "choices": [
+   "$(-2,3)$",
+   "$(-\\infty,-2)\\cup(3,\\infty)\\cup\\{1\\}$",
+   "$(-2,1)\\cup(1,3)$",
+   "$(-\\infty,-2)\\cup(3,\\infty)$"
+  ],
+  "correct": 3,
+  "hasImage": true,
+  "hint": null,
+  "imageSpec": {
+   "type": "number-line",
+   "width": 480,
+   "height": 104,
+   "scale": "even",
+   "axisY": 64,
+   "solutionY": 44,
+   "criticals": [
+    -2,
+    1,
+    3
+   ],
+   "labels": [
+    {
+     "at": -2,
+     "text": "-2"
+    },
+    {
+     "at": 1,
+     "text": "1"
+    },
+    {
+     "at": 3,
+     "text": "3"
+    }
+   ],
+   "signs": [
+    {
+     "from": null,
+     "to": -2,
+     "label": "+"
+    },
+    {
+     "from": -2,
+     "to": 1,
+     "label": "−"
+    },
+    {
+     "from": 1,
+     "to": 3,
+     "label": "−"
+    },
+    {
+     "from": 3,
+     "to": null,
+     "label": "+"
+    }
+   ],
+   "points": [
+    {
+     "at": -2,
+     "open": true,
+     "color": "#1e7e34"
+    },
+    {
+     "at": 1,
+     "open": true,
+     "color": "#1e7e34"
+    },
+    {
+     "at": 3,
+     "open": true,
+     "color": "#1e7e34"
+    }
+   ],
+   "rays": [
+    {
+     "from": -2,
+     "dir": "left",
+     "color": "#1e7e34"
+    },
+    {
+     "from": 3,
+     "dir": "right",
+     "color": "#1e7e34"
+    }
+   ],
+   "annotations": [
+    {
+     "x": 240,
+     "y": 14,
+     "text": "เซตคำตอบ = (-∞,-2) ∪ (3,∞)",
+     "anchor": "middle",
+     "color": "#1e5fae",
+     "fontSize": 13,
+     "weight": "600"
+    }
+   ]
+  }
+ },
+ {
+  "id": "chap-04-coord-q61",
+  "type": "mc",
+  "difficulty": "ปานกลาง",
+  "topics": [
+   "4"
+  ],
+  "subTopics": [
+   "4.6",
+   "4.11",
+   "4.5"
+  ],
+  "question": "ให้ $L$ เป็นเส้นตรงที่มีความชันเป็น $-\\dfrac{4}{3}$\nผ่านจุดศูนย์กลางของวงกลม $x^2 + y^2 - 4x + 2y - 4 = 0$ และตัดวงกลมที่จุด $A$ และ $B$\nถ้าจุด $C$ มีพิกัดเป็น $(-1, -2)$ แล้ว พื้นที่ของสามเหลี่ยม $ABC$ เท่ากับข้อใดต่อไปนี้",
+  "choices": [
+   "$\\dfrac{3}{5}$",
+   "$3$",
+   "$9$",
+   "$\\dfrac{63}{5}$"
+  ],
+  "correct": 2,
+  "hasImage": true,
+  "hint": null,
+  "imageSpec": [
+   {
+    "type": "function-plot",
+    "width": 380,
+    "height": 364,
+    "xRange": [
+     -2,
+     7
+    ],
+    "yRange": [
+     -5.5,
+     3.5
+    ],
+    "axes": {
+     "arrows": true,
+     "xLabel": "x",
+     "yLabel": "y"
+    },
+    "functions": [
+     {
+      "id": "c_top",
+      "kind": "ellipse-arc",
+      "center": [
+       2,
+       -1
+      ],
+      "a": 3,
+      "b": 3,
+      "half": "upper",
+      "color": "#1565c0",
+      "strokeWidth": 1.8
+     },
+     {
+      "id": "c_bot",
+      "kind": "ellipse-arc",
+      "center": [
+       2,
+       -1
+      ],
+      "a": 3,
+      "b": 3,
+      "half": "lower",
+      "color": "#1565c0",
+      "strokeWidth": 1.8
+     },
+     {
+      "id": "L",
+      "kind": "polynomial",
+      "coefs": [
+       -1.33333,
+       1.66667
+      ],
+      "domain": [
+       -1.3,
+       5.3
+      ],
+      "color": "#c62828",
+      "strokeWidth": 1.7,
+      "label": {
+       "at": [
+        5.234,
+        -4.975
+       ],
+       "text": "L",
+       "anchor": "start"
+      }
+     }
+    ],
+    "segments": [
+     {
+      "from": [
+       -1,
+       -2
+      ],
+      "to": [
+       3.8,
+       -3.4
+      ],
+      "dashed": true
+     },
+     {
+      "from": [
+       -1,
+       -2
+      ],
+      "to": [
+       0.2,
+       1.4
+      ],
+      "dashed": true
+     }
+    ],
+    "dots": [
+     {
+      "x": 2,
+      "y": -1
+     },
+     {
+      "x": 3.8,
+      "y": -3.4,
+      "label": "A(19/5,-17/5)",
+      "labelAnchor": "start",
+      "labelDx": 21,
+      "labelDy": 4
+     },
+     {
+      "x": 0.2,
+      "y": 1.4,
+      "label": "B(1/5,7/5)",
+      "labelAnchor": "start",
+      "labelDx": 17,
+      "labelDy": 9
+     },
+     {
+      "x": -1,
+      "y": -2,
+      "label": "C(-1,-2)",
+      "labelAnchor": "end",
+      "labelDx": -8,
+      "labelDy": 17
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "gen-chap-05-function-q265",
+  "type": "fill",
+  "difficulty": "ยาก",
+  "topics": [
+   "5"
+  ],
+  "subTopics": [
+   "5.14",
+   "5.9"
+  ],
+  "question": "กราฟ $y=x^2$ ถูกเลื่อน (ไม่ยืด/หด) ไปเป็นกราฟ $g$ ซึ่งผ่านจุด $(1,5)$ และ $(3,5)$ จงหาค่า $g(0)$",
+  "choices": null,
+  "correct": "8",
+  "hasImage": true,
+  "hint": null,
+  "imageSpec": {
+   "type": "function-plot",
+   "width": 360,
+   "height": 300,
+   "xRange": [
+    -1,
+    5
+   ],
+   "yRange": [
+    3,
+    9
+   ],
+   "grid": true,
+   "xTicks": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "yTicks": [
+    4,
+    5,
+    6,
+    7,
+    8
+   ],
+   "axes": {
+    "arrows": true,
+    "xLabel": "x",
+    "yLabel": "y"
+   },
+   "functions": [
+    {
+     "kind": "parabola",
+     "vertex": [
+      2,
+      4
+     ],
+     "throughPoint": [
+      3,
+      5
+     ],
+     "domain": [
+      0.2,
+      3.8
+     ],
+     "color": "#2e6fb0",
+     "label": {
+      "at": [
+       3.6,
+       6
+      ],
+      "text": "g"
+     }
+    }
+   ],
+   "dots": [
+    {
+     "x": 1,
+     "y": 5,
+     "open": false,
+     "label": "(1,5)",
+     "labelAnchor": "end"
+    },
+    {
+     "x": 3,
+     "y": 5,
+     "open": false,
+     "label": "(3,5)",
+     "labelAnchor": "start"
+    },
+    {
+     "x": 2,
+     "y": 4,
+     "open": false,
+     "label": "(2,4)",
+     "labelAnchor": "start"
+    }
+   ]
+  }
+ },
+ {
+  "id": "gen-chap-04-coord-q069",
+  "type": "mc",
+  "difficulty": "ยาก",
+  "topics": [
+   "4"
+  ],
+  "subTopics": [
+   "4.9"
+  ],
+  "question": "เส้นสัมผัสไฮเพอร์โบลา $\\dfrac{x^2}{9}-\\dfrac{y^2}{16}=1$ ที่จุด $\\left(5,\\dfrac{16}{3}\\right)$ มีสมการตรงกับข้อใด",
+  "choices": [
+   "$5x+3y-9=0$",
+   "$5x-3y-9=0$",
+   "$5x-3y+9=0$",
+   "$3x-5y-9=0$"
+  ],
+  "correct": 1,
+  "hasImage": true,
+  "hint": null,
+  "imageSpec": {
+   "type": "analytic-geo",
+   "width": 360,
+   "height": 320,
+   "xRange": [
+    -8,
+    10
+   ],
+   "yRange": [
+    -6,
+    9
+   ],
+   "grid": true,
+   "title": "tangent at (5, 16/3)",
+   "elements": [
+    {
+     "kind": "hyperbola",
+     "center": [
+      0,
+      0
+     ],
+     "a": 3,
+     "b": 4,
+     "orient": "h",
+     "color": "#c0392b",
+     "asymptotes": true
+    },
+    {
+     "kind": "point",
+     "at": [
+      5,
+      5.333
+     ],
+     "label": "P(5,16/3)",
+     "color": "#2e6fb0",
+     "anchor": "start",
+     "dx": 6,
+     "dy": -4
+    },
+    {
+     "kind": "line",
+     "abc": [
+      5,
+      -3,
+      -9
+     ],
+     "color": "#e67e22",
+     "label": "5x-3y-9=0"
+    }
+   ]
+  }
+ },
+ {
+  "id": "chap-04-coord-q70",
+  "type": "mc",
+  "difficulty": "ง่าย",
+  "topics": [
+   "4"
+  ],
+  "subTopics": [
+   "4.8",
+   "4.4"
+  ],
+  "question": "เส้นตรงที่ผ่านจุดศูนย์กลางของวงรี $4x^2 + 9y^2 - 48x + 72y + 144 = 0$\nและตั้งฉากกับเส้นตรง $3x + 4y = 5$ มีสมการเป็นข้อใดต่อไปนี้",
+  "choices": [
+   "$4x - 3y + 12 = 0$",
+   "$4x - 3y - 12 = 0$",
+   "$4x - 3y - 36 = 0$",
+   "$4x - 3y + 36 = 0$"
+  ],
+  "correct": 2,
+  "hasImage": true,
+  "hint": null,
+  "imageSpec": [
+   {
+    "type": "function-plot",
+    "width": 380,
+    "height": 304,
+    "xRange": [
+     -2,
+     14
+    ],
+    "yRange": [
+     -11,
+     2
+    ],
+    "axes": {
+     "arrows": true,
+     "xLabel": "x",
+     "yLabel": "y",
+     "originLabel": "O"
+    },
+    "functions": [
+     {
+      "id": "eu",
+      "kind": "ellipse-arc",
+      "center": [
+       6,
+       -4
+      ],
+      "a": 6,
+      "b": 4,
+      "half": "upper",
+      "color": "#222"
+     },
+     {
+      "id": "el",
+      "kind": "ellipse-arc",
+      "center": [
+       6,
+       -4
+      ],
+      "a": 6,
+      "b": 4,
+      "half": "lower",
+      "color": "#222"
+     },
+     {
+      "kind": "polynomial",
+      "coefs": [
+       1.333333,
+       -12
+      ],
+      "domain": [
+       2,
+       10
+      ],
+      "color": "#c62828",
+      "strokeWidth": 1.7,
+      "label": {
+       "at": [
+        10.3,
+        1.9
+       ],
+       "text": "4x−3y−36=0",
+       "anchor": "start",
+       "color": "#c62828"
+      }
+     }
+    ],
+    "dots": [
+     {
+      "x": 6,
+      "y": -4,
+      "label": "C(6, −4)",
+      "labelAnchor": "start",
+      "labelDx": 8,
+      "labelDy": 16
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "gen-chap-04-coord-q076",
+  "type": "mc",
+  "difficulty": "ยาก",
+  "topics": [
+   "4"
+  ],
+  "subTopics": [
+   "4.9",
+   "4.7"
+  ],
+  "question": "พาราโบลา $y^2=20x$ มีโฟกัส $F$; ไฮเพอร์โบลาศูนย์กลาง $(0,0)$ มีโฟกัสหนึ่งอยู่ที่ $F$ และมีความยาวแกนสังยุค (transverse axis) เท่ากับ $6$ สมการไฮเพอร์โบลาตรงกับข้อใด",
+  "choices": [
+   "$\\dfrac{x^2}{16}-\\dfrac{y^2}{9}=1$",
+   "$\\dfrac{x^2}{9}-\\dfrac{y^2}{25}=1$",
+   "$\\dfrac{x^2}{9}-\\dfrac{y^2}{16}=1$",
+   "$\\dfrac{x^2}{36}-\\dfrac{y^2}{25}=1$"
+  ],
+  "correct": 2,
+  "hasImage": true,
+  "hint": null,
+  "imageSpec": {
+   "type": "analytic-geo",
+   "width": 360,
+   "height": 320,
+   "xRange": [
+    -8,
+    11
+   ],
+   "yRange": [
+    -7,
+    7
+   ],
+   "grid": true,
+   "title": "parabola y^2=20x & hyperbola focus at F",
+   "elements": [
+    {
+     "kind": "parabola",
+     "vertex": [
+      0,
+      0
+     ],
+     "p": 5,
+     "orient": "right",
+     "color": "#2e8b57"
+    },
+    {
+     "kind": "hyperbola",
+     "center": [
+      0,
+      0
+     ],
+     "a": 3,
+     "b": 4,
+     "orient": "h",
+     "color": "#c0392b",
+     "asymptotes": true
+    },
+    {
+     "kind": "point",
+     "at": [
+      5,
+      0
+     ],
+     "label": "F(5,0)",
+     "color": "#c0392b",
+     "anchor": "start",
+     "dx": 2,
+     "dy": 16
+    },
+    {
+     "kind": "point",
+     "at": [
+      3,
+      0
+     ],
+     "label": "V",
+     "color": "#444",
+     "anchor": "end",
+     "dx": -4,
+     "dy": 14
+    }
+   ]
+  }
+ },
+ {
+  "id": "chap-04-coord-q77",
+  "type": "mc",
+  "difficulty": "ยาก",
+  "topics": [
+   "4"
+  ],
+  "subTopics": [
+   "4.8",
+   "4.7"
+  ],
+  "question": "ให้ A และ B เป็นจุดโฟกัสและจุดยอด (ตามลำดับ) ของพาราโบลา $x^2 - 8x + 4y + 4 = 0$\nถ้าวงรีมีจุดศูนย์กลางอยู่ที่ A และจุดโฟกัสจุดหนึ่งอยู่ที่ B โดยที่จุดยอดจุดหนึ่งอยู่บนเส้นตรง $y = 4$\nแล้วสมการวงรีคือข้อใดต่อไปนี้",
+  "choices": [
+   "$(x - 4)^2 + \\dfrac{(y - 2)^2}{2} = 1$",
+   "$\\dfrac{(x - 4)^2}{2} + (y - 2)^2 = 1$",
+   "$\\dfrac{(x - 4)^2}{3} + \\dfrac{(y - 2)^2}{4} = 1$",
+   "$\\dfrac{(x - 4)^2}{4} + \\dfrac{(y - 2)^2}{3} = 1$"
+  ],
+  "correct": 2,
+  "hasImage": true,
+  "hint": null,
+  "imageSpec": [
+   {
+    "type": "function-plot",
+    "width": 364,
+    "height": 272,
+    "xRange": [
+     -1,
+     7
+    ],
+    "yRange": [
+     -1,
+     5
+    ],
+    "axes": {
+     "arrows": true,
+     "xLabel": "x",
+     "yLabel": "y",
+     "originLabel": "O"
+    },
+    "functions": [
+     {
+      "id": "eu",
+      "kind": "ellipse-arc",
+      "center": [
+       4,
+       2
+      ],
+      "a": 1.73205,
+      "b": 2,
+      "half": "upper",
+      "color": "#222"
+     },
+     {
+      "id": "el",
+      "kind": "ellipse-arc",
+      "center": [
+       4,
+       2
+      ],
+      "a": 1.73205,
+      "b": 2,
+      "half": "lower",
+      "color": "#222"
+     },
+     {
+      "kind": "parabola",
+      "vertex": [
+       4,
+       3
+      ],
+      "throughPoint": [
+       6,
+       2
+      ],
+      "domain": [
+       1.5,
+       6.5
+      ],
+      "color": "#c62828",
+      "strokeWidth": 1.8
+     }
+    ],
+    "segments": [
+     {
+      "from": [
+       1,
+       4
+      ],
+      "to": [
+       7,
+       4
+      ],
+      "dashed": true
+     }
+    ],
+    "dots": [
+     {
+      "x": 4,
+      "y": 2,
+      "label": "A=ศก.(4, 2)",
+      "labelAnchor": "start",
+      "labelDx": -28.33,
+      "labelDy": 18,
+      "labelColor": "#c62828"
+     },
+     {
+      "x": 4,
+      "y": 3,
+      "label": "B(4, 3)",
+      "labelAnchor": "end",
+      "labelDx": 19.99,
+      "labelDy": -10.67
+     },
+     {
+      "x": 4,
+      "y": 4,
+      "label": "ยอดวงรี(4, 4)",
+      "labelAnchor": "start",
+      "labelDx": -32.34,
+      "labelDy": -15.33
+     },
+     {
+      "x": 4,
+      "y": 0,
+      "label": "(4, 0)",
+      "labelAnchor": "start",
+      "labelDx": -21.67,
+      "labelDy": 21.33
+     }
+    ],
+    "annotations": [
+     {
+      "at": [
+       5.937,
+       4.277
+      ],
+      "text": "y = 4",
+      "anchor": "start",
+      "color": "#1565c0"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "gen-chap-04-coord-q083",
+  "type": "fill",
+  "difficulty": "ยาก",
+  "topics": [
+   "4"
+  ],
+  "subTopics": [
+   "4.6"
+  ],
+  "question": "จากจุด $P(8,11)$ ลากเส้นสัมผัสวงกลม $x^2 + y^2 - 4x - 6y - 23 = 0$ ความยาวของเส้นสัมผัส (ระยะจาก $P$ ถึงจุดสัมผัส) เท่ากับเท่าใด",
+  "choices": null,
+  "correct": "8",
+  "hasImage": true,
+  "hint": null,
+  "imageSpec": {
+   "type": "analytic-geo",
+   "width": 340,
+   "height": 340,
+   "xRange": [
+    -5,
+    10
+   ],
+   "yRange": [
+    -4,
+    12
+   ],
+   "grid": true,
+   "title": "tangent from P",
+   "elements": [
+    {
+     "kind": "circle",
+     "center": [
+      2,
+      3
+     ],
+     "r": 6,
+     "color": "#2e8b57"
+    },
+    {
+     "kind": "point",
+     "at": [
+      2,
+      3
+     ],
+     "label": "C(2,3)",
+     "color": "#444",
+     "anchor": "end",
+     "dx": -4,
+     "dy": -4
+    },
+    {
+     "kind": "point",
+     "at": [
+      8,
+      11
+     ],
+     "label": "P(8,11)",
+     "color": "#c0392b",
+     "anchor": "start",
+     "dx": 4,
+     "dy": 0
+    },
+    {
+     "kind": "segment",
+     "from": [
+      2,
+      3
+     ],
+     "to": [
+      8,
+      11
+     ],
+     "color": "#888",
+     "label": "d=10",
+     "dash": true
+    }
+   ]
+  }
+ },
+ {
+  "id": "chap-04-coord-q84",
+  "type": "mc",
+  "difficulty": "ปานกลาง",
+  "topics": [
+   "4"
+  ],
+  "subTopics": [
+   "4.8",
+   "4.6"
+  ],
+  "question": "วงรีวงหนึ่งมีจุดศูนย์กลางที่ $(3, 1)$ จุดโฟกัสจุดหนึ่งที่ $(5, 1)$ และสัมผัสแกน y ที่จุด $(0, 1)$ สมการ\nของวงกลมที่มีจุดศูนย์กลางที่ $(-2, 1)$ และมีรัศมีเท่ากับความยาวแกนโทของวงรี คือข้อใดต่อไปนี้",
+  "choices": [
+   "$x^2 + y^2 + 4x - 2y = 0$",
+   "$x^2 + y^2 + 4x - 2y - 1 = 0$",
+   "$x^2 + y^2 + 4x - 2y - 4 = 0$",
+   "$x^2 + y^2 + 4x - 2y - 15 = 0$"
+  ],
+  "correct": 3,
+  "hasImage": true,
+  "hint": null,
+  "imageSpec": [
+   {
+    "type": "function-plot",
+    "width": 452,
+    "height": 324,
+    "xRange": [
+     -7,
+     7
+    ],
+    "yRange": [
+     -4,
+     6
+    ],
+    "axes": {
+     "arrows": true,
+     "xLabel": "x",
+     "yLabel": "y",
+     "originLabel": "O"
+    },
+    "functions": [
+     {
+      "id": "e1",
+      "kind": "ellipse-arc",
+      "center": [
+       3,
+       1
+      ],
+      "a": 3,
+      "b": 2.23607,
+      "half": "upper",
+      "color": "#222"
+     },
+     {
+      "id": "e2",
+      "kind": "ellipse-arc",
+      "center": [
+       3,
+       1
+      ],
+      "a": 3,
+      "b": 2.23607,
+      "half": "lower",
+      "color": "#222"
+     },
+     {
+      "id": "c1",
+      "kind": "ellipse-arc",
+      "center": [
+       -2,
+       1
+      ],
+      "a": 4.47214,
+      "b": 4.47214,
+      "half": "upper",
+      "color": "#1565c0"
+     },
+     {
+      "id": "c2",
+      "kind": "ellipse-arc",
+      "center": [
+       -2,
+       1
+      ],
+      "a": 4.47214,
+      "b": 4.47214,
+      "half": "lower",
+      "color": "#1565c0"
+     }
+    ],
+    "dots": [
+     {
+      "x": 3,
+      "y": 1,
+      "label": "C₁(3, 1)",
+      "labelAnchor": "start",
+      "labelDx": -5,
+      "labelDy": 19
+     },
+     {
+      "x": 0,
+      "y": 1,
+      "label": "สัมผัส(0, 1)",
+      "labelAnchor": "start",
+      "labelDx": 10,
+      "labelDy": 2,
+      "labelColor": "#c62828"
+     },
+     {
+      "x": 5,
+      "y": 1,
+      "label": "F(5, 1)",
+      "labelAnchor": "start",
+      "labelDx": -25,
+      "labelDy": -16
+     },
+     {
+      "x": -2,
+      "y": 1,
+      "label": "C₂(−2, 1)",
+      "labelAnchor": "middle",
+      "labelDx": -7,
+      "labelDy": 16,
+      "labelColor": "#1565c0"
+     }
+    ],
+    "annotations": [
+     {
+      "at": [
+       -5.513,
+       2.436
+      ],
+      "text": "r = แกนโท = 2\\sqrt{5}",
+      "anchor": "start",
+      "color": "#1565c0"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "chap-04-coord-q89",
+  "type": "fill",
+  "difficulty": "ยาก",
+  "topics": [
+   "4"
+  ],
+  "subTopics": [
+   "4.8",
+   "4.11"
+  ],
+  "question": "ให้ $F_1, F_2$ เป็นจุดโฟกัสของวงรีที่มีสมการเป็น $kx^2 + 4y^2 - 4y = 8$\nจุด B เป็นจุดที่วงรีตัดแกน y และอยู่เหนือแกน x ถ้า $F_1, B, F_2$ ไม่อยู่ในแนวเส้นตรงเดียวกัน\nและ $F_1BF_2$ เป็นสามเหลี่ยมที่มีพื้นที่เท่ากับ $\\dfrac{3\\sqrt{7}}{4}$ ตารางหน่วย แล้ว k มีค่าเท่าใด",
+  "choices": null,
+  "correct": "2.25",
+  "hasImage": true,
+  "hint": null,
+  "imageSpec": [
+   {
+    "type": "function-plot",
+    "width": 380,
+    "height": 257,
+    "xRange": [
+     -3,
+     3
+    ],
+    "yRange": [
+     -1.5,
+     2.5
+    ],
+    "axes": {
+     "arrows": true,
+     "xLabel": "x",
+     "yLabel": "y",
+     "originLabel": ""
+    },
+    "functions": [
+     {
+      "id": "eu",
+      "kind": "ellipse-arc",
+      "center": [
+       0,
+       0.5
+      ],
+      "a": 2,
+      "b": 1.5,
+      "half": "upper",
+      "color": "#222"
+     },
+     {
+      "id": "el",
+      "kind": "ellipse-arc",
+      "center": [
+       0,
+       0.5
+      ],
+      "a": 2,
+      "b": 1.5,
+      "half": "lower",
+      "color": "#222"
+     }
+    ],
+    "segments": [
+     {
+      "from": [
+       -1.322876,
+       0.5
+      ],
+      "to": [
+       0,
+       2
+      ]
+     },
+     {
+      "from": [
+       0,
+       2
+      ],
+      "to": [
+       1.322876,
+       0.5
+      ]
+     },
+     {
+      "from": [
+       -1.322876,
+       0.5
+      ],
+      "to": [
+       1.322876,
+       0.5
+      ],
+      "dashed": true
+     }
+    ],
+    "dots": [
+     {
+      "x": 0,
+      "y": 2,
+      "label": "B(0,2)",
+      "labelAnchor": "start",
+      "labelDx": 10,
+      "labelDy": -6
+     },
+     {
+      "x": 1.322876,
+      "y": 0.5,
+      "label": "F₁",
+      "labelAnchor": "start",
+      "labelDx": 6,
+      "labelDy": 16
+     },
+     {
+      "x": -1.322876,
+      "y": 0.5,
+      "label": "F₂",
+      "labelAnchor": "end",
+      "labelDx": -6,
+      "labelDy": 16
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "chap-13-calculus-q244",
+  "type": "fill",
+  "difficulty": "ปานกลาง",
+  "topics": [
+   "13"
+  ],
+  "subTopics": [
+   "13.8"
+  ],
+  "question": "กำหนดวงรี $4x^{2}+y^{2}=20$ จงหาพื้นที่ของรูปสี่เหลี่ยมจัตุรัสที่มีพื้นที่มากที่สุดที่สามารถบรรจุในวงรีที่กำหนดให้ โดยที่สี่เหลี่ยมจัตุรัสดังกล่าวมีด้านขนานกับแกนพิกัด",
+  "choices": null,
+  "correct": "16",
+  "hasImage": true,
+  "hint": null,
+  "imageSpec": {
+   "type": "function-plot",
+   "width": 320,
+   "height": 380,
+   "xRange": [
+    -4.222,
+    4.222
+   ],
+   "yRange": [
+    -5.456,
+    5.456
+   ],
+   "axes": {
+    "arrows": true,
+    "xLabel": "x",
+    "yLabel": "y",
+    "originLabel": "O"
+   },
+   "functions": [
+    {
+     "id": "ell",
+     "kind": "ellipse-arc",
+     "center": [
+      0,
+      0
+     ],
+     "a": 2.23606797749979,
+     "b": 4.47213595499958,
+     "startAngle": 0,
+     "endAngle": 360,
+     "color": "#1f6fb2",
+     "strokeWidth": 1.8
+    }
+   ],
+   "segments": [
+    {
+     "from": [
+      2,
+      2
+     ],
+     "to": [
+      -2,
+      2
+     ]
+    },
+    {
+     "from": [
+      -2,
+      2
+     ],
+     "to": [
+      -2,
+      -2
+     ]
+    },
+    {
+     "from": [
+      -2,
+      -2
+     ],
+     "to": [
+      2,
+      -2
+     ]
+    },
+    {
+     "from": [
+      2,
+      -2
+     ],
+     "to": [
+      2,
+      2
+     ]
+    }
+   ],
+   "dots": [
+    {
+     "x": 2,
+     "y": 2,
+     "label": "(2, 2)",
+     "labelAnchor": "start",
+     "labelDx": 7,
+     "labelDy": -7
+    }
+   ],
+   "annotations": [
+    {
+     "at": [
+      -4.1,
+      -4.9
+     ],
+     "text": "4x² + y² = 20",
+     "anchor": "start"
+    }
+   ]
+  }
+ },
+ {
+  "id": "gen-chap-03-real-q383",
+  "type": "fill",
+  "difficulty": "ยาก",
+  "topics": [
+   "3"
+  ],
+  "subTopics": [
+   "3.11",
+   "3.9",
+   "3.8"
+  ],
+  "question": "กำหนดให้ $A,B,C$ เป็นเซตคำตอบของอสมการต่อไปนี้ (เอกภพสัมพัทธ์เป็น $\\mathbb{R}$)<br>$A:\\ x^2-16\\le 0$<br>$B:\\ |x+1|\\lt 2$<br>$C:\\ \\dfrac{x-5}{x+3}\\lt 0$<br>จงหาจำนวนเต็มทั้งหมดที่อยู่ในเซต $(A\\cap C)-B$ ว่ามีกี่จำนวน",
+  "choices": null,
+  "correct": "4",
+  "hasImage": true,
+  "hint": null,
+  "imageSpec": {
+   "type": "number-line",
+   "width": 480,
+   "height": 104,
+   "scale": "even",
+   "axisY": 64,
+   "solutionY": 44,
+   "criticals": [
+    1,
+    4
+   ],
+   "labels": [
+    {
+     "at": 1,
+     "text": "1"
+    },
+    {
+     "at": 4,
+     "text": "4"
+    }
+   ],
+   "signs": [
+    {
+     "from": null,
+     "to": 1,
+     "label": "−"
+    },
+    {
+     "from": 1,
+     "to": 4,
+     "label": "+"
+    },
+    {
+     "from": 4,
+     "to": null,
+     "label": "−"
+    }
+   ],
+   "points": [
+    {
+     "at": 1,
+     "open": false,
+     "color": "#1e7e34"
+    },
+    {
+     "at": 2,
+     "open": false,
+     "color": "#1e7e34"
+    },
+    {
+     "at": 3,
+     "open": false,
+     "color": "#1e7e34"
+    },
+    {
+     "at": 4,
+     "open": false,
+     "color": "#1e7e34"
+    }
+   ],
+   "segments": [
+    {
+     "from": 1,
+     "to": 4,
+     "color": "#1e7e34"
+    }
+   ],
+   "annotations": [
+    {
+     "x": 240,
+     "y": 14,
+     "text": "(A∩C)−B = [1,4] → 4 จำนวน",
+     "anchor": "middle",
+     "color": "#1e5fae",
+     "fontSize": 13,
+     "weight": "600"
+    }
+   ]
+  }
+ },
+ {
+  "id": "gen-chap-04-coord-q107",
+  "type": "fill",
+  "difficulty": "ปานกลาง",
+  "topics": [
+   "4"
+  ],
+  "subTopics": [
+   "4.6",
+   "4.5"
+  ],
+  "question": "จงหาช่วงของค่า $c$ ที่ทำให้เส้นตรง $y=2x+c$ ตัดวงกลม $x^2+y^2=5$ ที่จุดสองจุดที่แตกต่างกัน",
+  "choices": null,
+  "correct": "-5 < c < 5",
+  "hasImage": true,
+  "hint": null,
+  "imageSpec": {
+   "type": "analytic-geo",
+   "width": 330,
+   "height": 330,
+   "xRange": [
+    -5,
+    7
+   ],
+   "yRange": [
+    -5,
+    7
+   ],
+   "grid": true,
+   "title": "y=2x+c cutting circle",
+   "elements": [
+    {
+     "kind": "circle",
+     "center": [
+      0,
+      0
+     ],
+     "r": 2.236,
+     "color": "#2e6fb0"
+    },
+    {
+     "kind": "line",
+     "abc": [
+      2,
+      -1,
+      3
+     ],
+     "color": "#2e8b57",
+     "label": "c=3 (secant)"
+    },
+    {
+     "kind": "line",
+     "abc": [
+      2,
+      -1,
+      5
+     ],
+     "color": "#c0392b",
+     "label": "c=5 (tangent)"
+    },
+    {
+     "kind": "point",
+     "at": [
+      0,
+      0
+     ],
+     "label": "O",
+     "color": "#444",
+     "anchor": "end",
+     "dx": -4,
+     "dy": -4
+    }
+   ]
+  }
+ },
+ {
+  "id": "gen-chap-04-coord-q114",
+  "type": "fill",
+  "difficulty": "ยาก",
+  "topics": [
+   "4"
+  ],
+  "subTopics": [
+   "4.6",
+   "4.5"
+  ],
+  "question": "วงกลม $C$ มีจุดศูนย์กลางที่ภาพสะท้อนของจุด $A(1,2)$ ข้ามเส้น $y=x$ และมีรัศมีเท่ากับระยะจากจุดศูนย์กลางนั้นถึงเส้น $3x+4y=0$ จงหาความยาวเส้นสัมผัสจากจุดกำเนิด $O(0,0)$ ถึงวงกลม $C$",
+  "choices": null,
+  "correct": "1",
+  "hasImage": true,
+  "hint": null,
+  "imageSpec": {
+   "type": "analytic-geo",
+   "width": 330,
+   "height": 330,
+   "xRange": [
+    -3,
+    6
+   ],
+   "yRange": [
+    -3,
+    5
+   ],
+   "grid": true,
+   "title": "reflect -> center -> tangent",
+   "elements": [
+    {
+     "kind": "line",
+     "abc": [
+      1,
+      -1,
+      0
+     ],
+     "color": "#999",
+     "dash": true,
+     "label": "y=x"
+    },
+    {
+     "kind": "line",
+     "abc": [
+      3,
+      4,
+      0
+     ],
+     "color": "#e67e22",
+     "label": "3x+4y=0"
+    },
+    {
+     "kind": "circle",
+     "center": [
+      2,
+      1
+     ],
+     "r": 2,
+     "color": "#2e6fb0"
+    },
+    {
+     "kind": "point",
+     "at": [
+      1,
+      2
+     ],
+     "label": "A(1,2)",
+     "color": "#8e44ad",
+     "anchor": "end",
+     "dx": -4,
+     "dy": -4
+    },
+    {
+     "kind": "point",
+     "at": [
+      2,
+      1
+     ],
+     "label": "C(2,1)",
+     "color": "#c0392b",
+     "anchor": "start",
+     "dx": 6,
+     "dy": -2
+    },
+    {
+     "kind": "point",
+     "at": [
+      0,
+      0
+     ],
+     "label": "O",
+     "color": "#444",
+     "anchor": "end",
+     "dx": -4,
+     "dy": -4
+    }
+   ]
+  }
+ },
+ {
+  "id": "gen-chap-04-coord-q121",
+  "type": "fill",
+  "difficulty": "ง่าย",
+  "topics": [
+   "4"
+  ],
+  "subTopics": [
+   "4.8"
+  ],
+  "question": "วงรี $\\dfrac{x^2}{25}+\\dfrac{y^2}{16}=1$ มีความยาวเลตัสเรกตัม (latus rectum) เท่าใด",
+  "choices": null,
+  "correct": "32/5",
+  "hasImage": true,
+  "hint": null,
+  "imageSpec": {
+   "type": "analytic-geo",
+   "width": 360,
+   "height": 300,
+   "xRange": [
+    -6,
+    6
+   ],
+   "yRange": [
+    -5,
+    5
+   ],
+   "grid": true,
+   "title": "ellipse latus rectum",
+   "elements": [
+    {
+     "kind": "ellipse",
+     "center": [
+      0,
+      0
+     ],
+     "a": 5,
+     "b": 4,
+     "orient": "h",
+     "color": "#2e6fb0"
+    },
+    {
+     "kind": "point",
+     "at": [
+      3,
+      0
+     ],
+     "label": "F",
+     "color": "#c0392b",
+     "anchor": "start",
+     "dx": 4,
+     "dy": -6
+    },
+    {
+     "kind": "point",
+     "at": [
+      3,
+      3.2
+     ],
+     "label": "",
+     "color": "#8e44ad"
+    },
+    {
+     "kind": "point",
+     "at": [
+      3,
+      -3.2
+     ],
+     "label": "",
+     "color": "#8e44ad"
+    },
+    {
+     "kind": "segment",
+     "from": [
+      3,
+      3.2
+     ],
+     "to": [
+      3,
+      -3.2
+     ],
+     "color": "#8e44ad",
+     "label": "LR",
+     "dash": false
+    }
+   ]
+  }
+ },
+ {
+  "id": "chap-04-coord-q128",
+  "type": "mc",
+  "difficulty": "ง่าย",
+  "topics": [
+   "4"
+  ],
+  "subTopics": [
+   "4.2",
+   "4.6"
+  ],
+  "question": "AB และ CD เป็นเส้นผ่านศูนย์กลางของวงกลมวงเดียว ถ้าจุด A, B และ C มีพิกัดดังนี้\n$A(5, 1.732)$, $B(3, -1.732)$ และ $C(2.268, 1)$ ให้หาพิกัดของจุด D",
+  "choices": [
+   "$(5.628, -1)$",
+   "$(5.732, -1)$",
+   "$(6.628, -1)$",
+   "$(6.732, -1)$"
+  ],
+  "correct": 1,
+  "hasImage": true,
+  "hint": null,
+  "imageSpec": {
+   "type": "function-plot",
+   "width": 380,
+   "height": 284,
+   "xRange": [
+    -0.5,
+    7
+   ],
+   "yRange": [
+    -2.8,
+    2.8
+   ],
+   "axes": {
+    "arrows": true,
+    "xLabel": "x",
+    "yLabel": "y",
+    "originLabel": "O"
+   },
+   "functions": [
+    {
+     "id": "circ",
+     "kind": "ellipse-arc",
+     "center": [
+      4,
+      0
+     ],
+     "a": 2,
+     "b": 2,
+     "startAngle": 0,
+     "endAngle": 360
+    }
+   ],
+   "segments": [
+    {
+     "from": [
+      5,
+      1.732
+     ],
+     "to": [
+      3,
+      -1.732
+     ]
+    },
+    {
+     "from": [
+      2.268,
+      1
+     ],
+     "to": [
+      5.732,
+      -1
+     ]
+    }
+   ],
+   "dots": [
+    {
+     "x": 5,
+     "y": 1.732,
+     "label": "A(5, 1.732)",
+     "labelAnchor": "start",
+     "labelDx": 6,
+     "labelDy": -6
+    },
+    {
+     "x": 2.268,
+     "y": 1,
+     "label": "C(2.268, 1)",
+     "labelAnchor": "end",
+     "labelDx": -6,
+     "labelDy": -7
+    },
+    {
+     "x": 3,
+     "y": -1.732,
+     "label": "B(3, -1.732)",
+     "labelAnchor": "end",
+     "labelDx": -6,
+     "labelDy": 15
+    },
+    {
+     "x": 5.732,
+     "y": -1,
+     "label": "D",
+     "labelAnchor": "start",
+     "labelDx": 7,
+     "labelDy": 14
+    }
+   ]
+  }
+ },
+ {
+  "id": "gen-chap-04-coord-q139",
+  "type": "fill",
+  "difficulty": "ยากมาก",
+  "topics": [
+   "4"
+  ],
+  "subTopics": [
+   "4.8",
+   "4.11"
+  ],
+  "question": "จุด $P$ เคลื่อนที่บนวงรี $\\dfrac{x^2}{25}+\\dfrac{y^2}{9}=1$ ซึ่งมีโฟกัส $F_1,F_2$ จงหาพื้นที่มากที่สุดของสามเหลี่ยม $F_1PF_2$",
+  "choices": null,
+  "correct": "12",
+  "hasImage": true,
+  "hint": null,
+  "imageSpec": {
+   "type": "analytic-geo",
+   "width": 340,
+   "height": 300,
+   "xRange": [
+    -6,
+    6
+   ],
+   "yRange": [
+    -4,
+    4
+   ],
+   "grid": true,
+   "title": "max area F1 P F2",
+   "elements": [
+    {
+     "kind": "ellipse",
+     "center": [
+      0,
+      0
+     ],
+     "a": 5,
+     "b": 3,
+     "orient": "h",
+     "color": "#2e6fb0"
+    },
+    {
+     "kind": "point",
+     "at": [
+      -4,
+      0
+     ],
+     "label": "F_1",
+     "color": "#c0392b",
+     "anchor": "end",
+     "dx": -4,
+     "dy": -6
+    },
+    {
+     "kind": "point",
+     "at": [
+      4,
+      0
+     ],
+     "label": "F_2",
+     "color": "#c0392b",
+     "anchor": "start",
+     "dx": 4,
+     "dy": -6
+    },
+    {
+     "kind": "point",
+     "at": [
+      0,
+      3
+     ],
+     "label": "P",
+     "color": "#8e44ad",
+     "anchor": "start",
+     "dx": 5,
+     "dy": -2
+    },
+    {
+     "kind": "polygon",
+     "pts": [
+      [
+       -4,
+       0
+      ],
+      [
+       4,
+       0
+      ],
+      [
+       0,
+       3
+      ]
+     ],
+     "color": "#1e7e34",
+     "fill": "none"
+    },
+    {
+     "kind": "shade",
+     "pts": [
+      [
+       -4,
+       0
+      ],
+      [
+       4,
+       0
+      ],
+      [
+       0,
+       3
+      ]
+     ],
+     "color": "#1e7e34",
+     "opacity": 0.13
+    }
+   ]
+  }
+ },
+ {
+  "id": "chap-04-coord-q149",
+  "type": "fill",
+  "difficulty": "ง่าย",
+  "topics": [
+   "4"
+  ],
+  "subTopics": [
+   "4.4",
+   "4.3"
+  ],
+  "question": "จงหาสมการเส้นตรงที่ตั้งฉากกับเส้นตรง $x - 7y - 11 = 0$\nและผ่านจุดที่เส้นตรงเส้นนี้ตัดกับเส้นตรง $3x + 5y - 7 = 0$",
+  "choices": null,
+  "correct": "7x+y-27=0",
+  "hasImage": true,
+  "hint": null,
+  "imageSpec": [
+   {
+    "type": "function-plot",
+    "width": 500,
+    "height": 484,
+    "xRange": [
+     -2,
+     10
+    ],
+    "yRange": [
+     -7,
+     5
+    ],
+    "axes": {
+     "arrows": true,
+     "xLabel": "x",
+     "yLabel": "y",
+     "originLabel": "O"
+    },
+    "functions": [
+     {
+      "kind": "polynomial",
+      "coefs": [
+       0.14285714285714285,
+       -1.5714285714285714
+      ],
+      "color": "#1565c0",
+      "strokeWidth": 1.6
+     },
+     {
+      "kind": "polynomial",
+      "coefs": [
+       -0.6,
+       1.4
+      ],
+      "color": "#2e7d32",
+      "strokeWidth": 1.6
+     },
+     {
+      "kind": "polynomial",
+      "coefs": [
+       -7,
+       27
+      ],
+      "color": "#c62828",
+      "strokeWidth": 1.8,
+      "domain": [
+       3.2,
+       4.8
+      ]
+     }
+    ],
+    "dots": [
+     {
+      "x": 4,
+      "y": -1,
+      "label": "จุดตัด(4, −1)",
+      "labelAnchor": "start",
+      "labelDx": -76,
+      "labelDy": 35.2
+     }
+    ],
+    "annotations": [
+     {
+      "at": [
+       4.4,
+       -1.142
+      ],
+      "text": "L₁: x−7y−11=0 (สีน้ำเงิน)",
+      "anchor": "start",
+      "color": "#1565c0"
+     },
+     {
+      "at": [
+       6.036,
+       -4.682
+      ],
+      "text": "L₂: 3x+5y−7=0 (สีเขียว)",
+      "anchor": "start",
+      "color": "#2e7d32"
+     },
+     {
+      "at": [
+       4.531,
+       3.56
+      ],
+      "text": "L₃ ⊥ L₁: 7x+y−27=0 (สีแดง)",
+      "anchor": "start",
+      "color": "#c62828"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "gen-chap-04-coord-q160",
+  "type": "mc",
+  "difficulty": "ยากมาก",
+  "topics": [
+   "4"
+  ],
+  "subTopics": [
+   "4.9",
+   "4.8",
+   "4.7"
+  ],
+  "question": "พาราโบลา $y^2=20x$ มีโฟกัส $F$ ซึ่งเป็นโฟกัสขวาของวงรีที่มีจุดศูนย์กลางที่จุดกำเนิดและความเยื้องศูนย์กลาง $\\dfrac{5}{13}$ ไฮเพอร์โบลาวงหนึ่งมีโฟกัสร่วมกับวงรีนี้ (confocal) และมีความเยื้องศูนย์กลาง $\\dfrac{5}{4}$ จงหาความชันของเส้นกำกับของไฮเพอร์โบลา (ค่าบวก)",
+  "choices": [
+   "$\\dfrac{4}{3}$",
+   "$\\dfrac{5}{12}$",
+   "$\\dfrac{3}{4}$",
+   "$\\dfrac{12}{5}$"
+  ],
+  "correct": 2,
+  "hasImage": true,
+  "hint": null,
+  "imageSpec": {
+   "type": "analytic-geo",
+   "width": 360,
+   "height": 320,
+   "xRange": [
+    -14,
+    14
+   ],
+   "yRange": [
+    -8,
+    8
+   ],
+   "grid": true,
+   "title": "parabola -> ellipse -> confocal hyperbola",
+   "elements": [
+    {
+     "kind": "ellipse",
+     "center": [
+      0,
+      0
+     ],
+     "a": 13,
+     "b": 12,
+     "orient": "h",
+     "color": "#2e6fb0"
+    },
+    {
+     "kind": "hyperbola",
+     "center": [
+      0,
+      0
+     ],
+     "a": 4,
+     "b": 3,
+     "orient": "h",
+     "color": "#c0392b",
+     "asymptotes": true
+    },
+    {
+     "kind": "parabola",
+     "vertex": [
+      0,
+      0
+     ],
+     "p": 5,
+     "orient": "right",
+     "color": "#2e8b57"
+    },
+    {
+     "kind": "point",
+     "at": [
+      5,
+      0
+     ],
+     "label": "F(5,0)",
+     "color": "#c0392b",
+     "anchor": "start",
+     "dx": 4,
+     "dy": -6
+    },
+    {
+     "kind": "point",
+     "at": [
+      -5,
+      0
+     ],
+     "label": "",
+     "color": "#c0392b"
+    }
+   ]
+  }
+ },
+ {
+  "id": "chap-04-coord-q172",
+  "type": "fill",
+  "difficulty": "ปานกลาง",
+  "topics": [
+   "4"
+  ],
+  "subTopics": [
+   "4.6",
+   "4.7",
+   "4.4"
+  ],
+  "question": "ให้ $y^2 = 8x$ เป็นสมการของพาราโบลา\nให้ L เป็นเส้นตรงที่ผ่านจุดโฟกัสของพาราโบลานี้ และขนานกับเส้นตรง $y = 2\\sqrt{2}\\,x + 5$\nถ้าเส้นตรง L ตัดแกน y ที่จุด A และมีจุดตัดพาราโบลาจุดหนึ่งเป็น $B(b, c)$\nเมื่อ $b > 0$ และ $c > 0$ จงหาสมการวงกลมที่ผ่านจุด A, $B(b, c)$ และ $C(0, c)$",
+  "choices": null,
+  "correct": "(x-2)^2+y^2=36",
+  "hasImage": true,
+  "hint": null,
+  "imageSpec": [
+   {
+    "type": "function-plot",
+    "width": 500,
+    "height": 484,
+    "xRange": [
+     -5,
+     9
+    ],
+    "yRange": [
+     -7,
+     7
+    ],
+    "axes": {
+     "arrows": true,
+     "xLabel": "x",
+     "yLabel": "y",
+     "originLabel": "O"
+    },
+    "functions": [
+     {
+      "id": "cu",
+      "kind": "ellipse-arc",
+      "center": [
+       2,
+       0
+      ],
+      "a": 6,
+      "b": 6,
+      "half": "upper",
+      "color": "#1565c0"
+     },
+     {
+      "id": "cl",
+      "kind": "ellipse-arc",
+      "center": [
+       2,
+       0
+      ],
+      "a": 6,
+      "b": 6,
+      "half": "lower",
+      "color": "#1565c0"
+     },
+     {
+      "id": "pr",
+      "kind": "parabola-h",
+      "vertex": [
+       0,
+       0
+      ],
+      "throughPoint": [
+       2,
+       4
+      ],
+      "yDomain": [
+       -6,
+       6
+      ],
+      "color": "#222",
+      "strokeWidth": 1.6
+     },
+     {
+      "kind": "polynomial",
+      "coefs": [
+       2.82843,
+       -5.65685
+      ],
+      "domain": [
+       -0.3,
+       4.6
+      ],
+      "color": "#c62828",
+      "strokeWidth": 1.6,
+      "label": {
+       "at": [
+        4.8,
+        6.567
+       ],
+       "text": "L",
+       "anchor": "start",
+       "color": "#c62828"
+      }
+     }
+    ],
+    "segments": [
+     {
+      "from": [
+       0,
+       -5.65685
+      ],
+      "to": [
+       0,
+       5.65685
+      ],
+      "dashed": true
+     },
+     {
+      "from": [
+       0,
+       5.65685
+      ],
+      "to": [
+       4,
+       5.65685
+      ],
+      "dashed": true
+     }
+    ],
+    "dots": [
+     {
+      "x": 2,
+      "y": 0,
+      "label": "F=ศก.(2, 0)",
+      "labelAnchor": "start",
+      "labelDx": 22,
+      "labelDy": -15.6
+     },
+     {
+      "x": 0,
+      "y": -5.65685,
+      "label": "A",
+      "labelAnchor": "start",
+      "labelDx": 6,
+      "labelDy": 17.6,
+      "labelColor": "#c62828"
+     },
+     {
+      "x": 4,
+      "y": 5.65685
+     },
+     {
+      "x": 0,
+      "y": 5.65685
+     }
+    ],
+    "annotations": [
+     {
+      "at": [
+       1.781,
+       -2.241
+      ],
+      "text": "AB เป็นเส้นผ่านศก. → r = 6",
+      "anchor": "start",
+      "color": "#1565c0"
+     },
+     {
+      "at": [
+       4.751,
+       5.606
+      ],
+      "text": "B(4, 4\\sqrt{2})",
+      "anchor": "start"
+     },
+     {
+      "at": [
+       -0.42,
+       5.733
+      ],
+      "text": "C(0, 4\\sqrt{2})",
+      "anchor": "end"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "gen-chap-04-coord-q181",
+  "type": "fill",
+  "difficulty": "ยากมาก",
+  "topics": [
+   "4"
+  ],
+  "subTopics": [
+   "4.6",
+   "4.2"
+  ],
+  "question": "จุด $M$ เป็นจุดกึ่งกลางของคอร์ดของวงกลม $x^2+y^2=25$ โดยคอร์ดทุกเส้นลากผ่านจุดคงที่ $A(3,0)$ จงหาสมการโลคัสของจุด $M$",
+  "choices": null,
+  "correct": "$x^2+y^2-3x=0$",
+  "hasImage": true,
+  "hint": null,
+  "imageSpec": {
+   "type": "analytic-geo",
+   "width": 340,
+   "height": 330,
+   "xRange": [
+    -6,
+    6
+   ],
+   "yRange": [
+    -6,
+    6
+   ],
+   "grid": true,
+   "title": "locus x^2+y^2-3x=0",
+   "elements": [
+    {
+     "kind": "circle",
+     "center": [
+      0,
+      0
+     ],
+     "r": 5,
+     "color": "#2e6fb0"
+    },
+    {
+     "kind": "circle",
+     "center": [
+      1.5,
+      0
+     ],
+     "r": 1.5,
+     "color": "#c0392b",
+     "dash": true
+    },
+    {
+     "kind": "point",
+     "at": [
+      0,
+      0
+     ],
+     "label": "O",
+     "color": "#444",
+     "anchor": "end",
+     "dx": -6,
+     "dy": -4
+    },
+    {
+     "kind": "point",
+     "at": [
+      3,
+      0
+     ],
+     "label": "A(3,0)",
+     "color": "#8e44ad",
+     "anchor": "start",
+     "dx": 4,
+     "dy": -8
+    },
+    {
+     "kind": "point",
+     "at": [
+      1.5,
+      1.5
+     ],
+     "label": "M",
+     "color": "#c0392b",
+     "anchor": "start",
+     "dx": 5,
+     "dy": -3
+    },
+    {
+     "kind": "segment",
+     "from": [
+      0,
+      0
+     ],
+     "to": [
+      1.5,
+      1.5
+     ],
+     "color": "#2e8b57"
+    },
+    {
+     "kind": "segment",
+     "from": [
+      1.5,
+      1.5
+     ],
+     "to": [
+      3,
+      0
+     ],
+     "color": "#e67e22"
+    },
+    {
+     "kind": "right",
+     "at": [
+      1.5,
+      1.5
+     ],
+     "u": [
+      -1,
+      -1
+     ],
+     "v": [
+      1,
+      -1
+     ],
+     "size": 0.4
+    }
+   ]
+  }
+ },
+ {
+  "id": "chap-04-coord-q193",
+  "type": "mc",
+  "difficulty": "ปานกลาง",
+  "topics": [
+   "4"
+  ],
+  "subTopics": [
+   "4.6",
+   "4.5",
+   "4.3"
+  ],
+  "question": "กำหนดให้ $C_1$ และ $C_2$ เป็นวงกลม ซึ่งมีสมการเป็น $x^2 + y^2 = 2y$ และ $x^2 + y^2 + 2y = 3$ ตามลำดับ\nและ L เป็นเส้นตรงที่มีความชันน้อยกว่า 0 ซึ่งสัมผัสวงกลม $C_1$ และ $C_2$\nข้อใดต่อไปนี้เป็นความชันของ L",
+  "choices": [
+   "$-\\sqrt{2}$",
+   "$-\\dfrac{1}{\\sqrt{2}}$",
+   "$-\\sqrt{3}$",
+   "$-\\dfrac{1}{\\sqrt{3}}$"
+  ],
+  "correct": 2,
+  "hasImage": true,
+  "hint": null,
+  "imageSpec": [
+   {
+    "type": "function-plot",
+    "width": 313,
+    "height": 360,
+    "xRange": [
+     -3,
+     3
+    ],
+    "yRange": [
+     -3.5,
+     4
+    ],
+    "axes": {
+     "arrows": true,
+     "xLabel": "x",
+     "yLabel": "y"
+    },
+    "functions": [
+     {
+      "id": "C1",
+      "kind": "ellipse-arc",
+      "center": [
+       0,
+       1
+      ],
+      "a": 1,
+      "b": 1,
+      "startAngle": 0,
+      "endAngle": 360,
+      "color": "#1f6feb",
+      "strokeWidth": 1.6,
+      "label": {
+       "at": [
+        -1.15,
+        1.2
+       ],
+       "text": "C_1",
+       "anchor": "end",
+       "color": "#1f6feb"
+      }
+     },
+     {
+      "id": "C2",
+      "kind": "ellipse-arc",
+      "center": [
+       0,
+       -1
+      ],
+      "a": 2,
+      "b": 2,
+      "startAngle": 0,
+      "endAngle": 360,
+      "color": "#1f6feb",
+      "strokeWidth": 1.6,
+      "label": {
+       "at": [
+        -2.15,
+        -1
+       ],
+       "text": "C_2",
+       "anchor": "end",
+       "color": "#1f6feb"
+      }
+     },
+     {
+      "id": "L",
+      "kind": "piecewise-linear",
+      "points": [
+       [
+        -0.6,
+        4.039230484541326
+       ],
+       [
+        2.6,
+        -1.5033320996790804
+       ]
+      ],
+      "color": "#222",
+      "strokeWidth": 1.5,
+      "label": {
+       "at": [
+        1.45,
+        1.7
+       ],
+       "text": "L",
+       "anchor": "start"
+      }
+     }
+    ],
+    "segments": [
+     {
+      "from": [
+       0,
+       1
+      ],
+      "to": [
+       0.866,
+       1.5
+      ]
+     },
+     {
+      "from": [
+       0,
+       -1
+      ],
+      "to": [
+       1.732,
+       0.0
+      ]
+     },
+     {
+      "from": [
+       0.624,
+       1.36
+      ],
+      "to": [
+       0.764,
+       1.118
+      ]
+     },
+     {
+      "from": [
+       0.764,
+       1.118
+      ],
+      "to": [
+       1.006,
+       1.258
+      ]
+     },
+     {
+      "from": [
+       1.49,
+       -0.14
+      ],
+      "to": [
+       1.63,
+       -0.382
+      ]
+     },
+     {
+      "from": [
+       1.63,
+       -0.382
+      ],
+      "to": [
+       1.872,
+       -0.242
+      ]
+     }
+    ],
+    "dots": [
+     {
+      "x": 0,
+      "y": 3,
+      "label": "E(0,3)",
+      "labelDx": 9,
+      "labelDy": 3,
+      "labelAnchor": "start"
+     },
+     {
+      "x": 0,
+      "y": 1,
+      "label": "(0,1)",
+      "labelDx": 7,
+      "labelDy": 14,
+      "labelAnchor": "start"
+     },
+     {
+      "x": 0,
+      "y": -1,
+      "label": "(0,-1)",
+      "labelDx": -7,
+      "labelDy": 15,
+      "labelAnchor": "end"
+     }
+    ],
+    "annotations": [
+     {
+      "at": [
+       0.35,
+       1.7
+      ],
+      "text": "1",
+      "anchor": "end"
+     },
+     {
+      "at": [
+       1.25,
+       -0.7
+      ],
+      "text": "2",
+      "anchor": "start"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "gen-chap-04-coord-q202",
+  "type": "mc",
+  "difficulty": "ปานกลาง",
+  "topics": [
+   "4"
+  ],
+  "subTopics": [
+   "4.5",
+   "4.3"
+  ],
+  "question": "จงหาสมการเส้นแบ่งครึ่งมุม (angle bisectors) ทั้งสองของมุมที่เกิดจากเส้นตรง $L_1:3x+4y-1=0$ และ $L_2:4x+3y-2=0$",
+  "choices": [
+   "$7x-y-1=0$ และ $x+7y-3=0$",
+   "$x-y-1=0$ และ $7x+7y-3=0$",
+   "$x+y-1=0$ และ $7x-7y-3=0$",
+   "$x-y-1=0$ และ $7x+7y+3=0$"
+  ],
+  "correct": 1,
+  "hasImage": true,
+  "hint": null,
+  "imageSpec": {
+   "type": "analytic-geo",
+   "width": 360,
+   "height": 330,
+   "xRange": [
+    -4,
+    4
+   ],
+   "yRange": [
+    -4,
+    4
+   ],
+   "grid": true,
+   "title": "เส้นแบ่งครึ่งมุมของ L1,L2",
+   "elements": [
+    {
+     "kind": "line",
+     "abc": [
+      3,
+      4,
+      -1
+     ],
+     "color": "#2e6fb0",
+     "label": "L_1"
+    },
+    {
+     "kind": "line",
+     "abc": [
+      4,
+      3,
+      -2
+     ],
+     "color": "#e67e22",
+     "label": "L_2"
+    },
+    {
+     "kind": "line",
+     "abc": [
+      1,
+      -1,
+      -1
+     ],
+     "color": "#8e44ad",
+     "dash": true,
+     "label": "b_1"
+    },
+    {
+     "kind": "line",
+     "abc": [
+      7,
+      7,
+      -3
+     ],
+     "color": "#2e8b57",
+     "dash": true,
+     "label": "b_2"
+    },
+    {
+     "kind": "point",
+     "at": [
+      0.714,
+      -0.286
+     ],
+     "label": "I",
+     "color": "#c0392b",
+     "anchor": "start",
+     "dx": 6,
+     "dy": -4
+    }
+   ]
+  }
+ },
+ {
+  "id": "chap-04-coord-q214",
+  "type": "fill",
+  "difficulty": "ยาก",
+  "topics": [
+   "4"
+  ],
+  "subTopics": [
+   "4.8"
+  ],
+  "question": "ให้ $A_1, A_2, A_3$ และ $A_4$ เป็นพื้นที่ของวงรี $\\dfrac{(x - 25)^2}{25} + \\dfrac{(y - 47)^2}{47} = 2004$\nในควอดรันต์ที่ 1, 2, 3 และ 4 ตามลำดับ\nจงหาว่า $A_1 - A_2 + A_3 - A_4$ เท่ากับกี่ตารางหน่วย",
+  "choices": null,
+  "correct": "4700",
+  "hasImage": true,
+  "hint": null,
+  "imageSpec": [
+   {
+    "type": "function-plot",
+    "width": 210,
+    "height": 270,
+    "xRange": [
+     -3.5,
+     7
+    ],
+    "yRange": [
+     -3.5,
+     10.5
+    ],
+    "axes": {
+     "arrows": true,
+     "xLabel": "x",
+     "yLabel": "y",
+     "originLabel": "O"
+    },
+    "functions": [
+     {
+      "id": "z0",
+      "kind": "polynomial",
+      "coefs": [
+       0
+      ],
+      "color": "transparent"
+     },
+     {
+      "id": "ztop",
+      "kind": "polynomial",
+      "coefs": [
+       8.87
+      ],
+      "color": "transparent"
+     },
+     {
+      "id": "eu",
+      "kind": "ellipse-arc",
+      "center": [
+       2,
+       3.5
+      ],
+      "a": 4.5,
+      "b": 6,
+      "half": "upper",
+      "color": "#222"
+     },
+     {
+      "id": "el",
+      "kind": "ellipse-arc",
+      "center": [
+       2,
+       3.5
+      ],
+      "a": 4.5,
+      "b": 6,
+      "half": "lower",
+      "color": "#222"
+     }
+    ],
+    "shadeBetween": [
+     {
+      "funcA": "z0",
+      "funcB": "ztop",
+      "xRange": [
+       0,
+       4
+      ],
+      "color": "#7d9bbf"
+     }
+    ],
+    "dots": [
+     {
+      "x": 2,
+      "y": 3.5,
+      "label": "C(25,47)",
+      "labelDx": 7,
+      "labelDy": -4,
+      "labelAnchor": "start"
+     }
+    ],
+    "annotations": [
+     {
+      "at": [
+       2,
+       10.1
+      ],
+      "text": "A₁ − A₂",
+      "anchor": "middle"
+     }
+    ]
+   },
+   {
+    "type": "function-plot",
+    "width": 210,
+    "height": 270,
+    "xRange": [
+     -3.5,
+     7
+    ],
+    "yRange": [
+     -3.5,
+     10.5
+    ],
+    "axes": {
+     "arrows": true,
+     "xLabel": "x",
+     "yLabel": "y",
+     "originLabel": "O"
+    },
+    "functions": [
+     {
+      "id": "z0",
+      "kind": "polynomial",
+      "coefs": [
+       0
+      ],
+      "color": "transparent"
+     },
+     {
+      "id": "zbot",
+      "kind": "polynomial",
+      "coefs": [
+       -1.87
+      ],
+      "color": "transparent"
+     },
+     {
+      "id": "eu",
+      "kind": "ellipse-arc",
+      "center": [
+       2,
+       3.5
+      ],
+      "a": 4.5,
+      "b": 6,
+      "half": "upper",
+      "color": "#222"
+     },
+     {
+      "id": "el",
+      "kind": "ellipse-arc",
+      "center": [
+       2,
+       3.5
+      ],
+      "a": 4.5,
+      "b": 6,
+      "half": "lower",
+      "color": "#222"
+     }
+    ],
+    "shadeBetween": [
+     {
+      "funcA": "zbot",
+      "funcB": "z0",
+      "xRange": [
+       0,
+       4
+      ],
+      "color": "#7d9bbf"
+     }
+    ],
+    "dots": [
+     {
+      "x": 2,
+      "y": 3.5,
+      "label": "",
+      "labelDx": 0,
+      "labelDy": 0
+     }
+    ],
+    "annotations": [
+     {
+      "at": [
+       2,
+       10.1
+      ],
+      "text": "A₄ − A₃",
+      "anchor": "middle"
+     }
+    ]
+   },
+   {
+    "type": "function-plot",
+    "width": 210,
+    "height": 270,
+    "xRange": [
+     -3.5,
+     7
+    ],
+    "yRange": [
+     -3.5,
+     10.5
+    ],
+    "axes": {
+     "arrows": true,
+     "xLabel": "x",
+     "yLabel": "y",
+     "originLabel": "O"
+    },
+    "functions": [
+     {
+      "id": "z0",
+      "kind": "polynomial",
+      "coefs": [
+       0
+      ],
+      "color": "transparent"
+     },
+     {
+      "id": "z7",
+      "kind": "polynomial",
+      "coefs": [
+       7
+      ],
+      "color": "transparent"
+     },
+     {
+      "id": "eu",
+      "kind": "ellipse-arc",
+      "center": [
+       2,
+       3.5
+      ],
+      "a": 4.5,
+      "b": 6,
+      "half": "upper",
+      "color": "#222"
+     },
+     {
+      "id": "el",
+      "kind": "ellipse-arc",
+      "center": [
+       2,
+       3.5
+      ],
+      "a": 4.5,
+      "b": 6,
+      "half": "lower",
+      "color": "#222"
+     }
+    ],
+    "shadeBetween": [
+     {
+      "funcA": "z0",
+      "funcB": "z7",
+      "xRange": [
+       0,
+       4
+      ],
+      "color": "#7d9bbf"
+     }
+    ],
+    "dots": [
+     {
+      "x": 2,
+      "y": 3.5,
+      "label": "",
+      "labelDx": 0,
+      "labelDy": 0
+     }
+    ],
+    "annotations": [
+     {
+      "at": [
+       0.4,
+       10.1
+      ],
+      "text": "50 × 94 = 4700",
+      "anchor": "start"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "gen-chap-04-coord-q223",
+  "type": "mc",
+  "difficulty": "ปานกลาง",
+  "topics": [
+   "4"
+  ],
+  "subTopics": [
+   "4.7"
+  ],
+  "question": "เส้นตรง $y=x+4$ สัมผัสพาราโบลา $y^2=16x$ จุดสัมผัสคือข้อใด",
+  "choices": [
+   "$(8,4)$",
+   "$(2,4)$",
+   "$(4,-8)$",
+   "$(4,8)$"
+  ],
+  "correct": 3,
+  "hasImage": true,
+  "hint": null,
+  "imageSpec": {
+   "type": "analytic-geo",
+   "width": 360,
+   "height": 330,
+   "xRange": [
+    -4,
+    9
+   ],
+   "yRange": [
+    -4,
+    10
+   ],
+   "grid": true,
+   "title": "y=x+4 tangent to y^2=16x",
+   "elements": [
+    {
+     "kind": "parabola",
+     "vertex": [
+      0,
+      0
+     ],
+     "p": 4,
+     "orient": "right",
+     "color": "#2e8b57"
+    },
+    {
+     "kind": "line",
+     "p1": [
+      -4,
+      0
+     ],
+     "p2": [
+      5,
+      9
+     ],
+     "color": "#e67e22",
+     "label": "y=x+4"
+    },
+    {
+     "kind": "point",
+     "at": [
+      4,
+      8
+     ],
+     "label": "P",
+     "color": "#c0392b",
+     "anchor": "start",
+     "dx": 6,
+     "dy": -4
+    }
+   ]
+  }
+ },
+ {
+  "id": "chap-04-coord-q235",
+  "type": "mc",
+  "difficulty": "ง่าย",
+  "topics": [
+   "4"
+  ],
+  "subTopics": [
+   "4.7"
+  ],
+  "question": "$\\sqrt{(1 + x)^2 + (2 - y)^2} = |x + 2|$ เป็นสมการของกราฟแบบใด",
+  "choices": [
+   "เส้นตรง",
+   "พาราโบลา",
+   "เส้นตรง 2 เส้น",
+   "วงรี"
+  ],
+  "correct": 1,
+  "hasImage": true,
+  "hint": null,
+  "imageSpec": [
+   {
+    "type": "function-plot",
+    "width": 800,
+    "height": 662,
+    "xRange": [
+     -4,
+     8
+    ],
+    "yRange": [
+     -3,
+     7
+    ],
+    "axes": {
+     "arrows": true,
+     "xLabel": "x",
+     "yLabel": "y",
+     "originLabel": "O"
+    },
+    "functions": [
+     {
+      "id": "pb",
+      "kind": "parabola-h",
+      "vertex": [
+       -1.5,
+       2
+      ],
+      "throughPoint": [
+       3,
+       5
+      ],
+      "yDomain": [
+       -1.2,
+       5.2
+      ],
+      "color": "#222",
+      "strokeWidth": 1.6
+     }
+    ],
+    "segments": [
+     {
+      "from": [
+       -2,
+       -3
+      ],
+      "to": [
+       -2,
+       7
+      ],
+      "dashed": true
+     }
+    ],
+    "dots": [
+     {
+      "x": -1,
+      "y": 2,
+      "label": "โฟกัส(−1, 2)",
+      "labelAnchor": "start",
+      "labelDx": -20,
+      "labelDy": -27,
+      "labelColor": "#c62828"
+     },
+     {
+      "x": -1.5,
+      "y": 2,
+      "label": "ยอด(−3/2, 2)",
+      "labelAnchor": "end",
+      "labelDx": -40,
+      "labelDy": 7
+     }
+    ],
+    "annotations": [
+     {
+      "at": [
+       -4.21,
+       4.211
+      ],
+      "text": "ระยะถึงจุด (−1,2) = ระยะถึงเส้น x=−2",
+      "anchor": "start",
+      "color": "#616161"
+     },
+     {
+      "at": [
+       -4.163,
+       3.868
+      ],
+      "text": "→ พาราโบลา",
+      "anchor": "start",
+      "color": "#616161"
+     },
+     {
+      "at": [
+       -1.837,
+       -2.336
+      ],
+      "text": "ไดเรกตริกซ์ x=−2",
+      "anchor": "start",
+      "color": "#1565c0"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "gen-chap-04-coord-q253",
+  "type": "fill",
+  "difficulty": "ยาก",
+  "topics": [
+   "4"
+  ],
+  "subTopics": [
+   "4.8"
+  ],
+  "question": "ลากเส้นสัมผัสสองเส้นจากจุด $P(4,3)$ ไปยังวงรี $\\dfrac{x^2}{16}+\\dfrac{y^2}{9}=1$ ให้สัมผัสที่จุด $A,B$ จงหาความยาวคอร์ดสัมผัส $AB$",
+  "choices": null,
+  "correct": "5",
+  "hasImage": true,
+  "hint": null,
+  "imageSpec": {
+   "type": "analytic-geo",
+   "width": 360,
+   "height": 300,
+   "xRange": [
+    -6,
+    7
+   ],
+   "yRange": [
+    -4,
+    5
+   ],
+   "grid": true,
+   "title": "chord of contact",
+   "elements": [
+    {
+     "kind": "ellipse",
+     "center": [
+      0,
+      0
+     ],
+     "a": 4,
+     "b": 3,
+     "orient": "h",
+     "color": "#2e6fb0"
+    },
+    {
+     "kind": "point",
+     "at": [
+      4,
+      3
+     ],
+     "label": "P",
+     "color": "#c0392b",
+     "anchor": "start",
+     "dx": 5,
+     "dy": -4
+    },
+    {
+     "kind": "point",
+     "at": [
+      4,
+      0
+     ],
+     "label": "A",
+     "color": "#8e44ad",
+     "anchor": "start",
+     "dx": 4,
+     "dy": 14
+    },
+    {
+     "kind": "point",
+     "at": [
+      0,
+      3
+     ],
+     "label": "B",
+     "color": "#8e44ad",
+     "anchor": "end",
+     "dx": -6,
+     "dy": -4
+    },
+    {
+     "kind": "segment",
+     "from": [
+      4,
+      0
+     ],
+     "to": [
+      0,
+      3
+     ],
+     "color": "#e67e22",
+     "label": "AB"
+    },
+    {
+     "kind": "segment",
+     "from": [
+      4,
+      3
+     ],
+     "to": [
+      4,
+      0
+     ],
+     "color": "#bbbbbb"
+    },
+    {
+     "kind": "segment",
+     "from": [
+      4,
+      3
+     ],
+     "to": [
+      0,
+      3
+     ],
+     "color": "#bbbbbb"
+    }
+   ]
+  }
+ },
+ {
+  "id": "gen-chap-04-coord-q274",
+  "type": "fill",
+  "difficulty": "ยากมาก",
+  "topics": [
+   "4"
+  ],
+  "subTopics": [
+   "4.9",
+   "4.2"
+  ],
+  "question": "เซตของจุดกึ่งกลางของคอร์ดทุกเส้นของไฮเพอร์โบลา $\\dfrac{x^2}{9}-\\dfrac{y^2}{4}=1$ ที่มีความชัน $1$ เป็นเส้นตรงเส้นหนึ่งผ่านศูนย์กลาง จงหาสมการของเซตนั้น (เขียนในรูป $Ax-By=0$ ที่ทอนแล้ว)",
+  "choices": null,
+  "correct": "4x-9y=0",
+  "hasImage": true,
+  "hint": null,
+  "imageSpec": {
+   "type": "analytic-geo",
+   "width": 360,
+   "height": 330,
+   "xRange": [
+    -8,
+    8
+   ],
+   "yRange": [
+    -6,
+    6
+   ],
+   "grid": true,
+   "title": "diameter of parallel chords",
+   "elements": [
+    {
+     "kind": "hyperbola",
+     "center": [
+      0,
+      0
+     ],
+     "a": 3,
+     "b": 2,
+     "orient": "h",
+     "color": "#c0392b",
+     "asymptotes": true
+    },
+    {
+     "kind": "line",
+     "abc": [
+      4,
+      -9,
+      0
+     ],
+     "color": "#8e44ad",
+     "label": "locus"
+    },
+    {
+     "kind": "line",
+     "abc": [
+      1,
+      -1,
+      3
+     ],
+     "color": "#2e8b57",
+     "label": "chord"
+    },
+    {
+     "kind": "line",
+     "abc": [
+      1,
+      -1,
+      -3
+     ],
+     "color": "#2e8b57",
+     "dash": true
+    }
+   ]
+  }
+ },
+ {
+  "id": "gen-chap-04-coord-q295",
+  "type": "fill",
+  "difficulty": "ยากมาก",
+  "topics": [
+   "4"
+  ],
+  "subTopics": [
+   "4.7"
+  ],
+  "question": "จงหาความยาวที่น้อยที่สุดของคอร์ดโฟกัส (focal chord) ของพาราโบลา $y^2=12x$",
+  "choices": null,
+  "correct": "12",
+  "hasImage": true,
+  "hint": null,
+  "imageSpec": {
+   "type": "analytic-geo",
+   "width": 360,
+   "height": 320,
+   "xRange": [
+    -2,
+    10
+   ],
+   "yRange": [
+    -7,
+    7
+   ],
+   "grid": true,
+   "title": "minimum focal chord",
+   "elements": [
+    {
+     "kind": "parabola",
+     "vertex": [
+      0,
+      0
+     ],
+     "p": 3,
+     "orient": "right",
+     "color": "#2e8b57"
+    },
+    {
+     "kind": "point",
+     "at": [
+      3,
+      0
+     ],
+     "label": "S",
+     "color": "#c0392b",
+     "anchor": "start",
+     "dx": 4,
+     "dy": 14
+    },
+    {
+     "kind": "segment",
+     "from": [
+      3,
+      6
+     ],
+     "to": [
+      3,
+      -6
+     ],
+     "color": "#e67e22",
+     "label": "L=12"
+    },
+    {
+     "kind": "point",
+     "at": [
+      3,
+      6
+     ],
+     "label": "",
+     "color": "#8e44ad"
+    },
+    {
+     "kind": "point",
+     "at": [
+      3,
+      -6
+     ],
+     "label": "",
+     "color": "#8e44ad"
+    }
+   ]
+  }
+ },
+ {
+  "id": "gen-chap-04-coord-q316",
+  "type": "fill",
+  "difficulty": "ยากมาก",
+  "topics": [
+   "4"
+  ],
+  "subTopics": [
+   "4.4",
+   "4.5",
+   "4.3"
+  ],
+  "question": "ในบรรดาเส้นตรงที่ผ่านจุด $P(2,1)$ เส้นที่อยู่ห่างจากจุดกำเนิดมากที่สุด ทำให้เกิดสามเหลี่ยมกับแกนพิกัดในจตุภาคที่หนึ่ง พื้นที่ของสามเหลี่ยมนั้นเท่ากับเท่าใด",
+  "choices": null,
+  "correct": "25/4",
+  "hasImage": true,
+  "hint": null,
+  "imageSpec": {
+   "type": "analytic-geo",
+   "width": 360,
+   "height": 330,
+   "xRange": [
+    -1,
+    4
+   ],
+   "yRange": [
+    -1,
+    6
+   ],
+   "grid": true,
+   "title": "เส้นผ่าน P ห่างจุดกำเนิดมากสุด",
+   "elements": [
+    {
+     "kind": "line",
+     "abc": [
+      2,
+      1,
+      -5
+     ],
+     "color": "#e67e22",
+     "label": "2x+y=5"
+    },
+    {
+     "kind": "segment",
+     "from": [
+      0,
+      0
+     ],
+     "to": [
+      2,
+      1
+     ],
+     "color": "#c0392b",
+     "label": "OP"
+    },
+    {
+     "kind": "polygon",
+     "pts": [
+      [
+       0,
+       0
+      ],
+      [
+       "5/2",
+       0
+      ],
+      [
+       0,
+       5
+      ]
+     ],
+     "color": "#8e44ad",
+     "fill": "none"
+    },
+    {
+     "kind": "shade",
+     "pts": [
+      [
+       0,
+       0
+      ],
+      [
+       "5/2",
+       0
+      ],
+      [
+       0,
+       5
+      ]
+     ],
+     "color": "#1e7e34",
+     "opacity": 0.12
+    },
+    {
+     "kind": "point",
+     "at": [
+      2,
+      1
+     ],
+     "label": "P",
+     "color": "#c0392b",
+     "anchor": "start",
+     "dx": 6,
+     "dy": -6
+    },
+    {
+     "kind": "point",
+     "at": [
+      0,
+      0
+     ],
+     "label": "O",
+     "color": "#444",
+     "anchor": "end",
+     "dx": -6,
+     "dy": -6
+    },
+    {
+     "kind": "right",
+     "at": [
+      2,
+      1
+     ],
+     "u": [
+      2,
+      1
+     ],
+     "v": [
+      -1,
+      2
+     ],
+     "size": 0.35
+    }
+   ]
+  }
+ },
+ {
+  "id": "gen-chap-04-coord-q337",
+  "type": "mc",
+  "difficulty": "ยากมาก",
+  "topics": [
+   "4"
+  ],
+  "subTopics": [
+   "4.6",
+   "4.5"
+  ],
+  "question": "วงกลม $x^2+y^2-2x-2y-23=0$ และ $x^2+y^2-10x-10y+25=0$ ตัดกัน จงหาความยาวคอร์ดร่วม",
+  "choices": [
+   "$\\sqrt{17}$",
+   "$2\\sqrt{34}$",
+   "$2\\sqrt{17}$",
+   "$2\\sqrt{2}$"
+  ],
+  "correct": 2,
+  "hasImage": true,
+  "hint": null,
+  "imageSpec": {
+   "type": "analytic-geo",
+   "width": 340,
+   "height": 340,
+   "xRange": [
+    -6,
+    11
+   ],
+   "yRange": [
+    -6,
+    11
+   ],
+   "grid": true,
+   "title": "คอร์ดร่วมของสองวงกลม",
+   "elements": [
+    {
+     "kind": "circle",
+     "center": [
+      1,
+      1
+     ],
+     "r": 5,
+     "color": "#2e8b57"
+    },
+    {
+     "kind": "circle",
+     "center": [
+      5,
+      5
+     ],
+     "r": 5,
+     "color": "#2e6fb0"
+    },
+    {
+     "kind": "line",
+     "abc": [
+      1,
+      1,
+      -6
+     ],
+     "color": "#e67e22",
+     "label": "x+y=6"
+    },
+    {
+     "kind": "point",
+     "at": [
+      1,
+      1
+     ],
+     "label": "C_1",
+     "color": "#c0392b",
+     "anchor": "end",
+     "dx": -4,
+     "dy": -4
+    },
+    {
+     "kind": "point",
+     "at": [
+      5,
+      5
+     ],
+     "label": "C_2",
+     "color": "#c0392b",
+     "anchor": "start",
+     "dx": 6,
+     "dy": -4
+    }
+   ]
+  }
+ },
+ {
+  "id": "gen-chap-04-coord-q358",
+  "type": "fill",
+  "difficulty": "ยากมาก",
+  "topics": [
+   "4"
+  ],
+  "subTopics": [
+   "4.7",
+   "13.8"
+  ],
+  "question": "รูปสี่เหลี่ยมมุมฉากมีฐานอยู่บนแกน $X$ และมุมบนสองมุมอยู่บนพาราโบลา $y=12-x^2$ จงหาพื้นที่มากที่สุดของรูปสี่เหลี่ยมนี้",
+  "choices": null,
+  "correct": "32",
+  "hasImage": true,
+  "hint": null,
+  "imageSpec": {
+   "type": "analytic-geo",
+   "width": 360,
+   "height": 330,
+   "xRange": [
+    -4,
+    4
+   ],
+   "yRange": [
+    -1,
+    13
+   ],
+   "grid": true,
+   "title": "max rectangle under y=12-x^2",
+   "elements": [
+    {
+     "kind": "parabola",
+     "vertex": [
+      0,
+      12
+     ],
+     "p": 0.25,
+     "orient": "down",
+     "color": "#2e8b57"
+    },
+    {
+     "kind": "polygon",
+     "pts": [
+      [
+       -2,
+       0
+      ],
+      [
+       2,
+       0
+      ],
+      [
+       2,
+       8
+      ],
+      [
+       -2,
+       8
+      ]
+     ],
+     "color": "#8e44ad",
+     "fill": "none"
+    },
+    {
+     "kind": "point",
+     "at": [
+      2,
+      8
+     ],
+     "label": "(2,8)",
+     "color": "#c0392b",
+     "anchor": "start",
+     "dx": 6,
+     "dy": 0
+    },
+    {
+     "kind": "point",
+     "at": [
+      -2,
+      8
+     ],
+     "color": "#c0392b"
+    }
+   ]
+  }
+ },
+ {
+  "id": "gen-chap-04-coord-q379",
+  "type": "mc",
+  "difficulty": "ยากมาก",
+  "topics": [
+   "4"
+  ],
+  "subTopics": [
+   "4.8",
+   "4.6"
+  ],
+  "question": "วงรี $\\dfrac{x^2}{25}+\\dfrac{y^2}{9}=1$ มีโฟกัส $F_1,F_2$ และ $B(0,3)$ เป็นปลายแกนโทด้านบน วงกลมที่ผ่านจุด $F_1,\\ F_2,\\ B$ มีรัศมีเท่าใด",
+  "choices": [
+   "$\\dfrac{5}{2}$",
+   "$4$",
+   "$\\dfrac{7}{6}$",
+   "$\\dfrac{25}{6}$"
+  ],
+  "correct": 3,
+  "hasImage": true,
+  "hint": null,
+  "imageSpec": {
+   "type": "analytic-geo",
+   "width": 340,
+   "height": 340,
+   "xRange": [
+    -6,
+    6
+   ],
+   "yRange": [
+    -6,
+    4
+   ],
+   "grid": true,
+   "title": "วงกลมผ่าน $F_1,F_2,B$",
+   "elements": [
+    {
+     "kind": "ellipse",
+     "center": [
+      0,
+      0
+     ],
+     "a": 5,
+     "b": 3,
+     "orient": "h",
+     "color": "#2e6fb0"
+    },
+    {
+     "kind": "circle",
+     "center": [
+      0,
+      -1.1667
+     ],
+     "r": 4.1667,
+     "color": "#c0392b",
+     "dash": true
+    },
+    {
+     "kind": "point",
+     "at": [
+      4,
+      0
+     ],
+     "label": "F_1",
+     "color": "#c0392b",
+     "anchor": "start",
+     "dx": 4,
+     "dy": -8
+    },
+    {
+     "kind": "point",
+     "at": [
+      -4,
+      0
+     ],
+     "label": "F_2",
+     "color": "#c0392b",
+     "anchor": "end",
+     "dx": -4,
+     "dy": -8
+    },
+    {
+     "kind": "point",
+     "at": [
+      0,
+      3
+     ],
+     "label": "B",
+     "color": "#2e8b57",
+     "anchor": "start",
+     "dx": 6,
+     "dy": -4
+    },
+    {
+     "kind": "point",
+     "at": [
+      0,
+      -1.1667
+     ],
+     "label": "O",
+     "color": "#444",
+     "anchor": "start",
+     "dx": 6,
+     "dy": 0
+    }
+   ]
+  }
+ },
+ {
+  "id": "gen-chap-04-coord-q400",
+  "type": "mc",
+  "difficulty": "ยากมาก",
+  "topics": [
+   "4"
+  ],
+  "subTopics": [
+   "4.9",
+   "4.8",
+   "4.7"
+  ],
+  "question": "พาราโบลา $y^2=12x$ มีโฟกัส $S$ วงรีศูนย์กลางที่จุดกำเนิดมีโฟกัสจุดหนึ่งที่ $S$ และมีความเยื้องศูนย์กลาง $\\dfrac{3}{5}$ ไฮเพอร์โบลาแนวนอนศูนย์กลางที่จุดกำเนิดมีจุดยอดตรงกับโฟกัสของวงรี และมีโฟกัสตรงกับจุดยอดของวงรี ระยะระหว่างโฟกัสทั้งสองของไฮเพอร์โบลาเท่ากับเท่าใด",
+  "choices": [
+   "$8$",
+   "$10$",
+   "$16$",
+   "$6$"
+  ],
+  "correct": 1,
+  "hasImage": true,
+  "hint": null,
+  "imageSpec": {
+   "type": "analytic-geo",
+   "width": 360,
+   "height": 330,
+   "xRange": [
+    -8,
+    10
+   ],
+   "yRange": [
+    -7,
+    7
+   ],
+   "grid": true,
+   "title": "parabola->ellipse->hyperbola",
+   "elements": [
+    {
+     "kind": "parabola",
+     "vertex": [
+      0,
+      0
+     ],
+     "p": 3,
+     "orient": "right",
+     "color": "#2e8b57"
+    },
+    {
+     "kind": "ellipse",
+     "center": [
+      0,
+      0
+     ],
+     "a": 5,
+     "b": 4,
+     "orient": "h",
+     "color": "#2e6fb0"
+    },
+    {
+     "kind": "hyperbola",
+     "center": [
+      0,
+      0
+     ],
+     "a": 3,
+     "b": 4,
+     "orient": "h",
+     "color": "#c0392b",
+     "asymptotes": true
+    },
+    {
+     "kind": "point",
+     "at": [
+      3,
+      0
+     ],
+     "label": "S=F_e=V_h",
+     "color": "#8e44ad",
+     "anchor": "end",
+     "dx": -2,
+     "dy": 14
+    },
+    {
+     "kind": "point",
+     "at": [
+      5,
+      0
+     ],
+     "label": "V_e=F_h",
+     "color": "#c0392b",
+     "anchor": "start",
+     "dx": 2,
+     "dy": -8
+    },
+    {
+     "kind": "point",
+     "at": [
+      -5,
+      0
+     ],
+     "label": "",
+     "color": "#c0392b"
+    }
+   ]
+  }
  }
 ]
