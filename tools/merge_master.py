@@ -51,12 +51,37 @@ def main():
     ap.add_argument('--choices', nargs='*', default=[os.path.join('_t1run', 'choice_*.json')],
                     help='ไฟล์คำเคาะครู {id: hash} · ใส่ค่าว่างเพื่อปิดชั้นนี้')
     ap.add_argument('--dry-run', action='store_true', help='คำนวณและรายงาน แต่ ⛔ ไม่เขียนไฟล์')
+    ap.add_argument('--sets-manifest', default=os.path.join('data', 'manifest.json'),
+                    help='ต้นทางธง flawedSource (อ่านจาก data/sets ตาม manifest ⛔ ไม่ใช่ bank.json ที่บอทสร้าง) · ใส่ค่าว่างเพื่อปิดตัวกรอง')
     a = ap.parse_args()
     key = {}
     if os.path.exists(a.bank):
         for q in load_bank(a.bank):
             c = q.get('correct')
             key[q['id']] = q['choices'][c] if isinstance(c, int) and q.get('choices') else S(c)
+
+    # ---------- 🔴 ตัวกรอง "ข้อสอบออกผิด" (มติครูอ๊อฟ 17–18 ก.ย. 2569 · ใบ 375/376/377/379) ----------
+    #   ข้อที่มีธง flawedSource **และ** ไม่มีคีย์ (correct is None) = โจทย์ผิด ⇒ ⛔ ไม่เข้า MASTER
+    #   อ่านธงจาก data/sets ตาม manifest (ต้นทางจริง) ⛔ ไม่อ่านจาก bank.json — bank.json เป็นของที่บอทสร้าง
+    #   ถ้าครูยังไม่ Pull หลังบอท rebuild ธงใหม่จะยังไม่อยู่ใน bank ⇒ ตัวกรองจะผ่านเงียบ (ใบ 376 §1 · E แก้ใน 377 §③)
+    #   ทรงเดียวกับ _t1run/drop_flawed_from_master.py (G2) ⇒ ตัวกรอง 2 ตัวตอบตรงกันเสมอ
+    #   ⛔ ไม่ฝังเลขคาดหวัง (เช่น "ต้องได้ 10") — เลขนั้นเปลี่ยนทุกครั้งที่ครูเคาะข้อใหม่ · พิมพ์จำนวน+รายชื่อให้คนเทียบแทน
+    flawed_nokey, flawed_keyed, sets_seen = {}, [], 0
+    if a.sets_manifest and os.path.exists(a.sets_manifest):
+        sets_d = os.path.join(os.path.dirname(a.sets_manifest), 'sets')
+        try:
+            man = json.load(open(a.sets_manifest, encoding='utf-8'))
+            for sid in man.get('sets', []):
+                p = os.path.join(sets_d, sid + '.json')
+                if not os.path.exists(p): continue
+                sets_seen += 1
+                for q in json.load(open(p, encoding='utf-8')).get('questions', []):
+                    fs_ = q.get('flawedSource')
+                    if not fs_: continue
+                    if q.get('correct') is None: flawed_nokey[q['id']] = fs_.get('kind') if isinstance(fs_, dict) else str(fs_)
+                    else: flawed_keyed.append(q['id'])
+        except Exception as e:
+            print(f'   ⚠️ อ่าน manifest/sets ไม่ได้: {e} — ตัวกรองข้อสอบออกผิด ⛔ ไม่ทำงานรอบนี้')
     files = []
     for p in a.done:
         files += [p] if os.path.isfile(p) else glob.glob(os.path.join(p, '**', '*.json'), recursive=True)
@@ -76,6 +101,11 @@ def main():
     def score(r): return (1 if hit(r) else 0, len(r.get('steps', [])) + len(r.get('traps', [])), len(S(r)))
     chosen = {i: max(v, key=score) for i, v in vers.items()}
 
+    # ---------- ตัดข้อสอบออกผิดออกก่อนชั้นคำเคาะ (คำเคาะที่ชี้ id ที่ถูกตัด จะไปโผล่ในถัง noid ⇒ ไม่เงียบ) ----------
+    dropped = sorted(i for i in chosen if i in flawed_nokey)
+    for i in dropped:
+        del chosen[i]; vers.pop(i, None)
+
     # ---------- 🔴 ชั้นคำเคาะครู — ทับหลังสุด และรายงานทุกครั้ง ----------
     ch, csrc, cfiles = load_choices([p for p in a.choices if p])
     applied, same, notfound, noid = [], [], [], []
@@ -90,10 +120,25 @@ def main():
     dup = nrec - len(best)
     if not a.dry_run:
         os.makedirs(os.path.dirname(a.out) or '.', exist_ok=True)
-        json.dump(best, open(a.out, 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
+        # newline='\n' (มติครูอ๊อฟ 18 ก.ย. 2569 ข้อ ③): เดิมเปิด 'w' ไม่ระบุ ⇒ Windows เขียน CRLF ⇒ md5 บนดิสก์ ≠ blob ใน git (.gitattributes eol=lf)
+        #   ⚠️ รอบ merge แรกหลังแพตช์นี้ md5 ของ MASTER เปลี่ยนทั้งไฟล์แม้เนื้อเท่าเดิม (ใบ 377 §③ · 378 §1)
+        json.dump(best, open(a.out, 'w', encoding='utf-8', newline='\n'), ensure_ascii=False, indent=1)
     print(('🧪 ทดลอง (⛔ ไม่เขียนไฟล์) ' if a.dry_run else '✅ ') + a.out)
     print(f'   อ่าน {nfile} ไฟล์ · {nrec:,} ฉบับ ⇒ id ไม่ซ้ำ {len(best):,} ข้อ · ตัดฉบับซ้ำทิ้ง {dup:,}')
     if key: print(f'   ฉบับที่เลือกแล้วตรงเฉลย {sum(1 for r in best if hit(r)):,} / {len(best):,}')
+
+    # ---------- รายงานตัวกรองข้อสอบออกผิด ⛔ ห้ามเงียบ ----------
+    print('   ── ตัวกรองข้อสอบออกผิด (ธง flawedSource + ไม่มีคีย์ · อ่านจาก data/sets) ──')
+    if not a.sets_manifest:
+        print('   ⚠️ ⛔ ปิดตัวกรอง (--sets-manifest ว่าง) — MASTER นี้อาจมีข้อโจทย์ผิดปน')
+    elif not sets_seen:
+        print(f'   ⚠️ ⛔ ไม่ได้อ่านชุดใดเลย ({a.sets_manifest}) — ตัวกรองไม่ทำงาน · ตรวจพาธ/manifest ก่อนเชื่อ MASTER นี้')
+    else:
+        print(f'   อ่าน {sets_seen} ชุด · ธง+ไม่มีคีย์ในคลัง {len(flawed_nokey)} ข้อ ⇒ ตัดออกจาก MASTER รอบนี้ {len(dropped)} ข้อ'
+              f' · ธง+มีคีย์ (คงไว้) {len(flawed_keyed)} ข้อ')
+        for i in dropped: print(f'      ✂️ {i}  ({flawed_nokey[i]})')
+        if not flawed_nokey:
+            print('   ⚠️ คลังไม่มีข้อ "ธง+ไม่มีคีย์" เลย — ผิดจากที่ครูเคาะไว้ (17 ก.ย. 69 มี 10 ข้อ) ⇒ ตรวจว่า data/sets ครบไหม')
 
     # ---------- รายงานชั้นคำเคาะ ⛔ ห้ามเงียบไม่ว่ากรณีใด ----------
     print('   ── ชั้นคำเคาะครู ──')
