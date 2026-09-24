@@ -23,6 +23,20 @@ v1.1 (1 ส.ค. 69) — ชั้นบังคับตามขอบเข�
   ⛔ รายชื่อ "ข้อที่เปลี่ยนรอบนี้" ไม่ได้คำนวณในไฟล์นี้ — รับมาจาก
      scan_symbols.py --print-changed-ids เพื่อให้มีที่เดียวที่ตอบคำถามนี้
 
+v1.4 (23 ก.ย. 69) — ㉝ อ่าน "ข้อ N" ในบรรทัดคำตอบเป็นคำประกาศด้วย
+  มติครู 23 ก.ย. ③ (ใบ 400) · regex ㉝ MB-v1 (ใบ 397 §4 · E วัดซ้ำตรงทุกช่องในใบ 398 §1)
+  ที่มา: เฉลยจำนวนมากสรุปว่า "✅ คำตอบ: ข้อ 4" โดยไม่มีคำว่า "ตัวเลือก"
+         ⇒ v1.3 นับเป็น 'none' ⇒ ด่าน 7 มองไม่เห็น ทั้งที่เฉลยประกาศชัด
+  ข้อบังคับ (สองเลนตกลงกันแล้ว):
+    · หน่วย = บรรทัด เหมือนเดิม ⛔ ห้ามอ่านทั้งก้อน (ชุดทดสอบใบ 391 §2 เฝ้าไว้)
+    · (ข) บรรทัดที่มี "ตัวเลือก N" ⇒ ตัวเลือกชนะ ⛔ ไม่อ่าน "ข้อ" ในบรรทัดนั้น
+    · (ก) "ข้อ N" ที่ N > จำนวนตัวเลือก ⇒ ⛔ ไม่อ่าน
+    · (ค) หลายเลข ⇒ 'many' เหมือนเดิม
+    · ⛔ ไม่ตัดแท็ก HTML ก่อนอ่าน — `<` ในสูตรทำให้ `<[^>]+>` กลืน "ตัวเลือก N" (ใบ 398 §3)
+  ⬜ ยังไม่ใส่ (ฉ) "โจทย์ที่พูดถึงข้อสอบ ⇒ ไม่อ่าน" (8 ข้อทั้งคลัง · ใส่แล้วหนี้ขึ้น ≤ 8)
+  positive control (กฎ ⑪): ปิด ALT_RE ⇒ ต้องได้ one 3,012 · many 42 · none 1,382
+                          = v1.3 ทุกช่อง บนฐาน b8d0344 (มิวแทนต์ ⑦ ในตัวนี้คือโค้ดชุดนั้น)
+
 รหัสออก: 0 = ผ่าน · 1 = เนื้อหาแดง · 2 = ตัวเครื่องมือแดง
 """
 import argparse
@@ -32,7 +46,7 @@ import os
 import re
 import sys
 
-CHECKER_VERSION = '1.3'
+CHECKER_VERSION = '1.4'
 
 # ── เพดานหนี้ "ตรวจไม่ได้" — ratchet เดียว ⛔ ไม่ใช่สองตัว ─────────────
 #
@@ -44,7 +58,12 @@ CHECKER_VERSION = '1.3'
 # ⚠️ เลข 1,424 นี้ ⛔ ไม่ใช่เป้าหมาย — เป็น "ที่ที่เรายืนอยู่วันนี้" (1 ส.ค. 69 · 538d4d4)
 #    42 + 1,382 = 1,424 จากข้อปรนัยที่มีคีย์และเฉลย 4,221 ข้อ
 #    ทุกครั้งที่ยอดลดลงจริง ให้ปรับเพดานลงตาม ⇒ ratchet เดินลงทางเดียว
-MAX_UNDECLARED = 1424
+#
+# 🆕 v1.4 (23 ก.ย. 69 · ㉝ · มติครู ③): 1,424 → 1,097
+#    ⬤ วัดบนฐาน b8d0344: one 3,339 · many 67 · none 1,030 ⇒ หนี้ 1,097 · ตัวหาร 4,436 · แดง 0
+#    ⛔ หนี้ลดเพราะ "ด่านมองเห็นมากขึ้น" ⛔ ไม่ใช่เพราะมีคนเติมบรรทัดสรุป — สองอย่างนี้ห้ามปนกัน
+#    ⇒ ratchet เดินลงทางเดียวเหมือนเดิม ⛔ ห้ามขยับขึ้น
+MAX_UNDECLARED = 1097
 
 # ── ⑨ ตัวหาร: "หนี้ 1,424" จากคลัง 4,221 ข้อ ต่างจาก "หนี้ 1,424" จากคลัง 1,500 ข้อ ──
 # ถ้าไฟล์ชุดหายไปครึ่งคลัง หนี้จะ "ลดลง" เอง แล้วด่านนี้จะเขียว ⇒ ต้องมีพื้นของตัวหาร
@@ -62,19 +81,29 @@ DISTRACTOR_MARKERS = ('จุดพลาด', 'เผลอ', 'ตัวลว�
 
 CHOICE_RE = re.compile(r'ตัวเลือก\s*(\d+)')
 
+# 🆕 v1.4 ㉝ — "ข้อ N" ในบรรทัดคำตอบ (อ่านเฉพาะบรรทัดที่ไม่มี "ตัวเลือก N")
+#    lookahead ปิดช่วงแบบ "ข้อ 1-4" / "ข้อ 1–4" ⛔ ไม่ให้อ่านเป็นคำประกาศ
+#    ⚠️ รู้ไว้ 2 ข้อ (MB ใบ 403):
+#       ① lookahead ⛔ ไม่ได้ปิด "ข้อ 50%" — ตัวที่ปิดคือกฎ (ก) N > จำนวนตัวเลือก
+#       ② ช่วงเลขสองหลัก "ข้อ 12-14" จะถูกย้อนรอยจนอ่านได้ "1"
+#          ⬤ วัดบนฐาน b8d0344: กระทบ 0 บรรทัด · 0 ข้อ ⇒ คงไว้ตาม MB-v1 ที่ครูเคาะ ⛔ ไม่แก้เงียบ
+ALT_RE = re.compile(r'ข้อ\s*(\d+)(?!\s*[%–\-]\s*\d)')
+
 # เพดานล่างของความครอบคลุม — ⛔ กันด่านตาบอดเงียบ
 #   ถ้าใครลบคำในสองรายการข้างบนจนหมด ด่านจะเขียวตลอดกาลโดยไม่ตรวจอะไรเลย
 #   ⇒ บังคับว่าต้องตรวจได้จริงอย่างน้อยเท่านี้ ไม่งั้นถือว่าตัวด่านพัง (รหัส 2)
 DEFAULT_MIN_COVERAGE = 0.50
 
 
-def declared_choice(explanation):
+def declared_choice(explanation, n_choices=None):
     """คืน (สถานะ, เลขตัวเลือกที่เฉลยประกาศ)
 
     สถานะ: 'one'  = ประกาศเลขเดียวชัดเจน ⇒ ตรวจได้
            'many' = ประกาศหลายเลขในบรรทัดคำตอบ ⇒ ตัดสินไม่ได้ ข้ามไป
            'none' = ไม่ประกาศเลขเลย ⇒ ตรวจไม่ได้ ข้ามไป
     ⛔ "ตรวจไม่ได้" ไม่เท่ากับ "ตรวจแล้วผ่าน" — จึงแยกสถานะออกมา ไม่ยุบเป็น None
+
+    n_choices (v1.4) = จำนวนตัวเลือกของข้อ · None ⇒ ไม่กรองด้วยกฎ (ก)
     """
     nums = set()
     for line in explanation:
@@ -82,8 +111,14 @@ def declared_choice(explanation):
             continue
         if any(k in line for k in DISTRACTOR_MARKERS):
             continue
-        if any(k in line for k in ANSWER_MARKERS):
-            nums |= {int(m) for m in CHOICE_RE.findall(line)}
+        if not any(k in line for k in ANSWER_MARKERS):
+            continue
+        c = {int(m) for m in CHOICE_RE.findall(line)}
+        if c:                              # (ข) ตัวเลือกชนะ ⛔ ไม่อ่าน "ข้อ" ในบรรทัดนี้
+            nums |= c
+            continue
+        nums |= {int(m) for m in ALT_RE.findall(line)            # 🆕 v1.4 ㉝
+                 if not n_choices or int(m) <= n_choices}        # (ก) N > จำนวนตัวเลือก ⇒ ⛔ ไม่อ่าน
     if not nums:
         return 'none', None
     if len(nums) > 1:
@@ -140,7 +175,8 @@ def scan(sets_dir, fn=declared_choice):
                     stat['blind'] += 1
                 continue
             stat['eligible'] += 1
-            kind, val = fn(q['explanation'])
+            ch = q.get('choices')
+            kind, val = fn(q['explanation'], len(ch) if isinstance(ch, list) else None)
             stat[kind] += 1
             recs.append((os.path.basename(f), q.get('id'), kind))
             if kind == 'one' and val != q['correct'] + 1:
@@ -206,6 +242,42 @@ CASES = [
 
     ("บรรทัดที่ไม่ใช่สตริง (None ปนมา) ต้องไม่ทำให้ด่านล้ม",
      [None, '✅ คำตอบ: ตัวเลือก 1'], 0, False, 'one'),
+]
+
+
+# 🆕 v1.4 ㉝ — (ชื่อเคส, explanation, จำนวนตัวเลือก, correct, ต้องแดงไหม, สถานะที่ต้องได้)
+#  ⛔ แยกจาก CASES เพราะต้องพกจำนวนตัวเลือก (กฎ (ก)) · ทุกเคสมีมิวแทนต์เฝ้า ⑦–⑪
+ALT_CASES = [
+    ("㉝ บรรทัดคำตอบเขียน 'ข้อ N' ตรงคีย์ ⇒ ตรวจได้ (ทรงของ gen-chap-02-logic-q246)",
+     _ex('✅ คำตอบ: ข้อ 4 คือ $(p\\wedge r)\\vee q$'), 4, 3, False, 'one'),
+
+    ("🔴 ㉝ ของเสียที่ต้องจับได้ · 'ข้อ W' ≠ คีย์ ⇒ ต้องแดง (ใบ 400 §2 ②)",
+     _ex('<b>✅ คำตอบ ข้อ 2</b>'), 4, 0, True, 'one'),
+
+    ("㉝ (ข) มี 'ตัวเลือก N' ในบรรทัดเดียวกัน ⇒ ตัวเลือกชนะ ⛔ ไม่อ่าน 'ข้อ'",
+     _ex('✅ คำตอบ: ตัวเลือก 2 (แทนค่าในข้อ 3 แล้วไม่จริง)'), 4, 1, False, 'one'),
+
+    ("㉝ (ก) 'ข้อ N' ที่ N เกินจำนวนตัวเลือก ⇒ ⛔ ไม่อ่าน",
+     _ex('✅ คำตอบ: ผ่านเงื่อนไขข้อ 12 ของโจทย์'), 4, 0, False, 'none'),
+
+    ("㉝ ช่วง 'ข้อ 1–4' / 'ข้อ 1-4' ⛔ ไม่ใช่คำประกาศ",
+     _ex('✅ คำตอบ: ตรวจครบข้อ 1–4 แล้ว ได้ $x=2$',
+         '✅ คำตอบ: ข้อ 1-4 ใช้ได้ทุกข้อ'), 4, 1, False, 'none'),
+
+    ("㉝ หน่วย = บรรทัด · 'ข้อ N' ในบรรทัดที่ไม่มีคำประกาศ ⛔ ห้ามนับ (ด่านกันการอ่านทั้งก้อน · ใบ 391 §2)",
+     _ex('<b>✔ ตรวจคำตอบ</b>',
+         'ข้อ 2 ผิดเพราะแทนค่าแล้วไม่จริง',
+         '<b>✅ คำตอบ: ข้อ 4</b>'), 4, 3, False, 'one'),
+
+    ("㉝ บรรทัดตัวลวงที่มี 'ข้อ N' และคำประกาศปนอยู่ ⛔ ห้ามนับ",
+     _ex('✅ คำตอบ: ข้อ 1',
+         '⚠️ จุดพลาด: มักตอบข้อ 3 เพราะคิดว่าคำตอบคือค่าบวก'), 4, 0, False, 'one'),
+
+    ("㉝ หลายเลขในบรรทัดคำตอบ ⇒ 'many' (ตัดสินไม่ได้)",
+     _ex('✅ คำตอบ: ข้อ 1 และ ข้อ 3 ถูก'), 4, 0, False, 'many'),
+
+    ("㉝ ไม่รู้จำนวนตัวเลือก (None) ⇒ ไม่กรองด้วยกฎ (ก) แต่ยังอ่านได้",
+     _ex('✅ คำตอบ: ข้อ 2'), None, 1, False, 'one'),
 ]
 
 
@@ -310,7 +382,7 @@ def _run_enforce_cases(fn):
     return fails
 
 
-def _mut_no_distractor_filter(explanation):
+def _mut_no_distractor_filter(explanation, n_choices=None):
     """มิวแทนต์ ① ถอดตัวกรองบรรทัดตัวลวงออก ⇒ เสียงหลอกกลับมา"""
     nums = set()
     for line in explanation:
@@ -325,9 +397,81 @@ def _mut_no_distractor_filter(explanation):
     return 'one', nums.pop()
 
 
-def _mut_always_clean(explanation):
+def _mut_always_clean(explanation, n_choices=None):
     """มิวแทนต์ ② ไม่ตรวจอะไรเลย แล้วรายงานว่าไม่มีอะไรให้ตรวจ ⇒ เขียวตลอดกาล"""
     return 'none', None
+
+
+# ── 🆕 v1.4 มิวแทนต์ของ ㉝ — แต่ละตัวถอดข้อบังคับออกหนึ่งข้อ ─────────────
+def _alt_variant(explanation, n_choices, *, alt_re=ALT_RE, use_alt=True,
+                 nfilter=True, choice_wins=True):
+    nums = set()
+    for line in explanation:
+        if not isinstance(line, str):
+            continue
+        if any(k in line for k in DISTRACTOR_MARKERS):
+            continue
+        if not any(k in line for k in ANSWER_MARKERS):
+            continue
+        c = {int(m) for m in CHOICE_RE.findall(line)}
+        nums |= c
+        if c and choice_wins:
+            continue
+        if use_alt:
+            nums |= {int(m) for m in alt_re.findall(line)
+                     if not (nfilter and n_choices) or int(m) <= n_choices}
+    if not nums:
+        return 'none', None
+    if len(nums) > 1:
+        return 'many', sorted(nums)
+    return 'one', nums.pop()
+
+
+def _mut_no_alt(explanation, n_choices=None):
+    """⑦ ถอด ㉝ ทิ้ง = พฤติกรรม v1.3 ⇒ ใช้เป็น positive control กับคลังจริงด้วย (กฎ ⑪)"""
+    return _alt_variant(explanation, n_choices, use_alt=False)
+
+
+def _mut_no_nchoice_filter(explanation, n_choices=None):
+    """⑧ ถอดกฎ (ก) ⇒ "ข้อ 12" ถูกอ่านเป็นคำประกาศ"""
+    return _alt_variant(explanation, n_choices, nfilter=False)
+
+
+def _mut_alt_with_choice(explanation, n_choices=None):
+    """⑨ ถอดกฎ (ข) ⇒ อ่าน "ข้อ" ปนกับ "ตัวเลือก" ในบรรทัดเดียวกัน"""
+    return _alt_variant(explanation, n_choices, choice_wins=False)
+
+
+_ALT_NO_RANGE = re.compile(r'ข้อ\s*(\d+)')
+
+
+def _mut_no_range_guard(explanation, n_choices=None):
+    """⑩ ถอด lookahead ⇒ ช่วง "ข้อ 1–4" ถูกอ่านเป็นเลข 1"""
+    return _alt_variant(explanation, n_choices, alt_re=_ALT_NO_RANGE)
+
+
+def _mut_whole_block(explanation, n_choices=None):
+    """⑪ อ่านทั้งก้อนแทนทีละบรรทัด (ทรงที่ชุดทดสอบใบ 391 §2 เฝ้าไว้)"""
+    lines = [x for x in explanation if isinstance(x, str)
+             and not any(k in x for k in DISTRACTOR_MARKERS)]
+    if not any(any(k in x for k in ANSWER_MARKERS) for x in lines):
+        return 'none', None
+    return _alt_variant(['✅ ' + ' '.join(lines)], n_choices)
+
+
+def _run_alt_cases(fn):
+    """คืนรายชื่อเคส ㉝ ที่ล้มเมื่อใช้ fn เป็นตัวอ่าน"""
+    fails = []
+    for name, ex, n, correct, want_red, want_kind in ALT_CASES:
+        try:
+            kind, val = fn(ex, n)
+            red = (kind == 'one' and val != correct + 1)
+            good = (kind == want_kind) and (red == want_red)
+        except Exception:
+            good = False
+        if not good:
+            fails.append(name)
+    return fails
 
 
 def _run_cases(fn):
@@ -368,6 +512,33 @@ def selftest():
     ):
         good = len(fails) > 0
         print(f'  {"✅" if good else "🔴"}  {label} (ต้อง > 0)')
+        ok &= good
+
+    print()
+    print('  ── 🆕 ㉝ อ่าน "ข้อ N" ในบรรทัดคำตอบ (v1.4 · มติครู 23 ก.ย. ③) ──')
+    for name, ex, n, correct, want_red, want_kind in ALT_CASES:
+        kind, val = declared_choice(ex, n)
+        red = (kind == 'one' and val != correct + 1)
+        good = (kind == want_kind) and (red == want_red)
+        tag = '(ต้องจับได้)' if want_red else '(ต้องผ่าน)'
+        print(f'  {"✅" if good else "🔴"}  {tag} {name}')
+        ok &= good
+    good = not _run_cases(declared_choice)
+    print(f'  {"✅" if good else "🔴"}  เคสเดิมของ v1.3 ทั้ง {len(CASES)} เคส ยังผ่านเมื่อเปิด ㉝')
+    ok &= good
+    print('  ── มิวแทนต์ของ ㉝ — และ "ถูกจับด้วยเคสไหน" ──')
+    for label, fn in (
+        ('⑦ ถอด ㉝ ทิ้ง (= v1.3)',              _mut_no_alt),
+        ('⑧ ถอดกฎ (ก) N > จำนวนตัวเลือก',       _mut_no_nchoice_filter),
+        ('⑨ ถอดกฎ (ข) ตัวเลือกชนะ',              _mut_alt_with_choice),
+        ('⑩ ถอด lookahead กันช่วง "ข้อ 1–4"',    _mut_no_range_guard),
+        ('⑪ อ่านทั้งก้อนแทนทีละบรรทัด',           _mut_whole_block),
+    ):
+        fails = _run_alt_cases(fn)
+        good = len(fails) > 0
+        print(f'  {"✅" if good else "🔴"}  มิวแทนต์ {label} ⇒ ล้ม {len(fails)}/{len(ALT_CASES)} เคส')
+        for f in fails[:2]:
+            print(f'         ↳ จับได้ที่: {f}')
         ok &= good
 
     print()
@@ -415,8 +586,8 @@ def selftest():
     if not ok:
         print('🔴 SELF-TEST ไม่ผ่าน ⇒ ผลของด่านนี้กับไฟล์จริงเชื่อไม่ได้')
         sys.exit(2)
-    print(f'✅ SELF-TEST ผ่านครบ {len(CASES)} + {len(ENFORCE_CASES)} + {len(BLIND_CASES)}'
-          f' เคส + มิวแทนต์ 6 ตัว')
+    print(f'✅ SELF-TEST ผ่านครบ {len(CASES)} + {len(ALT_CASES)} + {len(ENFORCE_CASES)}'
+          f' + {len(BLIND_CASES)} เคส + มิวแทนต์ 11 ตัว')
     return 0
 
 
@@ -541,7 +712,8 @@ def main():
     if bad:
         print(f'🔴 เฉลยขัดกับคีย์ {len(bad)} ข้อ:')
         for f, qid, said, key in bad:
-            print(f'   {qid:<28} เฉลยเขียน "ตัวเลือก {said}" · คีย์เก็บ ตัวเลือก {key}   [{f}]')
+            print(f'   {qid:<28} เฉลยประกาศเลข {said} ("ตัวเลือก N" หรือ "ข้อ N")'
+                  f' · คีย์เก็บ ตัวเลือก {key}   [{f}]')
         print()
         print('   วิธีอ่าน: เด็กที่ทำข้อนี้ได้คะแนน "ถูก" ตามคีย์')
         print('             แต่เด็กที่อ่านเฉลย จะถูกสอนคำตอบอีกอัน')
