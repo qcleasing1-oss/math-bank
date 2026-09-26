@@ -6,6 +6,12 @@
    แตะ admin.html แค่ **1 บรรทัด** = <script defer src="t1-overlay.js"></script>
    ถ้าลบบรรทัดนั้นออก วิวเวอร์กลับเป็นของเดิมเป๊ะ ⇒ ถอนได้ทันทีถ้า MB ไม่เอา
    E-lane · 24 ส.ค. 2569
+   ----------------------------------------------------------------------------
+   ⑯ (MB ใบ 416 · มติครู ⑯ ก · 26 ก.ย. 2569) — วางรูปตรงขั้นตามหมุด
+     · ข้อที่มีหมุด [IMAGE:n] ในขั้น (จากไฟล์หมุด ⑪ หรือจากไฟล์ผลดิบ) ⇒ วาด imageSpec[n] แทนหมุดตรงนั้น
+       ⛔ ไม่วางรูปบนสุด · รูปที่ไม่ถูกปัก = รูปของโจทย์ (แสดงคู่โจทย์แล้ว) ⇒ ไม่วาดซ้ำ
+     · ข้อที่ไฟล์หมุดบอก "none" ⇒ ไม่วาดรูป + บอกเหตุผลสั้น ๆ
+     · ข้อที่ยังไม่ตัดสิน ⇒ รูปบนสุดเหมือนเดิมทุกอย่าง (html เท่าของเดิมทุกไบต์)
    ============================================================================ */
 (function () {
   'use strict';
@@ -77,6 +83,48 @@
          + '<span class="t1-tag">ยืมจากเฉลยเดิม</span></div>' + out + '</div>';
   }
 
+  /* ---------- ⑯ หมุดรูปในขั้น ---------- */
+  var PIN_RE = /\[IMAGE:(\d+)\]/g;
+  var PIN_KEYS = ['title', 'formula', 'why', 'work', 'eq', 'check'];
+  function hasPin(s) { return typeof s === 'string' && /\[IMAGE:\d+\]/.test(s); }
+  function stepHasPin(st) {
+    return PIN_KEYS.some(function (k) {
+      var v = st[k]; return Array.isArray(v) ? v.some(hasPin) : hasPin(v);
+    });
+  }
+  function segs(s) {                       // "ก [IMAGE:0] ข" ⇒ [{t:'ก '},{n:0},{t:' ข'}]
+    var out = [], last = 0, m;
+    PIN_RE.lastIndex = 0;
+    while ((m = PIN_RE.exec(s))) {
+      if (m.index > last) out.push({ t: s.slice(last, m.index) });
+      out.push({ n: +m[1] });
+      last = PIN_RE.lastIndex;
+    }
+    if (last < s.length) out.push({ t: s.slice(last) });
+    return out;
+  }
+  function specOf(sp, n) { if (!sp) return null; var a = Array.isArray(sp) ? sp : [sp]; return a[n] || null; }
+  function pinFig(sp, n) {
+    var s = specOf(sp, n), g = s ? svgOf(s) : null;
+    if (g) return '<div class="t1-img t1-pinimg" data-pin="' + n + '">' + g + '</div>';
+    return '<div class="t1-none t1-pinmiss" data-pin="' + n + '">🖼 วาดรูปที่ ' + n + ' ไม่ได้ (imageSpec ของข้อนี้ไม่มีรูปนี้)</div>';
+  }
+  // ข้อความที่อาจมีหมุด ⇒ ตัวหนังสือผ่าน fmt · หมุดกลายเป็นรูป · ไม่มีหมุด ⇒ fmt(s) ตรง ๆ (= ของเดิม)
+  function pinned(s, fmt, sp) {
+    if (!hasPin(s)) return fmt(s);
+    return segs(s).map(function (x) {
+      if (x.n !== undefined) return pinFig(sp, x.n);
+      return x.t.trim() ? fmt(x.t) : '';
+    }).join('');
+  }
+  function ulp(a, sp) {
+    return '<ul class="t1-ul">' + a.map(function (x) {
+      if (!hasPin(x)) return '<li>' + md(x) + '</li>';
+      var only = !String(x).replace(PIN_RE, '').trim();
+      return '<li' + (only ? ' class="t1-figli"' : '') + '>' + pinned(x, md, sp) + '</li>';
+    }).join('') + '</ul>';
+  }
+
   /* ---------- ตัวเฉลยละเอียด ---------- */
   function renderT1(t, sp) {
     try { t = normT1(t); } catch (e) {
@@ -84,7 +132,15 @@
     }
     if (!t) return '';
     var h = '';
-    h += t1Figure(sp);
+    var ip = (t.imgpins && typeof t.imgpins === 'object') ? t.imgpins : null;
+    var pinMode = !!(ip && ip.pins) || t.steps.some(stepHasPin);   // ⑯ มีหมุด (ไฟล์หมุด หรือ ไฟล์ผลดิบ)
+    if (pinMode) {
+      /* รูปไปอยู่ในขั้น ⛔ ไม่วางบนสุด */
+    } else if (ip && ip.none) {
+      h += '<div class="t1-sec t1-nofig">🖼 เฉลยข้อนี้ไม่แสดงรูป — ' + md(ip.none) + '</div>';
+    } else {
+      h += t1Figure(sp);                                          // ยังไม่ตัดสิน ⇒ บนสุดเหมือนเดิม
+    }
     if (t.kb_ref.length) h += '<div class="t1-sec"><div class="t1-h">📚 ความรู้พื้นฐานที่ใช้</div><div class="t1-chips">'
       + t.kb_ref.map(function (k) { return '<span class="t1-chip">' + esc(k) + '</span>'; }).join('') + '</div></div>';
     if (t.given.length) h += '<div class="t1-sec"><div class="t1-h">📥 โจทย์ให้อะไรมา</div>' + ul(t.given) + '</div>';
@@ -92,12 +148,12 @@
     if (t.steps.length) {
       h += '<div class="t1-sec"><div class="t1-h">🪜 ขั้นตอน</div>';
       t.steps.forEach(function (s) {
-        h += '<div class="t1-step"><div class="t1-st"><span class="t1-n">' + esc(s.n) + '</span>' + md(s.title) + '</div>';
-        if (s.formula) h += '<div class="t1-row"><div class="t1-lab">สูตรที่ใช้</div>' + md(s.formula) + '</div>';
-        if (s.why)     h += '<div class="t1-row"><div class="t1-lab">ทำไมต้องทำขั้นนี้</div>' + md(s.why) + '</div>';
-        if (s.work.length) h += '<div class="t1-row"><div class="t1-lab">ลงมือ</div>' + ul(s.work) + '</div>';
-        if (s.eq)      h += '<div class="t1-eq">' + md(s.eq, 1) + '</div>';
-        if (s.check)   h += '<div class="t1-check">🔎 ' + md(s.check) + '</div>';
+        h += '<div class="t1-step"><div class="t1-st"><span class="t1-n">' + esc(s.n) + '</span>' + pinned(s.title, md, sp) + '</div>';
+        if (s.formula) h += '<div class="t1-row"><div class="t1-lab">สูตรที่ใช้</div>' + pinned(s.formula, md, sp) + '</div>';
+        if (s.why)     h += '<div class="t1-row"><div class="t1-lab">ทำไมต้องทำขั้นนี้</div>' + pinned(s.why, md, sp) + '</div>';
+        if (s.work.length) h += '<div class="t1-row"><div class="t1-lab">ลงมือ</div>' + ulp(s.work, sp) + '</div>';
+        if (s.eq)      h += pinned(s.eq, function (x) { return '<div class="t1-eq">' + md(x, 1) + '</div>'; }, sp);
+        if (s.check)   h += '<div class="t1-check">🔎 ' + pinned(s.check, md, sp) + '</div>';
         h += '</div>';
       });
       h += '</div>';
@@ -242,6 +298,8 @@
       '.t1-img{margin:8px 0;overflow-x:auto}.t1-img svg{max-width:100%;height:auto}',
       '.t1-tag{font-weight:400;font-size:12px;background:#e7f0ff;color:#1b48a8;border-radius:6px;padding:1px 7px}',
       '.t1-none{color:#9a3412}',
+      '.t1-figli{list-style:none;margin-left:-20px}.t1-pinimg{background:#fff;border:1px solid #e2e9f4;border-radius:8px;padding:4px}',
+      '.t1-nofig{color:#6b7891;font-size:13px;background:#f7f9fc;border-radius:8px;padding:5px 10px}',
       '@media print{#t1bar{display:none}}'
     ].join('');
     document.head.appendChild(s);
