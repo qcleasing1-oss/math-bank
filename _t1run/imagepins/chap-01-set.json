@@ -1,0 +1,365 @@
+{
+ "_note": "⑪-B ชุดที่ 1 · chap-01-set · MB ใบ 413 · 24–25 ก.ย. 2569 · รูปที่ไม่ถูกปักในข้อที่มีหมุด = รูปของโจทย์/ตัวเลือก (แสดงคู่โจทย์แล้ว)",
+ "chap-01-set-q24": {
+  "v": "391b911e",
+  "pins": [
+   {
+    "step": 5,
+    "img": 0,
+    "at": "end"
+   }
+  ]
+ },
+ "chap-01-set-q26": {
+  "v": "ab9442c7",
+  "pins": [
+   {
+    "step": 2,
+    "img": 0,
+    "at": "end"
+   },
+   {
+    "step": 2,
+    "img": 1,
+    "at": "end"
+   },
+   {
+    "step": 2,
+    "img": 2,
+    "at": "end"
+   }
+  ]
+ },
+ "chap-01-set-q32": {
+  "v": "58b51bb6",
+  "pins": [
+   {
+    "step": 3,
+    "img": 0,
+    "at": "start"
+   }
+  ]
+ },
+ "chap-01-set-q33": {
+  "v": "e701d9b5",
+  "none": "รูปเป็นรูปของโจทย์ (แสดงคู่โจทย์อยู่แล้ว · เฉลยในคลังไม่ปักรูปนี้) ⇒ เฉลย t1 ไม่ต้องแสดงซ้ำ"
+ },
+ "chap-01-set-q35": {
+  "v": "3f023ff0",
+  "pins": [
+   {
+    "step": 3,
+    "img": 0,
+    "at": "end"
+   },
+   {
+    "step": 3,
+    "img": 1,
+    "at": "end"
+   }
+  ]
+ },
+ "chap-01-set-q36": {
+  "v": "0ebf6546",
+  "none": "รูปเป็นรูปของโจทย์ (แสดงคู่โจทย์อยู่แล้ว · เฉลยในคลังไม่ปักรูปนี้) ⇒ เฉลย t1 ไม่ต้องแสดงซ้ำ"
+ },
+ "chap-01-set-q38": {
+  "v": "3d883d7e",
+  "pins": [
+   {
+    "step": 2,
+    "img": 0,
+    "at": "end"
+   }
+  ]
+ },
+ "chap-01-set-q39": {
+  "v": "76977002",
+  "pins": [
+   {
+    "step": 1,
+    "img": 0,
+    "at": "start"
+   }
+  ]
+ },
+ "chap-01-set-q40": {
+  "v": "fdaabdca",
+  "pins": [
+   {
+    "step": 3,
+    "img": 0,
+    "at": "end"
+   }
+  ]
+ },
+ "chap-01-set-q41": {
+  "v": "09636233",
+  "pins": [
+   {
+    "step": 1,
+    "img": 0,
+    "at": "end"
+   }
+  ]
+ },
+ "chap-01-set-q42": {
+  "v": "14d36c1f",
+  "pins": [
+   {
+    "step": 4,
+    "img": 0,
+    "at": "end"
+   }
+  ]
+ },
+ "chap-01-set-q43": {
+  "v": "57b18c88",
+  "pins": [
+   {
+    "step": 5,
+    "img": 0,
+    "at": "end"
+   }
+  ]
+ },
+ "chap-01-set-q44": {
+  "v": "a5952311",
+  "pins": [
+   {
+    "step": 3,
+    "img": 0,
+    "at": "start"
+   },
+   {
+    "step": 3,
+    "img": 1,
+    "at": "end"
+   }
+  ]
+ },
+ "chap-01-set-q45": {
+  "v": "550f05c2",
+  "pins": [
+   {
+    "step": 3,
+    "img": 0,
+    "at": "end"
+   }
+  ]
+ },
+ "chap-01-set-q46": {
+  "v": "b7ad67af",
+  "pins": [
+   {
+    "step": 1,
+    "img": 0,
+    "at": "end"
+   },
+   {
+    "step": 5,
+    "img": 1,
+    "at": "end"
+   }
+  ]
+ },
+ "chap-01-set-q47": {
+  "v": "873f99fc",
+  "pins": [
+   {
+    "step": 1,
+    "img": 0,
+    "at": "start"
+   },
+   {
+    "step": 5,
+    "img": 1,
+    "at": "end"
+   }
+  ]
+ },
+ "chap-01-set-q48": {
+  "v": "4d41547b",
+  "pins": [
+   {
+    "step": 3,
+    "img": 1,
+    "at": "end"
+   }
+  ]
+ },
+ "chap-01-set-q49": {
+  "v": "83d43b46",
+  "pins": [
+   {
+    "step": 1,
+    "img": 0,
+    "at": "start"
+   },
+   {
+    "step": 4,
+    "img": 1,
+    "at": "start"
+   }
+  ]
+ },
+ "chap-01-set-q50": {
+  "v": "c81f5702",
+  "pins": [
+   {
+    "step": 1,
+    "img": 0,
+    "at": "end"
+   }
+  ]
+ },
+ "chap-01-set-q51": {
+  "v": "59ebb502",
+  "pins": [
+   {
+    "step": 1,
+    "img": 0,
+    "at": "start"
+   },
+   {
+    "step": 3,
+    "img": 1,
+    "at": "end"
+   }
+  ]
+ },
+ "chap-01-set-q52": {
+  "v": "f166c8dd",
+  "pins": [
+   {
+    "step": 1,
+    "img": 0,
+    "at": "start"
+   },
+   {
+    "step": 4,
+    "img": 1,
+    "at": "end"
+   }
+  ]
+ },
+ "chap-01-set-q54": {
+  "v": "1729119c",
+  "pins": [
+   {
+    "step": 2,
+    "img": 0,
+    "at": "start"
+   },
+   {
+    "step": 2,
+    "img": 1,
+    "at": "end"
+   }
+  ]
+ },
+ "chap-01-set-q71": {
+  "v": "8eb9b47c",
+  "pins": [
+   {
+    "step": 3,
+    "img": 0,
+    "at": "start"
+   }
+  ]
+ },
+ "chap-01-set-q73": {
+  "v": "f548d1ff",
+  "pins": [
+   {
+    "step": 3,
+    "img": 0,
+    "at": "start"
+   }
+  ]
+ },
+ "chap-01-set-q74": {
+  "v": "f16d8293",
+  "pins": [
+   {
+    "step": 2,
+    "img": 4,
+    "at": "end"
+   }
+  ]
+ },
+ "chap-01-set-q75": {
+  "v": "84094666",
+  "pins": [
+   {
+    "step": 1,
+    "img": 0,
+    "at": "end"
+   },
+   {
+    "step": 1,
+    "img": 1,
+    "at": "end"
+   }
+  ]
+ },
+ "chap-01-set-q76": {
+  "v": "e9f14b53",
+  "pins": [
+   {
+    "step": 4,
+    "img": 0,
+    "at": "start"
+   }
+  ]
+ },
+ "chap-01-set-q77": {
+  "v": "3aed845f",
+  "pins": [
+   {
+    "step": 1,
+    "img": 0,
+    "at": "end"
+   }
+  ]
+ },
+ "chap-01-set-q78": {
+  "v": "028177e0",
+  "pins": [
+   {
+    "step": 1,
+    "img": 0,
+    "at": "end"
+   },
+   {
+    "step": 4,
+    "img": 1,
+    "at": "start"
+   }
+  ]
+ },
+ "chap-01-set-q79": {
+  "v": "dd55b979",
+  "none": "รูปเป็นรูปของโจทย์ (แสดงคู่โจทย์อยู่แล้ว · เฉลยในคลังไม่ปักรูปนี้) ⇒ เฉลย t1 ไม่ต้องแสดงซ้ำ"
+ },
+ "chap-01-set-q80": {
+  "v": "1bfa82d8",
+  "pins": [
+   {
+    "step": 4,
+    "img": 0,
+    "at": "end"
+   }
+  ]
+ },
+ "chap-01-set-q81": {
+  "v": "64961efc",
+  "pins": [
+   {
+    "step": 3,
+    "img": 0,
+    "at": "end"
+   }
+  ]
+ }
+}
