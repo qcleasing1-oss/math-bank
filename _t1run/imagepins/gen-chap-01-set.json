@@ -1,0 +1,493 @@
+{
+ "_note": "⑪-B ชุดที่ 2 · gen-chap-01-set · MB ใบ 419 · 27 ก.ย. 2569 · รูปทุกข้อเป็นแผนภาพตั้งโจทย์ (ค่าที่โจทย์ให้ + ? ที่ต้องหา) ⇒ ต้นขั้นแรกที่ใช้ข้อมูลในแผนภาพ",
+ "gen-chap-01-set-q066": {
+  "v": "77f091d3",
+  "pins": [
+   {
+    "step": 1,
+    "img": 0,
+    "at": "start"
+   }
+  ]
+ },
+ "gen-chap-01-set-q084": {
+  "v": "a2992286",
+  "pins": [
+   {
+    "step": 2,
+    "img": 0,
+    "at": "start"
+   }
+  ]
+ },
+ "gen-chap-01-set-q085": {
+  "v": "27849327",
+  "pins": [
+   {
+    "step": 1,
+    "img": 0,
+    "at": "start"
+   }
+  ]
+ },
+ "gen-chap-01-set-q093": {
+  "v": "6f75feb3",
+  "pins": [
+   {
+    "step": 1,
+    "img": 0,
+    "at": "start"
+   }
+  ]
+ },
+ "gen-chap-01-set-q094": {
+  "v": "c272dc3e",
+  "pins": [
+   {
+    "step": 1,
+    "img": 0,
+    "at": "start"
+   }
+  ]
+ },
+ "gen-chap-01-set-q106": {
+  "v": "a9698463",
+  "pins": [
+   {
+    "step": 1,
+    "img": 0,
+    "at": "start"
+   }
+  ]
+ },
+ "gen-chap-01-set-q109": {
+  "v": "22d8b562",
+  "pins": [
+   {
+    "step": 1,
+    "img": 0,
+    "at": "start"
+   }
+  ]
+ },
+ "gen-chap-01-set-q110": {
+  "v": "a73ab1ce",
+  "pins": [
+   {
+    "step": 1,
+    "img": 0,
+    "at": "start"
+   }
+  ]
+ },
+ "gen-chap-01-set-q121": {
+  "v": "cec1acc8",
+  "pins": [
+   {
+    "step": 1,
+    "img": 0,
+    "at": "start"
+   }
+  ]
+ },
+ "gen-chap-01-set-q122": {
+  "v": "aae4d298",
+  "pins": [
+   {
+    "step": 1,
+    "img": 0,
+    "at": "start"
+   }
+  ]
+ },
+ "gen-chap-01-set-q132": {
+  "v": "da1c4b68",
+  "pins": [
+   {
+    "step": 1,
+    "img": 0,
+    "at": "start"
+   }
+  ]
+ },
+ "gen-chap-01-set-q139": {
+  "v": "80decb39",
+  "pins": [
+   {
+    "step": 1,
+    "img": 0,
+    "at": "start"
+   }
+  ]
+ },
+ "gen-chap-01-set-q140": {
+  "v": "2a14333a",
+  "pins": [
+   {
+    "step": 1,
+    "img": 0,
+    "at": "start"
+   }
+  ]
+ },
+ "gen-chap-01-set-q141": {
+  "v": "cca63856",
+  "pins": [
+   {
+    "step": 1,
+    "img": 0,
+    "at": "start"
+   }
+  ]
+ },
+ "gen-chap-01-set-q142": {
+  "v": "d60617e1",
+  "pins": [
+   {
+    "step": 1,
+    "img": 0,
+    "at": "start"
+   }
+  ]
+ },
+ "gen-chap-01-set-q143": {
+  "v": "c40256ae",
+  "pins": [
+   {
+    "step": 1,
+    "img": 0,
+    "at": "start"
+   }
+  ]
+ },
+ "gen-chap-01-set-q155": {
+  "v": "cda328d2",
+  "pins": [
+   {
+    "step": 3,
+    "img": 0,
+    "at": "start"
+   }
+  ]
+ },
+ "gen-chap-01-set-q163": {
+  "v": "a0e097d9",
+  "pins": [
+   {
+    "step": 2,
+    "img": 0,
+    "at": "start"
+   }
+  ]
+ },
+ "gen-chap-01-set-q173": {
+  "v": "a2226e88",
+  "pins": [
+   {
+    "step": 1,
+    "img": 0,
+    "at": "start"
+   }
+  ]
+ },
+ "gen-chap-01-set-q180": {
+  "v": "563030f7",
+  "pins": [
+   {
+    "step": 1,
+    "img": 0,
+    "at": "start"
+   }
+  ]
+ },
+ "gen-chap-01-set-q207": {
+  "v": "25dca1fe",
+  "pins": [
+   {
+    "step": 1,
+    "img": 0,
+    "at": "start"
+   }
+  ]
+ },
+ "gen-chap-01-set-q211": {
+  "v": "59573b05",
+  "pins": [
+   {
+    "step": 1,
+    "img": 0,
+    "at": "start"
+   }
+  ]
+ },
+ "gen-chap-01-set-q214": {
+  "v": "cd9c5b0c",
+  "pins": [
+   {
+    "step": 1,
+    "img": 0,
+    "at": "start"
+   }
+  ]
+ },
+ "gen-chap-01-set-q227": {
+  "v": "5828c454",
+  "pins": [
+   {
+    "step": 1,
+    "img": 0,
+    "at": "start"
+   }
+  ]
+ },
+ "gen-chap-01-set-q228": {
+  "v": "8bd1ee88",
+  "pins": [
+   {
+    "step": 1,
+    "img": 0,
+    "at": "start"
+   }
+  ]
+ },
+ "gen-chap-01-set-q234": {
+  "v": "a53a9c57",
+  "pins": [
+   {
+    "step": 1,
+    "img": 0,
+    "at": "start"
+   }
+  ]
+ },
+ "gen-chap-01-set-q247": {
+  "v": "32af64bb",
+  "pins": [
+   {
+    "step": 1,
+    "img": 0,
+    "at": "start"
+   }
+  ]
+ },
+ "gen-chap-01-set-q248": {
+  "v": "3c9358b3",
+  "pins": [
+   {
+    "step": 1,
+    "img": 0,
+    "at": "start"
+   }
+  ]
+ },
+ "gen-chap-01-set-q255": {
+  "v": "f5767101",
+  "pins": [
+   {
+    "step": 1,
+    "img": 0,
+    "at": "start"
+   }
+  ]
+ },
+ "gen-chap-01-set-q269": {
+  "v": "d1a33961",
+  "pins": [
+   {
+    "step": 1,
+    "img": 0,
+    "at": "start"
+   }
+  ]
+ },
+ "gen-chap-01-set-q271": {
+  "v": "d0d0c201",
+  "pins": [
+   {
+    "step": 3,
+    "img": 0,
+    "at": "start"
+   }
+  ]
+ },
+ "gen-chap-01-set-q277": {
+  "v": "857b19b3",
+  "pins": [
+   {
+    "step": 1,
+    "img": 0,
+    "at": "start"
+   }
+  ]
+ },
+ "gen-chap-01-set-q287": {
+  "v": "bbabe8e6",
+  "pins": [
+   {
+    "step": 1,
+    "img": 0,
+    "at": "start"
+   }
+  ]
+ },
+ "gen-chap-01-set-q288": {
+  "v": "129737f2",
+  "pins": [
+   {
+    "step": 1,
+    "img": 0,
+    "at": "start"
+   }
+  ]
+ },
+ "gen-chap-01-set-q297": {
+  "v": "6d5459b1",
+  "pins": [
+   {
+    "step": 1,
+    "img": 0,
+    "at": "start"
+   }
+  ]
+ },
+ "gen-chap-01-set-q310": {
+  "v": "0eab8dc0",
+  "pins": [
+   {
+    "step": 1,
+    "img": 0,
+    "at": "start"
+   }
+  ]
+ },
+ "gen-chap-01-set-q311": {
+  "v": "42cbec05",
+  "pins": [
+   {
+    "step": 1,
+    "img": 0,
+    "at": "start"
+   }
+  ]
+ },
+ "gen-chap-01-set-q316": {
+  "v": "43061e47",
+  "pins": [
+   {
+    "step": 1,
+    "img": 0,
+    "at": "start"
+   }
+  ]
+ },
+ "gen-chap-01-set-q327": {
+  "v": "fbb9e67c",
+  "pins": [
+   {
+    "step": 1,
+    "img": 0,
+    "at": "start"
+   }
+  ]
+ },
+ "gen-chap-01-set-q333": {
+  "v": "f0526f1a",
+  "pins": [
+   {
+    "step": 1,
+    "img": 0,
+    "at": "start"
+   }
+  ]
+ },
+ "gen-chap-01-set-q337": {
+  "v": "8108b7e8",
+  "pins": [
+   {
+    "step": 3,
+    "img": 0,
+    "at": "start"
+   }
+  ]
+ },
+ "gen-chap-01-set-q347": {
+  "v": "d5d30f4c",
+  "pins": [
+   {
+    "step": 1,
+    "img": 0,
+    "at": "start"
+   }
+  ]
+ },
+ "gen-chap-01-set-q348": {
+  "v": "93a99e44",
+  "pins": [
+   {
+    "step": 1,
+    "img": 0,
+    "at": "start"
+   }
+  ]
+ },
+ "gen-chap-01-set-q367": {
+  "v": "0c51657a",
+  "pins": [
+   {
+    "step": 1,
+    "img": 0,
+    "at": "start"
+   }
+  ]
+ },
+ "gen-chap-01-set-q368": {
+  "v": "0aca1f6e",
+  "pins": [
+   {
+    "step": 1,
+    "img": 0,
+    "at": "start"
+   }
+  ]
+ },
+ "gen-chap-01-set-q377": {
+  "v": "45e5337f",
+  "pins": [
+   {
+    "step": 1,
+    "img": 0,
+    "at": "start"
+   }
+  ]
+ },
+ "gen-chap-01-set-q387": {
+  "v": "7bb8be4e",
+  "pins": [
+   {
+    "step": 1,
+    "img": 0,
+    "at": "start"
+   }
+  ]
+ },
+ "gen-chap-01-set-q391": {
+  "v": "6e370fc1",
+  "pins": [
+   {
+    "step": 1,
+    "img": 0,
+    "at": "start"
+   }
+  ]
+ },
+ "gen-chap-01-set-q395": {
+  "v": "1fa202b4",
+  "pins": [
+   {
+    "step": 1,
+    "img": 0,
+    "at": "start"
+   }
+  ]
+ }
+}
