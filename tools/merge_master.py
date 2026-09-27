@@ -24,8 +24,27 @@
    กันหมุดไหลกลับ (⑦): ฉบับในไฟล์อินพุตที่มีป้าย "imgpins" (เช่น snapshot t1_MASTER_*.json ที่เซฟหลังใส่หมุด) ⇒ ⛔ ไม่นับเป็นฉบับ
    หลังเขียน MASTER ⇒ สร้าง _t1run/t1_index.json ใหม่ทันที (build_t1_index · มติ ⑮) ⇒ วิวเวอร์ไม่ค้าง
    รหัสออก: 0 = ผ่าน · 1 = มีหมุดที่ทำตามไม่ได้ · 2 = อ่านไฟล์หมุด/สร้าง index ไม่ได้
+
+📝 ชั้นแก้เนื้อ t1 (t1fix) — v3 · 27 ก.ย. 2569 · มติครู ① ② (ใบ 420) · MB ใบ 419 §4.4 / ใบ 421
+   ทำไม: เนื้อเฉลย t1 บางข้อผิด (ใบ 418) แต่ ⛔ แก้ในไฟล์ผลดิบไม่ได้ (คำเคาะครู/หมุดผูกลายนิ้วมือฉบับ)
+         และ ⛔ แก้ MASTER ตรง ๆ ไม่ได้ (merge รอบหน้าสร้างใหม่ ⇒ หายเงียบ)
+   ⇒ เก็บคำแก้แยกที่ _t1run/t1fix/*.json แล้ว merge ใส่ทับ **หลังชั้นคำเคาะครู ก่อนชั้นหมุด** ทุกรอบ
+   รูปแบบ (ไฟล์ละหลายข้อ · id ห้ามซ้ำข้ามไฟล์ · คีย์ขึ้นต้นด้วย _ = หมายเหตุ):
+     {"<id>": {"v": "<ลายนิ้วมือฉบับที่ merge เลือก — ก่อนแก้ ก่อนหมุด>", "why": "เหตุผล",
+               "edits": [{"step": 4, "field": "eq", "old": <ค่าเดิมทั้งช่อง>, "new": <ค่าใหม่ทั้งช่อง>},
+                         {"field": "hints", "old": [...], "new": [...]}]}}      ← ไม่มี step = ช่องระดับข้อ
+   กติกา (ผิดข้อใด ⇒ ⛔ ไม่แก้ทั้งข้อ + 🔴 + รหัสออก 1):
+     ① v ≠ ฉบับที่เลือก  ② old ≠ ค่าปัจจุบันทุกไบต์ (แทนทั้งช่อง ⛔ ไม่ค้นแทนสตริง)
+     ③ ห้ามแตะ id · v · steps · imgpins · t1fix · ขั้นต้องมีจริง · ช่องต้องมีอยู่แล้ว · จำนวนขั้นห้ามเปลี่ยน
+     ④ จำนวน [IMAGE:n] ต่อรูปต้องเท่าเดิม (ย้ายได้ · เพิ่ม/ลบ/ซ้ำไม่ได้)
+     ⑤ ประกาศคำตอบหลังแก้ (ด่าน 7 ⛔ ไม่อ่าน MASTER ⇒ merge เรียก declared_choice() ตัวเดียวกันเอง
+        จาก scripts/check_answer_claim.py กับข้อความทุกช่องของข้อ): one ≠ คีย์ ⇒ 🔴 · many ⇒ 🔴 · none ⇒ ⚠️ เตือน
+     ⑥ id ซ้ำข้ามไฟล์ · id ไม่มีใน MASTER · why ว่าง · edits ว่าง ⇒ 🔴
+   🔑 ผูกฉบับฐาน: ชั้นหมุดเทียบ v กับลายนิ้วมือ **ก่อน** t1fix ⇒ ไฟล์หมุดเดิมใช้ต่อได้โดยไม่ต้องแก้
+   ติดป้าย record["t1fix"] = {v, src, n, why} · ตัวกันไหลกลับ ⑦ ข้ามฉบับอินพุตที่มีป้าย t1fix ด้วย
+   ไม่มีโฟลเดอร์ _t1run/t1fix ⇒ MASTER/index เท่ากับ v2 ทุกไบต์
 """
-import json, os, re, glob, argparse, hashlib, copy, sys
+import json, os, re, glob, argparse, hashlib, copy, sys, collections
 
 def S(v): return v if isinstance(v, str) else json.dumps(v, ensure_ascii=False)
 def load_bank(p):
@@ -63,7 +82,7 @@ PIN_RE = re.compile(r'\[IMAGE:(\d+)\]')
 def load_pins(pdir):
     """อ่าน <pdir>/*.json → ({id: entry}, {id: ไฟล์}, [ไฟล์], [ข้อผิดพลาด]) · id ซ้ำข้ามไฟล์ = ข้อผิดพลาด ⛔ ไม่ทับกันเงียบ"""
     files = sorted(glob.glob(os.path.join(pdir, '*.json'))) if pdir and os.path.isdir(pdir) else []
-    out, src, errs = {}, {}, []
+    out, src, errs, dup = {}, {}, [], set()
     for f in files:
         b = os.path.basename(f)
         try:
@@ -74,9 +93,10 @@ def load_pins(pdir):
             errs.append(f'{b} ต้องเป็น {{id: entry}}'); continue
         for k, v in d.items():
             if k.startswith('_'): continue
-            if k in out:
-                errs.append(f'id ซ้ำข้ามไฟล์: {k} ({src[k]} · {b})'); continue
+            if k in out or k in dup:
+                errs.append(f'id ซ้ำข้ามไฟล์: {k} ({src.get(k, "?")} · {b}) ⇒ ⛔ ไม่ใช้ทุกไฟล์'); dup.add(k); continue
             out[k] = v; src[k] = b
+    for k in dup: out.pop(k, None)   # v3: ⛔ ไม่เลือกไฟล์ไหนให้เอง
     return out, src, files, errs
 
 def _entry_errs(e, r, nimg_i):
@@ -103,14 +123,83 @@ def _entry_errs(e, r, nimg_i):
         if isinstance(n, int) and f'[IMAGE:{n}]' in S(r): out.append(f'[IMAGE:{n}] มีอยู่แล้วในเฉลย t1 (จากไฟล์ผลดิบ) ⇒ ซ้ำ')
     return out
 
-def apply_pins(chosen, pins, psrc, nimg):
+# ---------- 📝 ชั้นแก้เนื้อ t1 (t1fix · v3) ----------
+FIX_FORBID = ('id', 'v', 'steps', 'imgpins', 't1fix')
+
+def _flat(x):
+    """ข้อความทุกช่องของ record (ตามลำดับ) — ป้อน declared_choice()"""
+    if isinstance(x, str): yield x
+    elif isinstance(x, list):
+        for y in x: yield from _flat(y)
+    elif isinstance(x, dict):
+        for y in x.values(): yield from _flat(y)
+
+def _fix_entry(r, e):
+    """ใช้ edits ของ entry หนึ่งข้อกับสำเนาของ r · คืน (record ใหม่, []) หรือ (None, ปัญหา)"""
+    if not isinstance(e, dict): return None, ['entry ต้องเป็น object']
+    out = []
+    if not (isinstance(e.get('why'), str) and e['why'].strip()): out.append('"why" ต้องเป็นเหตุผลที่ไม่ว่าง')
+    eds = e.get('edits')
+    if not isinstance(eds, list) or not eds: return None, out + ['"edits" ต้องเป็น list ที่ไม่ว่าง']
+    n = copy.deepcopy(r)
+    steps = n.get('steps') if isinstance(n.get('steps'), list) else []
+    for k, x in enumerate(eds, 1):
+        if not isinstance(x, dict): out.append(f'#{k} ต้องเป็น object'); continue
+        f, st = x.get('field'), x.get('step')
+        if not isinstance(f, str) or not f: out.append(f'#{k} "field" ต้องเป็นชื่อช่อง'); continue
+        if 'old' not in x or 'new' not in x: out.append(f'#{k} ต้องมีทั้ง "old" และ "new"'); continue
+        if f in FIX_FORBID: out.append(f'#{k} ห้ามแก้ช่อง {f}'); continue
+        if st is None: tgt = n
+        elif isinstance(st, int) and not isinstance(st, bool) and 1 <= st <= len(steps) and isinstance(steps[st - 1], dict):
+            tgt = steps[st - 1]
+        else: out.append(f'#{k} ขั้น {st} ไม่มีจริง (ฉบับนี้มี {len(steps)} ขั้น)'); continue
+        where = f'ขั้น {st} · {f}' if st else f
+        if f not in tgt: out.append(f'#{k} ไม่มีช่อง {where} ในฉบับนี้ (⛔ ไม่เพิ่มช่องใหม่)'); continue
+        if tgt[f] != x['old']: out.append(f'#{k} เนื้อเดิมไม่ตรง ({where})'); continue
+        tgt[f] = copy.deepcopy(x['new'])
+    if out: return None, out
+    if len(n.get('steps') or []) != len(r.get('steps') or []): return None, ['จำนวนขั้นเปลี่ยน']
+    m0, m1 = collections.Counter(PIN_RE.findall(S(r))), collections.Counter(PIN_RE.findall(S(n)))
+    if m0 != m1: return None, [f'หมุดผลดิบเปลี่ยนจำนวน {dict(sorted(m0.items()))} → {dict(sorted(m1.items()))}']
+    return n, []
+
+def apply_fixes(chosen, fixes, fsrc, akey, dc):
+    """ใส่คำแก้ทับฉบับที่เลือก (ทำสำเนา ⛔ ไม่แตะของในไฟล์ผลดิบ)
+    akey = {id: (เลขตัวเลือกที่ถูก นับจาก 1, จำนวนตัวเลือก)} · None = ไม่ได้อ่าน data/sets
+    dc = declared_choice ของด่าน 7 · None = import ไม่ได้"""
+    rep = {'fix': [], 'stale': [], 'noid': [], 'bad': [], 'warn': []}
+    for i in sorted(fixes):
+        e = fixes[i]
+        if i not in chosen: rep['noid'].append(i); continue
+        r = chosen[i]
+        want, got = (e.get('v') if isinstance(e, dict) else None), vhash(r)
+        if want != got: rep['stale'].append((i, want, got)); continue
+        n, errs = _fix_entry(r, e)
+        if not errs:
+            if dc is None: errs = ['import declared_choice (scripts/check_answer_claim.py) ไม่ได้ ⇒ ตรวจประกาศคำตอบไม่ได้']
+            elif akey is None: errs = ['ไม่ได้อ่าน data/sets ⇒ ไม่รู้คีย์ ⇒ ตรวจประกาศคำตอบไม่ได้']
+            elif i in akey:
+                key, nch = akey[i]
+                st, num = dc(list(_flat(n)), nch)
+                if st == 'one' and num != key: errs = [f'ประกาศคำตอบ ตัวเลือก {num} ≠ คีย์ ตัวเลือก {key}']
+                elif st == 'many': errs = [f'ประกาศคำตอบหลายเลข {num} (คีย์ ตัวเลือก {key})']
+                elif st == 'none': rep['warn'].append((i, f'หลังแก้ไม่ประกาศคำตอบเลย (คีย์ ตัวเลือก {key})'))
+            else:
+                rep['warn'].append((i, 'ไม่ใช่ปรนัยที่มีคีย์ ⇒ ไม่ได้ตรวจประกาศคำตอบ'))
+        if errs: rep['bad'].append((i, errs)); continue
+        n['t1fix'] = {'v': got, 'src': fsrc.get(i, ''), 'n': len(e['edits']), 'why': e['why']}
+        chosen[i] = n; rep['fix'].append(i)
+    return rep
+
+def apply_pins(chosen, pins, psrc, nimg, base=None):
     """ใส่หมุดทับลงฉบับที่เลือก (ทำสำเนาก่อน ⛔ ไม่แตะของในไฟล์ผลดิบ) · คืนรายงาน"""
     rep = {'pins': [], 'none': [], 'stale': [], 'noid': [], 'bad': []}
     for i in sorted(pins):
         e = pins[i]
         if i not in chosen: rep['noid'].append(i); continue
         r = chosen[i]
-        want, got = (e.get('v') if isinstance(e, dict) else None), vhash(r)
+        want = e.get('v') if isinstance(e, dict) else None
+        got = base[i] if base is not None and i in base else vhash(r)   # 🔑 v3: ฉบับฐาน (ก่อน t1fix)
         if want != got: rep['stale'].append((i, want, got)); continue
         if nimg is not None and i not in nimg and isinstance(e, dict) and 'pins' in e:
             rep['bad'].append((i, ['ข้อนี้ไม่มี imageSpec ในคลัง ⇒ ห้ามมีหมุด'])); continue
@@ -157,6 +246,8 @@ def main():
                     help='โฟลเดอร์ไฟล์หมุดรูป (⑪) · ใส่ค่าว่างเพื่อปิดชั้นนี้')
     ap.add_argument('--index', default=os.path.join('_t1run', 't1_index.json'),
                     help='สร้าง index ของวิวเวอร์ต่อท้าย (⑮) · ใส่ค่าว่างเพื่อไม่สร้าง')
+    ap.add_argument('--t1fix', default=os.path.join('_t1run', 't1fix'),
+                    help='โฟลเดอร์ไฟล์แก้เนื้อ t1 (v3) · ใส่ค่าว่างเพื่อปิดชั้นนี้')
     a = ap.parse_args()
     key = {}
     if os.path.exists(a.bank):
@@ -172,6 +263,7 @@ def main():
     #   ⛔ ไม่ฝังเลขคาดหวัง (เช่น "ต้องได้ 10") — เลขนั้นเปลี่ยนทุกครั้งที่ครูเคาะข้อใหม่ · พิมพ์จำนวน+รายชื่อให้คนเทียบแทน
     flawed_nokey, flawed_keyed, sets_seen = {}, [], 0
     nimg = {}   # 🖼 id → จำนวนรูปใน imageSpec (ใช้ตรวจหมุด ⑪)
+    akey = {}   # 📝 id → (ตัวเลือกที่ถูก นับจาก 1, จำนวนตัวเลือก) · ตรวจประกาศคำตอบของ t1fix
     if a.sets_manifest and os.path.exists(a.sets_manifest):
         sets_d = os.path.join(os.path.dirname(a.sets_manifest), 'sets')
         try:
@@ -183,6 +275,9 @@ def main():
                 for q in json.load(open(p, encoding='utf-8')).get('questions', []):
                     sp_ = q.get('imageSpec')
                     if sp_: nimg[q['id']] = len(sp_) if isinstance(sp_, list) else 1
+                    c_, ch_ = q.get('correct'), q.get('choices')
+                    if q.get('type') == 'mc' and isinstance(c_, int) and not isinstance(c_, bool) and isinstance(ch_, list):
+                        akey[q['id']] = (c_ + 1, len(ch_))
                     fs_ = q.get('flawedSource')
                     if not fs_: continue
                     if q.get('correct') is None: flawed_nokey[q['id']] = fs_.get('kind') if isinstance(fs_, dict) else str(fs_)
@@ -201,7 +296,7 @@ def main():
         if not (isinstance(d, list) and d and isinstance(d[0], dict) and 'steps' in d[0]): continue
         nfile += 1
         for r in d:
-            if isinstance(r, dict) and 'imgpins' in r: fedback += 1; continue
+            if isinstance(r, dict) and ('imgpins' in r or 't1fix' in r): fedback += 1; continue
             nrec += 1; vers.setdefault(r['id'], []).append(r)
     def hit(r):
         k = norm(key.get(r['id'], ''))
@@ -225,13 +320,28 @@ def main():
         if vhash(chosen[i]) == h: same.append(i)
         else: chosen[i] = m[0]; applied.append(i)
 
-    # ---------- 🖼 ชั้นหมุดรูป (⑪) — ทับหลังชั้นคำเคาะครู · รายงานทุกครั้ง ----------
+    # ---------- 📝 ชั้นแก้เนื้อ t1 (v3) — หลังคำเคาะครู ก่อนชั้นหมุด · รายงานทุกครั้ง ----------
+    base = {i: vhash(r) for i, r in chosen.items()}   # 🔑 ฉบับฐาน: ทั้งชั้น t1fix และชั้นหมุดผูกกับค่านี้
+    if a.t1fix:
+        fixes, fxsrc, fxfiles, fxerrs = load_pins(a.t1fix)
+    else:
+        fixes, fxsrc, fxfiles, fxerrs = {}, {}, [], []
+    dc, dc_err = None, ''
+    if fixes:
+        try:
+            sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'scripts'))
+            from check_answer_claim import declared_choice as dc
+        except Exception as e:
+            dc_err = str(e)
+    frep = apply_fixes(chosen, fixes, fxsrc, akey if sets_seen else None, dc)
+
+    # ---------- 🖼 ชั้นหมุดรูป (⑪) — ทับหลังชั้นแก้เนื้อ · รายงานทุกครั้ง ----------
     raw_pinned = {i for i, r in chosen.items() if PIN_RE.search(S(r))}
     if a.pins:
         pins, psrc, pfiles, perrs = load_pins(a.pins)
     else:
         pins, psrc, pfiles, perrs = {}, {}, [], []
-    prep = apply_pins(chosen, pins, psrc, nimg if sets_seen else None)
+    prep = apply_pins(chosen, pins, psrc, nimg if sets_seen else None, base)
 
     best = list(chosen.values())
     dup = nrec - len(best)
@@ -278,11 +388,37 @@ def main():
     if not a.dry_run and (notfound or noid):
         print('   🔴 เขียนไฟล์แล้ว แต่ **มีคำเคาะที่ทำตามไม่ได้** — อย่าเพิ่งถือว่า MASTER นี้ตรงใจครู')
 
-    # ---------- 🖼 รายงานชั้นหมุดรูป ⛔ ห้ามเงียบ ----------
     rc = 0
+    # ---------- 📝 รายงานชั้นแก้เนื้อ t1 ⛔ ห้ามเงียบ ----------
+    print('   ── ชั้นแก้เนื้อ t1 (t1fix · v3) ──')
+    if not a.t1fix:
+        print('   ⚠️ ⛔ ปิดชั้นแก้เนื้อ (--t1fix ว่าง) — คำแก้ที่เคาะไว้จะไม่อยู่ใน MASTER นี้')
+    elif not fxfiles:
+        print(f'   ไม่มีไฟล์แก้เนื้อ ({a.t1fix}) ⇒ ไม่แก้อะไร')
+    else:
+        print(f'   อ่านไฟล์แก้เนื้อ {len(fxfiles)} ไฟล์ ({a.t1fix}) · {len(fixes):,} ข้อ: '
+              + ' · '.join(os.path.basename(f) for f in fxfiles))
+        print(f'   ⇒ แก้ {len(frep["fix"]):,} ข้อ · ฉบับเปลี่ยน {len(frep["stale"])} · ทำตามไม่ได้ {len(frep["bad"])}'
+              f' · ไม่มีใน MASTER {len(frep["noid"])} · เตือน {len(frep["warn"])}')
+        for i in frep['fix']:
+            print(f'      📝 {i} ← {chosen[i]["t1fix"]["n"]} รายการ ({chosen[i]["t1fix"]["src"]})')
+        if dc_err: print(f'   🔴 import declared_choice ไม่ได้ — {dc_err}')
+    for e in fxerrs: print(f'   🔴 {e}')
+    for i, want, got in frep['stale']:
+        print(f'   🔴 ฉบับเปลี่ยน {i}: คำแก้ผูกกับ {want} แต่ merge เลือก {got} ⇒ ⛔ ไม่แก้ · ต้องตรวจเนื้อใหม่')
+    for i, errs in frep['bad']:
+        print(f'   🔴 ทำตามไม่ได้ {i}: ' + ' · '.join(errs) + ' ⇒ ⛔ ไม่แก้ทั้งข้อ')
+    for i in frep['noid']:
+        print(f'   🔴 ไม่มีใน MASTER: {i} (ถูกตัดเป็นข้อสอบออกผิด หรือ id พิมพ์ผิด)')
+    for i, w in frep['warn']:
+        print(f'   ⚠️ {i}: {w}')
+    if fxerrs or frep['stale'] or frep['bad'] or frep['noid']:
+        rc = 1
+
+    # ---------- 🖼 รายงานชั้นหมุดรูป ⛔ ห้ามเงียบ ----------
     print('   ── ชั้นหมุดรูป (⑪ · overlay) ──')
     if fedback:
-        print(f'   🛡 ตัดฉบับที่มีป้าย imgpins ติดมาจากไฟล์อินพุต {fedback:,} ฉบับ (กันหมุดไหลกลับทาง snapshot · ⑦)')
+        print(f'   🛡 ตัดฉบับที่มีป้าย imgpins/t1fix ติดมาจากไฟล์อินพุต {fedback:,} ฉบับ (กันหมุดไหลกลับทาง snapshot · ⑦)')
     if not a.pins:
         print('   ⚠️ ⛔ ปิดชั้นหมุด (--pins ว่าง) — หมุดที่ปักไว้จะไม่อยู่ใน MASTER นี้')
     else:
@@ -322,7 +458,7 @@ def main():
     elif not a.dry_run:
         print('   ⚠️ ไม่ได้สร้าง index (--index ว่าง) ⇒ วิวเวอร์อาจค้าง · รัน python tools/build_t1_index.py')
     if rc == 1:
-        print('   🔴 มีหมุดที่ทำตามไม่ได้ (รายการข้างบน) ⇒ รหัสออก 1')
+        print('   🔴 มีคำแก้เนื้อ/หมุดที่ทำตามไม่ได้ (รายการข้างบน) ⇒ รหัสออก 1')
     return rc
 
 if __name__ == '__main__': sys.exit(main())
