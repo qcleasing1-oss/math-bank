@@ -37,6 +37,17 @@ v1.4 (23 ก.ย. 69) — ㉝ อ่าน "ข้อ N" ในบรรทั�
   positive control (กฎ ⑪): ปิด ALT_RE ⇒ ต้องได้ one 3,012 · many 42 · none 1,382
                           = v1.3 ทุกช่อง บนฐาน b8d0344 (มิวแทนต์ ⑦ ในตัวนี้คือโค้ดชุดนั้น)
 
+v1.5 (29 ก.ย. 69) — ㉝-v1b · บรรทัด "ตรวจคำตอบ" ⛔ ไม่อ่าน "ข้อ N"
+  มติครู 29 ก.ย. (ใบ 429 §3 · ข้อเสนอ MB ใบ 406 §4)
+  ที่มา: ANSWER_MARKERS มี 'คำตอบ:' และเช็คด้วย `in` ⇒ หัวบล็อก "✔ ตรวจคำตอบ:" ก็นับเป็นบรรทัดประกาศ
+         ⇒ v1.4 อ่าน "ข้อ 1 … ข้อ 2 … ข้อ 4 …" ในบล็อกตรวจตัวเลือกเป็นคำประกาศ ⇒ ข้อที่ v1.3 ตรวจได้หลุดเป็น 'many'
+  ข้อบังคับ:
+    · (ง) บรรทัดที่ "มีคำประกาศแค่ในคำว่า ตรวจคำตอบ" (ลบคำว่า ตรวจคำตอบ ออกแล้วไม่เหลือคำประกาศ)
+          ⇒ ⛔ ไม่อ่าน "ข้อ N" · ✅ ยังอ่าน "ตัวเลือก N" เหมือน v1.3/v1.4 (⛔ ไม่แตะฝั่ง CHOICE)
+    · บรรทัด "ตรวจคำตอบ" ที่มีคำประกาศอื่นด้วย (เช่น ✅) ⇒ อ่านเหมือนเดิม
+    · ⛔ ไม่เปลี่ยน ANSWER_MARKERS (ด่าน 17 เทียบรายการนี้ทีละตัว)
+  positive control (กฎ ⑪): มิวแทนต์ ⑫ (ถอด (ง)) = v1.4 ทุกช่อง · มิวแทนต์ ⑦ (ถอด ㉝) = v1.3 ทุกช่อง
+
 รหัสออก: 0 = ผ่าน · 1 = เนื้อหาแดง · 2 = ตัวเครื่องมือแดง
 """
 import argparse
@@ -46,7 +57,7 @@ import os
 import re
 import sys
 
-CHECKER_VERSION = '1.4'
+CHECKER_VERSION = '1.5'
 
 # ── เพดานหนี้ "ตรวจไม่ได้" — ratchet เดียว ⛔ ไม่ใช่สองตัว ─────────────
 #
@@ -63,7 +74,12 @@ CHECKER_VERSION = '1.4'
 #    ⬤ วัดบนฐาน b8d0344: one 3,339 · many 67 · none 1,030 ⇒ หนี้ 1,097 · ตัวหาร 4,436 · แดง 0
 #    ⛔ หนี้ลดเพราะ "ด่านมองเห็นมากขึ้น" ⛔ ไม่ใช่เพราะมีคนเติมบรรทัดสรุป — สองอย่างนี้ห้ามปนกัน
 #    ⇒ ratchet เดินลงทางเดียวเหมือนเดิม ⛔ ห้ามขยับขึ้น
-MAX_UNDECLARED = 1097
+#
+# 🆕 v1.5 (29 ก.ย. 69 · ㉝-v1b · มติครู ใบ 429 §3): 1,097 → 1,076
+#    ⬤ วัดบนฐาน 3cf6e85 (chap-01-set.json = 0fa7d598 · q26 ยังไม่วาง — ไม่กระทบด่านนี้)
+#    ⛔ หนี้ลดเพราะ "ด่านเลิกอ่านหัวบล็อกตรวจคำตอบเป็นคำประกาศ" ⛔ ไม่ใช่เพราะแก้เฉลย
+#    ⇒ ratchet เดินลงทางเดียวเหมือนเดิม ⛔ ห้ามขยับขึ้น
+MAX_UNDECLARED = 1076
 
 # ── ⑨ ตัวหาร: "หนี้ 1,424" จากคลัง 4,221 ข้อ ต่างจาก "หนี้ 1,424" จากคลัง 1,500 ข้อ ──
 # ถ้าไฟล์ชุดหายไปครึ่งคลัง หนี้จะ "ลดลง" เอง แล้วด่านนี้จะเขียว ⇒ ต้องมีพื้นของตัวหาร
@@ -88,6 +104,17 @@ CHOICE_RE = re.compile(r'ตัวเลือก\s*(\d+)')
 #       ② ช่วงเลขสองหลัก "ข้อ 12-14" จะถูกย้อนรอยจนอ่านได้ "1"
 #          ⬤ วัดบนฐาน b8d0344: กระทบ 0 บรรทัด · 0 ข้อ ⇒ คงไว้ตาม MB-v1 ที่ครูเคาะ ⛔ ไม่แก้เงียบ
 ALT_RE = re.compile(r'ข้อ\s*(\d+)(?!\s*[%–\-]\s*\d)')
+
+# 🆕 v1.5 ㉝-v1b (ง) — หัวบล็อก "✔ ตรวจคำตอบ:" ⛔ ไม่ใช่คำประกาศคำตอบ (สำหรับ "ข้อ N")
+CHECK_WORD = 'ตรวจคำตอบ'
+
+
+def _marker_only_in_check_word(line):
+    """True ⇔ บรรทัดนี้มีคำประกาศ "แค่ในคำว่า ตรวจคำตอบ" (ลบคำนี้ออกแล้วไม่เหลือคำประกาศ)"""
+    if CHECK_WORD not in line:
+        return False
+    rest = line.replace(CHECK_WORD, '')
+    return not any(k in rest for k in ANSWER_MARKERS)
 
 # เพดานล่างของความครอบคลุม — ⛔ กันด่านตาบอดเงียบ
 #   ถ้าใครลบคำในสองรายการข้างบนจนหมด ด่านจะเขียวตลอดกาลโดยไม่ตรวจอะไรเลย
@@ -116,6 +143,8 @@ def declared_choice(explanation, n_choices=None):
         c = {int(m) for m in CHOICE_RE.findall(line)}
         if c:                              # (ข) ตัวเลือกชนะ ⛔ ไม่อ่าน "ข้อ" ในบรรทัดนี้
             nums |= c
+            continue
+        if _marker_only_in_check_word(line):   # 🆕 v1.5 (ง) หัวบล็อกตรวจคำตอบ ⛔ ไม่อ่าน "ข้อ"
             continue
         nums |= {int(m) for m in ALT_RE.findall(line)            # 🆕 v1.4 ㉝
                  if not n_choices or int(m) <= n_choices}        # (ก) N > จำนวนตัวเลือก ⇒ ⛔ ไม่อ่าน
@@ -278,6 +307,18 @@ ALT_CASES = [
 
     ("㉝ ไม่รู้จำนวนตัวเลือก (None) ⇒ ไม่กรองด้วยกฎ (ก) แต่ยังอ่านได้",
      _ex('✅ คำตอบ: ข้อ 2'), None, 1, False, 'one'),
+
+    # 🆕 v1.5 ㉝-v1b (ง)
+    ("㉝-v1b หัวบล็อก '✔ ตรวจคำตอบ: ข้อ 1 … ข้อ 2 …' ⛔ ไม่ใช่คำประกาศ (ทรงจริงของ chap-02-logic-q03)",
+     _ex('<b>✔ ตรวจคำตอบ:</b> ข้อ 1 … เท็จ; ข้อ 2 … เท็จ; ข้อ 4 … เท็จ; เหลือข้อ 3 จริงข้อเดียว ✓',
+         '<b>✅ คำตอบ: $\\sim p \\wedge \\sim q$ → ตัวเลือก 3</b>'), 4, 2, False, 'one'),
+
+    ("㉝-v1b 'ตรวจคำตอบ: ข้อ 2 ผิด…' + บรรทัดคำตอบไม่มีเลข ⇒ 'none' ⛔ ห้ามแดงผิดตัว (ความเสี่ยงใบ 406 §4)",
+     _ex('✔ ตรวจคำตอบ: ข้อ 2 ผิดเพราะแทนค่าแล้วไม่จริง',
+         '✅ คำตอบ: $x = 5$'), 4, 0, False, 'none'),
+
+    ("㉝-v1b บรรทัดตรวจคำตอบที่มี ✅ ด้วย ⇒ ยังเป็นคำประกาศ อ่าน 'ข้อ N' ได้ (⛔ ไม่ขยาย (ง) เกินมติ)",
+     _ex('✅ ตรวจคำตอบ: ข้อ 2 ถูกข้อเดียว'), 4, 1, False, 'one'),
 ]
 
 
@@ -404,7 +445,7 @@ def _mut_always_clean(explanation, n_choices=None):
 
 # ── 🆕 v1.4 มิวแทนต์ของ ㉝ — แต่ละตัวถอดข้อบังคับออกหนึ่งข้อ ─────────────
 def _alt_variant(explanation, n_choices, *, alt_re=ALT_RE, use_alt=True,
-                 nfilter=True, choice_wins=True):
+                 nfilter=True, choice_wins=True, check_guard=True):
     nums = set()
     for line in explanation:
         if not isinstance(line, str):
@@ -416,6 +457,8 @@ def _alt_variant(explanation, n_choices, *, alt_re=ALT_RE, use_alt=True,
         c = {int(m) for m in CHOICE_RE.findall(line)}
         nums |= c
         if c and choice_wins:
+            continue
+        if check_guard and _marker_only_in_check_word(line):
             continue
         if use_alt:
             nums |= {int(m) for m in alt_re.findall(line)
@@ -448,6 +491,18 @@ _ALT_NO_RANGE = re.compile(r'ข้อ\s*(\d+)')
 def _mut_no_range_guard(explanation, n_choices=None):
     """⑩ ถอด lookahead ⇒ ช่วง "ข้อ 1–4" ถูกอ่านเป็นเลข 1"""
     return _alt_variant(explanation, n_choices, alt_re=_ALT_NO_RANGE)
+
+
+def _mut_no_check_guard(explanation, n_choices=None):
+    """⑫ ถอด (ง) ของ v1.5 = พฤติกรรม v1.4 ⇒ ใช้เป็น positive control กับคลังจริงด้วย (กฎ ⑪)"""
+    return _alt_variant(explanation, n_choices, check_guard=False)
+
+
+def _mut_check_word_anywhere(explanation, n_choices=None):
+    """⑬ ขยาย (ง) เกินมติ: บรรทัดไหนมีคำว่า ตรวจคำตอบ ก็ไม่อ่าน "ข้อ" (แม้มี ✅ ด้วย)"""
+    blanked = [('' if isinstance(x, str) and CHECK_WORD in x and not CHOICE_RE.search(x) else x)
+               for x in explanation]
+    return _alt_variant(blanked, n_choices)
 
 
 def _mut_whole_block(explanation, n_choices=None):
@@ -533,6 +588,8 @@ def selftest():
         ('⑨ ถอดกฎ (ข) ตัวเลือกชนะ',              _mut_alt_with_choice),
         ('⑩ ถอด lookahead กันช่วง "ข้อ 1–4"',    _mut_no_range_guard),
         ('⑪ อ่านทั้งก้อนแทนทีละบรรทัด',           _mut_whole_block),
+        ('⑫ ถอด (ง) v1.5 (= v1.4)',             _mut_no_check_guard),
+        ('⑬ ขยาย (ง) ทุกบรรทัดที่มีตรวจคำตอบ',     _mut_check_word_anywhere),
     ):
         fails = _run_alt_cases(fn)
         good = len(fails) > 0
@@ -587,7 +644,7 @@ def selftest():
         print('🔴 SELF-TEST ไม่ผ่าน ⇒ ผลของด่านนี้กับไฟล์จริงเชื่อไม่ได้')
         sys.exit(2)
     print(f'✅ SELF-TEST ผ่านครบ {len(CASES)} + {len(ALT_CASES)} + {len(ENFORCE_CASES)}'
-          f' + {len(BLIND_CASES)} เคส + มิวแทนต์ 11 ตัว')
+          f' + {len(BLIND_CASES)} เคส + มิวแทนต์ 13 ตัว')
     return 0
 
 
