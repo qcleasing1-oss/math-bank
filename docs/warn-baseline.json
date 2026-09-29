@@ -1,7 +1,7 @@
 {
   "_comment": "เส้นฐาน ratchet ของ scan_symbols.py — ยอดค้างลดได้อย่างเดียว ห้ามโต",
-  "_measuredOn": "2026-08-09",
-  "_measuredAtCommit": "749531b+ยังไม่ commit  ⚠️ วัดจากต้นไม้งานที่มีของแก้ค้างอยู่ ⇒ commit นี้เพียว ๆ ให้เลขนี้ไม่ได้",
+  "_measuredOn": "2026-09-29",
+  "_measuredAtCommit": "ไม่ทราบ — ตอนเขียนเส้นฐานไม่มี git ให้ถาม",
   "_scannerVersion": "2.10",
   "_method": "scripts/scan_symbols.py v2.10 · walker ลง imageSpec · โหมดทั้งคลัง (ไม่มี --since/--changed) · คีย์ที่ขึ้นต้นด้วย _measured* และ _method ถูกเขียนทับ ทุกครั้งที่ --write-baseline",
   "_owner": "math-bank เท่านั้น — พอร์ทัลอ่านอย่างเดียว ห้ามเขียน (กติกา 31 ก.ค. 69 ข้อ 3) ถ้าเลขไม่ตรง ให้ถามกลับ ไม่ใช่แก้ไฟล์นี้",
@@ -14,8 +14,8 @@
   "block_questions_legacy": 29,
   "_occUnitNote": "ตั้งแต่ v2.4 warn_occurrences = จำนวนจุดจริง (เดิมถึง v2.3 เป็นจำนวนรายการ (สัญลักษณ์,ฟิลด์) ⇒ เลขจะกระโดดขึ้นครั้งเดียวโดยที่หนี้ไม่ได้โต)",
   "_measuredFromData": "6cd0f1b  (คอมมิตล่าสุดที่แตะ data/sets/ · data/ สะอาด ⇒ เลขนี้นิ่งแล้ว)",
-  "escape_questions": 38,
-  "escape_occurrences": 196,
+  "escape_questions": 0,
+  "escape_occurrences": 0,
   "_escape_def": "ข้อไม่ซ้ำที่มีโทเคนใน ESCAPE_BANNED (ปัจจุบัน: แบ็กสแลชตามด้วยอัญประกาศคู่) ในฟิลด์ใดก็ได้ ยกเว้น accept · ทุกไฟล์รวมข้อสอบจริง = กฎเหล็กข้อ 10 · กงล้อนี้แยกจาก block_questions_legacy โดยตั้งใจ",
   "_lastIncrease": {
     "date": "2026-08-08",
