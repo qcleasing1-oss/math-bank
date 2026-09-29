@@ -4997,7 +4997,8 @@
           "acNotB": "d",
           "abc": "e",
           "bcNotA": "f",
-          "cOnly": "g"
+          "cOnly": "g",
+          "outside": "h"
         },
         "width": 300
       }
@@ -5978,7 +5979,8 @@
           "acNotB": "d",
           "abc": "e",
           "bcNotA": "f",
-          "cOnly": "g"
+          "cOnly": "g",
+          "outside": "h"
         },
         "width": 300
       }
@@ -6060,7 +6062,8 @@
           "acNotB": "d",
           "abc": "e",
           "bcNotA": "f",
-          "cOnly": "g"
+          "cOnly": "g",
+          "outside": "h"
         },
         "width": 300
       }
@@ -7831,7 +7834,8 @@
         "regions": {
           "A_only": "a",
           "AB": "b",
-          "B_only": "c"
+          "B_only": "c",
+          "outside": "h"
         },
         "universe": true
       }
@@ -7980,7 +7984,8 @@
           "acNotB": "d",
           "abc": "e",
           "bcNotA": "f",
-          "cOnly": "g"
+          "cOnly": "g",
+          "outside": "h"
         },
         "width": 300
       }
@@ -8055,7 +8060,8 @@
           "acNotB": "d",
           "abc": "4",
           "bcNotA": "f",
-          "cOnly": "g"
+          "cOnly": "g",
+          "outside": "h"
         },
         "width": 300
       }
@@ -9885,6 +9891,9 @@
       "hasImage": true,
       "sourceTag": "แต่งใหม่ v2 · แข่งขัน · 2569",
       "correct": "34",
+      "accept": [
+        "34"
+      ],
       "explanation": [
         "📚 <b>ความรู้พื้นฐานที่ต้องใช้</b>",
         "$n(A\\cup B\\cup C)=n(A)+n(B)+n(C)-n(A\\cap B)-n(A\\cap C)-n(B\\cap C)+n(A\\cap B\\cap C)$",
@@ -9937,13 +9946,14 @@
           "ฟิสิกส์"
         ],
         "values": {
-          "cOnly": "16",
+          "aOnly": "a",
           "abNotC": "0",
+          "bOnly": "c",
+          "acNotB": "d",
           "abc": "0",
-          "acNotB": "?",
-          "bcNotA": "?",
-          "aOnly": "?",
-          "bOnly": "?"
+          "bcNotA": "f",
+          "cOnly": "16",
+          "outside": "h"
         },
         "width": 300
       }
@@ -11894,6 +11904,9 @@
       "hasImage": true,
       "sourceTag": "แต่งใหม่ v2 · แข่งขัน · 2569",
       "correct": "13",
+      "accept": [
+        "13"
+      ],
       "explanation": [
         "📚 <b>ความรู้พื้นฐานที่ต้องใช้</b>",
         "$n(A\\cup B)=n(A)+n(B)-n(A\\cap B)$",
@@ -11933,9 +11946,9 @@
           "B": "Chinese (20)"
         },
         "regions": {
-          "A_only": "?",
-          "AB": "?",
-          "B_only": "?",
+          "A_only": "a",
+          "AB": "b",
+          "B_only": "c",
           "outside": "8"
         },
         "universe": 40
@@ -12118,6 +12131,9 @@
       "hasImage": true,
       "sourceTag": "แต่งใหม่ v2 · แข่งขัน · 2569",
       "correct": "21",
+      "accept": [
+        "21"
+      ],
       "explanation": [
         "📚 <b>ความรู้พื้นฐานที่ต้องใช้</b>",
         "บริเวณทั้งเจ็ดในเวนน์สามเซตไม่ทับกัน (disjoint) รวมกับคนนอกได้ทั้งหมด",
@@ -12157,13 +12173,13 @@
         ],
         "values": {
           "aOnly": "8",
-          "bOnly": "6",
-          "cOnly": "5",
           "abNotC": "4",
+          "bOnly": "6",
           "acNotB": "3",
-          "bcNotA": "2",
           "abc": "1",
-          "outside": "?"
+          "bcNotA": "2",
+          "cOnly": "5",
+          "outside": "h"
         },
         "width": 360
       }
@@ -12287,6 +12303,9 @@
       "hasImage": true,
       "sourceTag": "แต่งใหม่ v2 · แข่งขัน · 2569",
       "correct": "20",
+      "accept": [
+        "20"
+      ],
       "explanation": [
         "📚 <b>ความรู้พื้นฐานที่ต้องใช้</b>",
         "แบ่งคนตามจำนวนชมรมที่เข้า: $x_1=$ พอดีหนึ่ง, $x_2=$ พอดีสอง, $x_3=$ ครบสาม",
@@ -12333,10 +12352,14 @@
           "C (24)"
         ],
         "values": {
+          "aOnly": "a",
+          "abNotC": "b",
+          "bOnly": "c",
+          "acNotB": "d",
           "abc": "4",
-          "abNotC": "?",
-          "acNotB": "?",
-          "bcNotA": "?"
+          "bcNotA": "f",
+          "cOnly": "g",
+          "outside": "h"
         },
         "width": 360
       }
@@ -12968,6 +12991,9 @@
       "hasImage": true,
       "sourceTag": "แต่งใหม่ v2 · แข่งขัน · 2569",
       "correct": "7",
+      "accept": [
+        "7"
+      ],
       "explanation": [
         "📚 <b>ความรู้พื้นฐานที่ต้องใช้</b>",
         "หลักการรวม-แยก 2 เซต: $n(A\\cup B)=n(A)+n(B)-n(A\\cap B)$",
@@ -13008,10 +13034,10 @@
           "B": "วิทยาศาสตร์ (18)"
         },
         "regions": {
-          "A_only": "?",
+          "A_only": "a",
           "AB": "10",
-          "B_only": "?",
-          "outside": "?"
+          "B_only": "c",
+          "outside": "h"
         },
         "universe": 40
       }
@@ -13033,6 +13059,9 @@
       "hasImage": true,
       "sourceTag": "แต่งใหม่ v2 · แข่งขัน · 2569",
       "correct": "15",
+      "accept": [
+        "15"
+      ],
       "explanation": [
         "📚 <b>ความรู้พื้นฐานที่ต้องใช้</b>",
         "บริเวณ “อยู่ $A$ และ $B$ แต่ไม่อยู่ $C$” มีจำนวน $n(A\\cap B)-n(A\\cap B\\cap C)$",
@@ -13071,14 +13100,14 @@
           "ศิลปะ (20)"
         ],
         "values": {
-          "aOnly": "?",
-          "bOnly": "?",
-          "cOnly": "?",
-          "abNotC": "?",
-          "acNotB": "?",
-          "bcNotA": "?",
+          "aOnly": "a",
+          "abNotC": "b",
+          "bOnly": "c",
+          "acNotB": "d",
           "abc": "3",
-          "outside": "?"
+          "bcNotA": "f",
+          "cOnly": "g",
+          "outside": "h"
         },
         "width": 360
       }
@@ -13356,6 +13385,9 @@
       "hasImage": true,
       "sourceTag": "แต่งใหม่ v2 · แข่งขัน · 2569",
       "correct": "15",
+      "accept": [
+        "15"
+      ],
       "explanation": [
         "📚 <b>ความรู้พื้นฐานที่ต้องใช้</b>",
         "ถ้าให้ $e_1,e_2,e_3$ คือจำนวนคนที่ใช้พอดี $1,2,3$ ชนิด แล้ว $n(A)+n(B)+n(C)=e_1+2e_2+3e_3$ (นับตามจำนวนวงที่คนคนหนึ่งอยู่)",
@@ -13398,13 +13430,13 @@
           "แอป C (48)"
         ],
         "values": {
-          "aOnly": "?",
-          "bOnly": "?",
-          "cOnly": "?",
-          "abNotC": "?",
-          "acNotB": "?",
-          "bcNotA": "?",
-          "abc": "?",
+          "aOnly": "a",
+          "abNotC": "b",
+          "bOnly": "c",
+          "acNotB": "d",
+          "abc": "e",
+          "bcNotA": "f",
+          "cOnly": "g",
           "outside": "0"
         },
         "width": 360
@@ -14074,6 +14106,9 @@
       "hasImage": true,
       "sourceTag": "แต่งใหม่ v2 · แข่งขัน · 2569",
       "correct": "17",
+      "accept": [
+        "17"
+      ],
       "explanation": [
         "📚 <b>ความรู้พื้นฐานที่ต้องใช้</b>",
         "$n(A\\cup B)=n(A)+n(B)-n(A\\cap B)$ · จำนวนที่ 'ไม่เล่นทั้งสอง' คือ $n(U)-n(A\\cup B)$",
@@ -14122,9 +14157,9 @@
           "B": "บาสเกตบอล (20)"
         },
         "regions": {
-          "A_only": "?",
-          "AB": "?",
-          "B_only": "?",
+          "A_only": "a",
+          "AB": "b",
+          "B_only": "c",
           "outside": "8"
         },
         "universe": 45
@@ -14147,6 +14182,9 @@
       "hasImage": true,
       "sourceTag": "แต่งใหม่ v2 · แข่งขัน · 2569",
       "correct": "19",
+      "accept": [
+        "19"
+      ],
       "explanation": [
         "📚 <b>ความรู้พื้นฐานที่ต้องใช้</b>",
         "$n(A\\cap B)$ นับรวมคนที่อ่านครบสามด้วย · คนที่อ่าน 'พอดีสองประเภท' ในคู่หนึ่ง $=n(\\text{คู่})-n(A\\cap B\\cap C)$",
@@ -14187,13 +14225,13 @@
           "C"
         ],
         "values": {
+          "aOnly": "a",
+          "abNotC": "b",
+          "bOnly": "c",
+          "acNotB": "d",
           "abc": "6",
-          "abNotC": "?",
-          "acNotB": "?",
-          "bcNotA": "?",
-          "aOnly": "?",
-          "bOnly": "?",
-          "cOnly": "?"
+          "bcNotA": "f",
+          "cOnly": "g"
         },
         "width": 300
       }
@@ -14526,6 +14564,9 @@
       "hasImage": true,
       "sourceTag": "แต่งใหม่ v2 · แข่งขัน · 2569",
       "correct": "10",
+      "accept": [
+        "10"
+      ],
       "explanation": [
         "📚 <b>ความรู้พื้นฐานที่ต้องใช้</b>",
         "เมื่อทุกคนชอบอย่างน้อยหนึ่งวิชา จะได้ $n(A\\cup B\\cup C)=100$ (ไม่มีคนนอก)",
@@ -14567,13 +14608,13 @@
           "เคมี (45)"
         ],
         "values": {
-          "abc": "10",
+          "aOnly": "a",
           "abNotC": "15",
+          "bOnly": "c",
+          "acNotB": "d",
+          "abc": "10",
           "bcNotA": "5",
-          "acNotB": "?",
-          "aOnly": "?",
-          "bOnly": "?",
-          "cOnly": "?",
+          "cOnly": "g",
           "outside": "0"
         },
         "width": 320
@@ -15295,6 +15336,9 @@
       "hasImage": true,
       "sourceTag": "แต่งใหม่ v2 · แข่งขัน · 2569",
       "correct": "22",
+      "accept": [
+        "22"
+      ],
       "explanation": [
         "📚 <b>ความรู้พื้นฐานที่ต้องใช้</b>",
         "ชอบเฉพาะ ก $=n(\\text{ก})-n(\\text{ก}\\cap\\text{ข})$ และชอบเฉพาะ ข ทำนองเดียวกัน",
@@ -15344,9 +15388,9 @@
           "B": "ข (18)"
         },
         "regions": {
+          "A_only": "a",
           "AB": "10",
-          "A_only": "?",
-          "B_only": "?"
+          "B_only": "c"
         }
       }
     },
@@ -15447,7 +15491,7 @@
         "✔ <b>ตรวจคำตอบ (วิธีอิสระ · แยกเฉพาะคู่)</b>",
         "เฉพาะ $A\\cap B$ ไม่รวม $C=12-4=8$, $A\\cap C=9-4=5$, $B\\cap C=8-4=4$ รวม $8+5+4=17$ ✓",
         "",
-        "✅ <b>คำตอบ</b> $17$",
+        "✅ <b>คำตอบ</b> $17$ → ตัวเลือก 1",
         "",
         "🔄 <b>【 วิธีที่ 2 ▸ ⚡ ประยุกต์ · ไล่ทีละบริเวณคู่ 】</b>",
         "<b>ขั้นที่ 1</b> พอดีสองของแต่ละคู่ $=$ ส่วนร่วมคู่ $-$ ครบสาม",
@@ -15467,10 +15511,13 @@
           "C (20)"
         ],
         "values": {
+          "aOnly": "a",
+          "abNotC": "b",
+          "bOnly": "c",
+          "acNotB": "d",
           "abc": "4",
-          "abNotC": "?",
-          "acNotB": "?",
-          "bcNotA": "?"
+          "bcNotA": "f",
+          "cOnly": "g"
         },
         "width": 300
       }
@@ -15758,6 +15805,9 @@
       "hasImage": true,
       "sourceTag": "แต่งใหม่ v2 · แข่งขัน · 2569",
       "correct": "5",
+      "accept": [
+        "5"
+      ],
       "explanation": [
         "📚 <b>ความรู้พื้นฐานที่ต้องใช้</b>",
         "'ทุกคนเล่นอย่างน้อยหนึ่งชนิด' แปลว่า $n(F\\cup B\\cup V)=60$ (ไม่มีใครอยู่นอกวง)",
@@ -15800,7 +15850,13 @@
           "V (25)"
         ],
         "values": {
-          "abc": "?",
+          "aOnly": "a",
+          "abNotC": "b",
+          "bOnly": "c",
+          "acNotB": "d",
+          "abc": "e",
+          "bcNotA": "f",
+          "cOnly": "g",
           "outside": "0"
         },
         "width": 300
@@ -16294,6 +16350,9 @@
       "hasImage": true,
       "sourceTag": "แต่งใหม่ v2 · แข่งขัน · 2569",
       "correct": "5",
+      "accept": [
+        "5"
+      ],
       "explanation": [
         "📚 <b>ความรู้พื้นฐานที่ต้องใช้</b>",
         "$n(A\\cup B)=n(A)+n(B)-n(A\\cap B)$",
@@ -16335,10 +16394,10 @@
           "B": "วิทย์ (18)"
         },
         "regions": {
-          "A_only": "?",
+          "A_only": "a",
           "AB": "8",
-          "B_only": "?",
-          "outside": "?"
+          "B_only": "c",
+          "outside": "h"
         },
         "universe": 40
       }
@@ -16360,6 +16419,9 @@
       "hasImage": true,
       "sourceTag": "แต่งใหม่ v2 · แข่งขัน · 2569",
       "correct": "5",
+      "accept": [
+        "5"
+      ],
       "explanation": [
         "📚 <b>ความรู้พื้นฐานที่ต้องใช้</b>",
         "$\\begin{aligned} n(A\\cup B\\cup C) &=n(A)+n(B)+n(C)-n(A\\cap B)-n(A\\cap C)-n(B\\cap C)+n(A\\cap B\\cap C) \\\\ \\text{ไม่ใช้แอปใดเลย} &=n(U)-n(A\\cup B\\cup C) \\end{aligned}$",
@@ -16398,11 +16460,14 @@
           "C (18)"
         ],
         "values": {
+          "aOnly": "a",
+          "abNotC": "b",
+          "bOnly": "c",
+          "acNotB": "d",
           "abc": "3",
-          "aOnly": "?",
-          "bOnly": "?",
-          "cOnly": "?",
-          "outside": "?"
+          "bcNotA": "f",
+          "cOnly": "g",
+          "outside": "h"
         },
         "width": 320
       }
