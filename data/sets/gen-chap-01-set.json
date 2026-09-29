@@ -3386,6 +3386,9 @@
       "hasImage": true,
       "sourceTag": "แต่งใหม่ v2 · แข่งขัน · 2569",
       "correct": "44",
+      "accept": [
+        "44"
+      ],
       "explanation": [
         "📚 <b>ความรู้พื้นฐานที่ต้องใช้</b>",
         "$\\begin{aligned} n(A\\cup B\\cup C) &=n(A)+n(B)+n(C)-n(A\\cap B)-n(A\\cap C)-n(B\\cap C)+n(A\\cap B\\cap C) \\\\ \\text{เฉพาะ} A \\text{อย่างเดียว} &=n(A)-n(A\\cap B)-n(A\\cap C)+n(A\\cap B\\cap C) \\end{aligned}$",
@@ -3432,10 +3435,14 @@
           "C (27)"
         ],
         "values": {
+          "aOnly": "a",
+          "abNotC": "b",
+          "bOnly": "c",
+          "acNotB": "d",
           "abc": "4",
-          "aOnly": "?",
-          "bOnly": "?",
-          "cOnly": "?"
+          "bcNotA": "f",
+          "cOnly": "g",
+          "outside": "h"
         },
         "width": 300
       }
@@ -4931,6 +4938,9 @@
       "hasImage": true,
       "sourceTag": "แต่งใหม่ v2 · แข่งขัน · 2569",
       "correct": "5",
+      "accept": [
+        "5"
+      ],
       "explanation": [
         "📚 <b>ความรู้พื้นฐานที่ต้องใช้</b>",
         "$n(A\\cup B\\cup C)=n(A)+n(B)+n(C)-n(A\\cap B)-n(A\\cap C)-n(B\\cap C)+n(A\\cap B\\cap C)$",
@@ -4981,7 +4991,13 @@
           "อังกฤษ (20)"
         ],
         "values": {
-          "cOnly": "?"
+          "aOnly": "a",
+          "abNotC": "b",
+          "bOnly": "c",
+          "acNotB": "d",
+          "abc": "e",
+          "bcNotA": "f",
+          "cOnly": "g"
         },
         "width": 300
       }
@@ -5004,6 +5020,9 @@
       "hasImage": true,
       "sourceTag": "แต่งใหม่ v2 · แข่งขัน · 2569",
       "correct": "10",
+      "accept": [
+        "10"
+      ],
       "explanation": [
         "📚 <b>ความรู้พื้นฐานที่ต้องใช้</b>",
         "สองเซตแบ่งเอกภพเป็น $4$ บริเวณไม่ทับกัน",
@@ -5051,9 +5070,9 @@
         },
         "regions": {
           "A_only": "15",
+          "AB": "b",
           "B_only": "15",
-          "outside": "10",
-          "AB": "?"
+          "outside": "10"
         },
         "universe": true
       }
@@ -5707,6 +5726,9 @@
       "hasImage": true,
       "sourceTag": "แต่งใหม่ v2 · แข่งขัน · 2569",
       "correct": "17",
+      "accept": [
+        "17"
+      ],
       "explanation": [
         "📚 <b>ความรู้พื้นฐานที่ต้องใช้</b>",
         "สูตรยูเนียนสองเซต: $n(A\\cup B)=n(A)+n(B)-n(A\\cap B)$",
@@ -5756,9 +5778,9 @@
           "B": "B"
         },
         "regions": {
+          "A_only": "a",
           "AB": "7",
-          "A_only": "?",
-          "B_only": "?"
+          "B_only": "c"
         }
       }
     },
@@ -5902,6 +5924,9 @@
       "hasImage": true,
       "sourceTag": "แต่งใหม่ v2 · แข่งขัน · 2569",
       "correct": "6",
+      "accept": [
+        "6"
+      ],
       "explanation": [
         "📚 <b>ความรู้พื้นฐานที่ต้องใช้</b>",
         "สูตรสามเซต: $n(A\\cup B\\cup C)=n(A)+n(B)+n(C)-n(A\\cap B)-n(A\\cap C)-n(B\\cap C)+n(A\\cap B\\cap C)$",
@@ -5947,7 +5972,13 @@
           "C (25)"
         ],
         "values": {
-          "abc": "?"
+          "aOnly": "a",
+          "abNotC": "b",
+          "bOnly": "c",
+          "acNotB": "d",
+          "abc": "e",
+          "bcNotA": "f",
+          "cOnly": "g"
         },
         "width": 300
       }
@@ -6006,7 +6037,7 @@
         "✔ <b>ตรวจคำตอบ (วิธีอิสระ · สร้างตัวแบบจริง)</b>",
         "ให้ช่องกลาง $\\{1,2\\}$ ($t=2$) เดี่ยวสามตัวคือ $3,4,5$ กระจายเป็น $A=\\{1,2,3\\}$, $B=\\{1,2,4\\}$, $C=\\{1,2,5\\}$ ตรวจ $n(A\\cap B)=|\\{1,2\\}|=2$ ✓ ทุกคู่, ยูเนียน $=U$ ✓ และ $A\\cap B\\cap C=\\{1,2\\}$ มี $2$ ตัว ยืนยันข้อ \"$=1$\" ผิด",
         "",
-        "✅ <b>คำตอบ</b> $$n(A\\cap B\\cap C)=1$$",
+        "✅ <b>คำตอบ</b> $$n(A\\cap B\\cap C)=1$$ → ตัวเลือก 2",
         "",
         "💡 <b>เทคนิค</b>",
         "โจทย์ \"ข้อใดผิด\" ให้แก้หาปริมาณหลัก (ที่นี่ชั้นกลาง) จากเงื่อนไขก่อน แล้วเสียบตรวจทุกตัวเลือกทีละข้อ",
@@ -6023,7 +6054,13 @@
           "C (3)"
         ],
         "values": {
-          "abc": "?"
+          "aOnly": "a",
+          "abNotC": "b",
+          "bOnly": "c",
+          "acNotB": "d",
+          "abc": "e",
+          "bcNotA": "f",
+          "cOnly": "g"
         },
         "width": 300
       }
@@ -6627,6 +6664,9 @@
       "hasImage": true,
       "sourceTag": "แต่งใหม่ v2 · แข่งขัน · 2569",
       "correct": "94",
+      "accept": [
+        "94"
+      ],
       "explanation": [
         "📚 <b>ความรู้พื้นฐานที่ต้องใช้</b>",
         "แยกอินเตอร์เซกชันคู่: $n(A\\cap B)=n((A\\cap B)-C)+n(A\\cap B\\cap C)$",
@@ -6678,13 +6718,13 @@
           "C"
         ],
         "values": {
+          "aOnly": "a",
           "abNotC": "18",
+          "bOnly": "c",
           "acNotB": "6",
-          "bcNotA": "2",
           "abc": "32",
-          "aOnly": "?",
-          "bOnly": "?",
-          "cOnly": "?"
+          "bcNotA": "2",
+          "cOnly": "g"
         },
         "width": 300
       }
@@ -6706,6 +6746,9 @@
       "hasImage": true,
       "sourceTag": "แต่งใหม่ v2 · แข่งขัน · 2569",
       "correct": "7",
+      "accept": [
+        "7"
+      ],
       "explanation": [
         "📚 <b>ความรู้พื้นฐานที่ต้องใช้</b>",
         "$7$ บริเวณเวนน์ที่ไม่ทับกันรวมได้ $n(A\\cup B\\cup C)$",
@@ -6764,9 +6807,11 @@
         "values": {
           "aOnly": "20",
           "abNotC": "2",
+          "bOnly": "c",
+          "acNotB": "d",
           "abc": "3",
-          "acNotB": "?",
-          "bcNotA": "?"
+          "bcNotA": "f",
+          "cOnly": "g"
         },
         "width": 300
       }
@@ -7329,6 +7374,9 @@
       "hasImage": true,
       "sourceTag": "แต่งใหม่ v2 · แข่งขัน · 2569",
       "correct": "20",
+      "accept": [
+        "20"
+      ],
       "explanation": [
         "📚 <b>ความรู้พื้นฐานที่ต้องใช้</b>",
         "$n(A\\cup B)=n(A)+n(B)-n(A\\cap B)$",
@@ -7376,9 +7424,9 @@
           "B": "B"
         },
         "regions": {
+          "A_only": "a",
           "AB": "8",
-          "A_only": "?",
-          "B_only": "?"
+          "B_only": "c"
         }
       }
     },
@@ -7735,6 +7783,9 @@
       "hasImage": true,
       "sourceTag": "แต่งใหม่ v2 · แข่งขัน · 2569",
       "correct": "9",
+      "accept": [
+        "9"
+      ],
       "explanation": [
         "📚 <b>ความรู้พื้นฐานที่ต้องใช้</b>",
         "$\\begin{aligned} n(A\\cap B) &=n(A)+n(B)-n(A\\cup B) \\\\ n(A\\cup B) &\\le N \\end{aligned}$",
@@ -7778,7 +7829,9 @@
           "B": "กาแฟ (27)"
         },
         "regions": {
-          "AB": "?"
+          "A_only": "a",
+          "AB": "b",
+          "B_only": "c"
         },
         "universe": true
       }
@@ -7800,6 +7853,9 @@
       "hasImage": true,
       "sourceTag": "แต่งใหม่ v2 · แข่งขัน · 2569",
       "correct": "17",
+      "accept": [
+        "17"
+      ],
       "explanation": [
         "📚 <b>ความรู้พื้นฐานที่ต้องใช้</b>",
         "$\\begin{aligned} \\text{ส่วนนอก} &=N-n(A\\cup B) \\\\ n(A\\cup B) &\\ge\\max\\big(n(A),n(B)\\big) \\\\ \\text{ส่วนนอกมากสุด} &=N-\\max\\big(n(A),n(B)\\big) \\end{aligned}$",
@@ -7842,7 +7898,10 @@
           "B": "อังกฤษ (33)"
         },
         "regions": {
-          "outside": "?"
+          "A_only": "a",
+          "AB": "b",
+          "B_only": "c",
+          "outside": "h"
         },
         "universe": true
       }
@@ -7864,6 +7923,9 @@
       "hasImage": true,
       "sourceTag": "แต่งใหม่ v2 · แข่งขัน · 2569",
       "correct": "25",
+      "accept": [
+        "25"
+      ],
       "explanation": [
         "📚 <b>ความรู้พื้นฐานที่ต้องใช้</b>",
         "$n(A\\cap B\\cap C)\\ge n(A)+n(B)+n(C)-2N$",
@@ -7912,7 +7974,13 @@
           "เคมี (80)"
         ],
         "values": {
-          "abc": "?"
+          "aOnly": "a",
+          "abNotC": "b",
+          "bOnly": "c",
+          "acNotB": "d",
+          "abc": "e",
+          "bcNotA": "f",
+          "cOnly": "g"
         },
         "width": 300
       }
@@ -7934,6 +8002,9 @@
       "hasImage": true,
       "sourceTag": "แต่งใหม่ v2 · แข่งขัน · 2569",
       "correct": "7",
+      "accept": [
+        "7"
+      ],
       "explanation": [
         "📚 <b>ความรู้พื้นฐานที่ต้องใช้</b>",
         "$n(A\\cup B\\cup C)=\\sum n(\\cdot)-\\sum n(\\text{pair})+n(A\\cap B\\cap C)$",
@@ -7978,10 +8049,13 @@
           "C (22)"
         ],
         "values": {
+          "aOnly": "a",
+          "abNotC": "b",
+          "bOnly": "c",
+          "acNotB": "d",
           "abc": "4",
-          "abNotC": "?",
-          "acNotB": "?",
-          "bcNotA": "?"
+          "bcNotA": "f",
+          "cOnly": "g"
         },
         "width": 300
       }
@@ -8704,6 +8778,9 @@
       "hasImage": true,
       "sourceTag": "แต่งใหม่ v2 · แข่งขัน · 2569",
       "correct": "32",
+      "accept": [
+        "32"
+      ],
       "explanation": [
         "📚 <b>ความรู้พื้นฐานที่ต้องใช้</b>",
         "$\\begin{aligned} X\\cap(X\\cup Y) &=X \\text{(ดูดกลืน)} \\\\ n(A) &=n(A\\cap B')+n(A\\cap B) \\\\ n\\big(P(A)\\big)-n\\big(P(B)\\big) &=2^{\\,n(A)}-2^{\\,n(B)} \\end{aligned}$",
@@ -8752,7 +8829,7 @@
         "regions": {
           "A_only": "4",
           "AB": "2",
-          "B_only": "?"
+          "B_only": "c"
         }
       }
     },
@@ -9191,6 +9268,9 @@
       "hasImage": true,
       "sourceTag": "แต่งใหม่ v2 · แข่งขัน · 2569",
       "correct": "64",
+      "accept": [
+        "64"
+      ],
       "explanation": [
         "📚 <b>ความรู้พื้นฐานที่ต้องใช้</b>",
         "$\\begin{aligned} n(A\\cup B\\cup C) &=n(A)+n(B)+n(C)-n(A\\cap B)-n(A\\cap C)-n(B\\cap C)+n(A\\cap B\\cap C) \\\\ \\text{ทั้งหมด} &=n(A\\cup B\\cup C)+ \\text{ผู้อยู่นอก} \\end{aligned}$",
@@ -9238,14 +9318,14 @@
           "C (24)"
         ],
         "values": {
+          "aOnly": "a",
+          "abNotC": "b",
+          "bOnly": "c",
+          "acNotB": "d",
           "abc": "4",
-          "outside": "7",
-          "abNotC": "?",
-          "acNotB": "?",
-          "bcNotA": "?",
-          "aOnly": "?",
-          "bOnly": "?",
-          "cOnly": "?"
+          "bcNotA": "f",
+          "cOnly": "g",
+          "outside": "7"
         },
         "width": 300
       }
