@@ -127,6 +127,7 @@ SHAPE: dict[str, tuple] = {
     'samn-2563-03'                                    : ('q', 2),
     'samn-2564-04'                                    : ('q', 2),
     'samn-2565-03'                                    : ('q', 2),
+    'wb-chap-01-set'                                  : ('q', 3),
 }
 
 
