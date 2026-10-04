@@ -120,8 +120,8 @@ import inspect as _inspect
 import datetime as _dt
 import textwrap as _tw
 
-SCANNER_VERSION = '2.10'
-SCANNER_DATE = '2026-08-08'
+SCANNER_VERSION = '2.11'
+SCANNER_DATE = '2026-10-04'
 
 # คีย์ที่สคริปต์รุ่นนี้ "ใช้ตัดสินจริง" — ขาดข้อใดข้อหนึ่ง = ตัวตรวจใช้ไม่ได้ (exit 2)
 # 🔴 ไม่ใช่ 'ข้ามไปเงียบ ๆ' เพราะ "ไม่ได้ตรวจ" กับ "ตรวจแล้วสะอาด" ต้องไม่ให้ผลเหมือนกัน
@@ -237,8 +237,14 @@ TIERED = [r'\operatorname', r'\lfloor', r'\dbinom', r'\mathrm',
           r'\binom', r'\bmod', r'\lceil', r'\pmod', r'\rfloor', r'\rceil']
 
 # ฟิลด์ที่เด็กเห็นทันทีตอนทำข้อ (imageSpec = ป้ายกำกับที่วาดลง SVG)
-STUDENT_NOW = ('question', 'choices', 'imageSpec')
-STUDENT_LATER = ('explanation',)
+# 🆕 v2.11 (⚖️ ครูเคาะ 4 ต.ค. 69 · แชท MB-r38 · HANDOFF MB rev39 §⑤ข):
+#    wb       = บันไดฝึกที่เด็กลงมือ "ระหว่างทำข้อ" (จุดตรวจ · หาขั้นที่ผิด · เรียงขั้น) ⇒ NOW
+#    solSteps = เฉลยแสดงทีละขั้น "เห็นหลังตอบ"                                    ⇒ LATER
+#    🔴 ก่อน v2.11 สองช่องนี้ไม่อยู่ในทูเพิลใดเลย ⇒ ชั้น TIERED ให้ tier = None ⇒ มองไม่เห็น
+#       (positive control 3 ต.ค. 69: \lfloor ใน wb.instruction / solSteps.steps[].note ⇒ EXIT 0)
+#    ⇒ ล็อกด้วย CANARY-17..20 · OK-14 · ด่านระดับ + กลายพันธุ์ "ถอดช่องออก ⇒ ข้อล่อหลุด"
+STUDENT_NOW = ('question', 'choices', 'imageSpec', 'wb')
+STUDENT_LATER = ('explanation', 'solSteps')
 
 # ⛔ ฟิลด์ที่ห้ามแตะเด็ดขาด — ยูนิโคดในนี้คือ "รายการคำตอบที่ยอมรับ"
 #    ถ้าลบทิ้ง ระบบตรวจคำตอบจะพังเงียบ ๆ (เด็กพิมพ์ ∅ แล้วถูกตอบว่าผิด)
@@ -998,6 +1004,23 @@ CANARIES = [
      {"id": "CANARY-15", "question": 'ข้อใดเป็น \\"เซตว่าง\\"'}, r'\"'),
     (r'escape เกินชั้นใน imageSpec.labels ⇒ ต้องจับ (walker ต้องลง dict)',
      {"id": "CANARY-16", "imageSpec": {"labels": ['\\"A\\"']}}, r'\"'),
+    # ── ช่อง wb / solSteps  🆕 v2.11 ─────────────────────────────────
+    #    🔴 เดิมสองช่องนี้มองไม่เห็นเลย ⇒ เคสพวกนี้กันไม่ให้ช่อง "หลุดจากทูเพิล" อีก
+    (r"\lfloor ใน wb.instruction ⇒ ต้องจับ (wb = ช่องที่เด็กลงมือระหว่างทำข้อ)",
+     {"id": "CANARY-17", "question": "สะอาด",
+      "wb": {"instruction": r"ใช้ $\lfloor x \rfloor$ ช่วยคิด"}}, r"\lfloor"),
+    (r"\lfloor ใน wb.checkpoints[].prompt ⇒ ต้องจับ (walker ต้องลง list ใน dict)",
+     {"id": "CANARY-18", "question": "สะอาด",
+      "wb": {"checkpoints": [{"prompt": "ขั้นแรก"},
+                             {"prompt": r"หาค่า $\lfloor 2.5 \rfloor$"}]}}, r"\lfloor"),
+    (r"\lfloor ใน solSteps.steps[].note ⇒ ต้องจับ (เฉลยแสดงทีละขั้น)",
+     {"id": "CANARY-19", "question": "สะอาด",
+      "solSteps": {"v": 1, "steps": [{"id": "s1", "note": r"ปัด $\lfloor x \rfloor$ ลง"}]}},
+     r"\lfloor"),
+    (r"\lfloor ใน solSteps.steps[].tex ⇒ ต้องจับ",
+     {"id": "CANARY-20", "question": "สะอาด",
+      "solSteps": {"v": 1, "steps": [{"id": "s1", "tex": r"\lfloor 7/2 \rfloor = 3"}]}},
+     r"\lfloor"),
 ]
 
 ANTI_CANARIES = [
@@ -1030,6 +1053,10 @@ ANTI_CANARIES = [
      {"id": "OK-12", "question": r'$\dfrac{a}{b} \quad \text{และ} \\ \{1,2\}$'}),
     (r'escape เกินชั้นในฟิลด์ accept ⛔ ห้ามแตะ (เป็นรายการคำตอบที่ยอมรับ)',
      {"id": "OK-13", "accept": ['\\"พอดีหนึ่งตัว\\"']}),
+    # ── ระดับของช่องใหม่  🆕 v2.11 ───────────────────────────────────
+    (r"\lfloor ใน solSteps = WARN ไม่ใช่ BLOCK (เฉลย · เด็กเห็นหลังตอบ)",
+     {"id": "OK-14",
+      "solSteps": {"v": 1, "steps": [{"id": "s1", "note": r"$\lfloor 7/2 \rfloor = 3$"}]}}),
 ]
 
 # ข้อล่อสำหรับโหมด diff — เนื้อเดียวกันเป๊ะ ต่างกันแค่ "อยู่ใน diff ไหม"
@@ -1097,6 +1124,24 @@ def _mut_escape_empty(bait):
     # และของจริง (ลิสต์ครบ) ต้องยังจับได้ — ไม่งั้น True ข้างบนไม่มีความหมาย
     caught = any(h[0] == 'ESC'
                  for h in scan_question(bait, 'gen-chap-01-set.json'))
+    return leaked and caught
+
+
+def _mut_drop_field(tup_name, field, bait, sym=r'\lfloor'):
+    """🧬 v2.11 จำลองว่ามีคนถอดช่องออกจากทูเพิลระดับ (STUDENT_NOW / STUDENT_LATER)
+
+    คืน True เมื่อ "ถอดแล้วข้อล่อหลุดจริง" และ "ของจริง (ทูเพิลครบ) ยังจับได้"
+    = ช่องนั้นรับน้ำหนักอยู่ในทูเพิลจริง ⛔ ไม่ใช่จับได้เพราะทางอื่น
+    """
+    g = globals()
+    keep = g[tup_name]
+    try:
+        g[tup_name] = tuple(f for f in keep if f != field)
+        leaked = not any(h[1] == sym
+                         for h in scan_question(bait, 'gen-chap-01-set.json'))
+    finally:
+        g[tup_name] = keep
+    caught = any(h[1] == sym for h in scan_question(bait, 'gen-chap-01-set.json'))
     return leaked and caught
 
 
@@ -1404,6 +1449,27 @@ def run_canary():
          == counts_from_hits(scan_question(_ESC_DIRTY, 'gen-chap-01-set.json'))),
         ("ESCAPE_BANNED ต้องไม่ทับรายการโทเคนอื่น (ระดับถูกกำหนดโดยโทเคน)",
          token_lists_disjoint()[0]),
+    ]
+    # ── ระดับของช่อง wb / solSteps + กลายพันธุ์  🆕 v2.11 ──────────────
+    _WB_BAIT = {"id": "WB-BAIT", "question": "สะอาด",
+                "wb": {"instruction": r"$\lfloor x \rfloor$"}}
+    _SS_BAIT = {"id": "SS-BAIT", "question": "สะอาด",
+                "solSteps": {"steps": [{"note": r"$\lfloor x \rfloor$"}]}}
+    _tiers = lambda q: {h[0] for h in scan_question(q, 'gen-chap-01-set.json')
+                        if h[1] == r'\lfloor'}
+    _pts_eq = lambda q: (counts_from_points(enum_points(q, 'gen-chap-01-set.json'))
+                         == counts_from_hits(scan_question(q, 'gen-chap-01-set.json')))
+    diff_checks += [
+        ("── ช่อง wb/solSteps ── \\lfloor ใน wb ⇒ ต้องเป็น BLOCK (เด็กเห็นตอนทำ)",
+         _tiers(_WB_BAIT) == {'BLOCK'}),
+        ("\\lfloor ใน solSteps ⇒ ต้องเป็น WARN (เด็กเห็นหลังตอบ · ⛔ BLOCK)",
+         _tiers(_SS_BAIT) == {'WARN'}),
+        ("🧬 กลายพันธุ์: ถอด 'wb' ออกจาก STUDENT_NOW ⇒ ข้อล่อ wb ต้องหลุด",
+         _mut_drop_field('STUDENT_NOW', 'wb', _WB_BAIT)),
+        ("🧬 กลายพันธุ์: ถอด 'solSteps' ออกจาก STUDENT_LATER ⇒ ข้อล่อ solSteps ต้องหลุด",
+         _mut_drop_field('STUDENT_LATER', 'solSteps', _SS_BAIT)),
+        ("ชั้นนับกับชั้นจุดต้องให้ยอดตรงกันบนข้อล่อ wb", _pts_eq(_WB_BAIT)),
+        ("…และบนข้อล่อ solSteps", _pts_eq(_SS_BAIT)),
     ]
 
     B = {'warn_questions': 444, 'block_questions_legacy': 45, 'escape_questions': 38}
