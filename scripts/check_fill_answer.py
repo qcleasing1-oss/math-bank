@@ -31,6 +31,13 @@
    ② ตรวจเฉพาะข้อที่ **คีย์เป็นจำนวนเดี่ยว** · คีย์ที่เป็นสูตร/ข้อความ = นอกขอบเขต
       ⛔ "นอกขอบเขต" ไม่เท่ากับ "ตรวจแล้วผ่าน" — จึงนับแยกถังและมีเพดาน
 
+🆕 v1.1 (4 ต.ค. 69 · B② ใบ 582 · มติ 603 M5 M6) — ขยาย "ตรวจได้" อีก 2 ชนิดคีย์
+   ⓐ เซตแจกแจงของจำนวน {17, -2} · ไม่สนลำดับ · ปีกกาในบรรทัดคำตอบต้องเป็นเซตเดียวกับคีย์
+      (ไม่มีปีกกาเลย ⇒ ค่าทุกตัวของคีย์ต้องปรากฏ = เกณฑ์ ① เดิม)
+   ⓑ คีย์บริเวณเวนน์ (wb.answerKind = 'region') · ทรงคีย์ M5 `a, b, d` · ตัวอักษรตามจำนวนวง M6
+      ⇒ คีย์/accept ผิดทรง = 🔴 ทันที (ไม่ใช่หนี้) · บรรทัด ✅ ต้องมีรายการตัวอักษรเท่าคีย์
+   ⛔ ไม่แตะเพดาน · ถัง "คีย์ไม่ใช่จำนวนเดี่ยว" ลดได้ทางเดียว (ข้อที่ย้ายมาเป็น "ตรวจได้")
+
 รหัสออก: 0 = ผ่าน · 1 = เนื้อหาแดง · 2 = ตัวเครื่องมือแดง
 """
 import argparse
@@ -41,7 +48,7 @@ import re
 import sys
 from fractions import Fraction
 
-CHECKER_VERSION = '1.0'
+CHECKER_VERSION = '1.1'
 
 # ── บรรทัดที่ถือว่า "ประกาศคำตอบ" — สำเนาจากด่าน 7 (ดูเหตุผลหัวไฟล์) ──
 ANSWER_MARKERS = ('✅', 'คำตอบ:', 'คำตอบคือ', 'จึงตอบ', 'ดังนั้นตอบ')
@@ -69,7 +76,10 @@ ROUND_TOL = Fraction(1, 50)     # 2%
 MAX_NO_VALUE = 15        # เฉลยไม่ประกาศค่าเลย ⇒ ด่าน 17 มองไม่เห็น
 #   🔻 7 ส.ค. 69 : 19 → 15  (แก้ gen-chap-18 q09/q23/q44/q45 ให้บรรทัด ✅ พกค่าคำตอบมาด้วย)
 #      ⛔ เพดานขยับลงได้อย่างเดียว
-MAX_OUT_OF_SCOPE = 332   # คีย์ไม่ใช่จำนวนเดี่ยว (สูตร/ข้อความ/หลายค่า)
+MAX_OUT_OF_SCOPE = 322   # คีย์ไม่ใช่จำนวนเดี่ยว (สูตร/ข้อความ/หลายค่า)
+#   🔻 4 ต.ค. 69 : 332 → 322  (มติครูในแชท MB-r38 · ใบ 618 · B② v1.1 ย้ายคีย์เซตแจกแจงของจำนวน 10 ข้อ
+#      มาเป็น "ตรวจได้" (hit ครบ 10) · คอมมิตเดียวกับ v1.1)
+#      ⛔ เพดานขยับลงได้อย่างเดียว
 MAX_NO_ACCEPT = 1053     # ไม่มีสนาม accept เลย ⇒ ด่าน 18 มองไม่เห็น
 #   🔻 30 ก.ย. 69 : 1,063 → 1,053  (มติครูในแชท MB · ใบ 515 · เติม accept=[คีย์] 10 ข้อ fill ของเวนน์ก้อน 3 gen-chap-01-set
 #      คอมมิตเดียวกับร่าง)
@@ -216,6 +226,255 @@ def eligible(q):
 
 
 # ═════════════════════════════════════════════════════════════
+#  🆕 v1.1 · B② (582 B② · 603 M5 M6) — คีย์เซตแจกแจงของจำนวน · คีย์บริเวณเวนน์
+# ═════════════════════════════════════════════════════════════
+#  ⛔ ขยายขอบเขต "ตรวจได้" เท่านั้น ⛔ ไม่แตะเพดาน (ถังนอกขอบเขตลดได้ทางเดียว)
+#  ชนิดคีย์ (classify):
+#    'num'    จำนวนเดี่ยว (เดิม)
+#    'set'    เซตแจกแจงของจำนวนตรรกยะ {1, 2, 3} · ไม่สนลำดับ · สมาชิกทุกตัวต้องอ่านเป็นจำนวนเดี่ยวได้
+#             สมาชิกเป็นรากที่สอง / คู่อันดับ / pi / ตัวแปร ⇒ ยังเป็น 'other' (นอกขอบเขต)
+#    'region' ข้อที่ wb.answerKind = 'region' และคีย์ถูกทรง M5 + M6
+#    'badkey' ข้อที่ wb.answerKind = 'region' แต่คีย์ผิดทรง ⇒ 🔴 เสมอ (ไม่ขึ้นกับขอบเขต diff)
+#    'other'  ที่เหลือ = นอกขอบเขต (ถังเดิม "คีย์ไม่ใช่จำนวนเดี่ยว")
+#  ⛔ ตัวจุดชนวนคีย์บริเวณ = wb.answerKind เท่านั้น ⛔ ไม่เดาจากหน้าตาคีย์
+#     (คลังวันนี้ไม่มีคีย์ตัวอักษรในข้อ fill เลย · ถ้าเดาจากหน้าตา คีย์ตัวแปร "a" ในบทอื่นจะแดงผิด)
+
+# M5: ตัวเล็กล้วน · เรียงตามตัวอักษร · ไม่ซ้ำ · ", " (จุลภาค + เว้นวรรค 1 ช่อง) · ไม่มี { } $
+REGION_KEY = re.compile(r'[a-h](?:, [a-h])*')
+# M6: จำนวนวง ⇒ ตัวอักษรที่ใช้ได้ (2 วง = V4 a b c d · 3 วง = V3 a–h)
+REGION_LETTERS = {2: 'abcd', 3: 'abcdefgh'}
+VENN3_TYPES = ('3set-labeled', 'venn-c-oval', 'venn-c-in-a')
+# กฎ ⑫ : ตัดเฉพาะแท็ก HTML ที่รู้จัก ⛔ <[^>]+> (จะกิน a < b ทิ้ง)
+TAGS = re.compile(r'</?(?:b|i|u|br|span|sup|sub|em|strong|div|p)\b[^>]*>')
+# ตัวอักษรบริเวณ 1 ตัว ที่ไม่ติดตัวอักษรอังกฤษหรือ \ (กัน \cap \cup <b> \varnothing)
+_RL = r'(?<![A-Za-z\\])[a-h](?![A-Za-z])'
+REGION_RUN = re.compile(_RL + r'(?:\s*,\s*' + _RL + r')*')
+
+
+def circles_of(q):
+    """จำนวนวงของข้อ จาก imageSpec (dict หรือ list) · คืน (จำนวน, เหตุผลถ้าหาไม่ได้)"""
+    spec = q.get('imageSpec')
+    specs = spec if isinstance(spec, list) else [spec]
+    seen = set()
+    for s in specs:
+        if not isinstance(s, dict):
+            continue
+        t = str(s.get('type', ''))
+        if t == 'venn-diagram':
+            n = s.get('sets')
+            if n in (2, 3):
+                seen.add(n)
+            else:
+                return None, f'venn-diagram sets={n!r}'
+        elif t in VENN3_TYPES:
+            seen.add(3)
+    if len(seen) == 1:
+        return seen.pop(), None
+    if not seen:
+        return None, 'ไม่มี imageSpec แผนภาพเวนน์'
+    return None, f'imageSpec มีหลายจำนวนวง {sorted(seen)}'
+
+
+def region_key_problem(key, n):
+    """คืน None ถ้าคีย์ถูกทรง M5 + M6 · ไม่งั้นคืนเหตุผล (ข้อความ)"""
+    if not isinstance(key, str):
+        return f'คีย์ต้องเป็นสตริง (ได้ {type(key).__name__})'
+    if not REGION_KEY.fullmatch(key):
+        return 'ผิดทรง M5 (ต้องเป็น "a, b, d" ตัวเล็ก a–h · จุลภาค+เว้นวรรค 1 ช่อง · ไม่มี { } $)'
+    ls = key.split(', ')
+    if len(set(ls)) != len(ls):
+        return 'มีตัวอักษรซ้ำ (M5)'
+    if ls != sorted(ls):
+        return 'ไม่เรียงตามตัวอักษร (M5)'
+    allowed = REGION_LETTERS.get(n)
+    if allowed is None:
+        return f'จำนวนวง {n!r} ไม่รองรับ'
+    bad = [x for x in ls if x not in allowed]
+    if bad:
+        return f'ตัวอักษร {",".join(bad)} เกินจำนวนวง ({n} วง ใช้ได้ {" ".join(allowed)}) (M6)'
+    return None
+
+
+def _split_top(s, sep=','):
+    out, depth, cur = [], 0, []
+    for ch in s:
+        if ch == '{':
+            depth += 1
+        elif ch == '}':
+            depth -= 1
+        if ch == sep and depth == 0:
+            out.append(''.join(cur))
+            cur = []
+        else:
+            cur.append(ch)
+    out.append(''.join(cur))
+    return out
+
+
+def _set_prep(s):
+    t = str(s).replace('$', '')
+    for a, b in (('\\left', ''), ('\\right', ''), ('\\{', '{'), ('\\}', '}')):
+        t = t.replace(a, b)
+    return t
+
+
+def _num_elem(e):
+    """สมาชิก 1 ตัว ⇒ Fraction หรือ None (อ่านเป็นจำนวนเดี่ยวไม่ได้)"""
+    st, v = single(e.strip())
+    return v if st == 'num' else None
+
+
+def parse_num_set(body):
+    """เนื้อในวงเล็บปีกกา ⇒ list ของ Fraction หรือ None
+    ⚠️ แยกด้วยจุลภาค "ชั้นนอก" ก่อน แล้วค่อย clean ทีละตัว
+       ถ้า clean ก่อน ⇒ {100,200} จะถูกตัวลบคั่นหลักพันกลืนเป็น 100200"""
+    if not body.strip():
+        return None
+    out = []
+    for e in _split_top(body):
+        v = _num_elem(e)
+        if v is None:
+            return None
+        out.append(v)
+    return out
+
+
+def key_set(key):
+    """คีย์ ⇒ list ของ Fraction ถ้าเป็นเซตแจกแจงของจำนวน · ไม่งั้น None"""
+    if key is None or isinstance(key, (int, float, bool)):
+        return None
+    t = _set_prep(key).strip()
+    if not (t.startswith('{') and t.endswith('}')):
+        return None
+    body = t[1:-1]
+    depth = 0
+    for ch in body:                       # ปีกกาต้องปิดครบภายใน (กัน "{1}, {2}")
+        depth += {'{': 1, '}': -1}.get(ch, 0)
+        if depth < 0:
+            return None
+    if depth != 0:
+        return None
+    return parse_num_set(body)
+
+
+def same_set(a, b):
+    """เซตเท่ากัน (ไม่สนลำดับ · ไม่สนตัวซ้ำ) ด้วย near()"""
+    return (all(any(near(x, y) for y in b) for x in a)
+            and all(any(near(y, x) for x in a) for y in b))
+
+
+def braced_groups(line):
+    """ปีกกาชั้นนอกที่ "หน้าตาเป็นเซต" ในบรรทัด ⇒ list ของเนื้อใน
+    ⛔ ข้ามปีกกาที่เป็นอาร์กิวเมนต์คำสั่ง (\\frac{..}{..} \\sqrt{..} ^{..} _{..} \\text{..})"""
+    t = _set_prep(line)
+    out, i, n = [], 0, len(t)
+    while i < n:
+        if t[i] == '{':
+            j = i - 1
+            while j >= 0 and t[j] == ' ':
+                j -= 1
+            arg = j >= 0 and (t[j].isalpha() and t[j].isascii() or t[j] in '}^_')
+            depth, k = 0, i
+            while k < n:
+                depth += {'{': 1, '}': -1}.get(t[k], 0)
+                if depth == 0:
+                    break
+                k += 1
+            if not arg and k < n:
+                out.append(t[i + 1:k])
+            i = k + 1 if k < n else i + 1
+        else:
+            i += 1
+    return out
+
+
+def _answer_lines(explanation):
+    for line in explanation:
+        if not isinstance(line, str):
+            continue
+        if any(k in line for k in SKIP_MARKERS):
+            continue
+        if not any(k in line for k in ANSWER_MARKERS):
+            continue
+        yield line
+
+
+def declared_set(explanation, ks):
+    """เหมือน declared_value แต่คีย์เป็นเซตของจำนวน
+    'hit'  = บรรทัดคำตอบมีปีกกาที่เป็นเซตเท่าคีย์ (ไม่สนลำดับ)
+             หรือ ไม่มีปีกกาเลย แต่ค่าทุกตัวของคีย์ปรากฏในบรรทัดคำตอบ (เกณฑ์ ① เดิม)
+    'miss' = มีปีกกาที่เป็นเซต แต่ไม่มีอันไหนเท่าคีย์ · หรือไม่มีปีกกาและค่าของคีย์ปรากฏไม่ครบ
+    'none' = บรรทัดคำตอบไม่มีตัวเลขเลย"""
+    groups, seen = [], []
+    for line in _answer_lines(explanation):
+        for g in braced_groups(line):
+            s = parse_num_set(g)
+            if s is not None:
+                groups.append(s)
+        seen.extend(vals(line)[0])
+    if groups:
+        for g in groups:
+            if same_set(g, ks):
+                return 'hit', g
+        return 'miss', groups
+    if not seen:
+        return 'none', None
+    if all(any(near(v, k) for v in seen) for k in ks):
+        return 'hit', seen
+    return 'miss', seen
+
+
+def declared_region(explanation, key):
+    """คีย์บริเวณ "a, b, d" ⇒ บรรทัดคำตอบต้องมีรายการตัวอักษร (คั่นจุลภาค) ที่เป็นเซตเดียวกับคีย์
+    'hit'  = มีรายการที่เท่าคีย์ (ไม่สนลำดับ · ไม่สนเว้นวรรค · $a$, $b$ ก็นับ)
+    'miss' = มีรายการตัวอักษรบริเวณ แต่ไม่มีอันไหนเท่าคีย์
+    'none' = ไม่มีตัวอักษรบริเวณในบรรทัดคำตอบเลย
+    ⛔ "a, b และ d" นับเป็น 2 รายการ (a, b) กับ (d) ⇒ miss · บรรทัด ✅ ต้องพิมพ์คีย์เป็นรายการเดียว"""
+    want = set(key.split(', '))
+    runs = []
+    for line in _answer_lines(explanation):
+        t = TAGS.sub(' ', line).replace('$', '')
+        for m in REGION_RUN.finditer(t):
+            runs.append(set(re.findall(r'[a-h]', m.group(0))))
+    if not runs:
+        return 'none', None
+    for r in runs:
+        if r == want:
+            return 'hit', sorted(r)
+    return 'miss', [', '.join(sorted(r)) for r in runs]
+
+
+def classify(q):
+    """คืน (ชนิด, ค่าคีย์, รายละเอียด) — ดูตารางชนิดที่หัวบล็อก"""
+    c = q.get('correct')
+    wb = q.get('wb')
+    if isinstance(wb, dict) and wb.get('answerKind') == 'region':
+        n, why = circles_of(q)
+        if n is None:
+            return 'badkey', c, why
+        p = region_key_problem(c, n)
+        if p:
+            return 'badkey', c, p
+        return 'region', c, n
+    st, key = single(c)
+    if st == 'num':
+        return 'num', key, None
+    ks = key_set(c)
+    if ks is not None:
+        return 'set', ks, None
+    return 'other', None, None
+
+
+def region_accept_problem(q, n):
+    """ข้อบริเวณ: ทุกค่าใน accept ต้องถูกทรง M5 + M6 ด้วย (603 M5 ครอบ accept)"""
+    acc = q.get('accept')
+    if not isinstance(acc, list):
+        return None                      # ไม่มี/ผิดชนิด ⇒ accept_verdict ตัดสินเอง
+    bad = [(a, region_key_problem(a, n)) for a in acc if region_key_problem(a, n)]
+    return bad or None
+
+
+# ═════════════════════════════════════════════════════════════
 #  ด่าน 18 · ช่องคำตอบต้องรับคีย์ของตัวเอง
 # ═════════════════════════════════════════════════════════════
 def accept_verdict(q):
@@ -274,8 +533,9 @@ def accept_offbeat(q):
 
 def scan(sets_dir):
     stat = {'eligible': 0, 'hit': 0, 'miss': 0, 'none': 0, 'out': 0,
-            'no-field': 0, 'bad-type': 0, 'dup': 0, 'missing': 0, 'ok': 0}
-    red_answer, red_accept, offbeat, recs = [], [], [], []
+            'no-field': 0, 'bad-type': 0, 'dup': 0, 'missing': 0, 'ok': 0,
+            'set': 0, 'region': 0, 'badkey': 0}
+    red_answer, red_accept, offbeat, recs, red_key = [], [], [], [], []
     files = sorted(glob.glob(os.path.join(sets_dir, '*.json')))
     if not files:
         print(f'🔴 ไม่พบไฟล์ .json ใน {sets_dir}')
@@ -294,12 +554,25 @@ def scan(sets_dir):
             stat['eligible'] += 1
             qid = q.get('id')
 
-            st, key = single(q.get('correct'))
-            if st != 'num':
+            ck, key, info = classify(q)
+            if ck == 'other':
                 stat['out'] += 1
                 kind = 'out'
+            elif ck == 'badkey':
+                stat['badkey'] += 1
+                kind = 'badkey'
+                red_key.append((base, qid, q.get('correct'), 'คีย์: ' + str(info)))
             else:
-                kind, got = declared_value(q['explanation'], key)
+                if ck == 'num':
+                    kind, got = declared_value(q['explanation'], key)
+                elif ck == 'set':
+                    kind, got = declared_set(q['explanation'], key)
+                else:
+                    kind, got = declared_region(q['explanation'], key)
+                    for a_, why in (region_accept_problem(q, info) or []):
+                        red_key.append((base, qid, a_, 'accept: ' + why))
+                if ck != 'num':
+                    stat[ck] += 1
                 stat[kind] += 1
                 if kind == 'miss':
                     red_answer.append((base, qid, q.get('correct'), got))
@@ -312,7 +585,7 @@ def scan(sets_dir):
                 offbeat.append((base, qid, q.get('correct'), a, ratio))
 
             recs.append((base, qid, kind, av))
-    return stat, red_answer, red_accept, offbeat, recs
+    return stat, red_answer, red_accept, offbeat, recs, red_key
 
 
 # ── ชั้นบังคับตามขอบเขต diff (แบบเดียวกับด่าน 8) ──────────────
@@ -428,6 +701,184 @@ ENFORCE_CASES = [
      [('f', 'OLD-1', 'none', 'no-field')], None, ['OLD-1']),
     ("รหัสในขอบเขตที่ไม่มีในคลัง (ข้อถูกลบ) ⇒ ต้องไม่ล้ม",
      [('f', 'NEW-1', 'hit', 'ok')], {'NEW-1', 'GHOST-9'}, []),
+]
+
+
+# ── 🆕 v1.1 · เคส B② (ชนิดคีย์ · เซตแจกแจง · บริเวณ) ─────────────
+_V2 = {'type': 'venn-diagram', 'sets': 2, 'layout': 'intersecting', 'universe': True}
+_V3 = {'type': 'venn-diagram', 'sets': 3, 'universe': True}
+
+
+def _rq(key, spec=_V2, kind='region'):
+    q = {'type': 'fill', 'correct': key, 'explanation': ['✅ คำตอบ: $a$']}
+    if spec is not None:
+        q['imageSpec'] = spec
+    if kind is not None:
+        q['wb'] = {'answerKind': kind}
+    return q
+
+
+# (ชื่อเคส, ข้อ, ชนิดที่ classify ต้องได้)
+KEY_CASES = [
+    ("บริเวณ 2 วง ทรง M5 `a, b, d`", _rq('a, b, d'), 'region'),
+    ("บริเวณ 3 วง ใช้ h ได้ (V3 a–h)", _rq('a, h', _V3), 'region'),
+    ("บริเวณ imageSpec เป็น list 2 รูป (ก่อน/หลังแรเงา)", _rq('d', [_V2, dict(_V2, shade=['outside'])]), 'region'),
+    ("บริเวณ 3 วง ชนิด 3set-labeled", _rq('g', {'type': '3set-labeled'}), 'region'),
+    ("🔴 ไม่เว้นวรรค `a,b,d` (M5)", _rq('a,b,d'), 'badkey'),
+    ("🔴 เว้นวรรค 2 ช่อง `a,  b` (M5)", _rq('a,  b'), 'badkey'),
+    ("🔴 ช่องว่างท้าย `a, b ` (M5)", _rq('a, b '), 'badkey'),
+    ("🔴 ตัวใหญ่ `A, B` (M5)", _rq('A, B'), 'badkey'),
+    ("🔴 2 วง ใช้ e เกินจำนวนวง (M6)", _rq('a, e'), 'badkey'),
+    ("🔴 ใช้เลขบริเวณ `1, 2` (M1 M6)", _rq('1, 2'), 'badkey'),
+    ("🔴 เลขวงกลม ① (M1)", _rq('①'), 'badkey'),
+    ("🔴 ไม่เรียง `b, a` (M5)", _rq('b, a'), 'badkey'),
+    ("🔴 ซ้ำ `a, a` (M5)", _rq('a, a'), 'badkey'),
+    ("🔴 มีปีกกา `{a, b}` (M5)", _rq('{a, b}'), 'badkey'),
+    ("🔴 มี $ `$a$` (M5)", _rq('$a$'), 'badkey'),
+    ("🔴 ไม่มีรูปเวนน์ ⇒ บอกจำนวนวงไม่ได้", _rq('a', None), 'badkey'),
+    ("🔴 คีย์เป็น int", _rq(1), 'badkey'),
+    ("ไม่มี wb.answerKind ⇒ ⛔ ไม่เดาจากหน้าตา (คีย์ตัวแปร a ในบทอื่น)", _rq('a', _V2, None), 'other'),
+    ("answerKind อื่น (number) ⇒ ไม่ใช่บริเวณ", _rq('7', _V2, 'number'), 'num'),
+    ("เซตแจกแจง `{17, -2}`", {'correct': '{17, -2}'}, 'set'),
+    ("เซตแจกแจงแบบ LaTeX `\\{1,2,3,4,5\\}`", {'correct': '\\{1,2,3,4,5\\}'}, 'set'),
+    ("เซตใน $ `$\\{1,3,5,6,8\\}$`", {'correct': '$\\{1,3,5,6,8\\}$'}, 'set'),
+    ("เซตที่สมาชิกเป็นเศษส่วน `\\{\\frac{1}{2}, 3\\}`", {'correct': '\\{\\frac{1}{2}, 3\\}'}, 'set'),
+    ("คู่อันดับ ⇒ ยังนอกขอบเขต", {'correct': '{(1,-1),(2,-2)}'}, 'other'),
+    ("สมาชิกมีรากที่สอง ⇒ ยังนอกขอบเขต", {'correct': '$\\{-\\sqrt{3},\\ 1-\\sqrt{2}\\}$'}, 'other'),
+    ("สมาชิกมี pi ⇒ ยังนอกขอบเขต", {'correct': '{ pi/2 , 3pi/2 }'}, 'other'),
+    ("ปีกกาหลายก้อน `{1}, {2}` ⇒ ไม่ใช่เซตเดียว", {'correct': '{1}, {2}'}, 'other'),
+    ("รายการไม่มีปีกกา `0, 1, 2` ⇒ ยังนอกขอบเขต (ลำดับอาจมีความหมาย)", {'correct': '0, 1, 2'}, 'other'),
+    ("เซตว่าง `{}` ⇒ นอกขอบเขต", {'correct': '{}'}, 'other'),
+    ("จำนวนเดี่ยวยังเป็น num", {'correct': '5'}, 'num'),
+]
+
+# (ชื่อเคส, explanation, คีย์, สถานะที่ต้องได้)
+SET_CASES = [
+    ("ปีกกาตรงคีย์", ['✅ <b>คำตอบ:</b> $\\{17, -2\\}$'], '{17, -2}', 'hit'),
+    ("ปีกกาคนละลำดับ ⇒ ยังตรง (เซตไม่สนลำดับ)", ['✅ คำตอบ: $\\{-2, 17\\}$'], '{17, -2}', 'hit'),
+    ("ขีดยูนิโคด − ในเซต", ['✅ คำตอบ: $\\{17, −2\\}$'], '{17, -2}', 'hit'),
+    ("🔴 ปีกกาเป็นเซตอื่น", ['✅ คำตอบ: $\\{17, 2\\}$'], '{17, -2}', 'miss'),
+    ("🔴 ปีกกาขาดสมาชิก", ['✅ คำตอบ: $\\{17\\}$'], '{17, -2}', 'miss'),
+    ("🔴 ปีกกาเกินสมาชิก", ['✅ คำตอบ: $\\{17, -2, 0\\}$'], '{17, -2}', 'miss'),
+    ("ไม่มีปีกกา แต่ค่าครบ ⇒ ผ่าน (เกณฑ์ ① เดิม)", ['✅ คำตอบ: $x = 17$ หรือ $x = -2$'], '{17, -2}', 'hit'),
+    ("🔴 ไม่มีปีกกา ค่าไม่ครบ", ['✅ คำตอบ: $x = 17$'], '{17, -2}', 'miss'),
+    ("ไม่มีตัวเลขเลย ⇒ none", ['✅ คำตอบ: เซตคำตอบข้างต้น'], '{17, -2}', 'none'),
+    ("บรรทัดกับดักมีเซตตรงคีย์ ⛔ ไม่นับ", ['⚠️ ถ้าตอบ $\\{17, -2\\}$ ...'], '{17, -2}', 'none'),
+    ("ปีกกาเลขหลักร้อย {100,200} ⛔ ห้ามกลืนเป็น 100200", ['✅ คำตอบ: $\\{100,200\\}$'], '{100,200}', 'hit'),
+    ("ไม่มีปีกกา คีย์ {100,200} ค่าครบ ⇒ ผ่าน (สมาชิก 2 ตัว ไม่ใช่ 100200)", ['✅ คำตอบ: $x = 100$ หรือ $x = 200$'], '{100,200}', 'hit'),
+    ("🔴 ปีกกาของ \\frac ไม่ใช่เซต ⇒ {9} ต้องไม่ตรง 9/40", ['✅ คำตอบ: $\\dfrac{9}{40}$'], '{9}', 'miss'),
+    ("มีเซตระหว่างทางกับเซตคำตอบ ⇒ ตัวใดตัวหนึ่งตรงพอ", ['✅ คำตอบ: $A \\cup B = \\{1, 2, 3\\}$ ⇒ $\\{4, 6\\}$'], '{4, 6}', 'hit'),
+    ("\\left\\{ … \\right\\}", ['✅ คำตอบ: $\\left\\{ 0, 3 \\right\\}$'], '{0, 3}', 'hit'),
+]
+
+REGION_CASES = [
+    ("บรรทัด ✅ พิมพ์คีย์ตรงตัว", ['✅ <b>คำตอบ:</b> $a, b, d$'], 'a, b, d', 'hit'),
+    ("คนละลำดับ ⇒ ยังตรง", ['✅ คำตอบ: $d, a, b$'], 'a, b, d', 'hit'),
+    ("ทีละตัวใน $ `$a$, $b$, $d$`", ['✅ คำตอบ: แรเงาบริเวณ $a$, $b$, $d$'], 'a, b, d', 'hit'),
+    ("ไม่เว้นวรรคในเฉลย ⇒ ยังนับ (ทรงบังคับที่คีย์ ไม่ใช่ที่เฉลย)", ['✅ คำตอบ: $a,b,d$'], 'a, b, d', 'hit'),
+    ("🔴 ขาดบริเวณ", ['✅ คำตอบ: $a, b$'], 'a, b, d', 'miss'),
+    ("🔴 เกินบริเวณ", ['✅ คำตอบ: $a, b, c, d$'], 'a, b, d', 'miss'),
+    ("🔴 `a, b และ d` = 2 รายการ ⇒ ไม่เท่าคีย์", ['✅ คำตอบ: $a, b$ และ $d$'], 'a, b, d', 'miss'),
+    ("🔴 แท็ก <b> ⛔ ห้ามอ่านเป็นบริเวณ b (กฎ ⑫)", ['✅ <b>คำตอบ:</b> $c$'], 'b', 'miss'),
+    ("\\cap \\cup ไม่ใช่บริเวณ c", ['✅ คำตอบ: $C \\cap (A \\cup B)\'$ = บริเวณ $g$'], 'g', 'hit'),
+    ("บรรทัดระวังมีคีย์ ⛔ ไม่นับ", ['⚠️ ระวัง: ถ้าตอบ $a, d$ คือ…', '✅ คำตอบ: $b$'], 'a, d', 'miss'),
+    ("ไม่มีตัวอักษรบริเวณเลย ⇒ none", ['✅ คำตอบ: ดูรูปที่แรเงา'], 'a', 'none'),
+    ("ไม่มีบรรทัดคำตอบ ⇒ none", ['<b>ขั้นที่ 1</b> $a, b$'], 'a, b', 'none'),
+]
+
+
+def _with(patches, fn, *a):
+    """รัน fn ขณะแทนชื่อในโมดูลชั่วคราว (มิวแทนต์ของ v1.1) แล้วคืนของเดิมเสมอ"""
+    g = globals()
+    old = {k: g[k] for k in patches}
+    try:
+        g.update(patches)
+        return fn(*a)
+    finally:
+        g.update(old)
+
+
+def _run_b2_cases():
+    """คืนรายชื่อเคส B② ที่ล้ม (ใช้ทั้ง selftest และมิวแทนต์)"""
+    fails = []
+    for name, q, want in KEY_CASES:
+        try:
+            good = classify(q)[0] == want
+        except Exception:
+            good = False
+        if not good:
+            fails.append(name)
+    for name, ex, key, want in SET_CASES:
+        try:
+            ks = key_set(key)
+            good = ks is not None and declared_set(ex, ks)[0] == want
+        except Exception:
+            good = False
+        if not good:
+            fails.append(name)
+    for name, ex, key, want in REGION_CASES:
+        try:
+            good = declared_region(ex, key)[0] == want
+        except Exception:
+            good = False
+        if not good:
+            fails.append(name)
+    return fails
+
+
+def _m_parse_clean_first(body):
+    """⑮ clean ทั้งก้อนก่อนแยกจุลภาค ⇒ {100,200} ถูกกลืนเป็น 100200"""
+    if not body.strip():
+        return None
+    out = []
+    for e in _split_top(clean(body)):
+        v = _num_elem(e)
+        if v is None:
+            return None
+        out.append(v)
+    return out
+
+
+def _m_braced_no_arg_skip(line):
+    """⑰ ไม่ข้ามปีกกาที่เป็นอาร์กิวเมนต์ \\frac ⇒ \\frac{9}{40} กลายเป็นเซต {9} กับ {40}"""
+    return re.findall(r'\{([^{}]*)\}', _set_prep(line))
+
+
+def _m_classify_no_region(q):
+    """⑯ ลืมทางคีย์บริเวณ ⇒ ข้อ region กลายเป็นนอกขอบเขตเงียบ ๆ"""
+    st, key = single(q.get('correct'))
+    if st == 'num':
+        return 'num', key, None
+    ks = key_set(q.get('correct'))
+    return ('set', ks, None) if ks is not None else ('other', None, None)
+
+
+_REGION_KEY_PROBLEM = region_key_problem
+
+
+def _m_norm_space(key, n):
+    """⑨ "ช่วย" จัดเว้นวรรคให้ก่อนตรวจ ⇒ `a,b,d` ผ่านเงียบ ๆ ทั้งที่ M5 สั่งแดง"""
+    if isinstance(key, str):
+        key = re.sub(r'\s*,\s*', ', ', key.strip())
+    return _REGION_KEY_PROBLEM(key, n)
+
+
+def _m_norm_case(key, n):
+    """⑩ "ช่วย" แปลงเป็นตัวเล็กก่อนตรวจ ⇒ `A, B` ผ่านเงียบ ๆ (engine ไม่แยกตัวใหญ่-เล็ก · M3)"""
+    return _REGION_KEY_PROBLEM(key.lower() if isinstance(key, str) else key, n)
+
+
+B2_MUTANTS = [
+    ('⑨ M5 จัดเว้นวรรคให้ก่อนตรวจ', {'region_key_problem': _m_norm_space}),
+    ('⑩ M5 แปลงตัวเล็กให้ก่อนตรวจ', {'region_key_problem': _m_norm_case}),
+    ('⑪ M6 ไม่ดูจำนวนวง', {'REGION_LETTERS': {2: 'abcdefgh', 3: 'abcdefgh'}}),
+    ('⑫ M1 ยอมเลขบริเวณ', {'REGION_KEY': re.compile(r'[a-h1-8](?:, [a-h1-8])*'),
+                          'REGION_LETTERS': {2: 'abcd12345678', 3: 'abcdefgh12345678'}}),
+    ('⑬ เซตเทียบตามลำดับ', {'same_set': lambda a, b: list(a) == list(b)}),
+    ('⑭ ไม่ตัดแท็ก <b> (กฎ ⑫)', {'TAGS': re.compile(r'(?!x)x')}),
+    ('⑮ clean ก่อนแยกจุลภาค', {'parse_num_set': _m_parse_clean_first}),
+    ('⑯ ลืมทางคีย์บริเวณ', {'classify': _m_classify_no_region}),
+    ('⑰ ไม่ข้ามปีกกาของ \\frac', {'braced_groups': _m_braced_no_arg_skip}),
 ]
 
 
@@ -591,6 +1042,14 @@ def selftest():
         ok &= good
 
     print()
+    print('  ── 🆕 v1.1 · B② ชนิดคีย์ · เซตแจกแจง · บริเวณ (M5 M6) ──')
+    b2_fail = set(_run_b2_cases())
+    for name, *_ in KEY_CASES + SET_CASES + REGION_CASES:
+        good = name not in b2_fail
+        print(f'  {"✅" if good else "🔴"}  {name}')
+        ok &= good
+
+    print()
     print('  ── นับด่านที่ล้มเมื่อใส่บั๊กเข้าไป (ด่านต้องมีคนเฝ้า) ──')
     print('     ⛔ แดงเฉย ๆ ไม่พอ — ต้องบอกได้ว่า "แดงเพราะเคสไหน" (กับดัก ⑦ข)')
     for label, fails, total in (
@@ -609,6 +1068,14 @@ def selftest():
     ):
         good = len(fails) > 0
         print(f'  {"✅" if good else "🔴"}  มิวแทนต์ {label} ⇒ ล้ม {len(fails)}/{total} เคส')
+        for f in fails[:2]:
+            print(f'         ↳ จับได้ที่: {f}')
+        ok &= good
+    n_b2 = len(KEY_CASES) + len(SET_CASES) + len(REGION_CASES)
+    for label, patches in B2_MUTANTS:
+        fails = _with(patches, _run_b2_cases)
+        good = len(fails) > 0
+        print(f'  {"✅" if good else "🔴"}  มิวแทนต์ {label} ⇒ ล้ม {len(fails)}/{n_b2} เคส')
         for f in fails[:2]:
             print(f'         ↳ จับได้ที่: {f}')
         ok &= good
@@ -649,7 +1116,8 @@ def selftest():
         print('🔴 SELF-TEST ไม่ผ่าน ⇒ ผลของด่านนี้กับไฟล์จริงเชื่อไม่ได้')
         sys.exit(2)
     print(f'✅ SELF-TEST ผ่านครบ {len(CASES)} + {len(ACCEPT_CASES)} + {len(ENFORCE_CASES)}'
-          f' เคส + มิวแทนต์ 8 ตัว + ตัวเทียบคำสำคัญกับด่าน 7')
+          f' + B② {len(KEY_CASES)} + {len(SET_CASES)} + {len(REGION_CASES)}'
+          f' เคส + มิวแทนต์ {8 + len(B2_MUTANTS)} ตัว + ตัวเทียบคำสำคัญกับด่าน 7')
     return 0
 
 
@@ -683,7 +1151,7 @@ def main():
         print('🔴 --changed-ids ใช้ได้เฉพาะคู่กับ --enforce-declared')
         return 2
 
-    st, red_answer, red_accept, offbeat, recs = scan(a.sets_dir)
+    st, red_answer, red_accept, offbeat, recs, red_key = scan(a.sets_dir)
     elig = st['eligible']
     checkable = st['hit'] + st['miss'] + st['none']
     cov = (st['hit'] + st['miss']) / elig if elig else 0.0
@@ -695,6 +1163,8 @@ def main():
     print(f'  ด่าน 18 ตรวจได้ {elig - st["no-field"]:,} / {elig:,}'
           f'  ·  ไม่มีสนาม accept {st["no-field"]:,} (เพดาน {a.max_no_accept:,})'
           f'  ·  accept ไม่รับคีย์ {st["missing"]:,} (เพดาน {a.max_key_not_in_accept:,})')
+    print(f'  🆕 v1.1 ในยอดตรวจได้: คีย์เซตแจกแจง {st["set"]:,} · คีย์บริเวณ {st["region"]:,}'
+          f'  ·  คีย์บริเวณผิดทรง {st["badkey"]:,} (🔴 ไม่มีเพดาน)')
     print('  ⛔ "ตรวจไม่ได้" ไม่เท่ากับ "ตรวจแล้วผ่าน" — ทุกถังหนี้คือข้อที่ด่านมองไม่เห็น')
     print()
 
@@ -751,6 +1221,14 @@ def main():
         print('             แต่เด็กที่อ่านเฉลย จะถูกสอนค่าอีกอัน')
         rc = 1
 
+    if red_key:
+        print()
+        print(f'🔴 ข้อบริเวณ (wb.answerKind = region) ผิดทรง M5/M6 {len(red_key)} จุด:')
+        for base, qid, val, why in red_key:
+            print(f'   {qid:<44} {val!r} — {why}   [{base}]')
+        print('   ทรงที่ถูก (603 M5 M6): "a, b, d" ตัวเล็ก · เรียง · ไม่ซ้ำ · ", " · 2 วง a–d · 3 วง a–h')
+        rc = 1
+
     hard = [r for r in red_accept if r[2] in ('bad-type', 'dup')]
     if hard:
         print()
@@ -781,6 +1259,7 @@ def main():
                 print(f'   {qid:<44} {why}   [{base}]')
             print()
             print('   วิธีแก้: เขียนค่าคำตอบเป็นตัวเลขในบรรทัด ✅ · และใส่ accept ที่รับคีย์')
+            print('            (คีย์บริเวณ: พิมพ์รายการตัวอักษรเท่าคีย์ในบรรทัด ✅ เช่น $a, b, d$)')
             rc = 1
         else:
             print('✅ ข้อ fill ที่เปลี่ยนรอบนี้ ตรวจได้ครบทั้งสองฝั่ง')
