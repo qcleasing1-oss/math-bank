@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-r"""ด่าน 25 · check_solsteps.py v1.0 — โครงขั้นเฉลย solSteps ต้องถูกทรงตามสเปก (ss-v1.2 · 655-CC)
+r"""ด่าน 25 · check_solsteps.py v1.1 — โครงขั้นเฉลย solSteps ต้องถูกทรงตามสเปก (ss-v1.2 · 655-CC · 673-CC)
 
 ทำอะไร
 ------
@@ -9,12 +9,16 @@ r"""ด่าน 25 · check_solsteps.py v1.0 — โครงขั้นเฉ
 
 สเปกที่ใช้: 619-CC (v1) + 645-CC (v1.1 · ข1–ข9 + join/trial/given/domain) + 655-CC (v1.2 · goal/warn/of/
            lhsJoin/rhsJoin/tag/synth/trial แบบแทนค่า/quot/rem/isFactor/cands + ช่องตัวตรวจ ck…)
+           + 673-CC (role common = ตัวร่วม · มติ 671-E · note หลายบรรทัดด้วย \n · say บรรทัดเดียว · มติ 672-E)
+v1.1 (4–5 ต.ค. 69 · MB-r40): + role common · say/title ⛔ ขึ้นบรรทัดใหม่ · note ขึ้นบรรทัดได้ แต่ ⛔ $ (678-CC)
+      (v1.0 b6d5281a ตาย ⇒ แทนด้วยรุ่นนี้ · ร่าง v1.1 f48254df ใบ 677 ตาย 5 ต.ค. 00:0x เพราะ 678-CC ขอห้าม \n ใน title)
 
 กฎ (รหัสนำหน้าข้อความ)
-  S1 ทรง   : v · steps · n = 1..N ต่อเนื่อง · kind ในรายการ · title ไม่ว่าง ≤ 30 · say ไม่ว่าง ⛔ $ ⛔ \ (ข9)
+  S1 ทรง   : v · steps · n = 1..N ต่อเนื่อง · kind ในรายการ · title ไม่ว่าง ≤ 30 ⛔ ขึ้นบรรทัด · say ไม่ว่าง ⛔ $ ⛔ \ (ข9) ⛔ ขึ้นบรรทัด (673-CC)
+             note ขึ้นบรรทัดได้ (672-E) ⛔ $ (ตัวแสดงผลไม่วาด KaTeX ใน note · 678-CC §3)
              join/lhsJoin/rhsJoin ∈ add mul · case.path = ^\d+(\.\d+)*$ (ข5) · trial มี terms หรือ val อย่างใดอย่างหนึ่ง
              synth: c · row1–row3 ยาวเท่ากัน · fill จำนวนเต็ม ≥ 0 · ต้องมีขั้น answer หรือ merge อย่างน้อย 1 ขั้น
-  S2 พจน์  : id ไม่ว่าง ไม่ซ้ำในขั้น · tex ไม่ว่าง · role ∈ move add group answer · ⛔ \color ทั้งก้อน
+  S2 พจน์  : id ไม่ว่าง ไม่ซ้ำในขั้น · tex ไม่ว่าง · role ∈ move add group answer common · ⛔ \color ทั้งก้อน
   S3 อ้างอิง (ข1 · สายของขั้น):
              สาย = ขั้นสมการที่ tag เดียวกัน · หรือขั้นนิพจน์ที่ of เดียวกัน (655 §2 กฎ from เพิ่ม)
              ① id ใหม่ต้องมี from (ยกเว้น role add · ยกเว้นขั้นแรกของสาย)  ② id ของขั้นก่อนต้องไปต่อ/ถูกอ้าง/อยู่ใน cancel
@@ -49,7 +53,7 @@ import os
 import re
 import sys
 
-CHECKER_VERSION = '1.0'
+CHECKER_VERSION = '1.1'
 
 # ── ตัวนับขั้นต่ำ: ข้อที่มี solSteps ในคลัง ─────────────────────────────────────
 # ⛔ ลดเงียบไม่ได้ · เมื่อข้อที่มี solSteps ลงคลังเพิ่ม ⇒ ขยับค่านี้ขึ้นในคอมมิตเดียวกัน
@@ -58,7 +62,7 @@ MIN_WITH_SOLSTEPS = 0
 
 BANK_VERSIONS = ('ss-v1.1', 'ss-v1.2')
 KINDS = ('eq', 'expr', 'answer', 'check', 'text', 'trial', 'case', 'merge', 'synth')
-ROLES = ('move', 'add', 'group', 'answer')
+ROLES = ('move', 'add', 'group', 'answer', 'common')     # common = ตัวร่วม (671-E · 673-CC)
 JOINS = ('add', 'mul')
 REL_DIR = {'=': None, '\\ne': None, '\\neq': None,
            '<': 'lt', '\\le': 'lt', '\\leq': 'lt',
@@ -177,13 +181,19 @@ def check_ss(ss, bank=True):
             B('S1', f'ขั้น {i} title ว่าง')
         elif len(t) > TITLE_MAX:
             B('S1', f'ขั้น {i} title ยาว {len(t)} > {TITLE_MAX}')
+        elif '\n' in t or '\r' in t:
+            B('S1', f'ขั้น {i} title ขึ้นบรรทัดใหม่ (หัวบัตร/รายการ ค1 เป็นบรรทัดเดียว · 678-CC)')
         say = s.get('say')
         if not _s(say):
             B('S1', f'ขั้น {i} say ว่าง')
         elif '$' in say or '\\' in say:
             B('S1', f'ขั้น {i} say มี $ หรือ \\ (ข9)')
+        elif '\n' in say or '\r' in say:
+            B('S1', f'ขั้น {i} say ขึ้นบรรทัดใหม่ (ตัวแสดงผลเป็นบรรทัดเดียว · 673-CC)')
         if 'note' in s and not isinstance(s['note'], str):
             B('S1', f'ขั้น {i} note ต้องเป็นข้อความ')
+        elif '$' in s.get('note', ''):
+            B('S1', f'ขั้น {i} note มี $ (ตัวแสดงผลไม่วาดสูตรใน note · 678-CC) ⇒ ย้ายสูตรไป warn/goal หรือเขียนเป็นคำ')
         for key in ('warn', 'of', 'tag', 'result', 'quot', 'rem', 'mid', 'target', 'c', 'val'):
             if key in s and not _s(s[key]):
                 B('S1', f'ขั้น {i} {key} ต้องเป็นข้อความไม่ว่าง')
@@ -524,8 +534,8 @@ def _good():
             {'n': 9, 'kind': 'synth', 'title': 'หารสังเคราะห์', 'c': '2', 'row1': ['1', '-3', '2'],
              'row2': ['', '2', '-2'], 'row3': ['1', '-1', '0'], 'fill': 3, 'say': 'หารสังเคราะห์'},
             {'n': 10, 'kind': 'expr', 'title': 'โจทย์', 'terms': [T('u', 'x^2'), T('w', '+8x'), T('z', '+12')],
-             'say': 'เริ่มจากโจทย์'},
-            {'n': 11, 'kind': 'expr', 'title': 'แยกตัวประกอบ', 'terms': [T('h', '(x+2)', from_=['u', 'w']),
+             'note': 'กรณี 1 ให้ a = 2, b = 6\nab = 12 ถูก\na + b = 8 ถูก', 'say': 'เริ่มจากโจทย์'},
+            {'n': 11, 'kind': 'expr', 'title': 'แยกตัวประกอบ', 'terms': [T('h', '(x+2)', role='common', from_=['u', 'w']),
                                                                         T('k', '(x+6)', from_='z')],
              'join': 'mul', 'say': 'ได้เอ็กซ์บวกสองคูณเอ็กซ์บวกหก'},
             {'n': 12, 'kind': 'expr', 'title': 'หาดิสคริมิแนนต์', 'of': 'D', 'terms': [T('d', '64-48')],
@@ -605,9 +615,13 @@ MUTANTS = [   # (ชื่อ, แก้ ss, ข้อความที่ต�
     ('arrow.to ชี้ id ที่ไม่มีในขั้นนี้', lambda ss: _st(ss, 3)['arrows'][0].__setitem__('to', 'b'), 'arrow.to'),
     ('คีย์นอกสเปกระดับ solSteps', lambda ss: ss.__setitem__('params', ['a']), 'คีย์นอกสเปกระดับ solSteps: params'),
     ('พิมพ์ชื่อช่องระดับขั้นผิด (relflip)', lambda ss: _st(ss, 5).__setitem__('relflip', True), 'คีย์นอกสเปก: relflip'),
+    ('say ขึ้นบรรทัดใหม่', lambda ss: _st(ss, 2).__setitem__('say', 'ตั้ง\nอสมการ'), 'say ขึ้นบรรทัดใหม่'),
+    ('role ตัวร่วมสะกดผิด (commom)', lambda ss: _st(ss, 11)['terms'][0].__setitem__('role', 'commom'), "role 'commom'"),
+    ('title ขึ้นบรรทัดใหม่', lambda ss: _st(ss, 2).__setitem__('title', 'ตั้ง\nอสมการ'), 'title ขึ้นบรรทัดใหม่'),
+    ('note มี $', lambda ss: _st(ss, 10).__setitem__('note', 'กรณี 1 ให้ $a = 2$'), 'note มี $'),
     ('ขั้นสมการใช้ terms', lambda ss: _st(ss, 6).__setitem__('terms', [{'id': 'g', 'tex': '-2'}]), 'ใช้ lhs/rhs'),
 ]
-EXPECTED_MUTANTS = 30            # ⛔ ลบมิวแทนต์ทิ้งเงียบ ๆ ไม่ได้ — จำนวนต้องตรง
+EXPECTED_MUTANTS = 34            # ⛔ ลบมิวแทนต์ทิ้งเงียบ ๆ ไม่ได้ — จำนวนต้องตรง
 
 ITEM_MUTANTS = [   # กฎ B (ระดับข้อ + ตัวนับ)
     ('ช่อง ck ระดับข้อ', lambda q: q.__setitem__('ck', 'solve'), 'ช่อง ck อยู่ระดับข้อ'),
