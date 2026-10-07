@@ -32,6 +32,21 @@ function normalPdf(x){return Math.exp(-x*x/2)/Math.sqrt(2*Math.PI);}
 
 // ----- helper: counter for unique mask IDs (used by venn-diagram) -----
 let _vennIdCounter = 0;
+// ----- helper (M7 · 603-E): ป้ายบริเวณเวนน์ที่เป็นอักษรละตินตัวเดียว (ตัวแปร a–h) ⇒ serif ตัวเอียง -----
+// ตัวเลข · อักษรไทย · ข้อความหลายตัว ⇒ ตัวตรงเหมือนเดิม (กฎเดียวกับ _vennDrawElements)
+function _vennRegionFont(txt){
+  return /^[a-zA-Z]$/.test(String(txt))
+    ? ` font-family="'Cambria Math','Times New Roman',serif" font-style="italic"`
+    : '';
+}
+// ----- helper (M7 ③): spec ขอแรเงา outside แต่ไม่มีกรอบ U ⇒ ไม่เงียบ -----
+// วาดแถบแดงบนสุดของรูป + console.warn (ไม่มีข้อในคลังโดน ณ 7c604a7)
+function _vennWarnBand(W, msg){
+  if(typeof console !== 'undefined' && console.warn) console.warn('[venn] ' + msg);
+  return `<rect x="0" y="0" width="${W}" height="18" fill="#c0392b"/>`
+       + `<text x="4" y="13" font-size="11" fill="#fff" font-family="'Sarabun',sans-serif">⚠ ${msg}</text>`;
+}
+const _VENN_NO_U_MSG = 'shade outside ต้องมี universe:true';
 
 
 // ----- renderer: normal distribution curve -----
@@ -1308,20 +1323,20 @@ function _venn2Intersecting(spec){
   const regFS = 16;
   if(regions.A_only !== undefined){
     svg += `<text x="${xA - r * 0.45}" y="${cy + 5}" `
-         + `text-anchor="middle" font-size="${regFS}" fill="${INK}">${regions.A_only}</text>`;
+         + `text-anchor="middle" font-size="${regFS}" fill="${INK}"${_vennRegionFont(regions.A_only)}>${regions.A_only}</text>`;
   }
   if(regions.B_only !== undefined){
     svg += `<text x="${xB + r * 0.45}" y="${cy + 5}" `
-         + `text-anchor="middle" font-size="${regFS}" fill="${INK}">${regions.B_only}</text>`;
+         + `text-anchor="middle" font-size="${regFS}" fill="${INK}"${_vennRegionFont(regions.B_only)}>${regions.B_only}</text>`;
   }
   if(regions.AB !== undefined){
     svg += `<text x="${mid}" y="${cy + 5}" `
-         + `text-anchor="middle" font-size="${regFS}" fill="${INK}">${regions.AB}</text>`;
+         + `text-anchor="middle" font-size="${regFS}" fill="${INK}"${_vennRegionFont(regions.AB)}>${regions.AB}</text>`;
   }
   if(regions.outside !== undefined){
     const ox = universe ? (ubX + ubW - 14) : (W - 14);
     const oy = universe ? (ubY + ubH - 10) : (H - 10);
-    svg += `<text x="${ox}" y="${oy}" text-anchor="end" font-size="${regFS}" fill="${INK}">${regions.outside}</text>`;
+    svg += `<text x="${ox}" y="${oy}" text-anchor="end" font-size="${regFS}" fill="${INK}"${_vennRegionFont(regions.outside)}>${regions.outside}</text>`;
   }
 
   // 6. ELEMENT LABELS (members of a set, e.g. 'a', 'b', 'c')
@@ -1332,6 +1347,8 @@ function _venn2Intersecting(spec){
     outside: universe ? [cx, ubY + ubH - 22] : [cx, H - 22]
   });
 
+  // M7 ③: ขอแรเงา outside แต่ไม่มีกรอบ U ⇒ แถบเตือน (เดิมเงียบ)
+  if(!universe && shadeSet.has('outside')) svg += _vennWarnBand(W, _VENN_NO_U_MSG);
   return svg + '</svg>';
 }
 
@@ -1466,15 +1483,15 @@ function _venn2Disjoint(spec){
   // 5. REGION TEXT (if any — typically for letter labels)
   const regFS = 16;
   if(regions.A !== undefined){
-    svg += `<text x="${xA}" y="${cy + 5}" text-anchor="middle" font-size="${regFS}" fill="${INK}">${regions.A}</text>`;
+    svg += `<text x="${xA}" y="${cy + 5}" text-anchor="middle" font-size="${regFS}" fill="${INK}"${_vennRegionFont(regions.A)}>${regions.A}</text>`;
   }
   if(regions.B !== undefined){
-    svg += `<text x="${xB}" y="${cy + 5}" text-anchor="middle" font-size="${regFS}" fill="${INK}">${regions.B}</text>`;
+    svg += `<text x="${xB}" y="${cy + 5}" text-anchor="middle" font-size="${regFS}" fill="${INK}"${_vennRegionFont(regions.B)}>${regions.B}</text>`;
   }
   if(regions.outside !== undefined){
     const ox = universe ? (ubX + ubW - 14) : (W - 14);
     const oy = universe ? (ubY + ubH - 10) : (H - 10);
-    svg += `<text x="${ox}" y="${oy}" text-anchor="end" font-size="${regFS}" fill="${INK}">${regions.outside}</text>`;
+    svg += `<text x="${ox}" y="${oy}" text-anchor="end" font-size="${regFS}" fill="${INK}"${_vennRegionFont(regions.outside)}>${regions.outside}</text>`;
   }
 
   // 6. ELEMENT LABELS
@@ -1484,6 +1501,8 @@ function _venn2Disjoint(spec){
     outside: universe ? [cx, ubY + ubH - 22] : [cx, H - 22]
   });
 
+  // M7 ③: ขอแรเงา outside แต่ไม่มีกรอบ U ⇒ แถบเตือน (เดิมเงียบ)
+  if(!universe && shadeSet.has('outside')) svg += _vennWarnBand(W, _VENN_NO_U_MSG);
   return svg + '</svg>';
 }
 
@@ -1606,7 +1625,19 @@ function _venn3Intersecting(spec){
          + `${SHADE_RECT} fill="white"/>`
          + `<circle cx="${ctrOf[e][0]}" cy="${ctrOf[e][1]}" r="${r}" fill="black"/></mask>`;
   });
+  // outside (M7 ② · 663-MBT §2): กรอบ U − 3 วง · ต้องมี universe (ไม่มี ⇒ แถบเตือน ③)
+  if(universe && shadeSet.has('outside')){
+    svg += `<mask id="${M('outside')}" maskUnits="userSpaceOnUse">`
+         + `<rect x="${ubX}" y="${ubY}" width="${ubW}" height="${ubH}" fill="white"/>`
+         + ['A','B','C'].map(e=>`<circle cx="${ctrOf[e][0]}" cy="${ctrOf[e][1]}" r="${r}" fill="black"/>`).join('')
+         + `</mask>`;
+  }
   svg += `</defs>`;
+
+  // 0c. OUTSIDE SHADE (M7 ②) — ก่อนกรอบ U ให้เส้นกรอบอยู่บนสุด (ลำดับเดียวกับ _venn2Intersecting)
+  if(universe && shadeSet.has('outside')){
+    svg += `${SHADE_RECT} fill="${SHADE}" opacity="${SHADE_OP}" mask="url(#${M('outside')})"/>`;
+  }
 
   // 1. UNIVERSE BOX (drawn first so circles + shading sit on top)
   if(universe){
@@ -1664,10 +1695,7 @@ function _venn3Intersecting(spec){
   Object.entries(positions).forEach(([key, pos]) => {
     if(regions[key] !== undefined){
       const txt = String(regions[key]);
-      const useItalic = /^[a-zA-Z]$/.test(txt);
-      const fontAttr = useItalic
-        ? ` font-family="'Cambria Math','Times New Roman',serif" font-style="italic"`
-        : '';
+      const fontAttr = _vennRegionFont(txt);
       svg += `<text x="${pos[0].toFixed(2)}" y="${(pos[1]+5).toFixed(2)}" `
            + `text-anchor="middle" font-size="${regFS}" fill="${INK}"${fontAttr}>${txt}</text>`;
     }
@@ -1676,9 +1704,11 @@ function _venn3Intersecting(spec){
     const ox = universe ? (ubX + ubW - 14) : (W - 14);
     const oy = universe ? (ubY + ubH - 14) : (H - 14);
     const txt = String(regions.outside);
-    svg += `<text x="${ox}" y="${oy}" text-anchor="end" font-size="${regFS}" fill="${INK}">${txt}</text>`;
+    svg += `<text x="${ox}" y="${oy}" text-anchor="end" font-size="${regFS}" fill="${INK}"${_vennRegionFont(txt)}>${txt}</text>`;
   }
 
+  // M7 ③: ขอแรเงา outside แต่ไม่มีกรอบ U ⇒ แถบเตือน (เดิมเงียบ)
+  if(!universe && shadeSet.has('outside')) svg += _vennWarnBand(W, _VENN_NO_U_MSG);
   return svg + '</svg>';
 }
 
