@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-r"""ด่าน 25 · check_solsteps.py v1.1 — โครงขั้นเฉลย solSteps ต้องถูกทรงตามสเปก (ss-v1.2 · 655-CC · 673-CC)
+r"""ด่าน 25 · check_solsteps.py v1.2 — โครงขั้นเฉลย solSteps ต้องถูกทรงตามสเปก (ss-v1.2 · 655-CC · 673-CC · 683-CC)
 
 ทำอะไร
 ------
@@ -12,12 +12,20 @@ r"""ด่าน 25 · check_solsteps.py v1.1 — โครงขั้นเฉ
            + 673-CC (role common = ตัวร่วม · มติ 671-E · note หลายบรรทัดด้วย \n · say บรรทัดเดียว · มติ 672-E)
 v1.1 (4–5 ต.ค. 69 · MB-r40): + role common · say/title ⛔ ขึ้นบรรทัดใหม่ · note ขึ้นบรรทัดได้ แต่ ⛔ $ (678-CC)
       (v1.0 b6d5281a ตาย ⇒ แทนด้วยรุ่นนี้ · ร่าง v1.1 f48254df ใบ 677 ตาย 5 ต.ค. 00:0x เพราะ 678-CC ขอห้าม \n ใน title)
+v1.2 (5 ต.ค. 69 · MB-r41): + kind longdiv หารยาว (680-W เสนอ · 683-CC §4 รับชื่อ dvs dvd rounds fill · 685-W §4 ความหมาย fill)
+      ฐาน = v1.1 6e524812 (คอมมิต 7c604a7)
+      ร่าง 2 (7 ต.ค. 69 · MB-r43): + บัตร longdiv ทุกใบในตัวอย่างเดียวกัน dvs dvd เท่ากัน (757-E §1-4 ⚖️ ข · ร่าง 1 01223944 ตาย)
 
 กฎ (รหัสนำหน้าข้อความ)
   S1 ทรง   : v · steps · n = 1..N ต่อเนื่อง · kind ในรายการ · title ไม่ว่าง ≤ 30 ⛔ ขึ้นบรรทัด · say ไม่ว่าง ⛔ $ ⛔ \ (ข9) ⛔ ขึ้นบรรทัด (673-CC)
              note ขึ้นบรรทัดได้ (672-E) ⛔ $ (ตัวแสดงผลไม่วาด KaTeX ใน note · 678-CC §3)
              join/lhsJoin/rhsJoin ∈ add mul · case.path = ^\d+(\.\d+)*$ (ข5) · trial มี terms หรือ val อย่างใดอย่างหนึ่ง
              synth: c · row1–row3 ยาวเท่ากัน · fill จำนวนเต็ม ≥ 0 · ต้องมีขั้น answer หรือ merge อย่างน้อย 1 ขั้น
+             longdiv (v1.2): dvs ไม่ว่าง · dvd รายการพจน์ ≥ 2 · fill จำนวนเต็ม ≥ 0 · จำนวนรอบ = ⌈fill/2⌉
+                    รอบ r: q ไม่ว่าง · sub รายการพจน์ · subAt จำนวนเต็ม ≥ 0 · rem+remAt มาคู่กัน มีเมื่อ fill ≥ 2r
+                    remAt = subAt + 1 · subAt ≥ remAt รอบก่อน · sub/rem ไม่เกินคอลัมน์ตัวตั้ง · sub ยาวเท่ากันทุกรอบ
+                    บัตรติดกันที่ dvs dvd เดียวกัน ⇒ fill +1 และรอบเก่าอยู่ครบไม่เปลี่ยน
+                    บัตร longdiv ทุกใบในตัวอย่างเดียว (solSteps เดียว) ⇒ dvs dvd เท่ากับใบแรก (757-E §1-4)
   S2 พจน์  : id ไม่ว่าง ไม่ซ้ำในขั้น · tex ไม่ว่าง · role ∈ move add group answer common · ⛔ \color ทั้งก้อน
   S3 อ้างอิง (ข1 · สายของขั้น):
              สาย = ขั้นสมการที่ tag เดียวกัน · หรือขั้นนิพจน์ที่ of เดียวกัน (655 §2 กฎ from เพิ่ม)
@@ -34,6 +42,7 @@ v1.1 (4–5 ต.ค. 69 · MB-r40): + role common · say/title ⛔ ขึ้น�
   · ไม่ตรวจค่าทางคณิต (ขั้นเท่ากันไหม คำตอบตรงคีย์ไหม) ⇒ S4 ของ MBT
   · ไม่ตรวจ ข7 (ความละเอียดพจน์) และ ข4 (ใช้ op แทน arrows) — เป็นเรื่องความหมาย
   · ช่องตัวตรวจ (ck coef vals param cond sub) ตรวจแค่ว่าอยู่ถูกที่ ไม่ตรวจเนื้อ
+  · longdiv: ไม่ตรวจว่า q sub rem ถูกทางคณิต / dvd ตรงตัวตั้ง / หยุดถูกรอบ ⇒ check4v3 ของ W + S4
   · ข8 ลำดับช่องในข้อ ไม่บังคับ (645 §1)
 
 ใช้
@@ -53,7 +62,7 @@ import os
 import re
 import sys
 
-CHECKER_VERSION = '1.1'
+CHECKER_VERSION = '1.2'
 
 # ── ตัวนับขั้นต่ำ: ข้อที่มี solSteps ในคลัง ─────────────────────────────────────
 # ⛔ ลดเงียบไม่ได้ · เมื่อข้อที่มี solSteps ลงคลังเพิ่ม ⇒ ขยับค่านี้ขึ้นในคอมมิตเดียวกัน
@@ -61,7 +70,7 @@ CHECKER_VERSION = '1.1'
 MIN_WITH_SOLSTEPS = 0
 
 BANK_VERSIONS = ('ss-v1.1', 'ss-v1.2')
-KINDS = ('eq', 'expr', 'answer', 'check', 'text', 'trial', 'case', 'merge', 'synth')
+KINDS = ('eq', 'expr', 'answer', 'check', 'text', 'trial', 'case', 'merge', 'synth', 'longdiv')
 ROLES = ('move', 'add', 'group', 'answer', 'common')     # common = ตัวร่วม (671-E · 673-CC)
 JOINS = ('add', 'mul')
 REL_DIR = {'=': None, '\\ne': None, '\\neq': None,
@@ -81,11 +90,13 @@ STEP_KEYS = frozenset((
     'mid', 'ok', 'target', 'c', 'val',
     'row1', 'row2', 'row3', 'fill',
     'quot', 'rem', 'isFactor', 'cands',
+    'dvs', 'dvd', 'rounds',                                             # longdiv (v1.2 · 683-CC)
 ) + CHECKER_ONLY)
 KEY_KINDS = {                     # คีย์ที่ใช้ได้กับบาง kind เท่านั้น
     'case': ('case',), 'parts': ('merge', 'answer'), 'result': ('merge', 'answer'),
     'mid': ('trial',), 'target': ('trial',), 'ok': ('trial',), 'val': ('trial',), 'c': ('trial', 'synth'),
-    'row1': ('synth',), 'row2': ('synth',), 'row3': ('synth',), 'fill': ('synth',),
+    'row1': ('synth',), 'row2': ('synth',), 'row3': ('synth',), 'fill': ('synth', 'longdiv'),
+    'dvs': ('longdiv',), 'dvd': ('longdiv',), 'rounds': ('longdiv',),
     'quot': ('answer',), 'rem': ('answer',), 'isFactor': ('answer',), 'cands': ('text',),
     'lhs': ('eq', 'answer'), 'rhs': ('eq', 'answer'), 'rel': ('eq', 'answer'), 'relFlip': ('eq', 'answer'),
     'lhsJoin': ('eq', 'answer'), 'rhsJoin': ('eq', 'answer'), 'tag': ('eq', 'answer'),
@@ -96,6 +107,7 @@ TERM_KEYS = frozenset(('id', 'tex', 'role', 'from'))
 ARROW_KEYS = frozenset(('from', 'to', 'label'))
 OP_KEYS = frozenset(('tex',))
 CASE_KEYS = frozenset(('path', 'label', 'cond', 'result'))
+ROUND_KEYS = frozenset(('q', 'sub', 'subAt', 'rem', 'remAt'))            # longdiv.rounds[] (683-CC §4)
 ITEM_FORBIDDEN = ('goal', 'warn', 'given', 'domain') + CHECKER_ONLY
 
 
@@ -160,8 +172,11 @@ def check_ss(ss, bank=True):
     cur_case = None
     case_first = False
     has_answer = False
+    ld_first = None        # (ขั้น, dvs, dvd) ของบัตร longdiv ใบแรก (ร่าง 2 · 757-E §1-4)
+    ld_prev = None         # บัตร longdiv ที่อยู่ติดก่อนหน้า (ตรวจ fill +1 · รอบเก่าครบ)
 
     for i, s in enumerate(steps, 1):
+        prev_ld, ld_prev = ld_prev, None
         if not isinstance(s, dict):
             B('S1', f'ขั้น {i} ไม่ใช่ object')
             continue
@@ -288,6 +303,14 @@ def check_ss(ss, bank=True):
             if not isinstance(f, int) or isinstance(f, bool) or f < 0:
                 B('S1', f'ขั้น {i} synth fill ต้องเป็นจำนวนเต็ม ≥ 0')
             continue
+        if k == 'longdiv':                                 # v1.2 หารยาว · ไม่อยู่ในสายพจน์ (แบบ synth)
+            _longdiv(s, i, prev_ld, B)
+            if ld_first is None:
+                ld_first = (i, s.get('dvs'), s.get('dvd'))
+            elif (s.get('dvs'), s.get('dvd')) != ld_first[1:]:
+                B('S1', f'ขั้น {i} longdiv dvs/dvd ไม่เท่ากับบัตรหารยาวใบแรก (ขั้น {ld_first[0]}) · ตัวอย่างเดียวหารชุดเดียว')
+            ld_prev = s
+            continue
         if k in ('text', 'check'):
             continue
 
@@ -390,6 +413,86 @@ def check_ss(ss, bank=True):
     if not has_answer:
         B('S1', 'ไม่มีขั้น answer หรือ merge')
     return bad
+
+
+def _int0(x):
+    return isinstance(x, int) and not isinstance(x, bool) and x >= 0
+
+
+def _longdiv(s, i, prev, B):
+    """ทรงของบัตรหารยาว (v1.2) · ⛔ ไม่คิดค่า (q sub rem ถูกไหม = check4v3 ของ W + S4)"""
+    if not _s(s.get('dvs')):
+        B('S1', f'ขั้น {i} longdiv dvs ว่าง (ตัวหาร)')
+    dvd = s.get('dvd')
+    if not (isinstance(dvd, list) and len(dvd) >= 2 and all(_s(t) for t in dvd)):
+        B('S1', f'ขั้น {i} longdiv dvd ต้องเป็นรายการพจน์ไม่ว่าง ≥ 2 ตัว (ตัวตั้งครบทุกดีกรี)')
+        dvd = None
+    f = s.get('fill')
+    if not _int0(f):
+        B('S1', f'ขั้น {i} longdiv fill ต้องเป็นจำนวนเต็ม ≥ 0')
+        f = None
+    rs = s.get('rounds')
+    if not (isinstance(rs, list) and all(isinstance(r, dict) for r in rs)):
+        B('S1', f'ขั้น {i} longdiv rounds ต้องเป็นรายการ object')
+        return
+    if f is not None and len(rs) != (f + 1) // 2:
+        B('S1', f'ขั้น {i} longdiv จำนวนรอบ {len(rs)} ≠ ⌈fill/2⌉ = {(f + 1) // 2} (685-W §4)')
+    ncol = len(dvd) if dvd else None
+    lens, last_rem_at = set(), None
+    for r, rd in enumerate(rs, 1):
+        tag = f'ขั้น {i} longdiv รอบ {r}'
+        for key in rd:
+            if key not in ROUND_KEYS:
+                B('K', f'{tag} คีย์นอกสเปก rounds: {key}')
+        if not _s(rd.get('q')):
+            B('S1', f'{tag} q ว่าง (พจน์ผลหาร)')
+        sub = rd.get('sub')
+        if not (isinstance(sub, list) and sub and all(_s(t) for t in sub)):
+            B('S1', f'{tag} sub ต้องเป็นรายการพจน์ไม่ว่าง')
+            sub = None
+        else:
+            lens.add(len(sub))
+        sa = rd.get('subAt')
+        if not _int0(sa):
+            B('S1', f'{tag} subAt ต้องเป็นจำนวนเต็ม ≥ 0')
+            sa = None
+        if sa is not None and last_rem_at is not None and sa < last_rem_at:
+            B('S1', f'{tag} subAt {sa} อยู่ก่อนคอลัมน์เศษรอบก่อน {last_rem_at} (ต้องเดินไปทางขวา)')
+        if sa is not None and sub and ncol and sa + len(sub) > ncol:
+            B('S1', f'{tag} sub เกินตัวตั้ง (subAt {sa} + {len(sub)} พจน์ > {ncol} คอลัมน์)')
+        has_rem, has_at = 'rem' in rd, 'remAt' in rd
+        rem = None
+        if has_rem != has_at:
+            B('S1', f'{tag} rem กับ remAt ต้องมาคู่กัน')
+        if f is not None and has_rem != (2 * r <= f):
+            B('S1', f'{tag} rem มี/ไม่มี ไม่ตรง fill {f} (fill คี่ = บัตรหาร+คูณ ยังไม่มีเศษ · 685-W §4)')
+        if has_rem:
+            rem = rd['rem']
+            if not (isinstance(rem, list) and rem and all(_s(t) for t in rem)):
+                B('S1', f'{tag} rem ต้องเป็นรายการพจน์ไม่ว่าง')
+                rem = None
+        if has_at:
+            ra = rd['remAt']
+            if not _int0(ra):
+                B('S1', f'{tag} remAt ต้องเป็นจำนวนเต็ม ≥ 0')
+            else:
+                if sa is not None and ra != sa + 1:
+                    B('S1', f'{tag} remAt {ra} ≠ subAt + 1 = {sa + 1} (พจน์นำลบกันหมด ⇒ เศษเริ่มคอลัมน์ถัดไป)')
+                if rem and ncol and ra + len(rem) > ncol:
+                    B('S1', f'{tag} rem เกินตัวตั้ง (remAt {ra} + {len(rem)} พจน์ > {ncol} คอลัมน์)')
+                last_rem_at = ra
+    if len(lens) > 1:
+        B('S1', f'ขั้น {i} longdiv sub ยาวไม่เท่ากันทุกรอบ {sorted(lens)} (= จำนวนพจน์ตัวหาร)')
+    if prev is not None and prev.get('dvs') == s.get('dvs') and prev.get('dvd') == s.get('dvd'):
+        pf, prs = prev.get('fill'), prev.get('rounds')
+        if _int0(pf) and f is not None and f != pf + 1:
+            B('S1', f'ขั้น {i} longdiv fill {f} ไม่ต่อจากบัตรก่อน ({pf} + 1)')
+        if isinstance(prs, list):
+            for r, pr in enumerate(prs, 1):
+                cr = rs[r - 1] if r <= len(rs) else None
+                if not isinstance(pr, dict) or cr is None or any(cr.get(kk) != vv for kk, vv in pr.items()):
+                    B('S1', f'ขั้น {i} longdiv รอบ {r} ไม่ตรงกับบัตรก่อน (ของเดิมต้องอยู่ครบ ไม่เปลี่ยน)')
+                    break
 
 
 def _terms_shape(ts, i, name, B):
@@ -570,6 +673,32 @@ def _good_trial():
     ]}
 
 
+def _good_longdiv():
+    """หารยาว synth 1.1 ของ W (680-W · x³ + x² − 7x + 5 ÷ (x − 2)) · 7 บัตร (fill 0–6) + answer"""
+    R_ = [dict(q='x^2', sub=['x^3', '-2x^2'], subAt=0, rem=['3x^2', '-7x'], remAt=1),
+          dict(q='+3x', sub=['3x^2', '-6x'], subAt=1, rem=['-x', '+5'], remAt=2),
+          dict(q='-1', sub=['-x', '+2'], subAt=2, rem=['3'], remAt=3)]
+    steps = []
+    for f in range(7):
+        rs = [copy.deepcopy(R_[r]) for r in range((f + 1) // 2)]
+        if f % 2 == 1:
+            rs[-1].pop('rem')
+            rs[-1].pop('remAt')
+        steps.append({'n': f + 1, 'kind': 'longdiv', 'title': 'ตั้งหาร' if f == 0 else f'รอบ {(f + 1) // 2}',
+                      'dvs': 'x-2', 'dvd': ['x^3', '+x^2', '-7x', '+5'], 'fill': f, 'rounds': rs,
+                      'note': 'หารพจน์นำ\nคูณกลับแล้วลบ', 'say': 'หารยาว', 'warn': 'ลบทั้งวงเล็บ $-(-2x^2)$'})
+    steps.append({'n': 8, 'kind': 'answer', 'title': 'ตอบ', 'quot': 'x^2+3x-1', 'rem': '3', 'say': 'ผลหารและเศษ'})
+    return {'v': 'ss-v1.2', 'steps': steps}
+
+
+def _ld_drop4_bad5(ss):
+    """e17 ของ E (757 §1-3): ลบบัตร 4 ทิ้ง + บัตร 5 เดิม (ตอนนี้ขั้น 4) พิมพ์ dvd ผิด ⇒ fill กระโดด 2 → 4"""
+    del ss['steps'][3]
+    for j, st in enumerate(ss['steps'], 1):
+        st['n'] = j
+    ss['steps'][3]['dvd'][3] = '+6'
+
+
 def _fix(o):
     """แปลง from_ ⇒ from (from เป็นคำสงวน)"""
     if isinstance(o, dict):
@@ -623,6 +752,45 @@ MUTANTS = [   # (ชื่อ, แก้ ss, ข้อความที่ต�
 ]
 EXPECTED_MUTANTS = 34            # ⛔ ลบมิวแทนต์ทิ้งเงียบ ๆ ไม่ได้ — จำนวนต้องตรง
 
+LD_MUTANTS = [   # v1.2 หารยาว · ยิงใส่ _good_longdiv()
+    ('หารยาว จำนวนรอบ ≠ ⌈fill/2⌉',
+     lambda ss: _st(ss, 3)['rounds'].append(dict(q='+3x', sub=['3x^2', '-6x'], subAt=1)), 'จำนวนรอบ'),
+    ('หารยาว fill คี่แต่มี rem', lambda ss: _st(ss, 2)['rounds'][0].update(rem=['3x^2', '-7x'], remAt=1),
+     'rem มี/ไม่มี'),
+    ('หารยาว fill คู่แต่ไม่มี rem/remAt', lambda ss: [_st(ss, 3)['rounds'][0].pop(k) for k in ('rem', 'remAt')],
+     'rem มี/ไม่มี'),
+    ('หารยาว rem ไม่มี remAt', lambda ss: _st(ss, 3)['rounds'][0].pop('remAt'), 'มาคู่กัน'),
+    ('หารยาว subAt เป็นข้อความ', lambda ss: _st(ss, 2)['rounds'][0].__setitem__('subAt', '0'),
+     'subAt ต้องเป็นจำนวนเต็ม'),
+    ('หารยาว remAt ≠ subAt + 1', lambda ss: _st(ss, 7)['rounds'][2].__setitem__('remAt', 2), 'subAt + 1'),
+    ('หารยาว rem เกินตัวตั้ง', lambda ss: _st(ss, 7)['rounds'][2].__setitem__('rem', ['3', '+0']), 'rem เกินตัวตั้ง'),
+    ('หารยาว บัตรซ้ำ fill ไม่ +1',
+     lambda ss: _st(ss, 3).update(fill=1, rounds=copy.deepcopy(_st(ss, 2)['rounds'])), 'ไม่ต่อจากบัตรก่อน'),
+    ('หารยาว รอบเก่าถูกแก้ในบัตรถัดไป', lambda ss: _st(ss, 4)['rounds'][0].__setitem__('q', 'x^3'),
+     'ไม่ตรงกับบัตรก่อน'),
+    ('หารยาว dvd ว่าง', lambda ss: _st(ss, 1).__setitem__('dvd', []), 'dvd ต้องเป็นรายการ'),
+    ('หารยาว dvs ว่าง', lambda ss: _st(ss, 1).__setitem__('dvs', ''), 'dvs ว่าง'),
+    ('หารยาว q ว่าง', lambda ss: _st(ss, 7)['rounds'][2].__setitem__('q', ' '), 'q ว่าง'),
+    ('หารยาว พิมพ์ subat ในรอบ', lambda ss: _st(ss, 7)['rounds'][2].__setitem__('subat', 2),
+     'คีย์นอกสเปก rounds: subat'),
+    ('หารยาว rem ระดับขั้น (ต้องอยู่ใน rounds)', lambda ss: _st(ss, 7).__setitem__('rem', '3'),
+     'คีย์ rem ใช้กับ kind longdiv ไม่ได้'),
+    ('หารยาว sub ยาวไม่เท่ากัน', lambda ss: _st(ss, 7)['rounds'][2]['sub'].append('+0'), 'sub ยาวไม่เท่ากัน'),
+    ('หารยาว subAt ย้อนคอลัมน์', lambda ss: _st(ss, 7)['rounds'][1].update(subAt=0, remAt=1), 'ต้องเดินไปทางขวา'),
+    ('หารยาว fill เป็น true', lambda ss: _st(ss, 1).__setitem__('fill', True), 'longdiv fill ต้องเป็นจำนวนเต็ม'),
+    ('หารยาวพิมพ์ kind เป็น synth', lambda ss: _st(ss, 1).__setitem__('kind', 'synth'),
+     'คีย์ dvs ใช้กับ kind synth ไม่ได้'),
+    ('หารยาว sub เป็นข้อความ', lambda ss: _st(ss, 2)['rounds'][0].__setitem__('sub', 'x^3-2x^2'),
+     'sub ต้องเป็นรายการ'),
+    # ร่าง 2 (757-E §1-3 e15–e17 · ⚖️ ข): พิมพ์ผิดบัตรเดียวเคยข้ามกฎต่อจากบัตรก่อนได้
+    ('หารยาว บัตร 5 พิมพ์ dvd ผิด 1 พจน์ (e15)', lambda ss: _st(ss, 5)['dvd'].__setitem__(3, '+6'),
+     'ไม่เท่ากับบัตรหารยาวใบแรก'),
+    ('หารยาว บัตร 5 พิมพ์ dvs ผิด (e16)', lambda ss: _st(ss, 5).__setitem__('dvs', 'x+2'),
+     'ไม่เท่ากับบัตรหารยาวใบแรก'),
+    ('หารยาว ลบบัตร 4 + บัตร 5 dvd ผิด (e17)', _ld_drop4_bad5, 'ไม่เท่ากับบัตรหารยาวใบแรก'),
+]
+EXPECTED_LD_MUTANTS = 22
+
 ITEM_MUTANTS = [   # กฎ B (ระดับข้อ + ตัวนับ)
     ('ช่อง ck ระดับข้อ', lambda q: q.__setitem__('ck', 'solve'), 'ช่อง ck อยู่ระดับข้อ'),
     ('ช่อง given ระดับข้อ', lambda q: q.__setitem__('given', 'x>0'), 'ช่อง given อยู่ระดับข้อ'),
@@ -636,7 +804,12 @@ def selftest():
     fails = 0
     good = _fix(_good())
     b = check_ss(copy.deepcopy(good), bank=True)
-    print(('✅' if not b else '🔴') + f' ของดี (22 ขั้น ทุก kind) ⇒ ปัญหา {len(b)}' + ('' if not b else ' · ' + ' | '.join(b)))
+    print(('✅' if not b else '🔴') + f' ของดี (22 ขั้น ทุก kind ยกเว้น longdiv) ⇒ ปัญหา {len(b)}'
+          + ('' if not b else ' · ' + ' | '.join(b)))
+    fails += bool(b)
+    gld = _good_longdiv()
+    b = check_ss(copy.deepcopy(gld), bank=True)
+    print(('✅' if not b else '🔴') + f' ของดีหารยาว (7 บัตร + answer) ⇒ ปัญหา {len(b)}' + ('' if not b else ' · ' + ' | '.join(b)))
     fails += bool(b)
     b = check_ss(dict(copy.deepcopy(good), v='ss-v1.1+W-quad2'), bank=False)
     print(('✅' if not b else '🔴') + ' โหมดหน้าเรียนรับป้ายรุ่นของ W')
@@ -645,12 +818,21 @@ def selftest():
     has, b = check_item(copy.deepcopy(q0))
     print(('✅' if has and not b else '🔴') + ' ข้อคลังที่มี solSteps ดี ⇒ ผ่าน')
     fails += bool(b) or not has
-    if len(MUTANTS) != EXPECTED_MUTANTS or len(ITEM_MUTANTS) != EXPECTED_ITEM_MUTANTS:
-        print(f'🔴 จำนวนมิวแทนต์ {len(MUTANTS)}/{len(ITEM_MUTANTS)} ≠ ที่ประกาศ {EXPECTED_MUTANTS}/{EXPECTED_ITEM_MUTANTS}')
+    if (len(MUTANTS) != EXPECTED_MUTANTS or len(ITEM_MUTANTS) != EXPECTED_ITEM_MUTANTS
+            or len(LD_MUTANTS) != EXPECTED_LD_MUTANTS):
+        print(f'🔴 จำนวนมิวแทนต์ {len(MUTANTS)}/{len(ITEM_MUTANTS)}/{len(LD_MUTANTS)} ≠ ที่ประกาศ '
+              f'{EXPECTED_MUTANTS}/{EXPECTED_ITEM_MUTANTS}/{EXPECTED_LD_MUTANTS}')
         fails += 1
     hit = 0
     for name, f, exp in MUTANTS:
         ss = copy.deepcopy(good)
+        f(ss)
+        b = check_ss(ss, bank=True)
+        ok = any(exp in x for x in b)
+        hit += ok
+        print(('  ✅ ' if ok else '  🔴 ') + name + ('' if ok else f' · คาด “{exp}” · ได้ {b}'))
+    for name, f, exp in LD_MUTANTS:
+        ss = copy.deepcopy(gld)
         f(ss)
         b = check_ss(ss, bank=True)
         ok = any(exp in x for x in b)
@@ -676,7 +858,7 @@ def selftest():
     ok = bool(c1) and not c0
     hit += ok
     print(('  ✅ ' if ok else '  🔴 ') + 'ตัวนับ: solSteps หาย 1 ข้อ ⇒ แดง · เท่าขั้นต่ำ ⇒ ผ่าน')
-    total = len(MUTANTS) + len(ITEM_MUTANTS) + 2
+    total = len(MUTANTS) + len(LD_MUTANTS) + len(ITEM_MUTANTS) + 2
     fails += total - hit
     print(f'📌 selftest v{CHECKER_VERSION}: มิวแทนต์ {total} · แดงด้วยกฎที่ตั้งใจ {hit}' + (' ✅' if not fails else ' 🔴'))
     return fails
