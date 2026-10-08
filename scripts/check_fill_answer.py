@@ -38,6 +38,14 @@
       ⇒ คีย์/accept ผิดทรง = 🔴 ทันที (ไม่ใช่หนี้) · บรรทัด ✅ ต้องมีรายการตัวอักษรเท่าคีย์
    ⛔ ไม่แตะเพดาน · ถัง "คีย์ไม่ใช่จำนวนเดี่ยว" ลดได้ทางเดียว (ข้อที่ย้ายมาเป็น "ตรวจได้")
 
+🆕 v1.2 (7 ต.ค. 69 · MB-r43 · มติ 758-E §3 ⚖️ ก = ①ข + ②) — ปิดจุดบอด 2 จุด (721 §3 · 740 §2)
+   ①ข บรรทัดที่มีคำประกาศ "แค่ในคำว่า ตรวจคำตอบ" (✔ ตรวจคำตอบ: …) ⛔ ไม่ใช่บรรทัดคำตอบ
+      **เมื่อยังมีบรรทัดคำตอบอื่น** · ไม่มีบรรทัดอื่นเลย ⇒ อ่านบรรทัด ✔ ตามเดิม (กันข้อแบบ pat1-2557-04-q38 เป็น none)
+      กฎเดียวกับด่าน 7 v1.5 _marker_only_in_check_word (สำเนา ⛔ import · เหตุผลเดียวกับ ANSWER_MARKERS)
+   ②  near(): ค่าที่อ่านได้และคีย์เป็นจำนวนเต็มทั้งคู่ ⇒ เทียบตรงตัว (TOL 0.5% ทำให้คีย์ > 200 ผิด ±1 ไม่แดง)
+      อื่น ๆ ใช้ TOL 1/200 เท่าเดิม · มีผลทุกที่ที่เรียก near() (ด่าน 17 · เซต · ด่าน 18 · offbeat)
+   ⛔ ไม่แตะเพดาน · ⬤ วัดบนคลัง 7c604a7: ทุกถังเท่า v1.1 (ใบ 758 §1 · ใบ MB ที่แนบร่างนี้)
+
 รหัสออก: 0 = ผ่าน · 1 = เนื้อหาแดง · 2 = ตัวเครื่องมือแดง
 """
 import argparse
@@ -48,7 +56,7 @@ import re
 import sys
 from fractions import Fraction
 
-CHECKER_VERSION = '1.1'
+CHECKER_VERSION = '1.2'
 
 # ── บรรทัดที่ถือว่า "ประกาศคำตอบ" — สำเนาจากด่าน 7 (ดูเหตุผลหัวไฟล์) ──
 ANSWER_MARKERS = ('✅', 'คำตอบ:', 'คำตอบคือ', 'จึงตอบ', 'ดังนั้นตอบ')
@@ -61,7 +69,7 @@ SKIP_MARKERS = ('จุดพลาด', 'เผลอ', 'ตัวลวง', '
 # ── ความคลาดเคลื่อนสัมพัทธ์ที่ยอมให้ ────────────────────────────────
 #    เฉลยเขียน 0.8959 ขณะที่คีย์เก็บ 0.89585 = การปัดที่ถูกต้อง ⛔ ไม่ใช่ความผิด
 #    ⚠️ ตั้งหลวมกว่านี้เมื่อไหร่ = ยอมให้ "เฉลยผิดนิดหน่อย" ผ่านด่าน
-TOL = Fraction(1, 200)          # 0.5%
+TOL = Fraction(1, 200)          # 0.5%  (🆕 v1.2: จำนวนเต็มกับจำนวนเต็ม ⇒ เทียบตรงตัว · ดู near())
 
 # ── เส้นแบ่ง "ปัดเลข" กับ "คนละหน่วย" ในรายการเฝ้าดูของ accept ────────
 #    0.33 แทน 1/3 · 3.9 แทน 3.95 = ปัดเลข ⇒ น่าเบื่อ นับรวมพอ
@@ -184,13 +192,29 @@ def single(key):
 
 
 def near(a, b, tol=TOL):
-    """เท่ากันภายในความคลาดเคลื่อนสัมพัทธ์ (0 เทียบกับ 0 ต้องเป๊ะ)"""
+    """เท่ากันภายในความคลาดเคลื่อนสัมพัทธ์ (0 เทียบกับ 0 ต้องเป๊ะ)
+    🆕 v1.2 ②: จำนวนเต็มทั้งคู่ ⇒ เทียบตรงตัว (คีย์ 340 กับเฉลย 341 ⛔ ใกล้พอ)"""
     if a == b:
         return True
+    if getattr(a, 'denominator', None) == 1 and getattr(b, 'denominator', None) == 1:
+        return False
     scale = max(abs(a), abs(b))
     if scale == 0:
         return False
     return abs(a - b) / scale <= tol
+
+
+# 🆕 v1.2 ①ข — หัวบล็อก "✔ ตรวจคำตอบ:" ⛔ ไม่ใช่คำประกาศคำตอบ เมื่อมีบรรทัดคำตอบอื่น
+#    สำเนาจากด่าน 7 v1.5 (CHECK_WORD · _marker_only_in_check_word) ⛔ import (เหตุผลหัวไฟล์)
+CHECK_WORD = 'ตรวจคำตอบ'
+
+
+def _marker_only_in_check_word(line):
+    """True ⇔ บรรทัดนี้มีคำประกาศ "แค่ในคำว่า ตรวจคำตอบ" (ลบคำนี้ออกแล้วไม่เหลือคำประกาศ)"""
+    if CHECK_WORD not in line:
+        return False
+    rest = line.replace(CHECK_WORD, '')
+    return not any(k in rest for k in ANSWER_MARKERS)
 
 
 def declared_value(explanation, key):
@@ -201,13 +225,7 @@ def declared_value(explanation, key):
     'none' = บรรทัดคำตอบไม่มีค่าเป็นตัวเลขเลย ⇒ ตรวจไม่ได้ ⛔ ไม่ใช่ผ่าน
     """
     seen = []
-    for line in explanation:
-        if not isinstance(line, str):
-            continue
-        if any(k in line for k in SKIP_MARKERS):
-            continue
-        if not any(k in line for k in ANSWER_MARKERS):
-            continue
+    for line in _answer_lines(explanation):
         v, _ = vals(line)
         seen.extend(v)
     if not seen:
@@ -389,14 +407,13 @@ def braced_groups(line):
 
 
 def _answer_lines(explanation):
-    for line in explanation:
-        if not isinstance(line, str):
-            continue
-        if any(k in line for k in SKIP_MARKERS):
-            continue
-        if not any(k in line for k in ANSWER_MARKERS):
-            continue
-        yield line
+    """บรรทัดคำตอบ (ข้ามบรรทัดตัวลวง) · 🆕 v1.2 ①ข: ตัดบรรทัด "✔ ตรวจคำตอบ" เมื่อยังมีบรรทัดคำตอบอื่น"""
+    lines = [line for line in explanation
+             if isinstance(line, str)
+             and not any(k in line for k in SKIP_MARKERS)
+             and any(k in line for k in ANSWER_MARKERS)]
+    rest = [line for line in lines if not _marker_only_in_check_word(line)]
+    return rest if rest else lines
 
 
 def declared_set(explanation, ks):
@@ -665,6 +682,20 @@ CASES = [
 
     ("ไม่มีบรรทัดไหนเข้าข่ายคำประกาศคำตอบเลย ⇒ none",
      ['<b>ขั้นที่ 1:</b> ทำไปตามขั้น $5$'], '5', 'none'),
+
+    # 🆕 v1.2 (758-E §4 ข้อ 2 ก–ง)
+    ("🔴 v1.2 ② (ก) คีย์จำนวนเต็ม 249 กับเฉลย 248 ⇒ ต้องแดง (TOL 0.5% เคยปล่อย)",
+     ['✅ คำตอบ: $248$'], '249', 'miss'),
+    ("v1.2 ② คีย์จำนวนเต็ม 248 กับเฉลย 248 ⇒ ผ่าน",
+     ['✅ คำตอบ: $248$'], '248', 'hit'),
+    ("🔴 v1.2 ①ข (ข) บรรทัด ✔ มีคีย์+1 · บรรทัด ✅ มีคีย์เดิม ⇒ เลื่อนคีย์ต้องแดง",
+     ['✅ คำตอบ: $7$', '✔ ตรวจคำตอบ: แทนกลับ $7 + 1 = 8$ ✓'], '8', 'miss'),
+    ("v1.2 ①ข (ข) คู่ดี · คีย์ 7 ⇒ ผ่าน",
+     ['✅ คำตอบ: $7$', '✔ ตรวจคำตอบ: แทนกลับ $7 + 1 = 8$ ✓'], '7', 'hit'),
+    ("v1.2 ①ข (ค) มีแต่บรรทัด ✔ (แบบ q38) ⇒ อ่านบรรทัด ✔ ⇒ ผ่าน ไม่ใช่ none",
+     ['✔ ตรวจคำตอบ: รวมกันได้ $340$ พอดี ✓'], '340', 'hit'),
+    ("v1.2 (ง) คีย์ทศนิยม 0.89585 กับเฉลย 0.8959 ⇒ ยังผ่าน (TOL)",
+     ['✅ คำตอบ: $0.8959$', '✔ ตรวจคำตอบ: แทนกลับได้ $0.9$ ✓'], '0.89585', 'hit'),
 ]
 
 # (ชื่อเคส, ข้อ, สถานะ accept ที่ต้องได้)
@@ -952,6 +983,36 @@ def _mut_enforce_never_red(recs, scope_ids):
     return []
 
 
+def _m_near_tol_all(a, b, tol=TOL):
+    """⑱ v1.2 ② ถอด: จำนวนเต็มก็ใช้ TOL (กลับไปแบบ v1.1)"""
+    if a == b:
+        return True
+    scale = max(abs(a), abs(b))
+    if scale == 0:
+        return False
+    return abs(a - b) / scale <= tol
+
+
+def _m_lines_read_check(explanation):
+    """⑲ v1.2 ①ข ถอด: อ่านบรรทัด ✔ ตรวจคำตอบ เสมอ (แบบ v1.1)"""
+    return [line for line in explanation
+            if isinstance(line, str)
+            and not any(k in line for k in SKIP_MARKERS)
+            and any(k in line for k in ANSWER_MARKERS)]
+
+
+def _m_lines_drop_check_always(explanation):
+    """⑳ ① แบบไม่มี ข: ตัดบรรทัด ✔ ทุกกรณี ⇒ ข้อแบบ q38 กลายเป็น none (CI แดงเพราะเกินเพดาน)"""
+    return [line for line in _m_lines_read_check(explanation) if not _marker_only_in_check_word(line)]
+
+
+V12_MUTANTS = [
+    ('⑱ v1.2 ② จำนวนเต็มใช้ TOL', {'near': _m_near_tol_all}),
+    ('⑲ v1.2 ①ข อ่านบรรทัด ✔ เสมอ', {'_answer_lines': _m_lines_read_check}),
+    ('⑳ v1.2 ① ตัดบรรทัด ✔ ทุกกรณี', {'_answer_lines': _m_lines_drop_check_always}),
+]
+
+
 def _run_cases(fn):
     fails = []
     for name, ex, correct, want in CASES:
@@ -1071,6 +1132,13 @@ def selftest():
         for f in fails[:2]:
             print(f'         ↳ จับได้ที่: {f}')
         ok &= good
+    for label, patches in V12_MUTANTS:
+        fails = _with(patches, _run_cases, declared_value)
+        good = len(fails) > 0
+        print(f'  {"✅" if good else "🔴"}  มิวแทนต์ {label} ⇒ ล้ม {len(fails)}/{len(CASES)} เคส')
+        for f in fails[:2]:
+            print(f'         ↳ จับได้ที่: {f}')
+        ok &= good
     n_b2 = len(KEY_CASES) + len(SET_CASES) + len(REGION_CASES)
     for label, patches in B2_MUTANTS:
         fails = _with(patches, _run_b2_cases)
@@ -1117,7 +1185,7 @@ def selftest():
         sys.exit(2)
     print(f'✅ SELF-TEST ผ่านครบ {len(CASES)} + {len(ACCEPT_CASES)} + {len(ENFORCE_CASES)}'
           f' + B② {len(KEY_CASES)} + {len(SET_CASES)} + {len(REGION_CASES)}'
-          f' เคส + มิวแทนต์ {8 + len(B2_MUTANTS)} ตัว + ตัวเทียบคำสำคัญกับด่าน 7')
+          f' เคส + มิวแทนต์ {8 + len(V12_MUTANTS) + len(B2_MUTANTS)} ตัว + ตัวเทียบคำสำคัญกับด่าน 7')
     return 0
 
 
