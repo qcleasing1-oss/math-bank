@@ -275,6 +275,25 @@
     color: #5b2a72;
     border: 1px solid #5b2a72;
   }
+  /* 🆕 MB-r45 (มติ 835 ข้อ 4) · ส่วนที่ 2 แบบฝึกหัดรายบท */
+  .p2-group-title {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--ink-soft);
+    margin: 10px 0 4px;
+  }
+  .p2-empty { font-size: 12px; color: var(--ink-soft); padding: 4px 10px; }
+  .topic-head {
+    font-size: 15px;
+    margin: 18px 0 6px;
+    padding-bottom: 4px;
+    border-bottom: 1px dashed var(--rule);
+  }
+  .notes-box {
+    background: #fff8e1;
+    border-left: 3px solid #e0a800;
+    padding: 6px 10px;
+  }
   /* Difficulty list item in sidebar */
   .diff-item {
     padding: 7px 10px;
@@ -903,15 +922,19 @@
       <button class="discard-btn" onclick="discardAllChanges()" title="ยกเลิกการแก้ทั้งหมด">↺</button>
     </div>
     <div class="sidebar-section">
-      <h3 class="sidebar-section-title">ดูตาม Set</h3>
+      <h3 class="sidebar-section-title">ส่วนที่ 1 · ดูตาม Set</h3>
       <div id="setList"></div>
     </div>
     <div class="sidebar-section">
-      <h3 class="sidebar-section-title">ดูตามบท</h3>
+      <h3 class="sidebar-section-title">ส่วนที่ 2 · แบบฝึกหัดรายบท (แต่งใหม่)</h3>
+      <div id="practiceList"></div>
+    </div>
+    <div class="sidebar-section">
+      <h3 class="sidebar-section-title">ส่วนที่ 1 · ดูตามบท</h3>
       <div id="chapterList"></div>
     </div>
     <div class="sidebar-section">
-      <h3 class="sidebar-section-title">ดูตามความยาก</h3>
+      <h3 class="sidebar-section-title">ส่วนที่ 1 · ดูตามความยาก</h3>
       <div id="difficultyList"></div>
     </div>
   </aside>
@@ -1014,6 +1037,17 @@
   let CURRENT_DIFFICULTY = null;  // Phase 4: state for difficulty view
   let ALL_LOADED = false;       // true once every set file has been fetched
   let LOAD_ALL_PROMISE = null;  // memoize the background eager-load promise
+
+  // 🆕 MB-r45 (มติ 835 ข้อ 4 · 824 §0 ข้อ 1) · แยก 2 ส่วน ด้วยกติกาเดียวกับ portal set-kind.js:
+  // ส่วนที่ 2 (แบบฝึก) เมื่อชั้นใดชั้นหนึ่งชี้ ⇒ kind "practice" · source มีคำ "แบบฝึก" · setId ขึ้นต้น wb- / bk- / draft-
+  function isPracticeSet(sid) {
+    const s = (MANIFEST && MANIFEST.sets && MANIFEST.sets[sid]) || {};
+    return s.kind === 'practice' || /แบบฝึก/.test(s.source || '') || /^(wb-|bk-|draft-)/.test(sid || '');
+  }
+  // ชุดส่วนที่ 1 ที่โหลดแล้ว (มุมมองรายบท / รายความยาก ⛔ ปนส่วนที่ 2)
+  function part1LoadedSets() {
+    return Object.keys(LOADED_SETS).filter(sid => !isPracticeSet(sid)).map(sid => LOADED_SETS[sid]);
+  }
 
   // Synthesize stable q.id from setId + questionNumber (JSON files don't include it)
   function normalizeSet(set) {
@@ -1124,7 +1158,7 @@
     const sets = MANIFEST.sets || {};
 
     // เรียง setId ตามลำดับใน manifest (Object.keys preserve insertion order)
-    const setIds = Object.keys(sets);
+    const setIds = Object.keys(sets).filter(sid => !isPracticeSet(sid));
 
     const html = setIds.map(sid => {
       const s = sets[sid];
@@ -1140,7 +1174,41 @@
 
     document.getElementById('setList').innerHTML = html;
 
-    document.querySelectorAll('.set-item').forEach(el => {
+    document.querySelectorAll('#setList .set-item').forEach(el => {
+      el.addEventListener('click', () => selectSet(el.dataset.setid));
+    });
+    renderPracticeList();
+  }
+
+  // 🆕 MB-r45 · ส่วนที่ 2: จัดกลุ่มตาม book (level → volume → chapter) · ไฟล์ชุดโหลดเมื่อคลิกเท่านั้น
+  function bookKey(b) {
+    const lv = { 'พื้นฐาน': 0, 'เพิ่มเติม': 1 };
+    return b ? [lv[b.level] !== undefined ? lv[b.level] : 2, Number(b.volume) || 0, Number(b.chapter) || 0] : [9, 0, 0];
+  }
+  function bookTitle(b) {
+    return b ? `the book ${b.level || ''} เล่ม ${b.volume} บทที่ ${b.chapter} ${b.title || ''}`.trim() : 'ไม่ระบุ book';
+  }
+  function renderPracticeList() {
+    const sets = MANIFEST.sets || {};
+    const ids = Object.keys(sets).filter(sid => isPracticeSet(sid));
+    const box = document.getElementById('practiceList');
+    if (!ids.length) { box.innerHTML = '<div class="p2-empty">ยังไม่มีชุด</div>'; return; }
+    const order = ids.map((sid, i) => ({ sid, i, k: bookKey(sets[sid].book) }))
+      .sort((a, b) => (a.k[0] - b.k[0]) || (a.k[1] - b.k[1]) || (a.k[2] - b.k[2]) || (a.i - b.i));
+    let html = '', last = null;
+    order.forEach(({ sid }) => {
+      const s = sets[sid];
+      const t = bookTitle(s.book);
+      if (t !== last) { html += `<div class="p2-group-title">${escapeHtml(t)}</div>`; last = t; }
+      html += `
+        <div class="set-item p2-item" data-setid="${sid}">
+          <span class="set-count">${s.totalQuestions || 0}</span>
+          <div>${escapeHtml(s.source || '')}</div>
+          <div class="set-id">${sid}</div>
+        </div>`;
+    });
+    box.innerHTML = html;
+    box.querySelectorAll('.set-item').forEach(el => {
       el.addEventListener('click', () => selectSet(el.dataset.setid));
     });
   }
@@ -1208,7 +1276,7 @@
 
   function updateDifficultyCounts() {
     const counts = { 'ง่าย': 0, 'ปานกลาง': 0, 'ยาก': 0, 'ยากมาก': 0 };
-    Object.values(LOADED_SETS).forEach(set => {
+    part1LoadedSets().forEach(set => {
       (set.questions || []).forEach(q => {
         const d = getEffectiveTags(q).difficulty;
         if (d in counts) counts[d]++;
@@ -1250,7 +1318,7 @@
       if (CURRENT_DIFFICULTY !== diff) return;
     }
     const all = [];
-    Object.values(LOADED_SETS).forEach(set => (set.questions || []).forEach(q => all.push(q)));
+    part1LoadedSets().forEach(set => (set.questions || []).forEach(q => all.push(q)));
     const qs = all
       .filter(q => getEffectiveTags(q).difficulty === diff)
       .sort((a, b) => {
@@ -1277,7 +1345,7 @@
     if (ALL_LOADED) return;
     if (LOAD_ALL_PROMISE) return LOAD_ALL_PROMISE;
     LOAD_ALL_PROMISE = (async () => {
-      const setIds = Object.keys((MANIFEST && MANIFEST.sets) || {});
+      const setIds = Object.keys((MANIFEST && MANIFEST.sets) || {}).filter(sid => !isPracticeSet(sid));   // 🆕 ส่วนที่ 2 ⛔ โหลดล่วงหน้า
       await Promise.all(setIds.map(async sid => {
         if (LOADED_SETS[sid]) return;
         try {
@@ -1296,7 +1364,7 @@
 
   function updateChapterCounts() {
     const countByChapter = {};
-    Object.values(LOADED_SETS).forEach(set => {
+    part1LoadedSets().forEach(set => {
       (set.questions || []).forEach(q => {
         // Phase 3: count effective primary tags (apply pending changes)
         getEffectiveTags(q).topics.forEach(t => {
@@ -1359,7 +1427,7 @@
 
     // Collect all questions from all loaded sets
     const allQuestions = [];
-    Object.values(LOADED_SETS).forEach(set => {
+    part1LoadedSets().forEach(set => {
       (set.questions || []).forEach(q => allQuestions.push(q));
     });
 
@@ -1456,13 +1524,30 @@
         ${PICK_BAR_HTML}
       </div>
       <div class="q-list">
-        ${qs.map(q => renderQCard(q, { pick: true })).join('')}
+        ${isPracticeSet(sid) ? renderPracticeQs(qs, s) : qs.map(q => renderQCard(q, { pick: true })).join('')}
       </div>
     `;
     main.classList.remove('empty');
     main.innerHTML = html;
     typeset(main);
     updatePickUI();
+  }
+
+  // 🆕 MB-r45 · ส่วนที่ 2: หัวข้อ = subTopics[0] (ลำดับตามที่พบในไฟล์ชุด)
+  function renderPracticeQs(qs, s) {
+    const names = (MANIFEST && MANIFEST.subTopicNames) || {};
+    const groups = new Map();
+    qs.forEach(q => {
+      const k = (q.subTopics && q.subTopics[0]) || '—';
+      if (!groups.has(k)) groups.set(k, []);
+      groups.get(k).push(q);
+    });
+    let out = s && s.book ? `<div class="set-meta">${escapeHtml(bookTitle(s.book))}</div>` : '';
+    groups.forEach((list, k) => {
+      out += `<h3 class="topic-head" data-subtopic="${escapeHtml(k)}">${escapeHtml(k)} ${escapeHtml(names[k] || '')} · ${list.length} ข้อ</h3>`;
+      out += list.map(q => renderQCard(q, { pick: true })).join('');
+    });
+    return out;
   }
 
   // ============ Bulk expand/collapse (ดูทั้งบทรวด) ============
@@ -1999,6 +2084,14 @@
         <div class="explanation">
           ${explHtml}
         </div>
+      </div>`;
+    }
+
+    // 🆕 MB-r45 (มติ 824 ข้อ 4 · 835 ข้อ 4) · notes = ส่วน trap · แสดงเฉพาะชุดส่วนที่ 2 · หน้าครูเท่านั้น
+    if (isPracticeSet(q.setId) && typeof q.notes === 'string' && q.notes.trim()) {
+      out += `<div class="q-section notes-box">
+        <h4>หมายเหตุครู · กับดัก</h4>
+        <div class="notes">${escapeHtml(q.notes)}</div>
       </div>`;
     }
 
