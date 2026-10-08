@@ -229,6 +229,7 @@
   "sets": {
     "alvl1-2566-03": {
       "source": "A-Level",
+      "kind": "exam",
       "subject": "คณิตศาสตร์ประยุกต์ 1",
       "year": 2566,
       "month": 3,
@@ -268,6 +269,7 @@
     },
     "alvl1-2567-03": {
       "source": "A-Level",
+      "kind": "exam",
       "subject": "คณิตศาสตร์ประยุกต์ 1",
       "year": 2567,
       "month": 3,
@@ -307,6 +309,7 @@
     },
     "alvl1-2568-03-v2": {
       "source": "A-Level",
+      "kind": "exam",
       "subject": "คณิตศาสตร์ประยุกต์ 1",
       "year": 2568,
       "month": 3,
@@ -345,6 +348,7 @@
     },
     "alvl1-2569-03": {
       "source": "A-Level",
+      "kind": "exam",
       "subject": "คณิตศาสตร์ประยุกต์ 1",
       "year": 2569,
       "month": 3,
@@ -383,6 +387,7 @@
     },
     "pat1-2552-03": {
       "source": "PAT 1",
+      "kind": "exam",
       "subject": "ความถนัดทางคณิตศาสตร์ (PAT 1)",
       "year": 2552,
       "month": 3,
@@ -424,6 +429,7 @@
     },
     "pat1-2552-07": {
       "source": "PAT 1",
+      "kind": "exam",
       "subject": "ความถนัดทางคณิตศาสตร์ (PAT 1)",
       "year": 2552,
       "month": 7,
@@ -464,6 +470,7 @@
     },
     "pat1-2552-10": {
       "source": "PAT 1",
+      "kind": "exam",
       "subject": "ความถนัดทางคณิตศาสตร์ (PAT 1)",
       "year": 2552,
       "month": 10,
@@ -505,6 +512,7 @@
     },
     "pat1-2553-03": {
       "source": "PAT 1",
+      "kind": "exam",
       "subject": "ความถนัดทางคณิตศาสตร์ (PAT 1)",
       "year": 2553,
       "month": 3,
@@ -545,6 +553,7 @@
     },
     "pat1-2553-07": {
       "source": "PAT 1",
+      "kind": "exam",
       "subject": "ความถนัดทางคณิตศาสตร์ (PAT 1)",
       "year": 2553,
       "month": 7,
@@ -585,6 +594,7 @@
     },
     "pat1-2553-10": {
       "source": "PAT 1",
+      "kind": "exam",
       "subject": "ความถนัดทางคณิตศาสตร์ (PAT 1)",
       "year": 2553,
       "month": 10,
@@ -625,6 +635,7 @@
     },
     "pat1-2554-03": {
       "source": "PAT 1",
+      "kind": "exam",
       "subject": "ความถนัดทางคณิตศาสตร์ (PAT 1)",
       "year": 2554,
       "month": 3,
@@ -664,6 +675,7 @@
     },
     "pat1-2554-12": {
       "source": "PAT 1",
+      "kind": "exam",
       "subject": "ความถนัดทางคณิตศาสตร์ (PAT 1)",
       "year": 2554,
       "month": 12,
@@ -704,6 +716,7 @@
     },
     "pat1-2555-03": {
       "source": "PAT 1",
+      "kind": "exam",
       "subject": "ความถนัดทางคณิตศาสตร์ (PAT 1)",
       "year": 2555,
       "month": 3,
@@ -745,6 +758,7 @@
     },
     "pat1-2555-10": {
       "source": "PAT 1",
+      "kind": "exam",
       "subject": "ความถนัดทางคณิตศาสตร์ (PAT 1)",
       "year": 2555,
       "month": 10,
@@ -784,6 +798,7 @@
     },
     "pat1-2556-03": {
       "source": "PAT 1",
+      "kind": "exam",
       "subject": "ความถนัดทางคณิตศาสตร์ (PAT 1)",
       "year": 2556,
       "month": 3,
@@ -824,6 +839,7 @@
     },
     "pat1-2557-03": {
       "source": "PAT 1",
+      "kind": "exam",
       "subject": "ความถนัดทางคณิตศาสตร์ (PAT 1)",
       "year": 2557,
       "month": 3,
@@ -864,6 +880,7 @@
     },
     "pat1-2557-04": {
       "source": "PAT 1",
+      "kind": "exam",
       "subject": "ความถนัดทางคณิตศาสตร์ (PAT 1)",
       "year": 2557,
       "month": 4,
@@ -902,6 +919,7 @@
     },
     "pat1-2557-11": {
       "source": "PAT 1",
+      "kind": "exam",
       "subject": "ความถนัดทางคณิตศาสตร์ (PAT 1)",
       "year": 2557,
       "month": 11,
@@ -942,6 +960,7 @@
     },
     "pat1-2558-03": {
       "source": "PAT 1",
+      "kind": "exam",
       "subject": "ความถนัดทางคณิตศาสตร์ (PAT 1)",
       "year": 2558,
       "month": 3,
@@ -982,6 +1001,7 @@
     },
     "pat1-2558-10": {
       "source": "PAT 1",
+      "kind": "exam",
       "subject": "ความถนัดทางคณิตศาสตร์ (PAT 1)",
       "year": 2558,
       "month": 10,
@@ -1022,6 +1042,7 @@
     },
     "pat1-2559-03": {
       "source": "PAT 1",
+      "kind": "exam",
       "subject": "ความถนัดทางคณิตศาสตร์ (PAT 1)",
       "year": 2559,
       "month": 3,
@@ -1062,6 +1083,7 @@
     },
     "pat1-2559-10": {
       "source": "PAT 1",
+      "kind": "exam",
       "subject": "ความถนัดทางคณิตศาสตร์ (PAT 1)",
       "year": 2559,
       "month": 10,
@@ -1102,6 +1124,7 @@
     },
     "pat1-2560-03": {
       "source": "PAT 1",
+      "kind": "exam",
       "subject": "ความถนัดทางคณิตศาสตร์ (PAT 1)",
       "year": 2560,
       "month": 3,
@@ -1140,6 +1163,7 @@
     },
     "pat1-2561-02": {
       "source": "PAT 1",
+      "kind": "exam",
       "subject": "ความถนัดทางคณิตศาสตร์ (PAT 1)",
       "year": 2561,
       "month": 2,
@@ -1178,6 +1202,7 @@
     },
     "pat1-2562-02": {
       "source": "PAT 1",
+      "kind": "exam",
       "subject": "ความถนัดทางคณิตศาสตร์ (PAT 1)",
       "year": 2562,
       "month": 2,
@@ -1216,6 +1241,7 @@
     },
     "pat1-2563-02": {
       "source": "PAT 1",
+      "kind": "exam",
       "subject": "ความถนัดทางคณิตศาสตร์ (PAT 1)",
       "year": 2563,
       "month": 2,
@@ -1254,6 +1280,7 @@
     },
     "pat1-2564-03": {
       "source": "PAT 1",
+      "kind": "exam",
       "subject": "ความถนัดทางคณิตศาสตร์ (PAT 1)",
       "year": 2564,
       "month": 3,
@@ -1289,6 +1316,7 @@
     },
     "pat1-2565-03": {
       "source": "PAT 1",
+      "kind": "exam",
       "subject": "ความถนัดทางคณิตศาสตร์ (PAT 1)",
       "year": 2565,
       "month": 3,
@@ -1327,6 +1355,7 @@
     },
     "samn-2555-01": {
       "source": "วิชาสามัญ",
+      "kind": "exam",
       "subject": "คณิตศาสตร์",
       "year": 2555,
       "month": 1,
@@ -1364,6 +1393,7 @@
     },
     "samn-2556-01": {
       "source": "วิชาสามัญ",
+      "kind": "exam",
       "subject": "คณิตศาสตร์",
       "year": 2556,
       "month": 1,
@@ -1400,6 +1430,7 @@
     },
     "samn-2557-01": {
       "source": "วิชาสามัญ",
+      "kind": "exam",
       "subject": "คณิตศาสตร์",
       "year": 2557,
       "month": 1,
@@ -1437,6 +1468,7 @@
     },
     "samn-2558-01": {
       "source": "วิชาสามัญ",
+      "kind": "exam",
       "subject": "คณิตศาสตร์",
       "year": 2558,
       "month": 1,
@@ -1474,6 +1506,7 @@
     },
     "samn-2558-12": {
       "source": "วิชาสามัญ",
+      "kind": "exam",
       "subject": "คณิตศาสตร์ 1",
       "year": 2558,
       "month": 12,
@@ -1511,6 +1544,7 @@
     },
     "samn-2559-12": {
       "source": "วิชาสามัญ",
+      "kind": "exam",
       "subject": "คณิตศาสตร์ 1",
       "year": 2559,
       "month": 12,
@@ -1548,6 +1582,7 @@
     },
     "samn-2561-03": {
       "source": "วิชาสามัญ",
+      "kind": "exam",
       "subject": "คณิตศาสตร์ 1",
       "year": 2561,
       "month": 3,
@@ -1586,6 +1621,7 @@
     },
     "samn-2562-03": {
       "source": "วิชาสามัญ",
+      "kind": "exam",
       "subject": "คณิตศาสตร์ 1",
       "year": 2562,
       "month": 3,
@@ -1622,6 +1658,7 @@
     },
     "samn-2563-03": {
       "source": "วิชาสามัญ",
+      "kind": "exam",
       "subject": "คณิตศาสตร์ 1",
       "year": 2563,
       "month": 3,
@@ -1659,6 +1696,7 @@
     },
     "samn-2564-04": {
       "source": "วิชาสามัญ",
+      "kind": "exam",
       "subject": "คณิตศาสตร์ 1",
       "year": 2564,
       "month": 4,
@@ -1698,6 +1736,7 @@
     },
     "samn-2565-03": {
       "source": "วิชาสามัญ",
+      "kind": "exam",
       "subject": "คณิตศาสตร์ 1",
       "year": 2565,
       "month": 3,
@@ -1737,6 +1776,7 @@
     },
     "chap-01-set": {
       "source": "ข้อสอบรายบท",
+      "kind": "exam",
       "subject": "เซต",
       "displayName": "บทที่ 1 เซต",
       "totalQuestions": 82,
@@ -1766,6 +1806,7 @@
     },
     "chap-02-logic": {
       "source": "ข้อสอบรายบท",
+      "kind": "exam",
       "subject": "ตรรกศาสตร์",
       "displayName": "บทที่ 2 ตรรกศาสตร์",
       "totalQuestions": 128,
@@ -1795,6 +1836,7 @@
     },
     "chap-03-realnumber": {
       "source": "ข้อสอบรายบท",
+      "kind": "exam",
       "subject": "จำนวนจริง",
       "displayName": "บทที่ 3 จำนวนจริง",
       "totalQuestions": 189,
@@ -1824,6 +1866,7 @@
     },
     "chap-04-coord": {
       "source": "ข้อสอบรายบท",
+      "kind": "exam",
       "subject": "เรขาคณิตวิเคราะห์",
       "displayName": "บทที่ 4 เรขาคณิตวิเคราะห์",
       "totalQuestions": 232,
@@ -1853,6 +1896,7 @@
     },
     "chap-05-function": {
       "source": "ข้อสอบรายบท",
+      "kind": "exam",
       "subject": "ความสัมพันธ์และฟังก์ชัน",
       "displayName": "บทที่ 5 ความสัมพันธ์และฟังก์ชัน",
       "totalQuestions": 199,
@@ -1882,6 +1926,7 @@
     },
     "chap-06-matrix": {
       "source": "ข้อสอบรายบท",
+      "kind": "exam",
       "subject": "เมทริกซ์",
       "displayName": "บทที่ 6 เมทริกซ์",
       "totalQuestions": 152,
@@ -1911,6 +1956,7 @@
     },
     "chap-07-trigonometry": {
       "source": "ข้อสอบรายบท",
+      "kind": "exam",
       "subject": "ตรีโกณมิติ",
       "displayName": "บทที่ 7 ตรีโกณมิติ",
       "totalQuestions": 230,
@@ -1940,6 +1986,7 @@
     },
     "chap-08-explog": {
       "source": "ข้อสอบรายบท",
+      "kind": "exam",
       "subject": "เลขยกกำลังและลอการิทึม",
       "displayName": "บทที่ 8 เลขยกกำลังและลอการิทึม",
       "totalQuestions": 207,
@@ -1987,6 +2034,7 @@
     },
     "chap-09-vector": {
       "source": "ข้อสอบรายบท",
+      "kind": "exam",
       "subject": "เวกเตอร์ในสามมิติ",
       "displayName": "บทที่ 9 เวกเตอร์ในสามมิติ",
       "totalQuestions": 125,
@@ -2016,6 +2064,7 @@
     },
     "chap-10-complex": {
       "source": "ข้อสอบรายบท",
+      "kind": "exam",
       "subject": "จำนวนเชิงซ้อน",
       "displayName": "บทที่ 10 จำนวนเชิงซ้อน",
       "totalQuestions": 122,
@@ -2045,6 +2094,7 @@
     },
     "chap-11-sequence": {
       "source": "ข้อสอบรายบท",
+      "kind": "exam",
       "subject": "ลำดับและอนุกรม",
       "displayName": "บทที่ 11 ลำดับและอนุกรม",
       "totalQuestions": 71,
@@ -2074,6 +2124,7 @@
     },
     "chap-12-probability": {
       "source": "ข้อสอบรายบท",
+      "kind": "exam",
       "subject": "หลักการนับและความน่าจะเป็น",
       "displayName": "บทที่ 12 หลักการนับและความน่าจะเป็น",
       "totalQuestions": 171,
@@ -2103,6 +2154,7 @@
     },
     "chap-13-calculus": {
       "source": "ข้อสอบรายบท",
+      "kind": "exam",
       "subject": "แคลคูลัส",
       "displayName": "บทที่ 13 แคลคูลัส",
       "totalQuestions": 292,
@@ -2132,6 +2184,7 @@
     },
     "chap-14-infiniteseries": {
       "source": "ข้อสอบรายบท",
+      "kind": "exam",
       "subject": "ลำดับและอนุกรมอนันต์",
       "displayName": "บทที่ 14 ลำดับและอนุกรมอนันต์",
       "totalQuestions": 91,
@@ -2161,6 +2214,7 @@
     },
     "chap-15-statistics": {
       "source": "ข้อสอบรายบท",
+      "kind": "exam",
       "subject": "สถิติ",
       "displayName": "บทที่ 15 สถิติ",
       "totalQuestions": 264,
@@ -2190,6 +2244,7 @@
     },
     "gen-chap-18-interest-and-value-of-money": {
       "source": "ข้อสอบรายบท (แต่งใหม่)",
+      "kind": "exam",
       "subject": "ดอกเบี้ยและมูลค่าของเงิน",
       "displayName": "บทที่ 18 ดอกเบี้ยและมูลค่าของเงิน (แต่งใหม่)",
       "totalQuestions": 64,
@@ -2219,6 +2274,7 @@
     },
     "gen-chap-12-probability": {
       "source": "ข้อสอบรายบท (แต่งใหม่)",
+      "kind": "exam",
       "subject": "การนับ ความน่าจะเป็น และตัวแปรสุ่ม",
       "displayName": "บทที่ 12 ตัวแปรสุ่ม (แต่งใหม่)",
       "totalQuestions": 100,
@@ -2248,6 +2304,7 @@
     },
     "gen-chap-01-set": {
       "source": "ข้อสอบรายบท (แต่งใหม่)",
+      "kind": "exam",
       "subject": "เซต",
       "displayName": "บทที่ 1 เซต (แต่งใหม่ · แข่งขัน · 400/400 ข้อ ครบบท)",
       "totalQuestions": 400,
@@ -2278,6 +2335,7 @@
     },
     "gen-chap-02-logic": {
       "source": "ข้อสอบรายบท (แต่งใหม่)",
+      "kind": "exam",
       "subject": "ตรรกศาสตร์",
       "displayName": "บทที่ 2 ตรรกศาสตร์ (แต่งใหม่ · แข่งขัน · 400/400 ข้อ ครบบท)",
       "totalQuestions": 400,
@@ -2308,6 +2366,7 @@
     },
     "gen-chap-03-real": {
       "source": "ข้อสอบรายบท (แต่งใหม่)",
+      "kind": "exam",
       "subject": "จำนวนจริง",
       "displayName": "บทที่ 3 จำนวนจริง (แต่งใหม่ · แข่งขัน · 400 ข้อ)",
       "totalQuestions": 400,
@@ -2338,6 +2397,7 @@
     },
     "gen-chap-04-coord": {
       "source": "ข้อสอบรายบท (แต่งใหม่)",
+      "kind": "exam",
       "subject": "เรขาคณิตวิเคราะห์",
       "displayName": "บทที่ 4 เรขาคณิตวิเคราะห์ (แต่งใหม่ · แข่งขัน · 400/400 ข้อ ครบบท)",
       "totalQuestions": 400,
@@ -2368,6 +2428,7 @@
     },
     "gen-chap-05-function": {
       "source": "ข้อสอบรายบท (แต่งใหม่)",
+      "kind": "exam",
       "subject": "ความสัมพันธ์และฟังก์ชัน",
       "displayName": "บทที่ 5 ความสัมพันธ์และฟังก์ชัน (แต่งใหม่ · แข่งขัน · 405 ข้อ)",
       "totalQuestions": 405,
@@ -2398,6 +2459,7 @@
     },
     "gen-chap-09-vector": {
       "source": "ข้อสอบรายบท (แต่งใหม่)",
+      "kind": "exam",
       "subject": "เวกเตอร์ในสามมิติ",
       "displayName": "บทที่ 9 เวกเตอร์ (แต่งใหม่)",
       "totalQuestions": 5,
@@ -2426,6 +2488,7 @@
     },
     "gen-chap-07-trigonometry": {
       "source": "ข้อสอบรายบท (แต่งใหม่)",
+      "kind": "exam",
       "subject": "ตรีโกณมิติ",
       "displayName": "บทที่ 7 ตรีโกณมิติ (แต่งใหม่ · แข่งขัน · 400 ข้อ)",
       "totalQuestions": 400,
@@ -2456,6 +2519,7 @@
     },
     "wb-chap-01-set": {
       "source": "แบบฝึกระหว่างเรียน (แต่งใหม่)",
+      "kind": "practice",
       "subject": "เซต",
       "displayName": "บทที่ 1 เซต · แบบฝึกระหว่างเรียน (แต่งใหม่ · 2/90 ข้อ)",
       "totalQuestions": 2,
@@ -2479,6 +2543,14 @@
         "questionsRemaining": 88,
         "exportedAt": "2026-10-03",
         "note": "แผน 90 ข้อ (แผนรุ่น 2 1f8fc50d) · ร่างชุด a062bd35 · verify sympy · gate_wb W1–W11 · gate_t1 profile wb · POST-FLIGHT · BLIND 18/18 (ใบ 595) · q009 q010 (ป้ายตัวแปร V4) ตามมาหลัง B②"
+      },
+      "book": {
+        "series": "the book",
+        "level": "พื้นฐาน",
+        "volume": 1,
+        "chapter": 1,
+        "file": 1,
+        "title": "เซต"
       }
     }
   }
