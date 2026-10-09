@@ -1134,6 +1134,7 @@
       // Background eager-load all sets so chapter counts populate
       // (lazy-load benefit สำหรับ set view ยังคงอยู่ — เพราะ set view ไม่ต้องรอ)
       ensureAllSetsLoaded();
+      loadDraftIndex();   // 🆕 MB-r46 (มติ 850) · ร่างแบบฝึกนอก git · ไม่มีไฟล์ ⇒ ไม่เพิ่มอะไรในหน้าเลย
     } catch (e) {
       meta.textContent = 'โหลดไม่สำเร็จ';
       document.getElementById('content').innerHTML = `
@@ -1550,6 +1551,215 @@
     return out;
   }
 
+  // ============ 🆕 MB-r46 (มติ 850 · ทาง ก) · ส่วนที่ 2 · ร่างแบบฝึก (ยังไม่เข้าคลัง) ============
+  // อ่าน ../_preview/wb-draft/index.json (โฟลเดอร์นอก git · math-bank/.gitignore บรรทัด 3 = _preview/)
+  // ⛔ แตะ MANIFEST / LOADED_SETS / PENDING_CHANGES / PICKED · ไฟล์บทโหลดเมื่อคลิกเท่านั้น (ทั้งหมด ~28 MB)
+  // ไม่มีไฟล์ / อ่านไม่ได้ / รูปไม่ถูก ⇒ เงียบ ไม่เพิ่มอะไรในหน้า (หน้าเท่ารุ่นก่อนหน้า 98031a2d)
+  // บทร่างที่ setId อยู่ใน manifest แล้ว (เข้าคลังจริงแล้ว) ⇒ ไม่แสดงร่างซ้ำ
+  const DRAFT_DIR = '../_preview/wb-draft/';
+  let DRAFT_INDEX = null;      // { shown: [บทที่แสดง], hidden: จำนวนบทที่เข้าคลังแล้ว }
+  const DRAFT_SETS = {};       // cache: setId ร่าง → {setId, questions} · ⛔ ใส่ LOADED_SETS
+  let CURRENT_DRAFT = null;
+  let DRAFT_CARD_RENDER = false;   // จริงเฉพาะระหว่าง renderDraftCard เรียก renderQBody (861 §2.3 · ⛔ แก้ t1-overlay.js)
+
+  async function loadDraftIndex() {
+    let idx;
+    try {
+      const res = await fetch(DRAFT_DIR + 'index.json', { cache: 'no-cache' });
+      if (!res.ok) return;
+      idx = await res.json();
+    } catch (e) {
+      return;
+    }
+    if (!idx || !Array.isArray(idx.chapters)) return;
+    const sets = (MANIFEST && MANIFEST.sets) || {};
+    const chapters = idx.chapters.filter(c => c && typeof c.setId === 'string' && /^wb-[a-z0-9-]+$/.test(c.setId));
+    const shown = chapters.filter(c => !Object.prototype.hasOwnProperty.call(sets, c.setId));
+    DRAFT_INDEX = { shown, hidden: chapters.length - shown.length };
+    renderDraftList();
+  }
+
+  function escAttr(s) { return escapeHtml(s).replace(/"/g, '&quot;'); }
+
+  // id → [{kind, level, letter, note}] · kind = 'math' (คณิต) | 'gate' (ด่าน)
+  function draftIssueMap(c) {
+    const m = new Map();
+    const iss = (c && c.issues) || {};
+    ['math', 'gate'].forEach(k => (Array.isArray(iss[k]) ? iss[k] : []).forEach(x => {
+      if (!x || typeof x.id !== 'string') return;
+      if (!m.has(x.id)) m.set(x.id, []);
+      m.get(x.id).push({ kind: k, level: String(x.level || ''), letter: String(x.letter || ''), note: String(x.note || '') });
+    }));
+    return m;
+  }
+
+  function injectDraftCss() {
+    if (document.getElementById('draftCss')) return;
+    const st = document.createElement('style');
+    st.id = 'draftCss';
+    st.textContent = `
+      .draft-badge { font-size: 11px; padding: 1px 6px; border-radius: 3px; background: #eef2f7; color: #3b5a7a; border: 1px dashed #3b5a7a; margin-right: 4px; white-space: nowrap; }
+      .issue-badge { font-size: 11px; padding: 1px 6px; border-radius: 3px; background: #fff3cd; color: #8a5300; border: 1px solid #e0a800; margin-right: 4px; white-space: nowrap; }
+      .q-card.draft-card.has-issue { border-left: 3px solid #e0a800; }
+      .draft-banner { font-size: 12px; background: #eef2f7; border-left: 3px solid #3b5a7a; padding: 6px 10px; margin: 6px 0; }
+      .issue-box { background: #fff8e1; border-left: 3px solid #e0a800; padding: 6px 10px; }
+      .draft-issues { margin: 8px 0; font-size: 12px; }
+      .draft-issues table { font-size: 12px; }
+    `;
+    document.head.appendChild(st);
+  }
+
+  function renderDraftList() {
+    const anchor = document.getElementById('practiceList');
+    const sec0 = anchor && anchor.closest('.sidebar-section');
+    if (!sec0 || !DRAFT_INDEX) return;
+    injectDraftCss();
+    let sec = document.getElementById('draftSection');
+    if (!sec) {
+      sec = document.createElement('div');
+      sec.className = 'sidebar-section';
+      sec.id = 'draftSection';
+      sec0.insertAdjacentElement('afterend', sec);
+    }
+    const order = DRAFT_INDEX.shown.map((c, i) => ({ c, i, k: bookKey(c.book) }))
+      .sort((a, b) => (a.k[0] - b.k[0]) || (a.k[1] - b.k[1]) || (a.k[2] - b.k[2]) || (a.i - b.i));
+    let html = '<h3 class="sidebar-section-title">ส่วนที่ 2 · ร่างแบบฝึก (ยังไม่เข้าคลัง)</h3>'
+      + '<div class="p2-empty">ดูอย่างเดียว · ไฟล์ใน _preview/ ไม่ขึ้น GitHub</div>';
+    if (DRAFT_INDEX.hidden) html += `<div class="p2-empty">ซ่อน ${DRAFT_INDEX.hidden} บทที่เข้าคลังแล้ว</div>`;
+    if (!order.length) html += '<div class="p2-empty">ยังไม่มีร่าง</div>';
+    let last = null;
+    order.forEach(({ c }) => {
+      const t = bookTitle(c.book);
+      if (t !== last) { html += `<div class="p2-group-title">${escapeHtml(t)}</div>`; last = t; }
+      const n = draftIssueMap(c).size;
+      const v = c.draft ? `${c.draft.version || ''}${c.draft.letter ? ' · ใบ ' + c.draft.letter : ''}` : '';
+      html += `
+        <div class="set-item draft-item" data-draftid="${escAttr(c.setId)}">
+          <span class="set-count">${Number(c.questions) || 0}</span>
+          <div><span class="draft-badge">ร่าง</span>${escapeHtml(v)}${n ? ` <span class="issue-badge">⚠️ ${n}</span>` : ''}</div>
+          <div class="set-id">${escapeHtml(c.setId)}</div>
+        </div>`;
+    });
+    sec.innerHTML = html;
+    sec.querySelectorAll('.draft-item').forEach(el => {
+      el.addEventListener('click', () => selectDraft(el.dataset.draftid));
+    });
+  }
+
+  async function selectDraft(sid) {
+    const c = DRAFT_INDEX && DRAFT_INDEX.shown.find(x => x.setId === sid);
+    if (!c) return;
+    clearActiveSet();
+    clearActiveChapter();
+    clearActiveDifficulty();
+    CURRENT_DRAFT = sid;
+    document.querySelectorAll('.draft-item').forEach(el => {
+      el.classList.toggle('active', el.dataset.draftid === sid);
+    });
+    const main = document.getElementById('content');
+    const head = `<div class="set-header"><h1>${escapeHtml(c.displayName || bookTitle(c.book))}</h1>`;
+    if (!DRAFT_SETS[sid]) {
+      main.classList.remove('empty');
+      main.innerHTML = head + `<div class="set-meta"><code>${escapeHtml(sid)}</code> · ร่าง · กำลังโหลด…</div></div>`;
+      try {
+        const res = await fetch(DRAFT_DIR + sid + '.json', { cache: 'no-cache' });
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        const d = await res.json();
+        if (!d || !Array.isArray(d.questions)) throw new Error('รูปไฟล์ร่างไม่ถูก');
+        DRAFT_SETS[sid] = d;
+      } catch (e) {
+        if (CURRENT_DRAFT !== sid || CURRENT_SET || CURRENT_CHAPTER || CURRENT_DIFFICULTY) return;
+        main.innerHTML = head + `<div class="set-meta"><code>${escapeHtml(sid)}</code></div></div>
+          <div class="status"><strong>โหลดร่างไม่สำเร็จ</strong><br><code>${escapeHtml(e.message)}</code></div>`;
+        return;
+      }
+    }
+    // Guard: ระหว่างโหลดมีการคลิกที่อื่น ⇒ ไม่ทับหน้า
+    if (CURRENT_DRAFT !== sid || CURRENT_SET || CURRENT_CHAPTER || CURRENT_DIFFICULTY) return;
+
+    const qs = DRAFT_SETS[sid].questions;
+    const im = draftIssueMap(c);
+    const names = (MANIFEST && MANIFEST.subTopicNames) || {};
+    const groups = new Map();
+    qs.forEach(q => {
+      const k = (q.subTopics && q.subTopics[0]) || '—';
+      if (!groups.has(k)) groups.set(k, []);
+      groups.get(k).push(q);
+    });
+    let body = '';
+    groups.forEach((list, k) => {
+      body += `<h3 class="topic-head" data-subtopic="${escAttr(k)}">${escapeHtml(k)} ${escapeHtml(names[k] || '')} · ${list.length} ข้อ</h3>`;
+      body += list.map(q => renderDraftCard(q, im.get(q.id))).join('');
+    });
+    const dv = c.draft || {};
+    main.classList.remove('empty');
+    main.innerHTML = head + `
+        <div class="set-meta">
+          <code>${escapeHtml(sid)}</code> · ${qs.length} ข้อ · <span class="draft-badge">ร่าง</span>${escapeHtml(dv.version || '')}${dv.letter ? ' · ใบ ' + escapeHtml(dv.letter) : ''}${dv.md5 ? ' · md5 ' + escapeHtml(String(dv.md5).slice(0, 8)) : ''}
+          ${im.size ? ` · <span class="issue-badge">⚠️ ค้าง ${im.size} ข้อ</span>` : ''}
+        </div>
+        <div class="draft-banner">ร่างแบบฝึก ยังไม่เข้าคลัง · ดูอย่างเดียว (ปิดแก้ Tag / เลือกข้อ / ส่งออก) · ไฟล์ใน _preview/ ไม่ขึ้น GitHub</div>
+        ${c.gateNote ? `<div class="draft-banner">ด่าน: ${escapeHtml(c.gateNote)}</div>` : ''}
+        ${renderDraftIssueList(c, im)}
+        ${BULK_CONTROLS_HTML}
+      </div>
+      <div class="q-list">
+        ${body}
+      </div>
+    `;
+    typeset(main);
+  }
+
+  function renderDraftIssueList(c, im) {
+    if (!im.size) return '';
+    const rows = [];
+    im.forEach((list, id) => list.forEach(x => rows.push(
+      `<tr><td><code>${escapeHtml(id.slice(c.setId.length + 1))}</code></td><td>${x.kind === 'gate' ? 'ด่าน' : 'คณิต'}</td>`
+      + `<td>${escapeHtml(x.level)}</td><td>ใบ ${escapeHtml(x.letter)}</td><td>${escapeHtml(x.note)}</td></tr>`)));
+    return `<details class="draft-issues"><summary>⚠️ ข้อค้างแก้ ${im.size} ข้อ (${rows.length} เรื่อง)</summary>
+      <table class="q-table"><tbody>${rows.join('')}</tbody></table></details>`;
+  }
+
+  // การ์ดร่าง: ป้าย "ร่าง" ทุกข้อ · ⚠️ + เลขใบ เมื่อ id อยู่ใน issues · ⛔ checkbox เลือกข้อ · ⛔ ปุ่มแก้ Tag
+  function renderDraftCard(q, iss) {
+    const preview = (q.question || '').replace(/\$[^$]+\$/g, '◇').slice(0, 90);
+    const chips = (q.topics || []).map(t => `<span class="tag-chip primary" title="${escAttr(topicLabel(t))}">บท ${escapeHtml(t)}</span>`).join('')
+      + (q.subTopics || []).map(t => `<span class="tag-chip sub" title="${escAttr(topicLabel(t))}">+บท ${escapeHtml(t)}</span>`).join('')
+      + (q.difficulty ? `<span class="diff-chip ${diffClass(q.difficulty)}" title="ระดับความยาก">${escapeHtml(q.difficulty)}</span>` : '');
+    const letters = iss ? [...new Set(iss.map(x => x.letter))] : [];
+    const warn = iss
+      ? `<span class="issue-badge" title="${escAttr(iss.map(x => `${x.level} · ใบ ${x.letter} · ${x.note}`).join('\n'))}">⚠️ ${escapeHtml(letters.map(l => 'ใบ ' + l).join(' · '))}</span>`
+      : '';
+    const issBox = iss
+      ? `<div class="q-section issue-box"><h4>⚠️ ค้างแก้</h4>${iss.map(x =>
+          `<div>${x.kind === 'gate' ? 'ด่าน' : 'คณิต'} · ${escapeHtml(x.level)} · ใบ ${escapeHtml(x.letter)} · ${escapeHtml(x.note)}</div>`).join('')}</div>`
+      : '';
+    let body;
+    DRAFT_CARD_RENDER = true;
+    try {
+      body = renderQBody(q, { draft: true });
+    } finally {
+      DRAFT_CARD_RENDER = false;
+    }
+    return `
+      <details class="q-card draft-card${iss ? ' has-issue' : ''}" data-qid="${escAttr(q.id)}">
+        <summary>
+          <span class="draft-badge">ร่าง</span>
+          ${warn}
+          <span class="q-num">Q${String(q.questionNumber).padStart(2,'0')}</span>
+          <span class="q-preview">${escapeHtml(preview)}</span>
+          <span class="tag-row">${chips}</span>
+          <span class="q-badges">
+            <span class="badge type">${escapeHtml(q.type)}</span>
+          </span>
+        </summary>
+        <div class="q-body">
+          ${issBox}${body}
+        </div>
+      </details>
+    `;
+  }
+
   // ============ Bulk expand/collapse (ดูทั้งบทรวด) ============
   const BULK_CONTROLS_HTML = `
         <div class="bulk-controls">
@@ -1944,10 +2154,13 @@
     return out.join('');
   }
 
-  function renderQBody(q) {
+  function renderQBody(q, opts) {
     let out = '';
 
     // Phase 3: Edit-tags section at the top of body
+    // 🆕 MB-r46 · การ์ดร่าง (opts.draft หรือ DRAFT_CARD_RENDER) ⛔ ส่วนแก้ Tag (id ร่าง = id ที่จะเข้าคลังจริง ⇒ กัน PENDING_CHANGES ชน)
+    // ⚠️ t1-overlay.js ห่อ renderQBody เป็น function (q) ⇒ opts หาย (861 §2.3) ⇒ ต้องดูธง DRAFT_CARD_RENDER ด้วย
+    if (!(opts && opts.draft) && !DRAFT_CARD_RENDER) {
     const tags = getEffectiveTags(q);
     const isModified = PENDING_CHANGES.has(q.id);
     const primaryHtml = tags.topics.map(t =>
@@ -1969,6 +2182,7 @@
       </div>
       <button class="edit-tags-btn" onclick="openTagEditor('${escapeHtml(q.id)}')">✏️ แก้ Tag/ระดับ</button>
     </div>`;
+    }
 
     // คำถาม
     out += `<div class="q-section">
